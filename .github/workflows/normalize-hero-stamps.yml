@@ -51,7 +51,7 @@ jobs:
             try {
               const before = await sharp(file).metadata();
               const temp = `${file}.tmp.webp`;
-              const { info } = await sharp(file)
+              const info = await sharp(file)
                 .ensureAlpha()
                 .trim({ background: { r: 0, g: 0, b: 0, alpha: 0 }, threshold: 8 })
                 .webp({ lossless: true, alphaQuality: 100 })
