@@ -2,11 +2,10 @@
 import '../../core/design-system/tokens.css';
 import type { SeoMetadata } from '../../core/models/types';
 import { pageSeo } from '../../core/seo/metadata';
-import { getCountries } from '../../engines/country/country-engine';
+import Navbar from './Navbar.astro';
 interface Props { seo: SeoMetadata; breadcrumbs?: Array<{name:string;path:string}>; }
 const { seo, breadcrumbs = [] } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
-const countries = getCountries();
 ---
 <!doctype html>
 <html lang="en">
@@ -23,7 +22,7 @@ const countries = getCountries();
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.breadcrumbs)} />
   </head>
   <body>
-    <header><nav aria-label="Main navigation"><a href="/">Things To Do Atlas</a>{countries.map((country) => <a href={`/${country.slug}`}>{country.name}</a>)}</nav></header>
+    <Navbar />
     <main><slot /></main>
     <footer>Independent editorial travel guide</footer>
     <script>
@@ -33,4 +32,4 @@ const countries = getCountries();
     </script>
   </body>
 </html>
-<style>header,footer{border-color:var(--line);border-style:solid;border-width:0 0 1px}nav{width:min(1120px,calc(100% - 2rem));margin:auto;padding:1rem 0;display:flex;justify-content:space-between}footer{border-width:1px 0 0;padding:1rem;text-align:center}</style>
+<style>footer{border-color:var(--line);border-style:solid;border-width:1px 0 0;padding:1rem;text-align:center}</style>

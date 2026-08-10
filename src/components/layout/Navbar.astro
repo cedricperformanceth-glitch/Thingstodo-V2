@@ -1,0 +1,19 @@
+---
+import { getCountries } from '../../engines/country/country-engine';
+const countries = getCountries();
+const currentPath = Astro.url.pathname;
+---
+<header class="navbar">
+  <div class="navbar__masthead">
+    <div class="navbar__inner">
+      <a class="navbar__brand" href="/" aria-label="Things To Do Atlas home"><img src="/assets/navbar/things-to-do-atlas-logo-v2.webp" alt="Things To Do Atlas" width="1254" height="1254" /><span><strong>Things To Do Atlas</strong><small>Explore · Collect · Remember</small></span></a>
+      <p class="navbar__note">Independent travel field notes</p>
+    </div>
+  </div>
+  <div class="navbar__chapters">
+    <nav class="navbar__inner" aria-label="Country chapters"><span class="navbar__chapter-label">Country chapters</span>{countries.map((country, index) => <a class:list={['navbar__country', { 'is-active': currentPath === `/${country.slug}` || currentPath.startsWith(`/${country.slug}/`) }]} href={`/${country.slug}`} aria-current={currentPath === `/${country.slug}` || currentPath.startsWith(`/${country.slug}/`) ? 'page' : undefined}><span>{String(index + 1).padStart(2, '0')}</span>{country.name}</a>)}</nav>
+  </div>
+</header>
+<style>
+  .navbar{margin-bottom:1.5rem}.navbar__masthead{border-block:1px solid var(--line);background:#f4eddf}.navbar__chapters{border-bottom:1px solid var(--line);background:var(--paper)}.navbar__inner{width:min(1120px,calc(100% - 2rem));margin:auto;display:flex;align-items:center}.navbar__masthead .navbar__inner{min-height:5.75rem;justify-content:space-between;gap:1rem}.navbar__brand{display:inline-flex;align-items:center;gap:.8rem;text-decoration:none}.navbar__brand img{width:3.65rem;height:3.65rem;object-fit:contain;flex:none}.navbar__brand span{display:grid;gap:.1rem}.navbar__brand strong{font-family:var(--serif);font-size:clamp(1.05rem,2vw,1.35rem);letter-spacing:.015em}.navbar__brand small,.navbar__note,.navbar__chapter-label,.navbar__country span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}.navbar__note{margin:0;color:#625a4a}.navbar__chapters .navbar__inner{min-height:3rem;gap:1.1rem}.navbar__chapter-label{color:#625a4a;margin-right:auto}.navbar__country{display:inline-flex;align-items:center;gap:.4rem;min-height:3rem;padding-inline:.65rem;text-decoration:none;border-inline:1px solid transparent}.navbar__country:hover,.navbar__country.is-active{background:#efe3c8;border-color:var(--line)}.navbar__country span{color:#976018}.navbar__country.is-active{font-weight:700}@media(max-width:620px){.navbar__masthead .navbar__inner{min-height:4.8rem}.navbar__brand img{width:3rem;height:3rem}.navbar__brand small,.navbar__note{display:none}.navbar__chapters .navbar__inner{justify-content:space-between}.navbar__chapter-label{margin-right:0}.navbar__country{padding-inline:.45rem}}
+</style>
