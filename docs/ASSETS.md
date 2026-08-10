@@ -13,6 +13,13 @@ Keep manually managed editorial files easy to browse. Do not dump unrelated imag
 
 City-specific Hero media belongs in `public/assets/cities/<city-slug>/hero/`. Shared Hero furniture belongs in `public/assets/shared/hero/` and must not be duplicated in individual city folders.
 
+For each prepared city, keep its two variable Hero assets in these exact locations:
+
+- `public/assets/cities/<city-slug>/hero/drawings/<city-slug>-hero-drawing.webp`
+- `public/assets/cities/<city-slug>/hero/stamps/<city-slug>-hero-stamp.webp`
+
+Drawings and stamps are city-specific. The envelope and the `PAR AVION / AIR MAIL` postmark remain shared Hero furniture and must never be copied into city folders.
+
 ## Shared city envelope
 
 The generated V2 SVG envelope has been removed. `CityHeroEnvelope.astro` now uses the original V1 WebP calque directly as its envelope background, preserving the same raster artwork and the V1 `100% 100%` background-fit behavior. The shared `PAR AVION / AIR MAIL` mark remains a separate overlay at `public/assets/shared/hero/postmarks/air-mail-par-avion.webp`.
