@@ -27,7 +27,7 @@ for (const candidate of places) {
   for (const [field, value] of Object.entries(candidate)) assignUnlocked(target, field, value);
   if (!existing) draft.places.push(target);
 }
-assignUnlocked(draft.cityData.exploreBoard, 'featuredThingIds', selectExploreBoard(draft.things, draft.cityData.coordinates));
+assignUnlocked(draft.cityData, 'exploreBoard.featuredThingIds', selectExploreBoard(draft.things, draft.cityData.coordinates));
 draft.generatedAt = new Date().toISOString();
 fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`);
 fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city}.ts`), tsModule(draft));

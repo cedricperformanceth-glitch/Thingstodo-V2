@@ -20,16 +20,30 @@ export function categoryTargets(profile, seed) {
 export function emptyDraft(country, city, profile) {
   const name = city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
   return { schemaVersion: 1, country, city, profile, generatedAt: null, cityData: {
-    id: `city-${city}`, slug: city, name, country, profile, coordinates: { latitude: 0, longitude: 0 }, description: '',
+    id: `city-${country}-${city}`, slug: city, name, country, profile, coordinates: { latitude: 0, longitude: 0 }, description: '',
     categories: PROFILE_CATEGORIES, categoryTargets: categoryTargets(profile, `${country}/${city}`),
     hero: { eyebrow: country, title: name, subtitle: '', facts: [], media: { stamps: [], drawings: [], photos: [] } },
     exploreBoard: { landmarkLimit: 3 }, media: { hero: { stamps: [], drawings: [], photos: [] }, fieldCard: { gallery: [] } },
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },
   }, places: [], things: [] };
 }
+// One lock convention applies to city, place and ThingToDo records:
+// record.manualLocks['nested.field'] = { source: 'manual', locked: true, value }
 export function getManualLock(record, fieldPath) { return record?.manualLocks?.[fieldPath]; }
-export function isManualLocked(record, fieldPath) { const lock = getManualLock(record, fieldPath); return lock?.source === 'manual' && lock?.locked === true; }
-export function assignUnlocked(record, field, value) { if (!isManualLocked(record, field)) record[field] = value; }
+export function isManualLocked(record, fieldPath) {
+  const paths = String(fieldPath).split('.');
+  return paths.some((_, index) => {
+    const lock = getManualLock(record, paths.slice(0, index + 1).join('.'));
+    return lock?.source === 'manual' && lock?.locked === true;
+  });
+}
+function setPath(record, fieldPath, value) {
+  const paths = String(fieldPath).split('.');
+  const last = paths.pop();
+  const parent = paths.reduce((current, key) => (current[key] ??= {}), record);
+  parent[last] = value;
+}
+export function assignUnlocked(record, fieldPath, value) { if (!isManualLocked(record, fieldPath)) setPath(record, fieldPath, value); }
 export function validateSource(source) {
   const url = (source.sourceUrl ?? '').toLowerCase();
   if (source.purpose === 'candidate-discovery' && source.sourceName?.toLowerCase().includes('tripadvisor') && source.use !== 'name-only') throw new Error('TripAdvisor may only be used for name-only candidate discovery.');

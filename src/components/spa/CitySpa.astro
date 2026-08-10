@@ -6,11 +6,20 @@ import ExploreBoard from '../explore-board/ExploreBoard.astro';
 import FavoritesPanel from './FavoritesPanel.astro';
 import PlaceCard from '../cards/PlaceCard.astro';
 import ThingToDoCard from '../cards/ThingToDoCard.astro';
-import { getCategoryEntities } from '../../engines/category/category-engine';
+import { getPlaces, getThings } from '../../engines/category/category-engine';
 import { cityPresentation } from '../../engines/spa/city-presentation';
 interface Props { city: City; }
 const { city } = Astro.props;
 const presentation = cityPresentation[city.profile];
 ---
-<CityHero city={city} /><section><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} categories`} class="categories">{city.categories.map((category) => <a href={`#${category}`}>{category.replaceAll('-', ' ')}</a>)}</nav></section><FavoritesPanel />{city.categories.map((category) => { const entities=getCategoryEntities(city,category); return <section id={category}><h2>{category.replaceAll('-', ' ')}</h2><a href={categoryPath(city,category)}>View all</a><div class="cards">{category==='things-to-do' ? entities.slice(0,presentation.previewCount).map((thing) => <ThingToDoCard {city} thing={thing} />) : entities.slice(0,presentation.previewCount).map((place) => <PlaceCard place={place} />)}</div></section>; })}<ExploreBoard city={city} />
+<CityHero city={city} />
+<section><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} categories`} class="categories">{city.categories.map((category) => <a href={`#${category}`}>{category.replaceAll('-', ' ')}</a>)}</nav></section>
+<FavoritesPanel />
+{city.categories.map((category) => {
+  const preview = presentation.previewCount;
+  return <section id={category}><h2>{category.replaceAll('-', ' ')}</h2><a href={categoryPath(city,category)}>View all</a><div class="cards">{category === 'things-to-do'
+    ? getThings(city).slice(0, preview).map((thing) => <ThingToDoCard {city} {thing} />)
+    : getPlaces(city, category).slice(0, preview).map((place) => <PlaceCard {place} />)}</div></section>;
+})}
+<ExploreBoard {city} />
 <style>.categories{display:flex;flex-wrap:wrap;gap:.75rem}.categories a{text-transform:capitalize}</style>

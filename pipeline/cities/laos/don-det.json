@@ -3,14 +3,7 @@
   "country": "laos",
   "city": "don-det",
   "profile": "compact",
-  "generatedAt": "2026-08-10T05:02:33.883Z",
-  "manualLocks": {
-    "hero.media.photos": {
-      "value": "manual Atlas river artwork",
-      "source": "manual",
-      "locked": true
-    }
-  },
+  "generatedAt": "2026-08-10T05:14:47.188Z",
   "cityData": {
     "id": "city-don-det",
     "slug": "don-det",
@@ -97,8 +90,8 @@
       "landmarkLimit": 3,
       "featuredThingIds": [
         "thing-old-french-railway-bridge",
-        "thing-li-phi-falls",
-        "thing-irrawaddy-dolphin-viewpoint"
+        "thing-mekong-sunset",
+        "thing-li-phi-waterfalls"
       ]
     },
     "media": {
@@ -141,7 +134,18 @@
         "gallery": []
       }
     },
-    "manualLocks": {},
+    "manualLocks": {
+      "hero.media.photos": {
+        "value": "manual Atlas river artwork",
+        "source": "manual",
+        "locked": true
+      },
+      "media.hero.photos": {
+        "value": "manual Atlas river artwork",
+        "source": "manual",
+        "locked": true
+      }
+    },
     "seo": {
       "title": "Don Det travel guide | Things To Do Atlas",
       "description": "Independent Don Det travel guide.",
@@ -267,16 +271,16 @@
     {
       "id": "thing-old-french-railway-bridge",
       "slug": "old-french-railway-bridge",
-      "name": "Old French railway bridge",
+      "name": "Old French Railway Bridge",
       "country": "laos",
       "city": "don-det",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 13.947,
-        "longitude": 105.921
+        "latitude": 13.975,
+        "longitude": 105.924
       },
-      "shortDescription": "A historic crossing on the route between Don Det and Don Khon.",
-      "longDescription": "A landmark stop on the island route.",
+      "shortDescription": "Old French Railway Bridge is included in this Atlas draft from independently recorded traveller facts.",
+      "longDescription": "Old French Railway Bridge is included in this Atlas draft from independently recorded traveller facts.",
       "isLandmark": true,
       "media": {
         "hero": {
@@ -291,7 +295,7 @@
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:02:33.877Z"
+        "reviewedAt": "2026-08-10T05:14:47.183Z"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -305,10 +309,29 @@
         "practical": "",
         "access": "",
         "faq": [],
-        "sections": []
+        "sections": [
+          {
+            "title": "overview",
+            "body": ""
+          },
+          {
+            "title": "howToGetThere",
+            "body": ""
+          },
+          {
+            "title": "practicalInformation",
+            "body": ""
+          }
+        ]
       },
-      "researchSources": [],
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old%20French%20railway%20bridge"
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old%20French%20Railway%20Bridge"
     },
     {
       "id": "thing-irrawaddy-dolphin-viewpoint",
@@ -355,6 +378,149 @@
       },
       "researchSources": [],
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Irrawaddy%20dolphin%20viewpoint"
+    },
+    {
+      "id": "thing-li-phi-waterfalls",
+      "slug": "li-phi-waterfalls",
+      "name": "Li Phi Waterfalls",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9538,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Li Phi Waterfalls is included in this Atlas draft from independently recorded traveller facts.",
+      "media": {
+        "hero": {
+          "stamps": [],
+          "drawings": [],
+          "photos": []
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "isMySelection": false,
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline",
+        "reviewedAt": "2026-08-10T05:14:47.181Z"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/",
+          "purpose": "media",
+          "sourceType": "wikimedia"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Li%20Phi%20Waterfalls",
+      "isLandmark": true,
+      "longDescription": "Li Phi Waterfalls is included in this Atlas draft from independently recorded traveller facts.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "deep",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": [
+          {
+            "title": "overview",
+            "body": ""
+          },
+          {
+            "title": "whyGo",
+            "body": ""
+          },
+          {
+            "title": "whatToExpect",
+            "body": ""
+          },
+          {
+            "title": "howToGetThere",
+            "body": ""
+          },
+          {
+            "title": "practicalInformation",
+            "body": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "thing-mekong-sunset",
+      "slug": "mekong-sunset-walk",
+      "name": "Mekong Sunset Walk",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.972,
+        "longitude": 105.913
+      },
+      "shortDescription": "Mekong Sunset Walk is included in this Atlas draft from independently recorded traveller facts.",
+      "media": {
+        "hero": {
+          "stamps": [],
+          "drawings": [],
+          "photos": []
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "isMySelection": false,
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline",
+        "reviewedAt": "2026-08-10T05:14:47.183Z"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Local route notes",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Sunset%20Walk",
+      "isLandmark": true,
+      "longDescription": "Mekong Sunset Walk is included in this Atlas draft from independently recorded traveller facts.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": [
+          {
+            "title": "overview",
+            "body": ""
+          },
+          {
+            "title": "bestTime",
+            "body": ""
+          },
+          {
+            "title": "localNotes",
+            "body": ""
+          }
+        ]
+      }
     }
   ]
 }

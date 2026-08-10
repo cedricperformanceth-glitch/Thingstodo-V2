@@ -2,9 +2,11 @@
 import '../../core/design-system/tokens.css';
 import type { SeoMetadata } from '../../core/models/types';
 import { pageSeo } from '../../core/seo/metadata';
+import { getCountries } from '../../engines/country/country-engine';
 interface Props { seo: SeoMetadata; breadcrumbs?: Array<{name:string;path:string}>; }
 const { seo, breadcrumbs = [] } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
+const countries = getCountries();
 ---
 <!doctype html>
 <html lang="en">
@@ -21,7 +23,7 @@ const meta = pageSeo(seo, breadcrumbs);
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.breadcrumbs)} />
   </head>
   <body>
-    <header><nav aria-label="Main navigation"><a href="/">Things To Do Atlas</a><a href="/laos">Laos</a></nav></header>
+    <header><nav aria-label="Main navigation"><a href="/">Things To Do Atlas</a>{countries.map((country) => <a href={`/${country.slug}`}>{country.name}</a>)}</nav></header>
     <main><slot /></main>
     <footer>Independent editorial travel guide</footer>
     <script>
