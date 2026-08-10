@@ -16,7 +16,15 @@ console.log(`Explore Board: ${selectExploreBoard(things.length ? things : draft.
 if (dryRun) { console.log('[dry-run] Source contract is valid; no Atlas content changed.'); process.exit(0); }
 // Generation deliberately fills only gaps. Source adapters can provide independently verified facts;
 // they must never supply prose copied from a competing guide platform.
-mergeGenerated(draft.cityData, input.city ?? {});
+const cityInput = structuredClone(input.city ?? {});
+if (cityInput?.hero?.media) {
+  delete cityInput.hero.media.stamps;
+  delete cityInput.hero.media.drawings;
+}
+mergeGenerated(draft.cityData, cityInput);
+draft.cityData.hero.media ??= { photos: [] };
+delete draft.cityData.hero.media.stamps;
+delete draft.cityData.hero.media.drawings;
 for (const candidate of things) {
   const existing = draft.things.find((thing) => thing.id === candidate.id); const target = existing ? mergeGenerated(existing, candidate) : candidate;
   if (!existing) draft.things.push(target);

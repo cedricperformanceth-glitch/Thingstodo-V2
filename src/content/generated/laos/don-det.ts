@@ -49,28 +49,6 @@ const data = {
         }
       ],
       "media": {
-        "stamps": [
-          {
-            "id": "don-det-stamp",
-            "src": "/media/don-det/stamp.svg",
-            "alt": "",
-            "sourceType": "manual",
-            "sourceName": "Things To Do Atlas V2",
-            "manual": true,
-            "locked": true
-          }
-        ],
-        "drawings": [
-          {
-            "id": "don-det-drawing",
-            "src": "/media/don-det/drawing.svg",
-            "alt": "",
-            "sourceType": "manual",
-            "sourceName": "Things To Do Atlas V2",
-            "manual": true,
-            "locked": true
-          }
-        ],
         "photos": [
           {
             "id": "don-det-river",
