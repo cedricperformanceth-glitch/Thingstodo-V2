@@ -5,93 +5,84 @@ const countries = getCountries();
 const currentPath = Astro.url.pathname;
 ---
 
-<a class="atlas-navbar__skip-link" href="#main-content">Skip to content</a>
-
 <header class="atlas-navbar" aria-label="Site navigation">
-  <div class="atlas-navbar__controls">
-    <div class="atlas-navbar__language">
-      <button
-        class="atlas-navbar__language-trigger"
-        type="button"
-        aria-expanded="false"
-        aria-controls="atlas-language-menu"
-        data-navbar-trigger="language"
-      >
-        <span class="atlas-navbar__flag" aria-hidden="true">
-          <svg viewBox="0 0 60 40" role="img" focusable="false">
-            <rect width="60" height="40" fill="#012169" />
-            <path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8" />
-            <path d="M0 0 60 40M60 0 0 40" stroke="#c8102e" stroke-width="4" />
-            <path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="12" />
-            <path d="M30 0v40M0 20h60" stroke="#c8102e" stroke-width="6" />
-          </svg>
-        </span>
-        <svg class="atlas-navbar__chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
-        <span class="sr-only">Language: English</span>
-      </button>
-      <div id="atlas-language-menu" class="atlas-navbar__language-menu" hidden data-navbar-menu="language">
-        <span>English</span>
-      </div>
-    </div>
+  <div class="atlas-navbar__left-block">
+    <span class="atlas-navbar__language" role="img" aria-label="Current language: English">
+      <span class="atlas-navbar__flag" aria-hidden="true">
+        <svg viewBox="0 0 60 40" focusable="false">
+          <rect width="60" height="40" fill="#012169" />
+          <path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8" />
+          <path d="M0 0 60 40M60 0 0 40" stroke="#c8102e" stroke-width="4" />
+          <path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="12" />
+          <path d="M30 0v40M0 20h60" stroke="#c8102e" stroke-width="6" />
+        </svg>
+      </span>
+      <svg class="atlas-navbar__language-arrow" viewBox="0 0 9 6" aria-hidden="true"><path d="m1 1 3.5 3.5L8 1" fill="none" stroke="currentColor" stroke-width="1.25" /></svg>
+    </span>
 
-    <div class="atlas-navbar__menu">
+    <div class="atlas-navbar__menu-wrap">
       <button
         class="atlas-navbar__menu-trigger"
         type="button"
+        aria-haspopup="true"
         aria-expanded="false"
         aria-controls="atlas-country-menu"
-        data-navbar-trigger="countries"
+        data-atlas-menu-trigger
       >
         Menu
       </button>
-      <nav id="atlas-country-menu" class="atlas-navbar__country-menu" aria-label="Country navigation" hidden data-navbar-menu="countries">
-        {countries.map((country) => {
-          const isActive = currentPath === `/${country.slug}` || currentPath.startsWith(`/${country.slug}/`);
-          return <a href={`/${country.slug}`} aria-current={isActive ? 'page' : undefined}>{country.name}</a>;
-        })}
+
+      <nav id="atlas-country-menu" class="atlas-navbar__country-menu" aria-label="Country navigation" hidden data-atlas-country-menu>
+        <div class="atlas-navbar__country-list">
+          {countries.map((country) => {
+            const isActive = currentPath === `/${country.slug}` || currentPath.startsWith(`/${country.slug}/`);
+            return <a class:list={{ 'is-active': isActive }} href={`/${country.slug}`} aria-current={isActive ? 'page' : undefined}>{country.name}</a>;
+          })}
+        </div>
       </nav>
     </div>
   </div>
 
-  <a class="atlas-navbar__logo" href="/" aria-label="Things To Do Atlas home">
+  <a class="atlas-navbar__logo-block" href="/" aria-label="Things To Do Atlas home">
     <img src="/assets/navbar/things-to-do-atlas-logo-v2.webp" alt="Things To Do Atlas" width="1254" height="1254" />
   </a>
 </header>
 
 <script is:inline>
-  const navbarTriggers = document.querySelectorAll('[data-navbar-trigger]');
-  const navbarMenus = document.querySelectorAll('[data-navbar-menu]');
+  const trigger = document.querySelector('[data-atlas-menu-trigger]');
+  const menu = document.querySelector('[data-atlas-country-menu]');
 
-  const closeNavbarMenus = () => {
-    navbarTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'false'));
-    navbarMenus.forEach((menu) => { menu.hidden = true; });
+  const closeMenu = () => {
+    if (!trigger || !menu) return;
+    trigger.setAttribute('aria-expanded', 'false');
+    menu.hidden = true;
   };
 
-  navbarTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const menuName = trigger.dataset.navbarTrigger;
-      const menu = document.querySelector(`[data-navbar-menu="${menuName}"]`);
-      const willOpen = trigger.getAttribute('aria-expanded') !== 'true';
-      closeNavbarMenus();
-      if (willOpen && menu) {
-        trigger.setAttribute('aria-expanded', 'true');
-        menu.hidden = false;
-      }
-    });
+  trigger?.addEventListener('click', () => {
+    const willOpen = trigger.getAttribute('aria-expanded') !== 'true';
+    if (!willOpen) {
+      closeMenu();
+      return;
+    }
+
+    trigger.setAttribute('aria-expanded', 'true');
+    if (menu) menu.hidden = false;
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeNavbarMenus();
+    if (event.key === 'Escape') closeMenu();
   });
 
   document.addEventListener('click', (event) => {
-    if (!(event.target instanceof Node) || !event.target.closest('.atlas-navbar__controls')) closeNavbarMenus();
+    if (!(event.target instanceof Node) || !event.target.closest('.atlas-navbar__left-block')) closeMenu();
   });
 </script>
 
-<style>
-  :global(body) { padding-top: 96px; }
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap');
+</style>
 
+<style>
   .atlas-navbar {
     position: fixed;
     z-index: 20;
@@ -102,99 +93,179 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: space-between;
     height: 64px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
     pointer-events: none;
   }
 
-  .atlas-navbar__controls,
-  .atlas-navbar__logo {
+  .atlas-navbar__left-block {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 2vw, 30px);
+    min-height: 56px;
+    padding: 0 18px;
     border: 1px solid rgba(31, 57, 45, .16);
+    border-radius: 3px 5px 3px 4px;
     background: rgba(244, 240, 229, .9);
     box-shadow: 0 8px 22px rgba(28, 35, 31, .12);
     backdrop-filter: blur(12px);
     pointer-events: auto;
   }
 
-  .atlas-navbar__controls {
-    display: flex;
+  .atlas-navbar__language {
+    display: inline-flex;
     align-items: center;
-    gap: clamp(18px, 2vw, 30px);
-    min-height: 56px;
-    padding: 0 18px;
-    border-radius: 3px 5px 3px 4px;
+    gap: 6px;
+    padding: 4px 2px;
+    color: #315545;
   }
 
-  .atlas-navbar__logo {
-    display: grid;
-    width: 72px;
-    height: 64px;
-    padding: 3px 5px;
-    border-radius: 4px 3px 5px 3px;
-    place-items: center;
+  .atlas-navbar__flag {
+    display: block;
+    width: 24px;
+    height: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(28, 35, 31, .22);
+    box-shadow: 0 1px 2px rgba(28, 35, 31, .08);
   }
 
-  .atlas-navbar__logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  .atlas-navbar__language, .atlas-navbar__menu { position: relative; }
+  .atlas-navbar__flag svg { display: block; width: 100%; height: 100%; }
+  .atlas-navbar__language-arrow { width: 9px; height: 6px; }
+  .atlas-navbar__menu-wrap { position: relative; }
 
-  .atlas-navbar__language-trigger,
   .atlas-navbar__menu-trigger {
     display: inline-flex;
     align-items: center;
+    padding: 4px 1px;
     border: 0;
     color: #1f392d;
     background: transparent;
     cursor: pointer;
-  }
-
-  .atlas-navbar__language-trigger { gap: 7px; padding: 7px 0; }
-  .atlas-navbar__flag { display: block; width: 24px; height: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(28, 35, 31, .18); }
-  .atlas-navbar__flag svg { display: block; width: 100%; height: 100%; }
-  .atlas-navbar__chevron { width: 10px; height: 7px; }
-
-  .atlas-navbar__menu-trigger {
-    padding: 7px 0;
-    font-family: var(--serif);
+    font-family: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
     font-size: 1.28rem;
+    font-weight: 600;
     line-height: 1;
+    letter-spacing: .015em;
+    transition: color .2s ease, transform .2s ease;
   }
 
-  .atlas-navbar__language-trigger:focus-visible,
+  .atlas-navbar__menu-trigger:hover,
   .atlas-navbar__menu-trigger:focus-visible,
-  .atlas-navbar__logo:focus-visible,
-  .atlas-navbar__country-menu a:focus-visible { outline: 2px solid #bf7c20; outline-offset: 4px; }
+  .atlas-navbar__menu-trigger[aria-expanded='true'] {
+    color: #315545;
+    transform: translateY(-1px) rotate(1deg);
+  }
 
-  .atlas-navbar__language-menu,
+  .atlas-navbar__menu-trigger:focus-visible,
+  .atlas-navbar__logo-block:focus-visible,
+  .atlas-navbar__country-list a:focus-visible {
+    outline: 2px solid #315545;
+    outline-offset: 4px;
+  }
+
   .atlas-navbar__country-menu {
     position: absolute;
     top: calc(100% + 13px);
     left: -12px;
-    border: 1px solid rgba(31, 57, 45, .16);
-    background: #f4f0e5;
-    box-shadow: 0 10px 22px rgba(28, 35, 31, .14);
-  }
-
-  .atlas-navbar__language-menu { min-width: 104px; padding: 12px 14px; border-radius: 4px 3px 5px 3px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
-
-  .atlas-navbar__country-menu {
-    display: grid;
     width: 190px;
     padding: 22px 22px 20px;
-    border-radius: 3px 5px 4px 3px;
+    border: 1px solid rgba(31, 57, 45, .20);
+    background: #f4f0e5;
+    box-shadow: 0 14px 32px rgba(28, 35, 31, .14);
     transform: rotate(-.4deg);
   }
 
-  .atlas-navbar__country-menu::before { position: absolute; inset: 7px; border: 1px dashed rgba(31, 57, 45, .18); border-radius: inherit; content: ''; pointer-events: none; }
-  .atlas-navbar__country-menu a { position: relative; color: #1f392d; font-family: var(--serif); font-size: 1.32rem; text-decoration: none; }
-  .atlas-navbar__country-menu a:hover { color: #976018; }
+  .atlas-navbar__country-menu::before {
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed rgba(31, 57, 45, .12);
+    content: '';
+    pointer-events: none;
+  }
 
-  .atlas-navbar__skip-link { position: fixed; z-index: 30; top: .5rem; left: .5rem; padding: .5rem .75rem; background: #fff; color: #1f392d; transform: translateY(-150%); }
-  .atlas-navbar__skip-link:focus { transform: translateY(0); }
+  .atlas-navbar__country-list {
+    position: relative;
+    display: grid;
+    justify-items: start;
+    gap: 14px;
+  }
+
+  .atlas-navbar__country-list a {
+    position: relative;
+    display: inline-flex;
+    padding-bottom: 5px;
+    color: #315545;
+    font-family: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: 1.32rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: .015em;
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
+  }
+
+  .atlas-navbar__country-list a::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 26px;
+    height: 3px;
+    border-radius: 999px;
+    background: currentColor;
+    content: '';
+    opacity: .82;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .2s ease;
+  }
+
+  .atlas-navbar__country-list a:hover,
+  .atlas-navbar__country-list a:focus-visible,
+  .atlas-navbar__country-list a.is-active {
+    color: #b7473b;
+    transform: translateX(2px) rotate(-1deg);
+  }
+
+  .atlas-navbar__country-list a:hover::after,
+  .atlas-navbar__country-list a:focus-visible::after,
+  .atlas-navbar__country-list a.is-active::after { transform: scaleX(1); }
+
+  .atlas-navbar__logo-block {
+    display: flex;
+    flex: 0 0 72px;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    min-width: 72px;
+    max-width: 72px;
+    height: 64px;
+    padding: 3px 5px;
+    overflow: hidden;
+    border: 1px solid rgba(31, 57, 45, .16);
+    border-radius: 4px 3px 5px 3px;
+    background: rgba(244, 240, 229, .9);
+    box-shadow: 0 8px 22px rgba(28, 35, 31, .12);
+    backdrop-filter: blur(12px);
+    pointer-events: auto;
+  }
+
+  .atlas-navbar__logo-block img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
 
   @media (max-width: 700px) {
-    :global(body) { padding-top: 76px; }
     .atlas-navbar { top: 10px; right: 12px; left: 12px; height: 54px; }
-    .atlas-navbar__controls { gap: 18px; min-height: 50px; padding: 0 12px; }
-    .atlas-navbar__logo { width: 62px; height: 54px; padding: 3px 4px; }
-    .atlas-navbar__menu-trigger { font-size: 1.15rem; }
-    .atlas-navbar__country-menu { left: -8px; width: 174px; padding: 18px; }
+    .atlas-navbar__left-block { gap: 14px; min-height: 50px; padding: 0 12px; }
+    .atlas-navbar__flag { width: 21px; height: 14px; }
+    .atlas-navbar__menu-trigger { font-size: 1.16rem; }
+    .atlas-navbar__country-menu { top: calc(100% + 16px); left: -4px; width: 172px; padding: 20px; }
+    .atlas-navbar__country-list a { font-size: 1.2rem; }
+    .atlas-navbar__logo-block { flex-basis: 62px; width: 62px; min-width: 62px; max-width: 62px; height: 54px; padding: 3px 4px; }
   }
 </style>
