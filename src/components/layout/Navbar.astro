@@ -23,9 +23,14 @@ const currentPath = Astro.url.pathname;
       </button>
 
       <div id="atlas-language-menu" class="atlas-navbar__language-menu" role="menu" hidden data-atlas-dropdown-menu>
-        <span class="atlas-navbar__language-option is-active" role="menuitem" aria-current="true">English</span>
-        <button class="atlas-navbar__language-option" type="button" role="menuitem" disabled aria-disabled="true">Français</button>
-        <button class="atlas-navbar__language-option" type="button" role="menuitem" disabled aria-disabled="true">Español</button>
+        <button class="atlas-navbar__language-option" type="button" role="menuitem" disabled aria-disabled="true">
+          <span class="atlas-navbar__language-flag" aria-hidden="true"><svg viewBox="0 0 60 40" focusable="false"><rect width="20" height="40" fill="#002395" /><rect x="20" width="20" height="40" fill="#fff" /><rect x="40" width="20" height="40" fill="#ed2939" /></svg></span>
+          <span>Fran&#231;ais</span>
+        </button>
+        <button class="atlas-navbar__language-option" type="button" role="menuitem" disabled aria-disabled="true">
+          <span class="atlas-navbar__language-flag" aria-hidden="true"><svg viewBox="0 0 60 40" focusable="false"><rect width="60" height="10" fill="#aa151b" /><rect y="10" width="60" height="20" fill="#f1bf00" /><rect y="30" width="60" height="10" fill="#aa151b" /></svg></span>
+          <span>Espa&#241;ol</span>
+        </button>
       </div>
     </div>
 
@@ -90,7 +95,7 @@ const currentPath = Astro.url.pathname;
   });
 
   document.addEventListener('click', (event) => {
-    if (!(event.target instanceof Element) || !event.target.closest('.atlas-navbar__left-block')) closeAllDropdowns();
+    if (!(event.target instanceof Element) || !event.target.closest('[data-atlas-dropdown]')) closeAllDropdowns();
   });
 </script>
 
@@ -152,6 +157,8 @@ const currentPath = Astro.url.pathname;
   .atlas-navbar__flag svg { display: block; width: 100%; height: 100%; }
   .atlas-navbar__language-arrow { width: 9px; height: 6px; }
   .atlas-navbar__visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .atlas-navbar__language-menu[hidden],
+  .atlas-navbar__country-menu[hidden] { display: none; }
 
   .atlas-navbar__menu-trigger {
     display: inline-flex;
@@ -211,7 +218,9 @@ const currentPath = Astro.url.pathname;
   }
 
   .atlas-navbar__language-option {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     width: 100%;
     padding: 3px 0;
     border: 0;
@@ -223,8 +232,18 @@ const currentPath = Astro.url.pathname;
     text-align: left;
   }
 
-  .atlas-navbar__language-option.is-active { color: #315545; font-weight: 700; }
   .atlas-navbar__language-option:disabled { cursor: not-allowed; opacity: .62; }
+  .atlas-navbar__language-flag {
+    display: block;
+    flex: none;
+    width: 24px;
+    height: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(28, 35, 31, .22);
+    box-shadow: 0 1px 2px rgba(28, 35, 31, .08);
+  }
+
+  .atlas-navbar__language-flag svg { display: block; width: 100%; height: 100%; }
 
   .atlas-navbar__country-menu::before {
     position: absolute;
@@ -312,6 +331,7 @@ const currentPath = Astro.url.pathname;
     .atlas-navbar { top: 10px; right: 12px; left: 12px; height: 54px; }
     .atlas-navbar__left-block { gap: 14px; min-height: 50px; padding: 0 12px; }
     .atlas-navbar__flag { width: 21px; height: 14px; }
+    .atlas-navbar__language-flag { width: 21px; height: 14px; }
     .atlas-navbar__menu-trigger { font-size: 1.16rem; }
     .atlas-navbar__country-menu { top: calc(100% + 16px); left: -4px; width: 172px; padding: 20px; }
     .atlas-navbar__language-menu { top: calc(100% + 16px); left: -4px; }
