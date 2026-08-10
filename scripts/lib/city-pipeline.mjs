@@ -44,6 +44,24 @@ function setPath(record, fieldPath, value) {
   parent[last] = value;
 }
 export function assignUnlocked(record, fieldPath, value) { if (!isManualLocked(record, fieldPath)) setPath(record, fieldPath, value); }
+const isObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
+const clone = (value) => value === undefined ? value : structuredClone(value);
+// Generated values are merged into editorial records one path at a time. Existing
+// manualLocks are never generated data, so they are deliberately skipped.
+export function mergeGenerated(existing, incoming, path = '', lockOwner = existing) {
+  if (incoming === undefined) return existing;
+  if (isManualLocked(lockOwner, path) && path) return existing;
+  if (!isObject(incoming) || !isObject(existing)) return clone(incoming);
+  const result = existing;
+  for (const [key, value] of Object.entries(incoming)) {
+    if (key === 'manualLocks') continue;
+    const childPath = path ? `${path}.${key}` : key;
+    if (isManualLocked(lockOwner, childPath)) continue;
+    if (isObject(value) && isObject(result[key])) result[key] = mergeGenerated(result[key], value, childPath, lockOwner);
+    else result[key] = clone(value);
+  }
+  return result;
+}
 export function validateSource(source) {
   const url = (source.sourceUrl ?? '').toLowerCase();
   if (source.purpose === 'candidate-discovery' && source.sourceName?.toLowerCase().includes('tripadvisor') && source.use !== 'name-only') throw new Error('TripAdvisor may only be used for name-only candidate discovery.');

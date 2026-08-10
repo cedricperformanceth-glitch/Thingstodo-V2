@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { assignUnlocked, chooseFieldCardTemplate, selectExploreBoard, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
+import { assignUnlocked, chooseFieldCardTemplate, mergeGenerated, selectExploreBoard, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run'); const fromCity = flags.includes('--from-city');
 if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run]');
@@ -16,15 +16,13 @@ console.log(`Explore Board: ${selectExploreBoard(things.length ? things : draft.
 if (dryRun) { console.log('[dry-run] Source contract is valid; no Atlas content changed.'); process.exit(0); }
 // Generation deliberately fills only gaps. Source adapters can provide independently verified facts;
 // they must never supply prose copied from a competing guide platform.
-assignUnlocked(draft.cityData, 'description', input.city?.description ?? draft.cityData.description);
+mergeGenerated(draft.cityData, input.city ?? {});
 for (const candidate of things) {
-  const existing = draft.things.find((thing) => thing.id === candidate.id); const target = existing ?? candidate;
-  for (const [field, value] of Object.entries(candidate)) assignUnlocked(target, field, value);
+  const existing = draft.things.find((thing) => thing.id === candidate.id); const target = existing ? mergeGenerated(existing, candidate) : candidate;
   if (!existing) draft.things.push(target);
 }
 for (const candidate of places) {
-  const existing = draft.places.find((place) => place.id === candidate.id); const target = existing ?? candidate;
-  for (const [field, value] of Object.entries(candidate)) assignUnlocked(target, field, value);
+  const existing = draft.places.find((place) => place.id === candidate.id); const target = existing ? mergeGenerated(existing, candidate) : candidate;
   if (!existing) draft.places.push(target);
 }
 assignUnlocked(draft.cityData, 'exploreBoard.featuredThingIds', selectExploreBoard(draft.things, draft.cityData.coordinates));

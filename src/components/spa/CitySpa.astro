@@ -13,13 +13,13 @@ const { city } = Astro.props;
 const presentation = cityPresentation[city.profile];
 ---
 <CityHero city={city} />
-<section><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} categories`} class="categories">{city.categories.map((category) => <a href={`#${category}`}>{category.replaceAll('-', ' ')}</a>)}</nav></section>
-<FavoritesPanel />
+<section data-city-spa><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} guide sections`} class="categories" role="tablist"><button type="button" role="tab" aria-controls="spa-panel-favorites" data-spa-tab="favorites">My Favorites</button>{city.categories.map((category) => <button type="button" role="tab" aria-controls={`spa-panel-${category}`} data-spa-tab={category}>{category.replaceAll('-', ' ')}</button>)}</nav>
+<div id="spa-panel-favorites" data-spa-panel="favorites" role="tabpanel"><FavoritesPanel /></div>
 {city.categories.map((category) => {
   const preview = presentation.previewCount;
-  return <section id={category}><h2>{category.replaceAll('-', ' ')}</h2><a href={categoryPath(city,category)}>View all</a><div class="cards">{category === 'things-to-do'
+  return <section id={`spa-panel-${category}`} data-spa-panel={category} role="tabpanel"><h2>{category.replaceAll('-', ' ')}</h2><a href={categoryPath(city,category)}>View all</a><div class="cards">{category === 'things-to-do'
     ? getThings(city).slice(0, preview).map((thing) => <ThingToDoCard {city} {thing} />)
-    : getPlaces(city, category).slice(0, preview).map((place) => <PlaceCard {place} />)}</div></section>;
+    : getPlaces(city, category).slice(0, preview).map((place) => <PlaceCard {place} />)}</div>{category === 'things-to-do' && <ExploreBoard {city} />}</section>;
 })}
-<ExploreBoard {city} />
-<style>.categories{display:flex;flex-wrap:wrap;gap:.75rem}.categories a{text-transform:capitalize}</style>
+</section>
+<style>.categories{display:flex;flex-wrap:wrap;gap:.75rem;margin:1rem 0}.categories button{text-transform:capitalize}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}</style>

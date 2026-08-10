@@ -1,0 +1,9 @@
+---
+interface Props { entity: { id:string; slug:string; name:string; city:string; country:string; shortDescription:string }; }
+const { entity } = Astro.props;
+---
+<button class="favorite-heart" type="button" data-favorite data-entity-key={`${entity.country}:${entity.city}:${entity.id}`} data-entity-name={entity.name} data-entity={JSON.stringify(entity)} aria-label={`Add ${entity.name} to My Favorites`} aria-pressed="false"><span aria-hidden="true">♡</span></button>
+<style>
+  .favorite-heart{position:absolute;top:.65rem;right:.65rem;z-index:1;width:2.45rem;height:2.45rem;padding:0;border:0;background:transparent;color:#211d16;font-size:2rem;line-height:1;cursor:pointer;text-shadow:0 1px 6px rgb(255 255 255 / .9)}
+  .favorite-heart[aria-pressed="true"]{color:#b3192c}.favorite-heart:focus-visible{outline:3px solid #1f6feb;outline-offset:2px;border-radius:50%}
+</style>

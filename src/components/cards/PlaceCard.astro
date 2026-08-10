@@ -1,14 +1,14 @@
 ---
 import type { Place } from '../../core/models/types';
-import FavoriteButton from '../shared/FavoriteButton.astro';
+import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import TripButton from '../shared/TripButton.astro';
-interface Props { place: Place; }
-const { place } = Astro.props;
+interface Props { place: Place; showDestination?: boolean; }
+const { place, showDestination = false } = Astro.props;
 ---
 <article class:list={['card', { selection: place.isMySelection }]}>
-  {(place.image ?? place.media.card?.image) && <img src={(place.image ?? place.media.card?.image)?.src} alt={(place.image ?? place.media.card?.image)?.alt} loading="lazy" width="640" height="400" />}
+  <div class:list={['card-media', { empty: !(place.image ?? place.media.card?.image) }]}>{(place.image ?? place.media.card?.image) && <img src={(place.image ?? place.media.card?.image)?.src} alt={(place.image ?? place.media.card?.image)?.alt} loading="lazy" width="640" height="400" />}<FavoriteHeart entity={place} /></div>
   {place.isMySelection && <p class="eyebrow">My Selection</p>}
-  <h3>{place.name}</h3><p>{place.shortDescription}</p><p class="address">{place.address}</p>
-  <div class="actions"><a class="button" href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a><TripButton entity={place} /><FavoriteButton entity={place} /></div>
+  <h3>{place.name}</h3>{showDestination && <p class="destination">{place.city}, {place.country}</p>}<p>{place.shortDescription}</p><p class="address">{place.address}</p>
+  <div class="actions"><a class="button" href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a><TripButton entity={place} /></div>
 </article>
-<style>.card{border:1px solid var(--line);padding:1rem;border-radius:.5rem}.card img{width:100%;aspect-ratio:1.6;object-fit:cover}.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase}.address{font-size:.9rem}.actions{display:flex;flex-wrap:wrap;gap:.5rem}</style>
+<style>.card{border:1px solid var(--line);padding:1rem;border-radius:.5rem}.card-media{position:relative}.card-media.empty{min-height:3.2rem;background:#f1ead9}.card img{display:block;width:100%;aspect-ratio:1.6;object-fit:cover}.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase}.destination,.address{font-size:.9rem}.destination{text-transform:capitalize}.actions{display:flex;flex-wrap:wrap;gap:.5rem}</style>

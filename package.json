@@ -11,7 +11,9 @@
     "create-city": "node scripts/create-city.mjs",
     "generate-city": "node scripts/generate-city.mjs",
     "architecture-check": "node scripts/architecture-check.mjs",
-    "validate-content": "node scripts/validate-generated-data.mjs"
+    "validate-content": "node scripts/validate-generated-data.mjs",
+    "test:manual-locks": "node scripts/manual-lock-tests.mjs",
+    "test:favorites": "node scripts/favorites-store-tests.mjs"
     ,"regenerate-registry": "node scripts/regenerate-content-registry.mjs"
   },
   "devDependencies": {
