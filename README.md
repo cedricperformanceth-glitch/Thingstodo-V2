@@ -1,5 +1,14 @@
 # Things To Do Atlas V2
 
+Before modifying structure, read `/docs/PRODUCT.md`, `/docs/ARCHITECTURE.md`,
+`/docs/CONTENT-MODEL.md`, and `/docs/DESIGN-SYSTEM.md`.
+
+## Development-only content pipeline
+
+The public Astro site has no discovery or research calls. Versioned source inputs
+are transformed locally by `pnpm create-city` and `pnpm generate-city`; manual
+locks always win over generation. See [`pipeline/README.md`](pipeline/README.md).
+
 Static-first editorial travel platform built with Astro and TypeScript.
 
 Before any structural modification, read:

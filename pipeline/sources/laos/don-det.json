@@ -1,0 +1,38 @@
+{
+  "city": {
+    "description": "A compact island base in southern Laos, with Mekong river life and nearby 4,000 Islands landmarks."
+  },
+  "places": [],
+  "things": [
+    {
+      "id": "thing-li-phi-waterfalls",
+      "name": "Li Phi Waterfalls",
+      "isLandmark": true,
+      "coordinates": { "latitude": 13.9538, "longitude": 105.9215 },
+      "facts": ["waterfall", "river rapids", "near Don Det", "seasonal conditions", "viewpoint"],
+      "sections": ["overview", "whyGo", "whatToExpect", "howToGetThere", "practicalInformation"],
+      "sources": [
+        { "sourceName": "Wikimedia Commons", "sourceUrl": "https://commons.wikimedia.org/", "purpose": "media", "sourceType": "wikimedia" },
+        { "sourceName": "Google Maps", "sourceUrl": "https://www.google.com/maps", "purpose": "location" }
+      ]
+    },
+    {
+      "id": "thing-old-french-railway-bridge",
+      "name": "Old French Railway Bridge",
+      "isLandmark": true,
+      "coordinates": { "latitude": 13.975, "longitude": 105.924 },
+      "facts": ["bridge", "walk", "island connection"],
+      "sections": ["overview", "howToGetThere", "practicalInformation"],
+      "sources": [{ "sourceName": "Google Maps", "sourceUrl": "https://www.google.com/maps", "purpose": "location" }]
+    },
+    {
+      "id": "thing-mekong-sunset",
+      "name": "Mekong Sunset Walk",
+      "isLandmark": true,
+      "coordinates": { "latitude": 13.972, "longitude": 105.913 },
+      "facts": ["walk", "sunset", "riverbank"],
+      "sections": ["overview", "bestTime", "localNotes"],
+      "sources": [{ "sourceName": "Local route notes", "purpose": "facts" }]
+    }
+  ]
+}

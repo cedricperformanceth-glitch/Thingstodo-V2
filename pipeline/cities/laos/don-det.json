@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "country": "laos",
+  "city": "don-det",
+  "profile": "compact",
+  "generatedAt": null,
+  "manualLocks": {
+    "hero.media.photos": { "value": "manual Atlas river artwork", "source": "manual", "locked": true }
+  },
+  "cityData": {
+    "id": "city-don-det",
+    "slug": "don-det",
+    "name": "Don Det",
+    "country": "laos",
+    "profile": "compact",
+    "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
+    "description": "A compact island base in southern Laos, with Mekong river life and nearby 4,000 Islands landmarks.",
+    "categories": ["things-to-do", "restaurants", "cafes", "accommodation", "scooter-rental", "markets", "practical-services"],
+    "categoryTargets": { "restaurants": 17, "cafes": 15, "accommodation": 19, "scooter-rental": 16, "markets": 18, "practical-services": 16 },
+    "hero": { "eyebrow": "Laos", "title": "Don Det", "subtitle": "Mekong island life", "facts": [], "media": { "stamps": [], "drawings": [], "photos": [] } },
+    "exploreBoard": { "landmarkLimit": 3 },
+    "media": { "hero": { "stamps": [], "drawings": [], "photos": [] }, "fieldCard": { "gallery": [] } },
+    "manualLocks": {},
+    "seo": { "title": "Don Det travel guide | Things To Do Atlas", "description": "Independent Don Det travel guide.", "canonicalPath": "/laos/don-det", "indexable": true }
+  },
+  "places": [],
+  "things": []
+}
