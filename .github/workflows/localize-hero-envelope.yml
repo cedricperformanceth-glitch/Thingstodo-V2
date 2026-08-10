@@ -1,5 +1,6 @@
 name: Localize shared hero envelope
 
+# One-time migration workflow. Remove after the shared asset is committed locally.
 on:
   push:
     branches: [master]
