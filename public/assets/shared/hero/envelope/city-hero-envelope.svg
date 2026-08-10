@@ -1,14 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" preserveAspectRatio="none">
   <defs>
     <filter id="paper-grain" x="-2%" y="-2%" width="104%" height="104%">
       <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="8" result="noise" />
       <feColorMatrix in="noise" type="saturate" values="0" result="mono-noise" />
-      <feComponentTransfer in="mono-noise" result="soft-noise"><feFuncA type="table" tableValues="0 .055" /></feComponentTransfer>
+      <feComponentTransfer in="mono-noise" result="soft-noise">
+        <feFuncA type="table" tableValues="0 .055" />
+      </feComponentTransfer>
       <feBlend in="SourceGraphic" in2="soft-noise" mode="multiply" />
     </filter>
   </defs>
+
   <g filter="url(#paper-grain)">
     <rect x="56" y="75" width="1424" height="877" fill="#fffdf8" stroke="#272622" stroke-width="3.25" />
+
     <g fill="none" stroke-linejoin="round" stroke-width="3">
       <g stroke="#c73440">
         <path d="m89 77 70 0-38 36-70 0z" /><path d="m341 77 70 0-38 36-70 0z" /><path d="m593 77 70 0-38 36-70 0z" /><path d="m845 77 70 0-38 36-70 0z" /><path d="m1097 77 70 0-38 36-70 0z" /><path d="m1349 77 70 0-38 36-70 0z" />
@@ -16,6 +20,7 @@
         <path d="m1445 113 34-38 0 70-34 38z" /><path d="m1445 365 34-38 0 70-34 38z" /><path d="m1445 617 34-38 0 70-34 38z" /><path d="m1445 869 34-38 0 70-34 38z" />
         <path d="m89 951 70 0-38-36-70 0z" /><path d="m341 951 70 0-38-36-70 0z" /><path d="m593 951 70 0-38-36-70 0z" /><path d="m845 951 70 0-38-36-70 0z" /><path d="m1097 951 70 0-38-36-70 0z" /><path d="m1349 951 70 0-38-36-70 0z" />
       </g>
+
       <g stroke="#375d99">
         <path d="m215 77 70 0-38 36-70 0z" /><path d="m467 77 70 0-38 36-70 0z" /><path d="m719 77 70 0-38 36-70 0z" /><path d="m971 77 70 0-38 36-70 0z" /><path d="m1223 77 70 0-38 36-70 0z" />
         <path d="m58 93 34 38 0 70-34-38z" /><path d="m58 345 34 38 0 70-34-38z" /><path d="m58 597 34 38 0 70-34-38z" /><path d="m58 849 34 38 0 65-34-38z" />
@@ -23,10 +28,11 @@
         <path d="m215 951 70 0-38-36-70 0z" /><path d="m467 951 70 0-38-36-70 0z" /><path d="m719 951 70 0-38-36-70 0z" /><path d="m971 951 70 0-38-36-70 0z" /><path d="m1223 951 70 0-38-36-70 0z" />
       </g>
     </g>
+
     <g fill="none" stroke="#292824" stroke-linecap="round">
-      <rect x="1222" y="154" width="177" height="196" stroke-width="2.4" />
-      <rect x="1208" y="142" width="204" height="222" stroke-dasharray="7 10" stroke-width="2.1" />
-      <path d="M804 550h559M804 639h559M804 728h559M804 817h559" stroke-width="2.6" />
+      <rect x="1402" y="73" width="76" height="93" stroke-width="2.4" />
+      <rect x="1393" y="64" width="94" height="111" stroke-dasharray="7 10" stroke-width="2.1" />
+      <path d="M845 550h585M845 639h585M845 728h585M845 817h585" stroke-width="2.6" />
     </g>
   </g>
 </svg>
