@@ -3,6 +3,7 @@ import { cityPresentation } from '../spa/city-presentation';
 import { getCityHeroAssets } from './hero-assets';
 import { getCityHeroCopy } from './hero-copy';
 import { getCityHeroFacts } from './hero-facts';
+import { getCityHeroPartners } from './hero-partners';
 
 export const getHero = (city: City) => ({
   ...city.hero,
@@ -11,4 +12,5 @@ export const getHero = (city: City) => ({
   cityAssets: getCityHeroAssets(city),
   copy: getCityHeroCopy(city),
   displayFacts: getCityHeroFacts(city),
+  partners: getCityHeroPartners(city),
 });
