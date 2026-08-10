@@ -25,156 +25,13 @@ jobs:
 
       - run: npm ci
 
-      - name: Move prepared city assets under country scope
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p public/assets/cities/laos
-          for city in don-det luang-prabang pakse tad-lo thakhek vang-vieng vientiane; do
-            if [ -d "public/assets/cities/$city" ]; then
-              git mv "public/assets/cities/$city" "public/assets/cities/laos/$city"
-            fi
-          done
+      - name: Apply migration
+        run: node scripts/migrate-city-hero-contract.mjs
 
-      - name: Remove stale city Hero media contract and country-scope resolver
-        shell: bash
-        run: |
-          python3 <<'PY'
-          from pathlib import Path
-          import json
-
-          root = Path('.')
-
-          # 1) City Hero resolver: country + city slug is the canonical asset identity.
-          Path('src/engines/hero/hero-assets.ts').write_text("""import type { City } from '../../core/models/types';
-
-/**
- * City Hero artwork follows the public asset convention. Country + city slug
- * form the canonical asset identity so destinations can safely share slugs.
- */
-export const getCityHeroAssets = (city: City) => {
-  const { country, slug } = city;
-  const base = `/assets/cities/${country}/${slug}/hero`;
-
-  return {
-    stamp: `${base}/stamps/${slug}-hero-stamp.webp`,
-    drawing: `${base}/drawings/${slug}-hero-drawing.webp`,
-  };
-};
-""", encoding='utf-8')
-
-          # 2) City Hero data now owns only variable editorial photos.
-          types = Path('src/core/models/types.ts')
-          text = types.read_text(encoding='utf-8')
-          old = "export interface MediaManifest { hero: { stamps: MediaRecord[]; drawings: MediaRecord[]; photos: MediaRecord[] }; card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }\n"
-          new = old + "export interface CityHeroMedia { photos: MediaRecord[]; }\n"
-          assert old in text, 'MediaManifest signature changed unexpectedly'
-          text = text.replace(old, new, 1)
-          old_city_hero = "export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; media: MediaManifest['hero']; }"
-          new_city_hero = "export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; media: CityHeroMedia; }"
-          assert old_city_hero in text, 'CityHero signature changed unexpectedly'
-          types.write_text(text.replace(old_city_hero, new_city_hero, 1), encoding='utf-8')
-
-          # 3) New city drafts never create stamp/drawing media records.
-          pipeline = Path('scripts/lib/city-pipeline.mjs')
-          text = pipeline.read_text(encoding='utf-8')
-          old = "hero: { eyebrow: country, title: name, subtitle: '', facts: [], media: { stamps: [], drawings: [], photos: [] } },"
-          new = "hero: { eyebrow: country, title: name, subtitle: '', facts: [], media: { photos: [] } },"
-          assert old in text, 'emptyDraft Hero media signature changed unexpectedly'
-          pipeline.write_text(text.replace(old, new, 1), encoding='utf-8')
-
-          # 4) Generation strips legacy city Hero stamp/drawing fields even from old sources/drafts.
-          generate = Path('scripts/generate-city.mjs')
-          text = generate.read_text(encoding='utf-8')
-          old = "mergeGenerated(draft.cityData, input.city ?? {});"
-          new = """const cityInput = structuredClone(input.city ?? {});
-if (cityInput?.hero?.media) {
-  delete cityInput.hero.media.stamps;
-  delete cityInput.hero.media.drawings;
-}
-mergeGenerated(draft.cityData, cityInput);
-draft.cityData.hero.media ??= { photos: [] };
-delete draft.cityData.hero.media.stamps;
-delete draft.cityData.hero.media.drawings;"""
-          assert old in text, 'generate-city merge hook changed unexpectedly'
-          generate.write_text(text.replace(old, new, 1), encoding='utf-8')
-
-          # 5) Validation rejects recurrence of the obsolete city Hero fields.
-          validate = Path('scripts/validate-generated-data.mjs')
-          text = validate.read_text(encoding='utf-8')
-          old = "for (const draft of drafts) if ('media' in draft.cityData) fail.push(`Duplicate City media manifest: ${draft.country}/${draft.city}`);"
-          new = """for (const draft of drafts) {
-  if ('media' in draft.cityData) fail.push(`Duplicate City media manifest: ${draft.country}/${draft.city}`);
-  const heroMedia = draft.cityData.hero?.media ?? {};
-  if ('stamps' in heroMedia || 'drawings' in heroMedia) fail.push(`City Hero stamp/drawing media must come from the asset resolver: ${draft.country}/${draft.city}`);
-}"""
-          assert old in text, 'validation hook changed unexpectedly'
-          validate.write_text(text.replace(old, new, 1), encoding='utf-8')
-
-          # 6) Tests cover both the draft factory and the current city source.
-          tests = Path('scripts/city-media-tests.mjs')
-          text = tests.read_text(encoding='utf-8')
-          old = "assert.equal('media' in emptyDraft('testland', 'test-city', 'compact').cityData, false, 'new City drafts must use hero.media only');"
-          new = """const fresh = emptyDraft('testland', 'test-city', 'compact');
-assert.equal('media' in fresh.cityData, false, 'new City drafts must use hero.media only');
-assert.deepEqual(Object.keys(fresh.cityData.hero.media), ['photos'], 'new City Hero data must only own photos');"""
-          assert old in text, 'city-media test prelude changed unexpectedly'
-          text = text.replace(old, new, 1)
-          old2 = "assert.ok(draft.cityData.hero.media.photos.length > 0, 'Don Det Hero media remains canonical');"
-          new2 = """assert.ok(draft.cityData.hero.media.photos.length > 0, 'Don Det Hero photo media remains canonical');
-assert.equal('stamps' in draft.cityData.hero.media, false, 'Don Det stamp comes from the global asset resolver');
-assert.equal('drawings' in draft.cityData.hero.media, false, 'Don Det drawing comes from the global asset resolver');"""
-          assert old2 in text, 'city-media Don Det assertion changed unexpectedly'
-          tests.write_text(text.replace(old2, new2, 1), encoding='utf-8')
-
-          # 7) Remove obsolete fields from every versioned city draft.
-          for path in (root / 'pipeline' / 'cities').rglob('*.json'):
-            draft = json.loads(path.read_text(encoding='utf-8'))
-            media = draft.get('cityData', {}).get('hero', {}).get('media', {})
-            media.pop('stamps', None)
-            media.pop('drawings', None)
-            path.write_text(json.dumps(draft, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-
-          # 8) Document the collision-safe convention.
-          docs = Path('docs/ASSETS.md')
-          text = docs.read_text(encoding='utf-8')
-          text = text.replace('public/assets/cities/<city-slug>/', 'public/assets/cities/<country-slug>/<city-slug>/')
-          text = text.replace('public/assets/cities/<city-slug>/hero/', 'public/assets/cities/<country-slug>/<city-slug>/hero/')
-          text = text.replace('public/assets/cities/<city-slug>/hero/drawings/<city-slug>-hero-drawing.webp', 'public/assets/cities/<country-slug>/<city-slug>/hero/drawings/<city-slug>-hero-drawing.webp')
-          text = text.replace('public/assets/cities/<city-slug>/hero/stamps/<city-slug>-hero-stamp.webp', 'public/assets/cities/<country-slug>/<city-slug>/hero/stamps/<city-slug>-hero-stamp.webp')
-          marker = 'Drawings and stamps are city-specific.'
-          if marker in text and 'Country scope prevents slug collisions' not in text:
-            text = text.replace(marker, 'Country scope prevents slug collisions between destinations in different countries.\n\n' + marker, 1)
-          docs.write_text(text, encoding='utf-8')
-          PY
-
-      - name: Regenerate generated city modules from cleaned drafts
-        shell: bash
-        run: |
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          import path from 'node:path';
-          import { tsModule } from './scripts/lib/city-pipeline.mjs';
-
-          const root = process.cwd();
-          const draftsRoot = path.join(root, 'pipeline', 'cities');
-          const files = fs.readdirSync(draftsRoot, { recursive: true }).map(String).filter((file) => file.endsWith('.json'));
-          for (const relative of files) {
-            const draft = JSON.parse(fs.readFileSync(path.join(draftsRoot, relative), 'utf8'));
-            const output = path.join(root, 'src', 'content', 'generated', draft.country, `${draft.city}.ts`);
-            fs.mkdirSync(path.dirname(output), { recursive: true });
-            fs.writeFileSync(output, tsModule(draft));
-          }
-          NODE
-          node scripts/regenerate-content-registry.mjs
-
-      - name: Remove obsolete Don Det Hero demo assets
-        shell: bash
-        run: |
-          git rm -f public/media/don-det/stamp.svg public/media/don-det/drawing.svg
+      - name: Regenerate content registry
+        run: node scripts/regenerate-content-registry.mjs
 
       - name: Validate architecture and build
-        shell: bash
         run: |
           npm run check
           npm run build
@@ -182,10 +39,13 @@ assert.equal('drawings' in draft.cityData.hero.media, false, 'Don Det drawing co
           npm run validate-content
           npm run test:city-media
 
-      - name: Commit migration
-        shell: bash
+      - name: Remove one-time migration tooling
         run: |
-          set -euo pipefail
+          rm -f scripts/migrate-city-hero-contract.mjs
+          rm -f .github/workflows/migrate-city-hero-contract.yml
+
+      - name: Commit migration
+        run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
