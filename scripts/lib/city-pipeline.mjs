@@ -19,7 +19,7 @@ export function categoryTargets(profile, seed) {
 }
 export function emptyDraft(country, city, profile) {
   const name = city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
-  return { schemaVersion: 1, country, city, profile, generatedAt: null, manualLocks: {}, cityData: {
+  return { schemaVersion: 1, country, city, profile, generatedAt: null, cityData: {
     id: `city-${city}`, slug: city, name, country, profile, coordinates: { latitude: 0, longitude: 0 }, description: '',
     categories: PROFILE_CATEGORIES, categoryTargets: categoryTargets(profile, `${country}/${city}`),
     hero: { eyebrow: country, title: name, subtitle: '', facts: [], media: { stamps: [], drawings: [], photos: [] } },
@@ -27,7 +27,8 @@ export function emptyDraft(country, city, profile) {
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },
   }, places: [], things: [] };
 }
-export function isManualLocked(record, field) { const lock = record?.manualLocks?.[field]; return lock?.source === 'manual' && lock?.locked === true; }
+export function getManualLock(record, fieldPath) { return record?.manualLocks?.[fieldPath]; }
+export function isManualLocked(record, fieldPath) { const lock = getManualLock(record, fieldPath); return lock?.source === 'manual' && lock?.locked === true; }
 export function assignUnlocked(record, field, value) { if (!isManualLocked(record, field)) record[field] = value; }
 export function validateSource(source) {
   const url = (source.sourceUrl ?? '').toLowerCase();

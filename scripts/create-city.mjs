@@ -21,6 +21,5 @@ if (!dryRun) {
   const draft = emptyDraft(country, city, profile);
   fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`); fs.writeFileSync(moduleFile, tsModule(draft));
   await import('./regenerate-content-registry.mjs');
-  const countryText = fs.readFileSync(countryFile, 'utf8');
-  fs.writeFileSync(countryFile, countryText.replace(/cities:\[([^\]]*)\]/, (_match, entries) => `cities:[${entries}${entries.trim() ? ',' : ''}'${city}']`));
+  // Country-to-city membership is derived from generated city modules by the City Registry.
 }

@@ -13,7 +13,7 @@ const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
 const country = getCountry(Astro.params.country ?? '');
 const category = Astro.params.category as CategorySlug;
 if (!city || !city.categories.includes(category)) return Astro.redirect('/');
-const entities = getCategoryEntities(city.slug, category);
+const entities = getCategoryEntities(city, category);
 const title = category.replaceAll('-', ' ');
 const seo = { title:`${title} in ${city.name} | Things To Do Atlas`, description:`Editorial ${title} guide for ${city.name}.`, canonicalPath:categoryPath(city,category), indexable:true };
 ---
