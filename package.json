@@ -13,8 +13,9 @@
     "architecture-check": "node scripts/architecture-check.mjs",
     "validate-content": "node scripts/validate-generated-data.mjs",
     "test:manual-locks": "node scripts/manual-lock-tests.mjs",
-    "test:favorites": "node scripts/favorites-store-tests.mjs"
-    ,"regenerate-registry": "node scripts/regenerate-content-registry.mjs"
+    "test:favorites": "node scripts/favorites-store-tests.mjs",
+    "test:favorites-scalability": "node scripts/favorites-scalability-tests.mjs",
+    "regenerate-registry": "node scripts/regenerate-content-registry.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

@@ -1,8 +1,1 @@
----
-import { places } from '../../content/registry/places';
-import { things } from '../../content/registry/things-to-do';
-import { getCity } from '../../engines/city/city-engine';
-import PlaceCard from '../cards/PlaceCard.astro';
-import ThingToDoCard from '../cards/ThingToDoCard.astro';
----
-<section aria-labelledby="favorites-title"><h2 id="favorites-title">My Favorites</h2><p data-favorites-empty>No saved places yet. Favorites remain available in every city.</p><div class="cards" data-favorites-panel>{places.map((place) => <div data-favorite-item data-favorite-key={`${place.country}:${place.city}:${place.id}`} hidden><PlaceCard {place} showDestination /></div>)}{things.map((thing) => { const city = getCity(thing.country, thing.city); return city && <div data-favorite-item data-favorite-key={`${thing.country}:${thing.city}:${thing.id}`} hidden><ThingToDoCard {city} {thing} showDestination /></div>; })}</div></section>
+<section aria-labelledby="favorites-title"><h2 id="favorites-title">My Favorites</h2><p data-favorites-empty>No saved places yet. Favorites remain available in every city.</p><div class="cards" data-favorites-panel></div></section>
