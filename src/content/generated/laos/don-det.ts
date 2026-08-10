@@ -100,11 +100,6 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos",
       "shortDescription": "A practical seed record validating the shared Place card and Maps action.",
       "media": {
-        "hero": {
-          "stamps": [],
-          "drawings": [],
-          "photos": []
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -133,11 +128,6 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Guesthouse+Don+Det+Laos",
       "shortDescription": "A compact accommodation data record for the shared practical-place flow.",
       "media": {
-        "hero": {
-          "stamps": [],
-          "drawings": [],
-          "photos": []
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -168,11 +158,6 @@ const data = {
       "longDescription": "Li Phi Falls is a core Don Det landmark.",
       "isLandmark": true,
       "media": {
-        "hero": {
-          "stamps": [],
-          "drawings": [],
-          "photos": []
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -214,11 +199,6 @@ const data = {
       "longDescription": "Old French Railway Bridge is included in this Atlas draft from independently recorded traveller facts.",
       "isLandmark": true,
       "media": {
-        "hero": {
-          "stamps": [],
-          "drawings": [],
-          "photos": []
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -279,11 +259,6 @@ const data = {
       "longDescription": "A nature-focused landmark in the southern island landscape.",
       "isLandmark": true,
       "media": {
-        "hero": {
-          "stamps": [],
-          "drawings": [],
-          "photos": []
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -323,11 +298,6 @@ const data = {
       },
       "shortDescription": "Li Phi Waterfalls is included in this Atlas draft from independently recorded traveller facts.",
       "media": {
-        "hero": {
-          "stamps": [],
-          "drawings": [],
-          "photos": []
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -402,11 +372,6 @@ const data = {
       },
       "shortDescription": "Mekong Sunset Walk is included in this Atlas draft from independently recorded traveller facts.",
       "media": {
-        "hero": {
-          "stamps": [],
-          "drawings": [],
-          "photos": []
-        },
         "fieldCard": {
           "gallery": []
         }
