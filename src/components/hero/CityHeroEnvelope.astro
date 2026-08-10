@@ -1,5 +1,9 @@
-<div class="city-hero-envelope" aria-hidden="true">
-  <img class="city-hero-envelope__base" src="/assets/shared/hero/envelope/city-hero-envelope.svg" alt="" />
+---
+const envelopeSource = 'https://raw.githubusercontent.com/cedricperformanceth-glitch/thingstodoatlas/master/calque%20SVG/airmail-postcard-template.webp';
+---
+
+<div class="city-hero-envelope" aria-hidden="true" style={`--city-hero-envelope-source: url("${envelopeSource}")`}>
+  <span class="city-hero-envelope__base"></span>
   <img class="city-hero-envelope__air-mail" src="/assets/shared/hero/postmarks/air-mail-par-avion.webp" alt="" />
 </div>
 
@@ -19,9 +23,7 @@
     position: absolute;
     inset: 0;
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
+    background: transparent var(--city-hero-envelope-source) center / 100% 100% no-repeat;
     pointer-events: none;
   }
 
