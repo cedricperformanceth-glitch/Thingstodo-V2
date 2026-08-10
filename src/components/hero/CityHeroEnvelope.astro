@@ -1,28 +1,30 @@
 ---
 import type { CityHeroDisplayFact } from '../../engines/hero/hero-facts';
+import type { CityHeroPartner } from '../../engines/hero/hero-partners';
 
 interface Props {
   stampSrc: string;
   photoSrc: string;
   facts: CityHeroDisplayFact[];
+  partners: readonly CityHeroPartner[];
   cityName: string;
   messageLines: string[];
 }
 
-const { stampSrc, photoSrc, facts, cityName, messageLines } = Astro.props;
+const { stampSrc, photoSrc, facts, partners, cityName, messageLines } = Astro.props;
 const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.webp';
 ---
 
-<div class="city-hero-envelope" aria-hidden="true" style={`--city-hero-envelope-source: url("${envelopeSource}")`}>
-  <span class="city-hero-envelope__base"></span>
+<div class="city-hero-envelope" style={`--city-hero-envelope-source: url("${envelopeSource}")`}>
+  <span class="city-hero-envelope__base" aria-hidden="true"></span>
 
   <div class="city-hero-envelope__media-frame">
     <div class="city-hero-envelope__media">
-      <figure class="city-hero-envelope__photo">
+      <figure class="city-hero-envelope__photo" aria-hidden="true">
         <img src={photoSrc} alt="" width="1600" height="1100" fetchpriority="high" />
       </figure>
 
-      <div class="city-hero-envelope__facts">
+      <div class="city-hero-envelope__facts" aria-hidden="true">
         {facts.map((fact) => (
           <span>
             {fact.icon === 'calendar' && (
@@ -41,18 +43,40 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
           </span>
         ))}
       </div>
+
+      <div class="city-hero-envelope__partners">
+        {partners.length > 0 && (
+          <>
+            <span class="city-hero-envelope__partners-label">Partner with</span>
+            <div class="city-hero-envelope__partner-links">
+              {partners.map((partner) => (
+                <a
+                  class="city-hero-envelope__partner-link"
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open partner site ${partner.label}`}
+                >
+                  <span>{partner.label}</span>
+                  <b aria-hidden="true">↗</b>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   </div>
 
-  <div class="city-hero-envelope__message-frame">
+  <div class="city-hero-envelope__message-frame" aria-hidden="true">
     <span class="city-hero-envelope__city-name">{cityName}</span>
     <p class="city-hero-envelope__description">
       {messageLines.map((line) => <span>{line}</span>)}
     </p>
   </div>
 
-  <img class="city-hero-envelope__city-stamp" src={stampSrc} alt="" />
-  <img class="city-hero-envelope__air-mail" src="/assets/shared/hero/postmarks/air-mail-par-avion.webp" alt="" />
+  <img class="city-hero-envelope__city-stamp" src={stampSrc} alt="" aria-hidden="true" />
+  <img class="city-hero-envelope__air-mail" src="/assets/shared/hero/postmarks/air-mail-par-avion.webp" alt="" aria-hidden="true" />
 </div>
 
 <style>
@@ -153,6 +177,89 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
   }
 
   /*
+   * The partnership slot is structural and always reserves the same space.
+   * Partner content is optional, manually supplied per destination, and capped at two.
+   */
+  .city-hero-envelope__partners {
+    width: calc(100% - .35rem);
+    height: 5.1rem;
+    margin: .95rem 0 0 .2rem;
+    pointer-events: auto;
+  }
+
+  .city-hero-envelope__partners-label {
+    display: block;
+    margin: 0 0 .32rem .04rem;
+    color: rgba(31, 57, 45, .58);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: .92rem;
+    line-height: 1;
+    transform: rotate(-.65deg);
+    transform-origin: left center;
+  }
+
+  .city-hero-envelope__partner-links {
+    display: grid;
+    gap: .3rem;
+    width: min(19rem, 100%);
+  }
+
+  .city-hero-envelope__partner-link {
+    position: relative;
+    display: block;
+    min-width: 0;
+    padding: .08rem 1.25rem .22rem .05rem;
+    border-bottom: 1px solid rgba(49, 85, 69, .45);
+    color: #315545;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: .86rem;
+    font-weight: 600;
+    line-height: 1.05;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color .15s ease, border-color .15s ease;
+  }
+
+  .city-hero-envelope__partner-link::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: .62rem;
+    border-right: 1px solid rgba(49, 85, 69, .45);
+  }
+
+  .city-hero-envelope__partner-link span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .city-hero-envelope__partner-link b {
+    position: absolute;
+    right: -.03rem;
+    bottom: .43rem;
+    z-index: 1;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: .88rem;
+    font-weight: 400;
+    line-height: 1;
+    transform: translate(38%, -10%);
+  }
+
+  .city-hero-envelope__partner-link:hover,
+  .city-hero-envelope__partner-link:focus-visible {
+    border-color: #b76645;
+    color: #8a4d36;
+    outline: none;
+  }
+
+  .city-hero-envelope__partner-link:hover::after,
+  .city-hero-envelope__partner-link:focus-visible::after {
+    border-color: #b76645;
+  }
+
+  /*
    * The original V1 postcard rendered its content on a 166.667% surface
    * scaled back to 60%. Reproducing that coordinate system here lets the
    * handwritten copy use the original line metrics without visual guesswork.
@@ -239,6 +346,9 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
     .city-hero-envelope__photo img { height: 16.2rem; }
     .city-hero-envelope__facts { font-size: 1rem; }
     .city-hero-envelope__facts svg { width: 1.05rem; height: 1.05rem; }
+    .city-hero-envelope__partners { height: 4.55rem; margin-top: .75rem; }
+    .city-hero-envelope__partners-label { font-size: .78rem; }
+    .city-hero-envelope__partner-link { font-size: .74rem; }
 
     .city-hero-envelope__message-frame {
       --message-scale: .8;
@@ -264,6 +374,9 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
     .city-hero-envelope__photo img { height: 13rem; }
     .city-hero-envelope__facts { gap: .48rem .72rem; margin-top: .65rem; font-size: .96rem; }
     .city-hero-envelope__facts svg { width: 1.05rem; height: 1.05rem; }
+    .city-hero-envelope__partners { height: 4.5rem; margin-top: .72rem; }
+    .city-hero-envelope__partners-label { font-size: .78rem; }
+    .city-hero-envelope__partner-link { font-size: .76rem; }
 
     .city-hero-envelope__message-frame {
       --message-scale: .6;
