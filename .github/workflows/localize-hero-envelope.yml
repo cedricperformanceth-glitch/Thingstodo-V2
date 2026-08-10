@@ -1,0 +1,55 @@
+name: Localize shared hero envelope
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/localize-hero-envelope.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  localize-envelope:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out V2
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Copy the exact V1 envelope into V2
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/shared/hero/envelope
+          curl --fail --location --retry 3 \
+            'https://raw.githubusercontent.com/cedricperformanceth-glitch/thingstodoatlas/master/calque%20SVG/airmail-postcard-template.webp' \
+            --output public/assets/shared/hero/envelope/airmail-postcard-template.webp
+          test -s public/assets/shared/hero/envelope/airmail-postcard-template.webp
+
+      - name: Point CityHeroEnvelope at the local shared asset
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/components/hero/CityHeroEnvelope.astro')
+          text = path.read_text()
+          remote = "https://raw.githubusercontent.com/cedricperformanceth-glitch/thingstodoatlas/master/calque%20SVG/airmail-postcard-template.webp"
+          local = "/assets/shared/hero/envelope/airmail-postcard-template.webp"
+          if remote not in text:
+              raise SystemExit('Expected V1 envelope URL not found in CityHeroEnvelope.astro')
+          path.write_text(text.replace(remote, local))
+          PY
+
+      - name: Commit localized asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/shared/hero/envelope/airmail-postcard-template.webp src/components/hero/CityHeroEnvelope.astro
+          git diff --cached --quiet && exit 0
+          git commit -m 'Use local shared hero envelope asset'
+          git push origin HEAD:master
