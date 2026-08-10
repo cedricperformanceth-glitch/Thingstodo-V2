@@ -6,5 +6,8 @@ for (const draft of drafts) {
   if ('media' in draft.cityData) fail.push(`Duplicate City media manifest: ${draft.country}/${draft.city}`);
   const heroMedia = draft.cityData.hero?.media ?? {};
   if ('stamps' in heroMedia || 'drawings' in heroMedia) fail.push(`City Hero stamp/drawing media must come from the asset resolver: ${draft.country}/${draft.city}`);
+  for (const entity of [...draft.places, ...draft.things]) {
+    if (entity.media?.hero) fail.push(`Place/ThingToDo media must not contain Hero media: ${draft.country}/${draft.city}/${entity.slug}`);
+  }
 }
 if(fail.length) throw new Error(fail.join('\n')); console.log('Generated Atlas data validation passed.');
