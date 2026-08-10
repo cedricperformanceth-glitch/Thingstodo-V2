@@ -2,12 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { assignUnlocked, chooseFieldCardTemplate, selectExploreBoard, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 
-const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run');
+const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run'); const fromCity = flags.includes('--from-city');
 if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run]');
 const root = process.cwd(); const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`); const sourceFile = path.join(root, 'pipeline', 'sources', country, `${city}.json`);
 if (!fs.existsSync(draftFile)) throw new Error(`No structural draft for ${country}/${city}. Run create-city first.`);
-if (!fs.existsSync(sourceFile)) throw new Error(`No versioned research inputs at ${path.relative(root, sourceFile)}.`);
-const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8')); const input = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+if (!fromCity && !fs.existsSync(sourceFile)) throw new Error(`No versioned research inputs at ${path.relative(root, sourceFile)}.`);
+const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8')); const input = fromCity ? { places: draft.places, things: draft.things, city: draft.cityData } : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
 for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) for (const source of candidate.sources ?? []) validateSource(source);
 const things = (input.things ?? []).map((candidate) => normalizeThing(candidate, draft));
 const places = (input.places ?? []).map((candidate) => normalizePlace(candidate, draft));
@@ -31,6 +31,7 @@ assignUnlocked(draft.cityData.exploreBoard, 'featuredThingIds', selectExploreBoa
 draft.generatedAt = new Date().toISOString();
 fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`);
 fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city}.ts`), tsModule(draft));
+await import('./regenerate-content-registry.mjs');
 console.log(`Generated static versioned content for ${country}/${city}.`);
 
 function generatedSources(candidate) { return (candidate.sources ?? []).map(({ sourceName, sourceUrl, purpose, sourceType }) => ({ sourceName, sourceUrl, purpose, sourceType })); }

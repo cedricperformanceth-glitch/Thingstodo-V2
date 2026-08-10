@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "create-city": "node scripts/create-city.mjs",
     "generate-city": "node scripts/generate-city.mjs",
-    "architecture-check": "node scripts/architecture-check.mjs"
+    "architecture-check": "node scripts/architecture-check.mjs",
+    "validate-content": "node scripts/validate-generated-data.mjs"
     ,"regenerate-registry": "node scripts/regenerate-content-registry.mjs"
   },
   "devDependencies": {
