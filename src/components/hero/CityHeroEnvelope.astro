@@ -16,7 +16,6 @@ const envelopeSource = 'https://raw.githubusercontent.com/cedricperformanceth-gl
     position: relative;
     width: 100%;
     aspect-ratio: 2.15 / 1;
-    isolation: isolate;
   }
 
   .city-hero-envelope__base {
@@ -25,6 +24,7 @@ const envelopeSource = 'https://raw.githubusercontent.com/cedricperformanceth-gl
     display: block;
     background: transparent var(--city-hero-envelope-source) center / 100% 100% no-repeat;
     pointer-events: none;
+    mix-blend-mode: multiply;
   }
 
   .city-hero-envelope__air-mail {
