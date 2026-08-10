@@ -17,14 +17,9 @@ if (dryRun) { console.log('[dry-run] Source contract is valid; no Atlas content 
 // Generation deliberately fills only gaps. Source adapters can provide independently verified facts;
 // they must never supply prose copied from a competing guide platform.
 const cityInput = structuredClone(input.city ?? {});
-if (cityInput?.hero?.media) {
-  delete cityInput.hero.media.stamps;
-  delete cityInput.hero.media.drawings;
-}
+if (cityInput?.hero?.media) delete cityInput.hero.media;
 mergeGenerated(draft.cityData, cityInput);
-draft.cityData.hero.media ??= { photos: [] };
-delete draft.cityData.hero.media.stamps;
-delete draft.cityData.hero.media.drawings;
+if (draft.cityData.hero?.media) delete draft.cityData.hero.media;
 for (const candidate of things) {
   const existing = draft.things.find((thing) => thing.id === candidate.id); const target = existing ? mergeGenerated(existing, candidate) : candidate;
   if (!existing) draft.things.push(target);

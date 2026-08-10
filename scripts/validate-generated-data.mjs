@@ -4,8 +4,7 @@ const fail=[]; const unique=(items,key,label)=>{const seen=new Set(); for(const 
 unique(drafts,x=>x.cityData.id,'city ID'); unique(drafts,x=>`${x.country}/${x.city}`,'city route'); unique(drafts.flatMap(x=>x.places),x=>x.id,'Place ID'); unique(drafts.flatMap(x=>x.things),x=>x.id,'ThingToDo ID'); unique(drafts.flatMap(x=>x.places),x=>`${x.country}/${x.city}/${x.slug}`,'Place route slug'); unique(drafts.flatMap(x=>x.things),x=>`${x.country}/${x.city}/${x.slug}`,'ThingToDo route slug');
 for (const draft of drafts) {
   if ('media' in draft.cityData) fail.push(`Duplicate City media manifest: ${draft.country}/${draft.city}`);
-  const heroMedia = draft.cityData.hero?.media ?? {};
-  if ('stamps' in heroMedia || 'drawings' in heroMedia) fail.push(`City Hero stamp/drawing media must come from the asset resolver: ${draft.country}/${draft.city}`);
+  if (draft.cityData.hero?.media) fail.push(`City Hero visual media must come from the asset resolver: ${draft.country}/${draft.city}`);
   for (const entity of [...draft.places, ...draft.things]) {
     if (entity.media?.hero) fail.push(`Place/ThingToDo media must not contain Hero media: ${draft.country}/${draft.city}/${entity.slug}`);
   }

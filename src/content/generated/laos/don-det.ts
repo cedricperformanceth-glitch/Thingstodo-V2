@@ -47,20 +47,7 @@ const data = {
           "label": "Profile",
           "value": "Compact city"
         }
-      ],
-      "media": {
-        "photos": [
-          {
-            "id": "don-det-river",
-            "src": "/media/don-det/river.svg",
-            "alt": "Sunset colours over the Mekong at Don Det",
-            "sourceType": "manual",
-            "sourceName": "Things To Do Atlas V2",
-            "manual": true,
-            "locked": true
-          }
-        ]
-      }
+      ]
     },
     "exploreBoard": {
       "landmarkLimit": 3,
@@ -70,13 +57,7 @@ const data = {
         "thing-li-phi-waterfalls"
       ]
     },
-    "manualLocks": {
-      "hero.media.photos": {
-        "value": "manual Atlas river artwork",
-        "source": "manual",
-        "locked": true
-      }
-    },
+    "manualLocks": {},
     "seo": {
       "title": "Don Det travel guide | Things To Do Atlas",
       "description": "Independent Don Det travel guide.",
@@ -108,7 +89,7 @@ const data = {
       "selectionRank": 1,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:02:33.877Z"
+        "reviewedAt": "2026-08-10T15:18:32.959Z"
       },
       "manualLocks": {},
       "researchSources": []
@@ -135,7 +116,7 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:02:33.877Z"
+        "reviewedAt": "2026-08-10T15:18:32.959Z"
       },
       "manualLocks": {},
       "researchSources": []
@@ -166,7 +147,7 @@ const data = {
       "selectionRank": 1,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:02:33.876Z"
+        "reviewedAt": "2026-08-10T15:18:32.958Z"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -206,7 +187,7 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:14:47.183Z"
+        "reviewedAt": "2026-08-10T15:18:32.958Z"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -220,28 +201,9 @@ const data = {
         "practical": "",
         "access": "",
         "faq": [],
-        "sections": [
-          {
-            "title": "overview",
-            "body": ""
-          },
-          {
-            "title": "howToGetThere",
-            "body": ""
-          },
-          {
-            "title": "practicalInformation",
-            "body": ""
-          }
-        ]
+        "sections": []
       },
-      "researchSources": [
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
+      "researchSources": [],
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old%20French%20Railway%20Bridge"
     },
     {
@@ -266,7 +228,7 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:02:33.877Z"
+        "reviewedAt": "2026-08-10T15:18:32.958Z"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -305,21 +267,9 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:14:47.181Z"
+        "reviewedAt": "2026-08-10T15:18:32.958Z"
       },
-      "researchSources": [
-        {
-          "sourceName": "Wikimedia Commons",
-          "sourceUrl": "https://commons.wikimedia.org/",
-          "purpose": "media",
-          "sourceType": "wikimedia"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
+      "researchSources": [],
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Li%20Phi%20Waterfalls",
       "isLandmark": true,
@@ -330,33 +280,12 @@ const data = {
         "things-to-do"
       ],
       "fieldCard": {
-        "template": "deep",
+        "template": "compact",
         "whyGo": "",
         "practical": "",
         "access": "",
         "faq": [],
-        "sections": [
-          {
-            "title": "overview",
-            "body": ""
-          },
-          {
-            "title": "whyGo",
-            "body": ""
-          },
-          {
-            "title": "whatToExpect",
-            "body": ""
-          },
-          {
-            "title": "howToGetThere",
-            "body": ""
-          },
-          {
-            "title": "practicalInformation",
-            "body": ""
-          }
-        ]
+        "sections": []
       }
     },
     {
@@ -379,14 +308,9 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-10T05:14:47.183Z"
+        "reviewedAt": "2026-08-10T15:18:32.958Z"
       },
-      "researchSources": [
-        {
-          "sourceName": "Local route notes",
-          "purpose": "facts"
-        }
-      ],
+      "researchSources": [],
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Sunset%20Walk",
       "isLandmark": true,
@@ -402,20 +326,7 @@ const data = {
         "practical": "",
         "access": "",
         "faq": [],
-        "sections": [
-          {
-            "title": "overview",
-            "body": ""
-          },
-          {
-            "title": "bestTime",
-            "body": ""
-          },
-          {
-            "title": "localNotes",
-            "body": ""
-          }
-        ]
+        "sections": []
       }
     }
   ]
