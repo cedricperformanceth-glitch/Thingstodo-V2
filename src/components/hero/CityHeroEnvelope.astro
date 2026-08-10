@@ -1,14 +1,24 @@
 ---
 interface Props {
   stampSrc: string;
+  cityName: string;
+  messageLines: string[];
 }
 
-const { stampSrc } = Astro.props;
+const { stampSrc, cityName, messageLines } = Astro.props;
 const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.webp';
 ---
 
 <div class="city-hero-envelope" aria-hidden="true" style={`--city-hero-envelope-source: url("${envelopeSource}")`}>
   <span class="city-hero-envelope__base"></span>
+
+  <div class="city-hero-envelope__message-frame">
+    <span class="city-hero-envelope__city-name">{cityName}</span>
+    <p class="city-hero-envelope__description">
+      {messageLines.map((line) => <span>{line}</span>)}
+    </p>
+  </div>
+
   <img class="city-hero-envelope__city-stamp" src={stampSrc} alt="" />
   <img class="city-hero-envelope__air-mail" src="/assets/shared/hero/postmarks/air-mail-par-avion.webp" alt="" />
 </div>
@@ -29,6 +39,61 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
     background: transparent var(--city-hero-envelope-source) center / 100% 100% no-repeat;
     pointer-events: none;
     clip-path: inset(7% 3.4% 6.8% 3.4%);
+  }
+
+  /*
+   * The original V1 postcard rendered its content on a 166.667% surface
+   * scaled back to 60%. Reproducing that coordinate system here lets the
+   * handwritten copy use the original line metrics without visual guesswork.
+   */
+  .city-hero-envelope__message-frame {
+    --message-scale: .6;
+    --message-size: 166.667%;
+    --envelope-line-gap: 3.42rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: var(--message-size);
+    height: var(--message-size);
+    pointer-events: none;
+    transform: scale(var(--message-scale));
+    transform-origin: top left;
+  }
+
+  .city-hero-envelope__city-name {
+    position: absolute;
+    top: calc(46.5% + .19rem);
+    left: var(--envelope-rule-start);
+    margin: 0;
+    color: #315545;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: 3.58rem;
+    font-weight: 600;
+    letter-spacing: -.035em;
+    line-height: var(--envelope-line-gap);
+    white-space: nowrap;
+    transform: translateY(-.28rem) rotate(-.8deg);
+  }
+
+  .city-hero-envelope__description {
+    position: absolute;
+    top: calc(46.5% + .95rem + var(--envelope-line-gap));
+    left: var(--envelope-rule-start);
+    width: calc(96% - var(--envelope-rule-start));
+    margin: 0;
+    color: #3f4943;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: 1.11rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: var(--envelope-line-gap);
+    transform: translateY(-.22rem) rotate(-.25deg);
+  }
+
+  .city-hero-envelope__description span {
+    display: block;
+    white-space: nowrap;
   }
 
   .city-hero-envelope__city-stamp {
@@ -60,7 +125,42 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
     transform-origin: center;
   }
 
+  @media (max-width: 980px) and (min-width: 761px) {
+    .city-hero-envelope__message-frame {
+      --message-scale: .8;
+      --message-size: 125%;
+      --envelope-line-gap: 3.28rem;
+    }
+
+    .city-hero-envelope__city-name {
+      font-size: 3.42rem;
+    }
+
+    .city-hero-envelope__description {
+      top: calc(46.5% + .74rem + var(--envelope-line-gap));
+      font-size: 1.08rem;
+    }
+  }
+
   @media (max-width: 760px) {
+    .city-hero-envelope__message-frame {
+      --message-scale: .6;
+      --message-size: 166.667%;
+      --envelope-line-gap: 2.72rem;
+    }
+
+    .city-hero-envelope__city-name {
+      top: calc(46.5% + .1rem);
+      font-size: 2.35rem;
+      line-height: var(--envelope-line-gap);
+    }
+
+    .city-hero-envelope__description {
+      top: calc(46.5% + .45rem + var(--envelope-line-gap));
+      font-size: .88rem;
+      line-height: var(--envelope-line-gap);
+    }
+
     .city-hero-envelope__air-mail {
       top: calc(26% - 28px);
       right: 23%;
