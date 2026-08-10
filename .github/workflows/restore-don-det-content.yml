@@ -1,0 +1,54 @@
+name: Restore Don Det content
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/restore-don-det-content.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Restore prior Don Det content and keep new Hero ownership
+        run: |
+          git show e876dc20c8c6e84101e7c5285c230b9299430705:pipeline/cities/laos/don-det.json > /tmp/don-det-before-hero.json
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { tsModule } from './scripts/lib/city-pipeline.mjs';
+          const draft = JSON.parse(fs.readFileSync('/tmp/don-det-before-hero.json', 'utf8'));
+          delete draft.cityData.hero.media;
+          delete draft.cityData.manualLocks['hero.media.photos'];
+          fs.writeFileSync('pipeline/cities/laos/don-det.json', `${JSON.stringify(draft, null, 2)}\n`);
+          fs.writeFileSync('src/content/generated/laos/don-det.ts', tsModule(draft));
+          NODE
+      - name: Validate
+        run: |
+          npm run check
+          npm run build
+          npm run architecture-check
+          npm run validate-content
+          npm run test:city-media
+          git diff --check
+      - name: Remove temporary workflow and commit
+        run: |
+          rm -f .github/workflows/restore-don-det-content.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'Preserve Don Det content during Hero migration'
+          git push origin HEAD:master
