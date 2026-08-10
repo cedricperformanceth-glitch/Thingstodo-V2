@@ -7,8 +7,9 @@ interface Props { city: City; thing: ThingToDo; }
 const { city, thing } = Astro.props;
 ---
 <article class:list={['card', { selection: thing.isMySelection }]}>
+  {thing.media.card?.image && <img src={thing.media.card.image.src} alt={thing.media.card.image.alt} loading="lazy" width="640" height="400" />}
   {thing.isMySelection && <p class="eyebrow">My Selection</p>}
   <h3>{thing.name}</h3><p>{thing.shortDescription}</p>
   <div class="actions"><a class="button" href={thingPath(city, thing)}>Open Field Card</a>{thing.googleMapsUrl && <a class="button button--quiet" href={thing.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>}<TripButton entity={thing} /><FavoriteButton entity={thing} /></div>
 </article>
-<style>.card{border:1px solid var(--line);padding:1rem;border-radius:.5rem}.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.5rem}</style>
+<style>.card{border:1px solid var(--line);padding:1rem;border-radius:.5rem}.card img{width:100%;aspect-ratio:1.6;object-fit:cover}.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.5rem}</style>

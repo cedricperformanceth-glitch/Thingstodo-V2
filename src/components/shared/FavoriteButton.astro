@@ -1,5 +1,5 @@
 ---
-interface Props { entity: { id:string; slug:string; name:string }; }
+interface Props { entity: { id:string; slug:string; name:string; city:string; country:string; shortDescription:string }; }
 const { entity } = Astro.props;
 ---
-<button class="button button--quiet" type="button" data-favorite data-entity-id={entity.id} data-entity-slug={entity.slug} data-entity-name={entity.name} aria-label={`Add ${entity.name} to Favorites`} aria-pressed="false">♡ Favorite</button>
+<button class="button button--quiet" type="button" data-favorite data-entity-id={entity.id} data-entity={JSON.stringify(entity)} aria-label={`Add ${entity.name} to Favorites`} aria-pressed="false">♡ Favorite</button>

@@ -3,8 +3,9 @@ import type { City } from '../../core/models/types';
 import { categoryPath } from '../../core/routing/paths';
 import CityHero from '../hero/CityHero.astro';
 import ExploreBoard from '../explore-board/ExploreBoard.astro';
+import FavoritesPanel from './FavoritesPanel.astro';
 interface Props { city: City; }
 const { city } = Astro.props;
 ---
-<CityHero city={city} /><section><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} categories`} class="categories">{city.categories.map((category) => <a href={categoryPath(city, category)}>{category.replaceAll('-', ' ')}</a>)}</nav></section><ExploreBoard city={city} />
+<CityHero city={city} /><section><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} categories`} class="categories">{city.categories.map((category) => <a href={categoryPath(city, category)}>{category.replaceAll('-', ' ')}</a>)}</nav></section><ExploreBoard city={city} /><FavoritesPanel />
 <style>.categories{display:flex;flex-wrap:wrap;gap:.75rem}.categories a{text-transform:capitalize}</style>

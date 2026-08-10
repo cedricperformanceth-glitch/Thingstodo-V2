@@ -2,7 +2,8 @@
 import type { City, ThingToDo } from '../../core/models/types';
 import { fieldCardView } from '../../engines/field-card/field-card-engine';
 import ThingToDoCard from '../cards/ThingToDoCard.astro';
+import AdSlot from '../shared/AdSlot.astro';
 interface Props { city: City; thing: ThingToDo; }
 const { city, thing } = Astro.props; const view = fieldCardView(thing);
 ---
-<article><p>{view.relatedLabel}</p><h1>{thing.name}</h1><p>{thing.longDescription}</p><ThingToDoCard city={city} thing={thing} /></article>
+<article class={`field-card field-card--${view.template}`}><p>{view.relatedLabel}</p><h1>{thing.name}</h1><p>{thing.longDescription}</p><section><h2>Why go</h2><p>{thing.fieldCard.whyGo}</p></section>{thing.fieldCard.sections?.map((section) => <section><h2>{section.title}</h2><p>{section.body}</p></section>)}<AdSlot slot={view.adSlots[0]!} /><section><h2>Practical information</h2><p>{thing.fieldCard.practical}</p></section><section><h2>How to get there</h2><p>{thing.fieldCard.access}</p></section>{thing.fieldCard.notes && <section><h2>Useful notes</h2><p>{thing.fieldCard.notes}</p></section>}<section><h2>FAQ</h2>{thing.fieldCard.faq.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section><ThingToDoCard city={city} thing={thing} /></article>
