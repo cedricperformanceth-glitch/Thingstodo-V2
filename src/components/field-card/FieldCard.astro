@@ -1,0 +1,8 @@
+---
+import type { City, ThingToDo } from '../../core/models/types';
+import { fieldCardView } from '../../engines/field-card/field-card-engine';
+import ThingToDoCard from '../cards/ThingToDoCard.astro';
+interface Props { city: City; thing: ThingToDo; }
+const { city, thing } = Astro.props; const view = fieldCardView(thing);
+---
+<article><p>{view.relatedLabel}</p><h1>{thing.name}</h1><p>{thing.longDescription}</p><ThingToDoCard city={city} thing={thing} /></article>

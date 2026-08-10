@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import PlaceCard from '../../../components/cards/PlaceCard.astro';
+import ThingToDoCard from '../../../components/cards/ThingToDoCard.astro';
+import MapPlaceholder from '../../../components/maps/MapPlaceholder.astro';
+import { getCities, getCity } from '../../../engines/city/city-engine';
+import { getCategoryEntities } from '../../../engines/category/category-engine';
+import { categoryPath, cityPath } from '../../../core/routing/paths';
+import type { CategorySlug, Place, ThingToDo } from '../../../core/models/types';
+export function getStaticPaths() { return getCities().flatMap((city) => city.categories.map((category) => ({ params:{country:city.country,city:city.slug,category} }))); }
+const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
+const category = Astro.params.category as CategorySlug;
+if (!city || !city.categories.includes(category)) return Astro.redirect('/');
+const entities = getCategoryEntities(city.slug, category);
+const title = category.replaceAll('-', ' ');
+const seo = { title:`${title} in ${city.name} | Things To Do Atlas`, description:`Editorial ${title} guide for ${city.name}.`, canonicalPath:categoryPath(city,category), indexable:true };
+---
+<BaseLayout {seo} breadcrumbs={[{name:'Home',path:'/'},{name:'Laos',path:'/laos'},{name:city.name,path:cityPath(city)},{name:title,path:categoryPath(city,category)}]}><h1 style="text-transform:capitalize">{title} in {city.name}</h1><MapPlaceholder {city} /><div class="grid">{category === 'things-to-do' ? (entities as ThingToDo[]).map((thing) => <ThingToDoCard {city} {thing} />) : (entities as Place[]).map((place) => <PlaceCard {place} />)}</div>{entities.length === 0 && <p>Editorial entries will be added here without changing this route.</p>}</BaseLayout>

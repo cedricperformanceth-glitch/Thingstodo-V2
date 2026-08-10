@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import CitySpa from '../../../components/spa/CitySpa.astro';
+import { getCities, getCity } from '../../../engines/city/city-engine';
+import { cityPath } from '../../../core/routing/paths';
+export function getStaticPaths() { return getCities().map((city) => ({ params:{country:city.country,city:city.slug} })); }
+const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
+if (!city) return Astro.redirect('/');
+---
+<BaseLayout seo={city.seo} breadcrumbs={[{name:'Home',path:'/'},{name:city.country.toUpperCase(),path:`/${city.country}`},{name:city.name,path:cityPath(city)}]}><CitySpa {city} /></BaseLayout>

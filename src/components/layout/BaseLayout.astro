@@ -1,0 +1,33 @@
+---
+import '../../core/design-system/tokens.css';
+import type { SeoMetadata } from '../../core/models/types';
+import { pageSeo } from '../../core/seo/metadata';
+interface Props { seo: SeoMetadata; breadcrumbs?: Array<{name:string;path:string}>; }
+const { seo, breadcrumbs = [] } = Astro.props;
+const meta = pageSeo(seo, breadcrumbs);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="canonical" href={meta.canonical} />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    {meta.image && <meta property="og:image" content={meta.image} />}
+    {!meta.indexable && <meta name="robots" content="noindex,nofollow" />}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.breadcrumbs)} />
+  </head>
+  <body>
+    <header><nav aria-label="Main navigation"><a href="/">Things To Do Atlas</a><a href="/laos">Laos</a></nav></header>
+    <main><slot /></main>
+    <footer>Independent editorial travel guide</footer>
+    <script>
+      import '../../features/favorites/client';
+      import '../../features/trip/client';
+    </script>
+  </body>
+</html>
+<style>header,footer{border-color:var(--line);border-style:solid;border-width:0 0 1px}nav{width:min(1120px,calc(100% - 2rem));margin:auto;padding:1rem 0;display:flex;justify-content:space-between}footer{border-width:1px 0 0;padding:1rem;text-align:center}</style>

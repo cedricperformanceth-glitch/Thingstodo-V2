@@ -1,0 +1,2 @@
+import { favoritesStore } from './store';
+document.addEventListener('click', (event) => { const button = (event.target as Element).closest<HTMLButtonElement>('[data-favorite]'); if (!button) return; favoritesStore.toggle({id:button.dataset.entityId ?? '',slug:button.dataset.entitySlug ?? '',name:button.dataset.entityName ?? ''}); button.setAttribute('aria-pressed', String(favoritesStore.has(button.dataset.entityId ?? ''))); });

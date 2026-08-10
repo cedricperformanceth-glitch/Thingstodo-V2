@@ -1,0 +1,8 @@
+---
+import type { City } from '../../core/models/types';
+import { getHero } from '../../engines/hero/hero-engine';
+interface Props { city: City; }
+const { city } = Astro.props; const hero = getHero(city);
+---
+<section class={`hero hero--${hero.profile}`} aria-labelledby="city-title"><p>{hero.eyebrow}</p><h1 id="city-title">{hero.title}</h1><p>{hero.subtitle}</p></section>
+<style>.hero{border:1px solid var(--line);padding:clamp(2rem,8vw,6rem) 1.5rem;background:linear-gradient(135deg,#e8e1cc,#fdfaf2)}.hero--compact{padding-block:3rem}.hero--large{padding-block:7rem}.hero p{max-width:55ch}</style>

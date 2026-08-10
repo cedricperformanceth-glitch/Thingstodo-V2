@@ -1,0 +1,13 @@
+---
+import type { Place } from '../../core/models/types';
+import FavoriteButton from '../shared/FavoriteButton.astro';
+import TripButton from '../shared/TripButton.astro';
+interface Props { place: Place; }
+const { place } = Astro.props;
+---
+<article class:list={['card', { selection: place.isMySelection }]}>
+  {place.isMySelection && <p class="eyebrow">My Selection</p>}
+  <h3>{place.name}</h3><p>{place.shortDescription}</p><p class="address">{place.address}</p>
+  <div class="actions"><a class="button" href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a><TripButton entity={place} /><FavoriteButton entity={place} /></div>
+</article>
+<style>.card{border:1px solid var(--line);padding:1rem;border-radius:.5rem}.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase}.address{font-size:.9rem}.actions{display:flex;flex-wrap:wrap;gap:.5rem}</style>

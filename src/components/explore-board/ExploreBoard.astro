@@ -1,0 +1,9 @@
+---
+import type { City, Place, ThingToDo } from '../../core/models/types';
+import { getExploreBoard } from '../../engines/explore-board/explore-board-engine';
+import PlaceCard from '../cards/PlaceCard.astro';
+import ThingToDoCard from '../cards/ThingToDoCard.astro';
+interface Props { city: City; }
+const { city } = Astro.props; const board = getExploreBoard(city) as { places: Place[]; things: ThingToDo[] };
+---
+<section aria-labelledby="explore-title"><h2 id="explore-title">Explore Board</h2><div class="grid">{board.places.map((place) => <PlaceCard place={place} />)}{board.things.map((thing) => <ThingToDoCard city={city} thing={thing} />)}</div></section>

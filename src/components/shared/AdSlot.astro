@@ -1,0 +1,6 @@
+---
+import type { AdSlot } from '../../core/ads/slots';
+interface Props { slot: AdSlot; }
+const { slot } = Astro.props;
+---
+<aside data-ad-slot={slot} aria-label="Reserved advertising space" hidden></aside>
