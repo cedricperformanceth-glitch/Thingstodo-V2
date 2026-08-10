@@ -79,8 +79,8 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
   .city-hero-envelope__description {
     position: absolute;
     top: calc(46.5% + 1.14rem + var(--envelope-line-gap));
-    left: var(--envelope-rule-start);
-    width: calc(96% - var(--envelope-rule-start));
+    left: calc(var(--envelope-rule-start) + .55em);
+    width: calc(96% - var(--envelope-rule-start) - .55em);
     margin: 0;
     color: #3f4943;
     font-family: 'Segoe Print', 'Bradley Hand', cursive;
