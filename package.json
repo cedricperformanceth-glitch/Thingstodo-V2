@@ -9,7 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "create-city": "node scripts/create-city.mjs",
-    "generate-city": "node scripts/generate-city.mjs"
+    "generate-city": "node scripts/generate-city.mjs",
+    "architecture-check": "node scripts/architecture-check.mjs"
+    ,"regenerate-registry": "node scripts/regenerate-content-registry.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

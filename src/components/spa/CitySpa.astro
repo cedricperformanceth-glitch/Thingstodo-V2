@@ -4,8 +4,11 @@ import { categoryPath } from '../../core/routing/paths';
 import CityHero from '../hero/CityHero.astro';
 import ExploreBoard from '../explore-board/ExploreBoard.astro';
 import FavoritesPanel from './FavoritesPanel.astro';
+import PlaceCard from '../cards/PlaceCard.astro';
+import ThingToDoCard from '../cards/ThingToDoCard.astro';
+import { getCategoryEntities } from '../../engines/category/category-engine';
 interface Props { city: City; }
 const { city } = Astro.props;
 ---
-<CityHero city={city} /><section><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} categories`} class="categories">{city.categories.map((category) => <a href={categoryPath(city, category)}>{category.replaceAll('-', ' ')}</a>)}</nav></section><ExploreBoard city={city} /><FavoritesPanel />
+<CityHero city={city} /><section><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} categories`} class="categories">{city.categories.map((category) => <a href={`#${category}`}>{category.replaceAll('-', ' ')}</a>)}</nav></section><FavoritesPanel />{city.categories.map((category) => { const entities=getCategoryEntities(city.slug,category); return <section id={category}><h2>{category.replaceAll('-', ' ')}</h2><a href={categoryPath(city,category)}>View all</a><div class="cards">{category==='things-to-do' ? entities.slice(0,6).map((thing) => <ThingToDoCard {city} thing={thing as any} />) : entities.slice(0,6).map((place) => <PlaceCard place={place as any} />)}</div></section>; })}<ExploreBoard city={city} />
 <style>.categories{display:flex;flex-wrap:wrap;gap:.75rem}.categories a{text-transform:capitalize}</style>

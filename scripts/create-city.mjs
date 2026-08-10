@@ -20,13 +20,7 @@ if (!dryRun) {
   fs.mkdirSync(path.dirname(draftFile), { recursive: true }); fs.mkdirSync(path.dirname(moduleFile), { recursive: true });
   const draft = emptyDraft(country, city, profile);
   fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`); fs.writeFileSync(moduleFile, tsModule(draft));
-  const indexFile = path.join(root, 'src', 'content', 'generated', 'index.ts'); let index = fs.readFileSync(indexFile, 'utf8');
-  const key = `${country}${city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}`;
-  index = index.replace("import type { City, Place, ThingToDo } from '../../core/models/types';", `import type { City, Place, ThingToDo } from '../../core/models/types';\nimport { city as ${key}City, places as ${key}Places, things as ${key}Things } from './${country}/${city}';`);
-  index = index.replace('export const generatedCities: City[] = [];', `export const generatedCities: City[] = [${key}City];`);
-  index = index.replace('export const generatedPlaces: Place[] = [];', `export const generatedPlaces: Place[] = [${key}Places];`);
-  index = index.replace('export const generatedThings: ThingToDo[] = [];', `export const generatedThings: ThingToDo[] = [${key}Things];`);
-  fs.writeFileSync(indexFile, index);
+  await import('./regenerate-content-registry.mjs');
   const countryText = fs.readFileSync(countryFile, 'utf8');
   fs.writeFileSync(countryFile, countryText.replace(/cities:\[([^\]]*)\]/, (_match, entries) => `cities:[${entries}${entries.trim() ? ',' : ''}'${city}']`));
 }

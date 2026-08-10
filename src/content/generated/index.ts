@@ -1,7 +1,8 @@
 import type { City, Place, ThingToDo } from '../../core/models/types';
+import { donDet } from '../cities/don-det';
+import { donDetPlaces } from '../places/don-det';
+import { donDetThings } from '../things-to-do/don-det';
 
-// The create-city command adds generated city modules here. Public rendering only
-// reads versioned data; it never performs research or calls third-party services.
-export const generatedCities: City[] = [];
-export const generatedPlaces: Place[] = [];
-export const generatedThings: ThingToDo[] = [];
+export const generatedCities: City[] = [donDet];
+export const generatedPlaces: Place[] = [...donDetPlaces];
+export const generatedThings: ThingToDo[] = [...donDetThings];
