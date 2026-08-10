@@ -1,0 +1,112 @@
+name: Measure Hero stamp geometry
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/measure-hero-stamp.yml'
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Measure V1-equivalent stamp geometry
+        run: |
+          node --input-type=module <<'NODE'
+          import { createRequire } from 'node:module';
+          const require = createRequire(import.meta.url);
+          const astroPackagePath = require.resolve('astro/package.json');
+          const astroRequire = createRequire(astroPackagePath);
+          const sharpModule = astroRequire('sharp');
+          const sharp = sharpModule.default ?? sharpModule;
+
+          const envelopePath = 'public/assets/shared/hero/envelope/airmail-postcard-template.webp';
+          const stampPath = 'public/assets/cities/don-det/hero/stamps/don-det-hero-stamp.webp';
+
+          const groupPeaks = (scores, threshold, offset) => {
+            const groups = [];
+            let start = -1, weighted = 0, total = 0;
+            for (let index = 0; index <= scores.length; index += 1) {
+              const score = index < scores.length ? scores[index] : 0;
+              if (score >= threshold) {
+                if (start === -1) start = index;
+                weighted += index * score;
+                total += score;
+                continue;
+              }
+              if (start !== -1 && total > 0) {
+                groups.push({ start: start + offset, end: index - 1 + offset, center: Math.round(weighted / total) + offset, strength: total });
+              }
+              start = -1; weighted = 0; total = 0;
+            }
+            return groups;
+          };
+
+          const choosePair = (groups, minimumGap, maximumGap) => {
+            let best = null;
+            for (let first = 0; first < groups.length; first += 1) {
+              for (let second = first + 1; second < groups.length; second += 1) {
+                const gap = groups[second].center - groups[first].center;
+                if (gap < minimumGap || gap > maximumGap) continue;
+                const score = groups[first].strength + groups[second].strength + gap * 12;
+                if (!best || score > best.score) best = { start: groups[first].center, end: groups[second].center, score };
+              }
+            }
+            return best;
+          };
+
+          const { data, info } = await sharp(envelopePath).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+          const { width, height, channels } = info;
+          const region = { left: Math.round(width * 0.70), right: Math.round(width * 0.955), top: Math.round(height * 0.045), bottom: Math.round(height * 0.38) };
+          const columnScores = new Uint32Array(region.right - region.left + 1);
+          const rowScores = new Uint32Array(region.bottom - region.top + 1);
+          for (let y = region.top; y <= region.bottom; y += 1) {
+            for (let x = region.left; x <= region.right; x += 1) {
+              const offset = (y * width + x) * channels;
+              const red = data[offset], green = data[offset + 1], blue = data[offset + 2], alpha = data[offset + 3];
+              const darkest = Math.min(red, green, blue), lightest = Math.max(red, green, blue);
+              const neutralInk = alpha > 30 && darkest < 205 && lightest - darkest < 34;
+              if (!neutralInk) continue;
+              columnScores[x - region.left] += 1;
+              rowScores[y - region.top] += 1;
+            }
+          }
+          const maxColumn = Math.max(...columnScores), maxRow = Math.max(...rowScores);
+          const verticalGroups = groupPeaks(columnScores, Math.max(6, Math.round(maxColumn * 0.32)), region.left);
+          const horizontalGroups = groupPeaks(rowScores, Math.max(6, Math.round(maxRow * 0.32)), region.top);
+          const verticalPair = choosePair(verticalGroups, Math.round(width * 0.075), Math.round(width * 0.18));
+          const horizontalPair = choosePair(horizontalGroups, Math.round(height * 0.12), Math.round(height * 0.29));
+          const box = verticalPair && horizontalPair
+            ? { left: verticalPair.start, top: horizontalPair.start, width: verticalPair.end - verticalPair.start, height: horizontalPair.end - horizontalPair.start, detected: true }
+            : { left: Math.round(width * 0.814), top: Math.round(height * 0.105), width: Math.round(width * 0.118), height: Math.round(height * 0.225), detected: false };
+
+          const stampInfo = await sharp(stampPath).metadata();
+          const padding = Math.max(3, Math.round(Math.min(box.width, box.height) * 0.055));
+          const availableWidth = Math.max(1, box.width - padding * 2);
+          const availableHeight = Math.max(1, box.height - padding * 2);
+          const fittedScale = Math.min(availableWidth / stampInfo.width, availableHeight / stampInfo.height);
+          const maximumScale = Math.min(box.width / stampInfo.width, box.height / stampInfo.height);
+          const baseScale = Math.min(fittedScale * 1.11, maximumScale);
+          const scale = baseScale * 1.015;
+          const renderedWidth = Math.max(1, Math.round(stampInfo.width * scale));
+          const renderedHeight = Math.max(1, Math.round(stampInfo.height * scale));
+          const left = Math.round(box.left + (box.width - renderedWidth) / 2);
+          const centeredTop = Math.round(box.top + (box.height - renderedHeight) / 2);
+          const verticalOffset = Math.round(box.height * 0.04);
+          const fittedTop = Math.min(centeredTop + verticalOffset, box.top + box.height - renderedHeight);
+          const top = fittedTop + 23;
+
+          const pct = (v, total) => (100 * v / total).toFixed(5) + '%';
+          console.log(`ENVELOPE ${width}x${height}`);
+          console.log(`BOX ${box.detected ? 'detected' : 'fallback'}: ${box.left},${box.top} ${box.width}x${box.height}`);
+          console.log(`BOX_PCT left=${pct(box.left,width)} top=${pct(box.top,height)} width=${pct(box.width,width)} height=${pct(box.height,height)}`);
+          console.log(`STAMP_SOURCE ${stampInfo.width}x${stampInfo.height}`);
+          console.log(`STAMP_RENDER ${renderedWidth}x${renderedHeight} at ${left},${top}`);
+          console.log(`STAMP_PCT left=${pct(left,width)} top=${pct(top,height)} width=${pct(renderedWidth,width)} height=${pct(renderedHeight,height)}`);
+          NODE
