@@ -10,6 +10,13 @@ const hero = getHero(city);
 
 <section class="city-hero" aria-labelledby="city-title">
   <h1 id="city-title" class="city-hero__title">{hero.title}</h1>
+  <div class="city-hero__semantic">
+    <p>{hero.copy.messageLines.join(' ')}</p>
+    <ul aria-label={`${city.name} travel facts`}>
+      {hero.displayFacts.map((fact) => <li>{fact.text}</li>)}
+    </ul>
+    {hero.copy.drawingCaption && <p>{hero.copy.drawingCaption}</p>}
+  </div>
   <div class="city-hero__layout">
     <CityHeroEnvelope
       stampSrc={hero.cityAssets.stamp}
@@ -46,13 +53,17 @@ const hero = getHero(city);
     gap: clamp(.8rem, 1.35vw, 1.25rem);
   }
 
-  .city-hero__title {
+  .city-hero__title,
+  .city-hero__semantic {
     position: absolute;
     width: 1px;
     height: 1px;
+    padding: 0;
+    margin: -1px;
     overflow: hidden;
     clip: rect(0 0 0 0);
     white-space: nowrap;
+    border: 0;
   }
 
   .city-hero__drawing-area {
