@@ -1,18 +1,23 @@
 ---
+interface Props {
+  stampSrc: string;
+}
+
+const { stampSrc } = Astro.props;
 const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.webp';
 ---
 
 <div class="city-hero-envelope" aria-hidden="true" style={`--city-hero-envelope-source: url("${envelopeSource}")`}>
   <span class="city-hero-envelope__base"></span>
+  <span class="city-hero-envelope__city-stamp-zone">
+    <img class="city-hero-envelope__city-stamp" src={stampSrc} alt="" />
+  </span>
   <img class="city-hero-envelope__air-mail" src="/assets/shared/hero/postmarks/air-mail-par-avion.webp" alt="" />
 </div>
 
 <style>
   .city-hero-envelope {
     --envelope-rule-start: 55%;
-    --city-stamp-top: 7.15%;
-    --city-stamp-right: 3.8%;
-    --city-stamp-width: 4.95%;
     position: relative;
     width: 100%;
     aspect-ratio: 2.15 / 1;
@@ -26,6 +31,26 @@ const envelopeSource = '/assets/shared/hero/envelope/airmail-postcard-template.w
     background: transparent var(--city-hero-envelope-source) center / 100% 100% no-repeat;
     pointer-events: none;
     clip-path: inset(7% 3.4% 6.8% 3.4%);
+  }
+
+  .city-hero-envelope__city-stamp-zone {
+    position: absolute;
+    top: 10.5%;
+    left: 81.4%;
+    z-index: 3;
+    display: grid;
+    width: 11.8%;
+    height: 22.5%;
+    place-items: center;
+    pointer-events: none;
+  }
+
+  .city-hero-envelope__city-stamp {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transform: translateY(4%);
   }
 
   .city-hero-envelope__air-mail {
