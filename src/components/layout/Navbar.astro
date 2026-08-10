@@ -1,19 +1,200 @@
 ---
 import { getCountries } from '../../engines/country/country-engine';
+
 const countries = getCountries();
 const currentPath = Astro.url.pathname;
 ---
-<header class="navbar">
-  <div class="navbar__masthead">
-    <div class="navbar__inner">
-      <a class="navbar__brand" href="/" aria-label="Things To Do Atlas home"><img src="/assets/navbar/things-to-do-atlas-logo-v2.webp" alt="Things To Do Atlas" width="1254" height="1254" /><span><strong>Things To Do Atlas</strong><small>Explore · Collect · Remember</small></span></a>
-      <p class="navbar__note">Independent travel field notes</p>
+
+<a class="atlas-navbar__skip-link" href="#main-content">Skip to content</a>
+
+<header class="atlas-navbar" aria-label="Site navigation">
+  <div class="atlas-navbar__controls">
+    <div class="atlas-navbar__language">
+      <button
+        class="atlas-navbar__language-trigger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="atlas-language-menu"
+        data-navbar-trigger="language"
+      >
+        <span class="atlas-navbar__flag" aria-hidden="true">
+          <svg viewBox="0 0 60 40" role="img" focusable="false">
+            <rect width="60" height="40" fill="#012169" />
+            <path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8" />
+            <path d="M0 0 60 40M60 0 0 40" stroke="#c8102e" stroke-width="4" />
+            <path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="12" />
+            <path d="M30 0v40M0 20h60" stroke="#c8102e" stroke-width="6" />
+          </svg>
+        </span>
+        <svg class="atlas-navbar__chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+        <span class="sr-only">Language: English</span>
+      </button>
+      <div id="atlas-language-menu" class="atlas-navbar__language-menu" hidden data-navbar-menu="language">
+        <span>English</span>
+      </div>
+    </div>
+
+    <div class="atlas-navbar__menu">
+      <button
+        class="atlas-navbar__menu-trigger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="atlas-country-menu"
+        data-navbar-trigger="countries"
+      >
+        Menu
+      </button>
+      <nav id="atlas-country-menu" class="atlas-navbar__country-menu" aria-label="Country navigation" hidden data-navbar-menu="countries">
+        {countries.map((country) => {
+          const isActive = currentPath === `/${country.slug}` || currentPath.startsWith(`/${country.slug}/`);
+          return <a href={`/${country.slug}`} aria-current={isActive ? 'page' : undefined}>{country.name}</a>;
+        })}
+      </nav>
     </div>
   </div>
-  <div class="navbar__chapters">
-    <nav class="navbar__inner" aria-label="Country chapters"><span class="navbar__chapter-label">Country chapters</span>{countries.map((country, index) => <a class:list={['navbar__country', { 'is-active': currentPath === `/${country.slug}` || currentPath.startsWith(`/${country.slug}/`) }]} href={`/${country.slug}`} aria-current={currentPath === `/${country.slug}` || currentPath.startsWith(`/${country.slug}/`) ? 'page' : undefined}><span>{String(index + 1).padStart(2, '0')}</span>{country.name}</a>)}</nav>
-  </div>
+
+  <a class="atlas-navbar__logo" href="/" aria-label="Things To Do Atlas home">
+    <img src="/assets/navbar/things-to-do-atlas-logo-v2.webp" alt="Things To Do Atlas" width="1254" height="1254" />
+  </a>
 </header>
+
+<script is:inline>
+  const navbarTriggers = document.querySelectorAll('[data-navbar-trigger]');
+  const navbarMenus = document.querySelectorAll('[data-navbar-menu]');
+
+  const closeNavbarMenus = () => {
+    navbarTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'false'));
+    navbarMenus.forEach((menu) => { menu.hidden = true; });
+  };
+
+  navbarTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const menuName = trigger.dataset.navbarTrigger;
+      const menu = document.querySelector(`[data-navbar-menu="${menuName}"]`);
+      const willOpen = trigger.getAttribute('aria-expanded') !== 'true';
+      closeNavbarMenus();
+      if (willOpen && menu) {
+        trigger.setAttribute('aria-expanded', 'true');
+        menu.hidden = false;
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeNavbarMenus();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Node) || !event.target.closest('.atlas-navbar__controls')) closeNavbarMenus();
+  });
+</script>
+
 <style>
-  .navbar{margin-bottom:1.5rem}.navbar__masthead{border-block:1px solid var(--line);background:#f4eddf}.navbar__chapters{border-bottom:1px solid var(--line);background:var(--paper)}.navbar__inner{width:min(1120px,calc(100% - 2rem));margin:auto;display:flex;align-items:center}.navbar__masthead .navbar__inner{min-height:5.75rem;justify-content:space-between;gap:1rem}.navbar__brand{display:inline-flex;align-items:center;gap:.8rem;text-decoration:none}.navbar__brand img{width:3.65rem;height:3.65rem;object-fit:contain;flex:none}.navbar__brand span{display:grid;gap:.1rem}.navbar__brand strong{font-family:var(--serif);font-size:clamp(1.05rem,2vw,1.35rem);letter-spacing:.015em}.navbar__brand small,.navbar__note,.navbar__chapter-label,.navbar__country span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}.navbar__note{margin:0;color:#625a4a}.navbar__chapters .navbar__inner{min-height:3rem;gap:1.1rem}.navbar__chapter-label{color:#625a4a;margin-right:auto}.navbar__country{display:inline-flex;align-items:center;gap:.4rem;min-height:3rem;padding-inline:.65rem;text-decoration:none;border-inline:1px solid transparent}.navbar__country:hover,.navbar__country.is-active{background:#efe3c8;border-color:var(--line)}.navbar__country span{color:#976018}.navbar__country.is-active{font-weight:700}@media(max-width:620px){.navbar__masthead .navbar__inner{min-height:4.8rem}.navbar__brand img{width:3rem;height:3rem}.navbar__brand small,.navbar__note{display:none}.navbar__chapters .navbar__inner{justify-content:space-between}.navbar__chapter-label{margin-right:0}.navbar__country{padding-inline:.45rem}}
+  :global(body) { padding-top: 96px; }
+
+  .atlas-navbar {
+    position: fixed;
+    z-index: 20;
+    top: 16px;
+    right: 24px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    pointer-events: none;
+  }
+
+  .atlas-navbar__controls,
+  .atlas-navbar__logo {
+    border: 1px solid rgba(31, 57, 45, .16);
+    background: rgba(244, 240, 229, .9);
+    box-shadow: 0 8px 22px rgba(28, 35, 31, .12);
+    backdrop-filter: blur(12px);
+    pointer-events: auto;
+  }
+
+  .atlas-navbar__controls {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 2vw, 30px);
+    min-height: 56px;
+    padding: 0 18px;
+    border-radius: 3px 5px 3px 4px;
+  }
+
+  .atlas-navbar__logo {
+    display: grid;
+    width: 72px;
+    height: 64px;
+    padding: 3px 5px;
+    border-radius: 4px 3px 5px 3px;
+    place-items: center;
+  }
+
+  .atlas-navbar__logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .atlas-navbar__language, .atlas-navbar__menu { position: relative; }
+
+  .atlas-navbar__language-trigger,
+  .atlas-navbar__menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    border: 0;
+    color: #1f392d;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .atlas-navbar__language-trigger { gap: 7px; padding: 7px 0; }
+  .atlas-navbar__flag { display: block; width: 24px; height: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(28, 35, 31, .18); }
+  .atlas-navbar__flag svg { display: block; width: 100%; height: 100%; }
+  .atlas-navbar__chevron { width: 10px; height: 7px; }
+
+  .atlas-navbar__menu-trigger {
+    padding: 7px 0;
+    font-family: var(--serif);
+    font-size: 1.28rem;
+    line-height: 1;
+  }
+
+  .atlas-navbar__language-trigger:focus-visible,
+  .atlas-navbar__menu-trigger:focus-visible,
+  .atlas-navbar__logo:focus-visible,
+  .atlas-navbar__country-menu a:focus-visible { outline: 2px solid #bf7c20; outline-offset: 4px; }
+
+  .atlas-navbar__language-menu,
+  .atlas-navbar__country-menu {
+    position: absolute;
+    top: calc(100% + 13px);
+    left: -12px;
+    border: 1px solid rgba(31, 57, 45, .16);
+    background: #f4f0e5;
+    box-shadow: 0 10px 22px rgba(28, 35, 31, .14);
+  }
+
+  .atlas-navbar__language-menu { min-width: 104px; padding: 12px 14px; border-radius: 4px 3px 5px 3px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+
+  .atlas-navbar__country-menu {
+    display: grid;
+    width: 190px;
+    padding: 22px 22px 20px;
+    border-radius: 3px 5px 4px 3px;
+    transform: rotate(-.4deg);
+  }
+
+  .atlas-navbar__country-menu::before { position: absolute; inset: 7px; border: 1px dashed rgba(31, 57, 45, .18); border-radius: inherit; content: ''; pointer-events: none; }
+  .atlas-navbar__country-menu a { position: relative; color: #1f392d; font-family: var(--serif); font-size: 1.32rem; text-decoration: none; }
+  .atlas-navbar__country-menu a:hover { color: #976018; }
+
+  .atlas-navbar__skip-link { position: fixed; z-index: 30; top: .5rem; left: .5rem; padding: .5rem .75rem; background: #fff; color: #1f392d; transform: translateY(-150%); }
+  .atlas-navbar__skip-link:focus { transform: translateY(0); }
+
+  @media (max-width: 700px) {
+    :global(body) { padding-top: 76px; }
+    .atlas-navbar { top: 10px; right: 12px; left: 12px; height: 54px; }
+    .atlas-navbar__controls { gap: 18px; min-height: 50px; padding: 0 12px; }
+    .atlas-navbar__logo { width: 62px; height: 54px; padding: 3px 4px; }
+    .atlas-navbar__menu-trigger { font-size: 1.15rem; }
+    .atlas-navbar__country-menu { left: -8px; width: 174px; padding: 18px; }
+  }
 </style>
