@@ -8,15 +8,49 @@ const { city } = Astro.props;
 const hero = getHero(city);
 ---
 
-<section class={`city-hero city-hero--${hero.presentation.heroScale}`} aria-labelledby="city-title">
+<section class="city-hero" aria-labelledby="city-title">
   <h1 id="city-title" class="city-hero__title">{hero.title}</h1>
-  <CityHeroEnvelope />
+  <div class="city-hero__layout">
+    <CityHeroEnvelope />
+  </div>
 </section>
 
 <style>
-  .city-hero { width: min(100%, 1120px); margin-inline: auto; }
-  .city-hero__title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .city-hero--compact { max-width: 960px; }
-  .city-hero--standard { max-width: 1040px; }
-  .city-hero--large { max-width: 1120px; }
+  .city-hero {
+    position: relative;
+    width: calc(100vw - 2rem);
+    max-width: none;
+    margin-left: calc(50% - 50vw + 1rem);
+    padding: clamp(5.6rem, 7vw, 6.8rem) 0 clamp(2.1rem, 3vw, 3rem);
+  }
+
+  .city-hero__layout {
+    display: grid;
+    grid-template-columns: clamp(43rem, calc(132vw - 45rem), 58rem) minmax(17rem, 18.25rem);
+    align-items: center;
+    justify-content: start;
+    gap: clamp(.8rem, 1.35vw, 1.25rem);
+  }
+
+  .city-hero__title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 980px) {
+    .city-hero__layout {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .city-hero {
+      padding-top: 4.3rem;
+    }
+  }
 </style>
