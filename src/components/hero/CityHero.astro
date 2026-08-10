@@ -1,8 +1,22 @@
 ---
 import type { City } from '../../core/models/types';
 import { getHero } from '../../engines/hero/hero-engine';
+import CityHeroEnvelope from './CityHeroEnvelope.astro';
+
 interface Props { city: City; }
-const { city } = Astro.props; const hero = getHero(city);
+const { city } = Astro.props;
+const hero = getHero(city);
 ---
-<section class={`hero hero--${hero.presentation.heroScale}`} aria-labelledby="city-title"><div><p>{hero.eyebrow}</p><h1 id="city-title">{hero.title}</h1><p>{hero.subtitle}</p><dl>{hero.facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl></div>{hero.photo && <img src={hero.photo.src} alt={hero.photo.alt} width="900" height="600" loading="eager" />}{hero.stamp && <img class="stamp" src={hero.stamp.src} alt="" width="120" height="120" />}{hero.drawing && <img class="drawing" src={hero.drawing.src} alt="" width="160" height="160" />}</section>
-<style>.hero{position:relative;display:grid;grid-template-columns:1fr minmax(220px,.9fr);gap:1rem;border:1px solid var(--line);padding:clamp(2rem,8vw,6rem) 1.5rem;background:linear-gradient(135deg,#e8e1cc,#fdfaf2);overflow:hidden}.hero img:not(.stamp):not(.drawing){width:100%;height:100%;min-height:240px;object-fit:cover}.hero--compact{padding-block:3rem}.hero--large{padding-block:7rem}.hero p{max-width:55ch}dl{display:flex;gap:1rem;flex-wrap:wrap}dt{font-size:.72rem;text-transform:uppercase}dd{margin:0;font-weight:700}.stamp,.drawing{position:absolute;pointer-events:none}.stamp{right:1rem;top:1rem}.drawing{left:45%;bottom:-1rem}@media(max-width:650px){.hero{grid-template-columns:1fr}.stamp{width:72px}.drawing{display:none}}</style>
+
+<section class={`city-hero city-hero--${hero.presentation.heroScale}`} aria-labelledby="city-title">
+  <h1 id="city-title" class="city-hero__title">{hero.title}</h1>
+  <CityHeroEnvelope />
+</section>
+
+<style>
+  .city-hero { width: min(100%, 1120px); margin-inline: auto; }
+  .city-hero__title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .city-hero--compact { max-width: 960px; }
+  .city-hero--standard { max-width: 1040px; }
+  .city-hero--large { max-width: 1120px; }
+</style>
