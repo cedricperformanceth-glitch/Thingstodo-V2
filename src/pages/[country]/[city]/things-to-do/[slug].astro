@@ -12,4 +12,4 @@ const thing = city ? getThing(city, Astro.params.slug ?? '') : undefined;
 if (!city || !country || !thing) return Astro.redirect('/');
 const seo = { title:`${thing.name} | Things To Do Atlas`, description:thing.shortDescription, canonicalPath:thingPath(city,thing), indexable:true };
 ---
-<BaseLayout {seo} breadcrumbs={[{name:'Home',path:'/'},{name:country.name,path:`/${country.slug}`},{name:city.name,path:cityPath(city)},{name:'Things to do',path:`${cityPath(city)}/things-to-do`},{name:thing.name,path:thingPath(city,thing)}]}><FieldCard {city} {thing} /></BaseLayout>
+<BaseLayout {seo} breadcrumbs={[{name:'Home',path:'/'},{name:country.name,path:`/${country.slug}`},{name:city.name,path:cityPath(city)},{name:'Things to do',path:`${cityPath(city)}/things-to-do`},{name:thing.name,path:thingPath(city,thing)}]}><FieldCard {thing} /></BaseLayout>

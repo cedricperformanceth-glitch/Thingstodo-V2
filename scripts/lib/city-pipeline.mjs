@@ -23,7 +23,7 @@ export function emptyDraft(country, city, profile) {
     id: `city-${country}-${city}`, slug: city, name, country, profile, coordinates: { latitude: 0, longitude: 0 }, description: '',
     categories: PROFILE_CATEGORIES, categoryTargets: categoryTargets(profile, `${country}/${city}`),
     hero: { eyebrow: country, title: name, subtitle: '', facts: [], media: { stamps: [], drawings: [], photos: [] } },
-    exploreBoard: { landmarkLimit: 3 }, media: { hero: { stamps: [], drawings: [], photos: [] }, fieldCard: { gallery: [] } },
+    exploreBoard: { landmarkLimit: 3 },
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },
   }, places: [], things: [] };
 }

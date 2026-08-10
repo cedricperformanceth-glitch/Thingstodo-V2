@@ -92,53 +92,8 @@ const data = {
         "thing-li-phi-waterfalls"
       ]
     },
-    "media": {
-      "hero": {
-        "stamps": [
-          {
-            "id": "don-det-stamp",
-            "src": "/media/don-det/stamp.svg",
-            "alt": "",
-            "sourceType": "manual",
-            "sourceName": "Things To Do Atlas V2",
-            "manual": true,
-            "locked": true
-          }
-        ],
-        "drawings": [
-          {
-            "id": "don-det-drawing",
-            "src": "/media/don-det/drawing.svg",
-            "alt": "",
-            "sourceType": "manual",
-            "sourceName": "Things To Do Atlas V2",
-            "manual": true,
-            "locked": true
-          }
-        ],
-        "photos": [
-          {
-            "id": "don-det-river",
-            "src": "/media/don-det/river.svg",
-            "alt": "Sunset colours over the Mekong at Don Det",
-            "sourceType": "manual",
-            "sourceName": "Things To Do Atlas V2",
-            "manual": true,
-            "locked": true
-          }
-        ]
-      },
-      "fieldCard": {
-        "gallery": []
-      }
-    },
     "manualLocks": {
       "hero.media.photos": {
-        "value": "manual Atlas river artwork",
-        "source": "manual",
-        "locked": true
-      },
-      "media.hero.photos": {
         "value": "manual Atlas river artwork",
         "source": "manual",
         "locked": true
