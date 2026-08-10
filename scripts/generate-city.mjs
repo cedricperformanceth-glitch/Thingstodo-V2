@@ -33,6 +33,7 @@ for (const candidate of places) {
   const existing = draft.places.find((place) => place.id === candidate.id); const target = existing ? mergeGenerated(existing, candidate) : candidate;
   if (!existing) draft.places.push(target);
 }
+for (const entity of [...draft.places, ...draft.things]) if (entity.media) delete entity.media.hero;
 assignUnlocked(draft.cityData, 'exploreBoard.featuredThingIds', selectExploreBoard(draft.things, draft.cityData.coordinates));
 draft.generatedAt = new Date().toISOString();
 fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`);
@@ -42,10 +43,16 @@ console.log(`Generated static versioned content for ${country}/${city}.`);
 
 function generatedSources(candidate) { return (candidate.sources ?? []).map(({ sourceName, sourceUrl, purpose, sourceType }) => ({ sourceName, sourceUrl, purpose, sourceType })); }
 function description(candidate) { return candidate.shortDescription || `${candidate.name} is included in this Atlas draft from independently recorded traveller facts.`; }
+function entityMedia(candidate) {
+  const media = structuredClone(candidate.media ?? { fieldCard: { gallery: [] } });
+  delete media.hero;
+  media.fieldCard ??= { gallery: [] };
+  return media;
+}
 function base(candidate, draft, category) {
   const name = candidate.name; const coordinates = candidate.coordinates ?? draft.cityData.coordinates;
   return { id: candidate.id ?? `${category}-${slugify(name)}`, slug: candidate.slug ?? slugify(name), name, country: draft.country, city: draft.city,
-    category, coordinates, shortDescription: description(candidate), media: candidate.media ?? { hero: { stamps: [], drawings: [], photos: [] }, fieldCard: { gallery: [] } },
+    category, coordinates, shortDescription: description(candidate), media: entityMedia(candidate),
     isMySelection: candidate.isMySelection ?? false, selectionRank: candidate.selectionRank, sourceMetadata: { sourceName: 'Atlas research pipeline', reviewedAt: new Date().toISOString() },
     researchSources: generatedSources(candidate), manualLocks: candidate.manualLocks ?? {} };
 }
