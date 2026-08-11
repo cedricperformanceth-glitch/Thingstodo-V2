@@ -6,10 +6,6 @@
   aria-controls="make-your-own-atlas-drawer"
   aria-label="Open Make Your Own Atlas"
 >
-  <span class="my-atlas-fab__counter-slot" aria-hidden="true">
-    <span class="my-atlas-fab__count" data-my-atlas-fab-count>00</span>
-  </span>
-
   <span class="my-atlas-fab__logo-slot" aria-hidden="true">
     <img
       class="my-atlas-fab__logo"
@@ -21,34 +17,57 @@
       decoding="async"
     />
   </span>
+
+  <span class="my-atlas-fab__counter-slot" aria-hidden="true">
+    <span class="my-atlas-fab__count" data-my-atlas-fab-count>00</span>
+  </span>
 </button>
 
 <style>
   .my-atlas-fab {
     width: 270px;
     height: 78px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    align-items: stretch;
     box-sizing: border-box;
     margin: 0;
-    padding: 4px 7px 4px 4px;
+    padding: 0;
     overflow: hidden;
-    border: 0;
+    border: 1px solid #b76645;
     background: transparent;
     box-shadow: none;
     cursor: pointer;
     pointer-events: auto;
   }
 
+  .my-atlas-fab__logo-slot,
   .my-atlas-fab__counter-slot {
-    width: 42px;
-    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+  }
+
+  .my-atlas-fab__logo-slot {
     display: flex;
-    flex: 0 0 42px;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
+    overflow: hidden;
+    padding: 4px 6px;
+  }
+
+  .my-atlas-fab__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0;
+  }
+
+  .my-atlas-fab__counter-slot {
+    display: grid;
+    place-items: center;
+    border-left: 1px solid rgba(183, 102, 69, .42);
   }
 
   .my-atlas-fab__count {
@@ -66,25 +85,6 @@
     font: 600 .72rem/1 Fraunces, serif;
   }
 
-  .my-atlas-fab__logo-slot {
-    height: 70px;
-    min-width: 0;
-    display: flex;
-    flex: 1 1 auto;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: hidden;
-  }
-
-  .my-atlas-fab__logo {
-    display: block;
-    max-width: 100%;
-    max-height: 70px;
-    width: auto;
-    height: auto;
-    margin: 0;
-  }
-
   .my-atlas-fab:hover {
     opacity: .9;
   }
@@ -98,26 +98,16 @@
     .my-atlas-fab {
       width: 238px;
       height: 68px;
-      padding: 3px 6px 3px 3px;
     }
 
-    .my-atlas-fab__counter-slot {
-      width: 38px;
-      flex-basis: 38px;
+    .my-atlas-fab__logo-slot {
+      padding: 3px 5px;
     }
 
     .my-atlas-fab__count {
       width: 29px;
       height: 29px;
       font-size: .66rem;
-    }
-
-    .my-atlas-fab__logo-slot {
-      height: 62px;
-    }
-
-    .my-atlas-fab__logo {
-      max-height: 62px;
     }
   }
 </style>
