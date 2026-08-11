@@ -1,1 +1,28 @@
-<section aria-labelledby="favorites-title"><h2 id="favorites-title">My Favorites</h2><p data-favorites-empty>No saved places yet. Favorites remain available in every city.</p><div class="cards" data-favorites-panel></div></section>
+---
+interface Props { currentCountry: string; }
+const { currentCountry } = Astro.props;
+---
+
+<section class="favorites-panel" aria-labelledby="favorites-title">
+  <div class="favorites-panel__heading">
+    <div><p>YOUR SAVED ROUTES</p><h3 id="favorites-title">My Favorites</h3></div>
+    <span>Only countries with saved places appear here. Open one country at a time.</span>
+  </div>
+  <p class="favorites-panel__empty" data-favorites-empty>No saved places yet. Add a heart anywhere in the Atlas and it will appear here.</p>
+  <div class="favorites-panel__countries" data-favorites-panel data-favorites-current-country={currentCountry}></div>
+</section>
+
+<style>
+  .favorites-panel__heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.55fr);gap:1rem 2rem;align-items:end;margin-bottom:1.3rem}.favorites-panel__heading p{margin:0 0 .35rem;color:#b76645;font:700 .48rem/1 'DM Sans',var(--sans);letter-spacing:.15em}.favorites-panel__heading h3{margin:0;color:#315545;font:500 clamp(1.9rem,3.2vw,2.8rem)/1 Fraunces,var(--serif)}.favorites-panel__heading>span{color:rgba(31,41,36,.58);font:400 .72rem/1.5 Georgia,var(--serif)}
+  .favorites-panel__empty{margin:1.5rem 0;padding:1.4rem;border:1px dashed rgba(49,85,69,.28);color:rgba(31,41,36,.62);text-align:center}
+  .favorites-panel__countries{display:grid;gap:.75rem}
+  .favorites-panel :global(.favorites-country){border:1px solid rgba(49,85,69,.2);background:rgba(255,253,248,.5);box-shadow:3px 4px 0 rgba(49,85,69,.055)}
+  .favorites-panel :global(.favorites-country>summary){display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1rem;cursor:pointer;list-style:none;color:#315545;font-family:Fraunces,var(--serif)}
+  .favorites-panel :global(.favorites-country>summary::-webkit-details-marker){display:none}
+  .favorites-panel :global(.favorites-country>summary strong){font-size:1.05rem;font-weight:500}.favorites-panel :global(.favorites-country>summary small){color:#b76645;font:700 .5rem/1 'DM Sans',var(--sans);letter-spacing:.1em;text-transform:uppercase}
+  .favorites-panel :global(.favorites-country[open]>summary){border-bottom:1px solid rgba(49,85,69,.14);background:rgba(49,85,69,.035)}
+  .favorites-panel :global(.favorites-country__cards){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;padding:1rem}
+  .favorites-panel :global(.favorite-card){min-width:0;border:1px solid rgba(49,85,69,.18);border-radius:0;background:#fffdf8;box-shadow:3px 4px 0 rgba(49,85,69,.07);padding:.75rem}
+  .favorites-panel :global(.favorite-card__media){position:relative;min-height:3.2rem;background:#eee7d8}.favorites-panel :global(.favorite-card__media img){display:block;width:100%;aspect-ratio:1.6;object-fit:cover}.favorites-panel :global(.favorite-card h3){margin:.7rem 0 .35rem;color:#1f2924;font:500 1.25rem/1.05 Fraunces,var(--serif)}.favorites-panel :global(.favorite-card p){margin:.35rem 0;color:rgba(31,41,36,.68);font-size:.7rem}.favorites-panel :global(.favorite-card__destination){color:#b76645!important;font-weight:700;text-transform:capitalize}.favorites-panel :global(.favorite-card__actions){display:flex;flex-wrap:wrap;gap:.45rem}.favorites-panel :global(.favorite-card .button){min-height:34px;padding:.5rem .65rem;font-size:.62rem}
+  @media(max-width:760px){.favorites-panel__heading{grid-template-columns:1fr}.favorites-panel__heading>span{max-width:30rem}.favorites-panel :global(.favorites-country__cards){grid-template-columns:1fr}}
+</style>
