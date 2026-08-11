@@ -96,6 +96,18 @@ const unverified = draft();
 unverified.places[0].verification = { decision: 'manual-review', reason: 'insufficient-independent-signals' };
 assert.ok(evaluateCityPublication(unverified).errors.some((entry) => entry.code === 'source-verification'));
 
+const disguisedAutomatic = draft();
+disguisedAutomatic.places[0].sourceMetadata = { sourceName: 'Official establishment website' };
+delete disguisedAutomatic.places[0].verification;
+assert.ok(evaluateCityPublication(disguisedAutomatic).errors.some((entry) => entry.code === 'source-verification'));
+
+const explicitManual = draft();
+explicitManual.places[0].sourceMetadata = { sourceName: 'Manual' };
+explicitManual.places[0].researchSources = [];
+delete explicitManual.places[0].verification;
+const manualReport = evaluateCityPublication(explicitManual);
+assert.equal(manualReport.errors.some((entry) => entry.entity === 'restaurant-one' && ['source-verification', 'missing-research-source'].includes(entry.code)), false);
+
 const noSource = draft();
 noSource.places[0].researchSources = [];
 assert.ok(evaluateCityPublication(noSource).errors.some((entry) => entry.code === 'missing-research-source'));
