@@ -1,11 +1,372 @@
 ---
-import type { City, Place, ThingToDo } from '../../core/models/types';
+import type { City } from '../../core/models/types';
+import { thingPath } from '../../core/routing/paths';
 import { getExploreBoard } from '../../engines/explore-board/explore-board-engine';
-import { cityPresentation } from '../../engines/spa/city-presentation';
-import PlaceCard from '../cards/PlaceCard.astro';
-import ThingToDoCard from '../cards/ThingToDoCard.astro';
+
 interface Props { city: City; }
-const { city } = Astro.props; const board = getExploreBoard(city) as { places: Place[]; things: ThingToDo[] }; const presentation = cityPresentation[city.profile];
+const { city } = Astro.props;
+const board = getExploreBoard(city);
+const sectionId = `explore-board-${city.country}-${city.slug}`;
+const names = board.things.map(({ thing }) => thing.name);
+const listNames = (items: string[]) => {
+  if (items.length === 0) return `the landmarks selected for ${city.name}`;
+  if (items.length === 1) return items[0];
+  if (items.length === 2) return `${items[0]} and ${items[1]}`;
+  return `${items.slice(0, -1).join(', ')}, and ${items.at(-1)}`;
+};
+const intro = `Begin with ${listNames(names)}.`;
 ---
-<section aria-labelledby="explore-title"><h2 id="explore-title">Explore Board</h2><div class="grid" style={`--board-columns:${presentation.boardColumns}`}>{board.places.map((place) => <PlaceCard place={place} />)}{board.things.map((thing) => <ThingToDoCard city={city} thing={thing} />)}</div></section>
-<style>.grid{display:grid;grid-template-columns:repeat(var(--board-columns),minmax(0,1fr));gap:1rem}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style>
+
+<section class="explore-board-section" aria-labelledby={sectionId}>
+  <div class="explore-board-frame">
+    <div class="explore-board">
+      <header class="explore-board__header">
+        <p class="explore-board__question">What can I actually do in {city.name}?</p>
+        <h2 id={sectionId}>Explore from {city.name}</h2>
+        <span class="explore-board__chalk-line" aria-hidden="true"></span>
+        <p class="explore-board__intro">{intro}</p>
+      </header>
+
+      <div class="explore-board__content" aria-label={`Landmarks to explore from ${city.name}`}>
+        {board.things.map(({ thing, kicker, duration, route }, index) => {
+          const image = thing.media.card?.image;
+          return (
+            <a
+              class:list={['explore-board-card', `explore-board-card--${index % 3}`]}
+              href={thingPath(city, thing)}
+              aria-label={`Open the complete ${thing.name} field note`}
+            >
+              <span class="explore-board-card__photo">
+                <span class="explore-board-card__tape" aria-hidden="true"></span>
+                {image ? (
+                  <img src={image.src} alt={image.alt} width="480" height="270" loading="lazy" decoding="async" />
+                ) : (
+                  <span class="explore-board-card__photo-placeholder" aria-hidden="true"></span>
+                )}
+                <span class="explore-board-card__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              </span>
+
+              <span class="explore-board-card__copy">
+                <small>{kicker}</small>
+                <strong>{thing.name}</strong>
+                <span class="explore-board-card__summary">{thing.shortDescription}</span>
+                <span class="explore-board-card__meta">
+                  <span>{duration}</span>
+                  <i aria-hidden="true"></i>
+                  <span>{route}</span>
+                </span>
+                <span class="explore-board-card__action">open the field note <b aria-hidden="true">↗</b></span>
+              </span>
+            </a>
+          );
+        })}
+      </div>
+
+      <footer class="explore-board__footer">
+        <span aria-hidden="true">↳</span>
+        <p>Open a landmark to read the full field note.</p>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<style>
+  .explore-board-section {
+    width: min(1320px, calc(100% - .5rem));
+    margin: 0 auto;
+    padding: clamp(2rem, 4vw, 3.7rem) 0 clamp(2.8rem, 5vw, 4.7rem);
+  }
+
+  .explore-board-frame {
+    position: relative;
+    padding: clamp(.5rem, .9vw, .7rem);
+    border: 1px solid rgba(57, 38, 22, .82);
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.08), transparent 12%, transparent 88%, rgba(0,0,0,.14)),
+      repeating-linear-gradient(1deg, #765436 0 5px, #68472e 5px 10px, #7b593a 10px 15px);
+    box-shadow: 0 14px 30px rgba(28, 31, 27, .15), inset 0 0 0 1px rgba(255,255,255,.1);
+    transform: rotate(-.04deg);
+  }
+
+  .explore-board-frame::before,
+  .explore-board-frame::after {
+    content: '';
+    position: absolute;
+    z-index: 4;
+    width: clamp(3.1rem, 6vw, 4.8rem);
+    height: .82rem;
+    background: rgba(216, 200, 164, .56);
+    box-shadow: 0 1px 2px rgba(39, 31, 22, .12);
+    pointer-events: none;
+  }
+
+  .explore-board-frame::before { top: -.28rem; left: 7%; transform: rotate(-4deg); }
+  .explore-board-frame::after { right: 7%; bottom: -.28rem; transform: rotate(3deg); }
+
+  .explore-board {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(1.8rem, 3vw, 2.7rem) clamp(1.5rem, 3vw, 2.7rem) clamp(1.5rem, 2.6vw, 2.15rem);
+    border: 1px solid rgba(238, 234, 216, .1);
+    background:
+      radial-gradient(ellipse at 18% 19%, rgba(255,255,255,.025), transparent 34%),
+      radial-gradient(ellipse at 83% 76%, rgba(255,255,255,.018), transparent 31%),
+      repeating-linear-gradient(176deg, rgba(255,255,255,.009) 0 1px, transparent 1px 5px),
+      #050505;
+    box-shadow: inset 0 0 42px rgba(0,0,0,.74), inset 0 0 0 2px rgba(255,255,255,.014);
+    color: #efecdd;
+  }
+
+  .explore-board::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .22;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.11) 0 .55px, transparent .8px),
+      radial-gradient(circle, rgba(255,255,255,.06) 0 .45px, transparent .7px);
+    background-position: 0 0, 4px 3px;
+    background-size: 9px 9px, 13px 13px;
+    mix-blend-mode: screen;
+  }
+
+  .explore-board__header,
+  .explore-board__content,
+  .explore-board__footer { position: relative; z-index: 2; }
+
+  .explore-board__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 54rem;
+    margin: 0 auto clamp(2rem, 3.4vw, 2.8rem);
+    text-align: center;
+  }
+
+  .explore-board__question {
+    margin: 0 0 .4rem;
+    color: rgba(241, 237, 220, .8);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(.78rem, 1.35vw, 1.04rem);
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-shadow: .35px .35px 0 rgba(255,255,255,.24);
+    transform: rotate(-.35deg);
+  }
+
+  .explore-board__header h2 {
+    margin: 0;
+    color: #f3efde;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -.065em;
+    line-height: 1;
+    text-shadow: .55px .55px 0 rgba(255,255,255,.32), -.35px .15px 0 rgba(255,255,255,.16), 0 0 2px rgba(255,255,255,.15);
+    transform: rotate(-.35deg);
+  }
+
+  .explore-board__chalk-line {
+    display: block;
+    width: min(18rem, 55%);
+    height: .42rem;
+    margin: .28rem 0 .65rem;
+    border-top: 2px solid rgba(240, 235, 214, .64);
+    border-radius: 50%;
+    box-shadow: 0 2px 0 rgba(240,235,214,.07);
+    transform: rotate(-1deg);
+  }
+
+  .explore-board__intro {
+    max-width: 43rem;
+    margin: 0;
+    color: rgba(238, 234, 219, .75);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(.75rem, 1.08vw, .9rem);
+    line-height: 1.55;
+  }
+
+  .explore-board__content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.6rem, 3.2vw, 2.65rem);
+    align-items: start;
+  }
+
+  .explore-board-card {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: .25rem;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: inherit;
+    text-align: left;
+    text-decoration: none;
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+  }
+
+  .explore-board-card--0 { transform: rotate(-.2deg); }
+  .explore-board-card--1 { transform: rotate(.18deg); }
+  .explore-board-card--2 { transform: rotate(-.1deg); }
+
+  .explore-board-card:hover,
+  .explore-board-card:focus-visible {
+    z-index: 3;
+    border-color: rgba(239, 234, 214, .14);
+    background: rgba(255,255,255,.02);
+    outline: none;
+    transform: translateY(-3px) rotate(0deg);
+  }
+
+  .explore-board-card__photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: .34rem;
+    background: #f1ede0;
+    box-shadow: 0 6px 13px rgba(0,0,0,.38);
+    box-sizing: border-box;
+    transform: rotate(-.75deg);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .explore-board-card--1 .explore-board-card__photo { transform: rotate(.6deg); }
+  .explore-board-card--2 .explore-board-card__photo { transform: rotate(-.35deg); }
+
+  .explore-board-card:hover .explore-board-card__photo,
+  .explore-board-card:focus-visible .explore-board-card__photo {
+    box-shadow: 0 9px 18px rgba(0,0,0,.46);
+    transform: rotate(0deg) scale(1.01);
+  }
+
+  .explore-board-card__photo img,
+  .explore-board-card__photo-placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .explore-board-card__photo img { filter: saturate(.68) contrast(.97) sepia(.06); }
+  .explore-board-card__photo-placeholder { background: rgba(49,85,69,.18); }
+
+  .explore-board-card__tape {
+    position: absolute;
+    z-index: 2;
+    top: -.3rem;
+    left: 50%;
+    width: 2.9rem;
+    height: .58rem;
+    background: rgba(210, 195, 157, .62);
+    transform: translateX(-50%) rotate(2deg);
+  }
+
+  .explore-board-card__number {
+    position: absolute;
+    right: .58rem;
+    bottom: .48rem;
+    padding: .08rem .28rem;
+    background: rgba(5,5,5,.72);
+    color: rgba(244,240,224,.82);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: .56rem;
+    font-weight: 700;
+    transform: rotate(-3deg);
+  }
+
+  .explore-board-card__copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 1.05rem .4rem .2rem;
+  }
+
+  .explore-board-card__copy small {
+    margin-bottom: .36rem;
+    color: rgba(223, 216, 188, .64);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(.52rem, .78vw, .6rem);
+    font-weight: 600;
+    letter-spacing: .04em;
+    line-height: 1.3;
+  }
+
+  .explore-board-card__copy strong {
+    color: #f1eddb;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(1.35rem, 2.25vw, 1.82rem);
+    font-weight: 500;
+    letter-spacing: -.045em;
+    line-height: 1.05;
+    text-shadow: .45px .45px 0 rgba(255,255,255,.22);
+  }
+
+  .explore-board-card__summary {
+    margin-top: .58rem;
+    color: rgba(236, 232, 216, .77);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(.7rem, 1vw, .82rem);
+    line-height: 1.52;
+  }
+
+  .explore-board-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .42rem;
+    margin-top: .72rem;
+    color: #dfc18c;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(.59rem, .82vw, .68rem);
+    font-weight: 600;
+  }
+
+  .explore-board-card__meta i { width: 2px; height: 2px; border-radius: 50%; background: currentColor; }
+
+  .explore-board-card__action {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    align-self: flex-start;
+    margin-top: .68rem;
+    border-bottom: 1px dashed rgba(238, 233, 214, .48);
+    color: rgba(242, 238, 222, .92);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: clamp(.62rem, .86vw, .72rem);
+    line-height: 1.35;
+  }
+
+  .explore-board-card__action b { font-size: .84rem; transition: transform 180ms ease; }
+  .explore-board-card:hover .explore-board-card__action b,
+  .explore-board-card:focus-visible .explore-board-card__action b { transform: translate(2px, -2px); }
+
+  .explore-board__footer {
+    display: flex;
+    justify-content: center;
+    gap: .42rem;
+    margin-top: clamp(1.6rem, 2.7vw, 2.15rem);
+    color: rgba(231, 225, 202, .64);
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    transform: rotate(-.25deg);
+  }
+
+  .explore-board__footer p { margin: 0; font-size: clamp(.65rem, .94vw, .78rem); line-height: 1.35; }
+
+  @media (max-width: 860px) {
+    .explore-board-section { width: min(100% - 1rem, 1320px); }
+    .explore-board__content { grid-template-columns: 1fr; gap: 1.55rem; }
+    .explore-board-card { width: min(34rem, 100%); margin-inline: auto; }
+  }
+
+  @media (max-width: 520px) {
+    .explore-board-section { width: min(100% - .5rem, 1320px); padding-top: 1.6rem; }
+    .explore-board { padding: 1.55rem 1rem 1.35rem; }
+    .explore-board__question { white-space: normal; }
+    .explore-board-card__copy { padding-inline: .15rem; }
+  }
+</style>
