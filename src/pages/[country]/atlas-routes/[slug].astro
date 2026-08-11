@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import { getAllFinalCtaRoutes } from '../../../content/final-cta-routes';
+
+export function getStaticPaths() {
+  return getAllFinalCtaRoutes().map((route) => ({
+    params: { country: route.country, slug: route.slug },
+    props: { route },
+  }));
+}
+
+const { route } = Astro.props;
+const seo = {
+  title: `${route.label} Atlas Route | Things To Do Atlas`,
+  description: `${route.label} travel route for ${route.country}.`,
+  canonicalPath: route.href,
+  indexable: false,
+};
+---
+
+<BaseLayout seo={seo} breadcrumbs={[{ name: 'Home', path: '/' }, { name: route.country.toUpperCase(), path: `/${route.country}` }, { name: route.label, path: route.href }]}>
+  <section class="atlas-route-shell">
+    <p>ATLAS ROUTE</p>
+    <h1>{route.label}</h1>
+    <p class="atlas-route-shell__note">The route itself will be mapped here next.</p>
+    <a href={`/${route.country}`}>Continue exploring {route.country} →</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .atlas-route-shell {
+    width: min(760px, calc(100% - 2rem));
+    min-height: 72vh;
+    margin: 0 auto;
+    padding: 10rem 0 6rem;
+  }
+
+  .atlas-route-shell > p:first-child {
+    margin: 0 0 .65rem;
+    color: #b76645;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+  }
+
+  h1 {
+    margin: 0;
+    color: #315545;
+  }
+
+  .atlas-route-shell__note {
+    margin: 1.5rem 0 3rem;
+    color: #645f56;
+  }
+
+  a {
+    color: #315545;
+    font-family: 'Caveat', cursive;
+    font-size: 1.25rem;
+  }
+</style>

@@ -14,5 +14,5 @@ if (!city) return Astro.redirect('/');
   <CityHero {city} />
   <ExploreBoard {city} />
   <CitySpa {city} />
-  <FinalCta />
+  <FinalCta country={city.country} />
 </BaseLayout>
