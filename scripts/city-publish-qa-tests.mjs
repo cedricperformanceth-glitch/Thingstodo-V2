@@ -118,6 +118,22 @@ const wrongCategory = draft();
 wrongCategory.places[0].category = 'gyms';
 assert.ok(evaluateCityPublication(wrongCategory).errors.some((entry) => entry.code === 'invalid-category'));
 
+const placeAsActivity = draft();
+placeAsActivity.places[0].category = 'things-to-do';
+assert.ok(evaluateCityPublication(placeAsActivity).errors.some((entry) => entry.code === 'entity-kind-category-mismatch'));
+
+const wrongDestination = draft();
+wrongDestination.things[0].city = 'another-village';
+assert.ok(evaluateCityPublication(wrongDestination).errors.some((entry) => entry.code === 'entity-destination-mismatch'));
+
+const badCoordinates = draft();
+badCoordinates.places[0].coordinates.latitude = 190;
+assert.ok(evaluateCityPublication(badCoordinates).errors.some((entry) => entry.code === 'invalid-coordinates'));
+
+const transientLeak = draft();
+transientLeak.things[0].photoCandidates = [{ src: '/raw.webp' }];
+assert.ok(evaluateCityPublication(transientLeak).errors.some((entry) => entry.code === 'transient-generation-field'));
+
 const withPhoto = draft();
 withPhoto.places[0].media.card.image = {
   id: 'photo', src: '/assets/photo.webp', alt: 'Photo', sourceType: 'wikimedia', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Example.jpg', sourceName: 'Wikimedia Commons', author: 'Author', license: 'cc-by-sa', manual: false, locked: false,
@@ -127,5 +143,21 @@ withPhoto.places[0].spaCard.photoRequiresManualFill = false;
 const photoReport = evaluateCityPublication(withPhoto);
 assert.equal(photoReport.errors.length, 0);
 assert.equal(photoReport.warnings.length, 5);
+
+const badPhotoLicense = draft();
+badPhotoLicense.places[0].media.card.image = {
+  id: 'photo', src: '/assets/photo.webp', alt: 'Photo', sourceType: 'open-license', sourceUrl: 'https://example.org/photo', sourceName: 'Example', license: 'cc-by-nc', manual: false, locked: false,
+};
+badPhotoLicense.places[0].spaCard.photoStatus = 'verified';
+badPhotoLicense.places[0].spaCard.photoRequiresManualFill = false;
+assert.ok(evaluateCityPublication(badPhotoLicense).errors.some((entry) => entry.code === 'photo-license'));
+
+const inconsistentPhotoStatus = draft();
+inconsistentPhotoStatus.places[0].media.card.image = {
+  id: 'photo', src: '/assets/photo.webp', alt: 'Photo', sourceType: 'manual', manual: true, locked: true,
+};
+inconsistentPhotoStatus.places[0].spaCard.photoStatus = 'missing';
+inconsistentPhotoStatus.places[0].spaCard.photoRequiresManualFill = false;
+assert.ok(evaluateCityPublication(inconsistentPhotoStatus).errors.some((entry) => ['spa-card-contract', 'photo-status'].includes(entry.code)));
 
 console.log('City publication QA tests passed.');
