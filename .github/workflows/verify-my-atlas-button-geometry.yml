@@ -1,0 +1,95 @@
+name: Verify My Atlas Button Geometry
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/verify-my-atlas-button-geometry.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.54.2
+      - run: npx playwright install --with-deps chromium
+      - run: npm run check
+      - run: npm run build
+      - name: Start preview
+        run: |
+          npm run preview -- --host 127.0.0.1 > /tmp/atlas-preview.log 2>&1 &
+          echo $! > /tmp/atlas-preview.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4321/laos/don-det >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/atlas-preview.log
+          exit 1
+      - name: Measure floating button in Chromium
+        run: |
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import assert from 'node:assert/strict';
+
+          const browser = await chromium.launch({ headless: true });
+
+          async function verify(viewport, label, expectedWidth) {
+            const page = await browser.newPage({ viewport });
+            await page.goto('http://127.0.0.1:4321/laos/don-det', { waitUntil: 'networkidle' });
+
+            const button = page.locator('[data-my-atlas-toggle]');
+            const count = page.locator('[data-my-atlas-fab-count]');
+            const logo = page.locator('.my-atlas-fab__logo');
+
+            const b = await button.boundingBox();
+            const c = await count.boundingBox();
+            const l = await logo.boundingBox();
+            assert.ok(b && c && l, `${label}: missing button/count/logo geometry`);
+
+            const epsilon = 0.75;
+            const inside = (child, parent) =>
+              child.x >= parent.x - epsilon &&
+              child.y >= parent.y - epsilon &&
+              child.x + child.width <= parent.x + parent.width + epsilon &&
+              child.y + child.height <= parent.y + parent.height + epsilon;
+
+            console.log(label, JSON.stringify({ button: b, count: c, logo: l }));
+
+            assert.ok(inside(c, b), `${label}: counter is outside the button`);
+            assert.ok(inside(l, b), `${label}: logo is outside the button`);
+            assert.ok(l.x + l.width <= c.x + epsilon, `${label}: logo overlaps counter`);
+            assert.ok(Math.abs(b.width - expectedWidth) <= 1, `${label}: unexpected button width ${b.width}`);
+            assert.ok(b.x <= 4, `${label}: button is too far from left edge (${b.x}px)`);
+            assert.ok(viewport.height - (b.y + b.height) <= 4, `${label}: button is too far from bottom edge`);
+
+            await button.click();
+            const drawer = page.locator('[data-my-atlas-drawer]');
+            await assert.doesNotReject(() => drawer.waitFor({ state: 'visible', timeout: 1500 }), `${label}: button is not clickable`);
+            await page.close();
+          }
+
+          await verify({ width: 1440, height: 900 }, 'desktop', 270);
+          await verify({ width: 390, height: 844 }, 'mobile', 238);
+          await browser.close();
+          console.log('MY_ATLAS_GEOMETRY_OK');
+          NODE
+      - run: npm run architecture-check
+      - run: git diff --check
+      - name: Remove verification workflow
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/verify-my-atlas-button-geometry.yml
+          git commit -m "Remove My Atlas geometry verification workflow"
+          git push origin master
