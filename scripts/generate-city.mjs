@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { chooseFieldCardTemplate, mergeGenerated, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
+import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run'); const fromCity = flags.includes('--from-city');
 if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run]');
@@ -11,6 +12,8 @@ const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8'));
 syncGenerationContract(draft);
 const input = fromCity ? { places: draft.places, things: draft.things, city: draft.cityData } : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
 for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) for (const source of candidate.sources ?? []) validateSource(source);
+for (const candidate of input.places ?? []) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
+for (const candidate of input.things ?? []) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
 const things = (input.things ?? []).map((candidate) => normalizeThing(candidate, draft));
 const places = (input.places ?? []).map((candidate) => normalizePlace(candidate, draft));
 for (const candidate of things) console.log(`${candidate.name}: ${candidate.fieldCard.template} Field Card`);
@@ -52,7 +55,7 @@ function entityMedia(candidate) {
 function base(candidate, draft, category) {
   const name = candidate.name; const coordinates = candidate.coordinates ?? draft.cityData.coordinates;
   return { id: candidate.id ?? `${category}-${slugify(name)}`, slug: candidate.slug ?? slugify(name), name, country: draft.country, city: draft.city,
-    category, coordinates, shortDescription: description(candidate), media: entityMedia(candidate),
+    category, coordinates, shortDescription: description(candidate), media: entityMedia(candidate), spaCard: candidate.spaCard ? structuredClone(candidate.spaCard) : undefined,
     isMySelection: candidate.isMySelection ?? false, selectionRank: candidate.selectionRank, sourceMetadata: { sourceName: 'Atlas research pipeline', reviewedAt: new Date().toISOString() },
     researchSources: generatedSources(candidate), manualLocks: candidate.manualLocks ?? {} };
 }
