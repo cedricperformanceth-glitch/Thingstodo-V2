@@ -1,3 +1,4 @@
+# Temporary full validation; removes itself after a green run.
 name: Full city page audit
 
 on:
