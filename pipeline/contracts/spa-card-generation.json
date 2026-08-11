@@ -4,19 +4,22 @@
   "fieldCardGeneration": false,
   "allCards": {
     "required": [
-      "photo",
       "exactName",
       "shortDescription",
       "googleMapsUrl",
       "handwrittenTags"
     ],
     "optional": [
+      "photo",
       "openingHours"
     ],
     "photo": {
-      "required": true,
+      "required": false,
+      "preferred": true,
       "licenseMustPassSourceVerificationContract": true,
-      "mustRepresentTheActualPlaceOrActivity": true
+      "mustRepresentTheActualPlaceOrActivity": true,
+      "whenUnavailable": "placeholder-manual-fill",
+      "neverGenerateSyntheticFallback": true
     },
     "exactName": {
       "required": true,
@@ -53,7 +56,7 @@
       "required": true,
       "count": 3,
       "maxWordsPerTag": 2,
-      "purpose": "three-short-handwritten-notes-over-the-photo",
+      "purpose": "three-short-handwritten-notes-over-the-photo-slot",
       "tone": "warm-specific-and-evocative",
       "avoidRepeatingTheName": true,
       "examples": [
