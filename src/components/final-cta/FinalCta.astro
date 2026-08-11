@@ -2,6 +2,24 @@
   <div class="final-cta__transition" aria-hidden="true"></div>
 
   <div class="final-cta__inner">
+    <svg class="final-cta__note final-cta__note--explore" viewBox="0 0 190 86" aria-hidden="true">
+      <path class="final-cta__ink" d="M23 45C20 19 162 11 173 40C184 68 42 77 20 52C14 45 15 39 23 32" />
+      <path class="final-cta__ink final-cta__ink--soft" d="M30 39C44 20 154 17 169 42C179 60 80 73 34 61" />
+      <text x="95" y="52" text-anchor="middle">explore</text>
+    </svg>
+
+    <svg class="final-cta__note final-cta__note--save" viewBox="0 0 180 78" aria-hidden="true">
+      <path class="final-cta__highlight" d="M24 45C58 37 105 38 154 41" />
+      <path class="final-cta__highlight final-cta__highlight--second" d="M28 51C71 44 116 45 151 47" />
+      <text x="90" y="49" text-anchor="middle">save this</text>
+    </svg>
+
+    <svg class="final-cta__note final-cta__note--yours" viewBox="0 0 220 82" aria-hidden="true">
+      <text x="110" y="44" text-anchor="middle">make it yours</text>
+      <path class="final-cta__ink" d="M40 57C78 62 129 61 178 55C190 54 198 55 202 57" />
+      <path class="final-cta__ink final-cta__ink--soft" d="M47 62C89 65 145 63 187 58" />
+    </svg>
+
     <img
       class="final-cta__logo"
       src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS%20CTA%20FINAL.webp"
@@ -28,6 +46,7 @@
   }
 
   .final-cta__inner {
+    position: relative;
     min-height: clamp(22rem, 44vw, 34rem);
     display: grid;
     place-items: center;
@@ -37,10 +56,101 @@
   }
 
   .final-cta__logo {
+    position: relative;
+    z-index: 2;
     display: block;
     width: min(42rem, 76vw);
     max-width: 100%;
     height: auto;
+  }
+
+  .final-cta__note {
+    position: absolute;
+    z-index: 3;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .final-cta__note text {
+    fill: #315f83;
+    font-family: 'Caveat', cursive;
+    font-size: 31px;
+    font-weight: 600;
+    letter-spacing: .01em;
+  }
+
+  .final-cta__ink {
+    fill: none;
+    stroke: #315f83;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: .9;
+  }
+
+  .final-cta__ink--soft {
+    stroke-width: 1.35;
+    opacity: .55;
+  }
+
+  .final-cta__highlight {
+    fill: none;
+    stroke: rgba(222, 185, 77, .46);
+    stroke-width: 15;
+    stroke-linecap: round;
+  }
+
+  .final-cta__highlight--second {
+    stroke-width: 9;
+    opacity: .55;
+  }
+
+  .final-cta__note--explore {
+    top: 9%;
+    left: 7.5%;
+    width: clamp(9.5rem, 16vw, 13.5rem);
+    transform: rotate(-8deg);
+  }
+
+  .final-cta__note--save {
+    top: 24%;
+    right: 5.5%;
+    width: clamp(8.5rem, 14vw, 12rem);
+    transform: rotate(5deg);
+  }
+
+  .final-cta__note--yours {
+    right: 14%;
+    bottom: 8.5%;
+    width: clamp(10.5rem, 17vw, 14rem);
+    transform: rotate(-3deg);
+  }
+
+  @media (max-width: 760px) {
+    .final-cta__note text {
+      font-size: 28px;
+    }
+
+    .final-cta__note--explore {
+      top: 8%;
+      left: -1.5%;
+      width: 9.5rem;
+      transform: rotate(-10deg);
+    }
+
+    .final-cta__note--save {
+      top: 20%;
+      right: -2%;
+      width: 8.5rem;
+      transform: rotate(7deg);
+    }
+
+    .final-cta__note--yours {
+      right: 4%;
+      bottom: 5%;
+      width: 10rem;
+      transform: rotate(-5deg);
+    }
   }
 
   @media (max-width: 640px) {
