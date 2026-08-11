@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - name: Fix Astro tab aria type
+      - name: Apply final Astro SPA source fix
         run: sed -i 's/aria-selected={String(selected)}/aria-selected={selected}/' src/components/spa/CitySpa.astro
       - name: Mark Don Det as village
         run: |
