@@ -32,7 +32,10 @@ const context = `${categoryLabels[place.category]} · ${titleize(place.city)}`;
     <p class="card-description">{place.shortDescription}</p>
   </div>
 
-  <div class="actions"><a class="button" href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a><TripButton entity={place} /></div>
+  <div class="actions">
+    <a class="card-action card-action--map" href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>
+    <TripButton entity={place} />
+  </div>
 </article>
 
 <style>
@@ -103,5 +106,62 @@ const context = `${categoryLabels[place.category]} · ${titleize(place.city)}`;
     letter-spacing: .08em;
     text-transform: uppercase;
   }
-  .actions { display:flex; flex-wrap:wrap; gap:.5rem; }
+
+  /* Same visual language and spacing as the Hero partner links. */
+  .actions {
+    display: grid;
+    gap: .90rem;
+    padding: 0 17px 17px;
+  }
+  .card-action,
+  .actions :global([data-trip]) {
+    position: relative;
+    display: block !important;
+    width: 100%;
+    min-height: 0 !important;
+    padding: .18rem 1.25rem .36rem .05rem !important;
+    border: 0 !important;
+    border-bottom: 1px solid currentColor !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive !important;
+    font-size: .72rem !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .card-action::before,
+  .actions :global([data-trip])::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: .72rem;
+    border-right: 1px solid currentColor;
+  }
+  .card-action::after,
+  .actions :global([data-trip])::after {
+    content: '↗';
+    position: absolute;
+    right: -.03rem;
+    bottom: .49rem;
+    z-index: 1;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: .88rem;
+    font-weight: 400;
+    line-height: 1;
+    transform: translate(38%, -10%);
+  }
+  .card-action--map { color: var(--river, #306f85); }
+  .actions :global([data-trip]) { color: #315545 !important; }
+  .card-action:hover,
+  .card-action:focus-visible,
+  .actions :global([data-trip]):hover,
+  .actions :global([data-trip]):focus-visible {
+    opacity: .72;
+    outline: none;
+  }
 </style>
