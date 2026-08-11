@@ -62,11 +62,14 @@
 
   .my-atlas-fab {
     position: relative;
-    width: auto;
-    display: inline-flex;
+    width: clamp(8.8rem, 11.5vw, 10.4rem);
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: .55rem;
-    padding: 0;
+    gap: .45rem;
+    box-sizing: border-box;
+    padding: .35rem .4rem .35rem .2rem;
     border: 0;
     background: transparent;
     box-shadow: none;
@@ -78,8 +81,10 @@
 
   .my-atlas-fab img {
     display: block;
-    width: clamp(7.15rem, 10vw, 9rem);
+    width: 100%;
+    max-width: 7.8rem;
     height: auto;
+    justify-self: end;
     object-fit: contain;
     background: transparent;
     filter: drop-shadow(0 7px 8px rgba(28, 34, 29, .16));
@@ -87,7 +92,6 @@
 
   .my-atlas-fab__count {
     position: static;
-    flex: 0 0 auto;
     min-width: 2rem;
     height: 2rem;
     display: grid;
@@ -359,8 +363,8 @@
       bottom: .65rem;
     }
 
-    .my-atlas-fab { gap: .42rem; }
-    .my-atlas-fab img { width: 6.8rem; }
+    .my-atlas-fab { width: 8.1rem; gap: .35rem; padding: .3rem .35rem .3rem .15rem; }
+    .my-atlas-fab img { width: 100%; max-width: 6rem; }
     .my-atlas-fab__count { min-width: 1.85rem; height: 1.85rem; font-size: .64rem; }
 
     .my-atlas-drawer {
