@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 const spaCategoryOrder = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
+const contentTargetRules = JSON.parse(readFileSync(new URL('../../pipeline/contracts/content-targets.json', import.meta.url), 'utf8'));
 
 export const CATEGORY_LABELS = {
   'things-to-do': 'Things to do', restaurants: 'Restaurants', cafes: 'Coffee', accommodation: 'Guest Houses',
@@ -12,25 +13,55 @@ export const SETTLEMENT_CATEGORIES = Object.freeze({
   city: Object.freeze([...spaCategoryOrder.city]),
 });
 export const PROFILE_CATEGORIES = SETTLEMENT_CATEGORIES.city;
-const PRACTICAL = new Set(['restaurants', 'cafes', 'accommodation', 'scooter-rental', 'gyms', 'markets', 'practical-services']);
-const RANGES = { compact: [15, 19], standard: [18, 22], large: [21, 25] };
+export const CONTENT_TARGET_RULES = contentTargetRules;
 const BLOCKED_MEDIA_HOSTS = ['tripadvisor.', 'booking.com', 'expedia.', 'lonelyplanet.', 'theculturetrip.'];
+const EMPTY_RULE = Object.freeze({ categories: {}, subcategories: {}, searchPriorities: {} });
 
 export function slugify(value) { return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
-export function categoryTargets(profile, seed, categories = PROFILE_CATEGORIES) {
-  const [min, max] = RANGES[profile];
-  return Object.fromEntries(categories.filter((category) => PRACTICAL.has(category)).map((category) => {
-    const hash = crypto.createHash('sha256').update(`${seed}:${category}`).digest()[0];
-    return [category, min + (hash % (max - min + 1))];
+
+export function contentRuleFor(country, settlementType) {
+  return contentTargetRules[country]?.[settlementType] ?? EMPTY_RULE;
+}
+
+function deterministicRangeValue(seed, key, range) {
+  const min = Number(range?.min);
+  const max = Number(range?.max);
+  if (!Number.isInteger(min) || !Number.isInteger(max) || min > max) throw new Error(`Invalid content target range for ${key}: ${range?.min ?? '?'}-${range?.max ?? '?'}`);
+  const hash = crypto.createHash('sha256').update(`${seed}:${key}`).digest().readUInt32BE(0);
+  return min + (hash % (max - min + 1));
+}
+
+export function categoryTargets(country, settlementType, seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? []) {
+  const rules = contentRuleFor(country, settlementType).categories ?? {};
+  return Object.fromEntries(categories.flatMap((category) => {
+    const range = rules[category];
+    return range ? [[category, deterministicRangeValue(seed, category, range)]] : [];
   }));
 }
+
+export function researchPlan(country, settlementType, seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? []) {
+  const rules = contentRuleFor(country, settlementType);
+  const allowedCategories = new Set(categories);
+  const subcategoryTargets = {};
+  for (const [category, subcategories] of Object.entries(rules.subcategories ?? {})) {
+    if (!allowedCategories.has(category)) continue;
+    subcategoryTargets[category] = Object.fromEntries(Object.entries(subcategories).map(([subcategory, range]) => [
+      subcategory,
+      deterministicRangeValue(seed, `${category}:${subcategory}`, range),
+    ]));
+  }
+  const searchPriorities = Object.fromEntries(Object.entries(rules.searchPriorities ?? {}).filter(([category]) => allowedCategories.has(category)).map(([category, priorities]) => [category, [...priorities]]));
+  return { subcategoryTargets, searchPriorities };
+}
+
 export function emptyDraft(country, city, profile, settlementType) {
   const categories = SETTLEMENT_CATEGORIES[settlementType];
   if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
   const name = city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
-  return { schemaVersion: 1, country, city, profile, generatedAt: null, cityData: {
+  const seed = `${country}/${city}`;
+  return { schemaVersion: 1, country, city, profile, generatedAt: null, researchPlan: researchPlan(country, settlementType, seed, categories), cityData: {
     id: `city-${country}-${city}`, slug: city, name, country, profile, settlementType, coordinates: { latitude: 0, longitude: 0 }, description: '',
-    categories: [...categories], categoryTargets: categoryTargets(profile, `${country}/${city}`, categories),
+    categories: [...categories], categoryTargets: categoryTargets(country, settlementType, seed, categories),
     hero: { eyebrow: country, title: name, subtitle: '', facts: [] },
     exploreBoard: { featuredThingIds: [] },
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },
