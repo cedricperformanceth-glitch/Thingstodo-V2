@@ -1,0 +1,53 @@
+name: Wire automatic Explore Board copy
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/wire-explore-board-copy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Use generated Explore Board intro and note
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/components/explore-board/ExploreBoard.astro')
+          text = path.read_text()
+          old = """const names = board.things.map(({ thing }) => thing.name);\nconst listNames = (items: string[]) => {\n  if (items.length === 0) return `the landmarks selected for ${city.name}`;\n  if (items.length === 1) return items[0];\n  if (items.length === 2) return `${items[0]} and ${items[1]}`;\n  return `${items.slice(0, -1).join(', ')}, and ${items.at(-1)}`;\n};\nconst intro = `Begin with ${listNames(names)}.`;\n"""
+          if old not in text:
+              raise SystemExit('Old Explore Board intro generator not found')
+          text = text.replace(old, '', 1)
+          text = text.replace('<p class="explore-board__intro">{intro}</p>', '<p class="explore-board__intro">{board.intro}</p>', 1)
+          text = text.replace('<p>Open a landmark to read the full field note.</p>', '<p>{board.note}</p>', 1)
+          path.write_text(text)
+          PY
+      - name: Validate
+        run: |
+          npm run check
+          npm run build
+          npm run architecture-check
+          npm run validate-content
+          git diff --check
+      - name: Commit and remove temporary workflow
+        run: |
+          rm .github/workflows/wire-explore-board-copy.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/components/explore-board/ExploreBoard.astro .github/workflows/wire-explore-board-copy.yml
+          git commit -m 'Use landmark-aware Explore Board copy'
+          git push origin master
