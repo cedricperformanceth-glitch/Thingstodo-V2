@@ -1,13 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { chooseFieldCardTemplate, mergeGenerated, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
+import { categoryTargets, chooseFieldCardTemplate, mergeGenerated, researchPlan, SETTLEMENT_CATEGORIES, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run'); const fromCity = flags.includes('--from-city');
 if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run]');
 const root = process.cwd(); const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`); const sourceFile = path.join(root, 'pipeline', 'sources', country, `${city}.json`);
 if (!fs.existsSync(draftFile)) throw new Error(`No structural draft for ${country}/${city}. Run create-city first.`);
 if (!fromCity && !fs.existsSync(sourceFile)) throw new Error(`No versioned research inputs at ${path.relative(root, sourceFile)}.`);
-const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8')); const input = fromCity ? { places: draft.places, things: draft.things, city: draft.cityData } : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8'));
+syncGenerationContract(draft);
+const input = fromCity ? { places: draft.places, things: draft.things, city: draft.cityData } : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
 for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) for (const source of candidate.sources ?? []) validateSource(source);
 const things = (input.things ?? []).map((candidate) => normalizeThing(candidate, draft));
 const places = (input.places ?? []).map((candidate) => normalizePlace(candidate, draft));
@@ -18,7 +20,11 @@ if (dryRun) { console.log('[dry-run] Source contract is valid; no Atlas content 
 // they must never supply prose copied from a competing guide platform.
 const cityInput = structuredClone(input.city ?? {});
 if (cityInput?.hero?.media) delete cityInput.hero.media;
+delete cityInput.categories;
+delete cityInput.categoryTargets;
+delete cityInput.settlementType;
 mergeGenerated(draft.cityData, cityInput);
+syncGenerationContract(draft);
 if (draft.cityData.hero?.media) delete draft.cityData.hero.media;
 for (const candidate of things) {
   const existing = draft.things.find((thing) => thing.id === candidate.id); const target = existing ? mergeGenerated(existing, candidate) : candidate;
@@ -34,6 +40,16 @@ fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`);
 fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city}.ts`), tsModule(draft));
 await import('./regenerate-content-registry.mjs');
 console.log(`Generated static versioned content for ${country}/${city}.`);
+
+function syncGenerationContract(draft) {
+  const settlementType = draft.cityData?.settlementType;
+  const categories = SETTLEMENT_CATEGORIES[settlementType];
+  if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  const seed = `${draft.country}/${draft.city}`;
+  draft.cityData.categories = [...categories];
+  draft.cityData.categoryTargets = categoryTargets(draft.country, settlementType, seed, categories);
+  draft.researchPlan = researchPlan(draft.country, settlementType, seed, categories);
+}
 
 function generatedSources(candidate) { return (candidate.sources ?? []).map(({ sourceName, sourceUrl, purpose, sourceType }) => ({ sourceName, sourceUrl, purpose, sourceType })); }
 function description(candidate) { return candidate.shortDescription || `${candidate.name} is included in this Atlas draft from independently recorded traveller facts.`; }
