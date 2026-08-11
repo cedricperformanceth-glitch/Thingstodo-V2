@@ -34,7 +34,6 @@ for (const candidate of editorialThings) if (candidate.spaCard) assertValidSpaCa
 
 const things = editorialThings.map((candidate) => normalizeThing(candidate, draft));
 const places = editorialPlaces.map((candidate) => normalizePlace(candidate, draft));
-for (const candidate of things) console.log(`${candidate.name}: ${candidate.fieldCard.template} Field Card`);
 console.log(`Explore Board: ${(draft.cityData.exploreBoard?.featuredThingIds ?? []).join(', ') || 'awaiting manual landmark selection'}`);
 
 const assembled = assembleDraft(draft, input.city ?? {}, places, things);
@@ -107,7 +106,7 @@ function generatedSources(candidate) {
 }
 
 function description(candidate) {
-  return candidate.shortDescription || `${candidate.name} is included in this Atlas draft from independently recorded traveller facts.`;
+  return candidate.shortDescription ?? '';
 }
 
 function entityMedia(candidate) {
@@ -132,8 +131,6 @@ function base(candidate, baseDraft, category) {
     media: entityMedia(candidate),
     spaCard: candidate.spaCard ? structuredClone(candidate.spaCard) : undefined,
     verification: candidate.verification ? structuredClone(candidate.verification) : undefined,
-    isMySelection: candidate.isMySelection ?? false,
-    selectionRank: candidate.selectionRank,
     sourceMetadata: candidate.sourceMetadata ?? { sourceName: 'Atlas research pipeline', reviewedAt: new Date().toISOString() },
     researchSources: generatedSources(candidate),
     manualLocks: candidate.manualLocks ?? {},
