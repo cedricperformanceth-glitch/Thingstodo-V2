@@ -70,12 +70,13 @@
   .atlas-footer__content {
     --footer-content-gutter: clamp(38px, 5vw, 78px);
     min-width: 0;
-    padding-left: var(--footer-content-gutter);
+    padding-inline: var(--footer-content-gutter);
   }
 
   .atlas-footer__heading {
-    width: 100%;
-    margin-bottom: clamp(38px, 4.5vw, 58px);
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto clamp(38px, 4.5vw, 58px);
   }
 
   .atlas-footer__heading p {
