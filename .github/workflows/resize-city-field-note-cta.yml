@@ -1,0 +1,44 @@
+name: Resize City Field Note CTA
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/resize-city-field-note-cta.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  resize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Increase CTA height and type size
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/components/explore-board/ExploreBoard.astro')
+          text = path.read_text()
+          replacements = {
+            '    min-height: 3.15rem;': '    min-height: 3.7rem;',
+            '    padding: .62rem .72rem .5rem;': '    padding: .78rem .72rem .66rem;',
+            '    font-size: clamp(.56rem, .72vw, .68rem);': '    font-size: clamp(.66rem, .85vw, .8rem);',
+          }
+          for old, new in replacements.items():
+            if old not in text:
+              raise SystemExit(f'Missing expected rule: {old}')
+            text = text.replace(old, new, 1)
+          path.write_text(text)
+          PY
+      - name: Commit and remove workflow
+        run: |
+          rm .github/workflows/resize-city-field-note-cta.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/components/explore-board/ExploreBoard.astro .github/workflows/resize-city-field-note-cta.yml
+          git commit -m 'Enlarge City Field Note CTA'
+          git push origin master
