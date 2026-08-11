@@ -36,9 +36,7 @@
     padding: 6px 10px 6px 7px;
     overflow: visible;
     border: 1px solid rgba(49, 85, 69, .42);
-    background:
-      linear-gradient(rgba(247, 242, 230, .96), rgba(247, 242, 230, .96)),
-      repeating-linear-gradient(0deg, transparent 0 8px, rgba(49, 85, 69, .035) 8px 9px);
+    background: transparent;
     color: #315545;
     box-shadow: 4px 5px 0 rgba(49, 85, 69, .12), 0 12px 30px rgba(32, 60, 49, .12);
     transform: rotate(-.45deg);
@@ -73,6 +71,7 @@
     justify-content: center;
     overflow: hidden;
     padding-right: .35rem;
+    background: transparent;
   }
 
   .my-atlas-fab__logo {
@@ -81,12 +80,16 @@
     height: 100%;
     object-fit: contain;
     margin: 0;
+    background: transparent;
   }
 
   .my-atlas-fab__counter-slot {
     height: 100%;
     display: grid;
     place-items: center;
+    background:
+      linear-gradient(rgba(247, 242, 230, .96), rgba(247, 242, 230, .96)),
+      repeating-linear-gradient(0deg, transparent 0 8px, rgba(49, 85, 69, .035) 8px 9px);
   }
 
   .my-atlas-fab__count {
