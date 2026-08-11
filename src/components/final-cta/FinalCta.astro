@@ -50,7 +50,7 @@ const routes = getFinalCtaRoutes(country);
           </a>
         )}
 
-        <a class="atlas-summary-link" href="/summary" aria-label="Open Your Atlas">Your Atlas</a>
+        <a class="atlas-summary-link" href="/summary" aria-label="Build Your Atlas">Build Your Atlas</a>
 
         {routes[1] && (
           <a class="atlas-route atlas-route--second" href={routes[1].href} aria-label={`Open Atlas Route ${routes[1].label}`}>
@@ -222,8 +222,8 @@ const routes = getFinalCtaRoutes(country);
   .atlas-summary-link {
     left: 50%;
     top: 68%;
-    width: 9.5rem;
-    padding: .22rem 1.35rem .42rem .08rem;
+    width: 12.5rem;
+    padding: .22rem 1.75rem .42rem .08rem;
     border-bottom: 1px solid currentColor;
     color: #315545;
     font-family: 'Segoe Print', 'Bradley Hand', cursive;
@@ -247,14 +247,14 @@ const routes = getFinalCtaRoutes(country);
   .atlas-summary-link::after {
     content: '↗';
     position: absolute;
-    right: -.03rem;
-    bottom: .68rem;
+    right: .28rem;
+    bottom: .34rem;
     z-index: 1;
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.02rem;
     font-weight: 400;
     line-height: 1;
-    transform: translate(38%, -10%);
+    transform: none;
   }
 
   .atlas-summary-link:hover {
@@ -307,7 +307,7 @@ const routes = getFinalCtaRoutes(country);
 
     .atlas-summary-link {
       top: 67%;
-      width: 8.4rem;
+      width: 11rem;
       font-size: 1.3rem;
     }
   }
