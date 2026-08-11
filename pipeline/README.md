@@ -43,12 +43,61 @@ City automatic targets:
 - Guest Houses: 19–25.
 - Rental Scooter: 5–12.
 
-There is deliberately no numeric minimum/target/maximum for Gym & Fitness, Market & Shopping,
-or Essential Information unless a later country contract explicitly adds one.
+There is deliberately no global numeric target for Gym & Fitness, Market & Shopping,
+or Essential Information. Their search limits and inclusion rules are defined separately in the selection contract.
 
 For Essential Information in Laos, research always attempts to identify a hospital, a tourism office,
-and a visa-extension location. These are search priorities, not guaranteed records: if a valid local option
-does not exist or cannot be verified, generation does not invent one.
+and the official immigration office used for immigration/visa-extension matters. These are search priorities,
+not guaranteed records: if a valid local option does not exist or cannot be verified, generation does not invent one.
+Visa agencies and travel agencies are not substitutes for the immigration office.
+
+## Laos selection rules
+
+`pipeline/contracts/content-selection.json` defines what the research stage is trying to select. These are internal
+research rules, not visible SPA filters or additional public categories.
+
+Geographic scope:
+- search the requested city or village first;
+- normally stay within roughly 2 km of it;
+- the automatic scan may extend to a maximum of 3 km around the settlement;
+- farther editorial additions can still be made manually later.
+
+General selection style:
+- favor affordable and normal mid-range places rather than luxury;
+- keep enough variety that every shortlist is not made of identical price/style choices;
+- manual editorial additions are expected after automatic generation.
+
+Restaurants / Coffee / Rental Scooter:
+- use their ordinary real-world meaning;
+- bars belong inside Restaurants, never in a standalone category;
+- no extra automatic public-facing subcategory/filter system is required.
+
+Guest Houses / accommodation:
+- suitable guesthouses, hostels, small hotels and budget hotels are valid candidates;
+- there is no hard minimum nightly price;
+- the main target price band is USD 10–30 per night;
+- USD 50 per night is the automatic hard ceiling;
+- at most three selected stays may sit in the upper part of the range, so a few pool/nicer options can exist without turning the guide into a luxury-hotel list.
+
+Gym & Fitness:
+- there is no minimum; an empty result is valid;
+- scan fitness gyms and weight-training gyms, with at most five selected automatically;
+- scan Muay Thai gyms separately inside the same Gym & Fitness category, ideally around two when available and never more than three automatically;
+- anything more specialized can be added manually by the editor.
+
+Market & Shopping:
+- automatically look only for real markets and night markets;
+- there is no minimum and no automatic need to fill the category with shops;
+- other shopping entries are editorial/manual additions.
+
+Essential Information:
+- automatically search for a hospital, tourism office and immigration office;
+- tourism and immigration entries must be official offices, not commercial agencies;
+- visa agencies and travel agencies are explicitly excluded as substitutes;
+- extra practical information is expected to be added manually when useful.
+
+Things to do remains editorially count-controlled as described above. Step 2 does not impose an automatic
+subcategory taxonomy or visible filter system on activities.
 
 ## Candidate discovery and existence checks
 
