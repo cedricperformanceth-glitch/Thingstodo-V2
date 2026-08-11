@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { chooseFieldCardTemplate, mergeGenerated, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
+import { materializeSpaCardEditorial } from './lib/spa-card-editorial.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run'); const fromCity = flags.includes('--from-city');
 if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run]');
@@ -12,10 +13,12 @@ const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8'));
 syncGenerationContract(draft);
 const input = fromCity ? { places: draft.places, things: draft.things, city: draft.cityData } : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
 for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) for (const source of candidate.sources ?? []) validateSource(source);
-for (const candidate of input.places ?? []) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
-for (const candidate of input.things ?? []) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
-const things = (input.things ?? []).map((candidate) => normalizeThing(candidate, draft));
-const places = (input.places ?? []).map((candidate) => normalizePlace(candidate, draft));
+const editorialPlaces = (input.places ?? []).map((candidate) => prepareEditorial(candidate, 'place'));
+const editorialThings = (input.things ?? []).map((candidate) => prepareEditorial(candidate, 'thing-to-do'));
+for (const candidate of editorialPlaces) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
+for (const candidate of editorialThings) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
+const things = editorialThings.map((candidate) => normalizeThing(candidate, draft));
+const places = editorialPlaces.map((candidate) => normalizePlace(candidate, draft));
 for (const candidate of things) console.log(`${candidate.name}: ${candidate.fieldCard.template} Field Card`);
 console.log(`Explore Board: ${(draft.cityData.exploreBoard?.featuredThingIds ?? []).join(', ') || 'awaiting manual landmark selection'}`);
 if (dryRun) { console.log('[dry-run] Source contract is valid; no Atlas content changed.'); process.exit(0); }
@@ -44,6 +47,14 @@ fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city
 await import('./regenerate-content-registry.mjs');
 console.log(`Generated static versioned content for ${country}/${city}.`);
 
+function prepareEditorial(candidate, kind) {
+  if (!candidate?.editorialDraft) return candidate;
+  const result = materializeSpaCardEditorial(candidate, candidate.editorialDraft, kind, candidate.editorialFacts ?? []);
+  if (result.status !== 'ready') {
+    throw new Error(`SPA editorial draft for ${candidate?.name ?? 'unnamed candidate'} requires manual review: ${result.errors.join('; ')}`);
+  }
+  return result.candidate;
+}
 function generatedSources(candidate) { return (candidate.sources ?? []).map(({ sourceName, sourceUrl, purpose, sourceType }) => ({ sourceName, sourceUrl, purpose, sourceType })); }
 function description(candidate) { return candidate.shortDescription || `${candidate.name} is included in this Atlas draft from independently recorded traveller facts.`; }
 function entityMedia(candidate) {
