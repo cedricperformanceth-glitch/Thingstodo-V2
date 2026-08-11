@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "scope": "city-publication-preflight",
+  "fieldCardGeneration": false,
+  "statuses": {
+    "ready": "ready",
+    "readyWithWarnings": "ready-with-warnings",
+    "blocked": "blocked"
+  },
+  "blockingChecks": [
+    "city-contract",
+    "category-targets",
+    "unique-entity-identities",
+    "allowed-category-membership",
+    "spa-card-contract",
+    "google-maps",
+    "source-verification",
+    "explore-board-integrity"
+  ],
+  "targetRules": {
+    "things-to-do": "exact-editorial-target",
+    "automatic-target-categories": "at-least-target",
+    "categories-without-target": "no-count-block"
+  },
+  "verification": {
+    "publishableAutomaticEntityDecision": "accept",
+    "missingVerificationDecision": "block",
+    "manualReviewDecision": "block",
+    "rejectClosedDecision": "block"
+  },
+  "media": {
+    "missingSpaPhoto": "warning",
+    "placeholderIsPublishable": true,
+    "syntheticFallbackForbidden": true,
+    "photoAttributionMustRemainCompleteWhenRequired": true
+  },
+  "sources": {
+    "automaticEntityRequiresResearchSource": true
+  },
+  "warnings": [
+    "missing-spa-photo",
+    "missing-optional-opening-hours"
+  ],
+  "finalCommand": "generate-city --publish-check",
+  "standaloneCommand": "qa-city"
+}
