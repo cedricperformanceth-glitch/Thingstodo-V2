@@ -9,6 +9,18 @@
   <span class="my-atlas-fab__counter-slot" aria-hidden="true">
     <span class="my-atlas-fab__count" data-my-atlas-fab-count>00</span>
   </span>
+
+  <span class="my-atlas-fab__logo-slot" aria-hidden="true">
+    <img
+      class="my-atlas-fab__logo"
+      src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"
+      alt=""
+      width="2172"
+      height="724"
+      loading="eager"
+      decoding="async"
+    />
+  </span>
 </button>
 
 <style>
@@ -54,6 +66,29 @@
     font: 600 .72rem/1 Fraunces, serif;
   }
 
+  .my-atlas-fab__logo-slot {
+    height: 70px;
+    min-width: 0;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+
+  .my-atlas-fab__logo {
+    display: block;
+    max-width: 100%;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+
+  .my-atlas-fab:hover {
+    opacity: .9;
+  }
+
   .my-atlas-fab:focus-visible {
     outline: 2px solid #b76645;
     outline-offset: 2px;
@@ -75,6 +110,14 @@
       width: 29px;
       height: 29px;
       font-size: .66rem;
+    }
+
+    .my-atlas-fab__logo-slot {
+      height: 62px;
+    }
+
+    .my-atlas-fab__logo {
+      max-height: 62px;
     }
   }
 </style>
