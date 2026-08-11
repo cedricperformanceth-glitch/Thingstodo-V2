@@ -1,8 +1,9 @@
 import { readFileSync } from 'node:fs';
-import { SETTLEMENT_CATEGORIES } from './city-pipeline.mjs';
 import { validateSpaCardCandidate } from './spa-card-generation.mjs';
 
 const contract = JSON.parse(readFileSync(new URL('../../pipeline/contracts/city-publish-qa.json', import.meta.url), 'utf8'));
+const spaCategories = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
+const SETTLEMENT_CATEGORIES = Object.freeze({ village: Object.freeze([...spaCategories.village]), city: Object.freeze([...spaCategories.city]) });
 
 export const CITY_PUBLISH_QA_CONTRACT = contract;
 
