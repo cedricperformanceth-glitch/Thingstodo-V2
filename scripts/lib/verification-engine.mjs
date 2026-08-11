@@ -83,6 +83,15 @@ export function evaluateCandidateAcceptance({ kind = 'business', signals = [] },
     return { decision: 'manual-review', reason: 'insufficient-static-site-evidence' };
   }
 
+  if (kind === 'public-experience') {
+    const rules = plan.acceptance.publicExperience;
+    if (rules.singleCurrentAuthoritativeSourceCanConfirmAvailability && current.some((signal) => signal.authoritative === true)) {
+      return { decision: 'accept', reason: 'authoritative-public-experience-source' };
+    }
+    if (current.length >= rules.otherwiseMinimumIndependentSignals) return { decision: 'accept', reason: 'multiple-independent-public-experience-signals' };
+    return { decision: 'manual-review', reason: 'insufficient-public-experience-evidence' };
+  }
+
   const rules = plan.acceptance.businessOrOperator;
   if (current.length < rules.minimumIndependentCurrentSignals) return { decision: 'manual-review', reason: 'insufficient-independent-signals' };
   if (rules.requireAtLeastOneStrongSignal && strong.length === 0) return { decision: 'manual-review', reason: 'missing-strong-signal' };
