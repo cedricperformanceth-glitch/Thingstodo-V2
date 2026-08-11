@@ -8,6 +8,48 @@ const clean = (value) => String(value ?? '').trim();
 const wordCount = (value) => clean(value).split(/\s+/).filter(Boolean).length;
 const normalizeText = (value) => clean(value).replace(/\s+/g, ' ');
 
+function formatTimeToken(value) {
+  const match = clean(value).toLowerCase().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/);
+  if (!match) return clean(value);
+  let hour = Number(match[1]);
+  const minute = Number(match[2] ?? 0);
+  const meridiem = match[3];
+  if (minute > 59) return clean(value);
+  if (meridiem) {
+    if (hour < 1 || hour > 12) return clean(value);
+    if (meridiem === 'am') hour = hour === 12 ? 0 : hour;
+    else hour = hour === 12 ? 12 : hour + 12;
+  } else if (hour > 23) return clean(value);
+  return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+}
+
+export function normalizeOpeningHours(value) {
+  let text = normalizeText(value);
+  if (!text) return '';
+  text = text.replace(/\bevery\s*day\b|\beveryday\b/gi, 'Daily');
+  text = text.replace(/(\d{1,2}(?::\d{2})?\s*(?:am|pm)?)\s*(?:-|–|—|\bto\b)\s*(\d{1,2}(?::\d{2})?\s*(?:am|pm)?)/gi, (_match, start, end) => `${formatTimeToken(start)}–${formatTimeToken(end)}`);
+  return text.replace(/\s*·\s*/g, ' · ').replace(/\s+/g, ' ').trim();
+}
+
+export function normalizeDuration(value) {
+  let text = normalizeText(value);
+  if (!text) return '';
+  if (/^half[ -]?day$/i.test(text)) return 'Half-day';
+  if (/^full[ -]?day$/i.test(text)) return 'Full day';
+  text = text
+    .replace(/\bhrs?\b/gi, 'hours')
+    .replace(/\bmins?\b/gi, 'min')
+    .replace(/\b1 hours\b/gi, '1 hour')
+    .replace(/(\d)\s*(?:-|—)\s*(\d)/g, '$1–$2');
+  return text;
+}
+
+export function normalizeBestTime(value) {
+  const text = normalizeText(value);
+  if (!text) return '';
+  return `${text.charAt(0).toUpperCase()}${text.slice(1)}`;
+}
+
 export function verifiedEditorialFacts(facts = []) {
   return facts
     .filter((fact) => fact?.verified === true && clean(fact?.id) && clean(fact?.text))
@@ -67,12 +109,14 @@ export function buildSpaCardEditorialBrief(candidate, kind = 'place', facts = ca
       handwrittenTags: contract.handwrittenTags,
       openingHours: contract.openingHours,
       activityMetadata: kind === 'thing-to-do' ? contract.activityMetadata : null,
+      traceability: contract.traceability,
       hardRules: [
         'Use only the verified facts supplied in this brief.',
         'Do not infer a fact merely because it is typical for this kind of place.',
         'Do not copy source prose; write fresh Atlas wording.',
         'Do not alter the verified name, map URL or selected photo.',
         'If a required activity field cannot be supported, return manual-review instead of guessing.',
+        'Reference the supporting verified fact IDs for every generated field.',
         'Do not generate any Field Card content.',
       ],
     },
@@ -138,12 +182,14 @@ export function validateSpaCardEditorialDraft(draft, kind = 'place', facts = [])
     }
   }
 
-  if (draft?.openingHours && !normalizeText(draft.openingHours)) errors.push('openingHours must be omitted or human-readable');
+  if (draft?.openingHours && !normalizeOpeningHours(draft.openingHours)) errors.push('openingHours must be omitted or human-readable');
 
   if (kind === 'thing-to-do') {
-    if (!normalizeText(draft?.duration)) errors.push('duration is required');
+    if (!normalizeDuration(draft?.duration)) errors.push('duration is required');
     if (!['free', 'paid'].includes(draft?.costType)) errors.push('costType must be free or paid');
-    if (!normalizeText(draft?.bestTime)) errors.push('bestTime is required');
+    const bestTime = normalizeBestTime(draft?.bestTime);
+    if (!bestTime) errors.push('bestTime is required');
+    else if (wordCount(bestTime) > contract.activityMetadata.bestTime.hardMaxWords) errors.push(`bestTime must be at most ${contract.activityMetadata.bestTime.hardMaxWords} words`);
   }
 
   if ('fieldCard' in (draft ?? {})) errors.push('Field Card output is forbidden in SPA editorial generation');
@@ -159,11 +205,11 @@ export function materializeSpaCardEditorial(candidate, draft, kind = 'place', fa
   result.shortDescription = normalizeText(draft.shortDescription);
   result.spaCard = {
     handwrittenTags: draft.handwrittenTags.map(normalizeText),
-    ...(draft.openingHours ? { openingHours: normalizeText(draft.openingHours) } : {}),
+    ...(draft.openingHours ? { openingHours: normalizeOpeningHours(draft.openingHours) } : {}),
     ...(kind === 'thing-to-do' ? {
-      duration: normalizeText(draft.duration),
+      duration: normalizeDuration(draft.duration),
       costType: draft.costType,
-      bestTime: normalizeText(draft.bestTime),
+      bestTime: normalizeBestTime(draft.bestTime),
     } : {}),
   };
   result.editorialEvidenceRefs = structuredClone(draft.evidenceRefs);
