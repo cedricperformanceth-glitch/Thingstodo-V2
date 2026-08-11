@@ -2,7 +2,7 @@
   "laos": {
     "village": {
       "categories": {
-        "things-to-do": { "min": 7, "idealMin": 19, "idealMax": 28, "max": 35, "selectionMode": "editorial" },
+        "things-to-do": { "min": 5, "max": 25, "selectionMode": "editorial" },
         "restaurants": { "min": 10, "max": 15 },
         "cafes": { "min": 10, "max": 15 },
         "accommodation": { "min": 12, "max": 19 }
@@ -22,7 +22,7 @@
     },
     "city": {
       "categories": {
-        "things-to-do": { "min": 7, "idealMin": 19, "idealMax": 28, "max": 35, "selectionMode": "editorial" },
+        "things-to-do": { "min": 5, "max": 25, "selectionMode": "editorial" },
         "restaurants": { "min": 19, "max": 25 },
         "cafes": { "min": 19, "max": 25 },
         "accommodation": { "min": 19, "max": 25 },
