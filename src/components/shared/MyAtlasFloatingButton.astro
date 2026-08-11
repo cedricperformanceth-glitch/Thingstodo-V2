@@ -21,13 +21,11 @@
 
 <style>
   .my-atlas-fab {
-    width: clamp(12.5rem, 14vw, 14.5rem);
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 2.2rem;
-    align-items: center;
-    column-gap: .45rem;
+    position: relative;
+    width: 15rem;
+    height: 5rem;
     box-sizing: border-box;
-    padding: .2rem .25rem .2rem .1rem;
+    padding: 0;
     overflow: hidden;
     border: 0;
     background: transparent;
@@ -35,27 +33,12 @@
     cursor: pointer;
   }
 
-  .my-atlas-fab__count {
-    grid-column: 2;
-    grid-row: 1;
-    width: 2rem;
-    height: 2rem;
-    display: grid;
-    place-items: center;
-    justify-self: center;
-    box-sizing: border-box;
-    border: 1px solid #b76645;
-    border-radius: 50%;
-    background: transparent;
-    color: #b76645;
-    font: 600 .7rem/1 Fraunces, serif;
-  }
-
   .my-atlas-fab__art {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
-    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: calc(100% - 3rem);
+    transform: translateY(-50%);
   }
 
   .my-atlas-fab__art img {
@@ -63,6 +46,23 @@
     width: 100%;
     height: auto;
     background: transparent;
+  }
+
+  .my-atlas-fab__count {
+    position: absolute;
+    right: .45rem;
+    top: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    border: 1px solid #b76645;
+    border-radius: 50%;
+    background: transparent;
+    color: #b76645;
+    font: 600 .7rem/1 Fraunces, serif;
+    transform: translateY(-50%);
   }
 
   .my-atlas-fab:hover {
@@ -76,13 +76,16 @@
 
   @media (max-width: 700px) {
     .my-atlas-fab {
-      width: 11rem;
-      grid-template-columns: minmax(0, 1fr) 1.95rem;
-      column-gap: .35rem;
-      padding: .15rem .2rem .15rem .05rem;
+      width: 12.5rem;
+      height: 4.2rem;
+    }
+
+    .my-atlas-fab__art {
+      width: calc(100% - 2.65rem);
     }
 
     .my-atlas-fab__count {
+      right: .35rem;
       width: 1.8rem;
       height: 1.8rem;
       font-size: .64rem;
