@@ -15,4 +15,27 @@ if (!city) return Astro.redirect('/');
   <ExploreBoard {city} />
   <CitySpa {city} />
   <FinalCta country={city.country} />
+  <div class="final-cta-footer-transition" aria-hidden="true"></div>
 </BaseLayout>
+
+<style>
+  .final-cta-footer-transition {
+    width: 100vw;
+    height: clamp(2.5rem, 5vw, 4.5rem);
+    margin-left: calc(50% - 50vw);
+    background: linear-gradient(
+      180deg,
+      #f3ede0 0%,
+      rgba(243, 237, 224, .72) 18%,
+      rgba(49, 85, 69, .54) 48%,
+      #315545 80%,
+      #315545 100%
+    );
+  }
+
+  @media (max-width: 640px) {
+    .final-cta-footer-transition {
+      height: 2.75rem;
+    }
+  }
+</style>
