@@ -3,6 +3,7 @@ import '../../core/design-system/tokens.css';
 import type { SeoMetadata } from '../../core/models/types';
 import { pageSeo } from '../../core/seo/metadata';
 import Navbar from './Navbar.astro';
+import MakeYourOwnAtlas from '../shared/MakeYourOwnAtlas.astro';
 interface Props { seo: SeoMetadata; breadcrumbs?: Array<{name:string;path:string}>; }
 const { seo, breadcrumbs = [] } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
@@ -25,6 +26,7 @@ const meta = pageSeo(seo, breadcrumbs);
     <Navbar />
     <main id="main-content"><slot /></main>
     <footer>Independent editorial travel guide</footer>
+    <MakeYourOwnAtlas />
     <script>
       import '../../features/favorites/client';
       import '../../features/spa/client';
