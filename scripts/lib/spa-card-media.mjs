@@ -82,7 +82,7 @@ export function selectSpaCardPhoto(candidate) {
   }
 
   const candidates = [...(candidate?.photoCandidates ?? [])];
-  if (current?.src) candidates.unshift({ ...current, subjectVerified: current.subjectVerified ?? true, width: current.width ?? 640, height: current.height ?? 400 });
+  if (current?.src) candidates.unshift(current);
 
   const qualified = candidates
     .map((photo) => ({ photo, validation: validateAutomaticPhotoCandidate(photo) }))
