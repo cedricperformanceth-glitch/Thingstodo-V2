@@ -21,16 +21,12 @@ The versioned generation contract lives in `pipeline/contracts/content-targets.j
 selected deterministically from the configured range using the country/city/category seed: different cities
 vary naturally, while rebuilding the same city keeps the same automatic target.
 
-Things to do is different from the automatic address categories. For every Laos settlement it has:
-- hard minimum: 7 activities;
-- ideal editorial range: 19–28 activities;
-- hard maximum: 35 activities;
-- selection mode: editorial.
-
-The future admin/editor chooses the actual Things to do target for each settlement. Until an editorial target is
-selected, the pipeline keeps the policy but does not invent a numeric activity target. The selected value is stored
-in `cityData.categoryTargets["things-to-do"]` with a manual lock on `categoryTargets.things-to-do`; subsequent
-generation refreshes preserve that choice. Values outside 7–35 are rejected.
+Things to do is different from the automatic address categories:
+- the admin/editor chooses the exact number for each settlement;
+- hard minimum: 5 activities;
+- hard maximum: 25 activities;
+- until the admin selects a value, the pipeline stores the policy but does not invent a target;
+- the selected value is manually locked and survives subsequent generation refreshes.
 
 Village automatic targets:
 - Restaurants: 10–15, including a nested Bar research target of 3–5. Bar is not a standalone category.
@@ -61,13 +57,29 @@ Geographic scope for practical addresses:
 - normally stay within roughly 2 km of it;
 - the automatic scan may extend to a maximum of 3 km around the settlement;
 - this radius applies to Restaurants, Coffee, Guest Houses, Rental Scooter, Gym & Fitness, Market & Shopping and Essential Information;
-- it deliberately does **not** constrain Things to do, because an activity associated with a city can legitimately sit farther away;
+- it deliberately does **not** constrain Things to do;
 - farther practical editorial additions can still be made manually later.
 
 General selection style:
 - favor affordable and normal mid-range places rather than luxury;
 - keep enough variety that every shortlist is not made of identical price/style choices;
 - manual editorial additions are expected after automatic generation.
+
+### Things to do
+
+Things to do is the primary editorial category. For Laos, the existing Atlas activity database is the preferred seed
+input. Seed entries are never accepted blindly: they are verified and enriched using the same public-source workflow
+as newly discovered activities.
+
+Activities:
+- are linked to the destination but have no fixed kilometre radius;
+- are selected for being distinct and genuinely useful/interesting to a visitor;
+- avoid near-duplicate versions of the same experience;
+- do not require a public-facing automatic subcategory taxonomy;
+- use official tourism/government sources, institutional sources, Wikipedia/Wikimedia, Wikivoyage/Wikitravel,
+  public web results, travel platforms, social networks and other public sources for discovery and cross-checking.
+
+### Practical categories
 
 Restaurants / Coffee / Rental Scooter:
 - use their ordinary real-world meaning;
@@ -79,7 +91,7 @@ Guest Houses / accommodation:
 - there is no hard minimum nightly price;
 - the main target price band is USD 10–30 per night;
 - USD 50 per night is the automatic hard ceiling;
-- at most three selected stays may sit in the upper part of the range, so a few pool/nicer options can exist without turning the guide into a luxury-hotel list.
+- at most three selected stays may sit in the upper part of the range.
 
 Gym & Fitness:
 - there is no minimum; an empty result is valid;
@@ -95,24 +107,86 @@ Market & Shopping:
 Essential Information:
 - automatically search for a hospital, tourism office and immigration office;
 - the immigration entry must be the actual official immigration office, never a commercial visa/travel agency substitute;
-- visa agencies and travel agencies are explicitly excluded as substitutes;
 - extra practical information is expected to be added manually when useful.
 
-Things to do remains editorially count-controlled as described above. Step 2 does not impose an automatic
-subcategory taxonomy, visible filter system, or 3 km practical-address radius on activities.
+## Source discovery, verification and reuse
 
-## Candidate discovery and existence checks
+`pipeline/contracts/source-verification.json` defines the Step 3 source workflow.
 
-Candidate discovery may use a broad mix of public sources: official establishment websites, official tourism
-sites, general web-search results, travel platforms, social networks, and other public sources. Repeated appearance
-across independent sources is a useful discovery/ranking signal, but repetition alone is not proof. Before an
-establishment is accepted as current, the research stage must verify that it still exists using current public or
-official signals. A place that cannot be reasonably verified as active is not invented or silently treated as current.
+### Discovery budget
+
+Research is adaptive rather than trying to scan a fixed huge number of sites:
+- start with four discovery queries per category;
+- expand when necessary, up to twelve queries per category;
+- aim for a candidate pool around 1.5× the final target;
+- stop once enough qualified candidates have been found and verified.
+
+### Candidate identity and repeated mentions
+
+Candidates are normalized by name, coordinates/address when available, and obvious aliases. Reposted/syndicated copies
+of the same source are not counted as independent mentions. Repeated appearances across independent current sources
+increase confidence/ranking, especially when an authoritative or first-party source is present.
+
+The existing Atlas activity database is a seed source, not proof of current validity.
+
+### Minimum evidence
+
+For a business or commercial activity operator:
+- normally require two independent current signals;
+- at least one should be strong (official/first-party, government/tourism, authoritative current listing, or equivalent);
+- a single weak travel/blog/social mention never auto-publishes a candidate.
+
+For a static landmark or natural/cultural site:
+- one current authoritative institutional source can confirm existence;
+- otherwise require at least two independent signals.
+
+Conflicting current evidence sends the candidate to manual review instead of guessing.
+
+### Closure and existence checks
+
+Strong operational signals include a current official site, recent first-party activity, an authoritative current
+listing, or a permitted Places API operational status.
+
+A candidate is considered permanently closed when:
+- an official closure notice confirms it; or
+- a permitted Places API status says `CLOSED_PERMANENTLY`; or
+- three independent, explicit and recent closure reports are found (within 18 months), with no newer operational signal.
+
+Temporary closure is not converted into permanent closure automatically. If a place moved, the replacement location
+is followed only after verification.
+
+Google review text is not scraped, copied or stored as Atlas source material. If Google Maps Platform is used,
+status fields are preferred within the applicable Google terms.
+
+### Reuse/licensing policy
+
+Publicly accessible does **not** automatically mean reusable. Atlas separates research/cross-checking from copying.
+
+Facts:
+- may be researched and cross-checked from public sources with provenance;
+- Atlas prose is written independently rather than copied from travel guides/platforms.
+
+Text:
+- default is do not copy;
+- reuse only when an explicit compatible licence permits it and all attribution/share-alike obligations are satisfied.
+
+Media:
+- every asset is checked individually;
+- Public Domain, CC0, CC BY and CC BY-SA may be used when their exact terms are satisfied;
+- unknown/all-rights-reserved assets are rejected without permission;
+- non-commercial Creative Commons assets are rejected for normal Atlas commercial/advertising use;
+- no-derivatives assets are not edited;
+- author, licence, source URL and required attribution are stored.
+
+Domain notes:
+- Wikimedia Commons: check the licence on every individual file page;
+- Wikipedia: excellent factual/reference input, but do not copy prose by default;
+- Wikivoyage/Wikitravel: discovery/factual input by default; copied/adapted prose requires CC BY-SA compliance;
+- UNESCO: authoritative factual source, but each text/photo/document must be checked for its specific reuse licence.
 
 Travel and booking platforms are discovery inputs, not sources to copy from. Descriptions, ratings, reviews,
 rankings, photos, and editorial wording from competing guide or booking platforms are not republished. TripAdvisor
-candidate discovery remains restricted to name-only use. Publishable prose is generated from independently recorded
-facts and attributable public sources.
+candidate discovery remains restricted to name-only use.
 
 `pnpm generate-city laos city-slug --dry-run` validates the source container and
 shows the deterministic output plan. Without `--dry-run`, it fills only unlocked
