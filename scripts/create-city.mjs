@@ -18,7 +18,7 @@ if (fs.existsSync(draftFile) || fs.existsSync(moduleFile)) {
   if (dryRun) { console.log(`[dry-run] ${country}/${city} already has a structural draft; no clone would be created.`); process.exit(0); }
   throw new Error(`City '${country}/${city}' already exists; use generate-city to refresh gaps.`);
 }
-console.log(`${dryRun ? '[dry-run] Would create' : 'Creating'} ${country}/${city} (${profile}, ${settlementType}) with persisted variable targets.`);
+console.log(`${dryRun ? '[dry-run] Would create' : 'Creating'} ${country}/${city} (${profile}, ${settlementType}) with a persisted country generation plan.`);
 if (!dryRun) {
   fs.mkdirSync(path.dirname(draftFile), { recursive: true }); fs.mkdirSync(path.dirname(moduleFile), { recursive: true });
   const draft = emptyDraft(country, city, profile, settlementType);
