@@ -2,6 +2,22 @@
   "schemaVersion": 1,
   "scope": "spa-card-photo-only",
   "fieldCardMedia": false,
+  "discovery": {
+    "preferredSources": [
+      "manual-owned-or-authorized-media",
+      "wikimedia-commons",
+      "public-domain-repositories",
+      "official-source-with-explicit-compatible-license",
+      "other-explicit-open-license-source"
+    ],
+    "discoveryOnlyNotReusableWithoutSeparatePermission": [
+      "google-image-results",
+      "travel-platforms",
+      "booking-platforms",
+      "social-networks",
+      "generic-web-images"
+    ]
+  },
   "selection": {
     "photoIsPreferredButNotRequired": true,
     "neverGenerateSyntheticFallback": true,
@@ -25,6 +41,8 @@
   ],
   "candidateRequirements": {
     "subjectVerified": true,
+    "minimumSubjectConfidence": 0.9,
+    "minimumSourceConfidence": 0.75,
     "sourceUrlRequiredForExternalMedia": true,
     "licenseRequiredForExternalMedia": true,
     "minimumWidth": 640,
