@@ -3,7 +3,16 @@
     "searchArea": {
       "scope": "settlement-first",
       "preferredRadiusKm": 2,
-      "maxRadiusKm": 3
+      "maxRadiusKm": 3,
+      "appliesTo": [
+        "restaurants",
+        "cafes",
+        "accommodation",
+        "scooter-rental",
+        "gyms",
+        "markets",
+        "practical-services"
+      ]
     },
     "sourceStrategy": {
       "candidateDiscovery": [
@@ -67,7 +76,7 @@
       "practical-services": {
         "minimum": 0,
         "searchTypes": ["hospital", "tourism-office", "immigration-office"],
-        "officialOnly": ["tourism-office", "immigration-office"],
+        "officialOnly": ["immigration-office"],
         "exclude": ["visa-agency", "travel-agency"],
         "automaticSubcategoryFilters": false
       }
