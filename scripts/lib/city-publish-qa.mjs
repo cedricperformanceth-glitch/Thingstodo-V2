@@ -10,7 +10,7 @@ export const CITY_PUBLISH_QA_CONTRACT = contract;
 const clean = (value) => String(value ?? '').trim();
 const normalizedIdentity = (value) => clean(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const imageOf = (entity) => entity?.image ?? entity?.media?.card?.image ?? null;
-const isAutomaticEntity = (entity) => entity?.sourceMetadata?.sourceName === 'Atlas research pipeline';
+const isAutomaticEntity = (entity) => clean(entity?.sourceMetadata?.sourceName).toLowerCase() !== 'manual';
 const attributionRequired = (license) => ['cc-by', 'cc-by-sa'].includes(clean(license).toLowerCase());
 
 function issue(severity, code, message, entity = null) {
