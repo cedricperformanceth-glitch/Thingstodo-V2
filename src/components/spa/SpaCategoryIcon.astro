@@ -1,0 +1,43 @@
+---
+import type { SpaTabIcon } from '../../engines/spa/spa-engine';
+interface Props { icon: SpaTabIcon; }
+const { icon } = Astro.props;
+---
+
+{icon === 'restaurants' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M25 55c4 29 20 44 50 44s46-15 50-44" stroke-width="3.2"/><path d="M21 52c8-10 24-14 54-14s46 4 54 14c-8 10-24 14-54 14S29 62 21 52Z" stroke-width="3.2"/><path d="M36 55c10-6 20-7 39-7s31 2 42 8M42 60c8-10 16-9 25 0 8-10 16-10 25 0 7-8 15-8 22-1" stroke-width="2"/><path d="M93 42 130 9M101 46l37-28" stroke-width="4"/><path d="M59 31c-7-9-3-17 2-23M73 31c-6-9-2-18 3-25M86 32c-5-8-1-15 4-21" stroke-width="2"/><path d="M36 106c23 4 49 4 76 0" stroke-width="1.4" opacity=".5"/></g></svg>
+)}
+
+{icon === 'cafes' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M35 43h68v35c0 14-11 25-25 25H60c-14 0-25-11-25-25Z" stroke-width="3"/><path d="M103 51h12c11 0 18 7 18 16s-7 16-18 16h-12" stroke-width="3"/><path d="M31 43h77M43 107h72" stroke-width="2"/><path d="M57 32c-7-9 4-14-1-23M76 32c-8-10 5-15 0-25M94 32c-6-8 4-13 1-21" stroke-width="2.3"/><path d="M49 54c15 5 30 5 44 0" stroke-width="1.4" opacity=".6"/></g></svg>
+)}
+
+{icon === 'guesthouses' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M25 55 80 16l55 39" stroke-width="3.2"/><path d="M34 49v58h92V49" stroke-width="3"/><path d="M66 107V72h28v35M46 62h15v17H46zM100 62h15v17h-15z" stroke-width="2.4"/><path d="M42 37V21h18v4" stroke-width="2.4"/><path d="M18 109c37-4 83-4 124 0" stroke-width="1.4" opacity=".55"/></g></svg>
+)}
+
+{icon === 'scooter' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="43" cy="91" r="16" stroke-width="3"/><circle cx="120" cy="91" r="16" stroke-width="3"/><path d="M43 91h39l18-42h24M75 91 63 55H45M69 70h32M101 49l-12-12h-18M119 49l8-12" stroke-width="3"/><path d="M32 110c27 3 67 3 101 0" stroke-width="1.4" opacity=".5"/></g></svg>
+)}
+
+{icon === 'explore' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="54" cy="66" r="24" stroke-width="3"/><circle cx="106" cy="66" r="24" stroke-width="3"/><path d="M75 52h10M66 57l9-5M94 57l-9-5M75 52v14M85 52v14" stroke-width="3"/><path d="M28 66H16M144 66h-12M80 29V14" stroke-width="2.2"/><path d="M43 96c24 6 49 6 74 0" stroke-width="1.4" opacity=".5"/><path d="M48 39 39 25M112 39l9-14" stroke-width="2"/></g></svg>
+)}
+
+{icon === 'gyms' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M42 49h76v52H42z" stroke-width="3"/><path d="M55 49c3-18 12-27 25-27s22 9 25 27" stroke-width="3"/><path d="M24 72h18M118 72h18M20 62v20M140 62v20M31 58v28M129 58v28" stroke-width="3"/><path d="M31 72h98" stroke-width="3.4"/><path d="M53 109c20 3 43 3 65 0" stroke-width="1.4" opacity=".5"/></g></svg>
+)}
+
+{icon === 'markets' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M34 48h92l-12 58H46Z" stroke-width="3"/><path d="M55 49c2-22 12-34 25-34s23 12 25 34" stroke-width="3"/><path d="M49 63h66M46 78h72M43 93h73" stroke-width="1.8"/><path d="M58 49v57M77 49v57M96 49v57M114 49v57" stroke-width="1.5" opacity=".75"/><path d="M34 111c30 3 62 3 94 0" stroke-width="1.4" opacity=".5"/></g></svg>
+)}
+
+{icon === 'essential' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M25 46c0-9 7-16 16-16h71c9 0 16 7 16 16v50c0 9-7 16-16 16H41c-9 0-16-7-16-16Z" stroke-width="3"/><path d="M51 30c2-12 10-18 25-18s23 6 25 18" stroke-width="3"/><path d="M55 70h17V57h15v13h17v15H87v14H72V85H55Z" stroke-width="2.8"/><path d="M35 115c25 3 57 3 85 0" stroke-width="1.3" opacity=".45"/></g></svg>
+)}
+
+{icon === 'favorites' && (
+  <svg viewBox="0 0 160 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M80 103 32 59C11 38 22 15 45 15c15 0 26 9 35 21 9-12 20-21 35-21 23 0 34 23 13 44Z" stroke-width="3"/><path d="M49 27c7-5 16-5 23 1" stroke-width="1.5" opacity=".55"/><path d="M46 110c23 3 48 3 72 0" stroke-width="1.4" opacity=".45"/></g></svg>
+)}
+
+<style>svg{display:block;width:100%;height:100%;overflow:visible}</style>
