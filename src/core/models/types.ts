@@ -1,4 +1,5 @@
 export type CityProfile = 'compact' | 'standard' | 'large';
+export type SettlementType = 'village' | 'city';
 export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'open-license' | 'first-party-official';
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
 
@@ -16,7 +17,7 @@ export interface Country { id: string; slug: string; name: string; chapter: stri
 export interface ExploreBoardConfig { featuredThingIds: string[]; }
 export interface ExploreBoardCardContent { kicker: string; duration: string; route: string; }
 export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; }
-export interface City { id: string; slug: string; name: string; country: string; profile: CityProfile; coordinates: Coordinates; description: string; categories: CategorySlug[]; categoryTargets: Partial<Record<CategorySlug, number>>; hero: CityHero; exploreBoard: ExploreBoardConfig; manualLocks: ManualLocks; seo: SeoMetadata; }
+export interface City { id: string; slug: string; name: string; country: string; profile: CityProfile; settlementType: SettlementType; coordinates: Coordinates; description: string; categories: CategorySlug[]; categoryTargets: Partial<Record<CategorySlug, number>>; hero: CityHero; exploreBoard: ExploreBoardConfig; manualLocks: ManualLocks; seo: SeoMetadata; }
 export interface SourceMetadata { sourceName: string; sourceUrl?: string; reviewedAt?: string; }
 export interface ResearchSource extends SourceMetadata { purpose: 'candidate-discovery' | 'facts' | 'location' | 'media'; sourceType?: SourceType; }
 export interface GeneratedMetadata { generatedAt: string; generator: string; researchSources: ResearchSource[]; }
