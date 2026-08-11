@@ -38,8 +38,7 @@
     "automaticEntityRequiresResearchSource": true
   },
   "warnings": [
-    "missing-spa-photo",
-    "missing-optional-opening-hours"
+    "missing-spa-photo"
   ],
   "finalCommand": "generate-city --publish-check",
   "standaloneCommand": "qa-city"
