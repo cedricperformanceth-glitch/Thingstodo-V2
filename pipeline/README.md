@@ -56,11 +56,13 @@ Visa agencies and travel agencies are not substitutes for the immigration office
 `pipeline/contracts/content-selection.json` defines what the research stage is trying to select. These are internal
 research rules, not visible SPA filters or additional public categories.
 
-Geographic scope:
+Geographic scope for practical addresses:
 - search the requested city or village first;
 - normally stay within roughly 2 km of it;
 - the automatic scan may extend to a maximum of 3 km around the settlement;
-- farther editorial additions can still be made manually later.
+- this radius applies to Restaurants, Coffee, Guest Houses, Rental Scooter, Gym & Fitness, Market & Shopping and Essential Information;
+- it deliberately does **not** constrain Things to do, because an activity associated with a city can legitimately sit farther away;
+- farther practical editorial additions can still be made manually later.
 
 General selection style:
 - favor affordable and normal mid-range places rather than luxury;
@@ -92,12 +94,12 @@ Market & Shopping:
 
 Essential Information:
 - automatically search for a hospital, tourism office and immigration office;
-- tourism and immigration entries must be official offices, not commercial agencies;
+- the immigration entry must be the actual official immigration office, never a commercial visa/travel agency substitute;
 - visa agencies and travel agencies are explicitly excluded as substitutes;
 - extra practical information is expected to be added manually when useful.
 
 Things to do remains editorially count-controlled as described above. Step 2 does not impose an automatic
-subcategory taxonomy or visible filter system on activities.
+subcategory taxonomy, visible filter system, or 3 km practical-address radius on activities.
 
 ## Candidate discovery and existence checks
 
