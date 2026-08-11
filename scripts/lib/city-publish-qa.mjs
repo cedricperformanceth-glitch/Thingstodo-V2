@@ -11,7 +11,8 @@ const clean = (value) => String(value ?? '').trim();
 const normalizedIdentity = (value) => clean(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const imageOf = (entity) => entity?.image ?? entity?.media?.card?.image ?? null;
 const isAutomaticEntity = (entity) => clean(entity?.sourceMetadata?.sourceName).toLowerCase() !== 'manual';
-const attributionRequired = (license) => ['cc-by', 'cc-by-sa'].includes(clean(license).toLowerCase());
+const normalizedLicense = (value) => clean(value).toLowerCase().replace(/_/g, '-').replace(/\s+/g, '-');
+const attributionRequired = (license) => ['cc-by', 'cc-by-sa'].includes(normalizedLicense(license));
 
 function issue(severity, code, message, entity = null) {
   return { severity, code, message, ...(entity ? { entity } : {}) };
@@ -83,8 +84,71 @@ function checkExploreBoard(draft, things, issues) {
   }
 }
 
-function checkEntity(entity, kind, allowedCategories, issues) {
+function checkEntityIdentity(entity, kind, draft, issues) {
   const label = entity.slug || entity.name || entity.id || 'unnamed';
+  if (!clean(entity.id)) issues.push(issue('error', 'missing-entity-id', 'Entity id is required before publication.', label));
+  if (!clean(entity.slug)) issues.push(issue('error', 'missing-entity-slug', 'Entity slug is required before publication.', label));
+  if (entity.country !== draft.country || entity.city !== draft.city) {
+    issues.push(issue('error', 'entity-destination-mismatch', `Entity destination must be ${draft.country}/${draft.city}; received ${entity.country ?? '?'}/${entity.city ?? '?'}.`, label));
+  }
+  if (kind === 'place' && entity.category === 'things-to-do') {
+    issues.push(issue('error', 'entity-kind-category-mismatch', 'Place records cannot use the things-to-do category.', label));
+  }
+  if (kind === 'thing-to-do' && entity.category !== 'things-to-do') {
+    issues.push(issue('error', 'entity-kind-category-mismatch', `ThingToDo records must use the things-to-do category; received '${entity.category ?? ''}'.`, label));
+  }
+  const latitude = Number(entity?.coordinates?.latitude);
+  const longitude = Number(entity?.coordinates?.longitude);
+  if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90 || !Number.isFinite(longitude) || longitude < -180 || longitude > 180) {
+    issues.push(issue('error', 'invalid-coordinates', 'Entity coordinates must contain valid latitude/longitude values.', label));
+  }
+}
+
+function checkTransientFields(entity, issues) {
+  const label = entity.slug || entity.name || entity.id || 'unnamed';
+  for (const field of contract.transientGenerationFieldsForbidden ?? []) {
+    if (field in (entity ?? {})) {
+      issues.push(issue('error', 'transient-generation-field', `Generation-only field '${field}' must not leak into published content.`, label));
+    }
+  }
+}
+
+function checkMedia(entity, issues) {
+  const label = entity.slug || entity.name || entity.id || 'unnamed';
+  const image = imageOf(entity);
+  if (!image?.src) {
+    issues.push(issue('warning', 'missing-spa-photo', 'No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.', label));
+    return;
+  }
+
+  if (contract.media.photoPresentRequiresVerifiedStatus && entity?.spaCard?.photoStatus !== 'verified') {
+    issues.push(issue('error', 'photo-status', `A present SPA photo must have photoStatus=verified; received '${entity?.spaCard?.photoStatus ?? 'missing'}'.`, label));
+  }
+  if (entity?.spaCard?.photoRequiresManualFill === true) {
+    issues.push(issue('error', 'photo-status', 'A present SPA photo cannot still require manual fill.', label));
+  }
+
+  if (image.manual !== true) {
+    const license = normalizedLicense(image.license);
+    const accepted = new Set(contract.media.acceptedAutomaticLicenses ?? []);
+    if (!accepted.has(license)) {
+      issues.push(issue('error', 'photo-license', `Automatic SPA photo license '${license || 'unknown'}' is not publishable.`, label));
+    }
+    if (!clean(image.sourceUrl)) {
+      issues.push(issue('error', 'photo-source', 'Automatic SPA photo must retain its source URL.', label));
+    }
+  }
+
+  if (attributionRequired(image.license) && (!clean(image.author) || !clean(image.sourceUrl))) {
+    issues.push(issue('error', 'photo-attribution', 'CC BY/CC BY-SA photo is missing author or source URL attribution metadata.', label));
+  }
+}
+
+function checkEntity(entity, kind, draft, allowedCategories, issues) {
+  const label = entity.slug || entity.name || entity.id || 'unnamed';
+  checkEntityIdentity(entity, kind, draft, issues);
+  checkTransientFields(entity, issues);
+
   if (!allowedCategories.has(entity.category)) {
     issues.push(issue('error', 'invalid-category', `Category '${entity.category ?? ''}' is not available in this settlement SPA.`, label));
   }
@@ -103,14 +167,7 @@ function checkEntity(entity, kind, allowedCategories, issues) {
     issues.push(issue('error', 'source-verification', `Entity verification is '${entity.verification.decision}', so it cannot be published automatically.`, label));
   }
 
-  const image = imageOf(entity);
-  if (!image?.src) {
-    issues.push(issue('warning', 'missing-spa-photo', 'No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.', label));
-  } else if (attributionRequired(image.license)) {
-    if (!clean(image.author) || !clean(image.sourceUrl)) {
-      issues.push(issue('error', 'photo-attribution', 'CC BY/CC BY-SA photo is missing author or source URL attribution metadata.', label));
-    }
-  }
+  checkMedia(entity, issues);
 }
 
 export function evaluateCityPublication(draft) {
@@ -135,8 +192,8 @@ export function evaluateCityPublication(draft) {
   checkDuplicateValues(entities, (entity) => entity.slug, 'entity slug', issues);
   checkDuplicateValues(entities, (entity) => normalizedIdentity(entity.name), 'normalized entity name', issues);
 
-  for (const place of places) checkEntity(place, 'place', allowedCategories, issues);
-  for (const thing of things) checkEntity(thing, 'thing-to-do', allowedCategories, issues);
+  for (const place of places) checkEntity(place, 'place', draft, allowedCategories, issues);
+  for (const thing of things) checkEntity(thing, 'thing-to-do', draft, allowedCategories, issues);
 
   const counts = checkTargets(draft, entities, issues);
   checkExploreBoard(draft, things, issues);
