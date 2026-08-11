@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { assignUnlocked, chooseFieldCardTemplate, mergeGenerated, selectExploreBoard, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
+import { chooseFieldCardTemplate, mergeGenerated, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run'); const fromCity = flags.includes('--from-city');
 if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run]');
@@ -12,7 +12,7 @@ for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) for 
 const things = (input.things ?? []).map((candidate) => normalizeThing(candidate, draft));
 const places = (input.places ?? []).map((candidate) => normalizePlace(candidate, draft));
 for (const candidate of things) console.log(`${candidate.name}: ${candidate.fieldCard.template} Field Card`);
-console.log(`Explore Board: ${selectExploreBoard(things.length ? things : draft.things, draft.cityData.coordinates).join(', ') || 'awaiting landmark candidates'}`);
+console.log(`Explore Board: ${(draft.cityData.exploreBoard?.featuredThingIds ?? []).join(', ') || 'awaiting manual landmark selection'}`);
 if (dryRun) { console.log('[dry-run] Source contract is valid; no Atlas content changed.'); process.exit(0); }
 // Generation deliberately fills only gaps. Source adapters can provide independently verified facts;
 // they must never supply prose copied from a competing guide platform.
@@ -29,7 +29,6 @@ for (const candidate of places) {
   if (!existing) draft.places.push(target);
 }
 for (const entity of [...draft.places, ...draft.things]) if (entity.media) delete entity.media.hero;
-assignUnlocked(draft.cityData, 'exploreBoard.featuredThingIds', selectExploreBoard(draft.things, draft.cityData.coordinates));
 draft.generatedAt = new Date().toISOString();
 fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`);
 fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city}.ts`), tsModule(draft));
@@ -59,6 +58,7 @@ function normalizeThing(candidate, draft) {
   const entity = base(candidate, draft, 'things-to-do'); const template = chooseFieldCardTemplate(candidate);
   return { ...entity, googleMapsUrl: candidate.googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(candidate.name)}`,
     isLandmark: candidate.isLandmark === true, longDescription: candidate.longDescription ?? description(candidate), breadcrumbs: [draft.country, draft.city, 'things-to-do'],
+    exploreBoard: candidate.exploreBoard,
     fieldCard: { template, whyGo: candidate.whyGo ?? '', practical: candidate.practical ?? '', access: candidate.access ?? '', notes: candidate.notes,
       faq: candidate.faq ?? [], sections: (candidate.sections ?? []).map((section) => typeof section === 'string' ? { title: section, body: '' } : section) } };
 }
