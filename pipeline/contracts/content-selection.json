@@ -1,0 +1,76 @@
+{
+  "laos": {
+    "searchArea": {
+      "scope": "settlement-first",
+      "preferredRadiusKm": 2,
+      "maxRadiusKm": 3
+    },
+    "sourceStrategy": {
+      "candidateDiscovery": [
+        "official-establishment-sites",
+        "official-tourism-sites",
+        "web-results",
+        "travel-platforms",
+        "social-networks",
+        "other-public-sources"
+      ],
+      "preferRepeatedMentionsAcrossIndependentSources": true,
+      "verifyCurrentExistenceBeforeSelection": true
+    },
+    "selectionPrinciples": {
+      "pricePositioning": "mostly-affordable-and-midrange",
+      "requireVariety": true,
+      "avoidUltraLuxury": true,
+      "manualEditorialAdditionsExpected": true
+    },
+    "categories": {
+      "things-to-do": {
+        "automaticSubcategoryFilters": false
+      },
+      "restaurants": {
+        "venueTypes": ["restaurant", "bar"],
+        "barsBelongToRestaurants": true,
+        "automaticSubcategoryFilters": false
+      },
+      "cafes": {
+        "venueTypes": ["cafe", "coffee-shop"],
+        "automaticSubcategoryFilters": false
+      },
+      "accommodation": {
+        "venueTypes": ["guesthouse", "hostel", "small-hotel", "budget-hotel"],
+        "priceUsdPerNight": {
+          "hardMinimum": null,
+          "preferredMin": 10,
+          "preferredMax": 30,
+          "hardMax": 50,
+          "upperBandMaxCount": 3
+        },
+        "automaticSubcategoryFilters": false
+      },
+      "scooter-rental": {
+        "venueTypes": ["scooter-rental", "motorbike-rental"],
+        "automaticSubcategoryFilters": false
+      },
+      "gyms": {
+        "minimum": 0,
+        "groups": {
+          "fitness-and-weights": { "max": 5 },
+          "muay-thai": { "ideal": 2, "max": 3 }
+        },
+        "automaticSubcategoryFilters": false
+      },
+      "markets": {
+        "minimum": 0,
+        "venueTypes": ["market", "night-market"],
+        "automaticSubcategoryFilters": false
+      },
+      "practical-services": {
+        "minimum": 0,
+        "searchTypes": ["hospital", "tourism-office", "immigration-office"],
+        "officialOnly": ["tourism-office", "immigration-office"],
+        "exclude": ["visa-agency", "travel-agency"],
+        "automaticSubcategoryFilters": false
+      }
+    }
+  }
+}
