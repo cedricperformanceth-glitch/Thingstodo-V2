@@ -23,19 +23,55 @@ export function contentRuleFor(country, settlementType) {
   return contentTargetRules[country]?.[settlementType] ?? EMPTY_RULE;
 }
 
-function deterministicRangeValue(seed, key, range) {
+function validateRange(range, key) {
   const min = Number(range?.min);
   const max = Number(range?.max);
   if (!Number.isInteger(min) || !Number.isInteger(max) || min > max) throw new Error(`Invalid content target range for ${key}: ${range?.min ?? '?'}-${range?.max ?? '?'}`);
+  return { min, max };
+}
+
+function deterministicRangeValue(seed, key, range) {
+  const { min, max } = validateRange(range, key);
   const hash = crypto.createHash('sha256').update(`${seed}:${key}`).digest().readUInt32BE(0);
   return min + (hash % (max - min + 1));
 }
 
-export function categoryTargets(country, settlementType, seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? []) {
+function defaultTargetRange(rule, key) {
+  const hardRange = validateRange(rule, key);
+  if (rule?.idealMin === undefined && rule?.idealMax === undefined) return hardRange;
+  const idealMin = Number(rule.idealMin);
+  const idealMax = Number(rule.idealMax);
+  if (!Number.isInteger(idealMin) || !Number.isInteger(idealMax) || idealMin > idealMax || idealMin < hardRange.min || idealMax > hardRange.max) {
+    throw new Error(`Invalid ideal content target range for ${key}: ${rule?.idealMin ?? '?'}-${rule?.idealMax ?? '?'}`);
+  }
+  return { min: idealMin, max: idealMax };
+}
+
+function validateTargetValue(value, rule, key) {
+  const { min, max } = validateRange(rule, key);
+  if (!Number.isInteger(value) || value < min || value > max) throw new Error(`Content target override for ${key} must be an integer between ${min} and ${max}; received ${value}`);
+  return value;
+}
+
+export function categoryTargets(country, settlementType, seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? [], overrides = {}) {
   const rules = contentRuleFor(country, settlementType).categories ?? {};
   return Object.fromEntries(categories.flatMap((category) => {
-    const range = rules[category];
-    return range ? [[category, deterministicRangeValue(seed, category, range)]] : [];
+    const rule = rules[category];
+    if (!rule) return [];
+    if (overrides[category] !== undefined) return [[category, validateTargetValue(overrides[category], rule, `${country}/${settlementType}/${category}`)]];
+    if (rule.selectionMode === 'editorial') return [];
+    return [[category, deterministicRangeValue(seed, category, defaultTargetRange(rule, `${country}/${settlementType}/${category}`))]];
+  }));
+}
+
+export function categoryTargetPolicies(country, settlementType, categories = SETTLEMENT_CATEGORIES[settlementType] ?? []) {
+  const rules = contentRuleFor(country, settlementType).categories ?? {};
+  return Object.fromEntries(categories.flatMap((category) => {
+    const rule = rules[category];
+    if (!rule?.selectionMode) return [];
+    validateRange(rule, `${country}/${settlementType}/${category}`);
+    if (rule.idealMin !== undefined || rule.idealMax !== undefined) defaultTargetRange(rule, `${country}/${settlementType}/${category}`);
+    return [[category, structuredClone(rule)]];
   }));
 }
 
@@ -51,7 +87,45 @@ export function researchPlan(country, settlementType, seed, categories = SETTLEM
     ]));
   }
   const searchPriorities = Object.fromEntries(Object.entries(rules.searchPriorities ?? {}).filter(([category]) => allowedCategories.has(category)).map(([category, priorities]) => [category, [...priorities]]));
-  return { subcategoryTargets, searchPriorities };
+  return { categoryTargetPolicies: categoryTargetPolicies(country, settlementType, categories), subcategoryTargets, searchPriorities };
+}
+
+export function getManualLock(record, fieldPath) { return record?.manualLocks?.[fieldPath]; }
+export function isManualLocked(record, fieldPath) {
+  const paths = String(fieldPath).split('.');
+  return paths.some((_, index) => {
+    const lock = getManualLock(record, paths.slice(0, index + 1).join('.'));
+    return lock?.source === 'manual' && lock?.locked === true;
+  });
+}
+
+export function lockedCategoryTargetOverrides(cityData) {
+  return Object.fromEntries(Object.entries(cityData?.categoryTargets ?? {}).filter(([category]) => isManualLocked(cityData, `categoryTargets.${category}`)));
+}
+
+export function setEditorialCategoryTarget(draft, category, value) {
+  const country = draft?.country ?? draft?.cityData?.country;
+  const settlementType = draft?.cityData?.settlementType;
+  const rule = contentRuleFor(country, settlementType).categories?.[category];
+  if (!rule || rule.selectionMode !== 'editorial') throw new Error(`Category '${category}' is not configured for editorial target selection in ${country}/${settlementType}.`);
+  const target = validateTargetValue(value, rule, `${country}/${settlementType}/${category}`);
+  draft.cityData.categoryTargets ??= {};
+  draft.cityData.manualLocks ??= {};
+  draft.cityData.categoryTargets[category] = target;
+  draft.cityData.manualLocks[`categoryTargets.${category}`] = { value: target, source: 'manual', locked: true };
+  return target;
+}
+
+export function syncGenerationContract(draft) {
+  const settlementType = draft.cityData?.settlementType;
+  const categories = SETTLEMENT_CATEGORIES[settlementType];
+  if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  const seed = `${draft.country}/${draft.city}`;
+  const overrides = lockedCategoryTargetOverrides(draft.cityData);
+  draft.cityData.categories = [...categories];
+  draft.cityData.categoryTargets = categoryTargets(draft.country, settlementType, seed, categories, overrides);
+  draft.researchPlan = researchPlan(draft.country, settlementType, seed, categories);
+  return draft;
 }
 
 export function emptyDraft(country, city, profile, settlementType) {
@@ -69,14 +143,6 @@ export function emptyDraft(country, city, profile, settlementType) {
 }
 // One lock convention applies to city, place and ThingToDo records:
 // record.manualLocks['nested.field'] = { source: 'manual', locked: true, value }
-export function getManualLock(record, fieldPath) { return record?.manualLocks?.[fieldPath]; }
-export function isManualLocked(record, fieldPath) {
-  const paths = String(fieldPath).split('.');
-  return paths.some((_, index) => {
-    const lock = getManualLock(record, paths.slice(0, index + 1).join('.'));
-    return lock?.source === 'manual' && lock?.locked === true;
-  });
-}
 function setPath(record, fieldPath, value) {
   const paths = String(fieldPath).split('.');
   const last = paths.pop();
