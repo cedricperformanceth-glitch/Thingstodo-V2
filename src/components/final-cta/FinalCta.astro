@@ -13,31 +13,33 @@ const routes = getFinalCtaRoutes(country);
   <div class="final-cta__transition" aria-hidden="true"></div>
 
   <div class="final-cta__inner">
-    <svg class="final-cta__note final-cta__note--explore" viewBox="0 0 190 86" aria-hidden="true">
-      <path class="final-cta__ink" d="M23 45C20 19 162 11 173 40C184 68 42 77 20 52C14 45 15 39 23 32" />
-      <path class="final-cta__ink final-cta__ink--soft" d="M30 39C44 20 154 17 169 42C179 60 80 73 34 61" />
-      <text x="95" y="52" text-anchor="middle">explore</text>
-    </svg>
+    <div class="final-cta__canvas">
+      <svg class="final-cta__note final-cta__note--explore" viewBox="0 0 190 86" aria-hidden="true">
+        <path class="final-cta__ink" d="M23 45C20 19 162 11 173 40C184 68 42 77 20 52C14 45 15 39 23 32" />
+        <path class="final-cta__ink final-cta__ink--soft" d="M30 39C44 20 154 17 169 42C179 60 80 73 34 61" />
+        <text x="95" y="52" text-anchor="middle">explore</text>
+      </svg>
 
-    <svg class="final-cta__note final-cta__note--save" viewBox="0 0 180 78" aria-hidden="true">
-      <path class="final-cta__highlight" d="M24 45C58 37 105 38 154 41" />
-      <path class="final-cta__highlight final-cta__highlight--second" d="M28 51C71 44 116 45 151 47" />
-      <text x="90" y="49" text-anchor="middle">save this</text>
-    </svg>
+      <svg class="final-cta__note final-cta__note--save" viewBox="0 0 180 78" aria-hidden="true">
+        <path class="final-cta__highlight" d="M24 45C58 37 105 38 154 41" />
+        <path class="final-cta__highlight final-cta__highlight--second" d="M28 51C71 44 116 45 151 47" />
+        <text x="90" y="49" text-anchor="middle">save this</text>
+      </svg>
 
-    <svg class="final-cta__note final-cta__note--yours" viewBox="0 0 220 82" aria-hidden="true">
-      <text x="110" y="44" text-anchor="middle">make it yours</text>
-      <path class="final-cta__ink" d="M40 57C78 62 129 61 178 55C190 54 198 55 202 57" />
-      <path class="final-cta__ink final-cta__ink--soft" d="M47 62C89 65 145 63 187 58" />
-    </svg>
+      <svg class="final-cta__note final-cta__note--yours" viewBox="0 0 220 82" aria-hidden="true">
+        <text x="110" y="44" text-anchor="middle">make it yours</text>
+        <path class="final-cta__ink" d="M40 57C78 62 129 61 178 55C190 54 198 55 202 57" />
+        <path class="final-cta__ink final-cta__ink--soft" d="M47 62C89 65 145 63 187 58" />
+      </svg>
 
-    <img
-      class="final-cta__logo"
-      src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS%20CTA%20FINAL.webp"
-      alt="Make Your Own Atlas"
-      loading="lazy"
-      decoding="async"
-    />
+      <img
+        class="final-cta__logo"
+        src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS%20CTA%20FINAL.webp"
+        alt="Make Your Own Atlas"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
 
     <div class="final-cta__links" aria-label="Your Atlas and Atlas Routes">
       {routes[0] && (
@@ -97,23 +99,25 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .final-cta__inner {
-    position: relative;
     width: min(1180px, calc(100% - 2rem));
-    min-height: clamp(34rem, 56vw, 44rem);
     margin: 0 auto;
+  }
+
+  .final-cta__canvas {
+    position: relative;
+    min-height: clamp(22rem, 44vw, 34rem);
+    display: grid;
+    place-items: center;
     padding: clamp(3rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
   }
 
   .final-cta__logo {
-    position: absolute;
+    position: relative;
     z-index: 2;
-    top: 42%;
-    left: 50%;
     display: block;
     width: min(42rem, 76vw);
     max-width: 100%;
     height: auto;
-    transform: translate(-50%, -50%);
   }
 
   .final-cta__note {
@@ -158,31 +162,30 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .final-cta__note--explore {
-    top: 8%;
+    top: 9%;
     left: 7.5%;
     width: clamp(9.5rem, 16vw, 13.5rem);
     transform: rotate(-8deg);
   }
 
   .final-cta__note--save {
-    top: 19%;
+    top: 24%;
     right: 5.5%;
     width: clamp(8.5rem, 14vw, 12rem);
     transform: rotate(5deg);
   }
 
   .final-cta__note--yours {
-    right: 13%;
-    bottom: 27%;
+    right: 14%;
+    bottom: 8.5%;
     width: clamp(10.5rem, 17vw, 14rem);
     transform: rotate(-3deg);
   }
 
   .final-cta__links {
-    position: absolute;
-    z-index: 4;
-    inset: auto 0 0;
-    height: 16rem;
+    position: relative;
+    min-height: 17rem;
+    margin-top: -1.5rem;
     pointer-events: none;
   }
 
@@ -207,7 +210,7 @@ const routes = getFinalCtaRoutes(country);
 
   .atlas-route--first {
     left: 2.5%;
-    bottom: 2.1rem;
+    top: .4rem;
     transform: rotate(-5deg);
   }
 
@@ -217,7 +220,7 @@ const routes = getFinalCtaRoutes(country);
 
   .atlas-route--second {
     right: 3%;
-    bottom: 5.7rem;
+    bottom: 1.4rem;
     transform: rotate(6deg);
     color: #a95f46;
   }
@@ -265,8 +268,8 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .atlas-door {
-    left: 48%;
-    bottom: 1.1rem;
+    left: 47%;
+    top: 3.2rem;
     display: grid;
     justify-items: center;
     color: #315545;
@@ -305,42 +308,34 @@ const routes = getFinalCtaRoutes(country);
   }
 
   @media (max-width: 760px) {
-    .final-cta__inner {
-      min-height: 43rem;
-    }
-
-    .final-cta__logo {
-      top: 35%;
-      width: min(88vw, 34rem);
-    }
-
     .final-cta__note text {
       font-size: 28px;
     }
 
     .final-cta__note--explore {
-      top: 6%;
+      top: 8%;
       left: -1.5%;
       width: 9.5rem;
       transform: rotate(-10deg);
     }
 
     .final-cta__note--save {
-      top: 14%;
+      top: 20%;
       right: -2%;
       width: 8.5rem;
       transform: rotate(7deg);
     }
 
     .final-cta__note--yours {
-      right: 1%;
-      bottom: 38%;
+      right: 4%;
+      bottom: 5%;
       width: 10rem;
       transform: rotate(-5deg);
     }
 
     .final-cta__links {
-      height: 20rem;
+      min-height: 21rem;
+      margin-top: -.5rem;
     }
 
     .atlas-route {
@@ -349,20 +344,14 @@ const routes = getFinalCtaRoutes(country);
 
     .atlas-route--first {
       left: -1%;
-      bottom: 7.2rem;
+      top: .3rem;
       transform: rotate(-7deg);
     }
 
-    .atlas-route--second {
-      right: -2%;
-      bottom: 1.2rem;
-      transform: rotate(5deg);
-    }
-
     .atlas-door {
-      left: 51%;
-      bottom: 8.4rem;
-      transform: rotate(3deg) translateX(-50%);
+      left: 67%;
+      top: 4.8rem;
+      transform: rotate(4deg) translateX(-50%);
     }
 
     .atlas-door svg {
@@ -371,6 +360,12 @@ const routes = getFinalCtaRoutes(country);
 
     .atlas-door span {
       font-size: 1.2rem;
+    }
+
+    .atlas-route--second {
+      right: -2%;
+      bottom: .8rem;
+      transform: rotate(5deg);
     }
   }
 
@@ -381,7 +376,15 @@ const routes = getFinalCtaRoutes(country);
 
     .final-cta__inner {
       width: min(100% - 1.25rem, 1180px);
+    }
+
+    .final-cta__canvas {
+      min-height: 22rem;
       padding: 3.5rem 0 5rem;
+    }
+
+    .final-cta__logo {
+      width: min(88vw, 34rem);
     }
   }
 
