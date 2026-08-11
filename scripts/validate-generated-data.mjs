@@ -17,6 +17,17 @@ for (const draft of drafts) {
     if (!fs.existsSync(assetPath)) fail.push(`Missing City Hero ${kind}: ${cityKey} -> ${path.relative(root,assetPath)}`);
   }
 
+  const featuredIds=draft.cityData.exploreBoard?.featuredThingIds ?? [];
+  if (featuredIds.length > 3) fail.push(`Explore Board supports at most 3 landmarks: ${cityKey}`);
+  if (new Set(featuredIds).size !== featuredIds.length) fail.push(`Explore Board landmark IDs must be unique: ${cityKey}`);
+  for (const id of featuredIds) {
+    const thing=draft.things.find((candidate)=>candidate.id===id);
+    if (!thing) { fail.push(`Explore Board references missing ThingToDo '${id}': ${cityKey}`); continue; }
+    if (thing.isLandmark !== true) fail.push(`Explore Board entry must be a landmark ThingToDo '${id}': ${cityKey}`);
+    if (!thing.exploreBoard?.kicker || !thing.exploreBoard?.duration || !thing.exploreBoard?.route) fail.push(`Explore Board metadata is incomplete for '${id}': ${cityKey}`);
+    if (!thing.media?.card?.image?.src) fail.push(`Explore Board landmark requires the shared ThingToDo card image '${id}': ${cityKey}`);
+  }
+
   for (const entity of [...draft.places, ...draft.things]) {
     if (entity.media?.hero) fail.push(`Place/ThingToDo media must not contain Hero media: ${cityKey}/${entity.slug}`);
   }
