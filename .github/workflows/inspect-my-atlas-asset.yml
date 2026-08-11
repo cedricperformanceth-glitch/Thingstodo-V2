@@ -1,0 +1,52 @@
+name: Inspect My Atlas Asset
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/inspect-my-atlas-asset.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - name: Measure visible WebP bounds
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          p = Path('public/assets/shared/make-your-own-atlas/Logo MY ATLAS.webp')
+          im = Image.open(p).convert('RGBA')
+          alpha = im.getchannel('A')
+          bbox = alpha.getbbox()
+          print('IMAGE_SIZE', im.size)
+          print('VISIBLE_BBOX', bbox)
+          if bbox:
+              x0,y0,x1,y1=bbox
+              print('VISIBLE_SIZE', (x1-x0,y1-y0))
+              print('VISIBLE_PERCENT', round((x1-x0)/im.width*100,2), round((y1-y0)/im.height*100,2))
+              print('PADDING_PX', {'left':x0,'top':y0,'right':im.width-x1,'bottom':im.height-y1})
+              print('PADDING_PERCENT', {
+                'left':round(x0/im.width*100,2),
+                'top':round(y0/im.height*100,2),
+                'right':round((im.width-x1)/im.width*100,2),
+                'bottom':round((im.height-y1)/im.height*100,2),
+              })
+          PY
+      - name: Remove inspection workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/inspect-my-atlas-asset.yml
+          git commit -m "Remove My Atlas asset inspection workflow"
+          git push origin master
