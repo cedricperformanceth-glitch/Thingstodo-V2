@@ -13,8 +13,10 @@ export function selectionPlan(country, categories = []) {
       .filter(([category]) => allowedCategories.has(category))
       .map(([category, rule]) => [category, structuredClone(rule)]),
   );
+  const searchArea = structuredClone(rules.searchArea ?? null);
+  if (searchArea?.appliesTo) searchArea.appliesTo = searchArea.appliesTo.filter((category) => allowedCategories.has(category));
   return {
-    searchArea: structuredClone(rules.searchArea ?? null),
+    searchArea,
     sourceStrategy: structuredClone(rules.sourceStrategy ?? null),
     selectionPrinciples: structuredClone(rules.selectionPrinciples ?? null),
     categories: categoryRules,
