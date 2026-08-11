@@ -47,6 +47,10 @@ const missingMap = structuredClone(place);
 delete missingMap.googleMapsUrl;
 assert.ok(validateSpaCardCandidate(missingMap, 'place').errors.includes('valid Google Maps URL is required'));
 
+const nonGoogleMap = structuredClone(place);
+nonGoogleMap.googleMapsUrl = 'https://example.com/place';
+assert.ok(validateSpaCardCandidate(nonGoogleMap, 'place').errors.includes('valid Google Maps URL is required'));
+
 const wrongTags = structuredClone(place);
 wrongTags.spaCard.handwrittenTags = ['Only one'];
 assert.ok(validateSpaCardCandidate(wrongTags, 'place').errors.includes('exactly 3 handwritten tags are required'));
