@@ -24,8 +24,13 @@ export function validateSpaCardCandidate(candidate, kind = 'place') {
   const image = candidate?.image ?? candidate?.media?.card?.image;
   const spaCard = candidate?.spaCard;
 
-  if (!image?.src && spaCard?.photoStatus !== 'missing') errors.push('missing photo must be explicitly marked as photoStatus=missing');
-  if (image?.src && spaCard?.photoStatus === 'missing') errors.push('photoStatus cannot be missing when a photo is present');
+  if (!image?.src) {
+    if (spaCard?.photoStatus !== 'missing') errors.push('missing photo must be explicitly marked as photoStatus=missing');
+    if (spaCard?.photoRequiresManualFill !== true) errors.push('missing photo must require manual fill');
+  } else {
+    if (spaCard?.photoStatus === 'missing') errors.push('photoStatus cannot be missing when a photo is present');
+    if (spaCard?.photoRequiresManualFill === true) errors.push('photo cannot require manual fill when a photo is present');
+  }
   if (!String(candidate?.name ?? '').trim()) errors.push('exact name is required');
 
   const description = String(candidate?.shortDescription ?? '').trim();
