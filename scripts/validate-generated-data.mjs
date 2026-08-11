@@ -1,5 +1,5 @@
 import fs from 'node:fs'; import path from 'node:path';
-import { SETTLEMENT_CATEGORIES } from './lib/city-pipeline.mjs';
+import { SETTLEMENT_CATEGORIES, categoryTargets, researchPlan } from './lib/city-pipeline.mjs';
 const root=process.cwd(), dir=path.join(root,'pipeline','cities'); const drafts=fs.existsSync(dir)?fs.readdirSync(dir,{recursive:true}).filter(x=>String(x).endsWith('.json')).map(x=>JSON.parse(fs.readFileSync(path.join(dir,x),'utf8'))):[];
 const fail=[]; const unique=(items,key,label)=>{const seen=new Set(); for(const item of items){const value=key(item); if(seen.has(value)) fail.push(`Duplicate ${label}: ${value}`); seen.add(value);}};
 unique(drafts,x=>x.cityData.id,'city ID'); unique(drafts,x=>`${x.country}/${x.city}`,'city route'); unique(drafts.flatMap(x=>x.places),x=>x.id,'Place ID'); unique(drafts.flatMap(x=>x.things),x=>x.id,'ThingToDo ID'); unique(drafts.flatMap(x=>x.places),x=>`${x.country}/${x.city}/${x.slug}`,'Place route slug'); unique(drafts.flatMap(x=>x.things),x=>`${x.country}/${x.city}/${x.slug}`,'ThingToDo route slug');
@@ -14,8 +14,15 @@ for (const draft of drafts) {
   else {
     const actual=draft.cityData.categories ?? [];
     if (JSON.stringify(actual)!==JSON.stringify([...expectedCategories])) fail.push(`SPA categories must match ${settlementType} contract for ${cityKey}: expected ${expectedCategories.join(', ')}`);
-    const unexpectedTargets=Object.keys(draft.cityData.categoryTargets ?? {}).filter((category)=>!expectedCategories.includes(category));
-    if (unexpectedTargets.length) fail.push(`Category targets outside ${settlementType} SPA contract for ${cityKey}: ${unexpectedTargets.join(', ')}`);
+
+    const seed=`${draft.country}/${draft.city}`;
+    const expectedTargets=categoryTargets(draft.country,settlementType,seed,expectedCategories);
+    const actualTargets=draft.cityData.categoryTargets ?? {};
+    if (JSON.stringify(actualTargets)!==JSON.stringify(expectedTargets)) fail.push(`Category targets must match persisted ${draft.country}/${settlementType} generation rules for ${cityKey}: expected ${JSON.stringify(expectedTargets)}, received ${JSON.stringify(actualTargets)}`);
+
+    const expectedResearchPlan=researchPlan(draft.country,settlementType,seed,expectedCategories);
+    const actualResearchPlan=draft.researchPlan ?? { subcategoryTargets:{}, searchPriorities:{} };
+    if (JSON.stringify(actualResearchPlan)!==JSON.stringify(expectedResearchPlan)) fail.push(`Research plan must match persisted ${draft.country}/${settlementType} generation rules for ${cityKey}: expected ${JSON.stringify(expectedResearchPlan)}, received ${JSON.stringify(actualResearchPlan)}`);
   }
 
   const heroRoot=path.join(root,'public','assets','cities',draft.country,draft.city,'hero');
