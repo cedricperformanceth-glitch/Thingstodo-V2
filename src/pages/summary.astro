@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+
+const seo = {
+  title: 'Trip Summary | Things To Do Atlas',
+  description: 'Your personal Things To Do Atlas summary.',
+  canonicalPath: '/summary',
+  indexable: false,
+};
+---
+<BaseLayout seo={seo}>
+  <section class="summary-shell">
+    <p>PERSONAL ATLAS</p>
+    <h1>Trip Summary</h1>
+    <div class="summary-sections" aria-label="Future trip summary sections">
+      <article><h2>My Favorites</h2></article>
+      <article><h2>Make Your Own Atlas</h2></article>
+      <article><h2>Summary</h2></article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .summary-shell {
+    width: min(960px, calc(100% - 2rem));
+    min-height: 72vh;
+    margin: 0 auto;
+    padding: 9rem 0 5rem;
+  }
+
+  .summary-shell > p {
+    margin: 0 0 .6rem;
+    color: var(--accent, #315545);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+  }
+
+  h1 { margin: 0 0 3rem; }
+
+  .summary-sections {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  article {
+    min-height: 9rem;
+    padding: 1.2rem;
+    border: 1px dashed var(--line, rgba(49, 85, 69, .25));
+  }
+
+  h2 { margin: 0; font-size: 1rem; }
+
+  @media (max-width: 700px) {
+    .summary-sections { grid-template-columns: 1fr; }
+  }
+</style>
