@@ -11,6 +11,8 @@ export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard
 export interface HeroFact { label: string; value: string; }
 export interface FieldCardSection { title: string; body: string; }
 export interface FieldCardContent { template: 'compact' | 'deep'; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
+export interface SpaCardContent { handwrittenTags: [string, string, string]; openingHours?: string; }
+export interface ThingToDoSpaCardContent extends SpaCardContent { duration: string; costType: 'free' | 'paid'; bestTime: string; }
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
 export interface ManualLocks { [field: string]: ManualField<unknown> | undefined; }
 export interface Country { id: string; slug: string; name: string; chapter: string; accentColor: string; media: CountryMediaManifest; map: { center: Coordinates; zoom: number }; seo: SeoMetadata; }
@@ -21,7 +23,7 @@ export interface City { id: string; slug: string; name: string; country: string;
 export interface SourceMetadata { sourceName: string; sourceUrl?: string; reviewedAt?: string; }
 export interface ResearchSource extends SourceMetadata { purpose: 'candidate-discovery' | 'facts' | 'location' | 'media'; sourceType?: SourceType; }
 export interface GeneratedMetadata { generatedAt: string; generator: string; researchSources: ResearchSource[]; }
-export interface BaseEntity { id: string; slug: string; name: string; country: string; city: string; category: CategorySlug; coordinates: Coordinates; shortDescription: string; media: EntityMediaManifest; isMySelection: boolean; selectionRank?: number; sourceMetadata: SourceMetadata; manualLocks: ManualLocks; }
-export interface Place extends BaseEntity { address: string; googleMapsUrl: string; image?: MediaRecord; }
-export interface ThingToDo extends BaseEntity { googleMapsUrl?: string; isLandmark: boolean; longDescription: string; breadcrumbs: string[]; fieldCard: FieldCardContent; exploreBoard?: ExploreBoardCardContent; }
+export interface BaseEntity { id: string; slug: string; name: string; country: string; city: string; category: CategorySlug; coordinates: Coordinates; shortDescription: string; media: EntityMediaManifest; spaCard?: SpaCardContent; isMySelection: boolean; selectionRank?: number; sourceMetadata: SourceMetadata; manualLocks: ManualLocks; }
+export interface Place extends BaseEntity { address: string; googleMapsUrl: string; image?: MediaRecord; spaCard?: SpaCardContent; }
+export interface ThingToDo extends BaseEntity { googleMapsUrl: string; isLandmark: boolean; longDescription: string; breadcrumbs: string[]; spaCard?: ThingToDoSpaCardContent; fieldCard: FieldCardContent; exploreBoard?: ExploreBoardCardContent; }
 export type AtlasEntity = Place | ThingToDo;
