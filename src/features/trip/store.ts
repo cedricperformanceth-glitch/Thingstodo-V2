@@ -64,8 +64,6 @@ const writeTripStore = (store: TripStore) => {
 const entityKind = (entity: AtlasEntity): TripEntry['kind'] =>
   'isLandmark' in entity ? 'thing-to-do' : 'place';
 
-export const hasInTrip = (id: string) => readTripStore().entries.some((entry) => entry.id === id);
-
 export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
   const store = readTripStore();
   if (store.entries.some((entry) => entry.id === entity.id)) return store;
