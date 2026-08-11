@@ -1,8 +1,26 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import ts from 'typescript';
 
 const values = new Map();
 globalThis.localStorage = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
-const { favoriteSnapshot, favoritesStore } = await import('../src/features/favorites/store.ts');
+
+// Node 20 does not load TypeScript source directly. Transpile the store with the
+// project's existing TypeScript dependency so this test exercises the real source
+// without adding a second runtime or maintaining a JavaScript copy.
+const storeSource = fs.readFileSync(new URL('../src/features/favorites/store.ts', import.meta.url), 'utf8');
+const transpiled = ts.transpileModule(storeSource, {
+  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+  fileName: 'store.ts',
+}).outputText;
+const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'atlas-favorites-test-'));
+const tempModule = path.join(tempDir, 'store.mjs');
+fs.writeFileSync(tempModule, transpiled);
+const { favoriteSnapshot, favoritesStore } = await import(pathToFileURL(tempModule).href);
+
 const laos = { type: 'place', id: 'shared-id', slug: 'same', name: 'Laos item', country: 'laos', city: 'same-city', shortDescription: 'A', googleMapsUrl: 'https://maps.example/laos', address: 'Laos address', isMySelection: true };
 const otherCountry = { ...laos, name: 'Other item', country: 'testland' };
 
@@ -24,4 +42,5 @@ assert.equal(favoritesStore.all().length, 1, 'valid records survive while incomp
 assert.equal(favoritesStore.all()[0].id, laos.id);
 values.set('things-to-do-atlas:favorites', JSON.stringify({ id: 'not-an-array' }));
 assert.deepEqual(favoritesStore.all(), [], 'non-array storage values are ignored');
+fs.rmSync(tempDir, { recursive: true, force: true });
 console.log('Favorites store tests passed.');
