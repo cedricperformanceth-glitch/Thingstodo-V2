@@ -1,24 +1,8 @@
+---
+import MyAtlasFloatingButton from './MyAtlasFloatingButton.astro';
+---
 <div class="my-atlas-widget" data-my-atlas-widget>
-  <button
-    class="my-atlas-fab"
-    type="button"
-    data-my-atlas-toggle
-    aria-expanded="false"
-    aria-controls="make-your-own-atlas-drawer"
-    aria-label="Open Make Your Own Atlas"
-  >
-    <span class="my-atlas-fab__media" aria-hidden="true">
-      <img
-        src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"
-        alt=""
-        width="1024"
-        height="1024"
-        loading="eager"
-        decoding="async"
-      />
-    </span>
-    <span class="my-atlas-fab__count" data-my-atlas-fab-count aria-hidden="true">00</span>
-  </button>
+  <MyAtlasFloatingButton />
 
   <aside
     class="my-atlas-drawer"
@@ -49,77 +33,19 @@
 <style is:global>
   .my-atlas-widget {
     position: fixed;
-    right: clamp(.65rem, 1.5vw, 1.25rem);
+    left: clamp(.65rem, 1.5vw, 1.25rem);
     bottom: clamp(.7rem, 1.8vw, 1.35rem);
     z-index: 70;
     display: grid;
-    justify-items: end;
+    justify-items: start;
     pointer-events: none;
   }
 
-  .my-atlas-fab,
   .my-atlas-drawer {
     pointer-events: auto;
   }
 
-  .my-atlas-fab {
-    width: clamp(10rem, 12vw, 11.5rem);
-    aspect-ratio: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 2.15rem;
-    align-items: center;
-    column-gap: .45rem;
-    box-sizing: border-box;
-    padding: .55rem .65rem .55rem .45rem;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-    cursor: pointer;
-    transform: rotate(-1.4deg);
-    transform-origin: 50% 70%;
-    transition: transform 170ms ease, filter 170ms ease, opacity 170ms ease;
-  }
-
-  .my-atlas-fab__media {
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-    display: grid;
-    place-items: center;
-  }
-
-  .my-atlas-fab__media img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    background: transparent;
-    filter: drop-shadow(0 7px 8px rgba(28, 34, 29, .16));
-  }
-
-  .my-atlas-fab__count {
-    width: 2rem;
-    height: 2rem;
-    display: grid;
-    place-items: center;
-    box-sizing: border-box;
-    justify-self: center;
-    padding: 0 .3rem;
-    border: 1px solid #b76645;
-    border-radius: 50%;
-    background: transparent;
-    color: #b76645;
-    box-shadow: none;
-    font: 600 .7rem/1 Fraunces, serif;
-    transform: rotate(4deg);
-  }
-
-  .my-atlas-fab:hover {
-    transform: rotate(0deg) translateY(-3px) scale(1.025);
-    filter: saturate(1.03);
-  }
-
-  .my-atlas-widget.is-open .my-atlas-fab {
+  .my-atlas-widget.is-open [data-my-atlas-toggle] {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -140,7 +66,7 @@
       #eee8dc;
     color: #252923;
     box-shadow: 7px 9px 0 rgba(49, 85, 69, .08), 0 24px 60px rgba(32, 60, 49, .24);
-    transform-origin: bottom right;
+    transform-origin: bottom left;
     animation: my-atlas-open 190ms ease-out both;
   }
 
@@ -351,7 +277,6 @@
   .my-atlas-drawer__foot button { color: #8c5844; }
   .my-atlas-drawer__foot [data-my-atlas-explore] { justify-self: end; text-align: right; }
 
-  .my-atlas-fab:focus-visible,
   .my-atlas-drawer button:focus-visible,
   .my-atlas-drawer a:focus-visible,
   .my-atlas-note summary:focus-visible {
@@ -366,21 +291,8 @@
 
   @media (max-width: 700px) {
     .my-atlas-widget {
-      right: .75rem;
+      left: .55rem;
       bottom: .65rem;
-    }
-
-    .my-atlas-fab {
-      width: 9rem;
-      grid-template-columns: minmax(0, 1fr) 1.95rem;
-      column-gap: .35rem;
-      padding: .45rem .5rem .45rem .35rem;
-    }
-
-    .my-atlas-fab__count {
-      width: 1.85rem;
-      height: 1.85rem;
-      font-size: .64rem;
     }
 
     .my-atlas-drawer {
@@ -401,7 +313,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .my-atlas-fab,
     .my-atlas-note__chevron { transition: none; }
     .my-atlas-drawer { animation: none; }
   }
