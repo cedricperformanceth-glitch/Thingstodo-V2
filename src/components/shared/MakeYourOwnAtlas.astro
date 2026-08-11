@@ -7,14 +7,16 @@
     aria-controls="make-your-own-atlas-drawer"
     aria-label="Open Make Your Own Atlas"
   >
-    <img
-      src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"
-      alt="Make Your Own Atlas"
-      width="1024"
-      height="1024"
-      loading="eager"
-      decoding="async"
-    />
+    <span class="my-atlas-fab__media" aria-hidden="true">
+      <img
+        src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"
+        alt=""
+        width="1024"
+        height="1024"
+        loading="eager"
+        decoding="async"
+      />
+    </span>
     <span class="my-atlas-fab__count" data-my-atlas-fab-count aria-hidden="true">00</span>
   </button>
 
@@ -61,15 +63,14 @@
   }
 
   .my-atlas-fab {
-    position: relative;
-    width: clamp(8.8rem, 11.5vw, 10.4rem);
+    width: clamp(10rem, 12vw, 11.5rem);
     aspect-ratio: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) 2.15rem;
     align-items: center;
-    gap: .45rem;
+    column-gap: .45rem;
     box-sizing: border-box;
-    padding: .35rem .4rem .35rem .2rem;
+    padding: .55rem .65rem .55rem .45rem;
     border: 0;
     background: transparent;
     box-shadow: none;
@@ -79,27 +80,33 @@
     transition: transform 170ms ease, filter 170ms ease, opacity 170ms ease;
   }
 
-  .my-atlas-fab img {
+  .my-atlas-fab__media {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  .my-atlas-fab__media img {
     display: block;
     width: 100%;
-    max-width: 7.8rem;
     height: auto;
-    justify-self: end;
     object-fit: contain;
     background: transparent;
     filter: drop-shadow(0 7px 8px rgba(28, 34, 29, .16));
   }
 
   .my-atlas-fab__count {
-    position: static;
-    min-width: 2rem;
+    width: 2rem;
     height: 2rem;
     display: grid;
     place-items: center;
     box-sizing: border-box;
+    justify-self: center;
     padding: 0 .3rem;
     border: 1px solid #b76645;
-    border-radius: 999px;
+    border-radius: 50%;
     background: transparent;
     color: #b76645;
     box-shadow: none;
@@ -363,9 +370,18 @@
       bottom: .65rem;
     }
 
-    .my-atlas-fab { width: 8.1rem; gap: .35rem; padding: .3rem .35rem .3rem .15rem; }
-    .my-atlas-fab img { width: 100%; max-width: 6rem; }
-    .my-atlas-fab__count { min-width: 1.85rem; height: 1.85rem; font-size: .64rem; }
+    .my-atlas-fab {
+      width: 9rem;
+      grid-template-columns: minmax(0, 1fr) 1.95rem;
+      column-gap: .35rem;
+      padding: .45rem .5rem .45rem .35rem;
+    }
+
+    .my-atlas-fab__count {
+      width: 1.85rem;
+      height: 1.85rem;
+      font-size: .64rem;
+    }
 
     .my-atlas-drawer {
       width: calc(100vw - 1.1rem);
