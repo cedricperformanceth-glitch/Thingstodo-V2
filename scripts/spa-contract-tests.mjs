@@ -42,7 +42,23 @@ assert.equal(village.cityData.categoryTargets.gyms, undefined);
 assert.equal(village.cityData.categoryTargets.markets, undefined);
 assert.deepEqual(village.researchPlan.categoryTargetPolicies['things-to-do'], activityPolicy);
 within(village.researchPlan.subcategoryTargets.restaurants.bar, 3, 5, 'Village bars');
-assert.deepEqual(village.researchPlan.searchPriorities['practical-services'], ['hospital', 'tourism-office', 'visa-extension']);
+assert.deepEqual(village.researchPlan.searchPriorities['practical-services'], ['hospital', 'tourism-office', 'immigration-office']);
+assert.deepEqual(village.researchPlan.selection.searchArea, { scope: 'settlement-first', preferredRadiusKm: 2, maxRadiusKm: 3 });
+assert.equal(village.researchPlan.selection.sourceStrategy.verifyCurrentExistenceBeforeSelection, true);
+assert.equal(village.researchPlan.selection.sourceStrategy.preferRepeatedMentionsAcrossIndependentSources, true);
+assert.deepEqual(village.researchPlan.selection.categories.restaurants.venueTypes, ['restaurant', 'bar']);
+assert.equal(village.researchPlan.selection.categories.restaurants.barsBelongToRestaurants, true);
+assert.equal(village.researchPlan.selection.categories.gyms, undefined, 'Village selection plan must not leak city-only categories');
+assert.deepEqual(village.researchPlan.selection.categories.accommodation.priceUsdPerNight, {
+  hardMinimum: null,
+  preferredMin: 10,
+  preferredMax: 30,
+  hardMax: 50,
+  upperBandMaxCount: 3,
+});
+assert.deepEqual(village.researchPlan.selection.categories['practical-services'].searchTypes, ['hospital', 'tourism-office', 'immigration-office']);
+assert.deepEqual(village.researchPlan.selection.categories['practical-services'].officialOnly, ['tourism-office', 'immigration-office']);
+assert.deepEqual(village.researchPlan.selection.categories['practical-services'].exclude, ['visa-agency', 'travel-agency']);
 
 const city = emptyDraft('laos', 'test-city', 'standard', 'city');
 assert.equal(city.cityData.settlementType, 'city');
@@ -58,7 +74,18 @@ assert.equal(city.cityData.categoryTargets.markets, undefined);
 assert.equal(city.cityData.categoryTargets['practical-services'], undefined);
 assert.deepEqual(city.researchPlan.categoryTargetPolicies['things-to-do'], activityPolicy);
 assert.deepEqual(city.researchPlan.subcategoryTargets, {});
-assert.deepEqual(city.researchPlan.searchPriorities['practical-services'], ['hospital', 'tourism-office', 'visa-extension']);
+assert.deepEqual(city.researchPlan.searchPriorities['practical-services'], ['hospital', 'tourism-office', 'immigration-office']);
+assert.deepEqual(city.researchPlan.selection.categories.gyms.groups, {
+  'fitness-and-weights': { max: 5 },
+  'muay-thai': { ideal: 2, max: 3 },
+});
+assert.equal(city.researchPlan.selection.categories.gyms.minimum, 0);
+assert.deepEqual(city.researchPlan.selection.categories.markets.venueTypes, ['market', 'night-market']);
+assert.equal(city.researchPlan.selection.categories.markets.minimum, 0);
+assert.equal(city.researchPlan.selection.categories['scooter-rental'].automaticSubcategoryFilters, false);
+assert.equal(city.researchPlan.selection.selectionPrinciples.pricePositioning, 'mostly-affordable-and-midrange');
+assert.equal(city.researchPlan.selection.selectionPrinciples.avoidUltraLuxury, true);
+assert.equal(city.researchPlan.selection.selectionPrinciples.requireVariety, true);
 
 const editorSelectedCity = emptyDraft('laos', 'editor-selected-city', 'large', 'city');
 setEditorialCategoryTarget(editorSelectedCity, 'things-to-do', 24);
@@ -67,6 +94,7 @@ assert.deepEqual(editorSelectedCity.cityData.manualLocks['categoryTargets.things
 syncGenerationContract(editorSelectedCity);
 assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 24, 'Generation refresh must preserve the admin/editor activity target');
 assert.deepEqual(editorSelectedCity.researchPlan.categoryTargetPolicies['things-to-do'], activityPolicy);
+assert.equal(editorSelectedCity.researchPlan.selection.searchArea.maxRadiusKm, 3, 'Generation refresh must preserve the Laos selection contract');
 
 const minimumActivities = emptyDraft('laos', 'minimum-activities', 'compact', 'village');
 setEditorialCategoryTarget(minimumActivities, 'things-to-do', 7);
@@ -91,10 +119,15 @@ assert.ok(cityRestaurantTargets.size > 1, 'City restaurant targets should vary b
 
 const unconfiguredCountry = emptyDraft('sri-lanka', 'test-city', 'standard', 'city');
 assert.deepEqual(unconfiguredCountry.cityData.categoryTargets, {}, 'Countries without an explicit target contract must not inherit Laos numeric targets');
-assert.deepEqual(unconfiguredCountry.researchPlan, { categoryTargetPolicies: {}, subcategoryTargets: {}, searchPriorities: {} });
-assert.deepEqual(researchPlan('sri-lanka', 'city', 'sri-lanka/test-city'), { categoryTargetPolicies: {}, subcategoryTargets: {}, searchPriorities: {} });
+assert.deepEqual(unconfiguredCountry.researchPlan, {
+  categoryTargetPolicies: {},
+  subcategoryTargets: {},
+  searchPriorities: {},
+  selection: { searchArea: null, sourceStrategy: null, selectionPrinciples: null, categories: {} },
+});
+assert.deepEqual(researchPlan('sri-lanka', 'city', 'sri-lanka/test-city'), unconfiguredCountry.researchPlan);
 
 assert.throws(() => emptyDraft('laos', 'invalid', 'compact'), /Settlement type/);
 assert.throws(() => emptyDraft('laos', 'invalid', 'compact', 'hamlet'), /Settlement type/);
 
-console.log('SPA settlement and Laos generation contract tests passed.');
+console.log('SPA settlement, Laos generation targets, and selection contract tests passed.');
