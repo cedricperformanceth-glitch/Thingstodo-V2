@@ -16,6 +16,7 @@
     "test:favorites": "node scripts/favorites-store-tests.mjs",
     "test:favorites-scalability": "node scripts/favorites-scalability-tests.mjs",
     "test:city-media": "node scripts/city-media-tests.mjs",
+    "test:spa-contract": "node scripts/spa-contract-tests.mjs",
     "regenerate-registry": "node scripts/regenerate-content-registry.mjs"
   },
   "devDependencies": {
