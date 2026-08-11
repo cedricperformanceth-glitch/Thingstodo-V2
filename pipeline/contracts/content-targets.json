@@ -16,7 +16,7 @@
         "practical-services": [
           "hospital",
           "tourism-office",
-          "visa-extension"
+          "immigration-office"
         ]
       }
     },
@@ -33,7 +33,7 @@
         "practical-services": [
           "hospital",
           "tourism-office",
-          "visa-extension"
+          "immigration-office"
         ]
       }
     }
