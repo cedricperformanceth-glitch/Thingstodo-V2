@@ -43,7 +43,13 @@ assert.equal(village.cityData.categoryTargets.markets, undefined);
 assert.deepEqual(village.researchPlan.categoryTargetPolicies['things-to-do'], activityPolicy);
 within(village.researchPlan.subcategoryTargets.restaurants.bar, 3, 5, 'Village bars');
 assert.deepEqual(village.researchPlan.searchPriorities['practical-services'], ['hospital', 'tourism-office', 'immigration-office']);
-assert.deepEqual(village.researchPlan.selection.searchArea, { scope: 'settlement-first', preferredRadiusKm: 2, maxRadiusKm: 3 });
+assert.deepEqual(village.researchPlan.selection.searchArea, {
+  scope: 'settlement-first',
+  preferredRadiusKm: 2,
+  maxRadiusKm: 3,
+  appliesTo: ['restaurants', 'cafes', 'accommodation', 'scooter-rental', 'gyms', 'markets', 'practical-services'],
+});
+assert.equal(village.researchPlan.selection.searchArea.appliesTo.includes('things-to-do'), false, 'Practical-address radius must not constrain Things to do');
 assert.equal(village.researchPlan.selection.sourceStrategy.verifyCurrentExistenceBeforeSelection, true);
 assert.equal(village.researchPlan.selection.sourceStrategy.preferRepeatedMentionsAcrossIndependentSources, true);
 assert.deepEqual(village.researchPlan.selection.categories.restaurants.venueTypes, ['restaurant', 'bar']);
@@ -57,7 +63,7 @@ assert.deepEqual(village.researchPlan.selection.categories.accommodation.priceUs
   upperBandMaxCount: 3,
 });
 assert.deepEqual(village.researchPlan.selection.categories['practical-services'].searchTypes, ['hospital', 'tourism-office', 'immigration-office']);
-assert.deepEqual(village.researchPlan.selection.categories['practical-services'].officialOnly, ['tourism-office', 'immigration-office']);
+assert.deepEqual(village.researchPlan.selection.categories['practical-services'].officialOnly, ['immigration-office']);
 assert.deepEqual(village.researchPlan.selection.categories['practical-services'].exclude, ['visa-agency', 'travel-agency']);
 
 const city = emptyDraft('laos', 'test-city', 'standard', 'city');
