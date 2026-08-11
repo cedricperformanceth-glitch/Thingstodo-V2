@@ -40,8 +40,17 @@ assert.deepEqual(validateSpaCardCandidate(activity, 'thing-to-do'), { valid: tru
 
 const missingPhoto = structuredClone(place);
 delete missingPhoto.media.card.image;
-assert.equal(validateSpaCardCandidate(missingPhoto, 'place').valid, false);
-assert.ok(validateSpaCardCandidate(missingPhoto, 'place').errors.includes('photo is required'));
+missingPhoto.spaCard.photoStatus = 'missing';
+missingPhoto.spaCard.photoRequiresManualFill = true;
+assert.deepEqual(validateSpaCardCandidate(missingPhoto, 'place'), { valid: true, errors: [] });
+
+const unmarkedMissingPhoto = structuredClone(missingPhoto);
+delete unmarkedMissingPhoto.spaCard.photoStatus;
+assert.ok(validateSpaCardCandidate(unmarkedMissingPhoto, 'place').errors.includes('missing photo must be explicitly marked as photoStatus=missing'));
+
+const contradictoryPhotoStatus = structuredClone(place);
+contradictoryPhotoStatus.spaCard.photoStatus = 'missing';
+assert.ok(validateSpaCardCandidate(contradictoryPhotoStatus, 'place').errors.includes('photoStatus cannot be missing when a photo is present'));
 
 const missingMap = structuredClone(place);
 delete missingMap.googleMapsUrl;
