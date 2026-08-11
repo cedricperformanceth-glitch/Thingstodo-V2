@@ -52,11 +52,10 @@
       ]
     },
     "exploreBoard": {
-      "landmarkLimit": 3,
       "featuredThingIds": [
         "thing-old-french-railway-bridge",
-        "thing-mekong-sunset",
-        "thing-li-phi-waterfalls"
+        "thing-khone-phapheng-falls",
+        "thing-khone-pa-soi-waterfall"
       ]
     },
     "manualLocks": {},
@@ -170,7 +169,7 @@
     {
       "id": "thing-old-french-railway-bridge",
       "slug": "old-french-railway-bridge",
-      "name": "Old French Railway Bridge",
+      "name": "Don Khon & Old Railway Bridge",
       "country": "laos",
       "city": "don-det",
       "category": "things-to-do",
@@ -178,12 +177,39 @@
         "latitude": 13.975,
         "longitude": 105.924
       },
-      "shortDescription": "Old French Railway Bridge is included in this Atlas draft from independently recorded traveller facts.",
-      "longDescription": "Old French Railway Bridge is included in this Atlas draft from independently recorded traveller facts.",
+      "shortDescription": "Cross the old railway bridge into Don Khon and follow the island paths beyond the busier edge of Don Det.",
+      "longDescription": "The old railway bridge links Don Det with Don Khon and opens a slower island route of bicycles, village paths and traces of the former portage railway built to bypass the Mekong rapids.",
       "isLandmark": true,
       "media": {
+        "card": {
+          "image": {
+            "id": "don-det-old-railway-bridge-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Si%20Phan%20Don%20-%20bridge%20from%20Don%20Det%20to%20Don%20Khone%20-%20Aug%202024.jpg?width=1600",
+            "alt": "The historic bridge connecting Don Det and Don Khon in Si Phan Don",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg",
+            "sourceName": "Wikimedia Commons",
+            "manual": true,
+            "locked": true,
+            "author": "Dominic Nelson",
+            "license": "CC BY-SA 4.0"
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "don-det-old-railway-bridge-card",
+              "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Si%20Phan%20Don%20-%20bridge%20from%20Don%20Det%20to%20Don%20Khone%20-%20Aug%202024.jpg?width=1600",
+              "alt": "The historic bridge connecting Don Det and Don Khon in Si Phan Don",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg",
+              "sourceName": "Wikimedia Commons",
+              "manual": true,
+              "locked": true,
+              "author": "Dominic Nelson",
+              "license": "CC BY-SA 4.0"
+            }
+          ]
         }
       },
       "isMySelection": false,
@@ -225,7 +251,12 @@
           "purpose": "location"
         }
       ],
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old%20French%20Railway%20Bridge"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old%20French%20Railway%20Bridge%20Don%20Det%20Don%20Khon%20Laos",
+      "exploreBoard": {
+        "kicker": "BICYCLE · BRIDGE · ISLAND ROAD",
+        "duration": "Half day",
+        "route": "Cycle or walk from Don Det"
+      }
     },
     {
       "id": "thing-irrawaddy-dolphin-viewpoint",
@@ -400,6 +431,172 @@
           }
         ]
       }
+    },
+    {
+      "id": "thing-khone-phapheng-falls",
+      "slug": "khone-phapheng-falls",
+      "name": "Khone Phapheng Falls",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.95977,
+        "longitude": 105.98653
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone%20Phapheng%20Falls%2C%20Laos",
+      "shortDescription": "Leave the island for the immense Khone Phapheng cataracts, where the Mekong breaks apart close to the Cambodian border.",
+      "longDescription": "A vast, powerful section of the Mekong where the river breaks across rocks and channels near the Cambodian border. This is a place for scale, sound and viewpoints.",
+      "isLandmark": true,
+      "media": {
+        "card": {
+          "image": {
+            "id": "don-det-khone-phapheng-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Khone_Phapheng_Falls%2C_Si_Phan_Don%2C_Laos%2C_widest_waterfall_in_the_world.jpg?width=1600",
+            "alt": "Wide view of Khone Phapheng Falls on the Mekong in southern Laos",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg",
+            "sourceName": "Wikimedia Commons",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "don-det-khone-phapheng-card",
+              "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Khone_Phapheng_Falls%2C_Si_Phan_Don%2C_Laos%2C_widest_waterfall_in_the_world.jpg?width=1600",
+              "alt": "Wide view of Khone Phapheng Falls on the Mekong in southern Laos",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg",
+              "sourceName": "Wikimedia Commons",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "isMySelection": false,
+      "sourceMetadata": {
+        "sourceName": "Atlas V1 curated landmark import",
+        "reviewedAt": "2026-08-11"
+      },
+      "manualLocks": {},
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      },
+      "exploreBoard": {
+        "kicker": "WATERFALL · SCALE · SOUTH",
+        "duration": "Half day",
+        "route": "Boat to Nakasang, then road transfer"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg",
+          "purpose": "media",
+          "sourceType": "wikimedia"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ]
+    },
+    {
+      "id": "thing-khone-pa-soi-waterfall",
+      "slug": "khone-pa-soi-waterfall",
+      "name": "Khone Pa Soi Waterfall",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.95492,
+        "longitude": 105.93754
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone%20Pa%20Soi%20Waterfall%20Don%20Khon%20Laos",
+      "shortDescription": "Take the rougher eastern Don Khon route to a smaller waterfall and suspension-bridge landscape away from the main park.",
+      "longDescription": "A smaller, quieter waterfall route on the eastern side of Don Khon, associated with rough island tracks, a wooden suspension bridge and traces of the old river channel known as the Teak Way.",
+      "isLandmark": true,
+      "media": {
+        "card": {
+          "image": {
+            "id": "don-det-khone-pa-soi-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Main%20beach%20of%20Don%20Khon%20in%20Laos.jpg?width=1800",
+            "alt": "Mekong landscape on Don Khon used as context for the Khone Pa Soi route",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg",
+            "sourceName": "Wikimedia Commons",
+            "manual": true,
+            "locked": true,
+            "author": "Basile Morin",
+            "license": "CC BY-SA 4.0"
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "don-det-khone-pa-soi-card",
+              "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Main%20beach%20of%20Don%20Khon%20in%20Laos.jpg?width=1800",
+              "alt": "Mekong landscape on Don Khon used as context for the Khone Pa Soi route",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg",
+              "sourceName": "Wikimedia Commons",
+              "manual": true,
+              "locked": true,
+              "author": "Basile Morin",
+              "license": "CC BY-SA 4.0"
+            }
+          ]
+        }
+      },
+      "isMySelection": false,
+      "sourceMetadata": {
+        "sourceName": "Atlas V1 curated landmark import",
+        "reviewedAt": "2026-08-11"
+      },
+      "manualLocks": {},
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      },
+      "exploreBoard": {
+        "kicker": "WATERFALL · SUSPENSION BRIDGE · QUIET",
+        "duration": "1–2 hours",
+        "route": "Cycle across Don Khon"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg",
+          "purpose": "media",
+          "sourceType": "wikimedia"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ]
     }
   ]
 }
