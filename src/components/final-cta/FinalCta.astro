@@ -39,46 +39,40 @@ const routes = getFinalCtaRoutes(country);
         loading="lazy"
         decoding="async"
       />
-    </div>
 
-    <div class="final-cta__links" aria-label="Your Atlas and Atlas Routes">
-      {routes[0] && (
-        <a class="atlas-route atlas-route--first" href={routes[0].href} aria-label={`Open Atlas Route ${routes[0].label}`}>
-          <span class="atlas-route__label">{routes[0].label}</span>
-          <svg viewBox="0 0 250 112" aria-hidden="true">
-            <path class="atlas-route__path" d="M18 78C47 36 67 95 103 55C130 25 153 73 188 42C203 29 219 34 232 24" />
-            <circle cx="18" cy="78" r="5" />
-            <circle cx="103" cy="55" r="4" />
-            <circle cx="188" cy="42" r="4" />
-            <path class="atlas-route__arrow" d="M218 19L234 23L226 38" />
-          </svg>
-          <span class="atlas-route__ends"><small>{routes[0].startLabel}</small><small>{routes[0].endLabel}</small></span>
-        </a>
-      )}
+      <div class="final-cta__actions" aria-label="Your Atlas and Atlas Routes">
+        {routes[0] && (
+          <a class="atlas-route atlas-route--first" href={routes[0].href} aria-label={`Open Atlas Route ${routes[0].label}`}>
+            <span class="atlas-route__label">{routes[0].label}</span>
+            <svg viewBox="0 0 250 48" aria-hidden="true">
+              <line x1="24" y1="24" x2="81" y2="24" />
+              <line x1="96" y1="24" x2="153" y2="24" />
+              <line x1="168" y1="24" x2="225" y2="24" />
+              <circle cx="17" cy="24" r="7" />
+              <circle cx="89" cy="24" r="7" />
+              <circle cx="161" cy="24" r="7" />
+              <circle cx="233" cy="24" r="7" />
+            </svg>
+          </a>
+        )}
 
-      <a class="atlas-door" href="/summary" aria-label="Open Your Atlas">
-        <svg viewBox="0 0 74 98" aria-hidden="true">
-          <path d="M20 88V18L56 10V88" />
-          <path d="M20 88H60" />
-          <circle cx="47" cy="52" r="2.5" />
-          <path class="atlas-door__arrow" d="M8 31C14 23 21 19 29 18M9 31L11 20M9 31L20 29" />
-        </svg>
-        <span>Your Atlas</span>
-      </a>
+        <a class="atlas-summary-link" href="/summary" aria-label="Open Your Atlas">Your Atlas</a>
 
-      {routes[1] && (
-        <a class="atlas-route atlas-route--second" href={routes[1].href} aria-label={`Open Atlas Route ${routes[1].label}`}>
-          <span class="atlas-route__label">{routes[1].label}</span>
-          <svg viewBox="0 0 250 112" aria-hidden="true">
-            <path class="atlas-route__path" d="M21 30C53 63 77 17 111 54C139 85 162 39 194 66C210 80 225 77 237 87" />
-            <circle cx="21" cy="30" r="5" />
-            <circle cx="111" cy="54" r="4" />
-            <circle cx="194" cy="66" r="4" />
-            <path class="atlas-route__arrow" d="M224 81L238 88L226 98" />
-          </svg>
-          <span class="atlas-route__ends"><small>{routes[1].startLabel}</small><small>{routes[1].endLabel}</small></span>
-        </a>
-      )}
+        {routes[1] && (
+          <a class="atlas-route atlas-route--second" href={routes[1].href} aria-label={`Open Atlas Route ${routes[1].label}`}>
+            <span class="atlas-route__label">{routes[1].label}</span>
+            <svg viewBox="0 0 250 48" aria-hidden="true">
+              <line x1="24" y1="24" x2="81" y2="24" />
+              <line x1="96" y1="24" x2="153" y2="24" />
+              <line x1="168" y1="24" x2="225" y2="24" />
+              <circle cx="17" cy="24" r="7" />
+              <circle cx="89" cy="24" r="7" />
+              <circle cx="161" cy="24" r="7" />
+              <circle cx="233" cy="24" r="7" />
+            </svg>
+          </a>
+        )}
+      </div>
     </div>
   </div>
 </section>
@@ -182,15 +176,15 @@ const routes = getFinalCtaRoutes(country);
     transform: rotate(-3deg);
   }
 
-  .final-cta__links {
-    position: relative;
-    min-height: 17rem;
-    margin-top: -1.5rem;
+  .final-cta__actions {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
     pointer-events: none;
   }
 
   .atlas-route,
-  .atlas-door {
+  .atlas-summary-link {
     position: absolute;
     pointer-events: auto;
     text-decoration: none;
@@ -198,41 +192,42 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .atlas-route:hover,
-  .atlas-door:hover {
-    opacity: .78;
+  .atlas-summary-link:hover,
+  .atlas-summary-link:focus-visible {
+    opacity: .74;
   }
 
   .atlas-route {
-    width: clamp(13rem, 23vw, 18rem);
-    color: #315545;
+    width: clamp(11.5rem, 20vw, 15.5rem);
     font-family: 'Caveat', cursive;
   }
 
   .atlas-route--first {
-    left: 2.5%;
-    top: .4rem;
-    transform: rotate(-5deg);
+    left: 3.5%;
+    bottom: 2.5%;
+    color: #4f7180;
+    transform: rotate(-4deg);
   }
 
   .atlas-route--first:hover {
-    transform: rotate(-3deg) translateY(-2px);
+    transform: rotate(-2deg) translateY(-2px);
   }
 
   .atlas-route--second {
     right: 3%;
-    bottom: 1.4rem;
-    transform: rotate(6deg);
-    color: #a95f46;
+    bottom: 8.5%;
+    color: #9e5f53;
+    transform: rotate(5deg);
   }
 
   .atlas-route--second:hover {
-    transform: rotate(4deg) translateY(-2px);
+    transform: rotate(3deg) translateY(-2px);
   }
 
   .atlas-route__label {
     display: block;
-    margin: 0 0 -.7rem 1.4rem;
-    font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+    margin: 0 0 .35rem .7rem;
+    font-size: clamp(1.18rem, 1.8vw, 1.5rem);
     font-weight: 650;
     line-height: 1;
   }
@@ -244,67 +239,55 @@ const routes = getFinalCtaRoutes(country);
     overflow: visible;
     fill: #f3ede0;
     stroke: currentColor;
-    stroke-width: 2.2;
+    stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
 
-  .atlas-route__path {
-    fill: none;
-    stroke-dasharray: 3 8;
-  }
-
-  .atlas-route__arrow {
-    fill: none;
-  }
-
-  .atlas-route__ends {
-    display: flex;
-    justify-content: space-between;
-    margin: -1.25rem 1.2rem 0 .8rem;
-    font-size: .82rem;
-    letter-spacing: .02em;
-    opacity: .78;
-  }
-
-  .atlas-door {
-    left: 47%;
-    top: 3.2rem;
-    display: grid;
-    justify-items: center;
+  .atlas-summary-link {
+    left: 50%;
+    top: 68%;
+    width: 9.5rem;
+    padding: .22rem 1.35rem .42rem .08rem;
+    border-bottom: 1px solid currentColor;
     color: #315545;
-    font-family: 'Caveat', cursive;
-    transform: rotate(2.5deg) translateX(-50%);
-  }
-
-  .atlas-door:hover {
-    transform: rotate(0deg) translateX(-50%) translateY(-2px);
-  }
-
-  .atlas-door svg {
-    width: 3.7rem;
-    height: auto;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .atlas-door circle {
-    fill: #b76645;
-    stroke: none;
-  }
-
-  .atlas-door__arrow {
-    stroke: #315f83;
-  }
-
-  .atlas-door span {
-    margin-top: -.4rem;
-    font-size: 1.35rem;
-    font-weight: 650;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.05;
+    text-align: left;
     white-space: nowrap;
+    transform: translateX(-50%) rotate(-1deg);
+  }
+
+  .atlas-summary-link::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: .9rem;
+    border-right: 1px solid currentColor;
+  }
+
+  .atlas-summary-link::after {
+    content: '↗';
+    position: absolute;
+    right: -.03rem;
+    bottom: .68rem;
+    z-index: 1;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.02rem;
+    font-weight: 400;
+    line-height: 1;
+    transform: translate(38%, -10%);
+  }
+
+  .atlas-summary-link:hover {
+    transform: translateX(-50%) rotate(0deg) translateY(-2px);
+  }
+
+  .atlas-summary-link:focus-visible {
+    outline: none;
   }
 
   @media (max-width: 760px) {
@@ -333,39 +316,31 @@ const routes = getFinalCtaRoutes(country);
       transform: rotate(-5deg);
     }
 
-    .final-cta__links {
-      min-height: 21rem;
-      margin-top: -.5rem;
-    }
-
     .atlas-route {
-      width: min(13rem, 57vw);
+      width: min(10rem, 43vw);
     }
 
     .atlas-route--first {
       left: -1%;
-      top: .3rem;
-      transform: rotate(-7deg);
-    }
-
-    .atlas-door {
-      left: 67%;
-      top: 4.8rem;
-      transform: rotate(4deg) translateX(-50%);
-    }
-
-    .atlas-door svg {
-      width: 3.2rem;
-    }
-
-    .atlas-door span {
-      font-size: 1.2rem;
+      bottom: 1.5%;
+      transform: rotate(-5deg);
     }
 
     .atlas-route--second {
-      right: -2%;
-      bottom: .8rem;
-      transform: rotate(5deg);
+      right: -1%;
+      bottom: 5.5%;
+      transform: rotate(4deg);
+    }
+
+    .atlas-route__label {
+      margin-left: .3rem;
+      font-size: 1.15rem;
+    }
+
+    .atlas-summary-link {
+      top: 67%;
+      width: 8.4rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -390,7 +365,7 @@ const routes = getFinalCtaRoutes(country);
 
   @media (prefers-reduced-motion: reduce) {
     .atlas-route,
-    .atlas-door {
+    .atlas-summary-link {
       transition: none;
     }
   }
