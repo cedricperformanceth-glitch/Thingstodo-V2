@@ -1,4 +1,5 @@
 import fs from 'node:fs'; import path from 'node:path';
+import { SETTLEMENT_CATEGORIES } from './lib/city-pipeline.mjs';
 const root=process.cwd(), dir=path.join(root,'pipeline','cities'); const drafts=fs.existsSync(dir)?fs.readdirSync(dir,{recursive:true}).filter(x=>String(x).endsWith('.json')).map(x=>JSON.parse(fs.readFileSync(path.join(dir,x),'utf8'))):[];
 const fail=[]; const unique=(items,key,label)=>{const seen=new Set(); for(const item of items){const value=key(item); if(seen.has(value)) fail.push(`Duplicate ${label}: ${value}`); seen.add(value);}};
 unique(drafts,x=>x.cityData.id,'city ID'); unique(drafts,x=>`${x.country}/${x.city}`,'city route'); unique(drafts.flatMap(x=>x.places),x=>x.id,'Place ID'); unique(drafts.flatMap(x=>x.things),x=>x.id,'ThingToDo ID'); unique(drafts.flatMap(x=>x.places),x=>`${x.country}/${x.city}/${x.slug}`,'Place route slug'); unique(drafts.flatMap(x=>x.things),x=>`${x.country}/${x.city}/${x.slug}`,'ThingToDo route slug');
@@ -6,6 +7,16 @@ for (const draft of drafts) {
   const cityKey=`${draft.country}/${draft.city}`;
   if ('media' in draft.cityData) fail.push(`Duplicate City media manifest: ${cityKey}`);
   if (draft.cityData.hero?.media) fail.push(`City Hero visual media must come from the asset resolver: ${cityKey}`);
+
+  const settlementType=draft.cityData.settlementType;
+  const expectedCategories=SETTLEMENT_CATEGORIES[settlementType];
+  if (!expectedCategories) fail.push(`City settlementType must be 'village' or 'city': ${cityKey}`);
+  else {
+    const actual=draft.cityData.categories ?? [];
+    if (JSON.stringify(actual)!==JSON.stringify([...expectedCategories])) fail.push(`SPA categories must match ${settlementType} contract for ${cityKey}: expected ${expectedCategories.join(', ')}`);
+    const unexpectedTargets=Object.keys(draft.cityData.categoryTargets ?? {}).filter((category)=>!expectedCategories.includes(category));
+    if (unexpectedTargets.length) fail.push(`Category targets outside ${settlementType} SPA contract for ${cityKey}: ${unexpectedTargets.join(', ')}`);
+  }
 
   const heroRoot=path.join(root,'public','assets','cities',draft.country,draft.city,'hero');
   const heroAssets=[
