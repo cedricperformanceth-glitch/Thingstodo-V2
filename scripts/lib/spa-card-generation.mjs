@@ -54,6 +54,7 @@ export function validateSpaCardCandidate(candidate, kind = 'place') {
   }
 
   if (kind === 'thing-to-do') {
+    if (!String(spaCard?.gettingThere ?? '').trim()) errors.push('activity gettingThere is required');
     if (!String(spaCard?.duration ?? '').trim()) errors.push('activity duration is required');
     if (!contract.thingsToDoCards.costType.allowed.includes(spaCard?.costType)) errors.push('activity costType must be free or paid');
     if (!String(spaCard?.bestTime ?? '').trim()) errors.push('activity bestTime is required');
