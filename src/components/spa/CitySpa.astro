@@ -39,7 +39,7 @@ const cityId = `${city.country}-${city.slug}`;
                 class:list={['travel-desk-tab', { 'is-active': selected, 'is-favorites': tab.slug === 'favorites' }]}
                 type="button"
                 role="tab"
-                aria-selected={String(selected)}
+                aria-selected={selected}
                 aria-controls={`spa-panel-${city.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${tab.slug}`}
                 data-spa-tab={tab.slug}
               >
