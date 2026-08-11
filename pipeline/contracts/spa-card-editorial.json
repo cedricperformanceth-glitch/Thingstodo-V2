@@ -11,7 +11,7 @@
   },
   "voice": {
     "traits": ["friendly", "warm", "cordial", "polite", "endearing"],
-    "feel": "a knowledgeable traveller sharing a useful address with another traveller",
+    "feel": "a knowledgeable traveller sharing a genuinely useful local note with another traveller",
     "avoid": [
       "salesy-language",
       "generic-tourism-copy",
@@ -20,24 +20,35 @@
       "fake-personal-experience",
       "exaggeration",
       "copied-source-prose",
+      "generic-filler-that-could-fit-another-place",
       "emoji"
     ]
   },
   "shortDescription": {
     "sentencesMin": 1,
     "sentencesMax": 2,
-    "targetWordsMin": 18,
-    "targetWordsMax": 38,
-    "hardMaxWords": 45,
+    "targetWordsMin": 16,
+    "targetWordsMax": 28,
+    "hardMaxWords": 30,
+    "minimumDistinctFactRefs": 2,
+    "specificityRule": "the-description-must-contain-concrete-details-that-would-not-still-work-if-the-place-name-were-swapped",
     "placeRecipe": [
-      "say-what-the-place-is",
-      "add-one-specific-grounded-detail",
-      "explain-naturally-why-it-may-fit-a-traveller"
+      "say-what-the-place-actually-is",
+      "mention-at-least-one-distinctive-grounded-detail",
+      "add-one-useful-grounded-reason-or-context-for-a-traveller"
     ],
     "activityRecipe": [
       "say-what-the-visitor-actually-does-or-sees",
-      "add-one-specific-grounded-detail",
+      "mention-at-least-one-distinctive-grounded-detail",
       "convey-the-character-of-the-experience-without-hype"
+    ],
+    "bannedGenericPhrases": [
+      "included in this Atlas draft",
+      "worth keeping",
+      "a practical seed",
+      "a useful address",
+      "for travellers who want",
+      "a straightforward option"
     ],
     "bannedUnlessDirectlySupported": [
       "best",
@@ -75,6 +86,18 @@
     ]
   },
   "activityMetadata": {
+    "gettingThere": {
+      "required": true,
+      "style": "short-practical-human-label",
+      "deriveFrom": [
+        "verified-access-mode",
+        "verified-route",
+        "verified-distance",
+        "verified-travel-time"
+      ],
+      "examples": ["Walk · 20 min", "Bicycle · 15 min", "Boat required", "Tuk-tuk · 25 min"],
+      "ifNoDefensibleAccessInformation": "manual-review"
+    },
     "duration": {
       "required": true,
       "useVerifiedEstimateOrOperatorDuration": true,
