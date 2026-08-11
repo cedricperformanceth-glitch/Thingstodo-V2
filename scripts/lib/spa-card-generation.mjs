@@ -5,10 +5,15 @@ const contract = JSON.parse(readFileSync(new URL('../../pipeline/contracts/spa-c
 export const SPA_CARD_GENERATION_CONTRACT = contract;
 
 const wordCount = (value) => String(value ?? '').trim().split(/\s+/).filter(Boolean).length;
-const isHttpUrl = (value) => {
+const isGoogleMapsUrl = (value) => {
   try {
     const url = new URL(value);
-    return url.protocol === 'http:' || url.protocol === 'https:';
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;
+    const host = url.hostname.toLowerCase();
+    if (host === 'maps.app.goo.gl') return true;
+    if (host === 'goo.gl' && url.pathname.startsWith('/maps')) return true;
+    const googleHost = host === 'google.com' || host.endsWith('.google.com') || /^www\.google\.[a-z.]+$/.test(host) || /^maps\.google\.[a-z.]+$/.test(host);
+    return googleHost && (url.pathname.startsWith('/maps') || host.startsWith('maps.'));
   } catch {
     return false;
   }
@@ -28,7 +33,7 @@ export function validateSpaCardCandidate(candidate, kind = 'place') {
     errors.push(`short description must be at most ${contract.allCards.shortDescription.hardMaxWords} words`);
   }
 
-  if (!isHttpUrl(candidate?.googleMapsUrl)) errors.push('valid Google Maps URL is required');
+  if (!isGoogleMapsUrl(candidate?.googleMapsUrl)) errors.push('valid Google Maps URL is required');
 
   const tags = spaCard?.handwrittenTags;
   if (!Array.isArray(tags) || tags.length !== contract.allCards.handwrittenTags.count) {
