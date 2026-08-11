@@ -18,7 +18,8 @@
     "test:trip": "node scripts/trip-store-tests.mjs",
     "test:city-media": "node scripts/city-media-tests.mjs",
     "test:spa-contract": "node scripts/spa-contract-tests.mjs",
-    "regenerate-registry": "node scripts/regenerate-content-registry.mjs"
+    "regenerate-registry": "node scripts/regenerate-content-registry.mjs",
+    "verify:city-template": "npm run architecture-check && npm run validate-content && npm run test:manual-locks && npm run test:favorites && npm run test:favorites-scalability && npm run test:trip && npm run test:city-media && npm run test:spa-contract && npm run check && npm run build"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
