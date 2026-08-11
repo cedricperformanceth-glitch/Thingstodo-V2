@@ -22,7 +22,7 @@ const categoryLabels: Record<Place['category'], string> = {
 };
 const context = `${categoryLabels[place.category]} · ${titleize(place.city)}`;
 ---
-<article class:list={['card', 'atlas-entry-card', { selection: place.isMySelection }]}>
+<article class="card atlas-entry-card">
   <div class:list={['card-media', { empty: !image }]}>
     {image ? (
       <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" />
@@ -34,14 +34,13 @@ const context = `${categoryLabels[place.category]} · ${titleize(place.city)}`;
         {place.spaCard.handwrittenTags.map((tag) => <span>{tag}</span>)}
       </div>
     )}
+    {photoCredit && image?.sourceUrl && (
+      <a class="card-photo-credit" href={image.sourceUrl} target="_blank" rel="noreferrer">Photo: {photoCredit}</a>
+    )}
     <FavoriteHeart entity={place} />
   </div>
-  {photoCredit && image?.sourceUrl && (
-    <p class="card-photo-credit"><a href={image.sourceUrl} target="_blank" rel="noreferrer">Photo: {photoCredit}</a></p>
-  )}
 
   <div class="card-preview">
-    {place.isMySelection && <p class="eyebrow">My Selection</p>}
     <p class="card-type">{context}</p>
     <h3>{place.name}</h3>
     {showDestination && <p class="destination">{titleize(place.city)}, {titleize(place.country)}</p>}
