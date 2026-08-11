@@ -11,7 +11,7 @@ export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard
 export interface HeroFact { label: string; value: string; }
 export interface FieldCardSection { title: string; body: string; }
 export interface FieldCardContent { template: 'compact' | 'deep'; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
-export interface SpaCardContent { handwrittenTags: [string, string, string]; openingHours?: string; }
+export interface SpaCardContent { handwrittenTags: [string, string, string]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; }
 export interface ThingToDoSpaCardContent extends SpaCardContent { duration: string; costType: 'free' | 'paid'; bestTime: string; }
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
 export interface ManualLocks { [field: string]: ManualField<unknown> | undefined; }
