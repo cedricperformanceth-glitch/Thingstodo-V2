@@ -22,6 +22,11 @@ const context = `${categoryLabels[place.category]} · ${titleize(place.city)}`;
 <article class:list={['card', 'atlas-entry-card', { selection: place.isMySelection }]}>
   <div class:list={['card-media', { empty: !image }]}>
     {image && <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" />}
+    {place.spaCard?.handwrittenTags && (
+      <div class="card-handwritten" aria-label="Quick notes">
+        {place.spaCard.handwrittenTags.map((tag) => <span>{tag}</span>)}
+      </div>
+    )}
     <FavoriteHeart entity={place} />
   </div>
 
@@ -31,6 +36,9 @@ const context = `${categoryLabels[place.category]} · ${titleize(place.city)}`;
     <h3>{place.name}</h3>
     {showDestination && <p class="destination">{titleize(place.city)}, {titleize(place.country)}</p>}
     <p class="card-description">{place.shortDescription}</p>
+    {place.spaCard?.openingHours && (
+      <p class="card-practical-line"><span>Hours</span>{place.spaCard.openingHours}</p>
+    )}
   </div>
 
   <CardActions entity={place} />
