@@ -2,7 +2,7 @@
 import type { City, ThingToDo } from '../../core/models/types';
 import { thingPath } from '../../core/routing/paths';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
-import TripButton from '../shared/TripButton.astro';
+import CardActions from './CardActions.astro';
 interface Props { city: City; thing: ThingToDo; showDestination?: boolean; }
 const { city, thing, showDestination = false } = Astro.props;
 const titleize = (value: string) => value.split('-').map((part) => part ? `${part.charAt(0).toUpperCase()}${part.slice(1)}` : '').join(' ');
@@ -22,7 +22,7 @@ const context = `Things to do · ${titleize(thing.city)}`;
     <p class="card-description">{thing.shortDescription}</p>
   </div>
 
-  <div class="actions"><a class="button" href={thingPath(city, thing)}>Open Field Card</a>{thing.googleMapsUrl && <a class="button button--quiet" href={thing.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>}<TripButton entity={thing} /></div>
+  <CardActions entity={thing} fieldHref={thingPath(city, thing)} />
 </article>
 
 <style>
@@ -93,5 +93,4 @@ const context = `Things to do · ${titleize(thing.city)}`;
     letter-spacing: .08em;
     text-transform: uppercase;
   }
-  .actions { display:flex; flex-wrap:wrap; gap:.5rem; }
 </style>
