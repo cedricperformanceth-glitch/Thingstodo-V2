@@ -25,20 +25,38 @@
 
 <style>
   .my-atlas-fab {
-    width: 270px;
-    height: 78px;
+    position: relative;
+    width: 224px;
+    height: 66px;
     display: grid;
     grid-template-columns: 75% 25%;
-    align-items: stretch;
+    align-items: center;
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #b76645;
-    background: transparent;
-    box-shadow: none;
+    padding: 6px 10px 6px 7px;
+    overflow: visible;
+    border: 1px solid rgba(49, 85, 69, .42);
+    background:
+      linear-gradient(rgba(247, 242, 230, .96), rgba(247, 242, 230, .96)),
+      repeating-linear-gradient(0deg, transparent 0 8px, rgba(49, 85, 69, .035) 8px 9px);
+    color: #315545;
+    box-shadow: 4px 5px 0 rgba(49, 85, 69, .12), 0 12px 30px rgba(32, 60, 49, .12);
+    transform: rotate(-.45deg);
     cursor: pointer;
     pointer-events: auto;
+    transition: opacity 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .my-atlas-fab::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 31px;
+    width: 42px;
+    height: 10px;
+    background: rgba(210, 177, 126, .66);
+    transform: rotate(-3deg);
+    pointer-events: none;
   }
 
   .my-atlas-fab__logo-slot,
@@ -49,11 +67,12 @@
   }
 
   .my-atlas-fab__logo-slot {
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 4px 6px;
+    padding-right: .35rem;
   }
 
   .my-atlas-fab__logo {
@@ -65,12 +84,13 @@
   }
 
   .my-atlas-fab__counter-slot {
+    height: 100%;
     display: grid;
     place-items: center;
-    border-left: 1px solid rgba(183, 102, 69, .42);
   }
 
   .my-atlas-fab__count {
+    min-width: 32px;
     width: 32px;
     height: 32px;
     display: grid;
@@ -83,31 +103,37 @@
     background: transparent;
     color: #b76645;
     font: 600 .72rem/1 Fraunces, serif;
+    transform: rotate(4deg);
   }
 
   .my-atlas-fab:hover {
-    opacity: .9;
+    transform: rotate(0) translateY(-2px);
+    box-shadow: 5px 7px 0 rgba(49, 85, 69, .13), 0 16px 34px rgba(32, 60, 49, .15);
   }
 
   .my-atlas-fab:focus-visible {
     outline: 2px solid #b76645;
-    outline-offset: 2px;
+    outline-offset: 3px;
   }
 
   @media (max-width: 700px) {
     .my-atlas-fab {
-      width: 238px;
-      height: 68px;
+      width: 202px;
+      height: 60px;
     }
 
     .my-atlas-fab__logo-slot {
-      padding: 3px 5px;
+      height: 46px;
     }
+  }
 
-    .my-atlas-fab__count {
-      width: 29px;
-      height: 29px;
-      font-size: .66rem;
+  @media (max-width: 380px) {
+    .my-atlas-fab {
+      width: 184px;
     }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .my-atlas-fab { transition: none; }
   }
 </style>
