@@ -1,5 +1,6 @@
 import { getThings } from '../category/category-engine';
 import type { City, ThingToDo } from '../../core/models/types';
+import { getExploreBoardCopy } from './explore-board-copy';
 
 export const MAX_EXPLORE_BOARD_LANDMARKS = 3;
 
@@ -10,7 +11,7 @@ export interface ExploreBoardEntry {
   route: string;
 }
 
-export function getExploreBoard(city: City): { things: ExploreBoardEntry[] } {
+export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intro: string; note: string } {
   const ids = city.exploreBoard.featuredThingIds ?? [];
   if (ids.length > MAX_EXPLORE_BOARD_LANDMARKS) {
     throw new Error(`Explore Board supports at most ${MAX_EXPLORE_BOARD_LANDMARKS} landmarks: ${city.country}/${city.slug}`);
@@ -33,5 +34,5 @@ export function getExploreBoard(city: City): { things: ExploreBoardEntry[] } {
     };
   });
 
-  return { things };
+  return { things, ...getExploreBoardCopy(city, things) };
 }
