@@ -28,9 +28,9 @@
     },
     "shortDescription": {
       "required": true,
-      "targetWordsMin": 18,
-      "targetWordsMax": 38,
-      "hardMaxWords": 45,
+      "targetWordsMin": 16,
+      "targetWordsMax": 28,
+      "hardMaxWords": 30,
       "tone": [
         "friendly",
         "warm",
@@ -38,8 +38,9 @@
         "polite",
         "endearing"
       ],
-      "style": "natural-atlas-note",
+      "style": "specific-natural-atlas-note",
       "mustRemainFactGrounded": true,
+      "mustContainConcreteEntitySpecificInformation": true,
       "noCopiedTravelPlatformProse": true
     },
     "openingHours": {
@@ -67,10 +68,18 @@
   },
   "thingsToDoCards": {
     "requiredAdditional": [
+      "gettingThere",
       "duration",
       "costType",
       "bestTime"
     ],
+    "gettingThere": {
+      "required": true,
+      "humanReadable": true,
+      "purpose": "tell-the-traveller-how-to-reach-the-activity-from-the-usual-settlement-base",
+      "includeTravelTimeOrDistanceWhenDefensible": true,
+      "examples": ["Walk · 20 min", "Bicycle · 15 min", "Boat required", "Tuk-tuk · 25 min"]
+    },
     "duration": {
       "required": true,
       "humanReadable": true,
