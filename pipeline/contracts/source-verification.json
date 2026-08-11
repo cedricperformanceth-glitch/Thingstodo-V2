@@ -54,6 +54,11 @@
         "singleCurrentAuthoritativeSourceCanConfirmExistence": true,
         "otherwiseMinimumIndependentSignals": 2
       },
+      "publicExperience": {
+        "singleCurrentAuthoritativeSourceCanConfirmAvailability": true,
+        "otherwiseMinimumIndependentSignals": 2,
+        "requiresSpecificOperatorVerification": false
+      },
       "conflictingCurrentSources": "manual-review"
     },
     "existenceVerification": {
