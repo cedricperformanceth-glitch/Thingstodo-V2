@@ -1,0 +1,54 @@
+name: Tune My Atlas FAB Square
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/tune-my-atlas-fab-square.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  tune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Keep logo and counter inside one square button
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/components/shared/MakeYourOwnAtlas.astro')
+          s = p.read_text()
+          old = """  .my-atlas-fab {\n    position: relative;\n    width: auto;\n    display: inline-flex;\n    align-items: center;\n    gap: .55rem;\n    padding: 0;\n    border: 0;\n    background: transparent;\n    box-shadow: none;\n    cursor: pointer;\n    transform: rotate(-1.4deg);\n    transform-origin: 50% 70%;\n    transition: transform 170ms ease, filter 170ms ease, opacity 170ms ease;\n  }\n\n  .my-atlas-fab img {\n    display: block;\n    width: clamp(7.15rem, 10vw, 9rem);\n    height: auto;\n    object-fit: contain;\n    background: transparent;\n    filter: drop-shadow(0 7px 8px rgba(28, 34, 29, .16));\n  }\n\n  .my-atlas-fab__count {\n    position: static;\n    flex: 0 0 auto;\n    min-width: 2rem;\n    height: 2rem;\n    display: grid;\n    place-items: center;\n    box-sizing: border-box;\n    padding: 0 .3rem;\n    border: 1px solid #b76645;\n    border-radius: 999px;\n    background: transparent;\n    color: #b76645;\n    box-shadow: none;\n    font: 600 .7rem/1 Fraunces, serif;\n    transform: rotate(4deg);\n  }\n"""
+          new = """  .my-atlas-fab {\n    position: relative;\n    width: clamp(8.8rem, 11.5vw, 10.4rem);\n    aspect-ratio: 1;\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    align-items: center;\n    gap: .45rem;\n    box-sizing: border-box;\n    padding: .35rem .4rem .35rem .2rem;\n    border: 0;\n    background: transparent;\n    box-shadow: none;\n    cursor: pointer;\n    transform: rotate(-1.4deg);\n    transform-origin: 50% 70%;\n    transition: transform 170ms ease, filter 170ms ease, opacity 170ms ease;\n  }\n\n  .my-atlas-fab img {\n    display: block;\n    width: 100%;\n    max-width: 7.8rem;\n    height: auto;\n    justify-self: end;\n    object-fit: contain;\n    background: transparent;\n    filter: drop-shadow(0 7px 8px rgba(28, 34, 29, .16));\n  }\n\n  .my-atlas-fab__count {\n    position: static;\n    min-width: 2rem;\n    height: 2rem;\n    display: grid;\n    place-items: center;\n    box-sizing: border-box;\n    padding: 0 .3rem;\n    border: 1px solid #b76645;\n    border-radius: 999px;\n    background: transparent;\n    color: #b76645;\n    box-shadow: none;\n    font: 600 .7rem/1 Fraunces, serif;\n    transform: rotate(4deg);\n  }\n"""
+          if old not in s:
+              raise SystemExit('desktop FAB block not found')
+          s = s.replace(old, new, 1)
+          old_mobile = """    .my-atlas-fab { gap: .42rem; }\n    .my-atlas-fab img { width: 6.8rem; }\n    .my-atlas-fab__count { min-width: 1.85rem; height: 1.85rem; font-size: .64rem; }\n"""
+          new_mobile = """    .my-atlas-fab { width: 8.1rem; gap: .35rem; padding: .3rem .35rem .3rem .15rem; }\n    .my-atlas-fab img { width: 100%; max-width: 6rem; }\n    .my-atlas-fab__count { min-width: 1.85rem; height: 1.85rem; font-size: .64rem; }\n"""
+          if old_mobile not in s:
+              raise SystemExit('mobile FAB block not found')
+          s = s.replace(old_mobile, new_mobile, 1)
+          p.write_text(s)
+          PY
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm run architecture-check
+      - run: git diff --check
+      - name: Commit change and remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/components/shared/MakeYourOwnAtlas.astro
+          git commit -m "Keep My Atlas counter inside button square"
+          git rm .github/workflows/tune-my-atlas-fab-square.yml
+          git commit -m "Remove My Atlas square tuning workflow"
+          git push origin master
