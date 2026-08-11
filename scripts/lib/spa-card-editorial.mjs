@@ -44,6 +44,10 @@ export function normalizeDuration(value) {
   return text;
 }
 
+export function normalizeGettingThere(value) {
+  return normalizeText(value).replace(/\s*·\s*/g, ' · ');
+}
+
 export function normalizeBestTime(value) {
   const text = normalizeText(value);
   if (!text) return '';
@@ -75,11 +79,13 @@ function outputSchema(kind) {
   if (kind !== 'thing-to-do') return shared;
   return {
     ...shared,
+    gettingThere: 'string',
     duration: 'string',
     costType: 'free|paid',
     bestTime: 'string',
     evidenceRefs: {
       ...shared.evidenceRefs,
+      gettingThere: ['fact-id'],
       duration: ['fact-id'],
       costType: ['fact-id'],
       bestTime: ['fact-id'],
@@ -114,7 +120,9 @@ export function buildSpaCardEditorialBrief(candidate, kind = 'place', facts = ca
         'Use only the verified facts supplied in this brief.',
         'Do not infer a fact merely because it is typical for this kind of place.',
         'Do not copy source prose; write fresh Atlas wording.',
+        'Write a description specific enough that swapping the place name would make it wrong.',
         'Do not alter the verified name, map URL or selected photo.',
+        'For an activity, explain practical access in gettingThere and never guess whether walking, cycling, boat or road transport is appropriate.',
         'If a required activity field cannot be supported, return manual-review instead of guessing.',
         'Reference the supporting verified fact IDs for every generated field.',
         'Do not generate any Field Card content.',
@@ -135,6 +143,11 @@ function unsupportedBannedTerms(description, facts) {
   return contract.shortDescription.bannedUnlessDirectlySupported.filter((term) => text.includes(term) && !factCorpus.includes(term));
 }
 
+function bannedGenericPhrases(description) {
+  const text = description.toLowerCase();
+  return (contract.shortDescription.bannedGenericPhrases ?? []).filter((phrase) => text.includes(phrase.toLowerCase()));
+}
+
 export function validateSpaCardEditorialDraft(draft, kind = 'place', facts = []) {
   const errors = [];
   const verifiedFacts = verifiedEditorialFacts(facts);
@@ -147,6 +160,8 @@ export function validateSpaCardEditorialDraft(draft, kind = 'place', facts = [])
     if (words > contract.shortDescription.hardMaxWords) errors.push(`shortDescription must be at most ${contract.shortDescription.hardMaxWords} words`);
     const unsupported = unsupportedBannedTerms(description, verifiedFacts);
     if (unsupported.length) errors.push(`unsupported promotional language: ${unsupported.join(', ')}`);
+    const generic = bannedGenericPhrases(description);
+    if (generic.length) errors.push(`generic filler language is forbidden: ${generic.join(', ')}`);
   }
 
   const tags = draft?.handwrittenTags;
@@ -168,11 +183,15 @@ export function validateSpaCardEditorialDraft(draft, kind = 'place', facts = [])
   else {
     const requiredRefFields = ['shortDescription', 'handwrittenTags'];
     if (draft?.openingHours) requiredRefFields.push('openingHours');
-    if (kind === 'thing-to-do') requiredRefFields.push('duration', 'costType', 'bestTime');
+    if (kind === 'thing-to-do') requiredRefFields.push('gettingThere', 'duration', 'costType', 'bestTime');
     for (const field of requiredRefFields) {
       const ids = referencedIds(refs[field]);
       if (ids.length === 0) errors.push(`evidenceRefs.${field} must reference verified facts`);
       else if (ids.some((id) => !validIds.has(id))) errors.push(`evidenceRefs.${field} contains an unknown fact id`);
+    }
+    const descriptionRefs = new Set(referencedIds(refs.shortDescription));
+    if (descriptionRefs.size < contract.shortDescription.minimumDistinctFactRefs) {
+      errors.push(`shortDescription must reference at least ${contract.shortDescription.minimumDistinctFactRefs} distinct verified facts`);
     }
     if (Array.isArray(tags) && tags.length === 3) {
       if (!Array.isArray(refs.handwrittenTags) || refs.handwrittenTags.length !== 3) errors.push('evidenceRefs.handwrittenTags must contain one reference group per tag');
@@ -185,6 +204,7 @@ export function validateSpaCardEditorialDraft(draft, kind = 'place', facts = [])
   if (draft?.openingHours && !normalizeOpeningHours(draft.openingHours)) errors.push('openingHours must be omitted or human-readable');
 
   if (kind === 'thing-to-do') {
+    if (!normalizeGettingThere(draft?.gettingThere)) errors.push('gettingThere is required');
     if (!normalizeDuration(draft?.duration)) errors.push('duration is required');
     if (!['free', 'paid'].includes(draft?.costType)) errors.push('costType must be free or paid');
     const bestTime = normalizeBestTime(draft?.bestTime);
@@ -207,6 +227,7 @@ export function materializeSpaCardEditorial(candidate, draft, kind = 'place', fa
     handwrittenTags: draft.handwrittenTags.map(normalizeText),
     ...(draft.openingHours ? { openingHours: normalizeOpeningHours(draft.openingHours) } : {}),
     ...(kind === 'thing-to-do' ? {
+      gettingThere: normalizeGettingThere(draft.gettingThere),
       duration: normalizeDuration(draft.duration),
       costType: draft.costType,
       bestTime: normalizeBestTime(draft.bestTime),
