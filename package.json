@@ -11,6 +11,7 @@
     "create-city": "node scripts/create-city.mjs",
     "generate-city": "node scripts/generate-city.mjs",
     "qa-city": "node scripts/qa-city.mjs",
+    "pilot:don-det-activities": "node scripts/don-det-activity-pilot.mjs",
     "architecture-check": "node scripts/architecture-check.mjs",
     "validate-content": "node scripts/validate-generated-data.mjs",
     "test:manual-locks": "node scripts/manual-lock-tests.mjs",
