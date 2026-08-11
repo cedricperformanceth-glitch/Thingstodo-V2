@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { categoryTargets, chooseFieldCardTemplate, mergeGenerated, researchPlan, SETTLEMENT_CATEGORIES, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
+import { chooseFieldCardTemplate, mergeGenerated, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2); const dryRun = flags.includes('--dry-run'); const fromCity = flags.includes('--from-city');
 if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run]');
@@ -40,16 +40,6 @@ fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`);
 fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city}.ts`), tsModule(draft));
 await import('./regenerate-content-registry.mjs');
 console.log(`Generated static versioned content for ${country}/${city}.`);
-
-function syncGenerationContract(draft) {
-  const settlementType = draft.cityData?.settlementType;
-  const categories = SETTLEMENT_CATEGORIES[settlementType];
-  if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
-  const seed = `${draft.country}/${draft.city}`;
-  draft.cityData.categories = [...categories];
-  draft.cityData.categoryTargets = categoryTargets(draft.country, settlementType, seed, categories);
-  draft.researchPlan = researchPlan(draft.country, settlementType, seed, categories);
-}
 
 function generatedSources(candidate) { return (candidate.sources ?? []).map(({ sourceName, sourceUrl, purpose, sourceType }) => ({ sourceName, sourceUrl, purpose, sourceType })); }
 function description(candidate) { return candidate.shortDescription || `${candidate.name} is included in this Atlas draft from independently recorded traveller facts.`; }
