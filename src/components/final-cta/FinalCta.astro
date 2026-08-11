@@ -20,12 +20,6 @@ const routes = getFinalCtaRoutes(country);
         <text x="95" y="52" text-anchor="middle">explore</text>
       </svg>
 
-      <svg class="final-cta__note final-cta__note--save" viewBox="0 0 180 78" aria-hidden="true">
-        <path class="final-cta__highlight" d="M24 45C58 37 105 38 154 41" />
-        <path class="final-cta__highlight final-cta__highlight--second" d="M28 51C71 44 116 45 151 47" />
-        <text x="90" y="49" text-anchor="middle">save this</text>
-      </svg>
-
       <svg class="final-cta__note final-cta__note--yours" viewBox="0 0 220 82" aria-hidden="true">
         <text x="110" y="44" text-anchor="middle">make it yours</text>
         <path class="final-cta__ink" d="M40 57C78 62 129 61 178 55C190 54 198 55 202 57" />
@@ -143,18 +137,6 @@ const routes = getFinalCtaRoutes(country);
     opacity: .55;
   }
 
-  .final-cta__highlight {
-    fill: none;
-    stroke: rgba(222, 185, 77, .46);
-    stroke-width: 15;
-    stroke-linecap: round;
-  }
-
-  .final-cta__highlight--second {
-    stroke-width: 9;
-    opacity: .55;
-  }
-
   .final-cta__note--explore {
     top: 9%;
     left: 7.5%;
@@ -162,16 +144,9 @@ const routes = getFinalCtaRoutes(country);
     transform: rotate(-8deg);
   }
 
-  .final-cta__note--save {
+  .final-cta__note--yours {
     top: 24%;
     right: 5.5%;
-    width: clamp(8.5rem, 14vw, 12rem);
-    transform: rotate(5deg);
-  }
-
-  .final-cta__note--yours {
-    right: 14%;
-    bottom: 8.5%;
     width: clamp(10.5rem, 17vw, 14rem);
     transform: rotate(-3deg);
   }
@@ -204,7 +179,7 @@ const routes = getFinalCtaRoutes(country);
 
   .atlas-route--first {
     left: 3.5%;
-    bottom: 2.5%;
+    bottom: 13%;
     color: #4f7180;
     transform: rotate(-4deg);
   }
@@ -215,7 +190,7 @@ const routes = getFinalCtaRoutes(country);
 
   .atlas-route--second {
     right: 3%;
-    bottom: 8.5%;
+    bottom: 13%;
     color: #9e5f53;
     transform: rotate(5deg);
   }
@@ -302,16 +277,9 @@ const routes = getFinalCtaRoutes(country);
       transform: rotate(-10deg);
     }
 
-    .final-cta__note--save {
+    .final-cta__note--yours {
       top: 20%;
       right: -2%;
-      width: 8.5rem;
-      transform: rotate(7deg);
-    }
-
-    .final-cta__note--yours {
-      right: 4%;
-      bottom: 5%;
       width: 10rem;
       transform: rotate(-5deg);
     }
@@ -322,13 +290,13 @@ const routes = getFinalCtaRoutes(country);
 
     .atlas-route--first {
       left: -1%;
-      bottom: 1.5%;
+      bottom: 10.5%;
       transform: rotate(-5deg);
     }
 
     .atlas-route--second {
       right: -1%;
-      bottom: 5.5%;
+      bottom: 9%;
       transform: rotate(4deg);
     }
 
