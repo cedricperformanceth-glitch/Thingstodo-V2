@@ -9,12 +9,17 @@
   },
   "blockingChecks": [
     "city-contract",
+    "entity-identity-and-destination",
+    "entity-kind-and-category",
+    "coordinates",
     "category-targets",
     "unique-entity-identities",
     "allowed-category-membership",
     "spa-card-contract",
     "google-maps",
     "source-verification",
+    "media-integrity-and-license",
+    "generation-transient-fields",
     "explore-board-integrity"
   ],
   "targetRules": {
@@ -32,11 +37,20 @@
     "missingSpaPhoto": "warning",
     "placeholderIsPublishable": true,
     "syntheticFallbackForbidden": true,
-    "photoAttributionMustRemainCompleteWhenRequired": true
+    "photoAttributionMustRemainCompleteWhenRequired": true,
+    "photoPresentRequiresVerifiedStatus": true,
+    "acceptedAutomaticLicenses": ["public-domain", "cc0", "cc-by", "cc-by-sa"]
   },
   "sources": {
     "automaticEntityRequiresResearchSource": true
   },
+  "transientGenerationFieldsForbidden": [
+    "editorialDraft",
+    "editorialFacts",
+    "photoCandidates",
+    "verificationSignals",
+    "verificationKind"
+  ],
   "warnings": [
     "missing-spa-photo"
   ],
