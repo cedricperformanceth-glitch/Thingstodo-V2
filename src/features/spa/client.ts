@@ -51,3 +51,5 @@ const initializeSpa = (spa: HTMLElement) => {
 const setupSpas = () => document.querySelectorAll<HTMLElement>('[data-city-spa]').forEach(initializeSpa);
 setupSpas();
 document.addEventListener('astro:page-load', setupSpas);
+
+export {};
