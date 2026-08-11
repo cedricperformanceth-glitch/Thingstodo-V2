@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { selectionPlan } from './content-selection.mjs';
 
 const spaCategoryOrder = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
 const contentTargetRules = JSON.parse(readFileSync(new URL('../../pipeline/contracts/content-targets.json', import.meta.url), 'utf8'));
@@ -87,7 +88,12 @@ export function researchPlan(country, settlementType, seed, categories = SETTLEM
     ]));
   }
   const searchPriorities = Object.fromEntries(Object.entries(rules.searchPriorities ?? {}).filter(([category]) => allowedCategories.has(category)).map(([category, priorities]) => [category, [...priorities]]));
-  return { categoryTargetPolicies: categoryTargetPolicies(country, settlementType, categories), subcategoryTargets, searchPriorities };
+  return {
+    categoryTargetPolicies: categoryTargetPolicies(country, settlementType, categories),
+    subcategoryTargets,
+    searchPriorities,
+    selection: selectionPlan(country, categories),
+  };
 }
 
 export function getManualLock(record, fieldPath) { return record?.manualLocks?.[fieldPath]; }
