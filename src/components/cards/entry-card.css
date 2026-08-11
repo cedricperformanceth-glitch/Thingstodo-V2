@@ -49,19 +49,25 @@
   filter: saturate(.72) contrast(.96);
 }
 .atlas-entry-card .card-photo-credit {
-  margin: 0;
-  padding: 4px 8px 5px;
-  border-bottom: 1px solid rgba(49,85,69,.09);
-  background: rgba(247,242,230,.76);
-  font: 500 .48rem/1.25 'DM Sans',var(--sans);
-  text-align: right;
-}
-.atlas-entry-card .card-photo-credit a {
-  color: rgba(49,85,69,.62);
+  position: absolute;
+  z-index: 4;
+  left: 8px;
+  bottom: 6px;
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  color: rgba(255,253,248,.82);
+  font: 500 .46rem/1.2 'DM Sans',var(--sans);
   text-decoration: none;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 3px rgba(15,24,20,.9);
+  white-space: nowrap;
 }
-.atlas-entry-card .card-photo-credit a:hover,
-.atlas-entry-card .card-photo-credit a:focus-visible { color: #315545; }
+.atlas-entry-card .card-photo-credit:hover,
+.atlas-entry-card .card-photo-credit:focus-visible {
+  color: #fffdf8;
+  text-decoration: underline;
+  outline: none;
+}
 .atlas-entry-card .card-handwritten {
   position: absolute;
   z-index: 2;
@@ -85,7 +91,6 @@
   flex-direction: column;
   padding: 23px 22px 20px;
 }
-.atlas-entry-card .eyebrow,
 .atlas-entry-card .card-type {
   margin: 0 0 9px;
   color: #b76645;
@@ -93,7 +98,6 @@
   letter-spacing: .13em;
   text-transform: uppercase;
 }
-.atlas-entry-card .eyebrow { margin-bottom: 6px; }
 .atlas-entry-card h3 {
   margin: 0 0 10px;
   color: #315545;
@@ -107,7 +111,7 @@
   color: #68685f;
   font: 400 .77rem/1.58 'DM Sans',var(--sans);
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 .atlas-entry-card .destination {
   margin: -3px 0 9px;
@@ -133,17 +137,19 @@
 }
 .atlas-entry-card .card-activity-meta {
   display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: .72rem 0;
   margin: .9rem 0 0;
-  padding-top: .7rem;
+  padding-top: .72rem;
   border-top: 1px solid rgba(49,85,69,.12);
 }
 .atlas-entry-card .card-activity-meta div {
   min-width: 0;
-  padding-right: .5rem;
+  padding-right: .6rem;
 }
-.atlas-entry-card .card-activity-meta div + div {
-  padding-left: .55rem;
+.atlas-entry-card .card-activity-meta div:nth-child(even) {
+  padding-right: 0;
+  padding-left: .65rem;
   border-left: 1px solid rgba(49,85,69,.1);
 }
 .atlas-entry-card .card-activity-meta dt {
@@ -161,5 +167,6 @@
 @media(max-width:420px){
   .atlas-entry-card .card-handwritten{gap:.42rem;font-size:.86rem}
   .atlas-entry-card .card-activity-meta{grid-template-columns:1fr;gap:.5rem}
-  .atlas-entry-card .card-activity-meta div,.atlas-entry-card .card-activity-meta div + div{padding:0;border-left:0}
+  .atlas-entry-card .card-activity-meta div,
+  .atlas-entry-card .card-activity-meta div:nth-child(even){padding:0;border-left:0}
 }
