@@ -19,6 +19,10 @@ if (!city) return Astro.redirect('/');
 </BaseLayout>
 
 <style>
+  :global(#main-content) {
+    padding-bottom: 0;
+  }
+
   .final-cta-footer-transition {
     width: 100vw;
     height: clamp(2.5rem, 5vw, 4.5rem);
