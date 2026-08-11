@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { emptyDraft } from './lib/city-pipeline.mjs';
 
-const fresh = emptyDraft('testland', 'test-city', 'compact');
+const fresh = emptyDraft('testland', 'test-city', 'compact', 'city');
 assert.equal('media' in fresh.cityData, false, 'new City drafts must not own a duplicate media manifest');
 assert.equal('media' in fresh.cityData.hero, false, 'new City Hero data must resolve visual assets from the asset convention');
 const draft = JSON.parse(fs.readFileSync('pipeline/cities/laos/don-det.json', 'utf8'));
