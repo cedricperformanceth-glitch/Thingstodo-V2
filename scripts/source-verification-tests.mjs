@@ -34,6 +34,37 @@ assert.deepEqual(
   { decision: 'accept', reason: 'authoritative-static-site-source' },
 );
 
+assert.deepEqual(
+  evaluateCandidateAcceptance({
+    kind: 'public-experience',
+    signals: [
+      { sourceId: 'official-tourism', authoritative: true, strength: 'strong', status: 'exists', observedAt: '2026-08-01' },
+    ],
+  }, 'laos', NOW),
+  { decision: 'accept', reason: 'authoritative-public-experience-source' },
+);
+
+assert.deepEqual(
+  evaluateCandidateAcceptance({
+    kind: 'public-experience',
+    signals: [
+      { sourceId: 'guide-a', strength: 'supporting', status: 'exists', observedAt: '2026-07-01' },
+      { sourceId: 'guide-b', strength: 'supporting', status: 'exists', observedAt: '2026-07-10' },
+    ],
+  }, 'laos', NOW),
+  { decision: 'accept', reason: 'multiple-independent-public-experience-signals' },
+);
+
+assert.deepEqual(
+  evaluateCandidateAcceptance({
+    kind: 'public-experience',
+    signals: [
+      { sourceId: 'single-guide', strength: 'supporting', status: 'exists', observedAt: '2026-07-01' },
+    ],
+  }, 'laos', NOW),
+  { decision: 'manual-review', reason: 'insufficient-public-experience-evidence' },
+);
+
 const threeClosureReports = [
   { authorId: 'traveller-1', status: 'closed-permanently', explicitPermanentClosureReport: true, observedAt: '2026-06-01' },
   { authorId: 'traveller-2', status: 'closed-permanently', explicitPermanentClosureReport: true, observedAt: '2026-06-10' },
