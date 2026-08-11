@@ -1,0 +1,107 @@
+<button
+  class="my-atlas-fab"
+  type="button"
+  data-my-atlas-toggle
+  aria-expanded="false"
+  aria-controls="make-your-own-atlas-drawer"
+  aria-label="Open Make Your Own Atlas"
+>
+  <span class="my-atlas-fab__count" data-my-atlas-fab-count aria-hidden="true">00</span>
+  <span class="my-atlas-fab__art" aria-hidden="true">
+    <img
+      src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"
+      alt=""
+      width="1024"
+      height="1024"
+      loading="eager"
+      decoding="async"
+    />
+  </span>
+</button>
+
+<style>
+  .my-atlas-fab {
+    width: clamp(10.5rem, 12vw, 11.75rem);
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 2.25rem;
+    grid-template-rows: 1fr;
+    align-items: center;
+    column-gap: .45rem;
+    box-sizing: border-box;
+    padding: .55rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    transform: rotate(-1.2deg);
+    transform-origin: center;
+    transition: transform 170ms ease, filter 170ms ease, opacity 170ms ease;
+  }
+
+  .my-atlas-fab__count {
+    grid-column: 2;
+    grid-row: 1;
+    width: 2.1rem;
+    height: 2.1rem;
+    display: grid;
+    place-items: center;
+    justify-self: center;
+    box-sizing: border-box;
+    border: 1px solid #b76645;
+    border-radius: 50%;
+    background: transparent;
+    color: #b76645;
+    font: 600 .7rem/1 Fraunces, serif;
+    transform: rotate(4deg);
+  }
+
+  .my-atlas-fab__art {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+  }
+
+  .my-atlas-fab__art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+    filter: drop-shadow(0 7px 8px rgba(28, 34, 29, .16));
+  }
+
+  .my-atlas-fab:hover {
+    transform: rotate(0deg) translateY(-3px) scale(1.025);
+    filter: saturate(1.03);
+  }
+
+  .my-atlas-fab:focus-visible {
+    outline: 2px solid #b76645;
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 700px) {
+    .my-atlas-fab {
+      width: 9.25rem;
+      grid-template-columns: minmax(0, 1fr) 2rem;
+      column-gap: .35rem;
+      padding: .45rem;
+    }
+
+    .my-atlas-fab__count {
+      width: 1.85rem;
+      height: 1.85rem;
+      font-size: .64rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .my-atlas-fab { transition: none; }
+  }
+</style>
