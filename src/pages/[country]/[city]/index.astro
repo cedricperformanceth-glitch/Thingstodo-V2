@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import CityHero from '../../../components/hero/CityHero.astro';
+import ExploreBoard from '../../../components/explore-board/ExploreBoard.astro';
 import CitySpa from '../../../components/spa/CitySpa.astro';
 import { getCities, getCity } from '../../../engines/city/city-engine';
 import { cityPath } from '../../../core/routing/paths';
@@ -7,4 +9,8 @@ export function getStaticPaths() { return getCities().map((city) => ({ params:{c
 const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
 if (!city) return Astro.redirect('/');
 ---
-<BaseLayout seo={city.seo} breadcrumbs={[{name:'Home',path:'/'},{name:city.country.toUpperCase(),path:`/${city.country}`},{name:city.name,path:cityPath(city)}]}><CitySpa {city} /></BaseLayout>
+<BaseLayout seo={city.seo} breadcrumbs={[{name:'Home',path:'/'},{name:city.country.toUpperCase(),path:`/${city.country}`},{name:city.name,path:cityPath(city)}]}>
+  <CityHero {city} />
+  <ExploreBoard {city} />
+  <CitySpa {city} />
+</BaseLayout>
