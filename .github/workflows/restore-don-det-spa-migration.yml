@@ -1,0 +1,62 @@
+name: Restore Don Det after SPA migration
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/restore-don-det-spa-migration.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore-and-validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 20
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Restore Don Det editorial data and apply only SPA contract
+        run: |
+          git checkout 5cf50e17b4745635423bb33a8b5c039b6a615636 -- pipeline/cities/laos/don-det.json src/content/generated/laos/don-det.ts
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { tsModule } from './scripts/lib/city-pipeline.mjs';
+          const draftFile = 'pipeline/cities/laos/don-det.json';
+          const generatedFile = 'src/content/generated/laos/don-det.ts';
+          const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8'));
+          const categories = ['things-to-do', 'accommodation', 'restaurants', 'cafes', 'practical-services'];
+          draft.cityData.settlementType = 'village';
+          draft.cityData.categories = categories;
+          draft.cityData.categoryTargets = Object.fromEntries(
+            Object.entries(draft.cityData.categoryTargets || {}).filter(([category]) => categories.includes(category))
+          );
+          fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`);
+          fs.writeFileSync(generatedFile, tsModule(draft));
+          NODE
+      - run: npm ci
+      - name: Validate restored data and universal SPA
+        run: |
+          npm run check
+          npm run build
+          npm run architecture-check
+          npm run validate-content
+          npm run test:spa-contract
+          npm run test:favorites-scalability
+          npm run test:city-media
+          npm run test:manual-locks
+          git diff --check
+      - name: Commit restoration and remove workflow
+        run: |
+          rm .github/workflows/restore-don-det-spa-migration.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Preserve Don Det editorial data in SPA migration'
+          git push origin master
