@@ -85,7 +85,7 @@ const data = {
       "selectionRank": 1,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "reviewedAt": "2026-08-10T05:02:33.877Z"
       },
       "manualLocks": {},
       "researchSources": []
@@ -112,7 +112,7 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "reviewedAt": "2026-08-10T05:02:33.877Z"
       },
       "manualLocks": {},
       "researchSources": []
@@ -143,7 +143,7 @@ const data = {
       "selectionRank": 1,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.981Z"
+        "reviewedAt": "2026-08-10T05:02:33.876Z"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -210,7 +210,7 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "reviewedAt": "2026-08-10T05:14:47.183Z"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -224,9 +224,28 @@ const data = {
         "practical": "",
         "access": "",
         "faq": [],
-        "sections": []
+        "sections": [
+          {
+            "title": "overview",
+            "body": ""
+          },
+          {
+            "title": "howToGetThere",
+            "body": ""
+          },
+          {
+            "title": "practicalInformation",
+            "body": ""
+          }
+        ]
       },
-      "researchSources": [],
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old%20French%20Railway%20Bridge%20Don%20Det%20Don%20Khon%20Laos",
       "exploreBoard": {
         "kicker": "BICYCLE · BRIDGE · ISLAND ROAD",
@@ -256,7 +275,7 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "reviewedAt": "2026-08-10T05:02:33.877Z"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -295,9 +314,21 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "reviewedAt": "2026-08-10T05:14:47.181Z"
       },
-      "researchSources": [],
+      "researchSources": [
+        {
+          "sourceName": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/",
+          "purpose": "media",
+          "sourceType": "wikimedia"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Li%20Phi%20Waterfalls",
       "isLandmark": true,
@@ -308,12 +339,33 @@ const data = {
         "things-to-do"
       ],
       "fieldCard": {
-        "template": "compact",
+        "template": "deep",
         "whyGo": "",
         "practical": "",
         "access": "",
         "faq": [],
-        "sections": []
+        "sections": [
+          {
+            "title": "overview",
+            "body": ""
+          },
+          {
+            "title": "whyGo",
+            "body": ""
+          },
+          {
+            "title": "whatToExpect",
+            "body": ""
+          },
+          {
+            "title": "howToGetThere",
+            "body": ""
+          },
+          {
+            "title": "practicalInformation",
+            "body": ""
+          }
+        ]
       }
     },
     {
@@ -336,9 +388,14 @@ const data = {
       "isMySelection": false,
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "reviewedAt": "2026-08-10T05:14:47.183Z"
       },
-      "researchSources": [],
+      "researchSources": [
+        {
+          "sourceName": "Local route notes",
+          "purpose": "facts"
+        }
+      ],
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Sunset%20Walk",
       "isLandmark": true,
@@ -354,7 +411,20 @@ const data = {
         "practical": "",
         "access": "",
         "faq": [],
-        "sections": []
+        "sections": [
+          {
+            "title": "overview",
+            "body": ""
+          },
+          {
+            "title": "bestTime",
+            "body": ""
+          },
+          {
+            "title": "localNotes",
+            "body": ""
+          }
+        ]
       }
     },
     {
@@ -402,8 +472,8 @@ const data = {
       },
       "isMySelection": false,
       "sourceMetadata": {
-        "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "sourceName": "Atlas V1 curated landmark import",
+        "reviewedAt": "2026-08-11"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -424,7 +494,19 @@ const data = {
         "duration": "Half day",
         "route": "Boat to Nakasang, then road transfer"
       },
-      "researchSources": []
+      "researchSources": [
+        {
+          "sourceName": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg",
+          "purpose": "media",
+          "sourceType": "wikimedia"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ]
     },
     {
       "id": "thing-khone-pa-soi-waterfall",
@@ -475,8 +557,8 @@ const data = {
       },
       "isMySelection": false,
       "sourceMetadata": {
-        "sourceName": "Atlas research pipeline",
-        "reviewedAt": "2026-08-11T05:28:30.982Z"
+        "sourceName": "Atlas V1 curated landmark import",
+        "reviewedAt": "2026-08-11"
       },
       "manualLocks": {},
       "breadcrumbs": [
@@ -497,7 +579,19 @@ const data = {
         "duration": "1–2 hours",
         "route": "Cycle across Don Khon"
       },
-      "researchSources": []
+      "researchSources": [
+        {
+          "sourceName": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg",
+          "purpose": "media",
+          "sourceType": "wikimedia"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ]
     }
   ]
 };
