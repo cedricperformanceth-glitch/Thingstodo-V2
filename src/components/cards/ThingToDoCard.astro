@@ -6,20 +6,31 @@ import CardActions from './CardActions.astro';
 import './entry-card.css';
 interface Props { city: City; thing: ThingToDo; showDestination?: boolean; }
 const { city, thing, showDestination = false } = Astro.props;
+const image = thing.media.card?.image;
+const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
+  ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
+  : '';
 const titleize = (value: string) => value.split('-').map((part) => part ? `${part.charAt(0).toUpperCase()}${part.slice(1)}` : '').join(' ');
 const context = `Things to do · ${titleize(thing.city)}`;
 const costLabel = thing.spaCard?.costType === 'free' ? 'Free' : thing.spaCard?.costType === 'paid' ? 'Paid' : '';
 ---
 <article class:list={['card', 'atlas-entry-card', { selection: thing.isMySelection }]}>
-  <div class:list={['card-media', { empty: !thing.media.card?.image }]}>
-    {thing.media.card?.image && <img src={thing.media.card.image.src} alt={thing.media.card.image.alt} loading="lazy" width="640" height="400" />}
-    {thing.spaCard?.handwrittenTags && (
+  <div class:list={['card-media', { empty: !image }]}>
+    {image ? (
+      <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" />
+    ) : (
+      <span class="card-photo-placeholder" aria-label="Photo missing; manual photo needed">Photo to add</span>
+    )}
+    {image && thing.spaCard?.handwrittenTags && (
       <div class="card-handwritten" aria-label="Quick notes">
         {thing.spaCard.handwrittenTags.map((tag) => <span>{tag}</span>)}
       </div>
     )}
     <FavoriteHeart entity={thing} />
   </div>
+  {photoCredit && image?.sourceUrl && (
+    <p class="card-photo-credit"><a href={image.sourceUrl} target="_blank" rel="noreferrer">Photo: {photoCredit}</a></p>
+  )}
 
   <div class="card-preview">
     {thing.isMySelection && <p class="eyebrow">My Selection</p>}
