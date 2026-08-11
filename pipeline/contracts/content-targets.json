@@ -1,0 +1,39 @@
+{
+  "laos": {
+    "village": {
+      "categories": {
+        "restaurants": { "min": 10, "max": 15 },
+        "cafes": { "min": 10, "max": 15 },
+        "accommodation": { "min": 12, "max": 19 }
+      },
+      "subcategories": {
+        "restaurants": {
+          "bar": { "min": 3, "max": 5 }
+        }
+      },
+      "searchPriorities": {
+        "practical-services": [
+          "hospital",
+          "tourism-office",
+          "visa-extension"
+        ]
+      }
+    },
+    "city": {
+      "categories": {
+        "restaurants": { "min": 19, "max": 25 },
+        "cafes": { "min": 19, "max": 25 },
+        "accommodation": { "min": 19, "max": 25 },
+        "scooter-rental": { "min": 5, "max": 12 }
+      },
+      "subcategories": {},
+      "searchPriorities": {
+        "practical-services": [
+          "hospital",
+          "tourism-office",
+          "visa-extension"
+        ]
+      }
+    }
+  }
+}
