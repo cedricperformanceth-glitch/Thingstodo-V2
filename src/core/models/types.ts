@@ -13,7 +13,8 @@ export interface FieldCardContent { template: 'compact' | 'deep'; whyGo: string;
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
 export interface ManualLocks { [field: string]: ManualField<unknown> | undefined; }
 export interface Country { id: string; slug: string; name: string; chapter: string; accentColor: string; media: CountryMediaManifest; map: { center: Coordinates; zoom: number }; seo: SeoMetadata; }
-export interface ExploreBoardConfig { featuredThingIds?: string[]; featuredPlaceIds?: string[]; landmarkLimit: number; }
+export interface ExploreBoardConfig { featuredThingIds: string[]; }
+export interface ExploreBoardCardContent { kicker: string; duration: string; route: string; }
 export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; }
 export interface City { id: string; slug: string; name: string; country: string; profile: CityProfile; coordinates: Coordinates; description: string; categories: CategorySlug[]; categoryTargets: Partial<Record<CategorySlug, number>>; hero: CityHero; exploreBoard: ExploreBoardConfig; manualLocks: ManualLocks; seo: SeoMetadata; }
 export interface SourceMetadata { sourceName: string; sourceUrl?: string; reviewedAt?: string; }
@@ -21,5 +22,5 @@ export interface ResearchSource extends SourceMetadata { purpose: 'candidate-dis
 export interface GeneratedMetadata { generatedAt: string; generator: string; researchSources: ResearchSource[]; }
 export interface BaseEntity { id: string; slug: string; name: string; country: string; city: string; category: CategorySlug; coordinates: Coordinates; shortDescription: string; media: EntityMediaManifest; isMySelection: boolean; selectionRank?: number; sourceMetadata: SourceMetadata; manualLocks: ManualLocks; }
 export interface Place extends BaseEntity { address: string; googleMapsUrl: string; image?: MediaRecord; }
-export interface ThingToDo extends BaseEntity { googleMapsUrl?: string; isLandmark: boolean; longDescription: string; breadcrumbs: string[]; fieldCard: FieldCardContent; }
+export interface ThingToDo extends BaseEntity { googleMapsUrl?: string; isLandmark: boolean; longDescription: string; breadcrumbs: string[]; fieldCard: FieldCardContent; exploreBoard?: ExploreBoardCardContent; }
 export type AtlasEntity = Place | ThingToDo;
