@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "scope": "spa-card-editorial-only",
+  "fieldCardGeneration": false,
+  "language": "en",
+  "inputPolicy": {
+    "verifiedFactsOnly": true,
+    "existingAtlasDataMaySeedResearchButIsNotProof": true,
+    "neverFillMissingFactsByGuessing": true,
+    "missingRequiredActivityFact": "manual-review"
+  },
+  "voice": {
+    "traits": ["friendly", "warm", "cordial", "polite", "endearing"],
+    "feel": "a knowledgeable traveller sharing a useful address with another traveller",
+    "avoid": [
+      "salesy-language",
+      "generic-tourism-copy",
+      "review-style-ranking",
+      "unsupported-superlatives",
+      "fake-personal-experience",
+      "exaggeration",
+      "copied-source-prose",
+      "emoji"
+    ]
+  },
+  "shortDescription": {
+    "sentencesMin": 1,
+    "sentencesMax": 2,
+    "targetWordsMin": 18,
+    "targetWordsMax": 38,
+    "hardMaxWords": 45,
+    "placeRecipe": [
+      "say-what-the-place-is",
+      "add-one-specific-grounded-detail",
+      "explain-naturally-why-it-may-fit-a-traveller"
+    ],
+    "activityRecipe": [
+      "say-what-the-visitor-actually-does-or-sees",
+      "add-one-specific-grounded-detail",
+      "convey-the-character-of-the-experience-without-hype"
+    ],
+    "bannedUnlessDirectlySupported": [
+      "best",
+      "must-see",
+      "must-visit",
+      "hidden-gem",
+      "iconic",
+      "famous",
+      "perfect",
+      "unmissable"
+    ]
+  },
+  "handwrittenTags": {
+    "count": 3,
+    "wordsPerTagMin": 1,
+    "wordsPerTagMax": 2,
+    "mustBeDistinct": true,
+    "mustBeGrounded": true,
+    "avoidNameRepetition": true,
+    "preferredAxes": {
+      "place": ["setting-or-identity", "use-or-experience", "timing-or-character"],
+      "thing-to-do": ["setting-or-feature", "action-or-experience", "timing-or-character"]
+    },
+    "doNotForceAnAxisWhenUnsupported": true
+  },
+  "openingHours": {
+    "optional": true,
+    "onlyFromCurrentVerifiedHours": true,
+    "omitWhenConflictingOrStale": true,
+    "format": "concise-human-readable-24h",
+    "examples": [
+      "Daily · 07:30–18:00",
+      "Mon–Sat · 08:00–17:00",
+      "Fri–Sun · 17:00–23:00"
+    ]
+  },
+  "activityMetadata": {
+    "duration": {
+      "required": true,
+      "useVerifiedEstimateOrOperatorDuration": true,
+      "normalizationExamples": ["45 min", "1–2 hours", "Half-day", "Full day", "2 days"],
+      "doNotInventPrecision": true
+    },
+    "costType": {
+      "required": true,
+      "freeRule": "no-mandatory-entry-or-participation-fee",
+      "paidRule": "mandatory-ticket-entry-rental-tour-or-operator-fee",
+      "optionalDonationDoesNotMakePaid": true
+    },
+    "bestTime": {
+      "required": true,
+      "style": "short-human-contextual-label",
+      "deriveFrom": [
+        "opening-or-operating-schedule",
+        "market-or-event-day",
+        "light-or-sunset-context",
+        "weather-or-season",
+        "heat-or-crowd-practicality",
+        "verified-local-or-official-guidance"
+      ],
+      "examples": ["Sunset", "Early morning", "Sunday morning", "Late afternoon", "Dry season"],
+      "ifNoDefensibleRecommendation": "manual-review"
+    }
+  },
+  "outputPolicy": {
+    "returnStructuredJson": true,
+    "doNotGenerateFieldCard": true,
+    "doNotGenerateNewFacts": true,
+    "preserveExactVerifiedName": true,
+    "preserveGoogleMapsUrl": true,
+    "preservePhotoSelection": true
+  }
+}
