@@ -52,7 +52,7 @@ jobs:
           pipeline = root / 'scripts/lib/city-pipeline.mjs'
           text = pipeline.read_text()
           assert "import crypto from 'node:crypto';\n" in text
-          text = text.replace("import crypto from 'node:crypto';\n", "import crypto from 'node:crypto';\nimport { createRequire } from 'node:module';\n\nconst require = createRequire(import.meta.url);\nconst spaCategoryOrder = require('../../src/core/contracts/spa-categories.json');\n", 1)
+          text = text.replace("import crypto from 'node:crypto';\n", "import crypto from 'node:crypto';\nimport { readFileSync } from 'node:fs';\n\nconst spaCategoryOrder = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));\n", 1)
           old_contract = """export const SETTLEMENT_CATEGORIES = Object.freeze({\n  village: Object.freeze(['things-to-do', 'accommodation', 'restaurants', 'cafes', 'practical-services']),\n  city: Object.freeze(['things-to-do', 'accommodation', 'restaurants', 'cafes', 'scooter-rental', 'gyms', 'markets', 'practical-services']),\n});"""
           assert old_contract in text
           text = text.replace(old_contract, """export const SETTLEMENT_CATEGORIES = Object.freeze({\n  village: Object.freeze([...spaCategoryOrder.village]),\n  city: Object.freeze([...spaCategoryOrder.city]),\n});""", 1)
@@ -71,7 +71,7 @@ jobs:
                   text = text.replace(marker, marker + "import './entry-card.css';\n", 1)
               updated, n = re.subn(r'\n<style>\n.*?</style>\s*$', '\n', text, count=1, flags=re.S)
               assert n == 1, rel
-              path.write_text(updated)
+              path.write_text(updated.rstrip() + '\n')
 
           # 3) Remove stale card/button overrides from CitySpa, while preserving their visible hover/rotation behavior in SpaPanel.
           city_spa = root / 'src/components/spa/CitySpa.astro'
