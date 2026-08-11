@@ -186,7 +186,11 @@ function assembleDraft(baseDraft, inputCity, nextPlaces, nextThings) {
     const target = existing ? mergeGenerated(existing, candidate) : candidate;
     if (!existing) next.places.push(target);
   }
-  for (const entity of [...next.places, ...next.things]) if (entity.media) delete entity.media.hero;
+  for (const entity of [...next.places, ...next.things]) {
+    if (entity.media) delete entity.media.hero;
+    delete entity.isMySelection;
+    delete entity.selectionRank;
+  }
   next.generatedAt = new Date().toISOString();
   return next;
 }
