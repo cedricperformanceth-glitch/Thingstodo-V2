@@ -6,67 +6,61 @@
   aria-controls="make-your-own-atlas-drawer"
   aria-label="Open Make Your Own Atlas"
 >
+  <img
+    class="my-atlas-fab__logo"
+    src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"
+    alt=""
+    width="2172"
+    height="724"
+    loading="eager"
+    decoding="async"
+  />
+
   <span class="my-atlas-fab__count" data-my-atlas-fab-count aria-hidden="true">00</span>
-  <span class="my-atlas-fab__art" aria-hidden="true">
-    <img
-      src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"
-      alt=""
-      width="2172"
-      height="724"
-      loading="eager"
-      decoding="async"
-    />
-  </span>
 </button>
 
 <style>
   .my-atlas-fab {
-    position: relative;
-    width: 15rem;
-    height: 5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
     box-sizing: border-box;
-    padding: 0;
-    overflow: hidden;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: .2rem .35rem .2rem 0;
     border: 0;
     background: transparent;
     box-shadow: none;
     cursor: pointer;
   }
 
-  .my-atlas-fab__art {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: calc(100% - 3rem);
-    transform: translateY(-50%);
-  }
-
-  .my-atlas-fab__art img {
+  .my-atlas-fab__logo {
     display: block;
-    width: 100%;
+    flex: 0 0 auto;
+    width: 12rem;
     height: auto;
-    background: transparent;
+    margin: 0;
   }
 
   .my-atlas-fab__count {
-    position: absolute;
-    right: .45rem;
-    top: 50%;
+    display: grid;
+    flex: 0 0 2rem;
     width: 2rem;
     height: 2rem;
-    display: grid;
     place-items: center;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     border: 1px solid #b76645;
     border-radius: 50%;
     background: transparent;
     color: #b76645;
     font: 600 .7rem/1 Fraunces, serif;
-    transform: translateY(-50%);
   }
 
   .my-atlas-fab:hover {
-    filter: saturate(1.04);
+    opacity: .9;
   }
 
   .my-atlas-fab:focus-visible {
@@ -76,16 +70,16 @@
 
   @media (max-width: 700px) {
     .my-atlas-fab {
-      width: 12.5rem;
-      height: 4.2rem;
+      gap: .45rem;
+      padding-right: .25rem;
     }
 
-    .my-atlas-fab__art {
-      width: calc(100% - 2.65rem);
+    .my-atlas-fab__logo {
+      width: 10.5rem;
     }
 
     .my-atlas-fab__count {
-      right: .35rem;
+      flex-basis: 1.8rem;
       width: 1.8rem;
       height: 1.8rem;
       font-size: .64rem;
