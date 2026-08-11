@@ -36,7 +36,13 @@ const routes = getFinalCtaRoutes(country);
 
       <div class="final-cta__actions" aria-label="Your Atlas and Atlas Routes">
         {routes[0] && (
-          <a class="atlas-route atlas-route--first" href={routes[0].href} aria-label={`Open Atlas Route ${routes[0].label}`}>
+          <a
+            class="atlas-route atlas-route--first"
+            href={routes[0].href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open Atlas Route ${routes[0].label} in a new tab`}
+          >
             <span class="atlas-route__invite atlas-route__invite--first">try this way</span>
             <span class="atlas-route__label">{routes[0].label}</span>
             <svg viewBox="0 0 250 48" aria-hidden="true">
@@ -57,7 +63,13 @@ const routes = getFinalCtaRoutes(country);
         </a>
 
         {routes[1] && (
-          <a class="atlas-route atlas-route--second" href={routes[1].href} aria-label={`Open Atlas Route ${routes[1].label}`}>
+          <a
+            class="atlas-route atlas-route--second"
+            href={routes[1].href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open Atlas Route ${routes[1].label} in a new tab`}
+          >
             <span class="atlas-route__invite atlas-route__invite--second">or this way</span>
             <span class="atlas-route__label">{routes[1].label}</span>
             <svg viewBox="0 0 250 48" aria-hidden="true">
