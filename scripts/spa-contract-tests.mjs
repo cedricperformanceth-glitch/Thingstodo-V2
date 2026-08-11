@@ -47,7 +47,7 @@ assert.deepEqual(village.researchPlan.selection.searchArea, {
   scope: 'settlement-first',
   preferredRadiusKm: 2,
   maxRadiusKm: 3,
-  appliesTo: ['restaurants', 'cafes', 'accommodation', 'scooter-rental', 'gyms', 'markets', 'practical-services'],
+  appliesTo: ['restaurants', 'cafes', 'accommodation', 'practical-services'],
 });
 assert.equal(village.researchPlan.selection.searchArea.appliesTo.includes('things-to-do'), false, 'Practical-address radius must not constrain Things to do');
 assert.equal(village.researchPlan.selection.sourceStrategy.verifyCurrentExistenceBeforeSelection, true);
@@ -81,6 +81,7 @@ assert.equal(city.cityData.categoryTargets['practical-services'], undefined);
 assert.deepEqual(city.researchPlan.categoryTargetPolicies['things-to-do'], activityPolicy);
 assert.deepEqual(city.researchPlan.subcategoryTargets, {});
 assert.deepEqual(city.researchPlan.searchPriorities['practical-services'], ['hospital', 'tourism-office', 'immigration-office']);
+assert.deepEqual(city.researchPlan.selection.searchArea.appliesTo, ['restaurants', 'cafes', 'accommodation', 'scooter-rental', 'gyms', 'markets', 'practical-services']);
 assert.deepEqual(city.researchPlan.selection.categories.gyms.groups, {
   'fitness-and-weights': { max: 5 },
   'muay-thai': { ideal: 2, max: 3 },
