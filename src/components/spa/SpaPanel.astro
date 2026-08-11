@@ -54,7 +54,11 @@ const cityId = cityName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     border-radius:0;
     background:#eee8dc !important;
     box-shadow:4px 5px 0 rgba(49,85,69,.075);
+    transition:transform 180ms ease,box-shadow 180ms ease;
   }
+  .spa-panel__content :global(.spa-card-grid > .atlas-entry-card:nth-child(5n + 2)){transform:rotate(-.12deg)}
+  .spa-panel__content :global(.spa-card-grid > .atlas-entry-card:nth-child(5n + 4)){transform:rotate(.12deg)}
+  .spa-panel__content :global(.spa-card-grid > .atlas-entry-card:hover){transform:translateY(-3px) rotate(0);box-shadow:6px 8px 0 rgba(49,85,69,.09)}
   .spa-panel__content :global(.spa-card-grid > .atlas-entry-card .card-media){
     width:100%;
     height:158px;

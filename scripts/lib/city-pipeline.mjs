@@ -1,12 +1,15 @@
 import crypto from 'node:crypto';
+import { readFileSync } from 'node:fs';
+
+const spaCategoryOrder = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
 
 export const CATEGORY_LABELS = {
   'things-to-do': 'Things to do', restaurants: 'Restaurants', cafes: 'Coffee', accommodation: 'Guest Houses',
   'scooter-rental': 'Rental Scooter', gyms: 'Gym & Fitness', markets: 'Market & Shopping', 'practical-services': 'Essential Information',
 };
 export const SETTLEMENT_CATEGORIES = Object.freeze({
-  village: Object.freeze(['things-to-do', 'accommodation', 'restaurants', 'cafes', 'practical-services']),
-  city: Object.freeze(['things-to-do', 'accommodation', 'restaurants', 'cafes', 'scooter-rental', 'gyms', 'markets', 'practical-services']),
+  village: Object.freeze([...spaCategoryOrder.village]),
+  city: Object.freeze([...spaCategoryOrder.city]),
 });
 export const PROFILE_CATEGORIES = SETTLEMENT_CATEGORIES.city;
 const PRACTICAL = new Set(['restaurants', 'cafes', 'accommodation', 'scooter-rental', 'gyms', 'markets', 'practical-services']);

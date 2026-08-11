@@ -1,4 +1,5 @@
 import type { CategorySlug, City, SettlementType } from '../../core/models/types';
+import spaCategoryOrder from '../../core/contracts/spa-categories.json';
 import { getPlaces, getThings } from '../category/category-engine';
 
 export type SpaTabSlug = CategorySlug | 'favorites';
@@ -12,10 +13,7 @@ export interface SpaTabDefinition {
   countLabel: string;
 }
 
-const categoryOrder: Record<SettlementType, readonly CategorySlug[]> = {
-  village: ['things-to-do', 'accommodation', 'restaurants', 'cafes', 'practical-services'],
-  city: ['things-to-do', 'accommodation', 'restaurants', 'cafes', 'scooter-rental', 'gyms', 'markets', 'practical-services'],
-};
+const categoryOrder = spaCategoryOrder as Record<SettlementType, readonly CategorySlug[]>;
 
 const definitions: Record<CategorySlug, { title: string; icon: Exclude<SpaTabIcon, 'favorites'>; singular: string; plural: string }> = {
   'things-to-do': { title: 'Things to do', icon: 'explore', singular: 'activity', plural: 'activities' },

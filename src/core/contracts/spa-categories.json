@@ -1,0 +1,19 @@
+{
+  "village": [
+    "things-to-do",
+    "accommodation",
+    "restaurants",
+    "cafes",
+    "practical-services"
+  ],
+  "city": [
+    "things-to-do",
+    "accommodation",
+    "restaurants",
+    "cafes",
+    "scooter-rental",
+    "gyms",
+    "markets",
+    "practical-services"
+  ]
+}
