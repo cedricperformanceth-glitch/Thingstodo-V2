@@ -20,7 +20,27 @@
   pointer-events: none;
   background: linear-gradient(180deg,transparent 48%,rgba(24,31,26,.3));
 }
-.atlas-entry-card .card-media.empty { min-height: 0; }
+.atlas-entry-card .card-media.empty {
+  display: grid;
+  min-height: 205px;
+  place-items: center;
+  background:
+    linear-gradient(rgba(49,85,69,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(49,85,69,.04) 1px,transparent 1px),
+    #e8e3d6;
+  background-size: 22px 22px;
+}
+.atlas-entry-card .card-media.empty::after { background: none; }
+.atlas-entry-card .card-photo-placeholder {
+  position: relative;
+  z-index: 1;
+  padding: .42rem .68rem;
+  border: 1px dashed rgba(49,85,69,.34);
+  color: rgba(49,85,69,.68);
+  font: 600 .72rem/1 Caveat,'Segoe Print','Bradley Hand',cursive;
+  letter-spacing: .02em;
+  transform: rotate(-2deg);
+}
 .atlas-entry-card img {
   display: block;
   width: 100%;
@@ -28,6 +48,20 @@
   object-fit: cover;
   filter: saturate(.72) contrast(.96);
 }
+.atlas-entry-card .card-photo-credit {
+  margin: 0;
+  padding: 4px 8px 5px;
+  border-bottom: 1px solid rgba(49,85,69,.09);
+  background: rgba(247,242,230,.76);
+  font: 500 .48rem/1.25 'DM Sans',var(--sans);
+  text-align: right;
+}
+.atlas-entry-card .card-photo-credit a {
+  color: rgba(49,85,69,.62);
+  text-decoration: none;
+}
+.atlas-entry-card .card-photo-credit a:hover,
+.atlas-entry-card .card-photo-credit a:focus-visible { color: #315545; }
 .atlas-entry-card .card-handwritten {
   position: absolute;
   z-index: 2;
