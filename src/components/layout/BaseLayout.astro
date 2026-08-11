@@ -29,9 +29,15 @@ const meta = pageSeo(seo, breadcrumbs);
     <SiteFooter />
     <MakeYourOwnAtlas />
     <script>
-      import '../../features/favorites/client';
-      import '../../features/spa/client';
       import '../../features/trip/client';
+
+      if (document.querySelector('[data-city-spa]')) {
+        void import('../../features/spa/client');
+      }
+
+      if (document.querySelector('[data-favorite], [data-favorites-panel], [data-favorites-empty], [data-favorites-count]')) {
+        void import('../../features/favorites/client');
+      }
     </script>
   </body>
 </html>
