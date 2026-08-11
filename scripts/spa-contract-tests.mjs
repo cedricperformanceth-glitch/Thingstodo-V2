@@ -22,10 +22,8 @@ assert.deepEqual(SETTLEMENT_CATEGORIES.city, [
 
 const within = (value, min, max, label) => assert.ok(Number.isInteger(value) && value >= min && value <= max, `${label} must be an integer between ${min} and ${max}; received ${value}`);
 const activityPolicy = {
-  min: 7,
-  idealMin: 19,
-  idealMax: 28,
-  max: 35,
+  min: 5,
+  max: 25,
   selectionMode: 'editorial',
 };
 
@@ -50,6 +48,12 @@ assert.deepEqual(village.researchPlan.selection.searchArea, {
   appliesTo: ['restaurants', 'cafes', 'accommodation', 'practical-services'],
 });
 assert.equal(village.researchPlan.selection.searchArea.appliesTo.includes('things-to-do'), false, 'Practical-address radius must not constrain Things to do');
+assert.equal(village.researchPlan.selection.categories['things-to-do'].targetControlledByAdmin, true);
+assert.equal(village.researchPlan.selection.categories['things-to-do'].hardMin, 5);
+assert.equal(village.researchPlan.selection.categories['things-to-do'].hardMax, 25);
+assert.equal(village.researchPlan.selection.categories['things-to-do'].useExistingAtlasDatabaseAsPrioritySeed, true);
+assert.equal(village.researchPlan.selection.categories['things-to-do'].locationScope, 'destination-linked-without-fixed-radius');
+assert.equal(village.researchPlan.selection.categories['things-to-do'].avoidNearDuplicates, true);
 assert.equal(village.researchPlan.selection.sourceStrategy.verifyCurrentExistenceBeforeSelection, true);
 assert.equal(village.researchPlan.selection.sourceStrategy.preferRepeatedMentionsAcrossIndependentSources, true);
 assert.deepEqual(village.researchPlan.selection.categories.restaurants.venueTypes, ['restaurant', 'bar']);
@@ -65,6 +69,21 @@ assert.deepEqual(village.researchPlan.selection.categories.accommodation.priceUs
 assert.deepEqual(village.researchPlan.selection.categories['practical-services'].searchTypes, ['hospital', 'tourism-office', 'immigration-office']);
 assert.deepEqual(village.researchPlan.selection.categories['practical-services'].officialOnly, ['immigration-office']);
 assert.deepEqual(village.researchPlan.selection.categories['practical-services'].exclude, ['visa-agency', 'travel-agency']);
+
+assert.equal(village.researchPlan.verification.discoveryBudget.initialQueriesPerCategory, 4);
+assert.equal(village.researchPlan.verification.discoveryBudget.maxQueriesPerCategory, 12);
+assert.equal(village.researchPlan.verification.acceptance.businessOrOperator.minimumIndependentCurrentSignals, 2);
+assert.equal(village.researchPlan.verification.acceptance.businessOrOperator.requireAtLeastOneStrongSignal, true);
+assert.equal(village.researchPlan.verification.acceptance.staticLandmarkOrNaturalSite.singleCurrentAuthoritativeSourceCanConfirmExistence, true);
+assert.equal(village.researchPlan.verification.existenceVerification.permanentClosure.independentExplicitClosureReportsThreshold, 3);
+assert.equal(village.researchPlan.verification.existenceVerification.permanentClosure.closureReportMaxAgeMonths, 18);
+assert.equal(village.researchPlan.verification.existenceVerification.permanentClosure.requireNoNewerOperationalSignal, true);
+assert.equal(village.researchPlan.verification.existenceVerification.googleMapsPolicy.noReviewScraping, true);
+assert.equal(village.researchPlan.verification.reusePolicy.media.requirePerAssetLicenseCheck, true);
+assert.ok(village.researchPlan.verification.reusePolicy.media.allowedWhenCompliant.includes('cc-by-sa'));
+assert.ok(village.researchPlan.verification.reusePolicy.media.rejectForCommercialAtlasUse.includes('cc-by-nc'));
+assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific['wikimedia-commons'], 'check-each-file-license');
+assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific.unesco, 'authoritative-research-source-but-reuse-only-when-the-specific-item-license-permits-it');
 
 const city = emptyDraft('laos', 'test-city', 'standard', 'city');
 assert.equal(city.cityData.settlementType, 'city');
@@ -95,24 +114,25 @@ assert.equal(city.researchPlan.selection.selectionPrinciples.avoidUltraLuxury, t
 assert.equal(city.researchPlan.selection.selectionPrinciples.requireVariety, true);
 
 const editorSelectedCity = emptyDraft('laos', 'editor-selected-city', 'large', 'city');
-setEditorialCategoryTarget(editorSelectedCity, 'things-to-do', 24);
-assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 24);
-assert.deepEqual(editorSelectedCity.cityData.manualLocks['categoryTargets.things-to-do'], { value: 24, source: 'manual', locked: true });
+setEditorialCategoryTarget(editorSelectedCity, 'things-to-do', 18);
+assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 18);
+assert.deepEqual(editorSelectedCity.cityData.manualLocks['categoryTargets.things-to-do'], { value: 18, source: 'manual', locked: true });
 syncGenerationContract(editorSelectedCity);
-assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 24, 'Generation refresh must preserve the admin/editor activity target');
+assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 18, 'Generation refresh must preserve the admin/editor activity target');
 assert.deepEqual(editorSelectedCity.researchPlan.categoryTargetPolicies['things-to-do'], activityPolicy);
 assert.equal(editorSelectedCity.researchPlan.selection.searchArea.maxRadiusKm, 3, 'Generation refresh must preserve the Laos selection contract');
+assert.equal(editorSelectedCity.researchPlan.verification.existenceVerification.permanentClosure.independentExplicitClosureReportsThreshold, 3);
 
 const minimumActivities = emptyDraft('laos', 'minimum-activities', 'compact', 'village');
-setEditorialCategoryTarget(minimumActivities, 'things-to-do', 7);
+setEditorialCategoryTarget(minimumActivities, 'things-to-do', 5);
 syncGenerationContract(minimumActivities);
-assert.equal(minimumActivities.cityData.categoryTargets['things-to-do'], 7);
+assert.equal(minimumActivities.cityData.categoryTargets['things-to-do'], 5);
 const maximumActivities = emptyDraft('laos', 'maximum-activities', 'compact', 'village');
-setEditorialCategoryTarget(maximumActivities, 'things-to-do', 35);
+setEditorialCategoryTarget(maximumActivities, 'things-to-do', 25);
 syncGenerationContract(maximumActivities);
-assert.equal(maximumActivities.cityData.categoryTargets['things-to-do'], 35);
-assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'too-few', 'compact', 'city'), 'things-to-do', 6), /between 7 and 35/);
-assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'too-many', 'compact', 'city'), 'things-to-do', 36), /between 7 and 35/);
+assert.equal(maximumActivities.cityData.categoryTargets['things-to-do'], 25);
+assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'too-few', 'compact', 'city'), 'things-to-do', 4), /between 5 and 25/);
+assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'too-many', 'compact', 'city'), 'things-to-do', 26), /between 5 and 25/);
 assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'wrong-category', 'compact', 'city'), 'restaurants', 20), /not configured for editorial target selection/);
 
 const sameVillage = emptyDraft('laos', 'test-village', 'large', 'village');
@@ -131,10 +151,11 @@ assert.deepEqual(unconfiguredCountry.researchPlan, {
   subcategoryTargets: {},
   searchPriorities: {},
   selection: { searchArea: null, sourceStrategy: null, selectionPrinciples: null, categories: {} },
+  verification: null,
 });
 assert.deepEqual(researchPlan('sri-lanka', 'city', 'sri-lanka/test-city'), unconfiguredCountry.researchPlan);
 
 assert.throws(() => emptyDraft('laos', 'invalid', 'compact'), /Settlement type/);
 assert.throws(() => emptyDraft('laos', 'invalid', 'compact', 'hamlet'), /Settlement type/);
 
-console.log('SPA settlement, Laos generation targets, and selection contract tests passed.');
+console.log('SPA settlement, Laos generation targets, selection, activities, and source verification contract tests passed.');
