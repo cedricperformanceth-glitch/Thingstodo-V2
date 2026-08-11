@@ -1,0 +1,66 @@
+name: Rebuild My Atlas Button
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'src/components/shared/MyAtlasFloatingButton.astro'
+      - '.github/workflows/rebuild-my-atlas-button.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Replace legacy floating button with new component
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/components/shared/MakeYourOwnAtlas.astro')
+          s = p.read_text()
+
+          old_button = '''<div class="my-atlas-widget" data-my-atlas-widget>\n  <button\n    class="my-atlas-fab"\n    type="button"\n    data-my-atlas-toggle\n    aria-expanded="false"\n    aria-controls="make-your-own-atlas-drawer"\n    aria-label="Open Make Your Own Atlas"\n  >\n    <span class="my-atlas-fab__media" aria-hidden="true">\n      <img\n        src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS.webp"\n        alt=""\n        width="1024"\n        height="1024"\n        loading="eager"\n        decoding="async"\n      />\n    </span>\n    <span class="my-atlas-fab__count" data-my-atlas-fab-count aria-hidden="true">00</span>\n  </button>\n'''
+          new_button = '''---\nimport MyAtlasFloatingButton from './MyAtlasFloatingButton.astro';\n---\n<div class="my-atlas-widget" data-my-atlas-widget>\n  <MyAtlasFloatingButton />\n'''
+          if old_button not in s:
+              raise SystemExit('legacy button markup not found')
+          s = s.replace(old_button, new_button, 1)
+
+          start = s.index('  .my-atlas-widget {')
+          drawer_hidden = s.index('  .my-atlas-drawer[hidden]')
+          new_widget_css = '''  .my-atlas-widget {\n    position: fixed;\n    left: clamp(.65rem, 1.5vw, 1.25rem);\n    bottom: clamp(.7rem, 1.8vw, 1.35rem);\n    z-index: 70;\n    display: grid;\n    justify-items: start;\n    pointer-events: none;\n  }\n\n  .my-atlas-drawer {\n    pointer-events: auto;\n  }\n\n  .my-atlas-widget.is-open [data-my-atlas-toggle] {\n    visibility: hidden;\n    opacity: 0;\n    pointer-events: none;\n  }\n\n'''
+          s = s[:start] + new_widget_css + s[drawer_hidden:]
+
+          s = s.replace('    transform-origin: bottom right;', '    transform-origin: bottom left;', 1)
+          s = s.replace('  .my-atlas-fab:focus-visible,\n', '', 1)
+
+          old_mobile = '''    .my-atlas-widget {\n      right: .75rem;\n      bottom: .65rem;\n    }\n\n    .my-atlas-fab {\n      width: 9rem;\n      grid-template-columns: minmax(0, 1fr) 1.95rem;\n      column-gap: .35rem;\n      padding: .45rem .5rem .45rem .35rem;\n    }\n\n    .my-atlas-fab__count {\n      width: 1.85rem;\n      height: 1.85rem;\n      font-size: .64rem;\n    }\n\n'''
+          new_mobile = '''    .my-atlas-widget {\n      left: .55rem;\n      bottom: .65rem;\n    }\n\n'''
+          if old_mobile not in s:
+              raise SystemExit('legacy mobile FAB block not found')
+          s = s.replace(old_mobile, new_mobile, 1)
+          s = s.replace('    .my-atlas-fab,\n    .my-atlas-note__chevron { transition: none; }', '    .my-atlas-note__chevron { transition: none; }', 1)
+          p.write_text(s)
+          PY
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm run architecture-check
+      - run: git diff --check
+      - name: Commit rebuilt button and remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/components/shared/MakeYourOwnAtlas.astro
+          git commit -m "Use clean My Atlas floating button component"
+          git rm .github/workflows/rebuild-my-atlas-button.yml
+          git commit -m "Remove My Atlas button rebuild workflow"
+          git push origin master
