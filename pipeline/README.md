@@ -9,35 +9,59 @@ module and a versioned pipeline container. `--settlement` is mandatory and accep
 a separate density/search-scope hint and does not override the country content ranges.
 The command registers the city with the shared City Engine without copying components or routes.
 
-Village SPA order: Restaurants → Coffee → Guest Houses → Things to do → Essential Information → My Favorites.
+Village SPA order: Things to do → Restaurants → Coffee → Guest Houses → Essential Information → My Favorites.
 
-City SPA order: Restaurants → Coffee → Guest Houses → Rental Scooter → Gym & Fitness → Market & Shopping → Essential Information → My Favorites.
+City SPA order: Things to do → Restaurants → Coffee → Guest Houses → Rental Scooter → Gym & Fitness → Market & Shopping → Essential Information → My Favorites.
 
 `My Favorites` is appended by the SPA engine for every settlement and is not part of the generated category count.
 
 ## Laos content targets
 
-The versioned generation contract lives in `pipeline/contracts/content-targets.json`. Numeric values are
+The versioned generation contract lives in `pipeline/contracts/content-targets.json`. Automatic numeric values are
 selected deterministically from the configured range using the country/city/category seed: different cities
-vary naturally, while rebuilding the same city keeps the same target.
+vary naturally, while rebuilding the same city keeps the same automatic target.
 
-Village targets:
+Things to do is different from the automatic address categories. For every Laos settlement it has:
+- hard minimum: 7 activities;
+- ideal editorial range: 19–28 activities;
+- hard maximum: 35 activities;
+- selection mode: editorial.
+
+The future admin/editor chooses the actual Things to do target for each settlement. Until an editorial target is
+selected, the pipeline keeps the policy but does not invent a numeric activity target. The selected value is stored
+in `cityData.categoryTargets["things-to-do"]` with a manual lock on `categoryTargets.things-to-do`; subsequent
+generation refreshes preserve that choice. Values outside 7–35 are rejected.
+
+Village automatic targets:
 - Restaurants: 10–15, including a nested Bar research target of 3–5. Bar is not a standalone category.
 - Coffee: 10–15.
 - Guest Houses: 12–19.
 
-City targets:
+City automatic targets:
 - Restaurants: 19–25.
 - Coffee: 19–25.
 - Guest Houses: 19–25.
 - Rental Scooter: 5–12.
 
 There is deliberately no numeric minimum/target/maximum for Gym & Fitness, Market & Shopping,
-Essential Information, or Things to do unless a later country contract explicitly adds one.
+or Essential Information unless a later country contract explicitly adds one.
 
 For Essential Information in Laos, research always attempts to identify a hospital, a tourism office,
 and a visa-extension location. These are search priorities, not guaranteed records: if a valid local option
 does not exist or cannot be verified, generation does not invent one.
+
+## Candidate discovery and existence checks
+
+Candidate discovery may use a broad mix of public sources: official establishment websites, official tourism
+sites, general web-search results, travel platforms, social networks, and other public sources. Repeated appearance
+across independent sources is a useful discovery/ranking signal, but repetition alone is not proof. Before an
+establishment is accepted as current, the research stage must verify that it still exists using current public or
+official signals. A place that cannot be reasonably verified as active is not invented or silently treated as current.
+
+Travel and booking platforms are discovery inputs, not sources to copy from. Descriptions, ratings, reviews,
+rankings, photos, and editorial wording from competing guide or booking platforms are not republished. TripAdvisor
+candidate discovery remains restricted to name-only use. Publishable prose is generated from independently recorded
+facts and attributable public sources.
 
 `pnpm generate-city laos city-slug --dry-run` validates the source container and
 shows the deterministic output plan. Without `--dry-run`, it fills only unlocked
@@ -45,8 +69,3 @@ gaps and re-syncs the settlement/category generation contract before writing. Ol
 without a persisted `researchPlan` are migrated automatically on their next non-dry-run refresh.
 It never overwrites fields listed in `manualLocks` with `source: manual` and
 `locked: true`. Locks live on the relevant city/entity record as `manualLocks["nested.field"]`; a lock on a parent path protects its children. Pipeline-draft root locks are not supported.
-
-Candidate-discovery data may name a business from TripAdvisor, but that source is
-restricted to `candidate-discovery` and `name-only`. Descriptions, ratings, reviews,
-rankings, photos, and editorial wording from competing guide or booking platforms
-are rejected. All publishable prose is generated from independently recorded facts.
