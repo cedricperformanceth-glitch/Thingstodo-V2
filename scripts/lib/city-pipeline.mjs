@@ -1,27 +1,33 @@
 import crypto from 'node:crypto';
 
 export const CATEGORY_LABELS = {
-  'things-to-do': 'Things to do', restaurants: 'Restaurants', cafes: 'Cafés', accommodation: 'Accommodation',
-  'scooter-rental': 'Scooter rental', gyms: 'Gyms & fitness', markets: 'Markets & shopping', 'practical-services': 'Essential information',
+  'things-to-do': 'Things to do', restaurants: 'Restaurants', cafes: 'Coffee', accommodation: 'Guest Houses',
+  'scooter-rental': 'Rental Scooter', gyms: 'Gym & Fitness', markets: 'Market & Shopping', 'practical-services': 'Essential Information',
 };
-export const PROFILE_CATEGORIES = ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'scooter-rental', 'markets', 'practical-services'];
+export const SETTLEMENT_CATEGORIES = Object.freeze({
+  village: Object.freeze(['things-to-do', 'accommodation', 'restaurants', 'cafes', 'practical-services']),
+  city: Object.freeze(['things-to-do', 'accommodation', 'restaurants', 'cafes', 'scooter-rental', 'gyms', 'markets', 'practical-services']),
+});
+export const PROFILE_CATEGORIES = SETTLEMENT_CATEGORIES.city;
 const PRACTICAL = new Set(['restaurants', 'cafes', 'accommodation', 'scooter-rental', 'gyms', 'markets', 'practical-services']);
 const RANGES = { compact: [15, 19], standard: [18, 22], large: [21, 25] };
 const BLOCKED_MEDIA_HOSTS = ['tripadvisor.', 'booking.com', 'expedia.', 'lonelyplanet.', 'theculturetrip.'];
 
 export function slugify(value) { return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
-export function categoryTargets(profile, seed) {
+export function categoryTargets(profile, seed, categories = PROFILE_CATEGORIES) {
   const [min, max] = RANGES[profile];
-  return Object.fromEntries(PROFILE_CATEGORIES.filter((category) => PRACTICAL.has(category)).map((category) => {
+  return Object.fromEntries(categories.filter((category) => PRACTICAL.has(category)).map((category) => {
     const hash = crypto.createHash('sha256').update(`${seed}:${category}`).digest()[0];
     return [category, min + (hash % (max - min + 1))];
   }));
 }
-export function emptyDraft(country, city, profile) {
+export function emptyDraft(country, city, profile, settlementType) {
+  const categories = SETTLEMENT_CATEGORIES[settlementType];
+  if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
   const name = city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
   return { schemaVersion: 1, country, city, profile, generatedAt: null, cityData: {
-    id: `city-${country}-${city}`, slug: city, name, country, profile, coordinates: { latitude: 0, longitude: 0 }, description: '',
-    categories: PROFILE_CATEGORIES, categoryTargets: categoryTargets(profile, `${country}/${city}`),
+    id: `city-${country}-${city}`, slug: city, name, country, profile, settlementType, coordinates: { latitude: 0, longitude: 0 }, description: '',
+    categories: [...categories], categoryTargets: categoryTargets(profile, `${country}/${city}`, categories),
     hero: { eyebrow: country, title: name, subtitle: '', facts: [] },
     exploreBoard: { featuredThingIds: [] },
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },
