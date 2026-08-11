@@ -14,6 +14,7 @@ const drawer = document.querySelector<HTMLElement>('[data-my-atlas-drawer]');
 const close = document.querySelector<HTMLButtonElement>('[data-my-atlas-close]');
 const content = document.querySelector<HTMLElement>('[data-my-atlas-content]');
 const count = document.querySelector<HTMLElement>('[data-my-atlas-count]');
+const fabCount = document.querySelector<HTMLElement>('[data-my-atlas-fab-count]');
 const clear = document.querySelector<HTMLButtonElement>('[data-my-atlas-clear]');
 const explore = document.querySelector<HTMLAnchorElement>('[data-my-atlas-explore]');
 
@@ -137,6 +138,8 @@ const render = () => {
 
   const total = store.entries.length;
   count.textContent = `${total} saved ${total === 1 ? 'card' : 'cards'}`;
+  if (fabCount) fabCount.textContent = String(total).padStart(2, '0');
+  if (toggle) toggle.setAttribute('aria-label', `Open Make Your Own Atlas with ${total} saved ${total === 1 ? 'card' : 'cards'}`);
   if (clear) clear.disabled = total === 0;
 
   if (!total) {
