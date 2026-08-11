@@ -12,11 +12,11 @@ const image = {
 
 const place = {
   name: 'Mekong Garden Café',
-  shortDescription: 'A relaxed riverside café for an easy coffee break, a light bite and a little time beside the Mekong.',
+  shortDescription: 'Coffee and light meals beside the Mekong, with riverside seating that works especially well for a quiet morning stop.',
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mekong+Garden+Cafe',
   media: { card: { image } },
   spaCard: {
-    handwrittenTags: ['Riverside', 'Easy stop', 'Morning'],
+    handwrittenTags: ['Riverside', 'Coffee break', 'Morning'],
     openingHours: '07:30–18:00',
   },
 };
@@ -25,11 +25,12 @@ assert.deepEqual(validateSpaCardCandidate(place, 'place'), { valid: true, errors
 
 const activity = {
   name: 'Sunset Kayak on the Mekong',
-  shortDescription: 'An easy paddle on the Mekong that turns the late afternoon into a slower, quieter way to see the islands.',
+  shortDescription: 'A guided Mekong paddle timed for late afternoon, with two to three hours on the water as the light softens toward sunset.',
   googleMapsUrl: 'https://maps.app.goo.gl/example',
   media: { card: { image } },
   spaCard: {
     handwrittenTags: ['Mekong', 'Slow paddle', 'Sunset'],
+    gettingThere: 'Walk · 10 min',
     duration: '2–3 hours',
     costType: 'paid',
     bestTime: 'Late afternoon',
@@ -69,16 +70,18 @@ longTag.spaCard.handwrittenTags = ['Far too many words', 'Easy stop', 'Morning']
 assert.ok(validateSpaCardCandidate(longTag, 'place').errors.some((error) => error.includes('handwritten tag 1')));
 
 const missingActivityMeta = structuredClone(activity);
+delete missingActivityMeta.spaCard.gettingThere;
 delete missingActivityMeta.spaCard.duration;
 missingActivityMeta.spaCard.costType = 'unknown';
 delete missingActivityMeta.spaCard.bestTime;
 const activityErrors = validateSpaCardCandidate(missingActivityMeta, 'thing-to-do').errors;
+assert.ok(activityErrors.includes('activity gettingThere is required'));
 assert.ok(activityErrors.includes('activity duration is required'));
 assert.ok(activityErrors.includes('activity costType must be free or paid'));
 assert.ok(activityErrors.includes('activity bestTime is required'));
 
 const tooLongDescription = structuredClone(place);
-tooLongDescription.shortDescription = Array.from({ length: 46 }, () => 'word').join(' ');
-assert.ok(validateSpaCardCandidate(tooLongDescription, 'place').errors.includes('short description must be at most 45 words'));
+tooLongDescription.shortDescription = Array.from({ length: 31 }, () => 'word').join(' ');
+assert.ok(validateSpaCardCandidate(tooLongDescription, 'place').errors.includes('short description must be at most 30 words'));
 
 console.log('SPA card generation contract tests passed.');
