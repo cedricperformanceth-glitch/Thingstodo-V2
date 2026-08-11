@@ -1,26 +1,134 @@
 ---
-import type { City } from '../../core/models/types';
-import { categoryPath } from '../../core/routing/paths';
-import CityHero from '../hero/CityHero.astro';
-import ExploreBoard from '../explore-board/ExploreBoard.astro';
-import FavoritesPanel from './FavoritesPanel.astro';
+import type { CategorySlug, City } from '../../core/models/types';
+import { getPlaces, getThings } from '../../engines/category/category-engine';
+import { getSpaTabs } from '../../engines/spa/spa-engine';
 import PlaceCard from '../cards/PlaceCard.astro';
 import ThingToDoCard from '../cards/ThingToDoCard.astro';
-import { getPlaces, getThings } from '../../engines/category/category-engine';
-import { cityPresentation } from '../../engines/spa/city-presentation';
+import FavoritesPanel from './FavoritesPanel.astro';
+import SpaCategoryIcon from './SpaCategoryIcon.astro';
+import SpaPanel from './SpaPanel.astro';
+
 interface Props { city: City; }
 const { city } = Astro.props;
-const presentation = cityPresentation[city.profile];
+const tabs = getSpaTabs(city);
+const defaultSlug = 'things-to-do';
+const cityId = `${city.country}-${city.slug}`;
 ---
-<CityHero city={city} />
-<ExploreBoard {city} />
-<section data-city-spa><h2>In {city.name}</h2><p>{city.description}</p><nav aria-label={`${city.name} guide sections`} class="categories" role="tablist"><button type="button" role="tab" aria-controls="spa-panel-favorites" data-spa-tab="favorites">My Favorites</button>{city.categories.map((category) => <button type="button" role="tab" aria-controls={`spa-panel-${category}`} data-spa-tab={category}>{category.replaceAll('-', ' ')}</button>)}</nav>
-<div id="spa-panel-favorites" data-spa-panel="favorites" role="tabpanel"><FavoritesPanel /></div>
-{city.categories.map((category) => {
-  const preview = presentation.previewCount;
-  return <section id={`spa-panel-${category}`} data-spa-panel={category} role="tabpanel"><h2>{category.replaceAll('-', ' ')}</h2><a href={categoryPath(city,category)}>View all</a><div class="cards">{category === 'things-to-do'
-    ? getThings(city).slice(0, preview).map((thing) => <ThingToDoCard {city} {thing} />)
-    : getPlaces(city, category).slice(0, preview).map((place) => <PlaceCard {place} />)}</div></section>;
-})}
+
+<section class="travel-desk" data-city-spa data-spa-default={defaultSlug} aria-labelledby={`${cityId}-travel-desk-title`}>
+  <div class="travel-desk__transition" aria-hidden="true">
+    <span></span>
+    <p>Now for the practical side.</p>
+    <small>EAT · SLEEP · EXPLORE · PREPARE THE ROAD AHEAD</small>
+  </div>
+
+  <div class="travel-desk__inner">
+    <header class="travel-desk__heading">
+      <p>THE PRACTICAL NOTEBOOK</p>
+      <h2 id={`${cityId}-travel-desk-title`}>Plan your stay in {city.name}</h2>
+    </header>
+
+    <div class="travel-desk__board">
+      <nav class="travel-desk__index" role="tablist" aria-label={`${city.name} guide categories`}>
+        <p class="travel-desk__index-label">OPEN A SECTION</p>
+        <div class="travel-desk__index-list">
+          {tabs.map((tab, index) => {
+            const selected = tab.slug === defaultSlug;
+            return (
+              <button
+                class:list={['travel-desk-tab', { 'is-active': selected, 'is-favorites': tab.slug === 'favorites' }]}
+                type="button"
+                role="tab"
+                aria-selected={String(selected)}
+                aria-controls={`spa-panel-${city.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${tab.slug}`}
+                data-spa-tab={tab.slug}
+              >
+                <span class="travel-desk-tab__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span class="travel-desk-tab__drawing" aria-hidden="true"><SpaCategoryIcon icon={tab.icon} /></span>
+                <span class="travel-desk-tab__copy">
+                  <strong>{tab.title}</strong>
+                  <small data-favorites-count={tab.slug === 'favorites' ? '' : undefined}>{tab.countLabel}</small>
+                </span>
+                <span class="travel-desk-tab__arrow" aria-hidden="true">→</span>
+              </button>
+            );
+          })}
+        </div>
+        <p class="travel-desk__index-note">One section stays open. Favorites travel with you across the Atlas.</p>
+      </nav>
+
+      <div class="travel-desk__paper">
+        <span class="travel-desk__clip travel-desk__clip--top" aria-hidden="true"></span>
+        <span class="travel-desk__clip travel-desk__clip--bottom" aria-hidden="true"></span>
+        <div class="travel-desk__paper-rule" aria-hidden="true"></div>
+        <div class="travel-desk__panels">
+          {tabs.map((tab, index) => {
+            const active = tab.slug === defaultSlug;
+            const summary = tab.slug === 'favorites' ? 'Saved places from across your Atlas' : `${tab.countLabel} in ${city.name}`;
+            if (tab.slug === 'favorites') {
+              return (
+                <SpaPanel slug={tab.slug} cityName={city.name} summary={summary} fieldNote={String(index + 1).padStart(2, '0')} {active}>
+                  <FavoritesPanel currentCountry={city.country} />
+                </SpaPanel>
+              );
+            }
+            if (tab.slug === 'things-to-do') {
+              const things = getThings(city);
+              return (
+                <SpaPanel slug={tab.slug} cityName={city.name} summary={summary} fieldNote={String(index + 1).padStart(2, '0')} {active}>
+                  {things.length ? <div class="spa-card-grid">{things.map((thing) => <ThingToDoCard {city} {thing} />)}</div> : <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>}
+                </SpaPanel>
+              );
+            }
+            const places = getPlaces(city, tab.slug as CategorySlug);
+            return (
+              <SpaPanel slug={tab.slug} cityName={city.name} summary={summary} fieldNote={String(index + 1).padStart(2, '0')} {active}>
+                {places.length ? <div class="spa-card-grid">{places.map((place) => <PlaceCard {place} />)}</div> : <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>}
+              </SpaPanel>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<style>.categories{display:flex;flex-wrap:wrap;gap:.75rem;margin:1rem 0}.categories button{text-transform:capitalize}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}</style>
+
+<style>
+  .travel-desk{position:relative;isolation:isolate;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;padding:clamp(1.5rem,3vw,2.5rem) 0 clamp(5rem,8vw,8rem);background:radial-gradient(circle at 12% 18%,rgba(255,255,255,.055),transparent 25%),radial-gradient(circle at 88% 72%,rgba(183,102,69,.09),transparent 28%),linear-gradient(145deg,#263a31,#1f3129 62%,#1b2b24);color:#f7f2e7}
+  .travel-desk::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.17;background-image:repeating-linear-gradient(0deg,transparent 0 5px,rgba(255,255,255,.025) 5px 6px),repeating-linear-gradient(90deg,transparent 0 8px,rgba(0,0,0,.025) 8px 9px)}
+  .travel-desk__transition{display:grid;grid-template-columns:minmax(42px,1fr) auto minmax(42px,1fr);grid-template-rows:auto auto;column-gap:1rem;row-gap:.38rem;align-items:center;width:min(1180px,calc(100% - 2.5rem));margin:0 auto clamp(1.9rem,3.5vw,3rem);color:rgba(247,242,231,.82);text-align:center}
+  .travel-desk__transition::after,.travel-desk__transition>span{content:'';grid-row:1/3;height:1px;background:rgba(247,242,231,.22)}
+  .travel-desk__transition::after{grid-column:3}.travel-desk__transition>span{grid-column:1}.travel-desk__transition p,.travel-desk__transition small{grid-column:2;margin:0}
+  .travel-desk__transition p{grid-row:1;color:#fffaf0;font:500 clamp(1.15rem,1.8vw,1.5rem)/1.15 Fraunces,var(--serif)}
+  .travel-desk__transition small{grid-row:2;color:rgba(247,242,231,.58);font:700 .56rem/1.3 'DM Sans',var(--sans);letter-spacing:.12em}
+  .travel-desk__inner{width:min(1280px,calc(100% - 2.5rem));margin:0 auto}
+  .travel-desk__heading{width:min(1180px,100%);margin:0 auto clamp(1.55rem,2.8vw,2.35rem)}
+  .travel-desk__heading p{margin:0 0 .45rem;color:rgba(247,242,231,.55);font:700 .64rem/1 'DM Sans',var(--sans);letter-spacing:.21em}
+  .travel-desk__heading h2{margin:0;color:#fffaf0;font:500 clamp(2.15rem,4.2vw,4rem)/.98 Fraunces,var(--serif);letter-spacing:-.04em}
+  .travel-desk__board{display:grid;grid-template-columns:clamp(218px,20vw,268px) minmax(0,1fr);align-items:start;filter:drop-shadow(0 22px 28px rgba(7,16,12,.22))}
+  .travel-desk__index{position:sticky;top:1.25rem;z-index:3;margin-top:clamp(1.1rem,2.4vw,2.1rem);padding:1.05rem 0 1.15rem .8rem;border:1px solid rgba(226,218,197,.16);border-right:0;background:rgba(22,36,30,.93);box-shadow:inset 0 1px rgba(255,255,255,.035),-9px 11px 0 rgba(8,18,14,.1)}
+  .travel-desk__index-label{margin:0 1rem .8rem .35rem;color:rgba(247,242,231,.42);font:700 .52rem/1 'DM Sans',var(--sans);letter-spacing:.2em}
+  .travel-desk__index-list{display:grid;gap:.42rem}
+  .travel-desk-tab{position:relative;display:grid;grid-template-columns:1.35rem 3rem minmax(0,1fr) .8rem;gap:.45rem;align-items:center;width:100%;min-height:4.35rem;padding:.42rem .7rem .42rem .45rem;overflow:visible;border:1px solid rgba(226,218,197,.13);border-right:0;background:rgba(247,242,231,.035);color:rgba(247,242,231,.72);text-align:left;cursor:pointer;transition:transform 180ms ease,background 180ms ease,color 180ms ease,border-color 180ms ease}
+  .travel-desk-tab:hover,.travel-desk-tab:focus-visible{outline:none;color:#fffaf0;border-color:rgba(226,218,197,.28);background:rgba(247,242,231,.07);transform:translateX(4px)}
+  .travel-desk-tab:focus-visible{box-shadow:inset 0 0 0 2px rgba(183,102,69,.65)}
+  .travel-desk-tab.is-active{z-index:2;width:calc(100% + .85rem);color:#21352c;border-color:rgba(82,91,76,.22);background:#f3ede0;box-shadow:-5px 7px 0 rgba(7,16,12,.11);transform:translateX(4px)}
+  .travel-desk-tab.is-active::after{content:'';position:absolute;top:0;right:-.65rem;bottom:0;width:.75rem;background:#f3ede0}
+  .travel-desk-tab.is-favorites:not(.is-active){color:#d8bf7c}
+  .travel-desk-tab__number{align-self:start;padding-top:.2rem;color:rgba(247,242,231,.34);font:600 .49rem/1 'DM Sans',var(--sans);letter-spacing:.08em}
+  .travel-desk-tab.is-active .travel-desk-tab__number{color:rgba(33,53,44,.43)}
+  .travel-desk-tab__drawing{display:grid;place-items:center;width:3rem;height:3.1rem;color:currentColor}
+  .travel-desk-tab__copy{display:grid;gap:.28rem;min-width:0}.travel-desk-tab__copy strong{overflow:hidden;font:500 clamp(.82rem,1.05vw,.96rem)/1.05 Fraunces,var(--serif);text-overflow:ellipsis}.travel-desk-tab__copy small{color:rgba(247,242,231,.42);font:700 .47rem/1 'DM Sans',var(--sans);letter-spacing:.1em;text-transform:uppercase}.travel-desk-tab.is-active .travel-desk-tab__copy small{color:#b76645}
+  .travel-desk-tab__arrow{color:#b76645;opacity:0;transform:translateX(-4px);transition:opacity 180ms ease,transform 180ms ease}.travel-desk-tab.is-active .travel-desk-tab__arrow{opacity:1;transform:translateX(0)}
+  .travel-desk__index-note{margin:.9rem 1rem 0 .35rem;color:rgba(247,242,231,.4);font:400 .59rem/1.45 Georgia,var(--serif)}
+  .travel-desk__paper{position:relative;min-width:0;min-height:32rem;padding:clamp(3.8rem,5vw,4.65rem) clamp(1.35rem,3.8vw,3.7rem) clamp(3rem,5vw,4.8rem);border:1px solid rgba(82,91,76,.24);background:linear-gradient(90deg,transparent 0 3.8rem,rgba(183,102,69,.14) 3.8rem 3.87rem,transparent 3.87rem),repeating-linear-gradient(0deg,transparent 0 31px,rgba(49,85,69,.05) 31px 32px),#f3ede0;color:#1f2924;box-shadow:11px 15px 0 rgba(7,16,12,.14),inset 0 1px rgba(255,255,255,.72)}
+  .travel-desk__paper::before,.travel-desk__paper::after{content:'';position:absolute;z-index:-1;background:#e7dfd0;border:1px solid rgba(82,91,76,.16)}.travel-desk__paper::before{inset:9px -9px -9px 11px;transform:rotate(.18deg)}.travel-desk__paper::after{inset:16px -15px -15px 18px;opacity:.58;transform:rotate(-.14deg)}
+  .travel-desk__clip{position:absolute;z-index:2;left:clamp(1.15rem,2.3vw,2.5rem);width:.9rem;height:2.8rem;border:2px solid rgba(74,78,69,.35);border-bottom:0;border-radius:.5rem .5rem 0 0;transform:rotate(-5deg)}.travel-desk__clip--top{top:-.85rem}.travel-desk__clip--bottom{top:1rem;left:clamp(2.15rem,3.6vw,3.8rem);transform:rotate(4deg)}
+  .travel-desk__paper-rule{position:absolute;top:0;right:0;left:0;height:.38rem;background:linear-gradient(90deg,#315545 0 68%,#b76645 68% 78%,transparent 78%);opacity:.78}
+  .travel-desk__panels{position:relative;z-index:1}
+  .travel-desk :global(.spa-card-grid>.card){min-width:0;border:1px solid rgba(49,85,69,.18);border-radius:0;background:rgba(255,253,248,.8);box-shadow:4px 5px 0 rgba(49,85,69,.075);padding:.72rem;transition:transform 180ms ease,box-shadow 180ms ease}.travel-desk :global(.spa-card-grid>.card:nth-child(5n + 2)){transform:rotate(-.12deg)}.travel-desk :global(.spa-card-grid>.card:nth-child(5n + 4)){transform:rotate(.12deg)}.travel-desk :global(.spa-card-grid>.card:hover){transform:translateY(-3px) rotate(0);box-shadow:6px 8px 0 rgba(49,85,69,.09)}
+  .travel-desk :global(.spa-card-grid>.card h3){font-family:Fraunces,var(--serif);font-size:clamp(1.25rem,1.8vw,1.6rem);font-weight:500}.travel-desk :global(.spa-card-grid>.card p){font-size:.72rem}.travel-desk :global(.spa-card-grid>.card .button){min-height:36px;padding:.55rem .7rem;font-size:.65rem}
+  @media(max-width:940px){.travel-desk__board{grid-template-columns:1fr}.travel-desk__index{position:relative;top:auto;margin:0;padding:.8rem .8rem 0;border-right:1px solid rgba(226,218,197,.16);border-bottom:0}.travel-desk__index-label,.travel-desk__index-note{display:none}.travel-desk__index-list{display:flex;gap:.45rem;overflow-x:auto;padding:0 0 .8rem;scroll-snap-type:x proximity;scrollbar-width:thin}.travel-desk-tab,.travel-desk-tab.is-active{flex:0 0 11.25rem;width:11.25rem;min-height:4.25rem;border:1px solid rgba(226,218,197,.15);transform:none;scroll-snap-align:start}.travel-desk-tab.is-active::after{display:none}.travel-desk__paper{min-height:30rem;background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(49,85,69,.05) 31px 32px),#f3ede0}}
+  @media(max-width:640px){.travel-desk{padding-top:1.2rem}.travel-desk__transition{grid-template-columns:1fr;grid-template-rows:auto auto;gap:.38rem;width:min(100% - 2rem,1180px)}.travel-desk__transition>span,.travel-desk__transition::after{display:none}.travel-desk__transition p,.travel-desk__transition small{grid-column:1}.travel-desk__inner{width:min(100% - 1.25rem,1280px)}.travel-desk__heading{padding:0 .4rem}.travel-desk__heading h2{font-size:clamp(2.25rem,11vw,3.2rem)}.travel-desk__paper{padding:3.7rem 1rem 2.8rem;box-shadow:7px 10px 0 rgba(7,16,12,.13)}.travel-desk__paper::before,.travel-desk__paper::after,.travel-desk__clip{display:none}.travel-desk-tab,.travel-desk-tab.is-active{flex-basis:10.25rem;width:10.25rem;grid-template-columns:2.7rem minmax(0,1fr);gap:.45rem;padding:.4rem .55rem}.travel-desk-tab__number,.travel-desk-tab__arrow{display:none}.travel-desk-tab__drawing{width:2.7rem;height:2.8rem}}
+  @media(prefers-reduced-motion:reduce){.travel-desk-tab,.travel-desk-tab__arrow,.travel-desk :global(.spa-card-grid>.card){transition:none}}
+</style>
