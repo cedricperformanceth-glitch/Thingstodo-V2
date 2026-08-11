@@ -4,11 +4,104 @@ import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import TripButton from '../shared/TripButton.astro';
 interface Props { place: Place; showDestination?: boolean; }
 const { place, showDestination = false } = Astro.props;
+const image = place.image ?? place.media.card?.image;
+const titleize = (value: string) => value.split('-').map((part) => part ? `${part.charAt(0).toUpperCase()}${part.slice(1)}` : '').join(' ');
+const categoryLabels: Record<Place['category'], string> = {
+  'things-to-do': 'Things to do',
+  accommodation: 'Guest House',
+  restaurants: 'Restaurant',
+  cafes: 'Coffee',
+  'scooter-rental': 'Rental Scooter',
+  gyms: 'Gym & Fitness',
+  markets: 'Market & Shopping',
+  'practical-services': 'Essential Information',
+};
+const context = `${categoryLabels[place.category]} · ${titleize(place.city)}`;
 ---
-<article class:list={['card', { selection: place.isMySelection }]}>
-  <div class:list={['card-media', { empty: !(place.image ?? place.media.card?.image) }]}>{(place.image ?? place.media.card?.image) && <img src={(place.image ?? place.media.card?.image)?.src} alt={(place.image ?? place.media.card?.image)?.alt} loading="lazy" width="640" height="400" />}<FavoriteHeart entity={place} /></div>
-  {place.isMySelection && <p class="eyebrow">My Selection</p>}
-  <h3>{place.name}</h3>{showDestination && <p class="destination">{place.city}, {place.country}</p>}<p>{place.shortDescription}</p><p class="address">{place.address}</p>
+<article class:list={['card', 'atlas-entry-card', { selection: place.isMySelection }]}>
+  <div class:list={['card-media', { empty: !image }]}>
+    {image && <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" />}
+    <FavoriteHeart entity={place} />
+  </div>
+
+  <div class="card-preview">
+    {place.isMySelection && <p class="eyebrow">My Selection</p>}
+    <p class="card-type">{context}</p>
+    <h3>{place.name}</h3>
+    {showDestination && <p class="destination">{titleize(place.city)}, {titleize(place.country)}</p>}
+    <p class="card-description">{place.shortDescription}</p>
+  </div>
+
   <div class="actions"><a class="button" href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a><TripButton entity={place} /></div>
 </article>
-<style>.card{border:1px solid var(--line);padding:1rem;border-radius:.5rem}.card-media{position:relative}.card-media.empty{min-height:3.2rem;background:#f1ead9}.card img{display:block;width:100%;aspect-ratio:1.6;object-fit:cover}.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase}.destination,.address{font-size:.9rem}.destination{text-transform:capitalize}.actions{display:flex;flex-wrap:wrap;gap:.5rem}</style>
+
+<style>
+  .card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(75,81,70,.22);
+    border-radius: 0;
+    background: #eee8dc;
+    box-shadow: 5px 7px 0 rgba(49,85,69,.07);
+  }
+  .card-media {
+    position: relative;
+    height: 205px;
+    overflow: hidden;
+    background: #e8e3d6;
+  }
+  .card-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg,transparent 48%,rgba(24,31,26,.3));
+  }
+  .card-media.empty { min-height: 0; }
+  .card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.72) contrast(.96);
+  }
+  .card-preview {
+    display: flex;
+    min-height: 190px;
+    flex-direction: column;
+    padding: 23px 22px 20px;
+  }
+  .eyebrow,
+  .card-type {
+    margin: 0 0 9px;
+    color: #b76645;
+    font: 700 .56rem/1.2 'DM Sans',var(--sans);
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+  .eyebrow { margin-bottom: 6px; }
+  .card h3 {
+    margin: 0 0 10px;
+    color: #315545;
+    font: 500 clamp(1.55rem,2.1vw,2rem)/1.04 Fraunces,var(--serif);
+    letter-spacing: -.035em;
+  }
+  .card-description {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    color: #68685f;
+    font: 400 .77rem/1.58 'DM Sans',var(--sans);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .destination {
+    margin: -3px 0 9px;
+    color: rgba(49,85,69,.62);
+    font: 600 .58rem/1.3 'DM Sans',var(--sans);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .actions { display:flex; flex-wrap:wrap; gap:.5rem; }
+</style>
