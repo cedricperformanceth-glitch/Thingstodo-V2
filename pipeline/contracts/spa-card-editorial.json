@@ -90,6 +90,7 @@
     "bestTime": {
       "required": true,
       "style": "short-human-contextual-label",
+      "hardMaxWords": 4,
       "deriveFrom": [
         "opening-or-operating-schedule",
         "market-or-event-day",
@@ -102,12 +103,18 @@
       "ifNoDefensibleRecommendation": "manual-review"
     }
   },
+  "traceability": {
+    "requireEvidenceRefs": true,
+    "everyGeneratedFieldMustReferenceVerifiedFactIds": true,
+    "referencesStayInPipelineMetadataNotVisitorCopy": true
+  },
   "outputPolicy": {
     "returnStructuredJson": true,
     "doNotGenerateFieldCard": true,
     "doNotGenerateNewFacts": true,
     "preserveExactVerifiedName": true,
     "preserveGoogleMapsUrl": true,
-    "preservePhotoSelection": true
+    "preservePhotoSelection": true,
+    "normalizeHoursDurationAndLabelsBeforeMaterializing": true
   }
 }
