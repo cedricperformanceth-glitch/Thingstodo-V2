@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { selectionPlan } from './content-selection.mjs';
+import { sourceVerificationPlan } from './source-verification.mjs';
 
 const spaCategoryOrder = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
 const contentTargetRules = JSON.parse(readFileSync(new URL('../../pipeline/contracts/content-targets.json', import.meta.url), 'utf8'));
@@ -93,6 +94,7 @@ export function researchPlan(country, settlementType, seed, categories = SETTLEM
     subcategoryTargets,
     searchPriorities,
     selection: selectionPlan(country, categories),
+    verification: sourceVerificationPlan(country),
   };
 }
 
