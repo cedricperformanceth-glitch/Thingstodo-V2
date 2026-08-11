@@ -1,16 +1,15 @@
 {
   "village": [
-    "things-to-do",
-    "accommodation",
     "restaurants",
     "cafes",
+    "accommodation",
+    "things-to-do",
     "practical-services"
   ],
   "city": [
-    "things-to-do",
-    "accommodation",
     "restaurants",
     "cafes",
+    "accommodation",
     "scooter-rental",
     "gyms",
     "markets",
