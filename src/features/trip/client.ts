@@ -1,6 +1,7 @@
 import type { AtlasEntity } from '../../core/models/types';
 import {
   MY_ATLAS_EVENT,
+  MY_ATLAS_STORAGE_KEY,
   addToTrip,
   clearTrip,
   readTripStore,
@@ -182,7 +183,6 @@ document.addEventListener('click', (event) => {
     if (!entity) return;
     const sourcePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     addToTrip(entity, sourcePath);
-    render();
     return;
   }
 
@@ -203,7 +203,6 @@ document.addEventListener('click', (event) => {
   if (removeButton?.dataset.myAtlasRemove) {
     event.preventDefault();
     removeFromTrip(removeButton.dataset.myAtlasRemove);
-    render();
     return;
   }
 
@@ -212,7 +211,6 @@ document.addEventListener('click', (event) => {
     if (readTripStore().entries.length === 0) return;
     if (!window.confirm('Clear every saved card from Make Your Own Atlas?')) return;
     clearTrip();
-    render();
   }
 });
 
@@ -225,7 +223,7 @@ document.addEventListener('keydown', (event) => {
 
 window.addEventListener(MY_ATLAS_EVENT, render);
 window.addEventListener('storage', (event) => {
-  if (event.key) render();
+  if (event.key === MY_ATLAS_STORAGE_KEY || event.key === null) render();
 });
 
 render();
