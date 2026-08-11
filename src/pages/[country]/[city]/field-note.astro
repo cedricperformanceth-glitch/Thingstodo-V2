@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import { getCities, getCity } from '../../../engines/city/city-engine';
+import { getCountry } from '../../../engines/country/country-engine';
+import { cityFieldNotePath, cityPath } from '../../../core/routing/paths';
+
+export function getStaticPaths() {
+  return getCities().map((city) => ({ params: { country: city.country, city: city.slug } }));
+}
+
+const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
+const country = getCountry(Astro.params.country ?? '');
+if (!city || !country) return Astro.redirect('/');
+
+const seo = {
+  title: `${city.name} City Field Note | Things To Do Atlas`,
+  description: city.description,
+  canonicalPath: cityFieldNotePath(city),
+  indexable: false,
+};
+---
+
+<BaseLayout
+  {seo}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: country.name, path: `/${country.slug}` },
+    { name: city.name, path: cityPath(city) },
+    { name: 'City Field Note', path: cityFieldNotePath(city) },
+  ]}
+>
+  <main class="city-field-note">
+    <a class="city-field-note__back" href={cityPath(city)}>← Back to {city.name}</a>
+    <article class="city-field-note__paper">
+      <p class="city-field-note__eyebrow">CITY FIELD NOTE · {country.name.toUpperCase()}</p>
+      <h1>{city.name}</h1>
+      <p>{city.description}</p>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .city-field-note {
+    width: min(52rem, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: clamp(6rem, 10vw, 8rem) 0 5rem;
+  }
+
+  .city-field-note__back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #315545;
+    font-family: 'Segoe Print', 'Bradley Hand', cursive;
+    font-size: .78rem;
+    text-decoration: none;
+  }
+
+  .city-field-note__paper {
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid rgba(31,57,45,.16);
+    background: #f7f2e6;
+    box-shadow: 0 10px 28px rgba(31,41,36,.08);
+  }
+
+  .city-field-note__eyebrow {
+    margin: 0 0 .75rem;
+    color: rgba(31,57,45,.58);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+  }
+
+  .city-field-note h1 {
+    margin: 0 0 1rem;
+    color: #1f392d;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    font-weight: 400;
+    letter-spacing: -.05em;
+    line-height: .98;
+  }
+
+  .city-field-note__paper > p:last-child {
+    max-width: 42rem;
+    margin: 0;
+    color: rgba(31,41,36,.78);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+</style>
