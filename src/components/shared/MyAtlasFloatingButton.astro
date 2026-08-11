@@ -1,0 +1,80 @@
+<button
+  class="my-atlas-fab"
+  type="button"
+  data-my-atlas-toggle
+  aria-expanded="false"
+  aria-controls="make-your-own-atlas-drawer"
+  aria-label="Open Make Your Own Atlas"
+>
+  <span class="my-atlas-fab__counter-slot" aria-hidden="true">
+    <span class="my-atlas-fab__count" data-my-atlas-fab-count>00</span>
+  </span>
+</button>
+
+<style>
+  .my-atlas-fab {
+    width: 270px;
+    height: 78px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 4px 7px 4px 4px;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .my-atlas-fab__counter-slot {
+    width: 42px;
+    height: 100%;
+    display: flex;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .my-atlas-fab__count {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #b76645;
+    border-radius: 50%;
+    background: transparent;
+    color: #b76645;
+    font: 600 .72rem/1 Fraunces, serif;
+  }
+
+  .my-atlas-fab:focus-visible {
+    outline: 2px solid #b76645;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 700px) {
+    .my-atlas-fab {
+      width: 238px;
+      height: 68px;
+      padding: 3px 6px 3px 3px;
+    }
+
+    .my-atlas-fab__counter-slot {
+      width: 38px;
+      flex-basis: 38px;
+    }
+
+    .my-atlas-fab__count {
+      width: 29px;
+      height: 29px;
+      font-size: .66rem;
+    }
+  }
+</style>
