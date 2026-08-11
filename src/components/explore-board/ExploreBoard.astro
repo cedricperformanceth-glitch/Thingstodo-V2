@@ -8,14 +8,6 @@ const { city } = Astro.props;
 const board = getExploreBoard(city);
 const sectionId = `explore-board-${city.country}-${city.slug}`;
 const cityNoteHref = cityFieldNotePath(city);
-const names = board.things.map(({ thing }) => thing.name);
-const listNames = (items: string[]) => {
-  if (items.length === 0) return `the landmarks selected for ${city.name}`;
-  if (items.length === 1) return items[0];
-  if (items.length === 2) return `${items[0]} and ${items[1]}`;
-  return `${items.slice(0, -1).join(', ')}, and ${items.at(-1)}`;
-};
-const intro = `Begin with ${listNames(names)}.`;
 ---
 
 <section class="explore-board-section" aria-labelledby={sectionId}>
@@ -29,7 +21,7 @@ const intro = `Begin with ${listNames(names)}.`;
         <p class="explore-board__question">What can I actually do in {city.name}?</p>
         <h2 id={sectionId}>Explore from {city.name}</h2>
         <span class="explore-board__chalk-line" aria-hidden="true"></span>
-        <p class="explore-board__intro">{intro}</p>
+        <p class="explore-board__intro">{board.intro}</p>
       </header>
 
       <div class="explore-board__content" aria-label={`Landmarks to explore from ${city.name}`}>
@@ -69,7 +61,7 @@ const intro = `Begin with ${listNames(names)}.`;
 
       <footer class="explore-board__footer">
         <span aria-hidden="true">↳</span>
-        <p>Open a landmark to read the full field note.</p>
+        <p>{board.note}</p>
       </footer>
     </div>
   </div>
