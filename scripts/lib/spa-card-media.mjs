@@ -30,6 +30,14 @@ export function validateAutomaticPhotoCandidate(photo) {
   const errors = [];
   if (!clean(photo?.src)) errors.push('photo src is required');
   if (photo?.subjectVerified !== true) errors.push('photo must be verified as the exact entity');
+  const subjectConfidence = Number(photo?.subjectConfidence);
+  const sourceConfidence = Number(photo?.sourceConfidence);
+  if (!Number.isFinite(subjectConfidence) || subjectConfidence < contract.candidateRequirements.minimumSubjectConfidence) {
+    errors.push(`photo subject confidence must be at least ${contract.candidateRequirements.minimumSubjectConfidence}`);
+  }
+  if (!Number.isFinite(sourceConfidence) || sourceConfidence < contract.candidateRequirements.minimumSourceConfidence) {
+    errors.push(`photo source confidence must be at least ${contract.candidateRequirements.minimumSourceConfidence}`);
+  }
   if (!clean(photo?.sourceUrl)) errors.push('external photo sourceUrl is required');
   const license = normalizedLicense(photo?.license);
   if (!contract.acceptedLicenses.includes(license)) errors.push(`photo license is not accepted: ${license || 'unknown'}`);
