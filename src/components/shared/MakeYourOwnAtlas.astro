@@ -15,6 +15,7 @@
       loading="eager"
       decoding="async"
     />
+    <span class="my-atlas-fab__count" data-my-atlas-fab-count aria-hidden="true">00</span>
   </button>
 
   <aside
@@ -60,7 +61,8 @@
   }
 
   .my-atlas-fab {
-    width: clamp(5.6rem, 8vw, 7.35rem);
+    position: relative;
+    width: clamp(6.4rem, 9vw, 8.2rem);
     aspect-ratio: 1;
     display: grid;
     place-items: center;
@@ -81,6 +83,25 @@
     object-fit: contain;
     background: transparent;
     filter: drop-shadow(0 7px 8px rgba(28, 34, 29, .16));
+  }
+
+  .my-atlas-fab__count {
+    position: absolute;
+    top: 50%;
+    right: -.55rem;
+    min-width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    padding: 0 .3rem;
+    border: 1px solid #b76645;
+    border-radius: 999px;
+    background: #f7f2e6;
+    color: #b76645;
+    box-shadow: 2px 3px 0 rgba(49, 85, 69, .08);
+    font: 600 .7rem/1 Fraunces, serif;
+    transform: translateY(-50%) rotate(4deg);
   }
 
   .my-atlas-fab:hover {
@@ -335,11 +356,12 @@
 
   @media (max-width: 700px) {
     .my-atlas-widget {
-      right: .55rem;
+      right: .75rem;
       bottom: .65rem;
     }
 
-    .my-atlas-fab { width: 5.5rem; }
+    .my-atlas-fab { width: 6.2rem; }
+    .my-atlas-fab__count { right: -.4rem; min-width: 1.85rem; height: 1.85rem; font-size: .64rem; }
 
     .my-atlas-drawer {
       width: calc(100vw - 1.1rem);
