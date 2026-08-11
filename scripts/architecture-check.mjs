@@ -1,4 +1,4 @@
 import fs from 'node:fs'; import path from 'node:path';
-const root=process.cwd(), folders=['src/engines','src/core','src/components/layout','src/components/hero','src/pages/[country]']; const banned=/from ['"][^'"]*(don-det|pakse|laos|sri-lanka|thailand)[^'"]*['"]|['"]\/(laos|thailand|sri-lanka)(\/|['"])/i;
+const root=process.cwd(), folders=['src/engines','src/core','src/components/layout','src/components/hero','src/components/explore-board','src/pages/[country]']; const banned=/from ['"][^'"]*(don-det|pakse|laos|sri-lanka|thailand)[^'"]*['"]|['"]\/(laos|thailand|sri-lanka)(\/|['"])/i;
 const failures=folders.flatMap(folder=>{const dir=path.join(root,folder); return fs.existsSync(dir)?fs.readdirSync(dir,{recursive:true}).filter(file=>String(file).match(/\.(ts|astro)$/)).filter(file=>banned.test(fs.readFileSync(path.join(dir,file),'utf8'))).map(file=>path.join(folder,String(file))):[]});
 if(failures.length) throw new Error(`Destination-specific reusable code: ${failures.join(', ')}`); console.log('Architecture check passed: reusable code uses registries, not destinations.');
