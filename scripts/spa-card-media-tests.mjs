@@ -35,6 +35,12 @@ const uncertainSubject = { ...commonsPhoto, id: 'uncertain', subjectVerified: fa
 assert.equal(validateAutomaticPhotoCandidate(uncertainSubject).valid, false);
 assert.equal(selectSpaCardPhoto({ ...base, photoCandidates: [uncertainSubject] }).status, 'missing');
 
+const lowSubjectConfidence = { ...commonsPhoto, id: 'low-subject-confidence', subjectConfidence: .89 };
+assert.equal(validateAutomaticPhotoCandidate(lowSubjectConfidence).valid, false);
+
+const lowSourceConfidence = { ...commonsPhoto, id: 'low-source-confidence', sourceConfidence: .74 };
+assert.equal(validateAutomaticPhotoCandidate(lowSourceConfidence).valid, false);
+
 const nonCommercial = { ...commonsPhoto, id: 'nc', license: 'CC BY-NC-SA 4.0' };
 assert.equal(validateAutomaticPhotoCandidate(nonCommercial).valid, false);
 assert.equal(selectSpaCardPhoto({ ...base, photoCandidates: [nonCommercial] }).status, 'missing');
@@ -45,7 +51,7 @@ assert.equal(validateAutomaticPhotoCandidate(unknownLicense).valid, false);
 const tooSmall = { ...commonsPhoto, id: 'small', width: 320, height: 200 };
 assert.equal(validateAutomaticPhotoCandidate(tooSmall).valid, false);
 
-const lowerConfidence = { ...commonsPhoto, id: 'lower', src: '/assets/lower.webp', subjectConfidence: .8, sourceConfidence: .8 };
+const lowerConfidence = { ...commonsPhoto, id: 'lower', src: '/assets/lower.webp', subjectConfidence: .9, sourceConfidence: .8 };
 const higherConfidence = { ...commonsPhoto, id: 'higher', src: '/assets/higher.webp', subjectConfidence: 1, sourceConfidence: .9 };
 assert.equal(selectSpaCardPhoto({ ...base, photoCandidates: [lowerConfidence, higherConfidence] }).image.src, '/assets/higher.webp');
 
@@ -55,6 +61,12 @@ const manual = {
 const manualResult = selectSpaCardPhoto({ ...base, media: { card: { image: manual } }, photoCandidates: [commonsPhoto] });
 assert.equal(manualResult.reason, 'manual-photo');
 assert.equal(manualResult.image.src, '/assets/manual.webp');
+
+const legacyAutomaticWithoutProof = {
+  id: 'legacy-auto', src: '/assets/legacy.webp', alt: 'Old auto image', sourceType: 'open-license',
+  sourceUrl: 'https://example.org/photo', license: 'CC BY 4.0', author: 'Author', manual: false, locked: false,
+};
+assert.equal(selectSpaCardPhoto({ ...base, media: { card: { image: legacyAutomaticWithoutProof } } }).status, 'missing');
 
 const missing = applySpaCardPhotoSelection({ ...base });
 assert.equal(missing.status, 'missing');
