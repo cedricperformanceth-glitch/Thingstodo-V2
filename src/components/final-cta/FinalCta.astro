@@ -37,6 +37,7 @@ const routes = getFinalCtaRoutes(country);
       <div class="final-cta__actions" aria-label="Your Atlas and Atlas Routes">
         {routes[0] && (
           <a class="atlas-route atlas-route--first" href={routes[0].href} aria-label={`Open Atlas Route ${routes[0].label}`}>
+            <span class="atlas-route__invite atlas-route__invite--first">try this way</span>
             <span class="atlas-route__label">{routes[0].label}</span>
             <svg viewBox="0 0 250 48" aria-hidden="true">
               <line x1="24" y1="24" x2="81" y2="24" />
@@ -57,6 +58,7 @@ const routes = getFinalCtaRoutes(country);
 
         {routes[1] && (
           <a class="atlas-route atlas-route--second" href={routes[1].href} aria-label={`Open Atlas Route ${routes[1].label}`}>
+            <span class="atlas-route__invite atlas-route__invite--second">or this way</span>
             <span class="atlas-route__label">{routes[1].label}</span>
             <svg viewBox="0 0 250 48" aria-hidden="true">
               <line x1="24" y1="24" x2="81" y2="24" />
@@ -202,6 +204,27 @@ const routes = getFinalCtaRoutes(country);
     transform: rotate(3deg) translateY(-2px);
   }
 
+  .atlas-route__invite {
+    display: block;
+    width: max-content;
+    margin-bottom: .18rem;
+    color: #315545;
+    font-size: clamp(.82rem, 1.15vw, .98rem);
+    font-weight: 500;
+    line-height: 1;
+    opacity: .76;
+  }
+
+  .atlas-route__invite--first {
+    margin-left: 1.85rem;
+    transform: rotate(2deg);
+  }
+
+  .atlas-route__invite--second {
+    margin-left: .25rem;
+    transform: rotate(-3deg);
+  }
+
   .atlas-route__label {
     display: block;
     margin: 0 0 .35rem .7rem;
@@ -299,6 +322,14 @@ const routes = getFinalCtaRoutes(country);
       right: -1%;
       bottom: 9%;
       transform: rotate(4deg);
+    }
+
+    .atlas-route__invite {
+      font-size: .8rem;
+    }
+
+    .atlas-route__invite--first {
+      margin-left: 1.1rem;
     }
 
     .atlas-route__label {
