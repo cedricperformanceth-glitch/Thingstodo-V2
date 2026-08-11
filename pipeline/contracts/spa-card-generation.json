@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "scope": "spa-cards-only",
+  "fieldCardGeneration": false,
+  "allCards": {
+    "required": [
+      "photo",
+      "exactName",
+      "shortDescription",
+      "googleMapsUrl",
+      "handwrittenTags"
+    ],
+    "optional": [
+      "openingHours"
+    ],
+    "photo": {
+      "required": true,
+      "licenseMustPassSourceVerificationContract": true,
+      "mustRepresentTheActualPlaceOrActivity": true
+    },
+    "exactName": {
+      "required": true,
+      "preserveVerifiedOfficialSpelling": true,
+      "doNotEditoriallyRename": true
+    },
+    "shortDescription": {
+      "required": true,
+      "targetWordsMin": 18,
+      "targetWordsMax": 38,
+      "hardMaxWords": 45,
+      "tone": [
+        "friendly",
+        "warm",
+        "cordial",
+        "polite",
+        "endearing"
+      ],
+      "style": "natural-atlas-note",
+      "mustRemainFactGrounded": true,
+      "noCopiedTravelPlatformProse": true
+    },
+    "openingHours": {
+      "required": false,
+      "includeOnlyWhenReasonablyVerified": true,
+      "omitRatherThanGuess": true,
+      "humanReadable": true
+    },
+    "googleMapsUrl": {
+      "required": true,
+      "mustResolveToTheSelectedPlaceOrActivityLocation": true
+    },
+    "handwrittenTags": {
+      "required": true,
+      "count": 3,
+      "maxWordsPerTag": 2,
+      "purpose": "three-short-handwritten-notes-over-the-photo",
+      "tone": "warm-specific-and-evocative",
+      "avoidRepeatingTheName": true,
+      "examples": [
+        ["Riverside", "Easy dinner", "Sunset"],
+        ["Local", "Quiet stop", "Morning"]
+      ]
+    }
+  },
+  "thingsToDoCards": {
+    "requiredAdditional": [
+      "duration",
+      "costType",
+      "bestTime"
+    ],
+    "duration": {
+      "required": true,
+      "humanReadable": true,
+      "examples": ["1–2 hours", "Morning", "Half-day", "Full day", "2 days"]
+    },
+    "costType": {
+      "required": true,
+      "allowed": ["free", "paid"],
+      "exactPriceIsNotRequiredForSpaCard": true
+    },
+    "bestTime": {
+      "required": true,
+      "humanReadable": true,
+      "contextual": true,
+      "examples": ["Sunset", "Early morning", "Afternoon", "Sunday morning", "Dry season"]
+    }
+  }
+}
