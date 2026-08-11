@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "scope": "spa-card-photo-only",
+  "fieldCardMedia": false,
+  "selection": {
+    "photoIsPreferredButNotRequired": true,
+    "neverGenerateSyntheticFallback": true,
+    "neverUseAProbablySimilarPlace": true,
+    "mustRepresentExactSelectedEntity": true,
+    "manualPhotoMayOverrideAutomaticSelection": true,
+    "whenNoQualifiedPhoto": "placeholder-manual-fill"
+  },
+  "acceptedLicenses": [
+    "public-domain",
+    "cc0",
+    "cc-by",
+    "cc-by-sa"
+  ],
+  "rejectedLicenses": [
+    "all-rights-reserved",
+    "unknown-license",
+    "cc-by-nc",
+    "cc-by-nc-sa",
+    "cc-by-nc-nd"
+  ],
+  "candidateRequirements": {
+    "subjectVerified": true,
+    "sourceUrlRequiredForExternalMedia": true,
+    "licenseRequiredForExternalMedia": true,
+    "minimumWidth": 640,
+    "minimumHeight": 400,
+    "authorRequiredWhenLicenseRequiresAttribution": true
+  },
+  "ranking": [
+    "manual-locked",
+    "exact-subject-confidence",
+    "source-confidence",
+    "resolution",
+    "stable-source-url"
+  ],
+  "attribution": {
+    "storeSourceUrl": true,
+    "storeSourceName": true,
+    "storeAuthor": true,
+    "storeLicense": true,
+    "showOnSpaCardWhenRequired": true
+  },
+  "placeholder": {
+    "keepFullPhotoSlot": true,
+    "label": "Photo to add",
+    "status": "missing",
+    "requiresManualFill": true,
+    "mustNotUseImageAsset": true
+  }
+}
