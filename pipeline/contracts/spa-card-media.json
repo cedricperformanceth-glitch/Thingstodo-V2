@@ -6,10 +6,27 @@
     "preferredSources": [
       "manual-owned-or-authorized-media",
       "wikimedia-commons",
+      "openverse",
+      "flickr-with-compatible-api-and-photo-license",
       "public-domain-repositories",
       "official-source-with-explicit-compatible-license",
       "other-explicit-open-license-source"
     ],
+    "adapters": {
+      "openverse": {
+        "enabledByDefault": true,
+        "useAsDiscoveryIndex": true,
+        "acceptedLicenseFilters": ["by", "by-sa", "cc0", "pdm"],
+        "requireSourceLandingPage": true
+      },
+      "flickr": {
+        "enabledWhenApiKeyConfigured": true,
+        "apiKeyEnvironmentVariable": "FLICKR_API_KEY",
+        "requireApiUseAppropriateForAtlas": true,
+        "filterToCommerciallyCompatiblePhotoLicenses": true,
+        "preferGeoSearchWhenEntityCoordinatesExist": true
+      }
+    },
     "discoveryOnlyNotReusableWithoutSeparatePermission": [
       "google-image-results",
       "travel-platforms",
