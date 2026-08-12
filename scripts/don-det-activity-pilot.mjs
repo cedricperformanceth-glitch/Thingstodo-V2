@@ -10,6 +10,11 @@ const pilot = JSON.parse(fs.readFileSync('pipeline/pilots/laos/don-det-activitie
 const draft = JSON.parse(fs.readFileSync('pipeline/cities/laos/don-det.json', 'utf8'));
 const publishedSource = JSON.parse(fs.readFileSync('pipeline/sources/laos/don-det.json', 'utf8'));
 const NOW = new Date('2026-08-12T00:00:00Z');
+const expectedExploreBoard = [
+  'thing-old-french-railway-bridge',
+  'thing-li-phi-somphamit-waterfalls',
+  'thing-khone-phapheng-falls',
+];
 
 assert.equal(pilot.country, 'laos');
 assert.equal(pilot.city, 'don-det');
@@ -27,18 +32,25 @@ assert.equal(draft.cityData.manualLocks['categoryTargets.things-to-do']?.source,
 assert.equal(draft.cityData.manualLocks['categoryTargets.things-to-do']?.locked, true);
 assert.doesNotMatch(draft.cityData.hero.subtitle, /reusable city engine|first tested/i, 'public Hero copy must not contain development language');
 assert.equal(draft.cityData.hero.facts.some((fact) => /profile/i.test(fact.label)), false, 'public Hero facts must not expose the internal presentation profile');
+assert.deepEqual(draft.cityData.exploreBoard?.featuredThingIds, expectedExploreBoard, 'Don Det Explore Board must publish exactly the three selected landmarks');
+assert.deepEqual(publishedSource.city?.exploreBoard?.featuredThingIds, expectedExploreBoard, 'Versioned Don Det source must persist the same three-landmark Explore Board selection');
 
 for (const thing of draft.things) {
   assert.equal('isMySelection' in thing, false, `${thing.name}: legacy isMySelection must be absent`);
   assert.equal('selectionRank' in thing, false, `${thing.name}: legacy selectionRank must be absent`);
   assertValidSpaCardCandidate(thing, 'thing-to-do');
 }
+for (const id of expectedExploreBoard) {
+  const thing = draft.things.find((candidate) => candidate.id === id);
+  assert.equal(thing?.isLandmark, true, `${id}: Explore Board entry must be a landmark`);
+  assert.ok(thing?.exploreBoard?.kicker && thing?.exploreBoard?.duration && thing?.exploreBoard?.route, `${id}: Explore Board metadata must be complete`);
+  assert.ok(thing?.media?.card?.image?.src, `${id}: Explore Board landmark must have a verified real image`);
+}
 const persistedPhotos = draft.things.filter((item) => item.spaCard?.photoStatus === 'verified').length;
 const persistedPlaceholders = draft.things.filter((item) => item.spaCard?.photoStatus === 'missing').length;
-assert.equal(persistedPhotos, 4, 'published Don Det must expose the four qualified pilot photos');
-assert.equal(persistedPlaceholders, 7, 'published Don Det must expose seven Photo to add placeholders');
+assert.equal(persistedPhotos, 5, 'published Don Det must expose the five qualified pilot photos after the third Explore Board landmark is completed');
+assert.equal(persistedPlaceholders, 6, 'published Don Det must expose six Photo to add placeholders');
 
-// Use the exact mechanism the future admin will use: an editorial target with a manual lock.
 setEditorialCategoryTarget(draft, 'things-to-do', pilot.target);
 syncGenerationContract(draft);
 assert.equal(draft.cityData.categoryTargets['things-to-do'], 11);
@@ -98,11 +110,12 @@ for (const compact of pilot.activities) {
 assert.equal(output.length, 11);
 const verifiedPhotos = output.filter((item) => item.photoStatus === 'verified').length;
 const placeholders = output.filter((item) => item.photoStatus === 'missing').length;
-assert.equal(verifiedPhotos, 4, 'pilot deliberately expects four exact licensed photos');
-assert.equal(placeholders, 7, 'pilot deliberately expects seven Photo to add placeholders');
+assert.equal(verifiedPhotos, 5, 'pilot expects five exact licensed photos after Khone Phapheng is completed');
+assert.equal(placeholders, 6, 'pilot expects six Photo to add placeholders');
 
 console.log('Don Det activity pilot');
 console.log(`Target: ${pilot.target} activities`);
+console.log(`Explore Board: ${expectedExploreBoard.length} landmarks`);
 console.log(`Published cards: ${draft.things.length} · verified photos: ${persistedPhotos} · Photo to add: ${persistedPlaceholders}`);
 for (const [index, item] of output.entries()) {
   console.log(`${String(index + 1).padStart(2, '0')}. ${item.name} · ${item.duration} · ${item.costType} · ${item.bestTime} · photo:${item.photoStatus}`);
