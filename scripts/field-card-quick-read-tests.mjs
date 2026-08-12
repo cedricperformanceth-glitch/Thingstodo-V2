@@ -27,11 +27,12 @@ assert.equal(validateFieldCardQuickRead({
 }).valid, false, 'Quick Read editorial copy must not own universal labels');
 
 assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal Quick Read component must not contain destination-specific branches or copy');
-assert.match(component, /04 \/ FIELD NOTES/, 'Quick Read must retain the editorial section eyebrow');
+assert.match(component, /01 \/ FIELD NOTES/, 'The first Field Notes block must be numbered 01');
 assert.match(component, /THE QUICK READ/, 'Quick Read must retain the section title');
 for (const label of ['TIME', 'ROUTE', 'BUDGET', 'BEST FOR']) assert.match(component, new RegExp(label), `Quick Read must retain ${label}`);
 assert.doesNotMatch(component, /border-radius|box-shadow/, 'Quick Read modules must not become UI cards');
-assert.match(fieldCard, /<FieldCardHero[\s\S]*<FieldCardQuickRead[\s\S]*field-card__utility/, 'Quick Read must render directly after the Hero and before utility actions');
+assert.match(fieldCard, /<FieldCardHero[\s\S]*<FieldCardQuickRead/, 'Quick Read must render directly after the Hero');
+assert.doesNotMatch(fieldCard, /FavoriteHeart|TripButton|field-card__utility|Open Google Maps/, 'Field Cards must not render the removed utility action strip');
 assert.match(engine, /fieldCard\.quickRead/, 'Generated Quick Read content must be supported by the view engine');
 assert.match(engine, /quickReadEditorial/, 'Manual editorial Quick Read overrides must be supported');
 assert.match(engine, /fallbackQuickRead/, 'Activities without authored Quick Read copy must retain a deterministic fallback');
