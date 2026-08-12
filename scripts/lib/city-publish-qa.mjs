@@ -59,8 +59,8 @@ function checkTargets(draft, entities, issues) {
       continue;
     }
     const actual = counts[category] ?? 0;
-    if (actual < target) {
-      issues.push(issue('error', 'category-target-underfilled', `${category} must contain at least its generated target of ${target}; found ${actual}.`));
+    if (actual !== target) {
+      issues.push(issue('error', 'category-target-mismatch', `${category} must contain exactly its generated target of ${target}; found ${actual}.`));
     }
   }
   return counts;
@@ -69,7 +69,7 @@ function checkTargets(draft, entities, issues) {
 function checkExploreBoard(draft, things, issues) {
   const cityKey = `${draft.country}/${draft.city}`;
   const featuredIds = draft?.cityData?.exploreBoard?.featuredThingIds ?? [];
-  if (featuredIds.length > 3) issues.push(issue('error', 'explore-board-overflow', `${cityKey}: Explore Board supports at most 3 landmarks.`));
+  if (featuredIds.length !== 3) issues.push(issue('error', 'explore-board-count', `${cityKey}: Explore Board requires exactly 3 landmarks; found ${featuredIds.length}.`));
   if (new Set(featuredIds).size !== featuredIds.length) issues.push(issue('error', 'explore-board-duplicate', `${cityKey}: Explore Board landmark IDs must be unique.`));
   for (const id of featuredIds) {
     const thing = things.find((candidate) => candidate.id === id);
