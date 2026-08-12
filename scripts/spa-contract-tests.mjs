@@ -1,5 +1,14 @@
 import assert from 'node:assert/strict';
-import { emptyDraft, researchPlan, setEditorialCategoryTarget, SETTLEMENT_CATEGORIES, syncGenerationContract } from './lib/city-pipeline.mjs';
+import {
+  CONTENT_TARGET_RULES,
+  emptyDraft,
+  randomRangeValue,
+  researchPlan,
+  rerollAutomaticCategoryTargets,
+  setEditorialCategoryTarget,
+  SETTLEMENT_CATEGORIES,
+  syncGenerationContract,
+} from './lib/city-pipeline.mjs';
 
 assert.deepEqual(SETTLEMENT_CATEGORIES.village, [
   'things-to-do',
@@ -21,11 +30,14 @@ assert.deepEqual(SETTLEMENT_CATEGORIES.city, [
 ]);
 
 const within = (value, min, max, label) => assert.ok(Number.isInteger(value) && value >= min && value <= max, `${label} must be an integer between ${min} and ${max}; received ${value}`);
-const activityPolicy = {
-  min: 5,
-  max: 25,
-  selectionMode: 'editorial',
-};
+const activityPolicy = { min: 5, max: 25, selectionMode: 'editorial' };
+
+assert.equal(CONTENT_TARGET_RULES.laos.village.categories.restaurants.selectionMode, 'random-once');
+assert.equal(CONTENT_TARGET_RULES.laos.village.categories.cafes.selectionMode, 'random-once');
+assert.equal(CONTENT_TARGET_RULES.laos.village.categories.accommodation.selectionMode, 'random-once');
+assert.equal(CONTENT_TARGET_RULES.laos.city.categories['scooter-rental'].selectionMode, 'random-once');
+assert.equal(randomRangeValue({ min: 10, max: 15 }, 'test-min', (min) => min), 10);
+assert.equal(randomRangeValue({ min: 10, max: 15 }, 'test-max', (_min, max) => max - 1), 15);
 
 const village = emptyDraft('laos', 'test-village', 'compact', 'village');
 assert.equal(village.cityData.settlementType, 'village');
@@ -35,6 +47,11 @@ assert.equal(village.cityData.categoryTargets['things-to-do'], undefined, 'Activ
 within(village.cityData.categoryTargets.restaurants, 10, 15, 'Village restaurants');
 within(village.cityData.categoryTargets.cafes, 10, 15, 'Village cafes');
 within(village.cityData.categoryTargets.accommodation, 12, 19, 'Village guesthouses');
+assert.ok(new Set([
+  village.cityData.categoryTargets.restaurants,
+  village.cityData.categoryTargets.cafes,
+  village.cityData.categoryTargets.accommodation,
+]).size > 1, 'Automatic sibling targets must not publish as a uniform repeated number such as 15/15/15');
 assert.equal(village.cityData.categoryTargets['practical-services'], undefined);
 assert.equal(village.cityData.categoryTargets.gyms, undefined);
 assert.equal(village.cityData.categoryTargets.markets, undefined);
@@ -85,6 +102,12 @@ assert.ok(village.researchPlan.verification.reusePolicy.media.rejectForCommercia
 assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific['wikimedia-commons'], 'check-each-file-license');
 assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific.unesco, 'authoritative-research-source-but-reuse-only-when-the-specific-item-license-permits-it');
 
+const persistedVillageTargets = structuredClone(village.cityData.categoryTargets);
+const persistedVillageSubtargets = structuredClone(village.researchPlan.subcategoryTargets);
+syncGenerationContract(village);
+assert.deepEqual(village.cityData.categoryTargets, persistedVillageTargets, 'A normal generation refresh must never reroll automatic city targets');
+assert.deepEqual(village.researchPlan.subcategoryTargets, persistedVillageSubtargets, 'A normal generation refresh must never reroll automatic subcategory targets');
+
 const city = emptyDraft('laos', 'test-city', 'standard', 'city');
 assert.equal(city.cityData.settlementType, 'city');
 assert.deepEqual(city.cityData.categories, SETTLEMENT_CATEGORIES.city);
@@ -117,11 +140,20 @@ const editorSelectedCity = emptyDraft('laos', 'editor-selected-city', 'large', '
 setEditorialCategoryTarget(editorSelectedCity, 'things-to-do', 18);
 assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 18);
 assert.deepEqual(editorSelectedCity.cityData.manualLocks['categoryTargets.things-to-do'], { value: 18, source: 'manual', locked: true });
+const automaticBeforeRefresh = structuredClone(editorSelectedCity.cityData.categoryTargets);
 syncGenerationContract(editorSelectedCity);
 assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 18, 'Generation refresh must preserve the admin/editor activity target');
+assert.equal(editorSelectedCity.cityData.categoryTargets.restaurants, automaticBeforeRefresh.restaurants, 'Generation refresh must preserve the random-once restaurant target');
 assert.deepEqual(editorSelectedCity.researchPlan.categoryTargetPolicies['things-to-do'], activityPolicy);
 assert.equal(editorSelectedCity.researchPlan.selection.searchArea.maxRadiusKm, 3, 'Generation refresh must preserve the Laos selection contract');
 assert.equal(editorSelectedCity.researchPlan.verification.existenceVerification.permanentClosure.independentExplicitClosureReportsThreshold, 3);
+
+rerollAutomaticCategoryTargets(editorSelectedCity);
+assert.equal(editorSelectedCity.cityData.categoryTargets['things-to-do'], 18, 'Explicit reroll must never alter the manually locked Things to do target');
+within(editorSelectedCity.cityData.categoryTargets.restaurants, 19, 25, 'Rerolled city restaurants');
+within(editorSelectedCity.cityData.categoryTargets.cafes, 19, 25, 'Rerolled city cafes');
+within(editorSelectedCity.cityData.categoryTargets.accommodation, 19, 25, 'Rerolled city guesthouses');
+within(editorSelectedCity.cityData.categoryTargets['scooter-rental'], 5, 12, 'Rerolled city scooter rentals');
 
 const minimumActivities = emptyDraft('laos', 'minimum-activities', 'compact', 'village');
 setEditorialCategoryTarget(minimumActivities, 'things-to-do', 5);
@@ -134,15 +166,6 @@ assert.equal(maximumActivities.cityData.categoryTargets['things-to-do'], 25);
 assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'too-few', 'compact', 'city'), 'things-to-do', 4), /between 5 and 25/);
 assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'too-many', 'compact', 'city'), 'things-to-do', 26), /between 5 and 25/);
 assert.throws(() => setEditorialCategoryTarget(emptyDraft('laos', 'wrong-category', 'compact', 'city'), 'restaurants', 20), /not configured for editorial target selection/);
-
-const sameVillage = emptyDraft('laos', 'test-village', 'large', 'village');
-assert.deepEqual(sameVillage.cityData.categoryTargets, village.cityData.categoryTargets, 'Automatic targets must stay stable for the same country/city/category regardless of rebuild profile');
-assert.deepEqual(sameVillage.researchPlan, village.researchPlan, 'Research plan must stay stable for the same country/city');
-
-const villageRestaurantTargets = new Set(Array.from({ length: 12 }, (_, index) => emptyDraft('laos', `variation-village-${index}`, 'compact', 'village').cityData.categoryTargets.restaurants));
-assert.ok(villageRestaurantTargets.size > 1, 'Village restaurant targets should vary between generated places');
-const cityRestaurantTargets = new Set(Array.from({ length: 12 }, (_, index) => emptyDraft('laos', `variation-city-${index}`, 'standard', 'city').cityData.categoryTargets.restaurants));
-assert.ok(cityRestaurantTargets.size > 1, 'City restaurant targets should vary between generated places');
 
 const unconfiguredCountry = emptyDraft('sri-lanka', 'test-city', 'standard', 'city');
 assert.deepEqual(unconfiguredCountry.cityData.categoryTargets, {}, 'Countries without an explicit target contract must not inherit Laos numeric targets');
@@ -158,4 +181,4 @@ assert.deepEqual(researchPlan('sri-lanka', 'city', 'sri-lanka/test-city'), uncon
 assert.throws(() => emptyDraft('laos', 'invalid', 'compact'), /Settlement type/);
 assert.throws(() => emptyDraft('laos', 'invalid', 'compact', 'hamlet'), /Settlement type/);
 
-console.log('SPA settlement, Laos generation targets, selection, activities, and source verification contract tests passed.');
+console.log('SPA settlement, random-once Laos targets, selection, activities, and source verification contract tests passed.');
