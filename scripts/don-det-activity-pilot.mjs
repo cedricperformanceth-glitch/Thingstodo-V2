@@ -21,7 +21,7 @@ assert.equal(new Set(pilot.activities.map((item) => item.name.toLowerCase())).si
 const pilotIds = pilot.activities.map((item) => item.id);
 assert.deepEqual(draft.things.map((item) => item.id), pilotIds, 'published Don Det Things to do must be the exact 11-card pilot set');
 assert.deepEqual(publishedSource.things.map((item) => item.id), pilotIds, 'versioned Don Det source must contain the exact 11-card pilot set');
-assert.equal(draft.places.length, 0, 'legacy practical seed records must be removed before the practical-category test');
+assert.equal(draft.places.some((item) => ['place-river-cafe', 'place-island-guesthouse'].includes(item.id)), false, 'legacy practical demo seeds must never return');
 assert.equal(draft.cityData.categoryTargets['things-to-do'], 11, 'published Don Det must persist the admin activity target');
 assert.equal(draft.cityData.manualLocks['categoryTargets.things-to-do']?.source, 'manual');
 assert.equal(draft.cityData.manualLocks['categoryTargets.things-to-do']?.locked, true);
