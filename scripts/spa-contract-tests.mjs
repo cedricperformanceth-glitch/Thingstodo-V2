@@ -96,11 +96,15 @@ assert.equal(village.researchPlan.verification.existenceVerification.permanentCl
 assert.equal(village.researchPlan.verification.existenceVerification.permanentClosure.closureReportMaxAgeMonths, 18);
 assert.equal(village.researchPlan.verification.existenceVerification.permanentClosure.requireNoNewerOperationalSignal, true);
 assert.equal(village.researchPlan.verification.existenceVerification.googleMapsPolicy.noReviewScraping, true);
+assert.deepEqual(village.researchPlan.verification.sourceClasses['open-media'], ['wikimedia-commons']);
+assert.equal(village.researchPlan.verification.reusePolicy.media.automaticDiscoverySource, 'wikimedia-commons');
 assert.equal(village.researchPlan.verification.reusePolicy.media.requirePerAssetLicenseCheck, true);
 assert.ok(village.researchPlan.verification.reusePolicy.media.allowedWhenCompliant.includes('cc-by-sa'));
 assert.ok(village.researchPlan.verification.reusePolicy.media.rejectForCommercialAtlasUse.includes('cc-by-nc'));
-assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific['wikimedia-commons'], 'check-each-file-license');
-assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific.unesco, 'authoritative-research-source-but-reuse-only-when-the-specific-item-license-permits-it');
+assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific['wikimedia-commons'], 'only-automatic-photo-search-source-check-each-file-license');
+assert.equal('openverse' in village.researchPlan.verification.reusePolicy.domainSpecific, false, 'Openverse must not return to automatic photo discovery');
+assert.equal('flickr' in village.researchPlan.verification.reusePolicy.domainSpecific, false, 'Flickr must not return to automatic photo discovery');
+assert.equal(village.researchPlan.verification.reusePolicy.domainSpecific.unesco, 'authoritative-research-source-but-not-an-automatic-photo-source');
 
 const persistedVillageTargets = structuredClone(village.cityData.categoryTargets);
 const persistedVillageSubtargets = structuredClone(village.researchPlan.subcategoryTargets);
