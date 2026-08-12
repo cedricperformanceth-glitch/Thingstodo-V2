@@ -7,8 +7,9 @@ export type EditorialPhotoLeadSourceType = 'official-website' | 'facebook' | 'in
 export interface Coordinates { latitude: number; longitude: number; }
 export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; }
 export interface MediaRecord { id: string; src: string; alt: string; sourceType: SourceType; sourceUrl?: string; sourceName?: string; author?: string; license?: string; manual: boolean; locked: boolean; }
+export interface ActivityPhotoReserveEntry extends MediaRecord { width: number; height: number; subjectConfidence: number; sourceConfidence: number; }
 export interface EditorialPhotoLead { id: string; entityName: string; cityName?: string; sourceType: EditorialPhotoLeadSourceType; sourceName: string; sourceUrl: string; imageUrl?: string; pageTitle?: string; identityConfidence: number; pageFetched: boolean; discoveryStatus: 'image-found' | 'page-found'; rightsStatus: 'unconfirmed-first-party'; autoPublishable: false; editorialAction: 'review-rights-before-use'; score: number; }
-export interface MediaResearch { firstPartyPhotoLeads?: EditorialPhotoLead[]; }
+export interface MediaResearch { firstPartyPhotoLeads?: EditorialPhotoLead[]; activityPhotoReserve?: ActivityPhotoReserveEntry[]; }
 export interface CountryMediaManifest { hero: { stamps: MediaRecord[]; drawings: MediaRecord[]; photos: MediaRecord[] }; card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }
 export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; research?: MediaResearch; }
 export interface HeroFact { label: string; value: string; }
@@ -21,7 +22,7 @@ export interface ThingToDoSpaCardContent extends SpaCardContent { gettingThere: 
 export interface VerificationMetadata { decision: 'accept' | 'manual-review' | 'reject-closed'; reason: string; checkedAt?: string; }
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
 export interface ManualLocks { [field: string]: ManualField<unknown> | undefined; }
-export interface Country { id: string; slug: string; name: string; chapter: string; accentColor: string; media: CountryMediaManifest; map: { center: Coordinates; zoom: number }; seo: SeoMetadata; }
+export interface Country { id: string; slug: string; name: string; country: string; chapter: string; accentColor: string; media: CountryMediaManifest; map: { center: Coordinates; zoom: number }; seo: SeoMetadata; }
 export interface ExploreBoardConfig { featuredThingIds: string[]; }
 export interface ExploreBoardCardContent { kicker: string; duration: string; route: string; }
 export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; }
