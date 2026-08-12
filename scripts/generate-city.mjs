@@ -62,9 +62,9 @@ const editorialThings = (input.things ?? []).map((candidate) => prepareCandidate
 const selectedEditorialPlaces = selectPlaceCandidates(editorialPlaces, draft);
 const mediaContext = { cityName: draft.cityData.name, country: draft.country };
 const places = [];
-for (const candidate of selectedEditorialPlaces) places.push(normalizePlace(await prepareMediaWithDiscovery(candidate, mediaContext), draft));
+for (const candidate of selectedEditorialPlaces) places.push(normalizePlace(await prepareMediaWithDiscovery(candidate, mediaContext, 'place'), draft));
 const things = [];
-for (const candidate of editorialThings) things.push(normalizeThing(await prepareMediaWithDiscovery(candidate, mediaContext), draft));
+for (const candidate of editorialThings) things.push(normalizeThing(await prepareMediaWithDiscovery(candidate, mediaContext, 'thing-to-do'), draft));
 for (const candidate of places) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
 for (const candidate of things) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
 console.log(`Selected Place cards: ${summarizePlaceSelection(places, draft.cityData.categoryTargets)}`);
@@ -179,22 +179,24 @@ function hasQualifiedPhoto(candidate) {
   return candidates.some((photo) => validateAutomaticPhotoCandidate(photo).valid);
 }
 
-async function prepareMediaWithDiscovery(candidate, context) {
+async function prepareMediaWithDiscovery(candidate, context, kind) {
   let next = candidate;
-  if (!skipPhotoDiscovery && next?.spaCard && !hasQualifiedPhoto(next)) {
-    const discovered = await discoverPhotoCandidates(next, context);
+  const activityMode = kind === 'thing-to-do';
+  const shouldDiscover = !skipPhotoDiscovery && next?.spaCard && (activityMode || !hasQualifiedPhoto(next));
+  if (shouldDiscover) {
+    const discovered = await discoverPhotoCandidates(next, context, { mode: activityMode ? 'activity' : 'place' });
     if (discovered.length) {
       next = structuredClone(next);
       next.photoCandidates = [...(next.photoCandidates ?? []), ...discovered];
-      console.log(`Photo discovery: ${next.name} -> ${discovered.length} candidate(s).`);
+      console.log(`Photo discovery: ${next.name} -> ${discovered.length} candidate(s)${activityMode ? ' (activity reserve enabled)' : ''}.`);
     }
   }
-  return prepareMedia(next);
+  return prepareMedia(next, kind);
 }
 
-function prepareMedia(candidate) {
+function prepareMedia(candidate, kind) {
   if (!candidate?.spaCard && !(candidate?.photoCandidates?.length)) return candidate;
-  return applySpaCardPhotoSelection(candidate).candidate;
+  return applySpaCardPhotoSelection(candidate, { entityKind: kind }).candidate;
 }
 
 function generatedSources(candidate) {

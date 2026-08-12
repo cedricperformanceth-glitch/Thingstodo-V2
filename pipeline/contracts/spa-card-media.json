@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "scope": "spa-card-photo-only",
+  "scope": "spa-card-photo-and-future-field-card-reserve",
   "fieldCardMedia": false,
+  "futureFieldCardReserve": true,
   "discovery": {
     "preferredSources": [
       "manual-owned-or-authorized-media",
       "wikimedia-commons",
       "openverse",
-      "flickr-with-compatible-api-and-photo-license",
       "public-domain-repositories",
       "official-source-with-explicit-compatible-license",
       "other-explicit-open-license-source"
@@ -19,17 +19,11 @@
         "acceptedLicenseFilters": ["by", "by-sa", "cc0", "pdm"],
         "requireSourceLandingPage": true
       },
-      "flickr": {
-        "enabledWhenApiKeyConfigured": true,
-        "apiKeyEnvironmentVariable": "FLICKR_API_KEY",
-        "requireApiUseAppropriateForAtlas": true,
-        "filterToCommerciallyCompatiblePhotoLicenses": true,
-        "preferGeoSearchWhenEntityCoordinatesExist": true
-      },
       "firstParty": {
         "enabledByDefault": true,
         "acceptedSourceTypes": ["official-website", "facebook", "instagram"],
         "capturePublicPagePreviewImageWhenAvailable": true,
+        "scanOfficialWebsitePageImages": true,
         "retainPageLeadWhenPreviewImageCannotBeRead": true,
         "neverAssumeReuseRightsFromFirstPartyPublication": true,
         "neverAutoPublishWithoutSeparateCompatibleRightsEvidence": true,
@@ -50,7 +44,22 @@
     "neverUseAProbablySimilarPlace": true,
     "mustRepresentExactSelectedEntity": true,
     "manualPhotoMayOverrideAutomaticSelection": true,
-    "whenNoQualifiedPhoto": "placeholder-manual-fill"
+    "whenNoQualifiedPhoto": "placeholder-manual-fill",
+    "entityModes": {
+      "place": {
+        "publicCardPhotoCount": 1,
+        "continueDiscoveryAfterPrimaryPhoto": false,
+        "retainReusableSurplus": false
+      },
+      "thingToDo": {
+        "publicCardPhotoCount": 1,
+        "continueDiscoveryAfterPrimaryPhoto": true,
+        "discoveryGoal": "as-many-qualified-as-practical",
+        "retainReusableSurplus": true,
+        "persistReusableSurplusUnder": "media.research.activityPhotoReserve",
+        "reusableReserveMaximum": 24
+      }
+    }
   },
   "acceptedLicenses": [
     "public-domain",

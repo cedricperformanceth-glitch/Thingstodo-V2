@@ -67,6 +67,28 @@ function compareScore(a, b) {
   return clean(a?.src).localeCompare(clean(b?.src));
 }
 
+function photoKey(photo) {
+  return clean(photo?.sourceUrl || photo?.src).toLowerCase();
+}
+
+function qualifiedAutomaticPhotos(candidate) {
+  const current = existingImage(candidate);
+  const candidates = [...(candidate?.photoCandidates ?? [])];
+  if (current?.src && current.manual !== true) candidates.unshift(current);
+  const seen = new Set();
+  return candidates
+    .map((photo) => ({ photo, validation: validateAutomaticPhotoCandidate(photo) }))
+    .filter(({ validation }) => validation.valid)
+    .map(({ photo }) => photo)
+    .filter((photo) => {
+      const key = photoKey(photo);
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort(compareScore);
+}
+
 function toMediaRecord(photo, candidateName) {
   const license = normalizedLicense(photo.license);
   return {
@@ -83,6 +105,16 @@ function toMediaRecord(photo, candidateName) {
   };
 }
 
+function toActivityReserveRecord(photo, candidateName) {
+  return {
+    ...toMediaRecord(photo, candidateName),
+    width: Number(photo.width),
+    height: Number(photo.height),
+    subjectConfidence: Number(photo.subjectConfidence),
+    sourceConfidence: Number(photo.sourceConfidence),
+  };
+}
+
 function firstPartyPhotoLeads(candidate) {
   return (candidate?.photoCandidates ?? []).filter((photo) => photo?.autoPublishable === false && photo?.rightsStatus === 'unconfirmed-first-party');
 }
@@ -94,7 +126,18 @@ function mergeFirstPartyPhotoLeads(existing = [], incoming = []) {
     if (!key || seen.has(key)) return false;
     seen.add(key);
     return true;
-  }).sort((a, b) => Number(b?.score ?? 0) - Number(a?.score ?? 0)).slice(0, 12);
+  }).sort((a, b) => Number(b?.score ?? 0) - Number(a?.score ?? 0)).slice(0, contract.editorialLeads.firstParty.maximumPerEntity);
+}
+
+function mergeActivityPhotoReserve(existing = [], incoming = []) {
+  const seen = new Set();
+  const maximum = contract.selection.entityModes.thingToDo.reusableReserveMaximum;
+  return [...existing, ...incoming].filter((photo) => {
+    const key = photoKey(photo);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, maximum);
 }
 
 export function selectSpaCardPhoto(candidate) {
@@ -103,15 +146,7 @@ export function selectSpaCardPhoto(candidate) {
     return { status: 'selected', reason: 'manual-photo', image: structuredClone(current), requiresManualFill: false };
   }
 
-  const candidates = [...(candidate?.photoCandidates ?? [])];
-  if (current?.src) candidates.unshift(current);
-
-  const qualified = candidates
-    .map((photo) => ({ photo, validation: validateAutomaticPhotoCandidate(photo) }))
-    .filter(({ validation }) => validation.valid)
-    .map(({ photo }) => photo)
-    .sort(compareScore);
-
+  const qualified = qualifiedAutomaticPhotos(candidate);
   if (!qualified.length) {
     return { status: 'missing', reason: 'no-qualified-photo', image: null, requiresManualFill: true };
   }
@@ -119,10 +154,11 @@ export function selectSpaCardPhoto(candidate) {
   return { status: 'selected', reason: 'qualified-photo', image: toMediaRecord(qualified[0], candidate?.name ?? 'Atlas place'), requiresManualFill: false };
 }
 
-export function applySpaCardPhotoSelection(candidate) {
+export function applySpaCardPhotoSelection(candidate, options = {}) {
   const result = selectSpaCardPhoto(candidate);
   const leads = firstPartyPhotoLeads(candidate);
   const next = structuredClone(candidate);
+  const entityKind = options.entityKind ?? (candidate?.category === 'things-to-do' ? 'thing-to-do' : 'place');
   next.spaCard ??= {};
   next.spaCard.photoStatus = result.status === 'selected' ? 'verified' : 'missing';
   next.spaCard.photoRequiresManualFill = result.requiresManualFill;
@@ -131,10 +167,28 @@ export function applySpaCardPhotoSelection(candidate) {
   next.media.card ??= {};
   if (result.image) next.media.card.image = result.image;
   else delete next.media.card.image;
+
   if (leads.length) {
     next.media.research ??= {};
     next.media.research.firstPartyPhotoLeads = mergeFirstPartyPhotoLeads(next.media.research.firstPartyPhotoLeads, leads);
   }
+
+  if (entityKind === 'thing-to-do') {
+    const selectedKey = photoKey(result.image);
+    const reserve = qualifiedAutomaticPhotos(candidate)
+      .filter((photo) => photoKey(photo) !== selectedKey)
+      .map((photo) => toActivityReserveRecord(photo, candidate?.name ?? 'Atlas activity'));
+    const mergedReserve = mergeActivityPhotoReserve(next.media.research?.activityPhotoReserve, reserve);
+    if (mergedReserve.length) {
+      next.media.research ??= {};
+      next.media.research.activityPhotoReserve = mergedReserve;
+    } else if (next.media.research?.activityPhotoReserve) {
+      delete next.media.research.activityPhotoReserve;
+    }
+  } else if (next.media.research?.activityPhotoReserve) {
+    delete next.media.research.activityPhotoReserve;
+  }
+
   if ('image' in next && !result.image) delete next.image;
   if (result.image && 'image' in next) next.image = result.image;
   delete next.photoCandidates;
