@@ -1,0 +1,358 @@
+{
+  "city": {
+    "description": "A Mekong town and road-trip base for the Thakhek Loop, limestone caves and the karst landscapes of Khammouane Province.",
+    "hero": {
+      "eyebrow": "Khammouane · Central Laos",
+      "title": "Thakhek travel guide",
+      "subtitle": "A Mekong town and road-trip base for limestone caves, the Thakhek Loop and Khammouane’s karst country.",
+      "facts": [
+        { "label": "Updated", "value": "August 2026" },
+        { "label": "Base", "value": "Loop road base" },
+        { "label": "Landscape", "value": "Limestone & caves" },
+        { "label": "Region", "value": "Khammouane Province" }
+      ]
+    },
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-kong-lor-cave",
+        "thing-xe-bang-fai-cave",
+        "thing-tham-nang-aen-cave"
+      ]
+    },
+    "seo": {
+      "title": "Thakhek travel guide | Things To Do Atlas",
+      "description": "Independent Thakhek travel guide for the town, caves and Thakhek Loop.",
+      "canonicalPath": "/laos/thakhek",
+      "indexable": false
+    }
+  },
+  "places": [],
+  "things": [
+    {
+      "id": "thing-thakhek-loop",
+      "slug": "thakhek-loop",
+      "name": "Thakhek Loop",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thakhek+Loop+Laos",
+      "shortDescription": "Ride the classic multi-day circuit from Thakhek through limestone country, cave corridors, reservoirs and Kong Lor, with the road journey itself tying Khammouane’s major stops together.",
+      "spaCard": {
+        "handwrittenTags": ["450 km loop", "Karst roads", "Multi day"],
+        "gettingThere": "Start in Thakhek · usually by motorbike",
+        "duration": "3–5 days",
+        "costType": "paid",
+        "bestTime": "Dry season"
+      },
+      "verification": { "decision": "accept", "reason": "Current official Khammouane Tourism route.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [
+        { "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }
+      ]
+    },
+    {
+      "id": "thing-kong-lor-cave",
+      "slug": "kong-lor-cave",
+      "name": "Kong Lor Cave",
+      "isLandmark": true,
+      "coordinates": { "latitude": 17.956375, "longitude": 104.761097 },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kong+Lor+Cave+Khammouane+Laos",
+      "shortDescription": "Cross the mountain by boat through Kong Lor’s long underground river, a defining Thakhek Loop experience where darkness, limestone chambers and the river passage make the journey the attraction.",
+      "spaCard": {
+        "handwrittenTags": ["River cave", "Boat journey", "Loop icon"],
+        "gettingThere": "Road from Thakhek · classic Loop stop",
+        "duration": "2–3 hours",
+        "costType": "paid",
+        "bestTime": "Morning"
+      },
+      "media": {
+        "card": {
+          "image": {
+            "id": "kong-lor-cave-primary",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Konglor%20cave%20laos.JPG?width=1800",
+            "alt": "River entrance of Kong Lor Cave in Khammouane Province",
+            "sourceType": "manual",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konglor_cave_laos.JPG",
+            "sourceName": "Wikimedia Commons",
+            "author": "Busy",
+            "license": "CC BY-SA 3.0",
+            "manual": true,
+            "locked": true
+          }
+        }
+      },
+      "photoCandidates": [
+        {
+          "id": "kong-lor-cave-reserve-1",
+          "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20171120%20Wlot%20jaskini%20Kong%20Lor%20w%20Laosie%203663%20DxO.jpg?width=1800",
+          "alt": "Wide inlet of Kong Lor Cave and the Nam Hin Boun river",
+          "sourceType": "wikimedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:20171120_Wlot_jaskini_Kong_Lor_w_Laosie_3663_DxO.jpg",
+          "sourceName": "Wikimedia Commons",
+          "author": "Jakub Hałun",
+          "license": "CC BY-SA 4.0",
+          "width": 1800,
+          "height": 944,
+          "subjectVerified": true,
+          "subjectConfidence": 1,
+          "sourceConfidence": 1,
+          "manual": false,
+          "locked": false
+        },
+        {
+          "id": "kong-lor-cave-reserve-2",
+          "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kong%20Lor%20Caves%20of%20Laos%20%285422115490%29.jpg?width=1064",
+          "alt": "Boat journey through the interior of Kong Lor Cave",
+          "sourceType": "wikimedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kong_Lor_Caves_of_Laos_(5422115490).jpg",
+          "sourceName": "Wikimedia Commons",
+          "author": "Aleksey Gnilenkov",
+          "license": "CC BY 2.0",
+          "width": 1064,
+          "height": 708,
+          "subjectVerified": true,
+          "subjectConfidence": 1,
+          "sourceConfidence": 1,
+          "manual": false,
+          "locked": false
+        }
+      ],
+      "exploreBoard": { "kicker": "RIVER CAVE · BOAT · LOOP", "duration": "2–3 hours", "route": "Classic Loop stop west of Thakhek" },
+      "verification": { "decision": "accept", "reason": "Current official Khammouane Tourism attraction.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [
+        { "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" },
+        { "sourceName": "Wikimedia Commons", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konglor_cave_laos.JPG", "purpose": "media" }
+      ]
+    },
+    {
+      "id": "thing-xe-bang-fai-cave",
+      "slug": "xe-bang-fai-cave",
+      "name": "Xe Bang Fai Cave",
+      "isLandmark": true,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xe+Bang+Fai+Cave+Hin+Nam+No+Laos",
+      "shortDescription": "Reach one of Hin Nam No’s immense active river caves on a remote, locally guided journey where access, water levels and logistics matter as much as the extraordinary scale underground.",
+      "spaCard": {
+        "handwrittenTags": ["Remote cave", "River passage", "Guide needed"],
+        "gettingThere": "Boualapha District · local guide and transport",
+        "duration": "Full day or multi-day",
+        "costType": "paid",
+        "bestTime": "Dry season"
+      },
+      "exploreBoard": { "kicker": "EXPEDITION · HIN NAM NO · REMOTE", "duration": "Full day or multi-day", "route": "East of Thakhek · Boualapha District" },
+      "verification": { "decision": "accept", "reason": "Confirmed by UNESCO and Tourism Laos as a major Hin Nam No river cave.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "UNESCO World Heritage Centre", "reviewedAt": "2026-08-12" },
+      "researchSources": [
+        { "sourceName": "UNESCO World Heritage Centre", "sourceUrl": "https://whc.unesco.org/en/list/951", "purpose": "facts" },
+        { "sourceName": "Tourism Laos", "sourceUrl": "https://www.tourismlaos.org/welcome/theworldheritagesite/", "purpose": "facts" }
+      ]
+    },
+    {
+      "id": "thing-tham-nang-aen-cave",
+      "slug": "tham-nang-aen-cave",
+      "name": "Tham Nang Aen Cave",
+      "isLandmark": true,
+      "googleMapsUrl": "https://maps.app.goo.gl/UbvyD3oxhyWVjLyC6",
+      "shortDescription": "Explore a large developed cave close to Thakhek, with illuminated limestone chambers and built walkways, plus a deeper river-and-boat option when local conditions and operation allow.",
+      "spaCard": {
+        "handwrittenTags": ["Show cave", "Route 12", "Cool chambers"],
+        "gettingThere": "Route 12 · about 18 km from Thakhek",
+        "duration": "1–2 hours",
+        "costType": "paid",
+        "bestTime": "Morning"
+      },
+      "media": {
+        "card": {
+          "image": {
+            "id": "tham-nang-aen-primary",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/10%20Nang%20Aen%20cane%20-%20panoramio.jpg?width=1800",
+            "alt": "Illuminated limestone formations inside Tham Nang Aen Cave near Thakhek",
+            "sourceType": "manual",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:10_Nang_Aen_cane_-_panoramio.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Adriaan Castermans",
+            "license": "CC BY-SA 3.0",
+            "manual": true,
+            "locked": true
+          }
+        }
+      },
+      "exploreBoard": { "kicker": "SHOW CAVE · ROUTE 12 · CLOSE TO TOWN", "duration": "1–2 hours", "route": "About 18 km from Thakhek" },
+      "verification": { "decision": "accept", "reason": "Current official Khammouane Tourism attraction and verified V1 seed.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [
+        { "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" },
+        { "sourceName": "Wikimedia Commons", "sourceUrl": "https://commons.wikimedia.org/wiki/File:10_Nang_Aen_cane_-_panoramio.jpg", "purpose": "media" }
+      ]
+    },
+    {
+      "id": "thing-tham-xiang-liap-cave",
+      "slug": "tham-xiang-liap-cave",
+      "name": "Tham Xiang Liap Cave",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham+Xiang+Liap+Cave+Thakhek+Laos",
+      "shortDescription": "Follow the Route 12 cave corridor to Xiang Liap, a limestone cave close enough to Thakhek for a short outing or an early stop on the Loop.",
+      "spaCard": { "handwrittenTags": ["Cave alley", "Route 12", "Short stop"], "gettingThere": "Route 12 · northeast of Thakhek", "duration": "1–2 hours", "costType": "paid", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Current official Khammouane Tourism attraction.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-tham-chang-elephant-cave",
+      "slug": "tham-chang-elephant-cave",
+      "name": "Tham Chang · Elephant Cave",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Elephant+Cave+Thakhek+Khammouane+Laos",
+      "shortDescription": "Stop at the sacred Elephant Cave near the beginning of Cave Alley, a compact cultural and limestone visit that fits naturally into the first section of the Thakhek Loop.",
+      "spaCard": { "handwrittenTags": ["Sacred cave", "Cave alley", "Loop day one"], "gettingThere": "Route 12 · east of Thakhek", "duration": "30–60 minutes", "costType": "paid", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Included in the current official Thakhek Loop itinerary.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-tham-pha-buddha-cave",
+      "slug": "tham-pha-buddha-cave",
+      "name": "Tham Pha · Buddha Cave",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham+Pha+Buddha+Cave+Khammouane+Laos",
+      "shortDescription": "Visit a cave known for its Buddhist significance in Khammouane’s limestone country, combining a natural cave stop with a cultural site rather than treating it as a purely geological attraction.",
+      "spaCard": { "handwrittenTags": ["Buddha cave", "Sacred site", "Khammouane"], "gettingThere": "Road from Thakhek · Khammouane cave area", "duration": "1–2 hours", "costType": "paid", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Current official Khammouane Tourism attraction.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-tha-falang",
+      "slug": "tha-falang",
+      "name": "Tha Falang",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tha+Falang+Thakhek+Laos",
+      "shortDescription": "Pause along Cave Alley at Tha Falang, a clear-water river stop where swimming and limestone scenery break up the first Loop day between cave visits.",
+      "spaCard": { "handwrittenTags": ["River swim", "Cave alley", "Slow stop"], "gettingThere": "Route 12 corridor · east of Thakhek", "duration": "2–4 hours", "costType": "free", "bestTime": "Late morning" },
+      "verification": { "decision": "accept", "reason": "Current official Khammouane Tourism attraction.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-khoun-kong-leng",
+      "slug": "khoun-kong-leng",
+      "name": "Khoun Kong Leng",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khoun+Kong+Leng+Khammouane+Laos",
+      "shortDescription": "Make a nature detour to Khoun Kong Leng, one of Khammouane’s clear-water landscape stops, best approached as a slower excursion beyond Thakhek’s town-and-cave rhythm.",
+      "spaCard": { "handwrittenTags": ["Clear water", "Nature stop", "Khammouane"], "gettingThere": "Road excursion from Thakhek", "duration": "Half-day", "costType": "paid", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Current official Khammouane Tourism attraction.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-thalang-nam-theun-reservoir",
+      "slug": "thalang-nam-theun-reservoir",
+      "name": "Thalang & Nam Theun Reservoir",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thalang+Nam+Theun+Reservoir+Laos",
+      "shortDescription": "Cross the reservoir landscape around Thalang on the Loop, where flooded forest, open water and the overnight road stop create a very different chapter from Cave Alley.",
+      "spaCard": { "handwrittenTags": ["Reservoir road", "Loop overnight", "Open water"], "gettingThere": "Thakhek Loop · toward Thalang", "duration": "Loop stop", "costType": "free", "bestTime": "Afternoon" },
+      "verification": { "decision": "accept", "reason": "Thalang and Nam Theun are part of the current official Loop itinerary.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-pha-inh-cave",
+      "slug": "pha-inh-cave",
+      "name": "Pha Inh Cave",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pha+Inh+Cave+Thakhek+Laos",
+      "shortDescription": "Add Pha Inh to the first Loop day as another limestone stop in Cave Alley, useful when you want a denser cave route before continuing toward Thalang.",
+      "spaCard": { "handwrittenTags": ["Cave alley", "Loop stop", "Limestone"], "gettingThere": "Route 12 · first Loop day", "duration": "1–2 hours", "costType": "paid", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Included in the current official Thakhek Loop itinerary.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-cool-springs-loop",
+      "slug": "cool-springs-loop",
+      "name": "Cool Springs",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cool+Springs+Thakhek+Loop+Laos",
+      "shortDescription": "Use the Loop’s cool springs as a water-and-rest stop between longer road sections, giving the second day a natural break from riding through the karst landscape.",
+      "spaCard": { "handwrittenTags": ["Cool water", "Loop day two", "Road break"], "gettingThere": "Thakhek Loop · Day 2 corridor", "duration": "1–2 hours", "costType": "paid", "bestTime": "Midday" },
+      "verification": { "decision": "accept", "reason": "Included in the current official Thakhek Loop itinerary.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-dragon-cave",
+      "slug": "dragon-cave",
+      "name": "Dragon Cave",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dragon+Cave+Thakhek+Loop+Laos",
+      "shortDescription": "Stop at Dragon Cave during the Loop’s eastern section, adding another distinct cave visit to the road between Thalang and the route toward Kong Lor.",
+      "spaCard": { "handwrittenTags": ["Dragon cave", "Loop day two", "Karst stop"], "gettingThere": "Thakhek Loop · eastern section", "duration": "1–2 hours", "costType": "paid", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Included in the current official Thakhek Loop itinerary.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-sandstone-buddhas",
+      "slug": "sandstone-buddhas",
+      "name": "Sandstone Buddhas",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sandstone+Buddhas+Thakhek+Loop+Laos",
+      "shortDescription": "Break up the Loop’s natural attractions with a cultural stop at the sandstone Buddha site, keeping the route from becoming a simple sequence of caves and swimming places.",
+      "spaCard": { "handwrittenTags": ["Buddha site", "Cultural stop", "Loop day two"], "gettingThere": "Thakhek Loop · Day 2 route", "duration": "30–60 minutes", "costType": "paid", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Included in the current official Thakhek Loop itinerary.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-phou-pha-marn-viewpoint",
+      "slug": "phou-pha-marn-viewpoint",
+      "name": "Phou Pha Marn · Limestone Viewpoint",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Phou+Pha+Marn+Viewpoint+Khammouane+Laos",
+      "shortDescription": "Take in the limestone landscape around Phou Pha Marn as the Loop turns back toward Thakhek, a viewpoint stop that puts the scale of Khammouane’s karst terrain into perspective.",
+      "spaCard": { "handwrittenTags": ["Karst view", "Loop return", "Wide landscape"], "gettingThere": "Thakhek Loop · return section", "duration": "1–2 hours", "costType": "paid", "bestTime": "Late afternoon" },
+      "verification": { "decision": "accept", "reason": "Included in the current official Thakhek Loop itinerary.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-old-thakhek-mekong",
+      "slug": "old-thakhek-mekong",
+      "name": "Old Thakhek & Mekong Riverfront",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thakhek+Old+Town+Mekong+Riverfront+Laos",
+      "shortDescription": "Walk central Thakhek’s old streets and Mekong edge, pairing colonial-era town architecture with the riverfront atmosphere that makes the city more than a departure point for the Loop.",
+      "spaCard": { "handwrittenTags": ["Old town", "Mekong walk", "Easy evening"], "gettingThere": "Walk from central Thakhek", "duration": "1–3 hours", "costType": "free", "bestTime": "Late afternoon" },
+      "verification": { "decision": "accept", "reason": "Old Thakhek is a current official Khammouane Tourism attraction.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-sikhottabong-stupa",
+      "slug": "sikhottabong-stupa",
+      "name": "Sikhottabong Stupa",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sikhottabong+Stupa+Thakhek+Laos",
+      "shortDescription": "Visit Khammouane’s sacred Sikhottabong Stupa for a cultural counterpoint to the Loop, connecting Thakhek with the province’s Buddhist history and local pilgrimage tradition.",
+      "spaCard": { "handwrittenTags": ["Sacred stupa", "Local history", "Cultural stop"], "gettingThere": "Short road trip from central Thakhek", "duration": "1–2 hours", "costType": "free", "bestTime": "Morning" },
+      "verification": { "decision": "accept", "reason": "Featured as a major cultural heritage site by official Khammouane Tourism.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "Khammouane Tourism", "reviewedAt": "2026-08-12" },
+      "researchSources": [{ "sourceName": "Khammouane Tourism", "sourceUrl": "https://www.khammouanetourism.org/en", "purpose": "facts" }]
+    },
+    {
+      "id": "thing-hin-nam-no-national-park",
+      "slug": "hin-nam-no-national-park",
+      "name": "Hin Nam No National Park",
+      "isLandmark": false,
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hin+Nam+No+National+Park+Laos",
+      "shortDescription": "Go beyond the classic Loop into Hin Nam No’s exceptional karst landscape, where community-guided cave, river and nature experiences reach one of Laos’s most important protected areas.",
+      "spaCard": { "handwrittenTags": ["World Heritage", "Remote karst", "Guided nature"], "gettingThere": "Boualapha District · plan local transport and guide", "duration": "Full day or multi-day", "costType": "paid", "bestTime": "Dry season" },
+      "verification": { "decision": "accept", "reason": "Current UNESCO World Heritage property and official tourism destination.", "checkedAt": "2026-08-12T00:00:00.000Z" },
+      "sourceMetadata": { "sourceName": "UNESCO World Heritage Centre", "reviewedAt": "2026-08-12" },
+      "researchSources": [
+        { "sourceName": "UNESCO World Heritage Centre", "sourceUrl": "https://whc.unesco.org/en/list/951", "purpose": "facts" },
+        { "sourceName": "Tourism Laos", "sourceUrl": "https://www.tourismlaos.org/welcome/theworldheritagesite/", "purpose": "facts" }
+      ]
+    }
+  ]
+}
