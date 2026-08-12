@@ -22,7 +22,7 @@ export interface ThingToDoSpaCardContent extends SpaCardContent { gettingThere: 
 export interface VerificationMetadata { decision: 'accept' | 'manual-review' | 'reject-closed'; reason: string; checkedAt?: string; }
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
 export interface ManualLocks { [field: string]: ManualField<unknown> | undefined; }
-export interface Country { id: string; slug: string; name: string; country: string; chapter: string; accentColor: string; media: CountryMediaManifest; map: { center: Coordinates; zoom: number }; seo: SeoMetadata; }
+export interface Country { id: string; slug: string; name: string; chapter: string; accentColor: string; media: CountryMediaManifest; map: { center: Coordinates; zoom: number }; seo: SeoMetadata; }
 export interface ExploreBoardConfig { featuredThingIds: string[]; }
 export interface ExploreBoardCardContent { kicker: string; duration: string; route: string; }
 export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; }
