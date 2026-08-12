@@ -6,6 +6,7 @@ const BLOCKED_FIRST_PARTY_HOSTS = [
   'booking.com', 'agoda.com', 'tripadvisor.', 'expedia.', 'google.', 'maps.apple.',
   'hostelworld.', 'hotels.com', 'traveloka.', 'airbnb.',
 ];
+const DECORATIVE_IMAGE_PATTERN = /(?:^|[\s/_-])(logo|icon|favicon|sprite|avatar|badge|flag|payment|visa|mastercard|arrow|close|loader|spinner|pixel|tracking|social)(?:[\s/_.-]|$)/i;
 
 function validHttpUrl(value) {
   try {
@@ -101,6 +102,14 @@ function attributes(tag) {
   return result;
 }
 
+function resolveUrl(value, baseUrl) {
+  try {
+    return validHttpUrl(new URL(decodeHtml(value), baseUrl).href)?.href ?? '';
+  } catch {
+    return '';
+  }
+}
+
 function pageMetadata(html, baseUrl) {
   const meta = {};
   for (const tag of String(html ?? '').match(/<meta\b[^>]*>/gi) ?? []) {
@@ -111,18 +120,47 @@ function pageMetadata(html, baseUrl) {
   for (const tag of String(html ?? '').match(/<link\b[^>]*>/gi) ?? []) {
     const attrs = attributes(tag);
     const rel = clean(attrs.rel).toLowerCase();
-    if (rel === 'image_src' && attrs.href && !meta['image_src']) meta['image_src'] = attrs.href;
+    if (rel === 'image_src' && attrs.href && !meta.image_src) meta.image_src = attrs.href;
   }
   const titleMatch = String(html ?? '').match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   const title = decodeHtml(meta['og:title'] || meta['twitter:title'] || titleMatch?.[1]);
   const rawImage = meta['og:image:secure_url'] || meta['og:image'] || meta['twitter:image'] || meta['twitter:image:src'] || meta.image_src;
-  let imageUrl = '';
-  try {
-    if (rawImage) imageUrl = new URL(decodeHtml(rawImage), baseUrl).href;
-  } catch {
-    imageUrl = '';
+  return { title, imageUrl: rawImage ? resolveUrl(rawImage, baseUrl) : '' };
+}
+
+function srcsetCandidate(value) {
+  const candidates = clean(value).split(',').map((entry) => clean(entry).split(/\s+/)[0]).filter(Boolean);
+  return candidates.at(-1) ?? '';
+}
+
+function isLikelyDecorativeImage(attrs, imageUrl) {
+  const url = validHttpUrl(imageUrl);
+  if (!url) return true;
+  if (/\.(?:svg|ico)(?:$|\?)/i.test(url.pathname)) return true;
+  const descriptor = `${url.pathname} ${attrs.alt ?? ''} ${attrs.title ?? ''} ${attrs.class ?? ''} ${attrs.id ?? ''}`;
+  if (DECORATIVE_IMAGE_PATTERN.test(descriptor)) return true;
+  const width = Number.parseInt(attrs.width, 10);
+  const height = Number.parseInt(attrs.height, 10);
+  if (Number.isFinite(width) && width > 0 && width < 320) return true;
+  if (Number.isFinite(height) && height > 0 && height < 220) return true;
+  return false;
+}
+
+function officialWebsitePageImages(html, baseUrl) {
+  const images = [];
+  const seen = new Set();
+  for (const tag of String(html ?? '').match(/<img\b[^>]*>/gi) ?? []) {
+    const attrs = attributes(tag);
+    const raw = attrs['data-src'] || attrs['data-lazy-src'] || attrs.src || srcsetCandidate(attrs.srcset);
+    const imageUrl = raw ? resolveUrl(raw, baseUrl) : '';
+    if (!imageUrl || isLikelyDecorativeImage(attrs, imageUrl)) continue;
+    const key = imageUrl.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    images.push(imageUrl);
+    if (images.length >= 8) break;
   }
-  return { title, imageUrl: validHttpUrl(imageUrl)?.href ?? '' };
+  return images;
 }
 
 function identityConfidence(candidateName, pageTitle, sourceUrl) {
@@ -138,8 +176,10 @@ function identityConfidence(candidateName, pageTitle, sourceUrl) {
 
 async function fetchHtml(sourceUrl, fetchImpl) {
   try {
+    const signal = typeof AbortSignal?.timeout === 'function' ? AbortSignal.timeout(8000) : undefined;
     const response = await fetchImpl(sourceUrl, {
       redirect: 'follow',
+      ...(signal ? { signal } : {}),
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'User-Agent': 'ThingsToDoAtlas/1.0 first-party media research',
@@ -171,32 +211,44 @@ function dedupeLeads(leads) {
   });
 }
 
+function makeLead(candidate, context, source, fetched, metadata, imageUrl, index) {
+  const confidence = identityConfidence(candidate?.name, metadata.title, fetched.finalUrl || source.sourceUrl);
+  const lead = {
+    id: `first-party-${source.sourceType}-${slugify(candidate?.id || candidate?.name || 'entity')}-${index}`,
+    entityName: clean(candidate?.name),
+    cityName: clean(context?.cityName),
+    sourceType: source.sourceType,
+    sourceName: source.sourceName,
+    sourceUrl: source.sourceUrl,
+    ...(imageUrl ? { imageUrl } : {}),
+    ...(metadata.title ? { pageTitle: metadata.title } : {}),
+    identityConfidence: confidence,
+    pageFetched: fetched.ok,
+    discoveryStatus: imageUrl ? 'image-found' : 'page-found',
+    rightsStatus: 'unconfirmed-first-party',
+    autoPublishable: false,
+    editorialAction: 'review-rights-before-use',
+  };
+  lead.score = leadScore(lead);
+  return lead;
+}
+
 export async function discoverFirstPartyPhotoLeads(candidate, context = {}, fetchImpl = globalThis.fetch) {
   if (typeof fetchImpl !== 'function') return [];
   const leads = [];
   for (const source of collectFirstPartySources(candidate)) {
     const fetched = await fetchHtml(source.sourceUrl, fetchImpl);
     const metadata = fetched.ok ? pageMetadata(fetched.html, fetched.finalUrl) : { title: '', imageUrl: '' };
-    const imageUrl = source.imageUrl || metadata.imageUrl;
-    const confidence = identityConfidence(candidate?.name, metadata.title, fetched.finalUrl || source.sourceUrl);
-    const lead = {
-      id: `first-party-${source.sourceType}-${slugify(candidate?.id || candidate?.name || 'entity')}-${leads.length + 1}`,
-      entityName: clean(candidate?.name),
-      cityName: clean(context?.cityName),
-      sourceType: source.sourceType,
-      sourceName: source.sourceName,
-      sourceUrl: source.sourceUrl,
-      ...(imageUrl ? { imageUrl } : {}),
-      ...(metadata.title ? { pageTitle: metadata.title } : {}),
-      identityConfidence: confidence,
-      pageFetched: fetched.ok,
-      discoveryStatus: imageUrl ? 'image-found' : 'page-found',
-      rightsStatus: 'unconfirmed-first-party',
-      autoPublishable: false,
-      editorialAction: 'review-rights-before-use',
-    };
-    lead.score = leadScore(lead);
-    leads.push(lead);
+    const imageUrls = [];
+    if (source.imageUrl) imageUrls.push(source.imageUrl);
+    if (metadata.imageUrl) imageUrls.push(metadata.imageUrl);
+    if (fetched.ok && source.sourceType === 'official-website') imageUrls.push(...officialWebsitePageImages(fetched.html, fetched.finalUrl));
+    const uniqueImages = [...new Set(imageUrls.filter(Boolean))].slice(0, 8);
+    if (uniqueImages.length) {
+      for (const imageUrl of uniqueImages) leads.push(makeLead(candidate, context, source, fetched, metadata, imageUrl, leads.length + 1));
+    } else {
+      leads.push(makeLead(candidate, context, source, fetched, metadata, '', leads.length + 1));
+    }
   }
   return dedupeLeads(leads).sort((a, b) => b.score - a.score || a.sourceUrl.localeCompare(b.sourceUrl)).slice(0, 12);
 }
