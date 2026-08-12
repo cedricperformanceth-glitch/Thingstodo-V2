@@ -8,6 +8,7 @@ import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
 
 const pilot = JSON.parse(fs.readFileSync('pipeline/pilots/laos/don-det-activities.json', 'utf8'));
 const draft = JSON.parse(fs.readFileSync('pipeline/cities/laos/don-det.json', 'utf8'));
+const publishedSource = JSON.parse(fs.readFileSync('pipeline/sources/laos/don-det.json', 'utf8'));
 const NOW = new Date('2026-08-12T00:00:00Z');
 
 assert.equal(pilot.country, 'laos');
@@ -16,6 +17,26 @@ assert.equal(pilot.target, 11);
 assert.equal(pilot.activities.length, pilot.target, 'pilot activity count must equal the editorial target');
 assert.equal(new Set(pilot.activities.map((item) => item.id)).size, pilot.target, 'pilot activity IDs must be unique');
 assert.equal(new Set(pilot.activities.map((item) => item.name.toLowerCase())).size, pilot.target, 'pilot activity names must be unique');
+
+const pilotIds = pilot.activities.map((item) => item.id);
+assert.deepEqual(draft.things.map((item) => item.id), pilotIds, 'published Don Det Things to do must be the exact 11-card pilot set');
+assert.deepEqual(publishedSource.things.map((item) => item.id), pilotIds, 'versioned Don Det source must contain the exact 11-card pilot set');
+assert.equal(draft.places.length, 0, 'legacy practical seed records must be removed before the practical-category test');
+assert.equal(draft.cityData.categoryTargets['things-to-do'], 11, 'published Don Det must persist the admin activity target');
+assert.equal(draft.cityData.manualLocks['categoryTargets.things-to-do']?.source, 'manual');
+assert.equal(draft.cityData.manualLocks['categoryTargets.things-to-do']?.locked, true);
+assert.doesNotMatch(draft.cityData.hero.subtitle, /reusable city engine|first tested/i, 'public Hero copy must not contain development language');
+assert.equal(draft.cityData.hero.facts.some((fact) => /profile/i.test(fact.label)), false, 'public Hero facts must not expose the internal presentation profile');
+
+for (const thing of draft.things) {
+  assert.equal('isMySelection' in thing, false, `${thing.name}: legacy isMySelection must be absent`);
+  assert.equal('selectionRank' in thing, false, `${thing.name}: legacy selectionRank must be absent`);
+  assertValidSpaCardCandidate(thing, 'thing-to-do');
+}
+const persistedPhotos = draft.things.filter((item) => item.spaCard?.photoStatus === 'verified').length;
+const persistedPlaceholders = draft.things.filter((item) => item.spaCard?.photoStatus === 'missing').length;
+assert.equal(persistedPhotos, 4, 'published Don Det must expose the four qualified pilot photos');
+assert.equal(persistedPlaceholders, 7, 'published Don Det must expose seven Photo to add placeholders');
 
 // Use the exact mechanism the future admin will use: an editorial target with a manual lock.
 setEditorialCategoryTarget(draft, 'things-to-do', pilot.target);
@@ -26,7 +47,7 @@ assert.equal(draft.cityData.manualLocks['categoryTargets.things-to-do']?.locked,
 assert.deepEqual(
   draft.cityData.categories,
   ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services'],
-  'old Don Det drafts must migrate to the current village SPA category order in memory',
+  'Don Det explicit City.categories must survive generation sync',
 );
 
 const output = [];
@@ -82,7 +103,7 @@ assert.equal(placeholders, 7, 'pilot deliberately expects seven Photo to add pla
 
 console.log('Don Det activity pilot');
 console.log(`Target: ${pilot.target} activities`);
-console.log(`Verified photos: ${verifiedPhotos} · Photo to add placeholders: ${placeholders}`);
+console.log(`Published cards: ${draft.things.length} · verified photos: ${persistedPhotos} · Photo to add: ${persistedPlaceholders}`);
 for (const [index, item] of output.entries()) {
   console.log(`${String(index + 1).padStart(2, '0')}. ${item.name} · ${item.duration} · ${item.costType} · ${item.bestTime} · photo:${item.photoStatus}`);
 }

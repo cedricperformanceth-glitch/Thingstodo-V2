@@ -1,38 +1,578 @@
 {
   "city": {
-    "description": "A compact island base in southern Laos, with Mekong river life and nearby 4,000 Islands landmarks."
+    "description": "A compact Mekong island base in Si Phan Don, with bicycle paths, river life and easy access to Don Khon and the southern waterfalls."
   },
   "places": [],
   "things": [
     {
-      "id": "thing-li-phi-waterfalls",
-      "name": "Li Phi Waterfalls",
+      "id": "thing-old-french-railway-bridge",
+      "slug": "don-khon-old-railway-bridge",
+      "name": "Don Khon & Old Railway Bridge",
       "isLandmark": true,
-      "coordinates": { "latitude": 13.9538, "longitude": 105.9215 },
-      "facts": ["waterfall", "river rapids", "near Don Det", "seasonal conditions", "viewpoint"],
-      "sections": ["overview", "whyGo", "whatToExpect", "howToGetThere", "practicalInformation"],
-      "sources": [
-        { "sourceName": "Wikimedia Commons", "sourceUrl": "https://commons.wikimedia.org/", "purpose": "media", "sourceType": "wikimedia" },
-        { "sourceName": "Google Maps", "sourceUrl": "https://www.google.com/maps", "purpose": "location" }
+      "coordinates": {
+        "latitude": 13.975,
+        "longitude": 105.924
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+French+Railway+Bridge+Don+Det+Don+Khon+Laos",
+      "shortDescription": "Cross the old railway bridge from Don Det into Don Khon, where bicycles, village paths and traces of the former Mekong portage railway shape the route.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Old bridge",
+          "Island ride",
+          "Morning"
+        ],
+        "gettingThere": "Bicycle or walk · south from Don Det",
+        "duration": "Half-day",
+        "costType": "free",
+        "bestTime": "Early morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
+          "purpose": "facts"
+        }
+      ],
+      "photoCandidates": [
+        {
+          "id": "don-det-old-railway-bridge-card",
+          "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Si%20Phan%20Don%20-%20bridge%20from%20Don%20Det%20to%20Don%20Khone%20-%20Aug%202024.jpg?width=1600",
+          "alt": "The historic bridge connecting Don Det and Don Khon in Si Phan Don",
+          "sourceType": "wikimedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg",
+          "sourceName": "Wikimedia Commons",
+          "author": "Dominic Nelson",
+          "license": "CC BY-SA 4.0",
+          "width": 1600,
+          "height": 900,
+          "subjectVerified": true,
+          "subjectConfidence": 1,
+          "sourceConfidence": 1,
+          "manual": false,
+          "locked": false
+        }
+      ],
+      "exploreBoard": {
+        "kicker": "BICYCLE · BRIDGE · ISLAND ROAD",
+        "duration": "Half day",
+        "route": "Cycle or walk from Don Det"
+      }
+    },
+    {
+      "id": "thing-li-phi-somphamit-waterfalls",
+      "slug": "li-phi-somphamit-waterfalls",
+      "name": "Li Phi · Somphamit Waterfalls",
+      "isLandmark": true,
+      "coordinates": {
+        "latitude": 13.9538,
+        "longitude": 105.9215
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Li+Phi+Somphamit+Waterfalls+Don+Khon+Laos",
+      "shortDescription": "Cycle across Don Khon to Somphamit, where the Mekong tears through wide rock channels and a sequence of viewpoints reveals the scale of Li Phi.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Mekong rapids",
+          "Don Khon",
+          "Morning"
+        ],
+        "gettingThere": "Bicycle · via the old bridge",
+        "duration": "1.5–3 hours",
+        "costType": "paid",
+        "bestTime": "Early morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tourism Laos",
+          "sourceUrl": "https://www.tourismlaos.org/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        }
+      ],
+      "photoCandidates": [
+        {
+          "id": "li-phi-somphamit-card",
+          "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Li%20Phi%20Falls.jpg?width=1600",
+          "alt": "Li Phi and Somphamit rapids on Don Khon in Si Phan Don",
+          "sourceType": "wikimedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Li_Phi_Falls.jpg",
+          "sourceName": "Wikimedia Commons",
+          "author": "Basile Morin",
+          "license": "CC BY-SA 4.0",
+          "width": 1600,
+          "height": 1066,
+          "subjectVerified": true,
+          "subjectConfidence": 1,
+          "sourceConfidence": 1,
+          "manual": false,
+          "locked": false
+        }
+      ],
+      "exploreBoard": {
+        "kicker": "WATERFALL · RAPIDS · DON KHON",
+        "duration": "1.5–3 hours",
+        "route": "Bicycle via the old bridge"
+      }
+    },
+    {
+      "id": "thing-khone-phapheng-falls",
+      "slug": "khone-phapheng-falls",
+      "name": "Khone Phapheng Falls",
+      "isLandmark": true,
+      "coordinates": {
+        "latitude": 13.95977,
+        "longitude": 105.98653
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone+Phapheng+Falls+Laos",
+      "shortDescription": "Leave Don Det for Khone Phapheng, where the Mekong spreads into an immense cataract and the journey combines an island boat crossing with a road transfer.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Huge cataract",
+          "Mekong power",
+          "Morning"
+        ],
+        "gettingThere": "Boat to Nakasang · then road transfer",
+        "duration": "Half-day",
+        "costType": "paid",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tourism Laos",
+          "sourceUrl": "https://www.tourismlaos.org/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        }
       ]
     },
     {
-      "id": "thing-old-french-railway-bridge",
-      "name": "Old French Railway Bridge",
-      "isLandmark": true,
-      "coordinates": { "latitude": 13.975, "longitude": 105.924 },
-      "facts": ["bridge", "walk", "island connection"],
-      "sections": ["overview", "howToGetThere", "practicalInformation"],
-      "sources": [{ "sourceName": "Google Maps", "sourceUrl": "https://www.google.com/maps", "purpose": "location" }]
+      "id": "thing-don-som-island",
+      "slug": "don-som",
+      "name": "Don Som",
+      "isLandmark": false,
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Som+Si+Phan+Don+Laos",
+      "shortDescription": "Cross by local boat to Don Som, a quieter farming island where village roads, fields and ordinary Mekong life replace Don Det’s traveller strip.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Local boat",
+          "Rural island",
+          "Slow day"
+        ],
+        "gettingThere": "Local boat · from Don Det pier",
+        "duration": "Half-day to full day",
+        "costType": "paid",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "DonDet.net",
+          "sourceUrl": "https://www.dondet.net/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don",
+          "purpose": "facts"
+        }
+      ]
     },
     {
-      "id": "thing-mekong-sunset",
-      "name": "Mekong Sunset Walk",
+      "id": "thing-khone-pa-soi-waterfall",
+      "slug": "khone-pa-soi-waterfall",
+      "name": "Khone Pa Soi Waterfall",
       "isLandmark": true,
-      "coordinates": { "latitude": 13.972, "longitude": 105.913 },
-      "facts": ["walk", "sunset", "riverbank"],
-      "sections": ["overview", "bestTime", "localNotes"],
-      "sources": [{ "sourceName": "Local route notes", "purpose": "facts" }]
+      "coordinates": {
+        "latitude": 13.95492,
+        "longitude": 105.93754
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone+Pa+Soi+Waterfall+Don+Khon+Laos",
+      "shortDescription": "Follow Don Khon’s rougher eastern tracks to Khone Pa Soi, a smaller Mekong waterfall route where the quieter bicycle approach is part of the experience.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Quiet falls",
+          "Rough track",
+          "Bicycle"
+        ],
+        "gettingThere": "Bicycle · eastern Don Khon",
+        "duration": "1–2 hours",
+        "costType": "free",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Lonely Planet",
+          "sourceUrl": "https://www.lonelyplanet.com/",
+          "purpose": "facts"
+        }
+      ]
+    },
+    {
+      "id": "thing-xai-kong-nyai-beach",
+      "slug": "xai-kong-nyai-beach",
+      "name": "Xai Kong Nyai Beach",
+      "isLandmark": false,
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xai+Kong+Nyai+Beach+Don+Khon+Laos",
+      "shortDescription": "Continue beyond Somphamit to Xai Kong Nyai, a sandy Don Khon riverbank for simple food, a slow rest and cautious swimming close to shore.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Sandy bank",
+          "Slow swim",
+          "Afternoon"
+        ],
+        "gettingThere": "Bicycle · through Don Khon",
+        "duration": "1–3 hours",
+        "costType": "free",
+        "bestTime": "Afternoon"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Lonely Planet",
+          "sourceUrl": "https://www.lonelyplanet.com/",
+          "purpose": "facts"
+        }
+      ],
+      "photoCandidates": [
+        {
+          "id": "xai-kong-nyai-beach-card",
+          "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Main%20beach%20of%20Don%20Khon%20in%20Laos.jpg?width=1600",
+          "alt": "Sandy Mekong beach on Don Khon",
+          "sourceType": "wikimedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg",
+          "sourceName": "Wikimedia Commons",
+          "author": "Basile Morin",
+          "license": "CC BY-SA 4.0",
+          "width": 1600,
+          "height": 1066,
+          "subjectVerified": true,
+          "subjectConfidence": 0.96,
+          "sourceConfidence": 1,
+          "manual": false,
+          "locked": false
+        }
+      ]
+    },
+    {
+      "id": "thing-si-phan-don-by-boat",
+      "slug": "si-phan-don-by-boat",
+      "name": "Si Phan Don by Boat",
+      "isLandmark": false,
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+boat+pier+Laos",
+      "shortDescription": "Charter a local long-tail boat from Don Det and follow the Mekong beyond the main islands through working channels, village banks and quieter Si Phan Don scenery.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Long-tail",
+          "Island hopping",
+          "River day"
+        ],
+        "gettingThere": "Arrange locally · Don Det boat pier",
+        "duration": "Half-day to full day",
+        "costType": "paid",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "DonDet.net",
+          "sourceUrl": "https://www.dondet.net/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        }
+      ]
+    },
+    {
+      "id": "thing-4000-islands-kayaking",
+      "slug": "4000-islands-kayaking",
+      "name": "4,000 Islands Kayaking",
+      "isLandmark": false,
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kayak+tour+Don+Det+Laos",
+      "shortDescription": "Paddle the southern Si Phan Don channels on a guided day from Don Det, mixing calm water, stronger current and short overland sections between river stops.",
+      "spaCard": {
+        "handwrittenTags": [
+          "River paddle",
+          "Full day",
+          "Get wet"
+        ],
+        "gettingThere": "Guided departure · from Don Det",
+        "duration": "Full day",
+        "costType": "paid",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Discover Laos",
+          "sourceUrl": "https://discoverlaos.today/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "DonDet.net",
+          "sourceUrl": "https://www.dondet.net/",
+          "purpose": "facts"
+        }
+      ]
+    },
+    {
+      "id": "thing-cycle-don-det-don-khon",
+      "slug": "cycle-don-det-don-khon",
+      "name": "Cycle Don Det & Don Khon",
+      "isLandmark": false,
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos",
+      "shortDescription": "Rent a bicycle on Don Det and link flat island paths, the old railway bridge and Don Khon’s quieter roads into an easy self-paced day.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Flat roads",
+          "Island loop",
+          "Bicycle"
+        ],
+        "gettingThere": "Start on Don Det · rental bicycle",
+        "duration": "Half-day to full day",
+        "costType": "paid",
+        "bestTime": "Early morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Sawa Discovery",
+          "sourceUrl": "https://sawadiscovery.com/",
+          "purpose": "facts"
+        }
+      ]
+    },
+    {
+      "id": "thing-don-det-tubing",
+      "slug": "tubing-on-don-det",
+      "name": "Tubing on Don Det",
+      "isLandmark": false,
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos",
+      "shortDescription": "Rent a tube on Don Det and float a suitable Mekong section at river pace, checking the current route and conditions locally before entering the water.",
+      "spaCard": {
+        "handwrittenTags": [
+          "River float",
+          "Slow pace",
+          "Get wet"
+        ],
+        "gettingThere": "Arrange locally · on Don Det",
+        "duration": "1–3 hours",
+        "costType": "paid",
+        "bestTime": "Afternoon"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Sawa Discovery",
+          "sourceUrl": "https://sawadiscovery.com/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Gecko Routes",
+          "sourceUrl": "https://www.geckoroutes.com/",
+          "purpose": "facts"
+        }
+      ]
+    },
+    {
+      "id": "thing-don-det-sunset",
+      "slug": "sunset-on-don-det",
+      "name": "Sunset on Don Det",
+      "isLandmark": false,
+      "coordinates": {
+        "latitude": 13.972,
+        "longitude": 105.913
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos",
+      "shortDescription": "Walk or cycle to Don Det’s western side as the light drops across the Mekong, then stay for an unhurried riverside end to the day.",
+      "spaCard": {
+        "handwrittenTags": [
+          "West side",
+          "Mekong light",
+          "Sunset"
+        ],
+        "gettingThere": "Walk or bicycle · west Don Det",
+        "duration": "1–2 hours",
+        "costType": "free",
+        "bestTime": "Sunset"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Sawa Discovery",
+          "sourceUrl": "https://sawadiscovery.com/",
+          "purpose": "facts"
+        }
+      ],
+      "photoCandidates": [
+        {
+          "id": "don-det-sunset-card",
+          "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20at%20Don%20Det.jpg?width=1600",
+          "alt": "Sunset over the Mekong at Don Det",
+          "sourceType": "wikimedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Don_Det.jpg",
+          "sourceName": "Wikimedia Commons",
+          "author": "Basile Morin",
+          "license": "CC BY-SA 4.0",
+          "width": 1600,
+          "height": 1018,
+          "subjectVerified": true,
+          "subjectConfidence": 0.98,
+          "sourceConfidence": 1,
+          "manual": false,
+          "locked": false
+        }
+      ]
     }
   ]
 }

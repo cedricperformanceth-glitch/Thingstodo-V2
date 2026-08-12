@@ -3,23 +3,29 @@
 The scripts in `/scripts` run only for developers. The public Astro runtime reads
 static, versioned content and never researches businesses, maps, or media for a visitor.
 
-`pnpm create-city laos city-slug --settlement village --profile compact` creates a valid empty City
+`npm run create-city -- laos city-slug --settlement village --profile compact` creates a valid empty City
 module and a versioned pipeline container. `--settlement` is mandatory and accepts only
-`village` or `city`; it selects the universal SPA category contract. The profile remains
-a separate density/search-scope hint and does not override the country content ranges.
+`village` or `city`; it selects the universal SPA category allowance and seeds the initial
+city category list. The profile remains a separate density/search-scope hint and does not
+override the country content ranges.
+
+`City.categories` is the explicit editorial source of truth for the categories enabled in a city and their order.
+The admin/editor owns that decision. Generation validates the list against the settlement allowance and preserves it;
+it must never silently replace the city's configured categories with a settlement default.
 The command registers the city with the shared City Engine without copying components or routes.
 
-Village SPA order: Things to do → Restaurants → Coffee → Guest Houses → Essential Information → My Favorites.
+Default village SPA order: Things to do → Restaurants → Coffee → Guest Houses → Essential Information → My Favorites.
 
-City SPA order: Things to do → Restaurants → Coffee → Guest Houses → Rental Scooter → Gym & Fitness → Market & Shopping → Essential Information → My Favorites.
+Default city SPA order: Things to do → Restaurants → Coffee → Guest Houses → Rental Scooter → Gym & Fitness → Market & Shopping → Essential Information → My Favorites.
 
-`My Favorites` is appended by the SPA engine for every settlement and is not part of the generated category count.
+`My Favorites` is appended by the SPA engine for every settlement and is not part of `City.categories` or the generated category count.
 
 ## Laos content targets
 
 The versioned generation contract lives in `pipeline/contracts/content-targets.json`. Automatic numeric values are
 selected deterministically from the configured range using the country/city/category seed: different cities
 vary naturally, while rebuilding the same city keeps the same automatic target.
+Only categories enabled in `City.categories` receive a target or research plan.
 
 Things to do is different from the automatic address categories:
 - the admin/editor chooses the exact number for each settlement;
@@ -188,9 +194,9 @@ Travel and booking platforms are discovery inputs, not sources to copy from. Des
 rankings, photos, and editorial wording from competing guide or booking platforms are not republished. TripAdvisor
 candidate discovery remains restricted to name-only use.
 
-`pnpm generate-city laos city-slug --dry-run` validates the source container and
+`npm run generate-city -- laos city-slug --dry-run` validates the source container and
 shows the deterministic output plan. Without `--dry-run`, it fills only unlocked
-gaps and re-syncs the settlement/category generation contract before writing. Older draft containers
+gaps and re-syncs the configured city/category generation contract before writing. Older draft containers
 without a persisted `researchPlan` are migrated automatically on their next non-dry-run refresh.
 It never overwrites fields listed in `manualLocks` with `source: manual` and
 `locked: true`. Locks live on the relevant city/entity record as `manualLocks["nested.field"]`; a lock on a parent path protects its children. Pipeline-draft root locks are not supported.

@@ -11,7 +11,7 @@ const [country, city, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
 const fromCity = flags.includes('--from-city');
 const publishCheck = flags.includes('--publish-check');
-if (!country || !city) throw new Error('Usage: pnpm generate-city <country> <city> [--dry-run] [--from-city] [--publish-check]');
+if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check]');
 
 const root = process.cwd();
 const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`);

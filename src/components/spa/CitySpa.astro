@@ -11,7 +11,7 @@ import SpaPanel from './SpaPanel.astro';
 interface Props { city: City; }
 const { city } = Astro.props;
 const tabs = getSpaTabs(city);
-const defaultSlug = city.settlementType === 'village' ? 'accommodation' : 'restaurants';
+const defaultSlug = tabs.some((tab) => tab.slug === 'things-to-do') ? 'things-to-do' : (tabs[0]?.slug ?? 'favorites');
 const cityId = `${city.country}-${city.slug}`;
 ---
 

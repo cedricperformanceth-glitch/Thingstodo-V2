@@ -1,9 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { validateSpaCardCandidate } from './spa-card-generation.mjs';
+import { validateCityCategories } from './city-pipeline.mjs';
 
 const contract = JSON.parse(readFileSync(new URL('../../pipeline/contracts/city-publish-qa.json', import.meta.url), 'utf8'));
-const spaCategories = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
-const SETTLEMENT_CATEGORIES = Object.freeze({ village: Object.freeze([...spaCategories.village]), city: Object.freeze([...spaCategories.city]) });
 
 export const CITY_PUBLISH_QA_CONTRACT = contract;
 
@@ -55,6 +54,10 @@ function checkTargets(draft, entities, issues) {
 
   for (const [category, target] of Object.entries(targets)) {
     if (category === 'things-to-do' || !Number.isInteger(target)) continue;
+    if (!(draft?.cityData?.categories ?? []).includes(category)) {
+      issues.push(issue('error', 'target-for-disabled-category', `Category target '${category}' exists but the category is not enabled in City.categories.`));
+      continue;
+    }
     const actual = counts[category] ?? 0;
     if (actual < target) {
       issues.push(issue('error', 'category-target-underfilled', `${category} must contain at least its generated target of ${target}; found ${actual}.`));
@@ -111,6 +114,8 @@ function checkTransientFields(entity, issues) {
       issues.push(issue('error', 'transient-generation-field', `Generation-only field '${field}' must not leak into published content.`, label));
     }
   }
+  if ('isMySelection' in (entity ?? {})) issues.push(issue('error', 'legacy-selection-field', "Legacy field 'isMySelection' is forbidden.", label));
+  if ('selectionRank' in (entity ?? {})) issues.push(issue('error', 'legacy-selection-field', "Legacy field 'selectionRank' is forbidden.", label));
 }
 
 function checkMedia(entity, issues) {
@@ -150,7 +155,7 @@ function checkEntity(entity, kind, draft, allowedCategories, issues) {
   checkTransientFields(entity, issues);
 
   if (!allowedCategories.has(entity.category)) {
-    issues.push(issue('error', 'invalid-category', `Category '${entity.category ?? ''}' is not available in this settlement SPA.`, label));
+    issues.push(issue('error', 'invalid-category', `Category '${entity.category ?? ''}' is not enabled in City.categories.`, label));
   }
 
   const spaValidation = validateSpaCardCandidate(entity, kind);
@@ -173,20 +178,20 @@ function checkEntity(entity, kind, draft, allowedCategories, issues) {
 export function evaluateCityPublication(draft) {
   const issues = [];
   const settlementType = draft?.cityData?.settlementType;
-  const expectedCategories = SETTLEMENT_CATEGORIES[settlementType];
   const actualCategories = draft?.cityData?.categories ?? [];
   const cityKey = `${draft?.country ?? '?'}/${draft?.city ?? '?'}`;
+  let configuredCategories = [];
 
-  if (!expectedCategories) {
-    issues.push(issue('error', 'invalid-settlement-type', `${cityKey}: settlementType must be village or city.`));
-  } else if (JSON.stringify(actualCategories) !== JSON.stringify([...expectedCategories])) {
-    issues.push(issue('error', 'city-category-contract', `${cityKey}: SPA category order does not match the ${settlementType} contract.`));
+  try {
+    configuredCategories = validateCityCategories(actualCategories, settlementType, cityKey);
+  } catch (error) {
+    issues.push(issue('error', 'city-category-contract', error instanceof Error ? error.message : String(error)));
   }
 
   const places = draft?.places ?? [];
   const things = draft?.things ?? [];
   const entities = [...places, ...things];
-  const allowedCategories = new Set(expectedCategories ?? actualCategories);
+  const allowedCategories = new Set(configuredCategories);
 
   checkDuplicateValues(entities, (entity) => entity.id, 'entity ID', issues);
   checkDuplicateValues(entities, (entity) => entity.slug, 'entity slug', issues);

@@ -3,7 +3,7 @@ import path from 'node:path';
 import { evaluateCityPublication } from './lib/city-publish-qa.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2);
-if (!country || !city) throw new Error('Usage: pnpm qa-city <country> <city> [--json]');
+if (!country || !city) throw new Error('Usage: npm run qa-city -- <country> <city> [--json]');
 
 const root = process.cwd();
 const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`);

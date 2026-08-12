@@ -29,8 +29,20 @@ const definitions: Record<CategorySlug, { title: string; icon: Exclude<SpaTabIco
 export const spaCategoriesFor = (settlementType: SettlementType): readonly CategorySlug[] => categoryOrder[settlementType];
 
 export function getSpaTabs(city: City): SpaTabDefinition[] {
-  const categories = categoryOrder[city.settlementType];
-  if (!categories) throw new Error(`Unknown SPA settlement type for ${city.country}/${city.slug}: ${city.settlementType}`);
+  const allowedCategories = categoryOrder[city.settlementType];
+  if (!allowedCategories) throw new Error(`Unknown SPA settlement type for ${city.country}/${city.slug}: ${city.settlementType}`);
+
+  const categories = city.categories;
+  if (!Array.isArray(categories) || categories.length === 0) {
+    throw new Error(`City categories are required for ${city.country}/${city.slug}.`);
+  }
+
+  const allowed = new Set<CategorySlug>(allowedCategories);
+  for (const slug of categories) {
+    if (!allowed.has(slug)) {
+      throw new Error(`Category '${slug}' is not allowed for ${city.settlementType} settlement ${city.country}/${city.slug}.`);
+    }
+  }
 
   const tabs = categories.map((slug) => {
     const definition = definitions[slug];

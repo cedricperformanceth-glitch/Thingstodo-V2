@@ -4,7 +4,7 @@ This is the final gate for the current SPA-card generation pipeline. It does **n
 
 ## Final workflow
 
-1. Structure and content volumes define the settlement SPA and category targets.
+1. Structure and content volumes define the settlement SPA and category targets. `City.categories` is the explicit editorial source of truth for the categories enabled in that city; the settlement type defines what is allowed.
 2. Selection rules define what qualifies for each category, including Things to do.
 3. Source verification decides whether candidates are current and trustworthy enough to use.
 4. The SPA-card contract defines the data required on every visible card.
@@ -19,19 +19,19 @@ Field Card generation remains outside this pipeline until it is developed separa
 Normal iterative generation:
 
 ```bash
-pnpm generate-city laos <city-slug>
+npm run generate-city -- laos <city-slug>
 ```
 
 Preview generation without writing:
 
 ```bash
-pnpm generate-city laos <city-slug> --dry-run
+npm run generate-city -- laos <city-slug> --dry-run
 ```
 
 Final generation with strict publication preflight:
 
 ```bash
-pnpm generate-city laos <city-slug> --publish-check
+npm run generate-city -- laos <city-slug> --publish-check
 ```
 
 The `--publish-check` flow prepares verification, editorial data and media, assembles the complete city in memory, runs the publication QA, and writes the generated city only when the QA is not blocked.
@@ -39,13 +39,13 @@ The `--publish-check` flow prepares verification, editorial data and media, asse
 A strict dry-run is also available:
 
 ```bash
-pnpm generate-city laos <city-slug> --publish-check --dry-run
+npm run generate-city -- laos <city-slug> --publish-check --dry-run
 ```
 
 To inspect an already generated city without changing it:
 
 ```bash
-pnpm qa-city laos <city-slug>
+npm run qa-city -- laos <city-slug>
 ```
 
 Use `--json` for a machine-readable report.
@@ -65,10 +65,11 @@ No blocking issue, but one or more SPA cards have no qualified real photo. Those
 The city must not be treated as publication-ready. Blocking problems include:
 
 - the city/settlement SPA contract is inconsistent;
+- `City.categories` is missing, duplicated, contains a category not allowed for the settlement, or omits Things to do;
 - the exact admin-selected Things to do target is missing or not met exactly;
 - an automatically targeted practical category is below its target;
 - duplicate IDs, slugs or normalized names;
-- a card is in a category unavailable for that settlement;
+- a card is in a category not enabled by `City.categories`;
 - required SPA-card data is missing or invalid;
 - the Google Maps CTA is invalid;
 - an automatically researched entity does not have an accepted source-verification decision;
@@ -80,7 +81,7 @@ The city must not be treated as publication-ready. Blocking problems include:
 
 `Things to do` is special: the admin/editor chooses an exact target between the configured hard limits, and the final published automatic set must match that exact target.
 
-For practical categories that have an automatic target, the final city must contain **at least** that target. Manual editorial additions are allowed above it.
+For practical categories that are enabled in `City.categories` and have an automatic target, the final city must contain **at least** that target. Manual editorial additions are allowed above it.
 
 Categories without automatic numeric targets do not receive an artificial minimum at publication QA.
 
@@ -105,7 +106,7 @@ Explore Board featured landmarks remain stricter because the existing Explore Bo
 Before actual deployment/publication, also run the existing repository verification chain:
 
 ```bash
-pnpm verify:city-template
+npm run verify:city-template
 ```
 
 That chain covers architecture, generated-data validation, regression tests, Astro checks and the production build. Publication QA validates the selected city content; the repository verification chain validates that the website as a whole still builds correctly.

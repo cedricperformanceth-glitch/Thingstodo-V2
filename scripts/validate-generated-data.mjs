@@ -1,5 +1,5 @@
 import fs from 'node:fs'; import path from 'node:path';
-import { SETTLEMENT_CATEGORIES, categoryTargets, lockedCategoryTargetOverrides, researchPlan } from './lib/city-pipeline.mjs';
+import { categoryTargets, lockedCategoryTargetOverrides, researchPlan, validateCityCategories } from './lib/city-pipeline.mjs';
 const root=process.cwd(), dir=path.join(root,'pipeline','cities'); const drafts=fs.existsSync(dir)?fs.readdirSync(dir,{recursive:true}).filter(x=>String(x).endsWith('.json')).map(x=>JSON.parse(fs.readFileSync(path.join(dir,x),'utf8'))):[];
 const fail=[]; const legacyPlans=[]; const unique=(items,key,label)=>{const seen=new Set(); for(const item of items){const value=key(item); if(seen.has(value)) fail.push(`Duplicate ${label}: ${value}`); seen.add(value);}};
 unique(drafts,x=>x.cityData.id,'city ID'); unique(drafts,x=>`${x.country}/${x.city}`,'city route'); unique(drafts.flatMap(x=>x.places),x=>x.id,'Place ID'); unique(drafts.flatMap(x=>x.things),x=>x.id,'ThingToDo ID'); unique(drafts.flatMap(x=>x.places),x=>`${x.country}/${x.city}/${x.slug}`,'Place route slug'); unique(drafts.flatMap(x=>x.things),x=>`${x.country}/${x.city}/${x.slug}`,'ThingToDo route slug');
@@ -9,29 +9,29 @@ for (const draft of drafts) {
   if (draft.cityData.hero?.media) fail.push(`City Hero visual media must come from the asset resolver: ${cityKey}`);
 
   const settlementType=draft.cityData.settlementType;
-  const expectedCategories=SETTLEMENT_CATEGORIES[settlementType];
-  if (!expectedCategories) fail.push(`City settlementType must be 'village' or 'city': ${cityKey}`);
-  else {
-    const actual=draft.cityData.categories ?? [];
+  let actualCategories=[];
+  try {
+    actualCategories=validateCityCategories(draft.cityData.categories,settlementType,cityKey);
+  } catch (error) {
+    fail.push(`${cityKey}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  if (actualCategories.length) {
     const hasGenerationPlan=draft.researchPlan !== undefined;
     if (hasGenerationPlan) {
-      if (JSON.stringify(actual)!==JSON.stringify([...expectedCategories])) fail.push(`SPA categories must match ${settlementType} contract for ${cityKey}: expected ${expectedCategories.join(', ')}`);
-
       const seed=`${draft.country}/${draft.city}`;
       try {
         const overrides=lockedCategoryTargetOverrides(draft.cityData);
-        const expectedTargets=categoryTargets(draft.country,settlementType,seed,expectedCategories,overrides);
+        const expectedTargets=categoryTargets(draft.country,settlementType,seed,actualCategories,overrides);
         const actualTargets=draft.cityData.categoryTargets ?? {};
-        if (JSON.stringify(actualTargets)!==JSON.stringify(expectedTargets)) fail.push(`Category targets must match persisted ${draft.country}/${settlementType} generation rules for ${cityKey}: expected ${JSON.stringify(expectedTargets)}, received ${JSON.stringify(actualTargets)}`);
+        if (JSON.stringify(actualTargets)!==JSON.stringify(expectedTargets)) fail.push(`Category targets must match the configured City.categories for ${cityKey}: expected ${JSON.stringify(expectedTargets)}, received ${JSON.stringify(actualTargets)}`);
       } catch (error) {
         fail.push(`${cityKey}: ${error instanceof Error ? error.message : String(error)}`);
       }
 
-      const expectedResearchPlan=researchPlan(draft.country,settlementType,seed,expectedCategories);
-      if (JSON.stringify(draft.researchPlan)!==JSON.stringify(expectedResearchPlan)) fail.push(`Research plan must match persisted ${draft.country}/${settlementType} generation rules for ${cityKey}: expected ${JSON.stringify(expectedResearchPlan)}, received ${JSON.stringify(draft.researchPlan)}`);
+      const expectedResearchPlan=researchPlan(draft.country,settlementType,seed,actualCategories);
+      if (JSON.stringify(draft.researchPlan)!==JSON.stringify(expectedResearchPlan)) fail.push(`Research plan must match configured City.categories for ${cityKey}: expected ${JSON.stringify(expectedResearchPlan)}, received ${JSON.stringify(draft.researchPlan)}`);
     } else {
-      const actualSet=[...new Set(actual)].sort(); const expectedSet=[...new Set(expectedCategories)].sort();
-      if (JSON.stringify(actualSet)!==JSON.stringify(expectedSet)) fail.push(`Legacy SPA categories must contain the ${settlementType} contract set for ${cityKey}: expected ${expectedCategories.join(', ')}`);
       legacyPlans.push(cityKey);
     }
   }
@@ -59,6 +59,9 @@ for (const draft of drafts) {
 
   for (const entity of [...draft.places, ...draft.things]) {
     if (entity.media?.hero) fail.push(`Place/ThingToDo media must not contain Hero media: ${cityKey}/${entity.slug}`);
+    if ('isMySelection' in entity) fail.push(`Legacy isMySelection field is forbidden: ${cityKey}/${entity.slug}`);
+    if ('selectionRank' in entity) fail.push(`Legacy selectionRank field is forbidden: ${cityKey}/${entity.slug}`);
+    if (!draft.cityData.categories?.includes(entity.category)) fail.push(`Entity category is not enabled by City.categories: ${cityKey}/${entity.slug} -> ${entity.category}`);
   }
 }
 if(fail.length) throw new Error(fail.join('\n'));

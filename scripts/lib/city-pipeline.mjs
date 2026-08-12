@@ -116,6 +116,7 @@ export function setEditorialCategoryTarget(draft, category, value) {
   const settlementType = draft?.cityData?.settlementType;
   const rule = contentRuleFor(country, settlementType).categories?.[category];
   if (!rule || rule.selectionMode !== 'editorial') throw new Error(`Category '${category}' is not configured for editorial target selection in ${country}/${settlementType}.`);
+  if (!draft?.cityData?.categories?.includes(category)) throw new Error(`Category '${category}' is not enabled for ${country}/${draft?.city ?? draft?.cityData?.slug ?? 'city'}.`);
   const target = validateTargetValue(value, rule, `${country}/${settlementType}/${category}`);
   draft.cityData.categoryTargets ??= {};
   draft.cityData.manualLocks ??= {};
@@ -124,13 +125,30 @@ export function setEditorialCategoryTarget(draft, category, value) {
   return target;
 }
 
+export function validateCityCategories(categories, settlementType, key = 'city') {
+  const allowedCategories = SETTLEMENT_CATEGORIES[settlementType];
+  if (!allowedCategories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  if (!Array.isArray(categories) || categories.length === 0) throw new Error(`City categories are required for ${key}.`);
+  if (new Set(categories).size !== categories.length) throw new Error(`City categories must be unique for ${key}.`);
+  const allowed = new Set(allowedCategories);
+  const invalid = categories.filter((category) => !allowed.has(category));
+  if (invalid.length) throw new Error(`City categories are not allowed for ${settlementType} ${key}: ${invalid.join(', ')}`);
+  if (!categories.includes('things-to-do')) throw new Error(`City categories must include things-to-do for ${key}.`);
+  return [...categories];
+}
+
 export function syncGenerationContract(draft) {
   const settlementType = draft.cityData?.settlementType;
-  const categories = SETTLEMENT_CATEGORIES[settlementType];
-  if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  const defaultCategories = SETTLEMENT_CATEGORIES[settlementType];
+  if (!defaultCategories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  const categories = validateCityCategories(
+    Array.isArray(draft.cityData?.categories) && draft.cityData.categories.length ? draft.cityData.categories : defaultCategories,
+    settlementType,
+    `${draft.country}/${draft.city}`,
+  );
   const seed = `${draft.country}/${draft.city}`;
   const overrides = lockedCategoryTargetOverrides(draft.cityData);
-  draft.cityData.categories = [...categories];
+  draft.cityData.categories = categories;
   draft.cityData.categoryTargets = categoryTargets(draft.country, settlementType, seed, categories, overrides);
   draft.researchPlan = researchPlan(draft.country, settlementType, seed, categories);
   return draft;
