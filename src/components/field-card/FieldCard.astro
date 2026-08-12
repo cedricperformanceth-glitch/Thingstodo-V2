@@ -6,6 +6,24 @@ import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import TripButton from '../shared/TripButton.astro';
 interface Props { thing: ThingToDo; }
 const { thing } = Astro.props; const view = fieldCardView(thing);
+const hasFaq = thing.fieldCard.faq.length > 0;
 ---
-<article class={`field-card field-card--${view.template}`}><header class="field-card__header"><div><p>{view.relatedLabel}</p><h1>{thing.name}</h1></div><FavoriteHeart entity={thing} /></header><p>{thing.longDescription}</p><div class="field-card__actions">{thing.googleMapsUrl && <a class="button button--quiet" href={thing.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>}<TripButton entity={thing} /></div><section><h2>Why go</h2><p>{thing.fieldCard.whyGo}</p></section>{view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}{thing.fieldCard.sections?.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}<section><h2>Practical information</h2><p>{thing.fieldCard.practical}</p></section><section><h2>How to get there</h2><p>{thing.fieldCard.access}</p></section>{thing.fieldCard.notes && <section><h2>Useful notes</h2><p>{thing.fieldCard.notes}</p></section>}<section><h2>FAQ</h2>{thing.fieldCard.faq.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section></article>
+<article class={`field-card field-card--${view.template}`}>
+  <header class="field-card__header">
+    <div><p>{view.relatedLabel}</p><h1>{thing.name}</h1></div>
+    <FavoriteHeart entity={thing} />
+  </header>
+  {thing.longDescription && <p>{thing.longDescription}</p>}
+  <div class="field-card__actions">
+    {thing.googleMapsUrl && <a class="button button--quiet" href={thing.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>}
+    <TripButton entity={thing} />
+  </div>
+  {thing.fieldCard.whyGo && <section><h2>Why go</h2><p>{thing.fieldCard.whyGo}</p></section>}
+  {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}
+  {thing.fieldCard.sections?.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
+  {thing.fieldCard.practical && <section><h2>Practical information</h2><p>{thing.fieldCard.practical}</p></section>}
+  {thing.fieldCard.access && <section><h2>How to get there</h2><p>{thing.fieldCard.access}</p></section>}
+  {thing.fieldCard.notes && <section><h2>Useful notes</h2><p>{thing.fieldCard.notes}</p></section>}
+  {hasFaq && <section><h2>FAQ</h2>{thing.fieldCard.faq.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section>}
+</article>
 <style>.field-card__header{position:relative;display:flex;justify-content:space-between;gap:1rem}.field-card__header .favorite-heart{position:static}.field-card__actions{display:flex;flex-wrap:wrap;gap:.5rem}</style>

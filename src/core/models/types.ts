@@ -1,15 +1,13 @@
 export type CityProfile = 'compact' | 'standard' | 'large';
 export type SettlementType = 'village' | 'city';
-export type SourceType = 'manual' | 'wikimedia' | 'flickr' | 'public-domain' | 'open-license' | 'first-party-official';
+export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party-official';
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
-export type EditorialPhotoLeadSourceType = 'official-website' | 'facebook' | 'instagram';
 
 export interface Coordinates { latitude: number; longitude: number; }
 export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; }
 export interface MediaRecord { id: string; src: string; alt: string; sourceType: SourceType; sourceUrl?: string; sourceName?: string; author?: string; license?: string; manual: boolean; locked: boolean; }
 export interface ActivityPhotoReserveEntry extends MediaRecord { width: number; height: number; subjectConfidence: number; sourceConfidence: number; }
-export interface EditorialPhotoLead { id: string; entityName: string; cityName?: string; sourceType: EditorialPhotoLeadSourceType; sourceName: string; sourceUrl: string; imageUrl?: string; pageTitle?: string; identityConfidence: number; pageFetched: boolean; discoveryStatus: 'image-found' | 'page-found'; rightsStatus: 'unconfirmed-first-party'; autoPublishable: false; editorialAction: 'review-rights-before-use'; score: number; }
-export interface MediaResearch { firstPartyPhotoLeads?: EditorialPhotoLead[]; activityPhotoReserve?: ActivityPhotoReserveEntry[]; }
+export interface MediaResearch { activityPhotoReserve?: ActivityPhotoReserveEntry[]; }
 export interface CountryMediaManifest { hero: { stamps: MediaRecord[]; drawings: MediaRecord[]; photos: MediaRecord[] }; card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }
 export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; research?: MediaResearch; }
 export interface HeroFact { label: string; value: string; }

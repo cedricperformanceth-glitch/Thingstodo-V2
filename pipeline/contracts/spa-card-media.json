@@ -4,39 +4,11 @@
   "fieldCardMedia": false,
   "futureFieldCardReserve": true,
   "discovery": {
-    "preferredSources": [
-      "manual-owned-or-authorized-media",
-      "wikimedia-commons",
-      "openverse",
-      "public-domain-repositories",
-      "official-source-with-explicit-compatible-license",
-      "other-explicit-open-license-source"
-    ],
-    "adapters": {
-      "openverse": {
-        "enabledByDefault": true,
-        "useAsDiscoveryIndex": true,
-        "acceptedLicenseFilters": ["by", "by-sa", "cc0", "pdm"],
-        "requireSourceLandingPage": true
-      },
-      "firstParty": {
-        "enabledByDefault": true,
-        "acceptedSourceTypes": ["official-website", "facebook", "instagram"],
-        "capturePublicPagePreviewImageWhenAvailable": true,
-        "scanOfficialWebsitePageImages": true,
-        "retainPageLeadWhenPreviewImageCannotBeRead": true,
-        "neverAssumeReuseRightsFromFirstPartyPublication": true,
-        "neverAutoPublishWithoutSeparateCompatibleRightsEvidence": true,
-        "storeAsEditorialLead": true
-      }
-    },
-    "discoveryOnlyNotReusableWithoutSeparatePermission": [
-      "google-image-results",
-      "travel-platforms",
-      "booking-platforms",
-      "social-networks",
-      "generic-web-images"
-    ]
+    "automaticSource": "wikimedia-commons",
+    "directApiOnly": true,
+    "otherAutomaticPhotoSourcesEnabled": false,
+    "manualOwnedOrAuthorizedMediaSupported": true,
+    "futureGooglePhotoApiNotImplemented": true
   },
   "selection": {
     "photoIsPreferredButNotRequired": true,
@@ -54,7 +26,7 @@
       "thingToDo": {
         "publicCardPhotoCount": 1,
         "continueDiscoveryAfterPrimaryPhoto": true,
-        "discoveryGoal": "as-many-qualified-as-practical",
+        "discoveryGoal": "retain-qualified-commons-results-from-the-same-query",
         "retainReusableSurplus": true,
         "persistReusableSurplusUnder": "media.research.activityPhotoReserve",
         "reusableReserveMaximum": 24
@@ -75,6 +47,7 @@
     "cc-by-nc-nd"
   ],
   "candidateRequirements": {
+    "automaticSourceType": "wikimedia",
     "subjectVerified": true,
     "minimumSubjectConfidence": 0.9,
     "minimumSourceConfidence": 0.75,
@@ -91,15 +64,6 @@
     "resolution",
     "stable-source-url"
   ],
-  "editorialLeads": {
-    "firstParty": {
-      "rightsStatus": "unconfirmed-first-party",
-      "autoPublishable": false,
-      "editorialAction": "review-rights-before-use",
-      "maximumPerEntity": 12,
-      "persistUnder": "media.research.firstPartyPhotoLeads"
-    }
-  },
   "attribution": {
     "storeSourceUrl": true,
     "storeSourceName": true,
