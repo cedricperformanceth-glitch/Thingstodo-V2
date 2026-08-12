@@ -61,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pipeline/sources/laos/thakhek.json pipeline/cities/laos/thakhek.json src/content/generated/laos/thakhek.ts src/content/registry/index.ts
+          git add pipeline/sources/laos/thakhek.json pipeline/cities/laos/thakhek.json src/content/generated/laos/thakhek.ts src/content/generated/index.ts
           if ! git diff --cached --quiet; then
             git commit -m "Generate Thakhek city content"
             git push
