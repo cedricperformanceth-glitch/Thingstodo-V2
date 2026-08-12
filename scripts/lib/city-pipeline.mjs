@@ -32,10 +32,9 @@ function validateRange(range, key) {
   return { min, max };
 }
 
-function deterministicRangeValue(seed, key, range) {
+export function randomRangeValue(range, key, randomInt = crypto.randomInt) {
   const { min, max } = validateRange(range, key);
-  const hash = crypto.createHash('sha256').update(`${seed}:${key}`).digest().readUInt32BE(0);
-  return min + (hash % (max - min + 1));
+  return randomInt(min, max + 1);
 }
 
 function defaultTargetRange(rule, key) {
@@ -55,38 +54,88 @@ function validateTargetValue(value, rule, key) {
   return value;
 }
 
-export function categoryTargets(country, settlementType, seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? [], overrides = {}) {
+function assertAutomaticSelectionMode(rule, key) {
+  if (rule?.selectionMode && !['editorial', 'random-once'].includes(rule.selectionMode)) {
+    throw new Error(`Unsupported content target selection mode for ${key}: ${rule.selectionMode}`);
+  }
+}
+
+function avoidUniformAutomaticTargets(targets, rules, automaticCategories, newlyDrawn, country, settlementType) {
+  const active = automaticCategories.filter((category) => Number.isInteger(targets[category]));
+  if (active.length < 2 || new Set(active.map((category) => targets[category])).size > 1 || newlyDrawn.length === 0) return;
+
+  const category = [...newlyDrawn].reverse().find((candidate) => {
+    const range = defaultTargetRange(rules[candidate], `${country}/${settlementType}/${candidate}`);
+    return range.min < range.max;
+  });
+  if (!category) return;
+
+  const key = `${country}/${settlementType}/${category}`;
+  const range = defaultTargetRange(rules[category], key);
+  const current = targets[category];
+  let replacement = current;
+  for (let attempt = 0; attempt < 12 && replacement === current; attempt += 1) {
+    replacement = randomRangeValue(range, key);
+  }
+  if (replacement === current) replacement = current === range.min ? range.min + 1 : range.min;
+  targets[category] = replacement;
+}
+
+export function categoryTargets(country, settlementType, _seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? [], overrides = {}, existing = {}) {
   const rules = contentRuleFor(country, settlementType).categories ?? {};
-  return Object.fromEntries(categories.flatMap((category) => {
+  const targets = {};
+  const newlyDrawn = [];
+  const automaticCategories = [];
+
+  for (const category of categories) {
     const rule = rules[category];
-    if (!rule) return [];
-    if (overrides[category] !== undefined) return [[category, validateTargetValue(overrides[category], rule, `${country}/${settlementType}/${category}`)]];
-    if (rule.selectionMode === 'editorial') return [];
-    return [[category, deterministicRangeValue(seed, category, defaultTargetRange(rule, `${country}/${settlementType}/${category}`))]];
-  }));
+    if (!rule) continue;
+    const key = `${country}/${settlementType}/${category}`;
+    assertAutomaticSelectionMode(rule, key);
+    if (overrides[category] !== undefined) {
+      targets[category] = validateTargetValue(overrides[category], rule, key);
+      continue;
+    }
+    if (rule.selectionMode === 'editorial') continue;
+    automaticCategories.push(category);
+    if (existing[category] !== undefined) {
+      targets[category] = validateTargetValue(existing[category], rule, key);
+      continue;
+    }
+    targets[category] = randomRangeValue(defaultTargetRange(rule, key), key);
+    newlyDrawn.push(category);
+  }
+
+  avoidUniformAutomaticTargets(targets, rules, automaticCategories, newlyDrawn, country, settlementType);
+  return targets;
 }
 
 export function categoryTargetPolicies(country, settlementType, categories = SETTLEMENT_CATEGORIES[settlementType] ?? []) {
   const rules = contentRuleFor(country, settlementType).categories ?? {};
   return Object.fromEntries(categories.flatMap((category) => {
     const rule = rules[category];
-    if (!rule?.selectionMode) return [];
+    if (rule?.selectionMode !== 'editorial') return [];
     validateRange(rule, `${country}/${settlementType}/${category}`);
     if (rule.idealMin !== undefined || rule.idealMax !== undefined) defaultTargetRange(rule, `${country}/${settlementType}/${category}`);
     return [[category, structuredClone(rule)]];
   }));
 }
 
-export function researchPlan(country, settlementType, seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? []) {
+export function researchPlan(country, settlementType, _seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? [], existingPlan = {}) {
   const rules = contentRuleFor(country, settlementType);
   const allowedCategories = new Set(categories);
+  const existingSubcategoryTargets = existingPlan?.subcategoryTargets ?? {};
   const subcategoryTargets = {};
   for (const [category, subcategories] of Object.entries(rules.subcategories ?? {})) {
     if (!allowedCategories.has(category)) continue;
-    subcategoryTargets[category] = Object.fromEntries(Object.entries(subcategories).map(([subcategory, range]) => [
-      subcategory,
-      deterministicRangeValue(seed, `${category}:${subcategory}`, range),
-    ]));
+    subcategoryTargets[category] = Object.fromEntries(Object.entries(subcategories).map(([subcategory, range]) => {
+      const key = `${country}/${settlementType}/${category}:${subcategory}`;
+      const existing = existingSubcategoryTargets?.[category]?.[subcategory];
+      const value = existing !== undefined
+        ? validateTargetValue(existing, range, key)
+        : randomRangeValue(defaultTargetRange(range, key), key);
+      return [subcategory, value];
+    }));
   }
   const searchPriorities = Object.fromEntries(Object.entries(rules.searchPriorities ?? {}).filter(([category]) => allowedCategories.has(category)).map(([category, priorities]) => [category, [...priorities]]));
   return {
@@ -148,10 +197,18 @@ export function syncGenerationContract(draft) {
   );
   const seed = `${draft.country}/${draft.city}`;
   const overrides = lockedCategoryTargetOverrides(draft.cityData);
+  const existingTargets = structuredClone(draft.cityData?.categoryTargets ?? {});
+  const existingPlan = structuredClone(draft.researchPlan ?? {});
   draft.cityData.categories = categories;
-  draft.cityData.categoryTargets = categoryTargets(draft.country, settlementType, seed, categories, overrides);
-  draft.researchPlan = researchPlan(draft.country, settlementType, seed, categories);
+  draft.cityData.categoryTargets = categoryTargets(draft.country, settlementType, seed, categories, overrides, existingTargets);
+  draft.researchPlan = researchPlan(draft.country, settlementType, seed, categories, existingPlan);
   return draft;
+}
+
+export function rerollAutomaticCategoryTargets(draft) {
+  draft.cityData.categoryTargets = lockedCategoryTargetOverrides(draft.cityData);
+  if (draft.researchPlan) draft.researchPlan.subcategoryTargets = {};
+  return syncGenerationContract(draft);
 }
 
 export function emptyDraft(country, city, profile, settlementType) {
@@ -159,9 +216,11 @@ export function emptyDraft(country, city, profile, settlementType) {
   if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
   const name = city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
   const seed = `${country}/${city}`;
-  return { schemaVersion: 1, country, city, profile, generatedAt: null, researchPlan: researchPlan(country, settlementType, seed, categories), cityData: {
+  const targets = categoryTargets(country, settlementType, seed, categories);
+  const plan = researchPlan(country, settlementType, seed, categories);
+  return { schemaVersion: 1, country, city, profile, generatedAt: null, researchPlan: plan, cityData: {
     id: `city-${country}-${city}`, slug: city, name, country, profile, settlementType, coordinates: { latitude: 0, longitude: 0 }, description: '',
-    categories: [...categories], categoryTargets: categoryTargets(country, settlementType, seed, categories),
+    categories: [...categories], categoryTargets: targets,
     hero: { eyebrow: country, title: name, subtitle: '', facts: [] },
     exploreBoard: { featuredThingIds: [] },
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },
