@@ -21,7 +21,6 @@ const hasFaq = thing.fieldCard.faq.length > 0;
   <FieldCardQuickRead {thing} {country} quickRead={view.quickRead} />
 
   <div class="field-card__body">
-    {thing.fieldCard.whyGo && <section><h2>Why go</h2><p>{thing.fieldCard.whyGo}</p></section>}
     {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}
     {thing.fieldCard.sections?.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
     {thing.fieldCard.practical && <section><h2>Practical information</h2><p>{thing.fieldCard.practical}</p></section>}

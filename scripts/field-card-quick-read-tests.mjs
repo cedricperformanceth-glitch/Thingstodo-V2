@@ -37,6 +37,7 @@ assert.doesNotMatch(component, /border-radius|box-shadow/, 'Quick Read modules m
 assert.match(fieldCard, /<FieldCardHero[\s\S]*<FieldCardQuickRead/, 'Quick Read must render directly after the Hero');
 assert.match(fieldCard, /<FieldCardQuickRead \{thing\} \{country\}/, 'Quick Read must receive country context from the universal Field Card');
 assert.doesNotMatch(fieldCard, /FavoriteHeart|TripButton|field-card__utility|Open Google Maps/, 'Field Cards must not render the removed utility action strip');
+assert.doesNotMatch(fieldCard, /fieldCard\.whyGo|>Why go</i, 'Field Cards must never render the removed Why go block');
 assert.match(engine, /fieldCard\.quickRead/, 'Generated Quick Read content must be supported by the view engine');
 assert.match(engine, /quickReadEditorial/, 'Manual editorial Quick Read overrides must be supported');
 assert.match(engine, /fallbackQuickRead/, 'Activities without authored Quick Read copy must retain a deterministic fallback');
