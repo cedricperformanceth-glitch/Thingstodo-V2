@@ -4,9 +4,11 @@ import fs from 'node:fs';
 const placeCard = fs.readFileSync('src/components/cards/PlaceCard.astro', 'utf8');
 const thingCard = fs.readFileSync('src/components/cards/ThingToDoCard.astro', 'utf8');
 const cardCss = fs.readFileSync('src/components/cards/entry-card.css', 'utf8');
+const spaPanel = fs.readFileSync('src/components/spa/SpaPanel.astro', 'utf8');
 
 assert.doesNotMatch(placeCard, /card-type|categoryLabels|const\s+context\s*=/, 'Place cards must never render the category/city label above the establishment name');
 assert.doesNotMatch(cardCss, /\.card-type\b/, 'Removed category/city label styling must never return');
+assert.doesNotMatch(spaPanel, /\.card-type\b/, 'Removed category/city label styling must never remain in the SPA shell');
 
 assert.match(placeCard, /\{place\.spaCard\?\.handwrittenTags\s*&&/, 'Place handwritten notes must render whenever the SPA card has them');
 assert.match(thingCard, /\{thing\.spaCard\?\.handwrittenTags\s*&&/, 'Things to do handwritten notes must render whenever the SPA card has them');

@@ -13,14 +13,15 @@ Keep manually managed editorial files easy to browse. Do not dump unrelated imag
 
 City-specific Hero media belongs in `public/assets/cities/<country-slug>/<city-slug>/hero/`. Shared Hero furniture belongs in `public/assets/shared/hero/` and must not be duplicated in individual city folders.
 
-For each prepared city, keep its two variable Hero assets in these exact locations:
+For each prepared city, the three required variable Hero assets must exist in these exact locations before publication:
 
 - `public/assets/cities/<country-slug>/<city-slug>/hero/drawings/<city-slug>-hero-drawing.webp`
 - `public/assets/cities/<country-slug>/<city-slug>/hero/stamps/<city-slug>-hero-stamp.webp`
+- `public/assets/cities/<country-slug>/<city-slug>/hero/photos/<city-slug>-hero-photo.webp`
 
 Country scope prevents slug collisions between destinations in different countries.
 
-Drawings and stamps are city-specific. The envelope and the `PAR AVION / AIR MAIL` postmark remain shared Hero furniture and must never be copied into city folders.
+The drawing, stamp and Hero photo are city-specific. The envelope and the `PAR AVION / AIR MAIL` postmark remain shared Hero furniture and must never be copied into city folders.
 
 ## Shared city envelope
 

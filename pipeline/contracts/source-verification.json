@@ -20,10 +20,14 @@
       ],
       "open-media": [
         "wikimedia-commons",
+        "openverse",
+        "flickr-compatible-license",
         "explicitly-licensed-public-media"
       ],
       "supporting": [
         "travel-platform",
+        "booking-platform",
+        "map-platform",
         "reputable-travel-editorial",
         "local-news",
         "first-party-social-network",
@@ -43,6 +47,28 @@
       "preferRecentMentions": true,
       "preferAuthoritativeSources": true,
       "existingAtlasDatabaseIsSeedNotProof": true
+    },
+    "reputationRanking": {
+      "purpose": "ranking-signal-only",
+      "sourceNeutral": true,
+      "examples": [
+        "booking-platform-rating",
+        "travel-platform-rating",
+        "map-platform-rating",
+        "local-directory-rating",
+        "other-public-rating-source"
+      ],
+      "maxIndependentSnapshotsUsedPerCandidate": 3,
+      "storeReviewText": false,
+      "storeReviewBodies": false,
+      "bulkReviewCollection": false,
+      "normalizeDifferentRatingScales": true,
+      "useReviewCountWithDiminishingWeight": true,
+      "preferRecentSnapshots": true,
+      "missingRatingsNeverRejectCandidate": true,
+      "firstPartySocialActivityIsSmallPositiveSignalOnly": true,
+      "missingSocialPresenceNeverRejectCandidate": true,
+      "editorialReviewRemainsFinalAuthority": true
     },
     "acceptance": {
       "businessOrOperator": {
@@ -109,6 +135,8 @@
       },
       "domainSpecific": {
         "wikimedia-commons": "check-each-file-license",
+        "openverse": "discovery-index-verify-source-and-license-before-final-reuse",
+        "flickr": "use-official-api-when-configured-and-only-commercially-compatible-photo-licenses",
         "wikipedia": "research-and-facts-by-default-do-not-copy-prose",
         "wikivoyage": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
         "wikitravel": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",

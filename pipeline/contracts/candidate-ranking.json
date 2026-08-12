@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "scope": "automatic-place-ranking",
+  "principles": {
+    "editorialReviewExpected": true,
+    "rankingNeverAutoRejectsForMissingReviews": true,
+    "rankingNeverAutoRejectsForMissingSocialPresence": true,
+    "sourceNeutral": true,
+    "noReviewTextStored": true,
+    "noBulkReviewCorpus": true,
+    "maxReputationSnapshotsUsedPerCandidate": 3,
+    "maxSnapshotsUsedPerSource": 1
+  },
+  "weights": {
+    "reputation": 35,
+    "proximity": 20,
+    "freshness": 15,
+    "verification": 15,
+    "firstPartyActivity": 5,
+    "dataCompleteness": 10
+  },
+  "reputation": {
+    "neutralNormalizedRating": 0.72,
+    "priorReviewCount": 20,
+    "reviewCountConfidenceCap": 250,
+    "maximumSnapshotAgeDays": 730
+  },
+  "proximity": {
+    "fullScoreWithinKm": 0.5,
+    "zeroScoreAtKm": 3
+  },
+  "freshness": {
+    "fullScoreWithinDays": 90,
+    "zeroScoreAfterDays": 730
+  },
+  "firstPartyActivity": {
+    "fullScoreWithinDays": 90,
+    "zeroScoreAfterDays": 365
+  }
+}

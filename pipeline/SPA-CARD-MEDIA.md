@@ -8,11 +8,17 @@ Prefer, in order:
 
 1. a manual owned/authorized image already locked by the editor;
 2. Wikimedia Commons;
-3. public-domain repositories;
-4. official sources only when the individual asset has an explicit compatible reuse licence;
-5. other explicit open-licence sources.
+3. Openverse as a broad open-media discovery index;
+4. Flickr through the official API when a suitable `FLICKR_API_KEY` is configured and the individual photo licence permits Atlas use;
+5. public-domain repositories;
+6. official sources only when the individual asset has an explicit compatible reuse licence;
+7. other explicit open-licence sources.
+
+Openverse is a discovery layer, not a reason to lower the licence or identity rules: retain the original source landing page and verify the media metadata during editorial review. Flickr discovery asks Flickr for its current licence catalogue, filters out non-commercial/no-derivatives licences, and uses geo search when the entity has coordinates.
 
 Google Image results, booking/travel platforms, social networks and generic web images may help identify that an image exists, but they are not automatically reusable media sources. The individual asset still needs a valid reuse right.
+
+Network discovery is best-effort. `--skip-photo-discovery` or `ATLAS_OFFLINE=1` disables it. Missing Flickr configuration never blocks a city generation.
 
 ## Automatic acceptance
 
