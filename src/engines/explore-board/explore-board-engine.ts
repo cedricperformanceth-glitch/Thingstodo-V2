@@ -2,7 +2,7 @@ import { getThings } from '../category/category-engine';
 import type { City, ThingToDo } from '../../core/models/types';
 import { getExploreBoardCopy } from './explore-board-copy';
 
-export const MAX_EXPLORE_BOARD_LANDMARKS = 3;
+export const EXPLORE_BOARD_LANDMARK_COUNT = 3;
 
 export interface ExploreBoardEntry {
   thing: ThingToDo;
@@ -13,8 +13,8 @@ export interface ExploreBoardEntry {
 
 export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intro: string; note: string } {
   const ids = city.exploreBoard.featuredThingIds ?? [];
-  if (ids.length > MAX_EXPLORE_BOARD_LANDMARKS) {
-    throw new Error(`Explore Board supports at most ${MAX_EXPLORE_BOARD_LANDMARKS} landmarks: ${city.country}/${city.slug}`);
+  if (ids.length !== EXPLORE_BOARD_LANDMARK_COUNT) {
+    throw new Error(`Explore Board requires exactly ${EXPLORE_BOARD_LANDMARK_COUNT} landmarks: ${city.country}/${city.slug}; received ${ids.length}`);
   }
   if (new Set(ids).size !== ids.length) {
     throw new Error(`Explore Board landmark IDs must be unique: ${city.country}/${city.slug}`);
