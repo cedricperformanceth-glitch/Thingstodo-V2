@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import { enrichEntitiesWithFirstPartySources } from './lib/first-party-source-enrichment.mjs';
+import { places as donDetPlaces } from '../pipeline/sources/laos/don-det.places.mjs';
+import { firstPartySources as donDetFirstPartySources } from '../pipeline/sources/laos/don-det.first-party.mjs';
 
 const places = [{ id: 'place-a', name: 'A' }, { id: 'place-b', name: 'B' }];
 const things = [{ id: 'thing-a', name: 'Thing A' }];
@@ -31,5 +33,12 @@ assert.throws(
   () => enrichEntitiesWithFirstPartySources([{ id: 'place-a' }], [], [{ entityId: 'place-a', sources: [{ sourceUrl: 'javascript:alert(1)' }] }]),
   /http\(s\) URL/,
 );
+
+const donDetResult = enrichEntitiesWithFirstPartySources(structuredClone(donDetPlaces), [], donDetFirstPartySources);
+assert.equal(donDetResult.enrichedEntityIds.length, 6, 'Don Det first-party source data must resolve to six known practical candidates');
+for (const entityId of donDetResult.enrichedEntityIds) {
+  const entity = donDetResult.places.find((place) => place.id === entityId);
+  assert.ok(entity?.firstPartySources?.length, `Don Det first-party sources must attach to ${entityId}`);
+}
 
 console.log('First-party source enrichment tests passed.');
