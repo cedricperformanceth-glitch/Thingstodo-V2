@@ -19,8 +19,10 @@ const items = [
 <section class="field-card-quick-read" aria-labelledby={`field-card-quick-read-${thing.slug}`}>
   <header class="field-card-quick-read__heading">
     <div class="field-card-quick-read__lead">
-      <p class="field-card-quick-read__kicker">FIELD NOTES</p>
-      <span class="field-card-quick-read__divider" aria-hidden="true"></span>
+      <div class="field-card-quick-read__kicker-stack">
+        <p class="field-card-quick-read__kicker">FIELD NOTES</p>
+        <span class="field-card-quick-read__divider" aria-hidden="true"></span>
+      </div>
       <h2 id={`field-card-quick-read-${thing.slug}`}>THE QUICK READ</h2>
     </div>
     <p class="field-card-quick-read__context">{thing.name} / {country.name}</p>
@@ -46,17 +48,26 @@ const items = [
 
   .field-card-quick-read__heading {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
     margin-bottom: clamp(38px, 4.7vw, 58px);
   }
 
   .field-card-quick-read__lead {
-    display: flex;
-    align-items: center;
-    gap: 7px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
     min-width: 0;
+  }
+
+  .field-card-quick-read__kicker-stack {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+    width: max-content;
   }
 
   .field-card-quick-read__kicker,
@@ -69,7 +80,6 @@ const items = [
   }
 
   .field-card-quick-read__kicker {
-    flex: none;
     color: #b76645;
     font-size: .54rem;
     letter-spacing: .17em;
@@ -81,17 +91,16 @@ const items = [
     font-size: .5rem;
     letter-spacing: .13em;
     text-align: right;
+    padding-top: 1px;
   }
 
   .field-card-quick-read__divider {
-    width: 76px;
+    width: 100%;
     height: 1px;
-    flex: none;
     background: rgb(49 85 69 / .18);
   }
 
   .field-card-quick-read__heading h2 {
-    flex: none;
     margin: 0;
     color: rgb(49 85 69 / .78);
     font-family: 'DM Sans', var(--sans);
@@ -99,7 +108,6 @@ const items = [
     font-weight: 750;
     line-height: 1.25;
     letter-spacing: .13em;
-    white-space: nowrap;
   }
 
   .field-card-quick-read__grid {
@@ -199,10 +207,6 @@ const items = [
       gap: 16px;
     }
 
-    .field-card-quick-read__divider {
-      width: 68px;
-    }
-
     .field-card-quick-read__grid {
       column-gap: clamp(42px, 8vw, 76px);
     }
@@ -224,17 +228,18 @@ const items = [
     .field-card-quick-read__heading {
       display: grid;
       grid-template-columns: 1fr auto;
+      align-items: start;
       row-gap: 8px;
       margin-bottom: 30px;
     }
 
     .field-card-quick-read__lead {
-      grid-column: 1 / -1;
-      gap: 6px;
+      grid-column: 1;
+      gap: 3px;
     }
 
-    .field-card-quick-read__divider {
-      width: 58px;
+    .field-card-quick-read__kicker-stack {
+      gap: 2px;
     }
 
     .field-card-quick-read__context {
