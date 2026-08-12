@@ -185,21 +185,9 @@ status fields are preferred within the applicable Google terms.
 
 ### SPA photo discovery
 
-The SPA media contract lives in `pipeline/contracts/spa-card-media.json`. Generation now performs best-effort photo
-discovery for selected cards that do not already have a qualified image.
+Automatic photo discovery is deliberately limited to the Wikimedia Commons API. Atlas checks exact-entity metadata, file dimensions, source URL, author and a commercially compatible licence before a Commons image can fill the SPA photo slot. No Openverse, Flickr, social-network, official-site, booking-platform or generic web-image crawler is part of automatic generation.
 
-- Openverse is queried by default as an open-media discovery index, restricted to commercial-compatible licence classes.
-- Flickr is queried only when `FLICKR_API_KEY` is configured; the adapter asks Flickr for its current licence catalogue,
-  filters to commercially compatible licences, and prefers a geo-scoped search when entity coordinates are known.
-- automatic subject matching still requires a high-confidence exact-name metadata match;
-- every returned candidate still passes the existing SPA media validator for subject confidence, source confidence,
-  resolution, author and accepted licence;
-- failure or lack of a Flickr key never blocks generation; the card keeps `Photo to add` when no qualified image exists.
-- `--skip-photo-discovery` or `ATLAS_OFFLINE=1` disables network photo discovery for an intentionally offline run.
-
-Openverse is a discovery index, so its source landing URL is retained. Flickr remains optional because Atlas must use an
-API key and usage arrangement appropriate to the project. Travel platforms, booking platforms, social networks and generic
-web images remain discovery-only for media unless separate reuse permission exists.
+If Commons returns no qualified image, the correct result is `Photo to add` for later manual completion. A future Google/Places photo integration can be added separately if the project adopts the appropriate API and usage terms. `--skip-photo-discovery` or `ATLAS_OFFLINE=1` disables the Commons request. Things to do may retain additional qualified Commons results from the same query in `media.research.activityPhotoReserve` for the future universal Field Card layout.
 
 ### Reuse/licensing policy
 
@@ -223,8 +211,6 @@ Media:
 
 Domain notes:
 - Wikimedia Commons: check the licence on every individual file page;
-- Openverse: useful discovery index; keep the original source page and verify reuse metadata before final editorial approval;
-- Flickr: use the official API only when configured appropriately and respect the individual photo licence and Flickr API terms;
 - Wikipedia: excellent factual/reference input, but do not copy prose by default;
 - Wikivoyage/Wikitravel: discovery/factual input by default; copied/adapted prose requires CC BY-SA compliance;
 - UNESCO: authoritative factual source, but each text/photo/document must be checked for its specific reuse licence.

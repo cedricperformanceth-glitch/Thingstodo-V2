@@ -1233,27 +1233,6 @@ const data = {
       "shortDescription": "Kyoto Japanese Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
         "card": {},
-        "research": {
-          "firstPartyPhotoLeads": [
-            {
-              "id": "first-party-facebook-place-kyoto-japanese-restaurant-1",
-              "entityName": "Kyoto Japanese Restaurant",
-              "cityName": "Thakhek",
-              "sourceType": "facebook",
-              "sourceName": "Kyoto Japanese Restaurant official Facebook",
-              "sourceUrl": "https://www.facebook.com/laos.kyoto/",
-              "imageUrl": "https://scontent-fra5-2.xx.fbcdn.net/v/t39.30808-1/294403894_553552313128729_5842003724348335724_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1440&ctp=s720x720&_nc_cat=106&ccb=1-7&_nc_sid=3ab345&_nc_ohc=trEjV6wOGVwQ7kNvwEvG1pD&_nc_oc=AdqCzKG3WzePCu5izO_hRSGZcxiT6jtTgAkNm_8mqf-NOpaG1cSoNJytC1l3ToK9hPQ&_nc_zt=24&_nc_ht=scontent-fra5-2.xx&_nc_gid=lJN7RRdEfY9dHwTnC8hcWA&_nc_ss=7f180&oh=00_AQGEt_1alBMD15F3IultF7KiLWIHgdsV7QbjLp6BUrYMNQ&oe=6A821975",
-              "pageTitle": "Japanese  Restaurant Kyoto -&#x4eac;&#x90fd; | Thakhek",
-              "identityConfidence": 0.9,
-              "pageFetched": true,
-              "discoveryStatus": "image-found",
-              "rightsStatus": "unconfirmed-first-party",
-              "autoPublishable": false,
-              "editorialAction": "review-rights-before-use",
-              "score": 87
-            }
-          ]
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -1286,12 +1265,6 @@ const data = {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
-        },
-        {
-          "sourceName": "Kyoto Japanese Restaurant official Facebook",
-          "sourceUrl": "https://www.facebook.com/laos.kyoto/",
-          "purpose": "first-party",
-          "sourceType": "first-party-social-network"
         }
       ],
       "manualLocks": {},
@@ -3392,27 +3365,6 @@ const data = {
       "shortDescription": "Login Cafe Thakhaek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
         "card": {},
-        "research": {
-          "firstPartyPhotoLeads": [
-            {
-              "id": "first-party-facebook-place-login-cafe-thakhaek-1",
-              "entityName": "Login Cafe Thakhaek",
-              "cityName": "Thakhek",
-              "sourceType": "facebook",
-              "sourceName": "Login Cafe Thakhaek official Facebook",
-              "sourceUrl": "https://www.facebook.com/share/1AiohWCF2W/?mibextid=wwXIfr",
-              "imageUrl": "https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-1/772891464_122176063412970075_5751613434414150479_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s720x720&_nc_cat=100&ccb=1-7&_nc_sid=3ab345&_nc_ohc=2DReoYWVNywQ7kNvwFXfrUB&_nc_oc=Adpmn3UCF4ILWEHzGikdNlyZjCqoxjTHDCGica8mu5jhovrHMtmW7AEbApUq6JbDgbs&_nc_zt=24&_nc_ht=scontent-fra5-1.xx&_nc_gid=rHfJG8YvHD1-2hLZDL5pxQ&_nc_ss=7f289&oh=00_AQG5t4Y46XPI1L1YQHtsKlI6CvZzXgcdloavXu4CqE52bg&oe=6A82239D",
-              "pageTitle": "Login Cafe Thakhaek | Thakhek",
-              "identityConfidence": 0.95,
-              "pageFetched": true,
-              "discoveryStatus": "image-found",
-              "rightsStatus": "unconfirmed-first-party",
-              "autoPublishable": false,
-              "editorialAction": "review-rights-before-use",
-              "score": 89
-            }
-          ]
-        },
         "fieldCard": {
           "gallery": []
         }
@@ -3445,12 +3397,6 @@ const data = {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
-        },
-        {
-          "sourceName": "Login Cafe Thakhaek official Facebook",
-          "sourceUrl": "https://www.facebook.com/share/1AiohWCF2W/?mibextid=wwXIfr",
-          "purpose": "first-party",
-          "sourceType": "first-party-social-network"
         }
       ],
       "manualLocks": {},
@@ -4535,7 +4481,7 @@ const data = {
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xe+Bang+Fai+Cave+Hin+Nam+No+Laos",
       "isLandmark": true,
-      "longDescription": "Reach one of Hin Nam No’s immense active river caves on a remote, locally guided journey where access, water levels and logistics matter as much as the extraordinary scale underground.",
+      "longDescription": "Xe Bang Fai is a remote river-cave expedition, not a casual roadside attraction. The final roads, local guide, boat journey and changing water conditions all need to be organised before arrival.",
       "breadcrumbs": [
         "laos",
         "thakhek",
@@ -4548,11 +4494,29 @@ const data = {
       },
       "fieldCard": {
         "template": "compact",
-        "whyGo": "",
-        "practical": "",
+        "whyGo": "Remote adventure and guided cave travel.",
+        "practical": "Budget: Around 50,000 kip entry · boat extra. Duration: Full day minimum · often multi-day.",
         "access": "",
         "faq": [],
-        "sections": []
+        "sections": [
+          {
+            "title": "The long road from Thakhek",
+            "body": "From Thakhek, follow Highway 12 east for about 130 km toward the Vietnamese border. At Nongchan, turn right: the paved road ends here and the dirt road begins. Continue toward Ban Xoang and then Bualapha. Between these villages you reach the Xe Bang Fai River; cross by ferry, with a motorbike crossing reported at around 15,000 kip. Once in Bualapha, continue toward Ban Natoy, then Ban Gnavet and Ban Kouankaphoung. From Ban Natoy onward, the smaller villages and tracks may be easier to follow with an offline map such as Maps.me. At Ban Kouankaphoung the road forks: take the right-hand track and continue to the end of the road for the cave entrance. The final roads are remote and can be rough, so leave enough daylight, arrange a local guide and reconfirm the route, ferry and access conditions before departure."
+          },
+          {
+            "title": "What the expedition costs",
+            "body": "Recent visitor reports put the entrance at around 50,000 kip per person, with motorbike parking around 10,000 kip. A small local boat has recently been reported at around 150,000 kip, while larger boats may cost more depending on the group. The boat is the part of the visit worth making room for: once you leave the riverbank and move into the darkness, the scale of Xe Bang Fai really begins to make sense. Prices and boat capacity can change between seasons, so treat these figures as a useful reference and confirm the current rate at the park office when you arrive."
+          },
+          {
+            "title": "Day trip or overnight?",
+            "body": "The cave journey itself may take one to two hours, but the remote approach turns it into a full-day or multi-day plan. Keep margin for road conditions, the walk to the river and local coordination. Do not attach a fixed evening arrival elsewhere to the same day."
+          },
+          {
+            "title": "Let the river and season decide",
+            "body": "Confirm river levels and boat access locally. Wear quick-dry clothing and shoes with grip, use the supplied life jacket and carry a strong headlamp. Do not enter the cave or surrounding forest route without a guide."
+          }
+        ],
+        "notes": "The road is part of the expedition. Confirm the river before leaving."
       }
     },
     {
