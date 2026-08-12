@@ -1,6 +1,6 @@
 # SPA card photo workflow
 
-This step covers only the image slot used by SPA cards. It does not generate or modify Field Card media.
+This step chooses the image slot used by SPA cards. It also prepares a reusable-photo reserve for Things to do, but it does not generate or modify Field Card media yet.
 
 ## Automatic discovery
 
@@ -9,12 +9,35 @@ Prefer, in order:
 1. a manual owned/authorized image already locked by the editor;
 2. Wikimedia Commons;
 3. Openverse as a broad open-media discovery index;
-4. Flickr through the official API when a suitable `FLICKR_API_KEY` is configured and the individual photo licence permits Atlas use;
-5. public-domain repositories;
-6. official sources only when the individual asset has an explicit compatible reuse licence;
-7. other explicit open-licence sources.
+4. public-domain repositories;
+5. official sources only when the individual asset has an explicit compatible reuse licence;
+6. other explicit open-licence sources.
 
-Openverse is a discovery layer, not a reason to lower the licence or identity rules. Atlas currently auto-materializes an Openverse result only when its source is a Wikimedia Commons file page that can be re-checked through the Commons API for the source licence, author and dimensions. Other Openverse results remain discovery leads until a source-specific verifier exists. Flickr discovery asks Flickr for its current licence catalogue, filters out non-commercial/no-derivatives licences, and uses geo search when the entity has coordinates.
+Openverse is a discovery layer, not a reason to lower the licence or identity rules. Atlas currently auto-materializes an Openverse result only when its source is a Wikimedia Commons file page that can be re-checked through the Commons API for the source licence, author and dimensions. Other Openverse results remain discovery leads until a source-specific verifier exists.
+
+Flickr is not part of the active Atlas discovery pipeline. The project must not require a Flickr API subscription or key to generate a city.
+
+## Photo policy by entity type
+
+### General Places
+
+Restaurants, cafes, accommodation and other practical Place cards have **one photo only**.
+
+The engine may evaluate several reusable candidates while searching, ranks them using the normal media criteria, selects the single best image for `media.card.image`, and discards reusable surplus from generated Place data. A general Place must never create `media.research.activityPhotoReserve`.
+
+First-party editorial leads are separate from reusable photos. They may still be retained under `media.research.firstPartyPhotoLeads` for later human review, but they do not create additional public Place images.
+
+### Things to do
+
+Things to do also have **one primary SPA photo**, selected using the same ranking and validation rules.
+
+Unlike a general Place, finding one qualified activity photo does **not** stop discovery. Atlas continues looking for additional qualified reusable images and stores the surplus under:
+
+`media.research.activityPhotoReserve`
+
+This reserve is intended to feed the future Field Card media workflow. It does not populate `media.fieldCard.gallery` yet and therefore cannot change the current Field Card presentation by itself.
+
+Activity discovery aims to retain as many useful qualified images as practical, with a current technical safety cap of 24 reusable reserve images per activity. This cap is a storage safeguard, not a final admin/editorial rule.
 
 ## First-party discovery for editorial leads
 
@@ -34,7 +57,7 @@ The leads are ranked by whether an actual image was found, identity confidence, 
 
 Google Image results, booking/travel platforms, social networks and generic web images may help identify that an image exists, but they are not automatically reusable media sources. The individual asset still needs a valid reuse right.
 
-Network discovery is best-effort. `--skip-photo-discovery` or `ATLAS_OFFLINE=1` disables it. Missing Flickr configuration never blocks a city generation.
+Network discovery is best-effort. `--skip-photo-discovery` or `ATLAS_OFFLINE=1` disables it.
 
 ## Automatic acceptance
 
@@ -50,7 +73,7 @@ An automatic image is usable only when all of the following are true:
 
 Automatic accepted licences are Public Domain, CC0, CC BY and CC BY-SA. Unknown/all-rights-reserved and non-commercial licences are rejected for automatic Atlas use.
 
-When several photos qualify, the engine prefers the strongest subject match, then source confidence, then resolution. A manual photo always wins.
+When several photos qualify, the engine prefers the strongest subject match, then source confidence, then resolution. A manual photo always wins the primary SPA slot.
 
 ## No-photo state
 
@@ -71,4 +94,4 @@ The public SPA card keeps the full photo slot and displays the neutral `Photo to
 
 ## Attribution
 
-For selected external media, source URL, source name, author and licence are retained when available. Cards display a small linked photo credit when attribution metadata exists.
+For selected external media and activity reserve media, source URL, source name, author and licence are retained when available. Cards display a small linked photo credit when attribution metadata exists.
