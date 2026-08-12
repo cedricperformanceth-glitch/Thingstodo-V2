@@ -65,7 +65,7 @@ function record(name, category, shortDescription, handwrittenTags, profile = 'at
 }
 
 export const places = [
-  // Restaurants — 15 distinct primary restaurant entities.
+  // Restaurants — candidate pool ordered for editorial selection.
   record('Mama Leuah Restaurant', 'restaurants', 'A long-running Don Det restaurant for an unhurried island meal, with Lao and European dishes served on the quieter sunrise side.', ['Sunrise side', 'Island classic', 'Slow meal'], 'tripadvisor'),
   record('The 4000 Island Bar', 'restaurants', 'A lively riverside restaurant and bar near the ferry landing, useful for food, drinks and an easy first or last evening.', ['Near ferry', 'Food drinks', 'Late evening'], 'tripadvisor'),
   record("Kea's Backpackers Paradise Restaurant & Bar", 'restaurants', 'A social Don Det restaurant and bar with breakfast, casual meals and drinks, suited to travellers who enjoy a busier backpacker atmosphere.', ['Social stop', 'Breakfast', 'Evening drinks'], 'tripadvisor'),
@@ -82,7 +82,7 @@ export const places = [
   record('Dalom Guesthouse & Restaurants', 'restaurants', 'A central guesthouse restaurant address for straightforward Asian food, useful when staying near the main village and ferry area.', ['Central', 'Guesthouse food', 'Easy meal'], 'atlas'),
   record("Mr Tho's Restaurant", 'restaurants', 'A small Asian restaurant on Don Det for uncomplicated lunch or dinner, useful as a local alternative to the larger traveller bars.', ['Asian food', 'Local stop', 'Lunch dinner'], 'atlas'),
 
-  // Coffee — 15 distinct entities, no duplication with Restaurants.
+  // Coffee — candidate pool ordered for editorial selection, with no duplication across categories.
   record('Crazy Gecko', 'cafes', 'A riverfront café-restaurant on the sunrise side with coffee, breakfast and healthy dishes for a longer daytime pause beside the Mekong.', ['Riverfront', 'Breakfast', 'Healthy food'], 'tripadvisor'),
   record('Street View Restaurant', 'cafes', 'A practical sunrise-side stop for breakfast, coffee and generous casual meals, about a short walk from Don Det’s ferry area.', ['Sunrise side', 'Breakfast', 'Big portions'], 'tripadvisor'),
   record('Mama Tanon Guest House & Restaurant', 'cafes', 'A small guesthouse restaurant that works well for breakfast, coffee or an easy daytime meal without leaving the quieter island rhythm.', ['Small table', 'Breakfast', 'Coffee break'], 'tripadvisor'),
@@ -99,7 +99,7 @@ export const places = [
   record('Little Eden Restaurant', 'cafes', 'A hotel restaurant overlooking the river, useful for breakfast or coffee when you want a more settled table near northern Don Det.', ['Hotel cafe', 'River view', 'Breakfast'], 'tripadvisor'),
   record('Smiling Cafe 2', 'cafes', 'A small café-style stop in the Don Det village area, kept as a simple coffee break rather than a destination meal.', ['Cafe stop', 'Village', 'Coffee break'], 'worldplaces'),
 
-  // Guest Houses — 15 distinct accommodation entities.
+  // Guest Houses — 19 candidates so every random target in the 12–19 contract can be fulfilled.
   record('DODAND Studio & Sunset Riverside Guesthouse', 'accommodation', 'Sunset-side riverside studios with private outdoor space, suited to travellers wanting a quieter stay directly beside the Mekong.', ['Sunset side', 'Riverfront', 'Quiet stay'], 'booking'),
   record('DONDET Vixay Sunset And River View', 'accommodation', 'Riverside rooms and bungalows with broad sunset views, offering an easy island base with food and drinks available on site.', ['Sunset view', 'Riverside', 'Island base'], 'booking'),
   record('Thiptavanh guesthouse', 'accommodation', 'A small sunrise-side guesthouse with river-facing balconies and simple rooms, positioned away from the busiest northern part of Don Det.', ['Sunrise side', 'River balcony', 'Quiet rooms'], 'booking', { address: '20 Sunrise blv, Don Det, Laos' }),
@@ -115,6 +115,10 @@ export const places = [
   record('Yommalay Guesthouse', 'accommodation', 'A budget-friendly guesthouse near northern Don Det, convenient for the ferry, restaurants and the first section of the island paths.', ['Budget', 'Near ferry', 'Central'], 'booking'),
   record('Tawan Daeng Guesthouse', 'accommodation', 'A guesthouse farther down the sunrise path toward the old bridge, suited to travellers who prefer the quieter southern side.', ['Sunrise path', 'South side', 'Quiet base'], 'booking'),
   record('Noupad sunset Guesthouse', 'accommodation', 'A small sunset-side homestay-style guesthouse, useful for travellers seeking simple lodging away from the main arrival strip.', ['Sunset side', 'Small stay', 'Quiet'], 'booking'),
+  record('Champa resort', 'accommodation', 'A current Don Det stay with a garden setting, useful as another simple island base beyond the better-known northern guesthouses.', ['Garden stay', 'Don Det', 'Simple base'], 'booking'),
+  record('Lebijou Guesthouse - Konesavath', 'accommodation', 'A central Don Det guesthouse with private rooms and easy access to the village, useful for travellers who prefer to stay close to the main services.', ['Central', 'Private rooms', 'Village base'], 'booking', { address: 'Ban Don Det, Muang Khong District, Champasak, Don Det, Laos' }),
+  record('Sompong Sunset View Guesthouse', 'accommodation', 'A sunset-side Don Det guesthouse with river views, suited to travellers who want a quieter base close to the island village.', ['Sunset side', 'River view', 'Quiet base'], 'booking', { address: 'Hua Det South, Don Det, Laos' }),
+  record('Anan guesthouse', 'accommodation', 'A straightforward Don Det guesthouse with private rooms and a terrace, offering another simple option for an island stay.', ['Private room', 'Terrace', 'Simple stay'], 'booking'),
 
   // Essential Information — useful verified addresses only; no invented tourism or immigration office.
   record('Don Det Ferry', 'practical-services', 'The main Don Det boat connection for Nakasang, useful to save before arrival, departure and onward bus or minivan connections.', ['Main pier', 'Nakasang', 'Boat link'], 'atlas', { address: 'Northern Don Det, Khong District, Champasak Province, Laos', mapQuery: 'Don Det Ferry Boat Pier Laos' }),
