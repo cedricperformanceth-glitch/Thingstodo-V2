@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: atlas-pipeline-${{ github.ref }}
@@ -30,5 +30,72 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Patch Don Det three-landmark source contract
+        if: github.event_name == 'push' && github.event.head_commit.message == 'Materialize corrected Don Det contracts'
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const featuredThingIds = [
+            'thing-old-french-railway-bridge',
+            'thing-li-phi-somphamit-waterfalls',
+            'thing-khone-phapheng-falls',
+          ];
+          const photo = {
+            id: 'khone-phapheng-falls-card',
+            src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Khone%20Phapheng%20Falls%2C%20Si%20Phan%20Don%2C%20Laos%2C%20widest%20waterfall%20in%20the%20world.jpg?width=1600',
+            alt: 'Khone Phapheng Falls spreading across the Mekong in southern Laos',
+            sourceType: 'wikimedia',
+            sourceUrl: 'https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg',
+            sourceName: 'Wikimedia Commons',
+            author: 'Basile Morin',
+            license: 'CC BY-SA 4.0',
+            width: 1600,
+            height: 900,
+            subjectVerified: true,
+            subjectConfidence: 1,
+            sourceConfidence: 1,
+            manual: false,
+            locked: false,
+          };
+
+          const sourcePath = 'pipeline/sources/laos/don-det.json';
+          const source = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+          source.city.exploreBoard = { featuredThingIds };
+          const khone = source.things.find((item) => item.id === 'thing-khone-phapheng-falls');
+          if (!khone) throw new Error('Khone Phapheng source activity is missing.');
+          khone.exploreBoard = {
+            kicker: 'MEKONG · CATARACT · HALF-DAY',
+            duration: 'Half day',
+            route: 'Boat to Nakasang · road transfer',
+          };
+          khone.photoCandidates = [structuredClone(photo)];
+          fs.writeFileSync(sourcePath, `${JSON.stringify(source, null, 2)}\n`);
+
+          const pilotPath = 'pipeline/pilots/laos/don-det-activities.json';
+          const pilot = JSON.parse(fs.readFileSync(pilotPath, 'utf8'));
+          const pilotKhone = pilot.activities.find((item) => item.id === 'thing-khone-phapheng-falls');
+          if (!pilotKhone) throw new Error('Khone Phapheng pilot activity is missing.');
+          pilotKhone.photoCandidates = [structuredClone(photo)];
+          fs.writeFileSync(pilotPath, `${JSON.stringify(pilot, null, 2)}\n`);
+          NODE
+
+      - name: Regenerate Don Det with new random-once targets
+        if: github.event_name == 'push' && github.event.head_commit.message == 'Materialize corrected Don Det contracts'
+        run: npm run generate-city -- laos don-det --reroll-targets --publish-check
+
       - name: Verify universal city template and pipeline
         run: npm run verify:city-template
+
+      - name: Commit corrected Don Det materialization
+        if: github.event_name == 'push' && github.event.head_commit.message == 'Materialize corrected Don Det contracts'
+        run: |
+          if git diff --quiet; then
+            echo 'No corrected Don Det changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pipeline/sources/laos/don-det.json pipeline/pilots/laos/don-det-activities.json pipeline/cities/laos/don-det.json src/content/generated/laos/don-det.ts src/content/generated/index.ts
+          git commit -m 'Materialize corrected Don Det SPA contract'
+          git push
