@@ -51,8 +51,22 @@ assert.equal(validateAutomaticPhotoCandidate(unknownLicense).valid, false);
 const tooSmall = { ...commonsPhoto, id: 'small', width: 320, height: 200 };
 assert.equal(validateAutomaticPhotoCandidate(tooSmall).valid, false);
 
-const lowerConfidence = { ...commonsPhoto, id: 'lower', src: '/assets/lower.webp', subjectConfidence: .9, sourceConfidence: .8 };
-const higherConfidence = { ...commonsPhoto, id: 'higher', src: '/assets/higher.webp', subjectConfidence: 1, sourceConfidence: .9 };
+const lowerConfidence = {
+  ...commonsPhoto,
+  id: 'lower',
+  src: '/assets/lower.webp',
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lower.jpg',
+  subjectConfidence: .9,
+  sourceConfidence: .8,
+};
+const higherConfidence = {
+  ...commonsPhoto,
+  id: 'higher',
+  src: '/assets/higher.webp',
+  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Higher.jpg',
+  subjectConfidence: 1,
+  sourceConfidence: .9,
+};
 assert.equal(selectSpaCardPhoto({ ...base, photoCandidates: [lowerConfidence, higherConfidence] }).image.src, '/assets/higher.webp');
 
 const manual = {
@@ -103,5 +117,37 @@ assert.equal(applied.candidate.spaCard.photoRequiresManualFill, false);
 assert.equal(applied.candidate.media.card.image.src, commonsPhoto.src);
 assert.equal(applied.candidate.media.research.firstPartyPhotoLeads.length, 1, 'editorial lead should survive even when a reusable photo is selected');
 assert.equal('photoCandidates' in applied.candidate, false);
+
+const generalPlace = applySpaCardPhotoSelection({
+  ...base,
+  category: 'accommodation',
+  photoCandidates: [higherConfidence, lowerConfidence],
+}, { entityKind: 'place' });
+assert.equal(generalPlace.candidate.media.card.image.src, higherConfidence.src, 'a general Place must use only the best reusable photo');
+assert.equal(generalPlace.candidate.media.research?.activityPhotoReserve, undefined, 'general Places must not retain reusable photo surplus');
+assert.equal('photoCandidates' in generalPlace.candidate, false);
+
+const activity = applySpaCardPhotoSelection({
+  ...base,
+  category: 'things-to-do',
+  photoCandidates: [lowerConfidence, higherConfidence, commonsPhoto],
+}, { entityKind: 'thing-to-do' });
+assert.equal(activity.candidate.media.card.image.src, commonsPhoto.src, 'activity SPA still has exactly one best primary photo');
+assert.equal(activity.candidate.media.research.activityPhotoReserve.length, 2, 'qualified activity surplus must be retained for future Field Card media');
+assert.deepEqual(
+  activity.candidate.media.research.activityPhotoReserve.map((photo) => photo.src),
+  [higherConfidence.src, lowerConfidence.src],
+  'activity reserve must preserve ranking order and exclude the selected SPA photo',
+);
+assert.equal(activity.candidate.media.fieldCard, undefined, 'building the reserve must not generate Field Card media yet');
+
+const activityWithManualPrimary = applySpaCardPhotoSelection({
+  ...base,
+  category: 'things-to-do',
+  media: { card: { image: manual } },
+  photoCandidates: [higherConfidence, lowerConfidence],
+}, { entityKind: 'thing-to-do' });
+assert.equal(activityWithManualPrimary.candidate.media.card.image.src, manual.src);
+assert.equal(activityWithManualPrimary.candidate.media.research.activityPhotoReserve.length, 2, 'automatic reusable photos remain useful reserve when a manual primary photo is locked');
 
 console.log('SPA card media selection tests passed.');
