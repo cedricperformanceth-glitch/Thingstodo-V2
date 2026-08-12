@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "scope": "field-card-quick-read-editorial-content",
+  "principle": "The component owns the four-slot magazine composition. Atlas editorial work supplies only the activity-specific primary and secondary copy for each slot.",
+  "universalStructure": {
+    "sectionEyebrow": "04 / FIELD NOTES",
+    "sectionTitle": "THE QUICK READ",
+    "layout": "invisible-editorial-grid",
+    "visibleCards": false,
+    "slots": [
+      { "key": "time", "index": "01", "label": "TIME" },
+      { "key": "route", "index": "02", "label": "ROUTE" },
+      { "key": "budget", "index": "03", "label": "BUDGET" },
+      { "key": "bestFor", "index": "04", "label": "BEST FOR" }
+    ]
+  },
+  "editorialItemFields": {
+    "primary": { "required": true, "hardMaxWords": 6 },
+    "secondary": { "required": true, "hardMaxWords": 12 }
+  },
+  "forbiddenItemKeys": ["label", "index", "number", "title", "icon"],
+  "fallbackPolicy": "Activities without authored Quick Read copy still render the universal four-slot composition from existing ThingToDo data. The fallback is deterministic and temporary; Atlas editorial work can replace it without changing the component."
+}

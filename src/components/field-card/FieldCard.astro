@@ -5,6 +5,7 @@ import AdSlot from '../shared/AdSlot.astro';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import TripButton from '../shared/TripButton.astro';
 import FieldCardHero from './FieldCardHero.astro';
+import FieldCardQuickRead from './FieldCardQuickRead.astro';
 
 interface Props {
   thing: ThingToDo;
@@ -19,6 +20,7 @@ const hasFaq = thing.fieldCard.faq.length > 0;
 
 <article class={`field-card field-card--${view.template}`}>
   <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
+  <FieldCardQuickRead {thing} quickRead={view.quickRead} />
 
   <div class="field-card__utility">
     <FavoriteHeart entity={thing} />
@@ -51,7 +53,7 @@ const hasFaq = thing.fieldCard.faq.length > 0;
     justify-content: space-between;
     gap: 1rem;
     align-items: center;
-    margin: 3.25rem 0 2rem;
+    margin: 1rem 0 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgb(49 85 69 / .14);
   }

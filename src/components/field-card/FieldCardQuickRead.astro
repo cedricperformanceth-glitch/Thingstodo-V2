@@ -1,0 +1,203 @@
+---
+import type { FieldCardQuickReadContent, ThingToDo } from '../../core/models/types';
+
+interface Props {
+  thing: ThingToDo;
+  quickRead: FieldCardQuickReadContent;
+}
+
+const { thing, quickRead } = Astro.props;
+const items = [
+  { key: 'time', index: '01', label: 'TIME', content: quickRead.time },
+  { key: 'route', index: '02', label: 'ROUTE', content: quickRead.route },
+  { key: 'budget', index: '03', label: 'BUDGET', content: quickRead.budget },
+  { key: 'bestFor', index: '04', label: 'BEST FOR', content: quickRead.bestFor },
+] as const;
+---
+
+<section class="field-card-quick-read" aria-labelledby={`field-card-quick-read-${thing.slug}`}>
+  <header class="field-card-quick-read__heading">
+    <p>04 / FIELD NOTES</p>
+    <h2 id={`field-card-quick-read-${thing.slug}`}>THE QUICK READ</h2>
+  </header>
+
+  <div class="field-card-quick-read__grid">
+    {items.map((item) => (
+      <article class={`field-card-quick-read__item field-card-quick-read__item--${item.key}`}>
+        <span class="field-card-quick-read__index" aria-hidden="true">{item.index}</span>
+        <p class="field-card-quick-read__label">{item.label}</p>
+        <p class="field-card-quick-read__primary">{item.content.primary}</p>
+        <p class="field-card-quick-read__secondary">{item.content.secondary}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .field-card-quick-read {
+    padding: clamp(56px, 7vw, 92px) clamp(28px, 5vw, 64px) clamp(66px, 8vw, 104px);
+    color: #203c31;
+  }
+
+  .field-card-quick-read__heading {
+    display: grid;
+    gap: 7px;
+    margin-bottom: clamp(48px, 6vw, 76px);
+  }
+
+  .field-card-quick-read__heading p {
+    margin: 0;
+    color: #b76645;
+    font-family: 'DM Sans', var(--sans);
+    font-size: .56rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .field-card-quick-read__heading h2 {
+    margin: 0;
+    color: rgb(49 85 69 / .78);
+    font-family: 'DM Sans', var(--sans);
+    font-size: .72rem;
+    font-weight: 750;
+    line-height: 1.25;
+    letter-spacing: .13em;
+  }
+
+  .field-card-quick-read__grid {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    column-gap: clamp(70px, 11vw, 168px);
+    row-gap: clamp(62px, 8vw, 98px);
+    max-width: 980px;
+  }
+
+  .field-card-quick-read__item {
+    position: relative;
+    min-height: 146px;
+    padding: 24px 0 0 24px;
+  }
+
+  .field-card-quick-read__item--route {
+    transform: translateY(24px);
+  }
+
+  .field-card-quick-read__item--budget {
+    margin-left: 8%;
+  }
+
+  .field-card-quick-read__item--bestFor {
+    margin-left: 5%;
+    transform: translateY(38px);
+  }
+
+  .field-card-quick-read__index {
+    position: absolute;
+    z-index: 0;
+    top: -.18em;
+    left: -.02em;
+    color: rgb(49 85 69 / .075);
+    font-family: Fraunces, var(--serif);
+    font-size: clamp(5.7rem, 8vw, 7.9rem);
+    font-weight: 500;
+    line-height: .8;
+    letter-spacing: -.06em;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .field-card-quick-read__label,
+  .field-card-quick-read__primary,
+  .field-card-quick-read__secondary {
+    position: relative;
+    z-index: 1;
+  }
+
+  .field-card-quick-read__label {
+    margin: 0 0 13px;
+    color: #b76645;
+    font-family: 'DM Sans', var(--sans);
+    font-size: .54rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
+  .field-card-quick-read__primary {
+    max-width: 14ch;
+    margin: 0;
+    color: #203c31;
+    font-family: Fraunces, var(--serif);
+    font-size: clamp(1.85rem, 3vw, 2.65rem);
+    font-weight: 520;
+    line-height: .98;
+    letter-spacing: -.035em;
+    text-transform: uppercase;
+  }
+
+  .field-card-quick-read__item--budget .field-card-quick-read__primary,
+  .field-card-quick-read__item--bestFor .field-card-quick-read__primary {
+    font-size: clamp(2rem, 3.35vw, 2.95rem);
+  }
+
+  .field-card-quick-read__secondary {
+    max-width: 27ch;
+    margin: 10px 0 0;
+    color: rgb(49 85 69 / .62);
+    font-family: 'DM Sans', var(--sans);
+    font-size: .72rem;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: .015em;
+  }
+
+  @media (max-width: 820px) {
+    .field-card-quick-read__grid {
+      column-gap: clamp(42px, 8vw, 76px);
+    }
+
+    .field-card-quick-read__item--budget,
+    .field-card-quick-read__item--bestFor {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .field-card-quick-read {
+      padding: 48px 20px 58px;
+    }
+
+    .field-card-quick-read__heading {
+      margin-bottom: 34px;
+    }
+
+    .field-card-quick-read__grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+
+    .field-card-quick-read__item,
+    .field-card-quick-read__item--route,
+    .field-card-quick-read__item--budget,
+    .field-card-quick-read__item--bestFor {
+      min-height: 112px;
+      margin-left: 0;
+      padding: 18px 0 0 18px;
+      transform: none;
+    }
+
+    .field-card-quick-read__index {
+      font-size: 5.3rem;
+    }
+
+    .field-card-quick-read__primary,
+    .field-card-quick-read__item--budget .field-card-quick-read__primary,
+    .field-card-quick-read__item--bestFor .field-card-quick-read__primary {
+      max-width: 18ch;
+      font-size: clamp(1.75rem, 9vw, 2.35rem);
+    }
+  }
+</style>

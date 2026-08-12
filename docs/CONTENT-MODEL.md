@@ -21,6 +21,19 @@ The Field Card Hero separates presentation from editorial authorship.
 
 The executable Hero rules live in `pipeline/contracts/field-card-hero.json` and are verified in CI.
 
+## Field Card Quick Read
+
+The Quick Read is the universal magazine-index block directly below the Hero.
+
+- `src/components/field-card/FieldCardQuickRead.astro` owns the section heading, invisible 2×2 editorial grid, ghost `01–04` indexes, fixed `TIME / ROUTE / BUDGET / BEST FOR` labels, typography, asymmetry and mobile stack.
+- The four modules are deliberately not UI cards: the reusable component does not add module backgrounds, borders, shadows or border radii.
+- `FieldCardQuickReadContent` carries only two editorial lines per slot: `primary` and `secondary`. Labels, numbering and slot order belong to presentation and cannot be overridden by activity data.
+- Generated `ThingToDo.fieldCard.quickRead` is supported for future city generation through an authored `fieldCardQuickRead` source block. The generator validates and transports the copy; it does not invent destination-specific Quick Read prose.
+- `src/content/field-card-quick-read-copy.json` is the manual editorial override layer for reviewed activities.
+- Activities without authored Quick Read copy still render the same universal block through a deterministic fallback using existing duration, best-time, route, cost type and SPA handwritten tags.
+
+The executable Quick Read rules live in `pipeline/contracts/field-card-quick-read.json` and are verified in CI.
+
 Every media group is explicit, and every media record carries provenance. Never claim a social-media image is public domain.
 
 Manual locks have one canonical form on the record they protect: `manualLocks["nested.field"] = { value, source: "manual", locked: true }`. This applies equally to `City`, `Place`, and `ThingToDo`; parent locks protect all nested fields beneath them. Pipeline drafts do not have a separate root-level lock map.
