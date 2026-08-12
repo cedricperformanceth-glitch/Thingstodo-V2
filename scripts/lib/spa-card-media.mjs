@@ -39,6 +39,7 @@ export function validateAutomaticPhotoCandidate(photo) {
     errors.push(`photo source confidence must be at least ${contract.candidateRequirements.minimumSourceConfidence}`);
   }
   if (!clean(photo?.sourceUrl)) errors.push('external photo sourceUrl is required');
+  if (photo?.sourceType !== 'wikimedia') errors.push('automatic photo source must be Wikimedia Commons');
   const license = normalizedLicense(photo?.license);
   if (!contract.acceptedLicenses.includes(license)) errors.push(`photo license is not accepted: ${license || 'unknown'}`);
   if (!Number.isFinite(photo?.width) || photo.width < contract.candidateRequirements.minimumWidth) errors.push(`photo width must be at least ${contract.candidateRequirements.minimumWidth}px`);
@@ -95,9 +96,9 @@ function toMediaRecord(photo, candidateName) {
     id: clean(photo.id) || `spa-card-${clean(candidateName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`,
     src: clean(photo.src),
     alt: clean(photo.alt) || candidateName,
-    sourceType: photo.sourceType ?? 'open-license',
-    ...(clean(photo.sourceUrl) ? { sourceUrl: clean(photo.sourceUrl) } : {}),
-    ...(clean(photo.sourceName) ? { sourceName: clean(photo.sourceName) } : {}),
+    sourceType: 'wikimedia',
+    sourceUrl: clean(photo.sourceUrl),
+    sourceName: 'Wikimedia Commons',
     ...(clean(photo.author) ? { author: clean(photo.author) } : {}),
     ...(license ? { license } : {}),
     manual: photo.manual === true,
@@ -113,20 +114,6 @@ function toActivityReserveRecord(photo, candidateName) {
     subjectConfidence: Number(photo.subjectConfidence),
     sourceConfidence: Number(photo.sourceConfidence),
   };
-}
-
-function firstPartyPhotoLeads(candidate) {
-  return (candidate?.photoCandidates ?? []).filter((photo) => photo?.autoPublishable === false && photo?.rightsStatus === 'unconfirmed-first-party');
-}
-
-function mergeFirstPartyPhotoLeads(existing = [], incoming = []) {
-  const seen = new Set();
-  return [...existing, ...incoming].filter((lead) => {
-    const key = `${clean(lead?.sourceUrl).toLowerCase()}|${clean(lead?.imageUrl).toLowerCase()}`;
-    if (!key || seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  }).sort((a, b) => Number(b?.score ?? 0) - Number(a?.score ?? 0)).slice(0, contract.editorialLeads.firstParty.maximumPerEntity);
 }
 
 function mergeActivityPhotoReserve(existing = [], incoming = []) {
@@ -156,7 +143,6 @@ export function selectSpaCardPhoto(candidate) {
 
 export function applySpaCardPhotoSelection(candidate, options = {}) {
   const result = selectSpaCardPhoto(candidate);
-  const leads = firstPartyPhotoLeads(candidate);
   const next = structuredClone(candidate);
   const entityKind = options.entityKind ?? (candidate?.category === 'things-to-do' ? 'thing-to-do' : 'place');
   next.spaCard ??= {};
@@ -168,10 +154,7 @@ export function applySpaCardPhotoSelection(candidate, options = {}) {
   if (result.image) next.media.card.image = result.image;
   else delete next.media.card.image;
 
-  if (leads.length) {
-    next.media.research ??= {};
-    next.media.research.firstPartyPhotoLeads = mergeFirstPartyPhotoLeads(next.media.research.firstPartyPhotoLeads, leads);
-  }
+  if (next.media.research?.firstPartyPhotoLeads) delete next.media.research.firstPartyPhotoLeads;
 
   if (entityKind === 'thing-to-do') {
     const selectedKey = photoKey(result.image);
@@ -189,6 +172,7 @@ export function applySpaCardPhotoSelection(candidate, options = {}) {
     delete next.media.research.activityPhotoReserve;
   }
 
+  if (next.media.research && Object.keys(next.media.research).length === 0) delete next.media.research;
   if ('image' in next && !result.image) delete next.image;
   if (result.image && 'image' in next) next.image = result.image;
   delete next.photoCandidates;
