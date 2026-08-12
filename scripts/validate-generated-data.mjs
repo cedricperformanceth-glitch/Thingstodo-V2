@@ -67,6 +67,8 @@ for (const draft of drafts) {
 
   for (const entity of [...draft.places, ...draft.things]) {
     if (entity.media?.hero) fail.push(`Place/ThingToDo media must not contain Hero media: ${cityKey}/${entity.slug}`);
+    if (entity.media?.research?.firstPartyPhotoLeads) fail.push(`Legacy first-party photo leads are forbidden: ${cityKey}/${entity.slug}`);
+    if ('firstPartySources' in entity) fail.push(`Legacy firstPartySources field is forbidden: ${cityKey}/${entity.slug}`);
     if ('isMySelection' in entity) fail.push(`Legacy isMySelection field is forbidden: ${cityKey}/${entity.slug}`);
     if ('selectionRank' in entity) fail.push(`Legacy selectionRank field is forbidden: ${cityKey}/${entity.slug}`);
     if (!draft.cityData.categories?.includes(entity.category)) fail.push(`Entity category is not enabled by City.categories: ${cityKey}/${entity.slug} -> ${entity.category}`);
