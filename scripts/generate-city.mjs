@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { chooseFieldCardTemplate, mergeGenerated, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
+import { chooseFieldCardTemplate, mergeGenerated, rerollAutomaticCategoryTargets, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
 import { materializeSpaCardEditorial } from './lib/spa-card-editorial.mjs';
 import { applySpaCardPhotoSelection } from './lib/spa-card-media.mjs';
@@ -12,7 +12,9 @@ const [country, city, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
 const fromCity = flags.includes('--from-city');
 const publishCheck = flags.includes('--publish-check');
-if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check]');
+const rerollTargets = flags.includes('--reroll-targets');
+if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check] [--reroll-targets]');
+if (fromCity && rerollTargets) throw new Error('--reroll-targets requires versioned research sources; it cannot be combined with --from-city.');
 
 const root = process.cwd();
 const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`);
@@ -22,7 +24,8 @@ if (!fs.existsSync(draftFile)) throw new Error(`No structural draft for ${countr
 if (!fromCity && !fs.existsSync(sourceFile)) throw new Error(`No versioned research inputs at ${path.relative(root, sourceFile)}.`);
 
 const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8'));
-syncGenerationContract(draft);
+if (rerollTargets) rerollAutomaticCategoryTargets(draft);
+else syncGenerationContract(draft);
 const input = fromCity
   ? { places: draft.places, things: draft.things, city: draft.cityData }
   : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
@@ -44,8 +47,10 @@ const editorialThings = (input.things ?? []).map((candidate) => prepareCandidate
 for (const candidate of editorialPlaces) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
 for (const candidate of editorialThings) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
 
+const selectedEditorialPlaces = selectPlaceCandidates(editorialPlaces, draft);
 const things = editorialThings.map((candidate) => normalizeThing(candidate, draft));
-const places = editorialPlaces.map((candidate) => normalizePlace(candidate, draft));
+const places = selectedEditorialPlaces.map((candidate) => normalizePlace(candidate, draft));
+console.log(`Selected Place cards: ${summarizePlaceSelection(places, draft.cityData.categoryTargets)}`);
 console.log(`Explore Board: ${(draft.cityData.exploreBoard?.featuredThingIds ?? []).join(', ') || 'awaiting manual landmark selection'}`);
 
 const assembled = assembleDraft(draft, input.city ?? {}, places, things);
@@ -65,7 +70,7 @@ if (publishCheck) {
 
 if (dryRun) {
   console.log(publishCheck
-    ? `[dry-run] Source and publication contracts are valid; no Atlas content changed.`
+    ? '[dry-run] Source and publication contracts are valid; no Atlas content changed.'
     : '[dry-run] Source contract is valid; no Atlas content changed.');
   process.exit(0);
 }
@@ -74,6 +79,49 @@ fs.writeFileSync(draftFile, `${JSON.stringify(assembled, null, 2)}\n`);
 fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city}.ts`), tsModule(assembled));
 await import('./regenerate-content-registry.mjs');
 console.log(`Generated static versioned content for ${country}/${city}${publishCheck ? ' with publication QA passed' : ''}.`);
+
+function isManualEntity(entity) {
+  return String(entity?.sourceMetadata?.sourceName ?? '').trim().toLowerCase() === 'manual';
+}
+
+function selectPlaceCandidates(candidates, baseDraft) {
+  const targets = baseDraft.cityData?.categoryTargets ?? {};
+  const existingManual = (baseDraft.places ?? []).filter(isManualEntity);
+  const manualIds = new Set(existingManual.map((place) => place.id));
+  const manualCounts = {};
+  for (const place of existingManual) manualCounts[place.category] = (manualCounts[place.category] ?? 0) + 1;
+
+  const selectedCounts = {};
+  const selected = [];
+  for (const candidate of candidates) {
+    if (manualIds.has(candidate.id)) continue;
+    const target = targets[candidate.category];
+    if (!Number.isInteger(target)) {
+      selected.push(candidate);
+      continue;
+    }
+    const allowance = Math.max(0, target - (manualCounts[candidate.category] ?? 0));
+    const used = selectedCounts[candidate.category] ?? 0;
+    if (used >= allowance) continue;
+    selectedCounts[candidate.category] = used + 1;
+    selected.push(candidate);
+  }
+
+  for (const [category, target] of Object.entries(targets)) {
+    if (category === 'things-to-do' || !Number.isInteger(target)) continue;
+    const available = (manualCounts[category] ?? 0) + (selectedCounts[category] ?? 0);
+    if (available < target) {
+      throw new Error(`Insufficient qualified candidates for ${category}: target ${target}, available ${available}. Research more candidates instead of lowering the generated target.`);
+    }
+  }
+  return selected;
+}
+
+function summarizePlaceSelection(places, targets) {
+  const counts = {};
+  for (const place of places) counts[place.category] = (counts[place.category] ?? 0) + 1;
+  return Object.entries(counts).map(([category, count]) => `${category}=${count}${Number.isInteger(targets?.[category]) ? `/${targets[category]}` : ''}`).join(' · ');
+}
 
 function prepareCandidate(candidate, kind, candidateCountry) {
   const verified = prepareVerification(candidate, kind, candidateCountry);
@@ -188,16 +236,20 @@ function assembleDraft(baseDraft, inputCity, nextPlaces, nextThings) {
   syncGenerationContract(next);
   if (next.cityData.hero?.media) delete next.cityData.hero.media;
 
-  for (const candidate of nextThings) {
-    const existing = next.things.find((thing) => thing.id === candidate.id);
-    const target = existing ? mergeGenerated(existing, candidate) : candidate;
-    if (!existing) next.things.push(target);
-  }
-  for (const candidate of nextPlaces) {
-    const existing = next.places.find((place) => place.id === candidate.id);
-    const target = existing ? mergeGenerated(existing, candidate) : candidate;
-    if (!existing) next.places.push(target);
-  }
+  const previousThings = next.things;
+  next.things = nextThings.map((candidate) => {
+    const existing = previousThings.find((thing) => thing.id === candidate.id);
+    return existing ? mergeGenerated(existing, candidate) : candidate;
+  });
+
+  const previousPlaces = next.places;
+  const generatedPlaces = nextPlaces.map((candidate) => {
+    const existing = previousPlaces.find((place) => place.id === candidate.id);
+    return existing ? mergeGenerated(existing, candidate) : candidate;
+  });
+  const retainedManualPlaces = previousPlaces.filter((place) => isManualEntity(place) && !generatedPlaces.some((candidate) => candidate.id === place.id));
+  next.places = [...generatedPlaces, ...retainedManualPlaces];
+
   for (const entity of [...next.places, ...next.things]) {
     if (entity.media) delete entity.media.hero;
     delete entity.isMySelection;
