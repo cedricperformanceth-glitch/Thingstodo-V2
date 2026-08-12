@@ -180,4 +180,14 @@ inconsistentPhotoStatus.places[0].spaCard.photoStatus = 'missing';
 inconsistentPhotoStatus.places[0].spaCard.photoRequiresManualFill = false;
 assert.ok(evaluateCityPublication(inconsistentPhotoStatus).errors.some((entry) => ['spa-card-contract', 'photo-status'].includes(entry.code)));
 
+// Draft lifecycle changes persistence validation only. Publication QA must remain strict.
+const nonIndexableDraft = draft();
+nonIndexableDraft.cityData.seo.indexable = false;
+delete nonIndexableDraft.things[0].media.card.image;
+nonIndexableDraft.things[0].spaCard.photoStatus = 'missing';
+nonIndexableDraft.things[0].spaCard.photoRequiresManualFill = true;
+const nonIndexablePublicationReport = evaluateCityPublication(nonIndexableDraft);
+assert.equal(nonIndexablePublicationReport.status, 'blocked');
+assert.ok(nonIndexablePublicationReport.errors.some((entry) => entry.code === 'explore-board-photo'));
+
 console.log('City publication QA tests passed.');
