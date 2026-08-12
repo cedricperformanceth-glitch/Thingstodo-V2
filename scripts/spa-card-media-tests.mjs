@@ -74,10 +74,34 @@ assert.equal(missing.candidate.spaCard.photoStatus, 'missing');
 assert.equal(missing.candidate.spaCard.photoRequiresManualFill, true);
 assert.equal(missing.candidate.media.card.image, undefined);
 
-const applied = applySpaCardPhotoSelection({ ...base, photoCandidates: [commonsPhoto] });
+const firstPartyLead = {
+  id: 'first-party-facebook-mekong-garden-1',
+  entityName: 'Mekong Garden Café',
+  cityName: 'Atlas Town',
+  sourceType: 'facebook',
+  sourceName: 'Official Facebook',
+  sourceUrl: 'https://www.facebook.com/mekonggarden/',
+  imageUrl: 'https://cdn.example/mekong-garden.jpg',
+  identityConfidence: .95,
+  pageFetched: true,
+  discoveryStatus: 'image-found',
+  rightsStatus: 'unconfirmed-first-party',
+  autoPublishable: false,
+  editorialAction: 'review-rights-before-use',
+  score: 89,
+};
+const withLead = applySpaCardPhotoSelection({ ...base, photoCandidates: [firstPartyLead] });
+assert.equal(withLead.status, 'missing', 'first-party lead must not become an automatic card photo');
+assert.equal(withLead.candidate.spaCard.photoStatus, 'missing');
+assert.equal(withLead.candidate.media.research.firstPartyPhotoLeads.length, 1);
+assert.equal(withLead.candidate.media.research.firstPartyPhotoLeads[0].imageUrl, firstPartyLead.imageUrl);
+assert.equal('photoCandidates' in withLead.candidate, false);
+
+const applied = applySpaCardPhotoSelection({ ...base, photoCandidates: [commonsPhoto, firstPartyLead] });
 assert.equal(applied.candidate.spaCard.photoStatus, 'verified');
 assert.equal(applied.candidate.spaCard.photoRequiresManualFill, false);
 assert.equal(applied.candidate.media.card.image.src, commonsPhoto.src);
+assert.equal(applied.candidate.media.research.firstPartyPhotoLeads.length, 1, 'editorial lead should survive even when a reusable photo is selected');
 assert.equal('photoCandidates' in applied.candidate, false);
 
 console.log('SPA card media selection tests passed.');
