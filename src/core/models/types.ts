@@ -11,8 +11,9 @@ export interface MediaResearch { activityPhotoReserve?: ActivityPhotoReserveEntr
 export interface CountryMediaManifest { hero: { stamps: MediaRecord[]; drawings: MediaRecord[]; photos: MediaRecord[] }; card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }
 export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; research?: MediaResearch; }
 export interface HeroFact { label: string; value: string; }
+export interface FieldCardHeroContent { eyebrow: string; aliases: string[]; description: string; steps: string[]; rhythmNote: string; photoNote: string; }
 export interface FieldCardSection { title: string; body: string; }
-export interface FieldCardContent { template: 'compact' | 'deep'; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
+export interface FieldCardContent { template: 'compact' | 'deep'; hero?: FieldCardHeroContent; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
 // Exact SPA tag cardinality is enforced by the generation and publication contracts.
 // Generated JSON is inferred as string[], so the model keeps the serializable shape here.
 export interface SpaCardContent { handwrittenTags: string[]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; }
