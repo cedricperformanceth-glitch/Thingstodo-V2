@@ -22,15 +22,15 @@ for (const draft of drafts) {
       const seed=`${draft.country}/${draft.city}`;
       try {
         const overrides=lockedCategoryTargetOverrides(draft.cityData);
-        const expectedTargets=categoryTargets(draft.country,settlementType,seed,actualCategories,overrides);
         const actualTargets=draft.cityData.categoryTargets ?? {};
-        if (JSON.stringify(actualTargets)!==JSON.stringify(expectedTargets)) fail.push(`Category targets must match the configured City.categories for ${cityKey}: expected ${JSON.stringify(expectedTargets)}, received ${JSON.stringify(actualTargets)}`);
+        const expectedTargets=categoryTargets(draft.country,settlementType,seed,actualCategories,overrides,actualTargets);
+        if (JSON.stringify(actualTargets)!==JSON.stringify(expectedTargets)) fail.push(`Category targets must be valid persisted random-once values for ${cityKey}: expected ${JSON.stringify(expectedTargets)}, received ${JSON.stringify(actualTargets)}`);
       } catch (error) {
         fail.push(`${cityKey}: ${error instanceof Error ? error.message : String(error)}`);
       }
 
-      const expectedResearchPlan=researchPlan(draft.country,settlementType,seed,actualCategories);
-      if (JSON.stringify(draft.researchPlan)!==JSON.stringify(expectedResearchPlan)) fail.push(`Research plan must match configured City.categories for ${cityKey}: expected ${JSON.stringify(expectedResearchPlan)}, received ${JSON.stringify(draft.researchPlan)}`);
+      const expectedResearchPlan=researchPlan(draft.country,settlementType,seed,actualCategories,draft.researchPlan);
+      if (JSON.stringify(draft.researchPlan)!==JSON.stringify(expectedResearchPlan)) fail.push(`Research plan must match configured City.categories and preserve persisted random-once subtargets for ${cityKey}: expected ${JSON.stringify(expectedResearchPlan)}, received ${JSON.stringify(draft.researchPlan)}`);
     } else {
       legacyPlans.push(cityKey);
     }
@@ -47,7 +47,7 @@ for (const draft of drafts) {
   }
 
   const featuredIds=draft.cityData.exploreBoard?.featuredThingIds ?? [];
-  if (featuredIds.length > 3) fail.push(`Explore Board supports at most 3 landmarks: ${cityKey}`);
+  if (featuredIds.length !== 3) fail.push(`Explore Board requires exactly 3 landmarks: ${cityKey}; found ${featuredIds.length}`);
   if (new Set(featuredIds).size !== featuredIds.length) fail.push(`Explore Board landmark IDs must be unique: ${cityKey}`);
   for (const id of featuredIds) {
     const thing=draft.things.find((candidate)=>candidate.id===id);
