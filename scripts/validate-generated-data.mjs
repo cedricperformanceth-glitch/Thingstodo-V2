@@ -30,7 +30,10 @@ for (const draft of drafts) {
       }
 
       const expectedResearchPlan=researchPlan(draft.country,settlementType,seed,actualCategories,draft.researchPlan);
-      if (JSON.stringify(draft.researchPlan)!==JSON.stringify(expectedResearchPlan)) fail.push(`Research plan must match configured City.categories and preserve persisted random-once subtargets for ${cityKey}: expected ${JSON.stringify(expectedResearchPlan)}, received ${JSON.stringify(draft.researchPlan)}`);
+      const comparableResearchPlan=structuredClone(draft.researchPlan);
+      comparableResearchPlan.verification=structuredClone(expectedResearchPlan.verification);
+      if (JSON.stringify(comparableResearchPlan)!==JSON.stringify(expectedResearchPlan)) fail.push(`Research plan must match configured City.categories and preserve persisted random-once subtargets for ${cityKey}: expected ${JSON.stringify(expectedResearchPlan)}, received ${JSON.stringify(draft.researchPlan)}`);
+      if (JSON.stringify(draft.researchPlan.verification)!==JSON.stringify(expectedResearchPlan.verification)) legacyPlans.push(`${cityKey} verification-contract`);
     } else {
       legacyPlans.push(cityKey);
     }

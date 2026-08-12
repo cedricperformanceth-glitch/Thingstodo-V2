@@ -1,7 +1,9 @@
 const OPENVERSE_ENDPOINT = 'https://api.openverse.org/v1/images/';
+const COMMONS_API_ENDPOINT = 'https://commons.wikimedia.org/w/api.php';
 const FLICKR_ENDPOINT = 'https://www.flickr.com/services/rest/';
 const clean = (value) => String(value ?? '').trim();
 const normalize = (value) => clean(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+const stripHtml = (value) => clean(value).replace(/<[^>]*>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim();
 
 function exactNameConfidence(candidateName, title, tags = '') {
   const name = normalize(candidateName);
@@ -13,13 +15,18 @@ function exactNameConfidence(candidateName, title, tags = '') {
   return 0;
 }
 
-function acceptedOpenverseLicense(license, version) {
-  const slug = clean(license).toLowerCase();
-  const suffix = clean(version) ? ` ${clean(version)}` : '';
-  if (slug === 'by') return `CC BY${suffix}`;
-  if (slug === 'by-sa') return `CC BY-SA${suffix}`;
-  if (slug === 'cc0') return `CC0${suffix || ' 1.0'}`;
-  if (slug === 'pdm' || slug === 'publicdomain') return 'Public Domain';
+function acceptedOpenverseLicense(license) {
+  return ['by', 'by-sa', 'cc0', 'pdm', 'publicdomain'].includes(clean(license).toLowerCase());
+}
+
+function compatibleLicenseLabel(value) {
+  const license = clean(value);
+  const normalized = license.toLowerCase().replace(/_/g, '-');
+  if (!normalized || normalized.includes('noncommercial') || normalized.includes('no derivatives') || normalized.includes('no-derivatives') || normalized.includes('cc by-nc') || normalized.includes('cc-by-nc') || normalized.includes('cc by-nd') || normalized.includes('cc-by-nd')) return '';
+  if (normalized.includes('public domain') || normalized === 'pd' || normalized.startsWith('public-domain')) return 'Public Domain';
+  if (normalized.includes('cc0')) return license;
+  if (normalized.includes('cc by-sa') || normalized.includes('cc-by-sa')) return license;
+  if (normalized.includes('cc by') || normalized.includes('cc-by')) return license;
   return '';
 }
 
@@ -29,6 +36,57 @@ async function jsonFetch(url, fetchImpl) {
   return response.json();
 }
 
+function commonsFileTitle(sourceUrl) {
+  try {
+    const url = new URL(sourceUrl);
+    if (url.hostname !== 'commons.wikimedia.org') return '';
+    const prefix = '/wiki/';
+    if (!url.pathname.startsWith(prefix)) return '';
+    const title = decodeURIComponent(url.pathname.slice(prefix.length)).replace(/_/g, ' ');
+    return /^File:/i.test(title) ? title : '';
+  } catch {
+    return '';
+  }
+}
+
+async function sourceVerifiedCommonsPhoto(result, candidate, subjectConfidence, fetchImpl) {
+  const sourceUrl = clean(result.foreign_landing_url);
+  const title = commonsFileTitle(sourceUrl);
+  if (!title) return null;
+  const params = new URLSearchParams({
+    action: 'query', format: 'json', origin: '*', prop: 'imageinfo', titles: title,
+    iiprop: 'url|size|extmetadata', iiurlwidth: '1600'
+  });
+  const data = await jsonFetch(`${COMMONS_API_ENDPOINT}?${params}`, fetchImpl);
+  const page = Object.values(data?.query?.pages ?? {})[0];
+  const info = page?.imageinfo?.[0];
+  if (!info) return null;
+  const metadata = info.extmetadata ?? {};
+  const license = compatibleLicenseLabel(metadata?.LicenseShortName?.value);
+  const author = stripHtml(metadata?.Artist?.value) || clean(result.creator);
+  const src = clean(info.thumburl || info.url);
+  const width = Number(info.thumbwidth ?? info.width);
+  const height = Number(info.thumbheight ?? info.height);
+  if (!license || !src || !Number.isFinite(width) || !Number.isFinite(height)) return null;
+  return {
+    id: `openverse-${clean(result.id || result.identifier || candidate.id || candidate.name)}`,
+    src,
+    alt: clean(result.title) || candidate.name,
+    sourceType: 'wikimedia',
+    sourceUrl,
+    sourceName: 'Wikimedia Commons via Openverse',
+    author,
+    license,
+    width,
+    height,
+    subjectVerified: true,
+    subjectConfidence,
+    sourceConfidence: 1,
+    manual: false,
+    locked: false
+  };
+}
+
 export async function discoverOpenversePhotos(candidate, context = {}, fetchImpl = globalThis.fetch) {
   if (typeof fetchImpl !== 'function') return [];
   const query = [candidate?.name, context?.cityName, context?.countryName ?? context?.country].filter(Boolean).join(' ');
@@ -36,31 +94,17 @@ export async function discoverOpenversePhotos(candidate, context = {}, fetchImpl
   const params = new URLSearchParams({ q: `"${candidate.name}" ${context.cityName ?? ''}`.trim(), license: 'by,by-sa,cc0,pdm', page_size: '12' });
   try {
     const data = await jsonFetch(`${OPENVERSE_ENDPOINT}?${params}`, fetchImpl);
-    return (data?.results ?? []).flatMap((result) => {
-      const license = acceptedOpenverseLicense(result.license, result.license_version);
+    const photos = [];
+    for (const result of data?.results ?? []) {
+      if (!acceptedOpenverseLicense(result.license)) continue;
       const confidence = exactNameConfidence(candidate.name, result.title, (result.tags ?? []).map((tag) => tag?.name));
-      const width = Number(result.width); const height = Number(result.height);
-      const sourceUrl = clean(result.foreign_landing_url);
-      const src = clean(result.url || result.thumbnail);
-      if (!license || !src || !sourceUrl || confidence < .9 || !Number.isFinite(width) || !Number.isFinite(height)) return [];
-      return [{
-        id: `openverse-${clean(result.id || result.identifier || candidate.id || candidate.name)}`,
-        src,
-        alt: clean(result.title) || candidate.name,
-        sourceType: 'openverse',
-        sourceUrl,
-        sourceName: `Openverse · ${clean(result.provider || result.source) || 'open media'}`,
-        author: clean(result.creator),
-        license,
-        width,
-        height,
-        subjectVerified: true,
-        subjectConfidence: confidence,
-        sourceConfidence: .8,
-        manual: false,
-        locked: false
-      }];
-    });
+      if (confidence < .9) continue;
+      // Openverse is a discovery index. Only Commons results are currently auto-materialized,
+      // because their licence/author/dimensions can be re-checked against the source API.
+      const verified = await sourceVerifiedCommonsPhoto(result, candidate, confidence, fetchImpl);
+      if (verified) photos.push(verified);
+    }
+    return photos;
   } catch {
     return [];
   }

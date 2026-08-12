@@ -4,13 +4,28 @@ import { discoverFlickrPhotos, discoverOpenversePhotos, discoverPhotoCandidates 
 const candidate = { id: 'place-river-cafe', name: 'River Cafe', coordinates: { latitude: 15.1, longitude: 105.8 } };
 const context = { cityName: 'Atlas Town', country: 'laos' };
 
-const openverseFetch = async () => ({ ok: true, json: async () => ({ results: [{
-  id: 'ov1', title: 'River Cafe in Atlas Town', creator: 'Open Author', license: 'by-sa', license_version: '4.0',
-  width: 1600, height: 1000, url: 'https://images.example/river.jpg', foreign_landing_url: 'https://source.example/river', provider: 'wikimedia', tags: [{ name: 'river cafe' }]
-}] }) });
+const openverseFetch = async (url) => {
+  const parsed = new URL(url);
+  if (parsed.hostname === 'api.openverse.org') return { ok: true, json: async () => ({ results: [{
+    id: 'ov1', title: 'River Cafe in Atlas Town', creator: 'Open Author', license: 'by-sa', license_version: '4.0',
+    foreign_landing_url: 'https://commons.wikimedia.org/wiki/File:River_Cafe_Atlas_Town.jpg', provider: 'wikimedia', tags: [{ name: 'river cafe' }]
+  }, {
+    id: 'ov2', title: 'River Cafe elsewhere', creator: 'Other Author', license: 'by', license_version: '4.0',
+    foreign_landing_url: 'https://other.example/photo', provider: 'other', tags: [{ name: 'river cafe' }]
+  }] }) };
+  if (parsed.hostname === 'commons.wikimedia.org') return { ok: true, json: async () => ({ query: { pages: { 1: { imageinfo: [{
+    thumburl: 'https://upload.wikimedia.org/river-1600.jpg', thumbwidth: 1600, thumbheight: 1000,
+    url: 'https://upload.wikimedia.org/original.jpg', width: 3200, height: 2000,
+    extmetadata: { LicenseShortName: { value: 'CC BY-SA 4.0' }, Artist: { value: '<span>Commons Author</span>' } }
+  }] } } } }) };
+  throw new Error(`unexpected Openverse/Commons URL: ${url}`);
+};
 const openverse = await discoverOpenversePhotos(candidate, context, openverseFetch);
-assert.equal(openverse.length, 1);
+assert.equal(openverse.length, 1, 'Openverse results are only auto-materialized after source verification');
 assert.equal(openverse[0].license, 'CC BY-SA 4.0');
+assert.equal(openverse[0].author, 'Commons Author');
+assert.equal(openverse[0].sourceName, 'Wikimedia Commons via Openverse');
+assert.equal(openverse[0].sourceConfidence, 1);
 assert.equal(openverse[0].subjectVerified, true);
 
 const flickrFetch = async (url) => {
