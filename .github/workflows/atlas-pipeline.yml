@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: atlas-pipeline-${{ github.ref }}
@@ -30,5 +30,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: One-time materialize Thakhek through the real generator
+        if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'Materialize Thakhek')
+        run: npm run generate-city -- laos thakhek
+
       - name: Verify universal city template and pipeline
         run: npm run verify:city-template
+
+      - name: Persist generated Thakhek output
+        if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'Materialize Thakhek')
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pipeline/cities/laos/thakhek.json src/content/generated/laos/thakhek.ts src/content/registry/index.ts
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate Thakhek city content"
+            git push
+          fi
