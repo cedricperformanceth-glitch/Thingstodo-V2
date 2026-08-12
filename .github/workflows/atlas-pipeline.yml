@@ -1,4 +1,5 @@
 name: Atlas Pipeline
+# One-time corrective materialization; restored to read-only after the successful run.
 
 on:
   push:
