@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "country": "laos",
+  "city": "thakhek",
+  "profile": "compact",
+  "generatedAt": null,
+  "researchPlan": {},
+  "cityData": {
+    "id": "city-laos-thakhek",
+    "slug": "thakhek",
+    "name": "Thakhek",
+    "country": "laos",
+    "profile": "compact",
+    "settlementType": "city",
+    "coordinates": {
+      "latitude": 17.3946,
+      "longitude": 104.8065
+    },
+    "description": "",
+    "categories": [
+      "things-to-do",
+      "restaurants",
+      "cafes",
+      "accommodation",
+      "scooter-rental",
+      "markets",
+      "practical-services"
+    ],
+    "categoryTargets": {
+      "things-to-do": 18,
+      "restaurants": 24,
+      "cafes": 25,
+      "accommodation": 21,
+      "scooter-rental": 5
+    },
+    "hero": {
+      "eyebrow": "Khammouane · Central Laos",
+      "title": "Thakhek travel guide",
+      "subtitle": "A Mekong town and road-trip base for limestone caves, the Thakhek Loop and Khammouane’s karst country.",
+      "facts": [
+        {
+          "label": "Updated",
+          "value": "August 2026"
+        },
+        {
+          "label": "Base",
+          "value": "Loop road base"
+        },
+        {
+          "label": "Landscape",
+          "value": "Limestone & caves"
+        },
+        {
+          "label": "Region",
+          "value": "Khammouane Province"
+        }
+      ]
+    },
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-kong-lor-cave",
+        "thing-xe-bang-fai-cave",
+        "thing-tham-nang-aen-cave"
+      ]
+    },
+    "manualLocks": {
+      "categoryTargets.things-to-do": {
+        "value": 18,
+        "source": "manual",
+        "locked": true
+      }
+    },
+    "seo": {
+      "title": "Thakhek travel guide | Things To Do Atlas",
+      "description": "Independent Thakhek travel guide for the town, caves and Thakhek Loop.",
+      "canonicalPath": "/laos/thakhek",
+      "indexable": false
+    }
+  },
+  "places": [],
+  "things": []
+}
