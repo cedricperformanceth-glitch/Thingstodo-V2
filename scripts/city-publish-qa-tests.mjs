@@ -27,8 +27,11 @@ function place(id, category = 'restaurants') {
   };
 }
 
-function thing(index) {
+function thing(index, landmark = false) {
   const id = `activity-${index}`;
+  const media = landmark
+    ? { card: { image: { id: `photo-${index}`, src: `/assets/activity-${index}.webp`, alt: `Activity ${index}`, sourceType: 'manual', manual: true, locked: true } } }
+    : { card: {} };
   return {
     id,
     slug: id,
@@ -38,10 +41,18 @@ function thing(index) {
     category: 'things-to-do',
     coordinates: { latitude: 14, longitude: 105 },
     shortDescription: 'A verified river outing reached on foot from the village, with one to two hours outside during the cooler morning.',
-    media: { card: {} },
-    spaCard: { handwrittenTags: ['River view', 'Easy outing', 'Morning'], gettingThere: 'Walk · 15 min', duration: '1–2 hours', costType: 'free', bestTime: 'Early morning', ...missingPhoto },
+    media,
+    spaCard: {
+      handwrittenTags: ['River view', 'Easy outing', 'Morning'],
+      gettingThere: 'Walk · 15 min',
+      duration: '1–2 hours',
+      costType: 'free',
+      bestTime: 'Early morning',
+      ...(landmark ? { photoStatus: 'verified', photoRequiresManualFill: false } : missingPhoto),
+    },
     googleMapsUrl: `https://maps.google.com/?q=${id}`,
-    isLandmark: false,
+    isLandmark: landmark,
+    ...(landmark ? { exploreBoard: { kicker: 'RIVER · LANDMARK', duration: '1–2 hours', route: 'Walk from the village' } } : {}),
     longDescription: '',
     breadcrumbs: ['laos', 'test-village', 'things-to-do'],
     fieldCard: { template: 'compact', whyGo: '', practical: '', access: '', faq: [] },
@@ -53,6 +64,7 @@ function thing(index) {
 }
 
 function draft() {
+  const things = [thing(1, true), thing(2, true), thing(3, true), thing(4), thing(5)];
   return {
     country: 'laos',
     city: 'test-village',
@@ -69,19 +81,19 @@ function draft() {
       categories: ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services'],
       categoryTargets: { 'things-to-do': 5, restaurants: 1 },
       hero: { eyebrow: 'laos', title: 'Test Village', subtitle: '', facts: [] },
-      exploreBoard: { featuredThingIds: [] },
+      exploreBoard: { featuredThingIds: ['activity-1', 'activity-2', 'activity-3'] },
       manualLocks: {},
       seo: { title: 'Test', description: '', canonicalPath: '/laos/test-village', indexable: true },
     },
     places: [place('restaurant-one')],
-    things: Array.from({ length: 5 }, (_, index) => thing(index + 1)),
+    things,
   };
 }
 
 const valid = evaluateCityPublication(draft());
 assert.equal(valid.status, 'ready-with-warnings');
 assert.equal(valid.errors.length, 0);
-assert.equal(valid.warnings.length, 6);
+assert.equal(valid.warnings.length, 3);
 assert.equal(valid.warnings.every((entry) => entry.code === 'missing-spa-photo'), true);
 
 const underfilled = draft();
@@ -89,6 +101,14 @@ underfilled.things.pop();
 const underfilledReport = evaluateCityPublication(underfilled);
 assert.equal(underfilledReport.status, 'blocked');
 assert.ok(underfilledReport.errors.some((entry) => entry.code === 'things-target-mismatch'));
+
+const categoryOverflow = draft();
+categoryOverflow.places.push(place('restaurant-two'));
+assert.ok(evaluateCityPublication(categoryOverflow).errors.some((entry) => entry.code === 'category-target-mismatch'));
+
+const twoLandmarks = draft();
+twoLandmarks.cityData.exploreBoard.featuredThingIds.pop();
+assert.ok(evaluateCityPublication(twoLandmarks).errors.some((entry) => entry.code === 'explore-board-count'));
 
 const unverified = draft();
 unverified.places[0].verification = { decision: 'manual-review', reason: 'insufficient-independent-signals' };
@@ -142,7 +162,7 @@ withPhoto.places[0].spaCard.photoStatus = 'verified';
 withPhoto.places[0].spaCard.photoRequiresManualFill = false;
 const photoReport = evaluateCityPublication(withPhoto);
 assert.equal(photoReport.errors.length, 0);
-assert.equal(photoReport.warnings.length, 5);
+assert.equal(photoReport.warnings.length, 2);
 
 const badPhotoLicense = draft();
 badPhotoLicense.places[0].media.card.image = {
