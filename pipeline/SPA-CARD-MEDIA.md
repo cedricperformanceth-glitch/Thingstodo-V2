@@ -14,7 +14,7 @@ Prefer, in order:
 6. official sources only when the individual asset has an explicit compatible reuse licence;
 7. other explicit open-licence sources.
 
-Openverse is a discovery layer, not a reason to lower the licence or identity rules: retain the original source landing page and verify the media metadata during editorial review. Flickr discovery asks Flickr for its current licence catalogue, filters out non-commercial/no-derivatives licences, and uses geo search when the entity has coordinates.
+Openverse is a discovery layer, not a reason to lower the licence or identity rules. Atlas currently auto-materializes an Openverse result only when its source is a Wikimedia Commons file page that can be re-checked through the Commons API for the source licence, author and dimensions. Other Openverse results remain discovery leads until a source-specific verifier exists. Flickr discovery asks Flickr for its current licence catalogue, filters out non-commercial/no-derivatives licences, and uses geo search when the entity has coordinates.
 
 Google Image results, booking/travel platforms, social networks and generic web images may help identify that an image exists, but they are not automatically reusable media sources. The individual asset still needs a valid reuse right.
 
