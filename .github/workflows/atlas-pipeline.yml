@@ -30,6 +30,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: One-time normalize Thakhek SPA tags
+        if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'Materialize Thakhek')
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const file = 'pipeline/sources/laos/thakhek.json';
+          const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const replacements = new Map([
+            ['450 km loop', '450 km'],
+            ['Loop day one', 'Day one'],
+            ['Loop day two', 'Day two'],
+          ]);
+          for (const thing of data.things ?? []) {
+            if (!Array.isArray(thing?.spaCard?.handwrittenTags)) continue;
+            thing.spaCard.handwrittenTags = thing.spaCard.handwrittenTags.map((tag) => replacements.get(tag) ?? tag);
+          }
+          fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
+          NODE
+
       - name: One-time materialize Thakhek through the real generator
         if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'Materialize Thakhek')
         run: npm run generate-city -- laos thakhek
@@ -42,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pipeline/cities/laos/thakhek.json src/content/generated/laos/thakhek.ts src/content/registry/index.ts
+          git add pipeline/sources/laos/thakhek.json pipeline/cities/laos/thakhek.json src/content/generated/laos/thakhek.ts src/content/registry/index.ts
           if ! git diff --cached --quiet; then
             git commit -m "Generate Thakhek city content"
             git push
