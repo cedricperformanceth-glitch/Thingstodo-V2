@@ -1,0 +1,146 @@
+---
+import type { City, Country, ThingToDo } from '../../core/models/types';
+import { cityPath, countryPath } from '../../core/routing/paths';
+
+interface Props {
+  country: Country;
+  city: City;
+  thing: ThingToDo;
+}
+
+const { country, city, thing } = Astro.props;
+const countryHref = countryPath(country);
+const cityHref = cityPath(city);
+---
+
+<div class="field-card-navigation">
+  <nav class="field-card-navigation__return" aria-label={`${thing.name} navigation`}>
+    <a href={cityHref} data-field-card-back>
+      <span class="field-card-navigation__arrow" aria-hidden="true">←</span>
+      <span>Back to where you were</span>
+    </a>
+    <a href={cityHref}>{city.name} field guide</a>
+  </nav>
+
+  <nav class="field-card-navigation__breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Atlas</a>
+    <span aria-hidden="true">/</span>
+    <a href={countryHref}>{country.name}</a>
+    <span aria-hidden="true">/</span>
+    <a href={cityHref}>{city.name}</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{thing.name}</span>
+  </nav>
+</div>
+
+<script>
+  const setupFieldCardBackNavigation = () => {
+    document.querySelectorAll('[data-field-card-back]').forEach((element) => {
+      if (!(element instanceof HTMLAnchorElement) || element.dataset.fieldCardBackReady === 'true') return;
+      element.dataset.fieldCardBackReady = 'true';
+      element.addEventListener('click', (event) => {
+        if (window.history.length <= 1) return;
+        event.preventDefault();
+        window.history.back();
+      });
+    });
+  };
+
+  setupFieldCardBackNavigation();
+  document.addEventListener('astro:page-load', setupFieldCardBackNavigation);
+</script>
+
+<style>
+  .field-card-navigation {
+    width: 100%;
+    padding-top: 4rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .field-card-navigation__return {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .field-card-navigation__return a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    gap: .45rem;
+    padding: .55rem 0;
+    border: 0;
+    color: rgb(49 87 59 / .72);
+    font-family: 'DM Sans', var(--sans);
+    font-size: .62rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color .18s ease;
+  }
+
+  .field-card-navigation__return a:hover,
+  .field-card-navigation__return a:focus-visible,
+  .field-card-navigation__breadcrumbs a:hover,
+  .field-card-navigation__breadcrumbs a:focus-visible {
+    color: #b76645;
+  }
+
+  .field-card-navigation__arrow {
+    font-size: .9rem;
+    line-height: 1;
+  }
+
+  .field-card-navigation__breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .45rem;
+    margin: 0;
+    color: rgb(49 87 59 / .55);
+    font-family: 'DM Sans', var(--sans);
+    font-size: .56rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  .field-card-navigation__breadcrumbs a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .18s ease;
+  }
+
+  @media (max-width: 700px) {
+    .field-card-navigation {
+      padding-top: 2.5rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .field-card-navigation__return {
+      gap: .75rem;
+      margin-bottom: .75rem;
+    }
+
+    .field-card-navigation__return a {
+      min-height: 36px;
+      font-size: .54rem;
+      letter-spacing: .075em;
+    }
+
+    .field-card-navigation__return a:last-child {
+      text-align: right;
+    }
+
+    .field-card-navigation__breadcrumbs {
+      gap: .35rem;
+      font-size: .51rem;
+      letter-spacing: .065em;
+    }
+  }
+</style>
