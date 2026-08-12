@@ -11,7 +11,9 @@ export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard
 export interface HeroFact { label: string; value: string; }
 export interface FieldCardSection { title: string; body: string; }
 export interface FieldCardContent { template: 'compact' | 'deep'; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
-export interface SpaCardContent { handwrittenTags: [string, string, string]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; }
+// Exact SPA tag cardinality is enforced by the generation and publication contracts.
+// Generated JSON is inferred as string[], so the model keeps the serializable shape here.
+export interface SpaCardContent { handwrittenTags: string[]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; }
 export interface ThingToDoSpaCardContent extends SpaCardContent { gettingThere: string; duration: string; costType: 'free' | 'paid'; bestTime: string; }
 export interface VerificationMetadata { decision: 'accept' | 'manual-review' | 'reject-closed'; reason: string; checkedAt?: string; }
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
