@@ -25,6 +25,15 @@
         "requireApiUseAppropriateForAtlas": true,
         "filterToCommerciallyCompatiblePhotoLicenses": true,
         "preferGeoSearchWhenEntityCoordinatesExist": true
+      },
+      "firstParty": {
+        "enabledByDefault": true,
+        "acceptedSourceTypes": ["official-website", "facebook", "instagram"],
+        "capturePublicPagePreviewImageWhenAvailable": true,
+        "retainPageLeadWhenPreviewImageCannotBeRead": true,
+        "neverAssumeReuseRightsFromFirstPartyPublication": true,
+        "neverAutoPublishWithoutSeparateCompatibleRightsEvidence": true,
+        "storeAsEditorialLead": true
       }
     },
     "discoveryOnlyNotReusableWithoutSeparatePermission": [
@@ -73,6 +82,15 @@
     "resolution",
     "stable-source-url"
   ],
+  "editorialLeads": {
+    "firstParty": {
+      "rightsStatus": "unconfirmed-first-party",
+      "autoPublishable": false,
+      "editorialAction": "review-rights-before-use",
+      "maximumPerEntity": 12,
+      "persistUnder": "media.research.firstPartyPhotoLeads"
+    }
+  },
   "attribution": {
     "storeSourceUrl": true,
     "storeSourceName": true,
