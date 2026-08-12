@@ -8,23 +8,60 @@ const data = {
     "name": "Don Det",
     "country": "laos",
     "profile": "compact",
-    "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
+    "coordinates": {
+      "latitude": 13.9709,
+      "longitude": 105.9215
+    },
     "description": "A compact Mekong island base in Si Phan Don, with bicycle paths, river life and easy access to Don Khon and the southern waterfalls.",
-    "categories": ["things-to-do", "restaurants", "cafes", "accommodation", "practical-services"],
-    "categoryTargets": { "things-to-do": 11, "restaurants": 15, "cafes": 15, "accommodation": 15 },
+    "categories": [
+      "things-to-do",
+      "restaurants",
+      "cafes",
+      "accommodation",
+      "practical-services"
+    ],
+    "categoryTargets": {
+      "things-to-do": 11,
+      "restaurants": 15,
+      "cafes": 15,
+      "accommodation": 15
+    },
     "hero": {
       "eyebrow": "Si Phan Don · Southern Laos",
       "title": "Don Det travel guide",
       "subtitle": "A small Mekong island base for Don Khon, waterfalls and slow river days.",
       "facts": [
-        { "label": "Updated", "value": "August 2026" },
-        { "label": "Base", "value": "Bicycle island base" },
-        { "label": "Climate", "value": "Tropical Mekong" },
-        { "label": "Region", "value": "Si Phan Don" }
+        {
+          "label": "Updated",
+          "value": "August 2026"
+        },
+        {
+          "label": "Base",
+          "value": "Bicycle island base"
+        },
+        {
+          "label": "Climate",
+          "value": "Tropical Mekong"
+        },
+        {
+          "label": "Region",
+          "value": "Si Phan Don"
+        }
       ]
     },
-    "exploreBoard": { "featuredThingIds": ["thing-old-french-railway-bridge", "thing-li-phi-somphamit-waterfalls"] },
-    "manualLocks": { "categoryTargets.things-to-do": { "value": 11, "source": "manual", "locked": true } },
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-old-french-railway-bridge",
+        "thing-li-phi-somphamit-waterfalls"
+      ]
+    },
+    "manualLocks": {
+      "categoryTargets.things-to-do": {
+        "value": 11,
+        "source": "manual",
+        "locked": true
+      }
+    },
     "seo": {
       "title": "Don Det travel guide | Things To Do Atlas",
       "description": "Independent Don Det travel guide.",
@@ -33,106 +70,3289 @@ const data = {
     },
     "settlementType": "village"
   },
-  "places": [],
+  "places": [
+    {
+      "id": "place-mama-leuah-restaurant",
+      "slug": "mama-leuah-restaurant",
+      "name": "Mama Leuah Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A long-running Don Det restaurant for an unhurried island meal, with Lao and European dishes served on the quieter sunrise side.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunrise side",
+          "Island classic",
+          "Slow meal"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Leuah%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-the-4000-island-bar",
+      "slug": "the-4000-island-bar",
+      "name": "The 4000 Island Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A lively riverside restaurant and bar near the ferry landing, useful for food, drinks and an easy first or last evening.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Near ferry",
+          "Food drinks",
+          "Late evening"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%204000%20Island%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-keas-backpackers-paradise-restaurant-and-bar",
+      "slug": "keas-backpackers-paradise-restaurant-and-bar",
+      "name": "Kea's Backpackers Paradise Restaurant & Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A social Don Det restaurant and bar with breakfast, casual meals and drinks, suited to travellers who enjoy a busier backpacker atmosphere.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Social stop",
+          "Breakfast",
+          "Evening drinks"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kea's%20Backpackers%20Paradise%20Restaurant%20%26%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-the-boathouse",
+      "slug": "the-boathouse",
+      "name": "The Boathouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A riverside restaurant where the Mekong setting is part of the meal, better for a slower lunch or dinner than a quick stop.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Riverside",
+          "Slow lunch",
+          "Mekong view"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Boathouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-datta-bananaleaf-restaurant",
+      "slug": "datta-bananaleaf-restaurant",
+      "name": "Datta Bananaleaf Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "An Indian and Asian restaurant on the sunset side, giving Don Det a useful change from the island’s usual Lao-Western menus.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Indian food",
+          "Sunset side",
+          "Dinner"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Datta%20Bananaleaf%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-hathim-indian-restaurant",
+      "slug": "hathim-indian-restaurant",
+      "name": "Hathim Indian Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A straightforward Indian restaurant on Don Det’s sunset side, useful when curry, dosa or a vegetarian-friendly meal is the priority.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Indian food",
+          "Curry stop",
+          "Vegetarian"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hathim%20Indian%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-ois-place",
+      "slug": "ois-place",
+      "name": "Oi's Place",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A relaxed western-side restaurant and bar where casual food and river views make an easy stop before the Don Det sunset.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunset side",
+          "River view",
+          "Relaxed meal"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Oi's%20Place%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-banana-restaurant-and-bar",
+      "slug": "banana-restaurant-and-bar",
+      "name": "Banana Restaurant & Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A laid-back restaurant and bar for simple island food and drinks, suited to an uncomplicated meal with friends on Don Det.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Casual dinner",
+          "Drinks",
+          "Easy stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Banana%20Restaurant%20%26%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-wrap-and-roll",
+      "slug": "wrap-and-roll",
+      "name": "Wrap and Roll",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A casual Don Det food stop for wraps and Lao dishes, useful when you want a quicker meal between island activities.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Quick meal",
+          "Lao food",
+          "Easy lunch"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wrap%20and%20Roll%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-mama-piang-guesthouse-and-restaurant",
+      "slug": "mama-piang-guesthouse-and-restaurant",
+      "name": "Mama Piang Guesthouse & Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A sunrise-side guesthouse restaurant for a calmer home-style meal, away from the louder bar-focused addresses around northern Don Det.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Guesthouse kitchen",
+          "Sunrise side",
+          "Quiet meal"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Piang%20Guesthouse%20%26%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-restaurant-naly",
+      "slug": "restaurant-naly",
+      "name": "Restaurant Naly",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A simple local restaurant toward Don Khon, serving breakfast and everyday meals for travellers exploring the southern end of the islands.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local table",
+          "South route",
+          "All day"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Restaurant%20Naly%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-sahai-bar",
+      "slug": "sahai-bar",
+      "name": "Sahai Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A casual Don Det restaurant-bar with coffee, cocktails and meals, flexible enough for breakfast, dinner or an evening drink.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee drinks",
+          "All day",
+          "Casual bar"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sahai%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-one-more-bar-and-restaurant",
+      "slug": "one-more-bar-and-restaurant",
+      "name": "One More Bar and Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A sunset-side bar and restaurant with food, drinks and live atmosphere, best kept for a social evening rather than a quiet dinner.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunset side",
+          "Live vibe",
+          "Evening"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=One%20More%20Bar%20and%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-dalom-guesthouse-and-restaurants",
+      "slug": "dalom-guesthouse-and-restaurants",
+      "name": "Dalom Guesthouse & Restaurants",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A central guesthouse restaurant address for straightforward Asian food, useful when staying near the main village and ferry area.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Central",
+          "Guesthouse food",
+          "Easy meal"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dalom%20Guesthouse%20%26%20Restaurants%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-mr-thos-restaurant",
+      "slug": "mr-thos-restaurant",
+      "name": "Mr Tho's Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A small Asian restaurant on Don Det for uncomplicated lunch or dinner, useful as a local alternative to the larger traveller bars.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Asian food",
+          "Local stop",
+          "Lunch dinner"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Tho's%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-crazy-gecko",
+      "slug": "crazy-gecko",
+      "name": "Crazy Gecko",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A riverfront café-restaurant on the sunrise side with coffee, breakfast and healthy dishes for a longer daytime pause beside the Mekong.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Riverfront",
+          "Breakfast",
+          "Healthy food"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Crazy%20Gecko%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-street-view-restaurant",
+      "slug": "street-view-restaurant",
+      "name": "Street View Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A practical sunrise-side stop for breakfast, coffee and generous casual meals, about a short walk from Don Det’s ferry area.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunrise side",
+          "Breakfast",
+          "Big portions"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Street%20View%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-mama-tanon-guest-house-and-restaurant",
+      "slug": "mama-tanon-guest-house-and-restaurant",
+      "name": "Mama Tanon Guest House & Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A small guesthouse restaurant that works well for breakfast, coffee or an easy daytime meal without leaving the quieter island rhythm.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Small table",
+          "Breakfast",
+          "Coffee break"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Tanon%20Guest%20House%20%26%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-bamboo-cafe-and-korean-restaurant",
+      "slug": "bamboo-cafe-and-korean-restaurant",
+      "name": "Bamboo Cafe & Korean Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A dedicated café on sunset street combining proper coffee and fresh drinks with brunch and Korean food, unusual by Don Det standards.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Proper coffee",
+          "Korean food",
+          "Sunset street"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bamboo%20Cafe%20%26%20Korean%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-ms-ning-restaurant-and-guesthouse",
+      "slug": "ms-ning-restaurant-and-guesthouse",
+      "name": "Ms Ning Restaurant and Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A central guesthouse restaurant serving breakfast and brunch, convenient for coffee and a simple meal close to Don Det’s main village.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Central",
+          "Breakfast",
+          "Easy coffee"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ms%20Ning%20Restaurant%20and%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-allnew-coffee-and-restaurant",
+      "slug": "allnew-coffee-and-restaurant",
+      "name": "AllNew coffee & restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A current Don Det coffee-and-restaurant stop with a clear coffee focus, suitable for a daytime drink or an uncomplicated meal.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Great coffee",
+          "Daytime",
+          "Casual meal"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=AllNew%20coffee%20%26%20restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-kamphong-riverside-restaurant",
+      "slug": "kamphong-riverside-restaurant",
+      "name": "Kamphong Riverside Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A riverside all-day restaurant known for coffee and breakfast as well as meals, useful for an early start near the water.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Great coffee",
+          "Breakfast",
+          "Riverside"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kamphong%20Riverside%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-jimmee-restaurant",
+      "slug": "jimmee-restaurant",
+      "name": "Jimmee restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "An early-opening Don Det restaurant offering coffee, breakfast and brunch, useful when you want food before starting a full island day.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Early opening",
+          "Coffee",
+          "Breakfast"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Current public listing",
+          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Khorn%2BNeua/all",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jimmee%20restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-noupad-restaurant",
+      "slug": "noupad-restaurant",
+      "name": "Noupad Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A small all-day stop toward Don Khon with coffee and brunch, handy before or after cycling the southern island routes.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee",
+          "Brunch",
+          "South route"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Current public listing",
+          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Khorn%2BNeua/all",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Noupad%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-dondet-coffee-house-and-gift-shop",
+      "slug": "dondet-coffee-house-and-gift-shop",
+      "name": "Dondet Coffee House & Gift-shop",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A genuine coffee shop and small gift stop with Wi-Fi and power outlets, especially useful for a work break on Don Det.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee shop",
+          "WiFi",
+          "Work stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Insider",
+          "sourceUrl": "https://laosinsider.com/digital-nomad-in-laos/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Recent Don Det travel notes",
+          "sourceUrl": "https://note.com/chaki610/n/n1e4f8d1ff08f?hl=en",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dondet%20Coffee%20House%20%26%20Gift-shop%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-paradise-restaurant-cafe-and-bar",
+      "slug": "paradise-restaurant-cafe-and-bar",
+      "name": "Paradise Restaurant Cafe & Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "An all-day café-bar near northern Don Det with coffee, breakfast and meals, convenient when you want one flexible stop.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Great coffee",
+          "Breakfast",
+          "Cafe bar"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paradise%20Restaurant%20Cafe%20%26%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-cloud-9-restaurant-and-bar",
+      "slug": "cloud-9-restaurant-and-bar",
+      "name": "Cloud 9 Restaurant and Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A café-restaurant known for cakes and Turkish coffee at breakfast, then Mediterranean and Middle Eastern food later in the day.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Turkish coffee",
+          "Homemade cakes",
+          "Breakfast"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cloud%209%20Restaurant%20and%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-mouys",
+      "slug": "mouys",
+      "name": "Mouy's",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A recent Don Det riverside food recommendation that also works as a relaxed daytime stop when you want a local meal by the water.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Riverside",
+          "Local food",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Recent Don Det guide",
+          "sourceUrl": "https://www.reisjunk.nl/laos/don-det-4000-islands/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mouy's%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-little-eden-restaurant",
+      "slug": "little-eden-restaurant",
+      "name": "Little Eden Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A hotel restaurant overlooking the river, useful for breakfast or coffee when you want a more settled table near northern Don Det.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Hotel cafe",
+          "River view",
+          "Breakfast"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Little%20Eden%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-smiling-cafe-2",
+      "slug": "smiling-cafe-2",
+      "name": "Smiling Cafe 2",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A small café-style stop in the Don Det village area, kept as a simple coffee break rather than a destination meal.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Cafe stop",
+          "Village",
+          "Coffee break"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "WorldPlaces",
+          "sourceUrl": "https://laos.worldplaces.me/review/139973704-smiling-cafe-2.html",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Smiling%20Cafe%202%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-dodand-studio-and-sunset-riverside-guesthouse",
+      "slug": "dodand-studio-and-sunset-riverside-guesthouse",
+      "name": "DODAND Studio & Sunset Riverside Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Sunset-side riverside studios with private outdoor space, suited to travellers wanting a quieter stay directly beside the Mekong.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunset side",
+          "Riverfront",
+          "Quiet stay"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DODAND%20Studio%20%26%20Sunset%20Riverside%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-dondet-vixay-sunset-and-river-view",
+      "slug": "dondet-vixay-sunset-and-river-view",
+      "name": "DONDET Vixay Sunset And River View",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Riverside rooms and bungalows with broad sunset views, offering an easy island base with food and drinks available on site.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunset view",
+          "Riverside",
+          "Island base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DONDET%20Vixay%20Sunset%20And%20River%20View%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-thiptavanh-guesthouse",
+      "slug": "thiptavanh-guesthouse",
+      "name": "Thiptavanh guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A small sunrise-side guesthouse with river-facing balconies and simple rooms, positioned away from the busiest northern part of Don Det.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunrise side",
+          "River balcony",
+          "Quiet rooms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "20 Sunrise blv, Don Det, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thiptavanh%20guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-moon-by-night",
+      "slug": "moon-by-night",
+      "name": "Moon By Night",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A sunset-side bungalow stay with garden space, close enough to restaurants and bars while still offering a quieter place to sleep.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Garden stay",
+          "Sunset side",
+          "Quiet sleep"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Moon%20By%20Night%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-don-det-hotel",
+      "slug": "don-det-hotel",
+      "name": "Don Det Hotel",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A more polished hotel option near the northern arrival area, useful for travellers wanting a conventional room and easy village access.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Near arrival",
+          "Hotel comfort",
+          "Central"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don%20Det%20Hotel%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-baba-guesthouse",
+      "slug": "baba-guesthouse",
+      "name": "BABA Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A well-kept guesthouse near the village centre with private rooms and balconies, convenient for the ferry, restaurants and island paths.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Central",
+          "Private rooms",
+          "Easy arrival"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Ban Dondet, 4,000 thousand Islands, Don Det, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=BABA%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-boonmy-bungalows-and-restaurant-don-det-4000-islands",
+      "slug": "boonmy-bungalows-and-restaurant-don-det-4000-islands",
+      "name": "BOONMY - Bungalows and Restaurant - DON DET - 4000 ISLANDS",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Sunrise-side bungalows with a garden and restaurant, suited to travellers cycling between Don Det, the bridge and Don Khon.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Bungalows",
+          "Garden",
+          "South route"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=BOONMY%20-%20Bungalows%20and%20Restaurant%20-%20DON%20DET%20-%204000%20ISLANDS%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-namknong-view",
+      "slug": "namknong-view",
+      "name": "Namknong View",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A sunset-side guesthouse with river-facing verandas, useful for a quieter stay slightly removed from the busiest part of the village.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunset side",
+          "River veranda",
+          "Quiet stay"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Namknong%20View%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-dondet-garden-guest-house",
+      "slug": "dondet-garden-guest-house",
+      "name": "DONDET Garden Guest House",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Simple garden rooms close to the main village, practical for travellers who want privacy while staying within walking distance of services.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Garden rooms",
+          "Near village",
+          "Practical"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DONDET%20Garden%20Guest%20House%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-rivergarden-guesthouse",
+      "slug": "rivergarden-guesthouse",
+      "name": "Rivergarden Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A small guesthouse on the southern island route, useful as a quieter base closer to the bridge and Don Khon.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "South route",
+          "Quiet base",
+          "Guesthouse"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Rivergarden%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-don-det-mr-b-riverside-budget-guesthouse",
+      "slug": "don-det-mr-b-riverside-budget-guesthouse",
+      "name": "Don Det Mr.B Riverside Budget Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A budget riverside guesthouse for travellers prioritising a simple private stay and easy access to the Don Det island paths.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Budget stay",
+          "Riverside",
+          "Simple rooms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don%20Det%20Mr.B%20Riverside%20Budget%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-green-guesthouse",
+      "slug": "green-guesthouse",
+      "name": "Green Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A straightforward sunset-side guesthouse, useful for budget travellers who want simple lodging near the main Don Det village area.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Budget",
+          "Sunset side",
+          "Simple stay"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Green%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-yommalay-guesthouse",
+      "slug": "yommalay-guesthouse",
+      "name": "Yommalay Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A budget-friendly guesthouse near northern Don Det, convenient for the ferry, restaurants and the first section of the island paths.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Budget",
+          "Near ferry",
+          "Central"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Yommalay%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-tawan-daeng-guesthouse",
+      "slug": "tawan-daeng-guesthouse",
+      "name": "Tawan Daeng Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A guesthouse farther down the sunrise path toward the old bridge, suited to travellers who prefer the quieter southern side.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunrise path",
+          "South side",
+          "Quiet base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tawan%20Daeng%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-noupad-sunset-guesthouse",
+      "slug": "noupad-sunset-guesthouse",
+      "name": "Noupad sunset Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A small sunset-side homestay-style guesthouse, useful for travellers seeking simple lodging away from the main arrival strip.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sunset side",
+          "Small stay",
+          "Quiet"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Noupad%20sunset%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-don-det-ferry",
+      "slug": "don-det-ferry",
+      "name": "Don Det Ferry",
+      "country": "laos",
+      "city": "don-det",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "The main Don Det boat connection for Nakasang, useful to save before arrival, departure and onward bus or minivan connections.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Main pier",
+          "Nakasang",
+          "Boat link"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Northern Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don%20Det%20Ferry%20Boat%20Pier%20Laos"
+    },
+    {
+      "id": "place-khon-health-center-khonnua",
+      "slug": "khon-health-center-khonnua",
+      "name": "Khon Health Center (Khonnua)",
+      "country": "laos",
+      "city": "don-det",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A public local health centre on Don Khon for basic primary care and first assessment, not a substitute for a fully equipped hospital.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Health center",
+          "Basic care",
+          "Don Khon"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
+        "checkedAt": "2026-08-12T03:30:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Don Det Laos health information",
+          "sourceUrl": "https://don-det-laos.com/health",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "OpenStreetMap via Mapcarta",
+          "sourceUrl": "https://mapcarta.com/N7084204385",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Khon Nua, Don Khon, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khon%20Health%20Center%20Khonnua%20Don%20Khon%20Laos"
+    }
+  ],
   "things": [
     {
-      "id": "thing-old-french-railway-bridge", "slug": "don-khon-old-railway-bridge", "name": "Don Khon & Old Railway Bridge", "country": "laos", "city": "don-det", "category": "things-to-do",
-      "coordinates": { "latitude": 13.975, "longitude": 105.924 },
+      "id": "thing-old-french-railway-bridge",
+      "slug": "don-khon-old-railway-bridge",
+      "name": "Don Khon & Old Railway Bridge",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.975,
+        "longitude": 105.924
+      },
       "shortDescription": "Cross the old railway bridge from Don Det into Don Khon, where bicycles, village paths and traces of the former Mekong portage railway shape the route.",
-      "media": { "card": { "image": { "id": "don-det-old-railway-bridge-card", "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Si%20Phan%20Don%20-%20bridge%20from%20Don%20Det%20to%20Don%20Khone%20-%20Aug%202024.jpg?width=1600", "alt": "The historic bridge connecting Don Det and Don Khon in Si Phan Don", "sourceType": "wikimedia", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg", "sourceName": "Wikimedia Commons", "author": "Dominic Nelson", "license": "cc-by-sa", "manual": false, "locked": false } }, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Old bridge", "Island ride", "Morning"], "gettingThere": "Bicycle or walk · south from Don Det", "duration": "Half-day", "costType": "free", "bestTime": "Early morning", "photoStatus": "verified", "photoRequiresManualFill": false },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" },
-      "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Atlas V1 verified seed", "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas", "purpose": "facts" }, { "sourceName": "Wikivoyage", "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det", "purpose": "facts" }],
-      "manualLocks": {}, "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+French+Railway+Bridge+Don+Det+Don+Khon+Laos", "isLandmark": true,
-      "longDescription": "Cross the old railway bridge from Don Det into Don Khon, where bicycles, village paths and traces of the former Mekong portage railway shape the route.", "breadcrumbs": ["laos", "don-det", "things-to-do"],
-      "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }, "exploreBoard": { "kicker": "BICYCLE · BRIDGE · ISLAND ROAD", "duration": "Half day", "route": "Cycle or walk from Don Det" }
+      "media": {
+        "card": {
+          "image": {
+            "id": "don-det-old-railway-bridge-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Si%20Phan%20Don%20-%20bridge%20from%20Don%20Det%20to%20Don%20Khone%20-%20Aug%202024.jpg?width=1600",
+            "alt": "The historic bridge connecting Don Det and Don Khon in Si Phan Don",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Dominic Nelson",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Old bridge",
+          "Island ride",
+          "Morning"
+        ],
+        "gettingThere": "Bicycle or walk · south from Don Det",
+        "duration": "Half-day",
+        "costType": "free",
+        "bestTime": "Early morning",
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+French+Railway+Bridge+Don+Det+Don+Khon+Laos",
+      "isLandmark": true,
+      "longDescription": "Cross the old railway bridge from Don Det into Don Khon, where bicycles, village paths and traces of the former Mekong portage railway shape the route.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      },
+      "exploreBoard": {
+        "kicker": "BICYCLE · BRIDGE · ISLAND ROAD",
+        "duration": "Half day",
+        "route": "Cycle or walk from Don Det"
+      }
     },
     {
-      "id": "thing-li-phi-somphamit-waterfalls", "slug": "li-phi-somphamit-waterfalls", "name": "Li Phi · Somphamit Waterfalls", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.9538, "longitude": 105.9215 },
+      "id": "thing-li-phi-somphamit-waterfalls",
+      "slug": "li-phi-somphamit-waterfalls",
+      "name": "Li Phi · Somphamit Waterfalls",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9538,
+        "longitude": 105.9215
+      },
       "shortDescription": "Cycle across Don Khon to Somphamit, where the Mekong tears through wide rock channels and a sequence of viewpoints reveals the scale of Li Phi.",
-      "media": { "card": { "image": { "id": "li-phi-somphamit-card", "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Li%20Phi%20Falls.jpg?width=1600", "alt": "Li Phi and Somphamit rapids on Don Khon in Si Phan Don", "sourceType": "wikimedia", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Li_Phi_Falls.jpg", "sourceName": "Wikimedia Commons", "author": "Basile Morin", "license": "cc-by-sa", "manual": false, "locked": false } }, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Mekong rapids", "Don Khon", "Morning"], "gettingThere": "Bicycle · via the old bridge", "duration": "1.5–3 hours", "costType": "paid", "bestTime": "Early morning", "photoStatus": "verified", "photoRequiresManualFill": false },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" },
-      "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Tourism Laos", "sourceUrl": "https://www.tourismlaos.org/", "purpose": "facts" }, { "sourceName": "Atlas V1 verified seed", "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas", "purpose": "facts" }],
-      "manualLocks": {}, "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Li+Phi+Somphamit+Waterfalls+Don+Khon+Laos", "isLandmark": true,
-      "longDescription": "Cycle across Don Khon to Somphamit, where the Mekong tears through wide rock channels and a sequence of viewpoints reveals the scale of Li Phi.", "breadcrumbs": ["laos", "don-det", "things-to-do"],
-      "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }, "exploreBoard": { "kicker": "WATERFALL · RAPIDS · DON KHON", "duration": "1.5–3 hours", "route": "Bicycle via the old bridge" }
+      "media": {
+        "card": {
+          "image": {
+            "id": "li-phi-somphamit-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Li%20Phi%20Falls.jpg?width=1600",
+            "alt": "Li Phi and Somphamit rapids on Don Khon in Si Phan Don",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Li_Phi_Falls.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Basile Morin",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Mekong rapids",
+          "Don Khon",
+          "Morning"
+        ],
+        "gettingThere": "Bicycle · via the old bridge",
+        "duration": "1.5–3 hours",
+        "costType": "paid",
+        "bestTime": "Early morning",
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tourism Laos",
+          "sourceUrl": "https://www.tourismlaos.org/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Li+Phi+Somphamit+Waterfalls+Don+Khon+Laos",
+      "isLandmark": true,
+      "longDescription": "Cycle across Don Khon to Somphamit, where the Mekong tears through wide rock channels and a sequence of viewpoints reveals the scale of Li Phi.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      },
+      "exploreBoard": {
+        "kicker": "WATERFALL · RAPIDS · DON KHON",
+        "duration": "1.5–3 hours",
+        "route": "Bicycle via the old bridge"
+      }
     },
     {
-      "id": "thing-khone-phapheng-falls", "slug": "khone-phapheng-falls", "name": "Khone Phapheng Falls", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.95977, "longitude": 105.98653 },
-      "shortDescription": "Leave Don Det for Khone Phapheng, where the Mekong spreads into an immense cataract and the journey combines an island boat crossing with a road transfer.", "media": { "card": {}, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Huge cataract", "Mekong power", "Morning"], "gettingThere": "Boat to Nakasang · then road transfer", "duration": "Half-day", "costType": "paid", "bestTime": "Morning", "photoStatus": "missing", "photoRequiresManualFill": true },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Tourism Laos", "sourceUrl": "https://www.tourismlaos.org/", "purpose": "facts" }, { "sourceName": "Atlas V1 verified seed", "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone+Phapheng+Falls+Laos", "isLandmark": true, "longDescription": "Leave Don Det for Khone Phapheng, where the Mekong spreads into an immense cataract and the journey combines an island boat crossing with a road transfer.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "id": "thing-khone-phapheng-falls",
+      "slug": "khone-phapheng-falls",
+      "name": "Khone Phapheng Falls",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.95977,
+        "longitude": 105.98653
+      },
+      "shortDescription": "Leave Don Det for Khone Phapheng, where the Mekong spreads into an immense cataract and the journey combines an island boat crossing with a road transfer.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Huge cataract",
+          "Mekong power",
+          "Morning"
+        ],
+        "gettingThere": "Boat to Nakasang · then road transfer",
+        "duration": "Half-day",
+        "costType": "paid",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tourism Laos",
+          "sourceUrl": "https://www.tourismlaos.org/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone+Phapheng+Falls+Laos",
+      "isLandmark": true,
+      "longDescription": "Leave Don Det for Khone Phapheng, where the Mekong spreads into an immense cataract and the journey combines an island boat crossing with a road transfer.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-don-som-island", "slug": "don-som", "name": "Don Som", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
-      "shortDescription": "Cross by local boat to Don Som, a quieter farming island where village roads, fields and ordinary Mekong life replace Don Det’s traveller strip.", "media": { "card": {}, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Local boat", "Rural island", "Slow day"], "gettingThere": "Local boat · from Don Det pier", "duration": "Half-day to full day", "costType": "paid", "bestTime": "Morning", "photoStatus": "missing", "photoRequiresManualFill": true },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "DonDet.net", "sourceUrl": "https://www.dondet.net/", "purpose": "facts" }, { "sourceName": "Wikivoyage", "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Som+Si+Phan+Don+Laos", "isLandmark": false, "longDescription": "Cross by local boat to Don Som, a quieter farming island where village roads, fields and ordinary Mekong life replace Don Det’s traveller strip.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "id": "thing-don-som-island",
+      "slug": "don-som",
+      "name": "Don Som",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Cross by local boat to Don Som, a quieter farming island where village roads, fields and ordinary Mekong life replace Don Det’s traveller strip.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local boat",
+          "Rural island",
+          "Slow day"
+        ],
+        "gettingThere": "Local boat · from Don Det pier",
+        "duration": "Half-day to full day",
+        "costType": "paid",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "DonDet.net",
+          "sourceUrl": "https://www.dondet.net/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Som+Si+Phan+Don+Laos",
+      "isLandmark": false,
+      "longDescription": "Cross by local boat to Don Som, a quieter farming island where village roads, fields and ordinary Mekong life replace Don Det’s traveller strip.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-khone-pa-soi-waterfall", "slug": "khone-pa-soi-waterfall", "name": "Khone Pa Soi Waterfall", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.95492, "longitude": 105.93754 },
-      "shortDescription": "Follow Don Khon’s rougher eastern tracks to Khone Pa Soi, a smaller Mekong waterfall route where the quieter bicycle approach is part of the experience.", "media": { "card": {}, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Quiet falls", "Rough track", "Bicycle"], "gettingThere": "Bicycle · eastern Don Khon", "duration": "1–2 hours", "costType": "free", "bestTime": "Morning", "photoStatus": "missing", "photoRequiresManualFill": true },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Atlas V1 verified seed", "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas", "purpose": "facts" }, { "sourceName": "Lonely Planet", "sourceUrl": "https://www.lonelyplanet.com/", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone+Pa+Soi+Waterfall+Don+Khon+Laos", "isLandmark": true, "longDescription": "Follow Don Khon’s rougher eastern tracks to Khone Pa Soi, a smaller Mekong waterfall route where the quieter bicycle approach is part of the experience.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "id": "thing-khone-pa-soi-waterfall",
+      "slug": "khone-pa-soi-waterfall",
+      "name": "Khone Pa Soi Waterfall",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.95492,
+        "longitude": 105.93754
+      },
+      "shortDescription": "Follow Don Khon’s rougher eastern tracks to Khone Pa Soi, a smaller Mekong waterfall route where the quieter bicycle approach is part of the experience.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Quiet falls",
+          "Rough track",
+          "Bicycle"
+        ],
+        "gettingThere": "Bicycle · eastern Don Khon",
+        "duration": "1–2 hours",
+        "costType": "free",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Lonely Planet",
+          "sourceUrl": "https://www.lonelyplanet.com/",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khone+Pa+Soi+Waterfall+Don+Khon+Laos",
+      "isLandmark": true,
+      "longDescription": "Follow Don Khon’s rougher eastern tracks to Khone Pa Soi, a smaller Mekong waterfall route where the quieter bicycle approach is part of the experience.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-xai-kong-nyai-beach", "slug": "xai-kong-nyai-beach", "name": "Xai Kong Nyai Beach", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
+      "id": "thing-xai-kong-nyai-beach",
+      "slug": "xai-kong-nyai-beach",
+      "name": "Xai Kong Nyai Beach",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
       "shortDescription": "Continue beyond Somphamit to Xai Kong Nyai, a sandy Don Khon riverbank for simple food, a slow rest and cautious swimming close to shore.",
-      "media": { "card": { "image": { "id": "xai-kong-nyai-beach-card", "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Main%20beach%20of%20Don%20Khon%20in%20Laos.jpg?width=1600", "alt": "Sandy Mekong beach on Don Khon", "sourceType": "wikimedia", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg", "sourceName": "Wikimedia Commons", "author": "Basile Morin", "license": "cc-by-sa", "manual": false, "locked": false } }, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Sandy bank", "Slow swim", "Afternoon"], "gettingThere": "Bicycle · through Don Khon", "duration": "1–3 hours", "costType": "free", "bestTime": "Afternoon", "photoStatus": "verified", "photoRequiresManualFill": false },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Atlas V1 verified seed", "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas", "purpose": "facts" }, { "sourceName": "Lonely Planet", "sourceUrl": "https://www.lonelyplanet.com/", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xai+Kong+Nyai+Beach+Don+Khon+Laos", "isLandmark": false, "longDescription": "Continue beyond Somphamit to Xai Kong Nyai, a sandy Don Khon riverbank for simple food, a slow rest and cautious swimming close to shore.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "media": {
+        "card": {
+          "image": {
+            "id": "xai-kong-nyai-beach-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Main%20beach%20of%20Don%20Khon%20in%20Laos.jpg?width=1600",
+            "alt": "Sandy Mekong beach on Don Khon",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Basile Morin",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Sandy bank",
+          "Slow swim",
+          "Afternoon"
+        ],
+        "gettingThere": "Bicycle · through Don Khon",
+        "duration": "1–3 hours",
+        "costType": "free",
+        "bestTime": "Afternoon",
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Lonely Planet",
+          "sourceUrl": "https://www.lonelyplanet.com/",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xai+Kong+Nyai+Beach+Don+Khon+Laos",
+      "isLandmark": false,
+      "longDescription": "Continue beyond Somphamit to Xai Kong Nyai, a sandy Don Khon riverbank for simple food, a slow rest and cautious swimming close to shore.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-si-phan-don-by-boat", "slug": "si-phan-don-by-boat", "name": "Si Phan Don by Boat", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
-      "shortDescription": "Charter a local long-tail boat from Don Det and follow the Mekong beyond the main islands through working channels, village banks and quieter Si Phan Don scenery.", "media": { "card": {}, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Long-tail", "Island hopping", "River day"], "gettingThere": "Arrange locally · Don Det boat pier", "duration": "Half-day to full day", "costType": "paid", "bestTime": "Morning", "photoStatus": "missing", "photoRequiresManualFill": true },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "DonDet.net", "sourceUrl": "https://www.dondet.net/", "purpose": "facts" }, { "sourceName": "Atlas V1 verified seed", "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+boat+pier+Laos", "isLandmark": false, "longDescription": "Charter a local long-tail boat from Don Det and follow the Mekong beyond the main islands through working channels, village banks and quieter Si Phan Don scenery.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "id": "thing-si-phan-don-by-boat",
+      "slug": "si-phan-don-by-boat",
+      "name": "Si Phan Don by Boat",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Charter a local long-tail boat from Don Det and follow the Mekong beyond the main islands through working channels, village banks and quieter Si Phan Don scenery.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Long-tail",
+          "Island hopping",
+          "River day"
+        ],
+        "gettingThere": "Arrange locally · Don Det boat pier",
+        "duration": "Half-day to full day",
+        "costType": "paid",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "DonDet.net",
+          "sourceUrl": "https://www.dondet.net/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+boat+pier+Laos",
+      "isLandmark": false,
+      "longDescription": "Charter a local long-tail boat from Don Det and follow the Mekong beyond the main islands through working channels, village banks and quieter Si Phan Don scenery.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-4000-islands-kayaking", "slug": "4000-islands-kayaking", "name": "4,000 Islands Kayaking", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
-      "shortDescription": "Paddle the southern Si Phan Don channels on a guided day from Don Det, mixing calm water, stronger current and short overland sections between river stops.", "media": { "card": {}, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["River paddle", "Full day", "Get wet"], "gettingThere": "Guided departure · from Don Det", "duration": "Full day", "costType": "paid", "bestTime": "Morning", "photoStatus": "missing", "photoRequiresManualFill": true },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Discover Laos", "sourceUrl": "https://discoverlaos.today/", "purpose": "facts" }, { "sourceName": "DonDet.net", "sourceUrl": "https://www.dondet.net/", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kayak+tour+Don+Det+Laos", "isLandmark": false, "longDescription": "Paddle the southern Si Phan Don channels on a guided day from Don Det, mixing calm water, stronger current and short overland sections between river stops.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "id": "thing-4000-islands-kayaking",
+      "slug": "4000-islands-kayaking",
+      "name": "4,000 Islands Kayaking",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Paddle the southern Si Phan Don channels on a guided day from Don Det, mixing calm water, stronger current and short overland sections between river stops.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "River paddle",
+          "Full day",
+          "Get wet"
+        ],
+        "gettingThere": "Guided departure · from Don Det",
+        "duration": "Full day",
+        "costType": "paid",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Discover Laos",
+          "sourceUrl": "https://discoverlaos.today/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "DonDet.net",
+          "sourceUrl": "https://www.dondet.net/",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kayak+tour+Don+Det+Laos",
+      "isLandmark": false,
+      "longDescription": "Paddle the southern Si Phan Don channels on a guided day from Don Det, mixing calm water, stronger current and short overland sections between river stops.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-cycle-don-det-don-khon", "slug": "cycle-don-det-don-khon", "name": "Cycle Don Det & Don Khon", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
-      "shortDescription": "Rent a bicycle on Don Det and link flat island paths, the old railway bridge and Don Khon’s quieter roads into an easy self-paced day.", "media": { "card": {}, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["Flat roads", "Island loop", "Bicycle"], "gettingThere": "Start on Don Det · rental bicycle", "duration": "Half-day to full day", "costType": "paid", "bestTime": "Early morning", "photoStatus": "missing", "photoRequiresManualFill": true },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Wikivoyage", "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det", "purpose": "facts" }, { "sourceName": "Sawa Discovery", "sourceUrl": "https://sawadiscovery.com/", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos", "isLandmark": false, "longDescription": "Rent a bicycle on Don Det and link flat island paths, the old railway bridge and Don Khon’s quieter roads into an easy self-paced day.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "id": "thing-cycle-don-det-don-khon",
+      "slug": "cycle-don-det-don-khon",
+      "name": "Cycle Don Det & Don Khon",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Rent a bicycle on Don Det and link flat island paths, the old railway bridge and Don Khon’s quieter roads into an easy self-paced day.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Flat roads",
+          "Island loop",
+          "Bicycle"
+        ],
+        "gettingThere": "Start on Don Det · rental bicycle",
+        "duration": "Half-day to full day",
+        "costType": "paid",
+        "bestTime": "Early morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Sawa Discovery",
+          "sourceUrl": "https://sawadiscovery.com/",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos",
+      "isLandmark": false,
+      "longDescription": "Rent a bicycle on Don Det and link flat island paths, the old railway bridge and Don Khon’s quieter roads into an easy self-paced day.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-don-det-tubing", "slug": "tubing-on-don-det", "name": "Tubing on Don Det", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.9709, "longitude": 105.9215 },
-      "shortDescription": "Rent a tube on Don Det and float a suitable Mekong section at river pace, checking the current route and conditions locally before entering the water.", "media": { "card": {}, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["River float", "Slow pace", "Get wet"], "gettingThere": "Arrange locally · on Don Det", "duration": "1–3 hours", "costType": "paid", "bestTime": "Afternoon", "photoStatus": "missing", "photoRequiresManualFill": true },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Sawa Discovery", "sourceUrl": "https://sawadiscovery.com/", "purpose": "facts" }, { "sourceName": "Gecko Routes", "sourceUrl": "https://www.geckoroutes.com/", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos", "isLandmark": false, "longDescription": "Rent a tube on Don Det and float a suitable Mekong section at river pace, checking the current route and conditions locally before entering the water.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "id": "thing-don-det-tubing",
+      "slug": "tubing-on-don-det",
+      "name": "Tubing on Don Det",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "Rent a tube on Don Det and float a suitable Mekong section at river pace, checking the current route and conditions locally before entering the water.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "River float",
+          "Slow pace",
+          "Get wet"
+        ],
+        "gettingThere": "Arrange locally · on Don Det",
+        "duration": "1–3 hours",
+        "costType": "paid",
+        "bestTime": "Afternoon",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Sawa Discovery",
+          "sourceUrl": "https://sawadiscovery.com/",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Gecko Routes",
+          "sourceUrl": "https://www.geckoroutes.com/",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos",
+      "isLandmark": false,
+      "longDescription": "Rent a tube on Don Det and float a suitable Mekong section at river pace, checking the current route and conditions locally before entering the water.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     },
     {
-      "id": "thing-don-det-sunset", "slug": "sunset-on-don-det", "name": "Sunset on Don Det", "country": "laos", "city": "don-det", "category": "things-to-do", "coordinates": { "latitude": 13.972, "longitude": 105.913 },
+      "id": "thing-don-det-sunset",
+      "slug": "sunset-on-don-det",
+      "name": "Sunset on Don Det",
+      "country": "laos",
+      "city": "don-det",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 13.972,
+        "longitude": 105.913
+      },
       "shortDescription": "Walk or cycle to Don Det’s western side as the light drops across the Mekong, then stay for an unhurried riverside end to the day.",
-      "media": { "card": { "image": { "id": "don-det-sunset-card", "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20at%20Don%20Det.jpg?width=1600", "alt": "Sunset over the Mekong at Don Det", "sourceType": "wikimedia", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Don_Det.jpg", "sourceName": "Wikimedia Commons", "author": "Basile Morin", "license": "cc-by-sa", "manual": false, "locked": false } }, "fieldCard": { "gallery": [] } },
-      "spaCard": { "handwrittenTags": ["West side", "Mekong light", "Sunset"], "gettingThere": "Walk or bicycle · west Don Det", "duration": "1–2 hours", "costType": "free", "bestTime": "Sunset", "photoStatus": "verified", "photoRequiresManualFill": false },
-      "verification": { "decision": "accept", "reason": "Accepted by the verified Don Det activity pilot.", "checkedAt": "2026-08-12T00:00:00.000Z" }, "sourceMetadata": { "sourceName": "Atlas Don Det activity pilot", "reviewedAt": "2026-08-12" },
-      "researchSources": [{ "sourceName": "Wikivoyage", "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don", "purpose": "facts" }, { "sourceName": "Sawa Discovery", "sourceUrl": "https://sawadiscovery.com/", "purpose": "facts" }], "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos", "isLandmark": false, "longDescription": "Walk or cycle to Don Det’s western side as the light drops across the Mekong, then stay for an unhurried riverside end to the day.", "breadcrumbs": ["laos", "don-det", "things-to-do"], "fieldCard": { "template": "compact", "whyGo": "", "practical": "", "access": "", "faq": [], "sections": [] }
+      "media": {
+        "card": {
+          "image": {
+            "id": "don-det-sunset-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20at%20Don%20Det.jpg?width=1600",
+            "alt": "Sunset over the Mekong at Don Det",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Don_Det.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Basile Morin",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "West side",
+          "Mekong light",
+          "Sunset"
+        ],
+        "gettingThere": "Walk or bicycle · west Don Det",
+        "duration": "1–2 hours",
+        "costType": "free",
+        "bestTime": "Sunset",
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Accepted by the verified Don Det activity pilot.",
+        "checkedAt": "2026-08-12T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Don Det activity pilot",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Sawa Discovery",
+          "sourceUrl": "https://sawadiscovery.com/",
+          "purpose": "facts"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+Laos",
+      "isLandmark": false,
+      "longDescription": "Walk or cycle to Don Det’s western side as the light drops across the Mekong, then stay for an unhurried riverside end to the day.",
+      "breadcrumbs": [
+        "laos",
+        "don-det",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
     }
   ]
 };
