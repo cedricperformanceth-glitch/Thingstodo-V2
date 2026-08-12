@@ -83,6 +83,20 @@ function toMediaRecord(photo, candidateName) {
   };
 }
 
+function firstPartyPhotoLeads(candidate) {
+  return (candidate?.photoCandidates ?? []).filter((photo) => photo?.autoPublishable === false && photo?.rightsStatus === 'unconfirmed-first-party');
+}
+
+function mergeFirstPartyPhotoLeads(existing = [], incoming = []) {
+  const seen = new Set();
+  return [...existing, ...incoming].filter((lead) => {
+    const key = `${clean(lead?.sourceUrl).toLowerCase()}|${clean(lead?.imageUrl).toLowerCase()}`;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).sort((a, b) => Number(b?.score ?? 0) - Number(a?.score ?? 0)).slice(0, 12);
+}
+
 export function selectSpaCardPhoto(candidate) {
   const current = existingImage(candidate);
   if (current?.src && current.manual === true) {
@@ -107,6 +121,7 @@ export function selectSpaCardPhoto(candidate) {
 
 export function applySpaCardPhotoSelection(candidate) {
   const result = selectSpaCardPhoto(candidate);
+  const leads = firstPartyPhotoLeads(candidate);
   const next = structuredClone(candidate);
   next.spaCard ??= {};
   next.spaCard.photoStatus = result.status === 'selected' ? 'verified' : 'missing';
@@ -116,6 +131,10 @@ export function applySpaCardPhotoSelection(candidate) {
   next.media.card ??= {};
   if (result.image) next.media.card.image = result.image;
   else delete next.media.card.image;
+  if (leads.length) {
+    next.media.research ??= {};
+    next.media.research.firstPartyPhotoLeads = mergeFirstPartyPhotoLeads(next.media.research.firstPartyPhotoLeads, leads);
+  }
   if ('image' in next && !result.image) delete next.image;
   if (result.image && 'image' in next) next.image = result.image;
   delete next.photoCandidates;

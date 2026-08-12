@@ -16,6 +16,20 @@ Prefer, in order:
 
 Openverse is a discovery layer, not a reason to lower the licence or identity rules. Atlas currently auto-materializes an Openverse result only when its source is a Wikimedia Commons file page that can be re-checked through the Commons API for the source licence, author and dimensions. Other Openverse results remain discovery leads until a source-specific verifier exists. Flickr discovery asks Flickr for its current licence catalogue, filters out non-commercial/no-derivatives licences, and uses geo search when the entity has coordinates.
 
+## First-party discovery for editorial leads
+
+When research has identified an establishment's official website, Facebook page or Instagram profile, Atlas now scans that first-party page as a separate discovery layer. It looks for public page metadata such as `og:image`, `twitter:image` or the legacy `image_src` preview. If a platform blocks automated HTML access, the official page is still retained as a page-level lead instead of being discarded.
+
+First-party sources can be supplied through `firstPartySources`, `officialWebsiteUrl`, `websiteUrl`, `socialLinks` / `socialUrls`, or through a research source explicitly marked first-party. Booking, Agoda, TripAdvisor, Google and similar third-party hosts are never inferred to be first-party sources.
+
+These results are **editorial leads, not reusable media candidates**. Publishing a photo on an official website or social account does not by itself prove Atlas has reuse rights. Therefore every first-party lead is stored with:
+
+- `rightsStatus = "unconfirmed-first-party"`;
+- `autoPublishable = false`;
+- `editorialAction = "review-rights-before-use"`.
+
+The leads are ranked by whether an actual preview image was found, identity confidence, source type and page accessibility, then persisted under `media.research.firstPartyPhotoLeads` for later admin/editor review. They never satisfy the automatic SPA photo slot on their own.
+
 Google Image results, booking/travel platforms, social networks and generic web images may help identify that an image exists, but they are not automatically reusable media sources. The individual asset still needs a valid reuse right.
 
 Network discovery is best-effort. `--skip-photo-discovery` or `ATLAS_OFFLINE=1` disables it. Missing Flickr configuration never blocks a city generation.
@@ -51,7 +65,7 @@ Instead it writes:
 - `spaCard.photoRequiresManualFill = true`;
 - no `media.card.image`.
 
-The public SPA card keeps the full photo slot and displays the neutral `Photo to add` placeholder. This makes missing media immediately visible for later manual completion.
+The public SPA card keeps the full photo slot and displays the neutral `Photo to add` placeholder. First-party leads can still be present in `media.research.firstPartyPhotoLeads` even while the public card remains in the missing-photo state.
 
 ## Attribution
 

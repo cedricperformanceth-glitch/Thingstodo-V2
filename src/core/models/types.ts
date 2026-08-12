@@ -1,13 +1,16 @@
 export type CityProfile = 'compact' | 'standard' | 'large';
 export type SettlementType = 'village' | 'city';
-export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'open-license' | 'first-party-official';
+export type SourceType = 'manual' | 'wikimedia' | 'flickr' | 'public-domain' | 'open-license' | 'first-party-official';
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
+export type EditorialPhotoLeadSourceType = 'official-website' | 'facebook' | 'instagram';
 
 export interface Coordinates { latitude: number; longitude: number; }
 export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; }
 export interface MediaRecord { id: string; src: string; alt: string; sourceType: SourceType; sourceUrl?: string; sourceName?: string; author?: string; license?: string; manual: boolean; locked: boolean; }
+export interface EditorialPhotoLead { id: string; entityName: string; cityName?: string; sourceType: EditorialPhotoLeadSourceType; sourceName: string; sourceUrl: string; imageUrl?: string; pageTitle?: string; identityConfidence: number; pageFetched: boolean; discoveryStatus: 'image-found' | 'page-found'; rightsStatus: 'unconfirmed-first-party'; autoPublishable: false; editorialAction: 'review-rights-before-use'; score: number; }
+export interface MediaResearch { firstPartyPhotoLeads?: EditorialPhotoLead[]; }
 export interface CountryMediaManifest { hero: { stamps: MediaRecord[]; drawings: MediaRecord[]; photos: MediaRecord[] }; card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }
-export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }
+export interface EntityMediaManifest { card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; research?: MediaResearch; }
 export interface HeroFact { label: string; value: string; }
 export interface FieldCardSection { title: string; body: string; }
 export interface FieldCardContent { template: 'compact' | 'deep'; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
@@ -24,7 +27,7 @@ export interface ExploreBoardCardContent { kicker: string; duration: string; rou
 export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; }
 export interface City { id: string; slug: string; name: string; country: string; profile: CityProfile; settlementType: SettlementType; coordinates: Coordinates; description: string; categories: CategorySlug[]; categoryTargets: Partial<Record<CategorySlug, number>>; hero: CityHero; exploreBoard: ExploreBoardConfig; manualLocks: ManualLocks; seo: SeoMetadata; }
 export interface SourceMetadata { sourceName: string; sourceUrl?: string; reviewedAt?: string; }
-export interface ResearchSource extends SourceMetadata { purpose: 'candidate-discovery' | 'facts' | 'location' | 'media'; sourceType?: SourceType; }
+export interface ResearchSource extends SourceMetadata { purpose: 'candidate-discovery' | 'facts' | 'location' | 'media' | 'first-party'; sourceType?: SourceType; }
 export interface GeneratedMetadata { generatedAt: string; generator: string; researchSources: ResearchSource[]; }
 export interface BaseEntity { id: string; slug: string; name: string; country: string; city: string; category: CategorySlug; coordinates: Coordinates; shortDescription: string; media: EntityMediaManifest; spaCard?: SpaCardContent; verification?: VerificationMetadata; sourceMetadata: SourceMetadata; manualLocks: ManualLocks; }
 export interface Place extends BaseEntity { address: string; googleMapsUrl: string; image?: MediaRecord; spaCard?: SpaCardContent; }

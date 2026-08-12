@@ -1,3 +1,5 @@
+import { discoverFirstPartyPhotoLeads } from './first-party-photo-discovery.mjs';
+
 const OPENVERSE_ENDPOINT = 'https://api.openverse.org/v1/images/';
 const COMMONS_API_ENDPOINT = 'https://commons.wikimedia.org/w/api.php';
 const FLICKR_ENDPOINT = 'https://www.flickr.com/services/rest/';
@@ -99,8 +101,6 @@ export async function discoverOpenversePhotos(candidate, context = {}, fetchImpl
       if (!acceptedOpenverseLicense(result.license)) continue;
       const confidence = exactNameConfidence(candidate.name, result.title, (result.tags ?? []).map((tag) => tag?.name));
       if (confidence < .9) continue;
-      // Openverse is a discovery index. Only Commons results are currently auto-materialized,
-      // because their licence/author/dimensions can be re-checked against the source API.
       const verified = await sourceVerifiedCommonsPhoto(result, candidate, confidence, fetchImpl);
       if (verified) photos.push(verified);
     }
@@ -187,9 +187,11 @@ function dedupePhotos(photos) {
 
 export async function discoverPhotoCandidates(candidate, context = {}, options = {}) {
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
-  const [openverse, flickr] = await Promise.all([
+  const [openverse, flickr, firstPartyLeads] = await Promise.all([
     discoverOpenversePhotos(candidate, context, fetchImpl),
-    discoverFlickrPhotos(candidate, context, fetchImpl, options.flickrApiKey ?? process.env.FLICKR_API_KEY)
+    discoverFlickrPhotos(candidate, context, fetchImpl, options.flickrApiKey ?? process.env.FLICKR_API_KEY),
+    discoverFirstPartyPhotoLeads(candidate, context, fetchImpl),
   ]);
-  return dedupePhotos([...flickr, ...openverse]).slice(0, 12);
+  const reusable = dedupePhotos([...flickr, ...openverse]).slice(0, 12);
+  return [...reusable, ...firstPartyLeads];
 }
