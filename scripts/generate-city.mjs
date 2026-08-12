@@ -4,7 +4,9 @@ import { pathToFileURL } from 'node:url';
 import { chooseFieldCardTemplate, mergeGenerated, rerollAutomaticCategoryTargets, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
 import { materializeSpaCardEditorial } from './lib/spa-card-editorial.mjs';
-import { applySpaCardPhotoSelection } from './lib/spa-card-media.mjs';
+import { applySpaCardPhotoSelection, validateAutomaticPhotoCandidate } from './lib/spa-card-media.mjs';
+import { discoverPhotoCandidates } from './lib/photo-discovery.mjs';
+import { rankPlaceCandidates } from './lib/candidate-ranking.mjs';
 import { evaluateCandidateAcceptance } from './lib/verification-engine.mjs';
 import { evaluateCityPublication } from './lib/city-publish-qa.mjs';
 
@@ -13,7 +15,8 @@ const dryRun = flags.includes('--dry-run');
 const fromCity = flags.includes('--from-city');
 const publishCheck = flags.includes('--publish-check');
 const rerollTargets = flags.includes('--reroll-targets');
-if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check] [--reroll-targets]');
+const skipPhotoDiscovery = flags.includes('--skip-photo-discovery') || process.env.ATLAS_OFFLINE === '1';
+if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check] [--reroll-targets] [--skip-photo-discovery]');
 if (fromCity && rerollTargets) throw new Error('--reroll-targets requires versioned research sources; it cannot be combined with --from-city.');
 
 const root = process.cwd();
@@ -44,12 +47,14 @@ for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) {
 
 const editorialPlaces = (input.places ?? []).map((candidate) => prepareCandidate(candidate, 'place', country));
 const editorialThings = (input.things ?? []).map((candidate) => prepareCandidate(candidate, 'thing-to-do', country));
-for (const candidate of editorialPlaces) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
-for (const candidate of editorialThings) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
-
 const selectedEditorialPlaces = selectPlaceCandidates(editorialPlaces, draft);
-const things = editorialThings.map((candidate) => normalizeThing(candidate, draft));
-const places = selectedEditorialPlaces.map((candidate) => normalizePlace(candidate, draft));
+const mediaContext = { cityName: draft.cityData.name, country: draft.country };
+const places = [];
+for (const candidate of selectedEditorialPlaces) places.push(normalizePlace(await prepareMediaWithDiscovery(candidate, mediaContext), draft));
+const things = [];
+for (const candidate of editorialThings) things.push(normalizeThing(await prepareMediaWithDiscovery(candidate, mediaContext), draft));
+for (const candidate of places) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
+for (const candidate of things) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
 console.log(`Selected Place cards: ${summarizePlaceSelection(places, draft.cityData.categoryTargets)}`);
 console.log(`Explore Board: ${(draft.cityData.exploreBoard?.featuredThingIds ?? []).join(', ') || 'awaiting manual landmark selection'}`);
 
@@ -91,9 +96,10 @@ function selectPlaceCandidates(candidates, baseDraft) {
   const manualCounts = {};
   for (const place of existingManual) manualCounts[place.category] = (manualCounts[place.category] ?? 0) + 1;
 
+  const rankedCandidates = rankPlaceCandidates(candidates, { cityCoordinates: baseDraft.cityData?.coordinates });
   const selectedCounts = {};
   const selected = [];
-  for (const candidate of candidates) {
+  for (const candidate of rankedCandidates) {
     if (manualIds.has(candidate.id)) continue;
     const target = targets[candidate.category];
     if (!Number.isInteger(target)) {
@@ -125,8 +131,7 @@ function summarizePlaceSelection(places, targets) {
 
 function prepareCandidate(candidate, kind, candidateCountry) {
   const verified = prepareVerification(candidate, kind, candidateCountry);
-  const editorial = prepareEditorial(verified, kind);
-  return prepareMedia(editorial);
+  return prepareEditorial(verified, kind);
 }
 
 function prepareVerification(candidate, kind, candidateCountry) {
@@ -153,6 +158,26 @@ function prepareEditorial(candidate, kind) {
     throw new Error(`SPA editorial draft for ${candidate?.name ?? 'unnamed candidate'} requires manual review: ${result.errors.join('; ')}`);
   }
   return result.candidate;
+}
+
+function hasQualifiedPhoto(candidate) {
+  const current = candidate?.image ?? candidate?.media?.card?.image;
+  if (current?.manual === true && current?.src) return true;
+  const candidates = [...(candidate?.photoCandidates ?? []), ...(current?.src ? [current] : [])];
+  return candidates.some((photo) => validateAutomaticPhotoCandidate(photo).valid);
+}
+
+async function prepareMediaWithDiscovery(candidate, context) {
+  let next = candidate;
+  if (!skipPhotoDiscovery && next?.spaCard && !hasQualifiedPhoto(next)) {
+    const discovered = await discoverPhotoCandidates(next, context);
+    if (discovered.length) {
+      next = structuredClone(next);
+      next.photoCandidates = [...(next.photoCandidates ?? []), ...discovered];
+      console.log(`Photo discovery: ${next.name} -> ${discovered.length} candidate(s).`);
+    }
+  }
+  return prepareMedia(next);
 }
 
 function prepareMedia(candidate) {
@@ -260,7 +285,7 @@ function assembleDraft(baseDraft, inputCity, nextPlaces, nextThings) {
 }
 
 function printPublicationReport(report) {
-  console.log(`Publication QA: ${report.status} · ${report.summary.errors} errors · ${report.summary.warnings} warnings`);
+  console.log(`Publication QA: ${report.status} · ${report.summary.errors} error(s) · ${report.summary.warnings} warning(s).`);
   for (const entry of report.errors) console.error(`ERROR [${entry.code}]${entry.entity ? ` ${entry.entity}` : ''}: ${entry.message}`);
   for (const entry of report.warnings) console.warn(`WARN  [${entry.code}]${entry.entity ? ` ${entry.entity}` : ''}: ${entry.message}`);
 }
