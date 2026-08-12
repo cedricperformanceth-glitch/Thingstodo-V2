@@ -18,7 +18,7 @@ const hasFaq = thing.fieldCard.faq.length > 0;
 
 <article class={`field-card field-card--${view.template}`}>
   <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
-  <FieldCardQuickRead {thing} quickRead={view.quickRead} />
+  <FieldCardQuickRead {thing} {country} quickRead={view.quickRead} />
 
   <div class="field-card__body">
     {thing.fieldCard.whyGo && <section><h2>Why go</h2><p>{thing.fieldCard.whyGo}</p></section>}
