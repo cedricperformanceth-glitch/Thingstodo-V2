@@ -20,7 +20,7 @@ const costLabel = thing.spaCard?.costType === 'free' ? 'Free' : thing.spaCard?.c
     ) : (
       <span class="card-photo-placeholder" aria-label="Photo missing; manual photo needed">Photo to add</span>
     )}
-    {image && thing.spaCard?.handwrittenTags && (
+    {thing.spaCard?.handwrittenTags && (
       <div class="card-handwritten" aria-label="Quick notes">
         {thing.spaCard.handwrittenTags.map((tag) => <span>{tag}</span>)}
       </div>
