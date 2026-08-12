@@ -30,6 +30,7 @@ assert.equal(selected.status, 'selected');
 assert.equal(selected.requiresManualFill, false);
 assert.equal(selected.image.license, 'cc-by-sa');
 assert.equal(selected.image.author, 'Example Author');
+assert.equal(selected.image.sourceName, 'Wikimedia Commons');
 
 const uncertainSubject = { ...commonsPhoto, id: 'uncertain', subjectVerified: false };
 assert.equal(validateAutomaticPhotoCandidate(uncertainSubject).valid, false);
@@ -50,6 +51,9 @@ assert.equal(validateAutomaticPhotoCandidate(unknownLicense).valid, false);
 
 const tooSmall = { ...commonsPhoto, id: 'small', width: 320, height: 200 };
 assert.equal(validateAutomaticPhotoCandidate(tooSmall).valid, false);
+
+const wrongAutomaticSource = { ...commonsPhoto, id: 'wrong-source', sourceType: 'public-domain' };
+assert.equal(validateAutomaticPhotoCandidate(wrongAutomaticSource).valid, false, 'automatic discovery is Commons-only');
 
 const lowerConfidence = {
   ...commonsPhoto,
@@ -76,54 +80,18 @@ const manualResult = selectSpaCardPhoto({ ...base, media: { card: { image: manua
 assert.equal(manualResult.reason, 'manual-photo');
 assert.equal(manualResult.image.src, '/assets/manual.webp');
 
-const legacyAutomaticWithoutProof = {
-  id: 'legacy-auto', src: '/assets/legacy.webp', alt: 'Old auto image', sourceType: 'open-license',
-  sourceUrl: 'https://example.org/photo', license: 'CC BY 4.0', author: 'Author', manual: false, locked: false,
-};
-assert.equal(selectSpaCardPhoto({ ...base, media: { card: { image: legacyAutomaticWithoutProof } } }).status, 'missing');
-
 const missing = applySpaCardPhotoSelection({ ...base });
 assert.equal(missing.status, 'missing');
 assert.equal(missing.candidate.spaCard.photoStatus, 'missing');
 assert.equal(missing.candidate.spaCard.photoRequiresManualFill, true);
 assert.equal(missing.candidate.media.card.image, undefined);
 
-const firstPartyLead = {
-  id: 'first-party-facebook-mekong-garden-1',
-  entityName: 'Mekong Garden Café',
-  cityName: 'Atlas Town',
-  sourceType: 'facebook',
-  sourceName: 'Official Facebook',
-  sourceUrl: 'https://www.facebook.com/mekonggarden/',
-  imageUrl: 'https://cdn.example/mekong-garden.jpg',
-  identityConfidence: .95,
-  pageFetched: true,
-  discoveryStatus: 'image-found',
-  rightsStatus: 'unconfirmed-first-party',
-  autoPublishable: false,
-  editorialAction: 'review-rights-before-use',
-  score: 89,
-};
-const withLead = applySpaCardPhotoSelection({ ...base, photoCandidates: [firstPartyLead] });
-assert.equal(withLead.status, 'missing', 'first-party lead must not become an automatic card photo');
-assert.equal(withLead.candidate.spaCard.photoStatus, 'missing');
-assert.equal(withLead.candidate.media.research.firstPartyPhotoLeads.length, 1);
-assert.equal(withLead.candidate.media.research.firstPartyPhotoLeads[0].imageUrl, firstPartyLead.imageUrl);
-assert.equal('photoCandidates' in withLead.candidate, false);
-
-const applied = applySpaCardPhotoSelection({ ...base, photoCandidates: [commonsPhoto, firstPartyLead] });
-assert.equal(applied.candidate.spaCard.photoStatus, 'verified');
-assert.equal(applied.candidate.spaCard.photoRequiresManualFill, false);
-assert.equal(applied.candidate.media.card.image.src, commonsPhoto.src);
-assert.equal(applied.candidate.media.research.firstPartyPhotoLeads.length, 1, 'editorial lead should survive even when a reusable photo is selected');
-assert.equal('photoCandidates' in applied.candidate, false);
-
 const generalPlace = applySpaCardPhotoSelection({
   ...base,
   category: 'accommodation',
   photoCandidates: [higherConfidence, lowerConfidence],
 }, { entityKind: 'place' });
-assert.equal(generalPlace.candidate.media.card.image.src, higherConfidence.src, 'a general Place must use only the best reusable photo');
+assert.equal(generalPlace.candidate.media.card.image.src, higherConfidence.src, 'a general Place must use only the best Commons photo');
 assert.equal(generalPlace.candidate.media.research?.activityPhotoReserve, undefined, 'general Places must not retain reusable photo surplus');
 assert.equal('photoCandidates' in generalPlace.candidate, false);
 
@@ -133,7 +101,7 @@ const activity = applySpaCardPhotoSelection({
   photoCandidates: [lowerConfidence, higherConfidence, commonsPhoto],
 }, { entityKind: 'thing-to-do' });
 assert.equal(activity.candidate.media.card.image.src, commonsPhoto.src, 'activity SPA still has exactly one best primary photo');
-assert.equal(activity.candidate.media.research.activityPhotoReserve.length, 2, 'qualified activity surplus must be retained for future Field Card media');
+assert.equal(activity.candidate.media.research.activityPhotoReserve.length, 2, 'qualified Commons surplus must be retained for future Field Card media');
 assert.deepEqual(
   activity.candidate.media.research.activityPhotoReserve.map((photo) => photo.src),
   [higherConfidence.src, lowerConfidence.src],
@@ -148,6 +116,13 @@ const activityWithManualPrimary = applySpaCardPhotoSelection({
   photoCandidates: [higherConfidence, lowerConfidence],
 }, { entityKind: 'thing-to-do' });
 assert.equal(activityWithManualPrimary.candidate.media.card.image.src, manual.src);
-assert.equal(activityWithManualPrimary.candidate.media.research.activityPhotoReserve.length, 2, 'automatic reusable photos remain useful reserve when a manual primary photo is locked');
+assert.equal(activityWithManualPrimary.candidate.media.research.activityPhotoReserve.length, 2, 'Commons photos remain useful reserve when a manual primary photo is locked');
 
-console.log('SPA card media selection tests passed.');
+const legacyLead = {
+  ...base,
+  media: { research: { firstPartyPhotoLeads: [{ sourceUrl: 'https://example.org' }] } },
+};
+const legacyCleaned = applySpaCardPhotoSelection(legacyLead);
+assert.equal(legacyCleaned.candidate.media.research, undefined, 'legacy first-party photo metadata must be removed during generation');
+
+console.log('SPA card Wikimedia Commons media selection tests passed.');
