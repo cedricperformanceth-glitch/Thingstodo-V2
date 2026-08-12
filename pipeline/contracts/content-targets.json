@@ -3,13 +3,13 @@
     "village": {
       "categories": {
         "things-to-do": { "min": 5, "max": 25, "selectionMode": "editorial" },
-        "restaurants": { "min": 10, "max": 15 },
-        "cafes": { "min": 10, "max": 15 },
-        "accommodation": { "min": 12, "max": 19 }
+        "restaurants": { "min": 10, "max": 15, "selectionMode": "random-once" },
+        "cafes": { "min": 10, "max": 15, "selectionMode": "random-once" },
+        "accommodation": { "min": 12, "max": 19, "selectionMode": "random-once" }
       },
       "subcategories": {
         "restaurants": {
-          "bar": { "min": 3, "max": 5 }
+          "bar": { "min": 3, "max": 5, "selectionMode": "random-once" }
         }
       },
       "searchPriorities": {
@@ -23,10 +23,10 @@
     "city": {
       "categories": {
         "things-to-do": { "min": 5, "max": 25, "selectionMode": "editorial" },
-        "restaurants": { "min": 19, "max": 25 },
-        "cafes": { "min": 19, "max": 25 },
-        "accommodation": { "min": 19, "max": 25 },
-        "scooter-rental": { "min": 5, "max": 12 }
+        "restaurants": { "min": 19, "max": 25, "selectionMode": "random-once" },
+        "cafes": { "min": 19, "max": 25, "selectionMode": "random-once" },
+        "accommodation": { "min": 19, "max": 25, "selectionMode": "random-once" },
+        "scooter-rental": { "min": 5, "max": 12, "selectionMode": "random-once" }
       },
       "subcategories": {},
       "searchPriorities": {
