@@ -30,7 +30,7 @@ const generatedFacts = (city: City): string[] => {
 
   const values = slots.map(({ pattern, fallbackIndex }) => pick(pattern, fallbackIndex));
   if (!values[0]) values[0] = city.hero.eyebrow.trim() || 'Atlas field notes';
-  if (!values[1]) values[1] = `${titleCaseSlug(city.profile)} travel base`;
+  if (!values[1]) values[1] = city.settlementType === 'village' ? 'Village travel base' : 'City travel base';
   if (!values[2]) values[2] = city.hero.subtitle.trim() || 'Local conditions';
   if (!values[3]) values[3] = `${city.name}, ${titleCaseSlug(city.country)}`;
   return values;
