@@ -39,6 +39,6 @@ assert.match(engine, /fieldCard\.hero/, 'Generated Field Card Hero content must 
 assert.match(engine, /heroEditorial/, 'Manual editorial Hero overrides must be supported');
 assert.match(generator, /candidate\.fieldCardHero/, 'City generation must accept authored Field Card Hero copy');
 assert.match(generator, /assertValidFieldCardHero/, 'Authored Hero copy must be validated before generation');
-assert.match(generator, /hero,\s*\n\s*whyGo:/, 'Validated Hero copy must be persisted into fieldCard.hero');
+assert.match(generator, /fieldCard:\s*\{[\s\S]*?\n\s*hero,/, 'Validated Hero copy must be persisted into fieldCard.hero');
 
 console.log(`Field Card Hero tests passed: ${Object.keys(editorial).length} authored Hero override(s) validated.`);
