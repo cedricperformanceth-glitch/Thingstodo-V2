@@ -100,8 +100,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.057Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -152,8 +152,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -204,8 +204,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -256,8 +256,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -308,8 +308,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -360,8 +360,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -412,8 +412,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -464,8 +464,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -516,8 +516,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -568,8 +568,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -620,8 +620,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -672,8 +672,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -724,8 +724,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.058Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -776,8 +776,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -828,8 +828,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -880,8 +880,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -932,8 +932,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -984,8 +984,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1036,8 +1036,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1088,8 +1088,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1140,8 +1140,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.059Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1192,8 +1192,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1244,8 +1244,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1296,8 +1296,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1348,8 +1348,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1405,8 +1405,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1457,8 +1457,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1509,8 +1509,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1561,8 +1561,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1613,8 +1613,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1665,8 +1665,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1717,8 +1717,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1769,8 +1769,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1821,8 +1821,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1873,8 +1873,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1925,8 +1925,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1977,8 +1977,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2029,8 +2029,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2081,8 +2081,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2133,8 +2133,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2185,8 +2185,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2237,8 +2237,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.060Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2289,8 +2289,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.061Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2341,8 +2341,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.061Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2393,8 +2393,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.061Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2445,8 +2445,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.061Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2497,8 +2497,8 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current identity cross-checked against the August 2026 Atlas research set and a current public listing.",
-        "checkedAt": "2026-08-12T03:30:00.000Z"
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:03:57.061Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
