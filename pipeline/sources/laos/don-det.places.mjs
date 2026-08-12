@@ -3,42 +3,43 @@ const slugify = (value) => value.toLowerCase().normalize('NFD').replace(/[\u0300
 
 const sourceProfiles = {
   tripadvisor: [
-    { sourceName: 'Tripadvisor', sourceUrl: 'https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html', purpose: 'candidate-discovery', use: 'name-only' },
-    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location' },
+    { sourceName: 'Tripadvisor', sourceUrl: 'https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html', purpose: 'candidate-discovery', use: 'name-only', signalStrength: 'strong' },
+    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'supporting' },
   ],
   booking: [
-    { sourceName: 'Booking.com', sourceUrl: 'https://www.booking.com/city/la/ban-dondet.html', purpose: 'candidate-discovery', use: 'name-only' },
-    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location' },
+    { sourceName: 'Booking.com', sourceUrl: 'https://www.booking.com/city/la/ban-dondet.html', purpose: 'candidate-discovery', use: 'name-only', signalStrength: 'strong' },
+    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'supporting' },
   ],
   atlas: [
-    { sourceName: 'Atlas V1 verified seed', sourceUrl: 'https://github.com/cedricperformanceth-glitch/thingstodoatlas', purpose: 'facts' },
-    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location' },
+    { sourceName: 'Atlas V1 verified seed', sourceUrl: 'https://github.com/cedricperformanceth-glitch/thingstodoatlas', purpose: 'facts', signalStrength: 'supporting' },
+    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'strong' },
   ],
   coffeeCurrent: [
-    { sourceName: 'Laos Insider', sourceUrl: 'https://laosinsider.com/digital-nomad-in-laos/', purpose: 'facts' },
-    { sourceName: 'Recent Don Det travel notes', sourceUrl: 'https://note.com/chaki610/n/n1e4f8d1ff08f?hl=en', purpose: 'facts' },
-    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location' },
+    { sourceName: 'Laos Insider', sourceUrl: 'https://laosinsider.com/digital-nomad-in-laos/', purpose: 'facts', signalStrength: 'supporting' },
+    { sourceName: 'Recent Don Det travel notes', sourceUrl: 'https://note.com/chaki610/n/n1e4f8d1ff08f?hl=en', purpose: 'facts', signalStrength: 'supporting' },
+    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'strong' },
   ],
   currentDirectory: [
-    { sourceName: 'Current public listing', sourceUrl: 'https://www.top-rated.online/countries/Laos/cities/Khorn%2BNeua/all', purpose: 'facts' },
-    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location' },
+    { sourceName: 'Current public listing', sourceUrl: 'https://www.top-rated.online/countries/Laos/cities/Khorn%2BNeua/all', purpose: 'facts', signalStrength: 'strong' },
+    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'supporting' },
   ],
   recentGuide: [
-    { sourceName: 'Recent Don Det guide', sourceUrl: 'https://www.reisjunk.nl/laos/don-det-4000-islands/', purpose: 'facts' },
-    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location' },
+    { sourceName: 'Recent Don Det guide', sourceUrl: 'https://www.reisjunk.nl/laos/don-det-4000-islands/', purpose: 'facts', signalStrength: 'supporting' },
+    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'strong' },
   ],
   worldplaces: [
-    { sourceName: 'WorldPlaces', sourceUrl: 'https://laos.worldplaces.me/review/139973704-smiling-cafe-2.html', purpose: 'facts' },
-    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location' },
+    { sourceName: 'WorldPlaces', sourceUrl: 'https://laos.worldplaces.me/review/139973704-smiling-cafe-2.html', purpose: 'facts', signalStrength: 'strong' },
+    { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'supporting' },
   ],
   health: [
-    { sourceName: 'Don Det Laos health information', sourceUrl: 'https://don-det-laos.com/health', purpose: 'facts' },
-    { sourceName: 'OpenStreetMap via Mapcarta', sourceUrl: 'https://mapcarta.com/N7084204385', purpose: 'location' },
+    { sourceName: 'Don Det Laos health information', sourceUrl: 'https://don-det-laos.com/health', purpose: 'facts', signalStrength: 'strong' },
+    { sourceName: 'OpenStreetMap via Mapcarta', sourceUrl: 'https://mapcarta.com/N7084204385', purpose: 'location', signalStrength: 'supporting' },
   ],
 };
 
 function record(name, category, shortDescription, handwrittenTags, profile = 'atlas', options = {}) {
   const slug = slugify(name);
+  const sources = sourceProfiles[profile];
   return {
     id: `place-${slug}`,
     slug,
@@ -48,14 +49,18 @@ function record(name, category, shortDescription, handwrittenTags, profile = 'at
     googleMapsUrl: googleMaps(options.mapQuery ?? `${name} Don Det Laos`),
     shortDescription,
     spaCard: { handwrittenTags },
-    verification: {
-      decision: 'accept',
-      reason: 'Current identity cross-checked against the August 2026 Atlas research set and a current public listing.',
-      checkedAt: '2026-08-12T03:30:00.000Z',
-    },
+    verificationKind: 'business',
+    verificationSignals: sources.map((source, index) => ({
+      sourceId: `${slug}:${index}:${slugify(source.sourceName)}`,
+      sourceUrl: source.sourceUrl,
+      status: 'exists',
+      observedAt: '2026-08-12',
+      current: true,
+      strength: source.signalStrength,
+    })),
     sourceMetadata: { sourceName: 'Atlas V2 verified research', reviewedAt: '2026-08-12' },
     manualLocks: {},
-    sources: sourceProfiles[profile],
+    sources: sources.map(({ signalStrength, ...source }) => source),
   };
 }
 
