@@ -18,9 +18,11 @@ Openverse is a discovery layer, not a reason to lower the licence or identity ru
 
 ## First-party discovery for editorial leads
 
-When research has identified an establishment's official website, Facebook page or Instagram profile, Atlas now scans that first-party page as a separate discovery layer. It looks for public page metadata such as `og:image`, `twitter:image` or the legacy `image_src` preview. If a platform blocks automated HTML access, the official page is still retained as a page-level lead instead of being discarded.
+When research has identified an establishment's official website, Facebook page or Instagram profile, Atlas scans that first-party page as a separate discovery layer. It looks for public page metadata such as `og:image`, `twitter:image` or the legacy `image_src` preview. On ordinary official websites it also scans page/gallery `<img>` elements, resolves relative and lazy-loaded image URLs, and filters obvious logos, icons, sprites and undersized decorative assets. Social-network pages stay restricted to public preview metadata because their HTML frequently contains unrelated interface imagery. Each page request has a short timeout so a dead or slow establishment site cannot stall a city generation.
 
-First-party sources can be supplied through `firstPartySources`, `officialWebsiteUrl`, `websiteUrl`, `socialLinks` / `socialUrls`, or through a research source explicitly marked first-party. Booking, Agoda, TripAdvisor, Google and similar third-party hosts are never inferred to be first-party sources.
+First-party sources can be supplied directly through `firstPartySources`, `officialWebsiteUrl`, `websiteUrl`, `socialLinks` / `socialUrls`, or through a research source explicitly marked first-party. The generator also supports an optional versioned `pipeline/sources/<country>/<city>.first-party.mjs` enrichment shard. That shard maps entity IDs to official-source URLs and is loaded generically before media discovery; it contains destination data, not destination-specific generator logic. Booking, Agoda, TripAdvisor, Google and similar third-party hosts are never inferred to be first-party sources.
+
+For read-only diagnostics, `npm run audit:first-party -- <country> <city>` reports how many configured official pages are reachable and how many image/page-only leads are discovered. It never publishes or rewrites content.
 
 These results are **editorial leads, not reusable media candidates**. Publishing a photo on an official website or social account does not by itself prove Atlas has reuse rights. Therefore every first-party lead is stored with:
 
@@ -28,7 +30,7 @@ These results are **editorial leads, not reusable media candidates**. Publishing
 - `autoPublishable = false`;
 - `editorialAction = "review-rights-before-use"`.
 
-The leads are ranked by whether an actual preview image was found, identity confidence, source type and page accessibility, then persisted under `media.research.firstPartyPhotoLeads` for later admin/editor review. They never satisfy the automatic SPA photo slot on their own.
+The leads are ranked by whether an actual image was found, identity confidence, source type and page accessibility, then persisted under `media.research.firstPartyPhotoLeads` for later admin/editor review. They never satisfy the automatic SPA photo slot on their own.
 
 Google Image results, booking/travel platforms, social networks and generic web images may help identify that an image exists, but they are not automatically reusable media sources. The individual asset still needs a valid reuse right.
 
