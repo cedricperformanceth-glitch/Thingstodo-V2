@@ -32,7 +32,3 @@ jobs:
 
       - name: Verify universal city template and pipeline
         run: npm run verify:city-template
-
-      - name: One-time Don Det first-party discovery audit
-        if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'Run Don Det first-party discovery audit')
-        run: npm run audit:first-party -- laos don-det
