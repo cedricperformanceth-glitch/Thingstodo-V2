@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "scope": "field-card-hero-editorial-content",
+  "principle": "The component owns presentation. Atlas editorial work supplies the variable copy. The runtime must not invent destination-specific Hero prose.",
+  "universalStructure": {
+    "activityTitleSource": "thing.name",
+    "photoSourceOrder": [
+      "thing.media.fieldCard.gallery[0]",
+      "thing.media.card.image",
+      "placeholder"
+    ],
+    "stamp": {
+      "eyebrow": "FIELD NOTE",
+      "label": "Plan the visit",
+      "locationSource": "city.name + country.name"
+    },
+    "axisNodeCount": 4
+  },
+  "editorialFields": {
+    "eyebrow": { "required": true, "hardMaxWords": 8 },
+    "aliases": { "required": true, "count": 3, "hardMaxWordsPerItem": 4 },
+    "description": { "required": true, "hardMaxWords": 55 },
+    "steps": { "required": true, "count": 4, "hardMaxWordsPerItem": 10 },
+    "rhythmNote": { "required": true, "hardMaxWords": 22 },
+    "photoNote": { "required": true, "hardMaxWords": 14 }
+  },
+  "forbiddenEditorialKeys": ["title", "image", "photo", "stamp"],
+  "fallbackPolicy": "Activities without authored Hero copy still render the universal Hero from existing ThingToDo data. The fallback is deterministic and temporary; Atlas editorial work can replace it without changing the component."
+}
