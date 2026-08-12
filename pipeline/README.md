@@ -22,9 +22,10 @@ Default city SPA order: Things to do → Restaurants → Coffee → Guest Houses
 
 ## Laos content targets
 
-The versioned generation contract lives in `pipeline/contracts/content-targets.json`. Automatic numeric values are
-selected deterministically from the configured range using the country/city/category seed: different cities
-vary naturally, while rebuilding the same city keeps the same automatic target.
+The versioned generation contract lives in `pipeline/contracts/content-targets.json`. Automatic numeric values use
+`random-once`: a value is drawn from the configured range when a city is first prepared, then persisted in the city draft.
+Normal regeneration keeps that value. `--reroll-targets` deliberately redraws only automatic targets and leaves manually
+locked editorial targets untouched.
 Only categories enabled in `City.categories` receive a target or research plan.
 
 Things to do is different from the automatic address categories:
@@ -70,6 +71,24 @@ General selection style:
 - favor affordable and normal mid-range places rather than luxury;
 - keep enough variety that every shortlist is not made of identical price/style choices;
 - manual editorial additions are expected after automatic generation.
+
+### Automatic Place ranking
+
+`pipeline/contracts/candidate-ranking.json` and `scripts/lib/candidate-ranking.mjs` rank verified practical Place candidates
+before the category target is filled. Ranking is source-neutral: no booking, map or travel platform receives a built-in
+vendor bonus.
+
+The ranking can use a very small set of normalized `rankingSignals` supplied by the research stage:
+- up to three independent reputation snapshots (source name, rating, rating scale, review count and observation date);
+- proximity to the settlement;
+- freshness of evidence;
+- verification state;
+- recent first-party social activity as a small positive signal;
+- basic data completeness.
+
+Different rating scales are normalized before comparison and large review counts have diminishing influence. Missing
+ratings or missing social media never reject a candidate. Review text, excerpts and review corpora are forbidden from
+ranking snapshots. The automatic shortlist remains a draft for later editorial review in the admin panel.
 
 ### Things to do
 
@@ -164,6 +183,24 @@ is followed only after verification.
 Google review text is not scraped, copied or stored as Atlas source material. If Google Maps Platform is used,
 status fields are preferred within the applicable Google terms.
 
+### SPA photo discovery
+
+The SPA media contract lives in `pipeline/contracts/spa-card-media.json`. Generation now performs best-effort photo
+discovery for selected cards that do not already have a qualified image.
+
+- Openverse is queried by default as an open-media discovery index, restricted to commercial-compatible licence classes.
+- Flickr is queried only when `FLICKR_API_KEY` is configured; the adapter asks Flickr for its current licence catalogue,
+  filters to commercially compatible licences, and prefers a geo-scoped search when entity coordinates are known.
+- automatic subject matching still requires a high-confidence exact-name metadata match;
+- every returned candidate still passes the existing SPA media validator for subject confidence, source confidence,
+  resolution, author and accepted licence;
+- failure or lack of a Flickr key never blocks generation; the card keeps `Photo to add` when no qualified image exists.
+- `--skip-photo-discovery` or `ATLAS_OFFLINE=1` disables network photo discovery for an intentionally offline run.
+
+Openverse is a discovery index, so its source landing URL is retained. Flickr remains optional because Atlas must use an
+API key and usage arrangement appropriate to the project. Travel platforms, booking platforms, social networks and generic
+web images remain discovery-only for media unless separate reuse permission exists.
+
 ### Reuse/licensing policy
 
 Publicly accessible does **not** automatically mean reusable. Atlas separates research/cross-checking from copying.
@@ -186,17 +223,20 @@ Media:
 
 Domain notes:
 - Wikimedia Commons: check the licence on every individual file page;
+- Openverse: useful discovery index; keep the original source page and verify reuse metadata before final editorial approval;
+- Flickr: use the official API only when configured appropriately and respect the individual photo licence and Flickr API terms;
 - Wikipedia: excellent factual/reference input, but do not copy prose by default;
 - Wikivoyage/Wikitravel: discovery/factual input by default; copied/adapted prose requires CC BY-SA compliance;
 - UNESCO: authoritative factual source, but each text/photo/document must be checked for its specific reuse licence.
 
-Travel and booking platforms are discovery inputs, not sources to copy from. Descriptions, ratings, reviews,
-rankings, photos, and editorial wording from competing guide or booking platforms are not republished. TripAdvisor
-candidate discovery remains restricted to name-only use.
+Travel and booking platforms are discovery and lightweight reputation inputs, not sources to copy from. Atlas may use a
+small current rating snapshot as a ranking signal, but does not ingest review text or build a review database. Descriptions,
+reviews, photos, and editorial wording from competing guide or booking platforms are not republished. TripAdvisor candidate
+discovery remains restricted to name-only use outside the small normalized reputation signal.
 
-`npm run generate-city -- laos city-slug --dry-run` validates the source container and
-shows the deterministic output plan. Without `--dry-run`, it fills only unlocked
-gaps and re-syncs the configured city/category generation contract before writing. Older draft containers
-without a persisted `researchPlan` are migrated automatically on their next non-dry-run refresh.
-It never overwrites fields listed in `manualLocks` with `source: manual` and
-`locked: true`. Locks live on the relevant city/entity record as `manualLocks["nested.field"]`; a lock on a parent path protects its children. Pipeline-draft root locks are not supported.
+`npm run generate-city -- laos city-slug --dry-run` validates the source container and shows the current persisted generation
+plan and ranked output without writing Atlas content. Without `--dry-run`, it fills only unlocked gaps and re-syncs the
+configured city/category generation contract before writing. Older draft containers without a persisted `researchPlan` are
+migrated automatically on their next non-dry-run refresh. It never overwrites fields listed in `manualLocks` with
+`source: manual` and `locked: true`. Locks live on the relevant city/entity record as `manualLocks["nested.field"]`; a lock
+on a parent path protects its children. Pipeline-draft root locks are not supported.
