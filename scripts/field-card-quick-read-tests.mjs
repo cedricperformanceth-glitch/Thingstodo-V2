@@ -27,11 +27,15 @@ assert.equal(validateFieldCardQuickRead({
 }).valid, false, 'Quick Read editorial copy must not own universal labels');
 
 assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal Quick Read component must not contain destination-specific branches or copy');
-assert.match(component, /01 \/ FIELD NOTES/, 'The first Field Notes block must be numbered 01');
+assert.match(component, />FIELD NOTES</, 'Quick Read must retain the unnumbered Field Notes editorial label');
+assert.doesNotMatch(component, /01 \/ FIELD NOTES/, 'Field Notes header must not duplicate the item numbering system');
+assert.match(component, /\{thing\.name\} \/ \{country\.name\}/, 'Quick Read header must expose dynamic activity and country context');
 assert.match(component, /THE QUICK READ/, 'Quick Read must retain the section title');
 for (const label of ['TIME', 'ROUTE', 'BUDGET', 'BEST FOR']) assert.match(component, new RegExp(label), `Quick Read must retain ${label}`);
+for (const index of ['01', '02', '03', '04']) assert.match(component, new RegExp(`index: '${index}'`), `Quick Read must retain item index ${index}`);
 assert.doesNotMatch(component, /border-radius|box-shadow/, 'Quick Read modules must not become UI cards');
 assert.match(fieldCard, /<FieldCardHero[\s\S]*<FieldCardQuickRead/, 'Quick Read must render directly after the Hero');
+assert.match(fieldCard, /<FieldCardQuickRead \{thing\} \{country\}/, 'Quick Read must receive country context from the universal Field Card');
 assert.doesNotMatch(fieldCard, /FavoriteHeart|TripButton|field-card__utility|Open Google Maps/, 'Field Cards must not render the removed utility action strip');
 assert.match(engine, /fieldCard\.quickRead/, 'Generated Quick Read content must be supported by the view engine');
 assert.match(engine, /quickReadEditorial/, 'Manual editorial Quick Read overrides must be supported');
