@@ -22,6 +22,8 @@ console.log(`${dryRun ? '[dry-run] Would create' : 'Creating'} ${country}/${city
 if (!dryRun) {
   fs.mkdirSync(path.dirname(draftFile), { recursive: true }); fs.mkdirSync(path.dirname(moduleFile), { recursive: true });
   const draft = emptyDraft(country, city, profile, settlementType);
+  // New destinations are working drafts until editorial/publication QA explicitly promotes them.
+  draft.cityData.seo.indexable = false;
   fs.writeFileSync(draftFile, `${JSON.stringify(draft, null, 2)}\n`); fs.writeFileSync(moduleFile, tsModule(draft));
   await import('./regenerate-content-registry.mjs');
   // Country-to-city membership is derived from generated city modules by the City Registry.
