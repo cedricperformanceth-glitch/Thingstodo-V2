@@ -22,9 +22,9 @@ const data = {
     ],
     "categoryTargets": {
       "things-to-do": 11,
-      "restaurants": 15,
-      "cafes": 15,
-      "accommodation": 15
+      "restaurants": 12,
+      "cafes": 11,
+      "accommodation": 16
     },
     "hero": {
       "eyebrow": "Si Phan Don · Southern Laos",
@@ -52,7 +52,8 @@ const data = {
     "exploreBoard": {
       "featuredThingIds": [
         "thing-old-french-railway-bridge",
-        "thing-li-phi-somphamit-waterfalls"
+        "thing-li-phi-somphamit-waterfalls",
+        "thing-khone-phapheng-falls"
       ]
     },
     "manualLocks": {
@@ -101,7 +102,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.057Z"
+        "checkedAt": "2026-08-12T04:28:12.318Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -153,7 +154,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.318Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -205,7 +206,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -257,7 +258,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -309,7 +310,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -361,7 +362,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -413,7 +414,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -465,7 +466,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -517,7 +518,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -569,7 +570,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -621,7 +622,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.319Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -673,7 +674,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
+        "checkedAt": "2026-08-12T04:28:12.320Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -694,162 +695,6 @@ const data = {
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sahai%20Bar%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-one-more-bar-and-restaurant",
-      "slug": "one-more-bar-and-restaurant",
-      "name": "One More Bar and Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A sunset-side bar and restaurant with food, drinks and live atmosphere, best kept for a social evening rather than a quiet dinner.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Sunset side",
-          "Live vibe",
-          "Evening"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.058Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=One%20More%20Bar%20and%20Restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-dalom-guesthouse-and-restaurants",
-      "slug": "dalom-guesthouse-and-restaurants",
-      "name": "Dalom Guesthouse & Restaurants",
-      "country": "laos",
-      "city": "don-det",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A central guesthouse restaurant address for straightforward Asian food, useful when staying near the main village and ferry area.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Central",
-          "Guesthouse food",
-          "Easy meal"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dalom%20Guesthouse%20%26%20Restaurants%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-mr-thos-restaurant",
-      "slug": "mr-thos-restaurant",
-      "name": "Mr Tho's Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A small Asian restaurant on Don Det for uncomplicated lunch or dinner, useful as a local alternative to the larger traveller bars.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Asian food",
-          "Local stop",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Tho's%20Restaurant%20Don%20Det%20Laos"
     },
     {
       "id": "place-crazy-gecko",
@@ -881,7 +726,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
+        "checkedAt": "2026-08-12T04:28:12.320Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -933,7 +778,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
+        "checkedAt": "2026-08-12T04:28:12.320Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -985,7 +830,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1037,7 +882,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1089,7 +934,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1141,7 +986,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.059Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1193,7 +1038,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1245,7 +1090,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1297,7 +1142,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1349,7 +1194,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.321Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1406,7 +1251,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1427,214 +1272,6 @@ const data = {
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paradise%20Restaurant%20Cafe%20%26%20Bar%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-cloud-9-restaurant-and-bar",
-      "slug": "cloud-9-restaurant-and-bar",
-      "name": "Cloud 9 Restaurant and Bar",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A café-restaurant known for cakes and Turkish coffee at breakfast, then Mediterranean and Middle Eastern food later in the day.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Turkish coffee",
-          "Homemade cakes",
-          "Breakfast"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cloud%209%20Restaurant%20and%20Bar%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-mouys",
-      "slug": "mouys",
-      "name": "Mouy's",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A recent Don Det riverside food recommendation that also works as a relaxed daytime stop when you want a local meal by the water.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Riverside",
-          "Local food",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Recent Don Det guide",
-          "sourceUrl": "https://www.reisjunk.nl/laos/don-det-4000-islands/",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mouy's%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-little-eden-restaurant",
-      "slug": "little-eden-restaurant",
-      "name": "Little Eden Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A hotel restaurant overlooking the river, useful for breakfast or coffee when you want a more settled table near northern Don Det.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Hotel cafe",
-          "River view",
-          "Breakfast"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Tripadvisor",
-          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Little%20Eden%20Restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-smiling-cafe-2",
-      "slug": "smiling-cafe-2",
-      "name": "Smiling Cafe 2",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A small café-style stop in the Don Det village area, kept as a simple coffee break rather than a destination meal.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Cafe stop",
-          "Village",
-          "Coffee break"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "WorldPlaces",
-          "sourceUrl": "https://laos.worldplaces.me/review/139973704-smiling-cafe-2.html",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Smiling%20Cafe%202%20Don%20Det%20Laos"
     },
     {
       "id": "place-dodand-studio-and-sunset-riverside-guesthouse",
@@ -1666,7 +1303,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1718,7 +1355,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1770,7 +1407,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1822,7 +1459,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1874,7 +1511,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1926,7 +1563,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -1978,7 +1615,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.322Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2030,7 +1667,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2082,7 +1719,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2134,7 +1771,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2186,7 +1823,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2238,7 +1875,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.060Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2290,7 +1927,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.061Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2342,7 +1979,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.061Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2394,7 +2031,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.061Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2415,6 +2052,58 @@ const data = {
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Noupad%20sunset%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-champa-resort",
+      "slug": "champa-resort",
+      "name": "Champa resort",
+      "country": "laos",
+      "city": "don-det",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A current Don Det stay with a garden setting, useful as another simple island base beyond the better-known northern guesthouses.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Garden stay",
+          "Don Det",
+          "Simple base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator",
+        "checkedAt": "2026-08-12T04:28:12.323Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research",
+        "reviewedAt": "2026-08-12"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Booking.com",
+          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Champa%20resort%20Don%20Det%20Laos"
     },
     {
       "id": "place-don-det-ferry",
@@ -2446,7 +2135,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.061Z"
+        "checkedAt": "2026-08-12T04:28:12.323Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2498,7 +2187,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:03:57.061Z"
+        "checkedAt": "2026-08-12T04:28:12.324Z"
       },
       "sourceMetadata": {
         "sourceName": "Atlas V2 verified research",
@@ -2711,7 +2400,20 @@ const data = {
       },
       "shortDescription": "Leave Don Det for Khone Phapheng, where the Mekong spreads into an immense cataract and the journey combines an island boat crossing with a road transfer.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "khone-phapheng-falls-card",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Khone%20Phapheng%20Falls%2C%20Si%20Phan%20Don%2C%20Laos%2C%20widest%20waterfall%20in%20the%20world.jpg?width=1600",
+            "alt": "Khone Phapheng Falls spreading across the Mekong in southern Laos",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Basile Morin",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2726,8 +2428,8 @@ const data = {
         "duration": "Half-day",
         "costType": "paid",
         "bestTime": "Morning",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2766,6 +2468,11 @@ const data = {
         "access": "",
         "faq": [],
         "sections": []
+      },
+      "exploreBoard": {
+        "kicker": "MEKONG · CATARACT · HALF-DAY",
+        "duration": "Half day",
+        "route": "Boat to Nakasang · road transfer"
       }
     },
     {

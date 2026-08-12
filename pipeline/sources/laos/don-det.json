@@ -1,6 +1,13 @@
 {
   "city": {
-    "description": "A compact Mekong island base in Si Phan Don, with bicycle paths, river life and easy access to Don Khon and the southern waterfalls."
+    "description": "A compact Mekong island base in Si Phan Don, with bicycle paths, river life and easy access to Don Khon and the southern waterfalls.",
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-old-french-railway-bridge",
+        "thing-li-phi-somphamit-waterfalls",
+        "thing-khone-phapheng-falls"
+      ]
+    }
   },
   "places": [],
   "things": [
@@ -181,6 +188,30 @@
           "sourceName": "Atlas V1 verified seed",
           "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
           "purpose": "facts"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": "MEKONG · CATARACT · HALF-DAY",
+        "duration": "Half day",
+        "route": "Boat to Nakasang · road transfer"
+      },
+      "photoCandidates": [
+        {
+          "id": "khone-phapheng-falls-card",
+          "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Khone%20Phapheng%20Falls%2C%20Si%20Phan%20Don%2C%20Laos%2C%20widest%20waterfall%20in%20the%20world.jpg?width=1600",
+          "alt": "Khone Phapheng Falls spreading across the Mekong in southern Laos",
+          "sourceType": "wikimedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg",
+          "sourceName": "Wikimedia Commons",
+          "author": "Basile Morin",
+          "license": "CC BY-SA 4.0",
+          "width": 1600,
+          "height": 900,
+          "subjectVerified": true,
+          "subjectConfidence": 1,
+          "sourceConfidence": 1,
+          "manual": false,
+          "locked": false
         }
       ]
     },
