@@ -19,10 +19,7 @@
         "wikitravel"
       ],
       "open-media": [
-        "wikimedia-commons",
-        "openverse",
-        "flickr-compatible-license",
-        "explicitly-licensed-public-media"
+        "wikimedia-commons"
       ],
       "supporting": [
         "travel-platform",
@@ -126,6 +123,7 @@
         "honorAttributionAndShareAlikeWhenRequired": true
       },
       "media": {
+        "automaticDiscoverySource": "wikimedia-commons",
         "requirePerAssetLicenseCheck": true,
         "allowedWhenCompliant": ["public-domain", "cc0", "cc-by", "cc-by-sa"],
         "rejectWithoutPermission": ["all-rights-reserved", "unknown-license"],
@@ -134,13 +132,11 @@
         "storeAuthorLicenseSourceAndAttribution": true
       },
       "domainSpecific": {
-        "wikimedia-commons": "check-each-file-license",
-        "openverse": "discovery-index-verify-source-and-license-before-final-reuse",
-        "flickr": "use-official-api-when-configured-and-only-commercially-compatible-photo-licenses",
+        "wikimedia-commons": "only-automatic-photo-search-source-check-each-file-license",
         "wikipedia": "research-and-facts-by-default-do-not-copy-prose",
         "wikivoyage": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
         "wikitravel": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
-        "unesco": "authoritative-research-source-but-reuse-only-when-the-specific-item-license-permits-it"
+        "unesco": "authoritative-research-source-but-not-an-automatic-photo-source"
       }
     }
   }
