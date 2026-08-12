@@ -2,8 +2,6 @@
 import type { City, Country, ThingToDo } from '../../core/models/types';
 import { fieldCardView } from '../../engines/field-card/field-card-engine';
 import AdSlot from '../shared/AdSlot.astro';
-import FavoriteHeart from '../shared/FavoriteHeart.astro';
-import TripButton from '../shared/TripButton.astro';
 import FieldCardHero from './FieldCardHero.astro';
 import FieldCardQuickRead from './FieldCardQuickRead.astro';
 
@@ -22,14 +20,6 @@ const hasFaq = thing.fieldCard.faq.length > 0;
   <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
   <FieldCardQuickRead {thing} quickRead={view.quickRead} />
 
-  <div class="field-card__utility">
-    <FavoriteHeart entity={thing} />
-    <div class="field-card__actions">
-      {thing.googleMapsUrl && <a class="button button--quiet" href={thing.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>}
-      <TripButton entity={thing} />
-    </div>
-  </div>
-
   <div class="field-card__body">
     {thing.fieldCard.whyGo && <section><h2>Why go</h2><p>{thing.fieldCard.whyGo}</p></section>}
     {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}
@@ -47,37 +37,8 @@ const hasFaq = thing.fieldCard.faq.length > 0;
     gap: 0;
   }
 
-  .field-card__utility {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: center;
-    margin: 1rem 0 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgb(49 85 69 / .14);
-  }
-
-  .field-card__utility .favorite-heart {
-    position: static;
-    flex: none;
-  }
-
-  .field-card__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    justify-content: flex-end;
-  }
-
   .field-card__body {
     display: grid;
     gap: 2rem;
-  }
-
-  @media (max-width: 620px) {
-    .field-card__utility {
-      align-items: flex-start;
-    }
   }
 </style>
