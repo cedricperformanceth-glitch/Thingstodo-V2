@@ -6,7 +6,6 @@ import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
 import { materializeSpaCardEditorial } from './lib/spa-card-editorial.mjs';
 import { applySpaCardPhotoSelection, validateAutomaticPhotoCandidate } from './lib/spa-card-media.mjs';
 import { discoverPhotoCandidates } from './lib/photo-discovery.mjs';
-import { enrichEntitiesWithFirstPartySources } from './lib/first-party-source-enrichment.mjs';
 import { rankPlaceCandidates } from './lib/candidate-ranking.mjs';
 import { evaluateCandidateAcceptance } from './lib/verification-engine.mjs';
 import { evaluateCityPublication } from './lib/city-publish-qa.mjs';
@@ -24,7 +23,6 @@ const root = process.cwd();
 const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`);
 const sourceFile = path.join(root, 'pipeline', 'sources', country, `${city}.json`);
 const placeSourceShardFile = path.join(root, 'pipeline', 'sources', country, `${city}.places.mjs`);
-const firstPartySourceShardFile = path.join(root, 'pipeline', 'sources', country, `${city}.first-party.mjs`);
 if (!fs.existsSync(draftFile)) throw new Error(`No structural draft for ${country}/${city}. Run create-city first.`);
 if (!fromCity && !fs.existsSync(sourceFile)) throw new Error(`No versioned research inputs at ${path.relative(root, sourceFile)}.`);
 
@@ -43,18 +41,8 @@ if (!fromCity && fs.existsSync(placeSourceShardFile)) {
   console.log(`Loaded ${shard.places.length} place candidates from ${path.relative(root, placeSourceShardFile)}.`);
 }
 
-if (!fromCity && fs.existsSync(firstPartySourceShardFile)) {
-  const shardUrl = `${pathToFileURL(firstPartySourceShardFile).href}?mtime=${fs.statSync(firstPartySourceShardFile).mtimeMs}`;
-  const shard = await import(shardUrl);
-  const enriched = enrichEntitiesWithFirstPartySources(input.places ?? [], input.things ?? [], shard.firstPartySources);
-  input.places = enriched.places;
-  input.things = enriched.things;
-  console.log(`Loaded first-party sources for ${enriched.enrichedEntityIds.length} entities from ${path.relative(root, firstPartySourceShardFile)}.`);
-}
-
 for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) {
-  const sources = [...(candidate.sources ?? candidate.researchSources ?? []), ...(candidate.firstPartySources ?? [])];
-  for (const source of sources) validateSource(source);
+  for (const source of candidate.sources ?? candidate.researchSources ?? []) validateSource(source);
 }
 
 const editorialPlaces = (input.places ?? []).map((candidate) => prepareCandidate(candidate, 'place', country));
@@ -188,7 +176,7 @@ async function prepareMediaWithDiscovery(candidate, context, kind) {
     if (discovered.length) {
       next = structuredClone(next);
       next.photoCandidates = [...(next.photoCandidates ?? []), ...discovered];
-      console.log(`Photo discovery: ${next.name} -> ${discovered.length} candidate(s)${activityMode ? ' (activity reserve enabled)' : ''}.`);
+      console.log(`Wikimedia Commons: ${next.name} -> ${discovered.length} qualified candidate(s)${activityMode ? ' (activity reserve enabled)' : ''}.`);
     }
   }
   return prepareMedia(next, kind);
@@ -200,8 +188,7 @@ function prepareMedia(candidate, kind) {
 }
 
 function generatedSources(candidate) {
-  const sources = [...(candidate.sources ?? candidate.researchSources ?? []), ...(candidate.firstPartySources ?? [])];
-  return sources.map(({ sourceName, sourceUrl, purpose, sourceType }) => ({ sourceName, sourceUrl, purpose, sourceType }));
+  return (candidate.sources ?? candidate.researchSources ?? []).map(({ sourceName, sourceUrl, purpose, sourceType }) => ({ sourceName, sourceUrl, purpose, sourceType }));
 }
 
 function description(candidate) {
@@ -211,6 +198,8 @@ function description(candidate) {
 function entityMedia(candidate) {
   const media = structuredClone(candidate.media ?? { fieldCard: { gallery: [] } });
   delete media.hero;
+  if (media.research?.firstPartyPhotoLeads) delete media.research.firstPartyPhotoLeads;
+  if (media.research && Object.keys(media.research).length === 0) delete media.research;
   media.fieldCard ??= { gallery: [] };
   return media;
 }
@@ -291,6 +280,9 @@ function assembleDraft(baseDraft, inputCity, nextPlaces, nextThings) {
 
   for (const entity of [...next.places, ...next.things]) {
     if (entity.media) delete entity.media.hero;
+    if (entity.media?.research?.firstPartyPhotoLeads) delete entity.media.research.firstPartyPhotoLeads;
+    if (entity.media?.research && Object.keys(entity.media.research).length === 0) delete entity.media.research;
+    delete entity.firstPartySources;
     delete entity.isMySelection;
     delete entity.selectionRank;
   }
