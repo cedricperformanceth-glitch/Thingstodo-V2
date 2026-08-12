@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { chooseFieldCardTemplate, mergeGenerated, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
 import { materializeSpaCardEditorial } from './lib/spa-card-editorial.mjs';
@@ -16,12 +17,23 @@ if (!country || !city) throw new Error('Usage: npm run generate-city -- <country
 const root = process.cwd();
 const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`);
 const sourceFile = path.join(root, 'pipeline', 'sources', country, `${city}.json`);
+const placeSourceShardFile = path.join(root, 'pipeline', 'sources', country, `${city}.places.mjs`);
 if (!fs.existsSync(draftFile)) throw new Error(`No structural draft for ${country}/${city}. Run create-city first.`);
 if (!fromCity && !fs.existsSync(sourceFile)) throw new Error(`No versioned research inputs at ${path.relative(root, sourceFile)}.`);
 
 const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8'));
 syncGenerationContract(draft);
-const input = fromCity ? { places: draft.places, things: draft.things, city: draft.cityData } : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+const input = fromCity
+  ? { places: draft.places, things: draft.things, city: draft.cityData }
+  : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+
+if (!fromCity && fs.existsSync(placeSourceShardFile)) {
+  const shardUrl = `${pathToFileURL(placeSourceShardFile).href}?mtime=${fs.statSync(placeSourceShardFile).mtimeMs}`;
+  const shard = await import(shardUrl);
+  if (!Array.isArray(shard.places)) throw new Error(`Place source shard must export a places array: ${path.relative(root, placeSourceShardFile)}`);
+  input.places = [...(input.places ?? []), ...shard.places];
+  console.log(`Loaded ${shard.places.length} place candidates from ${path.relative(root, placeSourceShardFile)}.`);
+}
 
 for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) {
   for (const source of candidate.sources ?? candidate.researchSources ?? []) validateSource(source);
