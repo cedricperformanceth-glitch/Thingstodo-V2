@@ -1,12 +1,13 @@
 ---
-import type { FieldCardQuickReadContent, ThingToDo } from '../../core/models/types';
+import type { Country, FieldCardQuickReadContent, ThingToDo } from '../../core/models/types';
 
 interface Props {
   thing: ThingToDo;
+  country: Country;
   quickRead: FieldCardQuickReadContent;
 }
 
-const { thing, quickRead } = Astro.props;
+const { thing, country, quickRead } = Astro.props;
 const items = [
   { key: 'time', index: '01', label: 'TIME', content: quickRead.time },
   { key: 'route', index: '02', label: 'ROUTE', content: quickRead.route },
@@ -17,7 +18,11 @@ const items = [
 
 <section class="field-card-quick-read" aria-labelledby={`field-card-quick-read-${thing.slug}`}>
   <header class="field-card-quick-read__heading">
-    <p>01 / FIELD NOTES</p>
+    <div class="field-card-quick-read__editorial-line">
+      <p>FIELD NOTES</p>
+      <span aria-hidden="true"></span>
+      <p>{thing.name} / {country.name}</p>
+    </div>
     <h2 id={`field-card-quick-read-${thing.slug}`}>THE QUICK READ</h2>
   </header>
 
@@ -35,25 +40,45 @@ const items = [
 
 <style>
   .field-card-quick-read {
-    padding: clamp(56px, 7vw, 92px) clamp(28px, 5vw, 64px) clamp(66px, 8vw, 104px);
+    padding: clamp(46px, 5.8vw, 74px) clamp(28px, 5vw, 64px) clamp(54px, 6.8vw, 84px);
     color: #203c31;
   }
 
   .field-card-quick-read__heading {
     display: grid;
-    gap: 7px;
-    margin-bottom: clamp(48px, 6vw, 76px);
+    gap: 9px;
+    margin-bottom: clamp(38px, 4.7vw, 58px);
   }
 
-  .field-card-quick-read__heading p {
+  .field-card-quick-read__editorial-line {
+    display: grid;
+    grid-template-columns: auto minmax(28px, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .field-card-quick-read__editorial-line p {
     margin: 0;
     color: #b76645;
     font-family: 'DM Sans', var(--sans);
-    font-size: .56rem;
+    font-size: .54rem;
     font-weight: 800;
     line-height: 1.2;
-    letter-spacing: .18em;
+    letter-spacing: .17em;
     text-transform: uppercase;
+  }
+
+  .field-card-quick-read__editorial-line p:last-child {
+    color: rgb(49 85 69 / .48);
+    font-size: .5rem;
+    letter-spacing: .13em;
+    text-align: right;
+  }
+
+  .field-card-quick-read__editorial-line span {
+    height: 1px;
+    background: rgb(49 85 69 / .14);
   }
 
   .field-card-quick-read__heading h2 {
@@ -70,27 +95,28 @@ const items = [
     display: grid;
     grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
     column-gap: clamp(70px, 11vw, 168px);
-    row-gap: clamp(62px, 8vw, 98px);
+    row-gap: clamp(44px, 5.6vw, 68px);
     max-width: 980px;
   }
 
   .field-card-quick-read__item {
     position: relative;
-    min-height: 146px;
-    padding: 24px 0 0 24px;
+    min-height: 124px;
+    padding: 22px 0 0 22px;
   }
 
   .field-card-quick-read__item--route {
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
 
   .field-card-quick-read__item--budget {
-    margin-left: 8%;
+    margin-left: 12%;
+    transform: translateY(-4px);
   }
 
   .field-card-quick-read__item--bestFor {
-    margin-left: 5%;
-    transform: translateY(38px);
+    margin-left: 8%;
+    transform: translateY(30px);
   }
 
   .field-card-quick-read__index {
@@ -116,7 +142,7 @@ const items = [
   }
 
   .field-card-quick-read__label {
-    margin: 0 0 13px;
+    margin: 0 0 11px;
     color: #b76645;
     font-family: 'DM Sans', var(--sans);
     font-size: .54rem;
@@ -138,14 +164,17 @@ const items = [
     text-transform: uppercase;
   }
 
-  .field-card-quick-read__item--budget .field-card-quick-read__primary,
-  .field-card-quick-read__item--bestFor .field-card-quick-read__primary {
+  .field-card-quick-read__item--budget .field-card-quick-read__primary {
     font-size: clamp(2rem, 3.35vw, 2.95rem);
+  }
+
+  .field-card-quick-read__item--bestFor .field-card-quick-read__primary {
+    font-size: clamp(1.75rem, 2.75vw, 2.45rem);
   }
 
   .field-card-quick-read__secondary {
     max-width: 27ch;
-    margin: 10px 0 0;
+    margin: 9px 0 0;
     color: rgb(49 85 69 / .62);
     font-family: 'DM Sans', var(--sans);
     font-size: .72rem;
@@ -159,31 +188,44 @@ const items = [
       column-gap: clamp(42px, 8vw, 76px);
     }
 
-    .field-card-quick-read__item--budget,
+    .field-card-quick-read__item--budget {
+      margin-left: 6%;
+    }
+
     .field-card-quick-read__item--bestFor {
-      margin-left: 0;
+      margin-left: 4%;
     }
   }
 
   @media (max-width: 620px) {
     .field-card-quick-read {
-      padding: 48px 20px 58px;
+      padding: 42px 20px 50px;
     }
 
     .field-card-quick-read__heading {
-      margin-bottom: 34px;
+      margin-bottom: 30px;
+    }
+
+    .field-card-quick-read__editorial-line {
+      grid-template-columns: auto minmax(18px, 1fr) auto;
+      gap: 9px;
+    }
+
+    .field-card-quick-read__editorial-line p:last-child {
+      max-width: 24ch;
+      font-size: .46rem;
     }
 
     .field-card-quick-read__grid {
       grid-template-columns: 1fr;
-      gap: 34px;
+      gap: 28px;
     }
 
     .field-card-quick-read__item,
     .field-card-quick-read__item--route,
     .field-card-quick-read__item--budget,
     .field-card-quick-read__item--bestFor {
-      min-height: 112px;
+      min-height: 106px;
       margin-left: 0;
       padding: 18px 0 0 18px;
       transform: none;
