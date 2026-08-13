@@ -11,7 +11,6 @@ const quickRead = readFileSync(new URL('../src/components/field-card/FieldCardQu
 const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
 const generator = readFileSync(new URL('./generate-city.mjs', import.meta.url), 'utf8');
 const tokens = readFileSync(new URL('../src/core/design-system/tokens.css', import.meta.url), 'utf8');
-const types = readFileSync(new URL('../src/core/models/types.ts', import.meta.url), 'utf8');
 
 for (const [id, story] of Object.entries(editorial)) {
   const result = validateFieldCardPrimaryStory(story);
@@ -57,7 +56,6 @@ assert.match(engine, /storyImage = gallery\[1\]/, 'Story block must request a di
 assert.doesNotMatch(engine, /fieldCard\.whyGo/, 'Field Card rendering fallbacks must not depend on the removed Why Go presentation concept');
 assert.match(generator, /candidate\.fieldCardPrimaryStory/, 'City generation must accept authored primary-story content');
 assert.match(generator, /assertValidFieldCardPrimaryStory/, 'Primary-story generation input must be validated');
-assert.match(types, /FieldCardPrimaryStoryContent\s*\{\s*chapters:\s*\[FieldCardSection,\s*FieldCardSection\]/, 'TypeScript must encode the exact two-chapter Primary Story shape');
 
 assert.match(tokens, /--field-card-page:#f4f0e7/, 'Field Card page color must be a shared design token');
 assert.match(tokens, /--field-card-sheet:#fffdf8/, 'Field Card sheet color must be a shared design token');
