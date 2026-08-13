@@ -6,6 +6,7 @@ import FieldCardHero from './FieldCardHero.astro';
 import FieldCardQuickRead from './FieldCardQuickRead.astro';
 import FieldCardStoryBlock from './FieldCardStoryBlock.astro';
 import FieldCardSecondaryStory from './FieldCardSecondaryStory.astro';
+import FieldCardBeforeYouLeave from './FieldCardBeforeYouLeave.astro';
 
 interface Props {
   thing: ThingToDo;
@@ -22,10 +23,11 @@ const hasFaq = thing.fieldCard.faq.length > 0;
   <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
   <FieldCardQuickRead {thing} {country} quickRead={view.quickRead} />
   <FieldCardStoryBlock {thing} story={view.primaryStory} image={view.storyImage} />
-  <FieldCardSecondaryStory {thing} story={view.secondaryStory} />
+  <FieldCardSecondaryStory {thing} story={view.secondaryStory} image={view.secondaryImage} />
+  {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}
+  <FieldCardBeforeYouLeave {thing} content={view.secondaryStory.beforeYouLeave} />
 
   <div class="field-card__body">
-    {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}
     {view.remainingSections.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
     {thing.fieldCard.practical && <section><h2>Practical information</h2><p>{thing.fieldCard.practical}</p></section>}
     {thing.fieldCard.access && <section><h2>How to get there</h2><p>{thing.fieldCard.access}</p></section>}

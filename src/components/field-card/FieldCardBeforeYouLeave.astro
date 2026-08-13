@@ -1,0 +1,145 @@
+---
+import type { FieldCardBeforeYouLeaveContent, ThingToDo } from '../../core/models/types';
+
+interface Props {
+  thing: ThingToDo;
+  content: FieldCardBeforeYouLeaveContent;
+}
+
+const { thing, content } = Astro.props;
+---
+
+<section class="field-card-before-you-leave" aria-label={`${thing.name} before you leave`}>
+  <section class="field-card-before-you-leave__story">
+    <p class="field-card-before-you-leave__label">FIELD NOTE · BEFORE YOU LEAVE</p>
+    <h2>{content.title}</h2>
+    <p class="field-card-before-you-leave__body">{content.body}</p>
+  </section>
+
+  <aside class="field-card-before-you-leave__note" aria-label={`${content.note.label}: ${content.note.text}`}>
+    <span class="field-card-before-you-leave__note-tape" aria-hidden="true"></span>
+    <span class="field-card-before-you-leave__note-label">{content.note.label}</span>
+    <p>{content.note.text}</p>
+  </aside>
+</section>
+
+<style>
+  .field-card-before-you-leave {
+    display: grid;
+    grid-template-columns: minmax(0, 1.34fr) minmax(280px, .66fr);
+    gap: clamp(44px, 7vw, 88px);
+    align-items: center;
+    width: min(1000px, calc(100% - 56px));
+    margin: 0 auto;
+    padding: clamp(52px, 6.5vw, 80px) clamp(30px, 4vw, 52px);
+    border-top: 1px solid rgb(49 85 69 / .18);
+    border-bottom: 1px solid rgb(49 85 69 / .18);
+    background: var(--field-card-sheet);
+    color: #203c31;
+  }
+
+  .field-card-before-you-leave__story {
+    max-width: 41rem;
+    min-width: 0;
+  }
+
+  .field-card-before-you-leave__label {
+    margin: 0 0 14px;
+    color: #b76645;
+    font-family: var(--field-card-practical);
+    font-size: .54rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
+  .field-card-before-you-leave__story h2 {
+    max-width: 15ch;
+    margin: 0 0 20px;
+    color: #203c31;
+    font-family: var(--field-card-title);
+    font-size: clamp(2.15rem, 3.8vw, 3.7rem);
+    font-weight: 600;
+    line-height: .98;
+    letter-spacing: -.035em;
+  }
+
+  .field-card-before-you-leave__body {
+    max-width: 40rem;
+    margin: 0;
+    color: #444c47;
+    font-family: var(--field-card-editorial);
+    font-size: .96rem;
+    font-weight: 400;
+    line-height: 1.78;
+  }
+
+  .field-card-before-you-leave__note {
+    position: relative;
+    z-index: 1;
+    justify-self: center;
+    width: min(240px, 90%);
+    padding: 16px 18px 15px;
+    background: #efe5c8;
+    box-shadow: 3px 4px 0 rgb(49 85 69 / .07);
+    color: #315545;
+    transform: rotate(-2.2deg);
+  }
+
+  .field-card-before-you-leave__note-tape {
+    position: absolute;
+    top: -7px;
+    left: 28px;
+    width: 50px;
+    height: 12px;
+    background: rgb(205 188 148 / .58);
+    transform: rotate(-4deg);
+  }
+
+  .field-card-before-you-leave__note-label {
+    color: #b76645;
+    font-family: var(--field-card-practical);
+    font-size: .45rem;
+    font-weight: 400;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+  }
+
+  .field-card-before-you-leave__note p {
+    margin: 6px 0 0;
+    font-family: var(--field-card-handwritten);
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.12;
+  }
+
+  @media (max-width: 820px) {
+    .field-card-before-you-leave {
+      grid-template-columns: 1fr;
+      gap: 38px;
+      width: min(100% - 32px, 680px);
+    }
+
+    .field-card-before-you-leave__note {
+      width: min(100%, 360px);
+      justify-self: center;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .field-card-before-you-leave {
+      width: calc(100% - 16px);
+      padding: 40px 20px 46px;
+    }
+
+    .field-card-before-you-leave__story h2 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .field-card-before-you-leave__body {
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+  }
+</style>

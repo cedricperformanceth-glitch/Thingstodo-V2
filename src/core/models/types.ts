@@ -17,7 +17,9 @@ export interface FieldCardQuickReadContent { time: FieldCardQuickReadItem; route
 export interface FieldCardSection { title: string; body: string; }
 export interface FieldCardStoryNote { label: string; text: string; }
 export interface FieldCardPrimaryStoryContent { chapters: FieldCardSection[]; note: FieldCardStoryNote; }
-export interface FieldCardSecondaryStoryContent { label: string; title: string; body: string; note: FieldCardStoryNote; }
+export interface FieldCardSecondaryStoryChapter { label: string; title: string; body: string; }
+export interface FieldCardBeforeYouLeaveContent { title: string; body: string; note: FieldCardStoryNote; }
+export interface FieldCardSecondaryStoryContent { chapters: FieldCardSecondaryStoryChapter[]; beforeYouLeave: FieldCardBeforeYouLeaveContent; }
 export interface FieldCardContent { template: 'compact' | 'deep'; hero?: FieldCardHeroContent; quickRead?: FieldCardQuickReadContent; primaryStory?: FieldCardPrimaryStoryContent; secondaryStory?: FieldCardSecondaryStoryContent; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
 // Exact SPA tag cardinality is enforced by the generation and publication contracts.
 // Generated JSON is inferred as string[], so the model keeps the serializable shape here.

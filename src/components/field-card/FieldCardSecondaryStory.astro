@@ -1,32 +1,55 @@
 ---
-import type { FieldCardSecondaryStoryContent, ThingToDo } from '../../core/models/types';
+import type { FieldCardSecondaryStoryContent, MediaRecord, ThingToDo } from '../../core/models/types';
 
 interface Props {
   thing: ThingToDo;
   story: FieldCardSecondaryStoryContent;
+  image?: MediaRecord;
 }
 
-const { thing, story } = Astro.props;
+const { thing, story, image } = Astro.props;
 ---
 
-<section class="field-card-secondary-story" aria-label={`${thing.name} chapter three`}>
-  <section class="field-card-secondary-story__chapter">
-    <p class="field-card-secondary-story__label"><span aria-hidden="true">03 ·</span> {story.label}</p>
-    <h2>{story.title}</h2>
-    <p class="field-card-secondary-story__body">{story.body}</p>
-  </section>
+<section class="field-card-secondary-story" aria-label={`${thing.name} chapters three and four`}>
+  <div class="field-card-secondary-story__visual">
+    <figure class:list={{ 'field-card-secondary-story__photo': true, 'is-missing': !image }}>
+      <span class="field-card-secondary-story__tape" aria-hidden="true"></span>
+      {image ? (
+        <img src={image.src} alt={image.alt} width="1100" height="900" loading="lazy" decoding="async" />
+      ) : (
+        <div class="field-card-secondary-story__placeholder" role="img" aria-label={`Photo to add for ${thing.name}`}>
+          <span>Photo to add</span>
+          <small>{thing.name}</small>
+        </div>
+      )}
+      {image && (image.author || image.sourceName || image.license) && (
+        <figcaption>
+          {image.sourceUrl ? (
+            <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a>
+          ) : (
+            <span>{image.author || image.sourceName || 'Photo source'}</span>
+          )}
+          {image.license && <> · {image.license}</>}
+        </figcaption>
+      )}
+    </figure>
+  </div>
 
-  <aside class="field-card-secondary-story__note" aria-label={`${story.note.label}: ${story.note.text}`}>
-    <span class="field-card-secondary-story__note-tape" aria-hidden="true"></span>
-    <span class="field-card-secondary-story__note-label">{story.note.label}</span>
-    <p>{story.note.text}</p>
-  </aside>
+  <div class="field-card-secondary-story__chapters">
+    {story.chapters.map((chapter, index) => (
+      <section class="field-card-secondary-story__chapter">
+        <p class="field-card-secondary-story__label"><span aria-hidden="true">{String(index + 3).padStart(2, '0')} ·</span> {chapter.label}</p>
+        <h2>{chapter.title}</h2>
+        <p class="field-card-secondary-story__body">{chapter.body}</p>
+      </section>
+    ))}
+  </div>
 </section>
 
 <style>
   .field-card-secondary-story {
     display: grid;
-    grid-template-columns: minmax(0, 1.34fr) minmax(280px, .66fr);
+    grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
     gap: clamp(44px, 7vw, 88px);
     align-items: center;
     width: min(1000px, calc(100% - 56px));
@@ -38,9 +61,98 @@ const { thing, story } = Astro.props;
     color: #203c31;
   }
 
+  .field-card-secondary-story__visual {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    min-width: 0;
+  }
+
+  .field-card-secondary-story__photo {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 8px 8px 26px;
+    background: #fffaf0;
+    box-shadow: 5px 7px 0 rgb(49 85 69 / .07), 0 13px 28px rgb(32 60 49 / .09);
+    transform: rotate(-1deg);
+  }
+
+  .field-card-secondary-story__photo img,
+  .field-card-secondary-story__placeholder {
+    display: block;
+    width: 100%;
+    height: clamp(330px, 34vw, 470px);
+  }
+
+  .field-card-secondary-story__photo img {
+    object-fit: cover;
+    filter: saturate(.88) contrast(.97);
+  }
+
+  .field-card-secondary-story__placeholder {
+    display: grid;
+    place-content: center;
+    gap: 6px;
+    border: 1px dashed rgb(49 85 69 / .2);
+    background: #eee8db;
+    color: rgb(49 85 69 / .55);
+    text-align: center;
+  }
+
+  .field-card-secondary-story__placeholder span {
+    font-family: var(--field-card-handwritten);
+    font-size: 1.35rem;
+    font-weight: 600;
+    transform: rotate(-2deg);
+  }
+
+  .field-card-secondary-story__placeholder small {
+    font-family: var(--field-card-practical);
+    font-size: .46rem;
+    font-weight: 400;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  .field-card-secondary-story__tape {
+    position: absolute;
+    z-index: 2;
+    top: -10px;
+    left: 50%;
+    width: 72px;
+    height: 18px;
+    background: rgb(197 178 138 / .52);
+    transform: translateX(-50%) rotate(4deg);
+  }
+
+  .field-card-secondary-story__photo figcaption {
+    min-height: 1em;
+    margin-top: 7px;
+    color: rgb(38 55 47 / .5);
+    font-family: var(--field-card-editorial);
+    font-size: .48rem;
+    font-weight: 400;
+    line-height: 1.35;
+  }
+
+  .field-card-secondary-story__photo figcaption a {
+    color: rgb(49 85 69 / .72);
+  }
+
+  .field-card-secondary-story__chapters {
+    display: grid;
+    gap: clamp(42px, 5vw, 62px);
+    min-width: 0;
+  }
+
   .field-card-secondary-story__chapter {
     max-width: 41rem;
     min-width: 0;
+  }
+
+  .field-card-secondary-story__chapter + .field-card-secondary-story__chapter {
+    max-width: 37rem;
   }
 
   .field-card-secondary-story__label {
@@ -75,45 +187,6 @@ const { thing, story } = Astro.props;
     line-height: 1.78;
   }
 
-  .field-card-secondary-story__note {
-    position: relative;
-    z-index: 1;
-    justify-self: center;
-    width: min(240px, 90%);
-    padding: 16px 18px 15px;
-    background: #efe5c8;
-    box-shadow: 3px 4px 0 rgb(49 85 69 / .07);
-    color: #315545;
-    transform: rotate(-2.2deg);
-  }
-
-  .field-card-secondary-story__note-tape {
-    position: absolute;
-    top: -7px;
-    left: 28px;
-    width: 50px;
-    height: 12px;
-    background: rgb(205 188 148 / .58);
-    transform: rotate(-4deg);
-  }
-
-  .field-card-secondary-story__note-label {
-    color: #b76645;
-    font-family: var(--field-card-practical);
-    font-size: .45rem;
-    font-weight: 400;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-  }
-
-  .field-card-secondary-story__note p {
-    margin: 6px 0 0;
-    font-family: var(--field-card-handwritten);
-    font-size: 1.12rem;
-    font-weight: 600;
-    line-height: 1.12;
-  }
-
   @media (max-width: 820px) {
     .field-card-secondary-story {
       grid-template-columns: 1fr;
@@ -121,9 +194,14 @@ const { thing, story } = Astro.props;
       width: min(100% - 32px, 680px);
     }
 
-    .field-card-secondary-story__note {
-      width: min(100%, 360px);
+    .field-card-secondary-story__visual {
+      width: min(100%, 560px);
       justify-self: center;
+    }
+
+    .field-card-secondary-story__photo img,
+    .field-card-secondary-story__placeholder {
+      height: clamp(280px, 70vw, 420px);
     }
   }
 
@@ -132,6 +210,10 @@ const { thing, story } = Astro.props;
       width: calc(100% - 16px);
       margin-top: 56px;
       padding: 40px 20px 46px;
+    }
+
+    .field-card-secondary-story__chapters {
+      gap: 36px;
     }
 
     .field-card-secondary-story__chapter h2 {

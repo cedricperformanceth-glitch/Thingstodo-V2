@@ -1,41 +1,57 @@
 {
-  "version": 1,
-  "principle": "The component owns the third Field Card chapter composition. Atlas editorial work chooses one activity-specific angle and one complementary post-it from verified information. This slot is not inherently about time or any other fixed topic.",
+  "version": 2,
+  "principle": "The Secondary Story owns the universal chapters-three-and-four sequence plus its following Before You Leave note block. Atlas editorial work chooses two distinct activity-specific chapter angles and one final editorial note from verified information. No slot is inherently about time, conditions or any other fixed topic.",
   "presentation": {
     "alwaysPresent": true,
-    "chapterIndex": "03",
-    "chapterCount": 1,
-    "layout": "one editorial chapter on the left and one fixed-position post-it on the right",
+    "chapterIndexes": ["03", "04"],
+    "chapterCount": 2,
+    "layout": "one Field Card photo on the left and two editorial chapters stacked on the right",
     "pageStyle": "new light Field Card sheet on the shared paper background",
-    "photo": false,
-    "postItPosition": "fixed by the universal component",
-    "postItContent": "variable"
+    "photo": true,
+    "photoSource": "thing.media.fieldCard.gallery[2]",
+    "missingPhoto": "Photo to add placeholder",
+    "postIt": false,
+    "beforeYouLeave": {
+      "alwaysPresent": true,
+      "fixedLabel": "FIELD NOTE · BEFORE YOU LEAVE",
+      "layout": "one editorial text on the left and one fixed-position post-it on the right",
+      "photo": false,
+      "postItPosition": "fixed by the universal component",
+      "postItContent": "variable"
+    }
   },
   "editorial": {
-    "label": {
+    "chapters": {
       "required": true,
-      "hardMaxWords": 4,
-      "selectionRule": "Name the angle concisely. TIME is valid only when timing genuinely deserves this chapter."
+      "exactCount": 2,
+      "selectionRule": "Choose the two strongest distinct next angles not already explained by the Primary Story chapters. They may cover timing, conditions, etiquette, equipment, seasonality, context or any other verified subject that materially improves the visit.",
+      "antiPattern": "Do not force chapter 03 to be TIME or chapter 04 to be CONDITIONS. Do not repeat the Primary Story angles merely to fill the layout.",
+      "item": {
+        "label": { "required": true, "hardMaxWords": 4 },
+        "title": { "required": true, "hardMaxWords": 12 },
+        "body": { "required": true, "hardMaxWords": 220, "shape": "one text string" }
+      }
     },
-    "title": {
+    "beforeYouLeave": {
       "required": true,
-      "hardMaxWords": 12
-    },
-    "body": {
-      "required": true,
-      "hardMaxWords": 220,
-      "shape": "one text string",
-      "selectionRule": "Choose the strongest next angle not already explained by the two Primary Story chapters. Use the verified material that most improves the visit, whether that is timing, conditions, etiquette, equipment, seasonality, context or something else.",
-      "antiPattern": "Do not force this slot to be TIME. Do not split it into multiple chapters or paragraph arrays."
-    },
-    "note": {
-      "required": true,
-      "labelMaxWords": 4,
-      "textMaxWords": 18,
-      "selectionRule": "Use one concise field note that complements rather than repeats the chapter."
+      "title": { "required": true, "hardMaxWords": 12 },
+      "body": {
+        "required": true,
+        "hardMaxWords": 220,
+        "shape": "one text string",
+        "selectionRule": "Use one final editorial angle that adds perspective or a last useful way to approach the activity without becoming a second chapter pair."
+      },
+      "note": {
+        "required": true,
+        "labelMaxWords": 4,
+        "textMaxWords": 18,
+        "selectionRule": "Use one concise practical field note that complements rather than summarizes the Before You Leave text."
+      }
     },
     "contentOnlyShape": {
-      "topLevelKeys": ["label", "title", "body", "note"],
+      "topLevelKeys": ["chapters", "beforeYouLeave"],
+      "chapterKeys": ["label", "title", "body"],
+      "beforeYouLeaveKeys": ["title", "body", "note"],
       "noteKeys": ["label", "text"],
       "presentationKeysForbidden": true
     }
@@ -44,12 +60,10 @@
     "key": "fieldCardSecondaryStory",
     "requires": "fieldCardPrimaryStory",
     "shape": {
-      "label": "one short editorial label",
-      "title": "one chapter title",
-      "body": "one text string",
-      "note": "one { label, text } object"
+      "chapters": "exactly two { label, title, body } objects",
+      "beforeYouLeave": "one { title, body, note: { label, text } } object"
     },
-    "subsequentSections": "When fieldCardSecondaryStory is supplied, candidate.sections contains only later Field Card chapters."
+    "subsequentSections": "When fieldCardSecondaryStory is supplied, candidate.sections contains only later Field Card chapters after chapter 04."
   },
   "typography": {
     "title": "Newsreader 600",

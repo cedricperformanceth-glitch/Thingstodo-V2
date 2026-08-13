@@ -18,7 +18,7 @@ const fallbackAliases = (thing: ThingToDo, city: City, country: Country) => {
 
 const fallbackSteps = (thing: ThingToDo) => {
   const primaryTitles = thing.fieldCard.primaryStory?.chapters?.map((chapter) => chapter.title).filter(Boolean) ?? [];
-  const secondaryTitles = thing.fieldCard.secondaryStory?.title ? [thing.fieldCard.secondaryStory.title] : [];
+  const secondaryTitles = thing.fieldCard.secondaryStory?.chapters?.map((chapter) => chapter.title).filter(Boolean) ?? [];
   const sectionTitles = thing.fieldCard.sections?.map((section) => section.title).filter(Boolean) ?? [];
   const titles = [...primaryTitles, ...secondaryTitles, ...sectionTitles];
   if (titles.length >= 4) return titles.slice(0, 4);
@@ -53,17 +53,30 @@ const fallbackPrimaryStory = (thing: ThingToDo, hero: FieldCardHeroContent): Fie
   };
 };
 
-const fallbackSecondaryStory = (thing: ThingToDo, legacySection?: FieldCardSection): FieldCardSecondaryStoryContent => {
+const fallbackSecondaryStory = (thing: ThingToDo, legacySections: FieldCardSection[]): FieldCardSecondaryStoryContent => {
   const fallbackBody = thing.fieldCard.practical || thing.fieldCard.notes || thing.longDescription || thing.shortDescription;
+  const first = legacySections[0] ?? {
+    title: 'One thing worth knowing',
+    body: fallbackBody,
+  };
+  const second = legacySections[1] ?? {
+    title: 'Read the conditions on the ground',
+    body: thing.fieldCard.notes || thing.fieldCard.access || fallbackBody,
+  };
   return {
-    label: 'FIELD NOTE',
-    title: legacySection?.title || 'One thing worth knowing',
-    body: legacySection?.body || fallbackBody,
-    note: {
-      label: 'KEEP CLOSE',
-      text: thing.spaCard?.bestTime
-        ? `Best time · ${thing.spaCard.bestTime}`
-        : thing.spaCard?.gettingThere || 'Reconfirm the practical details locally before you go.',
+    chapters: [
+      { label: 'FIELD NOTE', title: first.title, body: first.body },
+      { label: 'ON THE GROUND', title: second.title, body: second.body },
+    ],
+    beforeYouLeave: {
+      title: 'Keep this in mind',
+      body: thing.fieldCard.notes || thing.fieldCard.practical || thing.longDescription || thing.shortDescription,
+      note: {
+        label: 'KEEP CLOSE',
+        text: thing.spaCard?.bestTime
+          ? `Best time · ${thing.spaCard.bestTime}`
+          : thing.spaCard?.gettingThere || 'Reconfirm the practical details locally before you go.',
+      },
     },
   };
 };
@@ -104,11 +117,12 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const generatedSecondaryStory = thing.fieldCard.secondaryStory;
   const secondaryStory = editorialSecondaryStories[thing.id]
     ?? generatedSecondaryStory
-    ?? fallbackSecondaryStory(thing, sections[primaryLegacyOffset]);
-  const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 1);
+    ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
+  const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 2);
   const gallery = thing.media.fieldCard?.gallery ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
+  const secondaryImage = gallery[2];
 
   return {
     thing,
@@ -118,6 +132,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
     secondaryStory,
     heroImage,
     storyImage,
+    secondaryImage,
     remainingSections,
     relatedLabel: thing.isLandmark ? 'Landmark' : 'Experience',
     template: thing.fieldCard.template,

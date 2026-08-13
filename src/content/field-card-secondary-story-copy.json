@@ -1,11 +1,24 @@
 {
   "thing-xe-bang-fai-cave": {
-    "label": "TIME",
-    "title": "Day trip or overnight?",
-    "body": "The cave journey itself may take one to two hours, but the remote approach turns it into a full-day or multi-day plan. Keep margin for road conditions, the walk to the river and local coordination. Do not attach a fixed evening arrival elsewhere to the same day.",
-    "note": {
-      "label": "DAYLIGHT",
-      "text": "Leave enough daylight for the remote road back."
+    "chapters": [
+      {
+        "label": "TIME",
+        "title": "Day trip or overnight?",
+        "body": "The cave journey itself may take one to two hours, but the remote approach turns it into a full-day or multi-day plan. Keep margin for road conditions, the walk to the river and local coordination. Do not attach a fixed evening arrival elsewhere to the same day."
+      },
+      {
+        "label": "CONDITIONS",
+        "title": "Let the river and season decide",
+        "body": "Confirm river levels and boat access locally. Wear quick-dry clothing and shoes with grip, use the supplied life jacket and carry a strong headlamp. Do not enter the cave or surrounding forest route without a guide."
+      }
+    ],
+    "beforeYouLeave": {
+      "title": "Inside Hin Nam No, beyond the photograph",
+      "body": "Xe Bang Fai sits inside Hin Nam No, now part of a UNESCO World Heritage property, and it deserves to be treated as more than an extraordinary Instagram backdrop. The scale of the cave makes photographs incredible, but even the best pictures flatten what the place actually feels like. On a shared boat, remember that sharing the same journey does not automatically mean other passengers want to appear in your photos. Frame around people when you can, ask when you cannot, and respect the fact that someone else may simply want to experience the cave quietly. Take the pictures because they will become part of the trip, but put the camera down often enough to live the place itself. The photos are part of the journey. The cave is the journey.",
+      "note": {
+        "label": "DAYLIGHT",
+        "text": "Leave enough daylight for the remote road back."
+      }
     }
   }
 }

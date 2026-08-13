@@ -50,15 +50,16 @@ The executable Primary Story rules live in `pipeline/contracts/field-card-primar
 
 ## Field Card Secondary Story
 
-The Secondary Story is the universal chapter-three page after the Primary Story. It keeps the V1 one-story-plus-paper-note composition without inheriting V1's destination-specific TIME semantics.
+The Secondary Story is the universal chapter-three-and-four sequence after the Primary Story, followed by a separate universal Before You Leave block.
 
-- `src/components/field-card/FieldCardSecondaryStory.astro` owns a new light sheet, top/bottom dividers, the structural `03` marker, one editorial text position on the left and one fixed-position post-it on the right. It has no photo slot.
-- The sheet and post-it are universal presentation. `label`, `title`, `body`, `note.label` and `note.text` are activity-specific editorial content.
-- The body is exactly one text string. This block is not a container for two chapters, paragraph arrays, photos, lists or custom layouts.
-- The subject is deliberately undefined. TIME is appropriate when timing, duration or overnight planning is the strongest next angle; another activity may instead need conditions, etiquette, equipment, seasonality, context or another verified subject.
-- Atlas should choose an angle that adds to rather than repeats the two Primary Story chapters. The post-it should complement rather than summarize the main text.
-- Future generation can supply `fieldCardSecondaryStory: { label, title, body, note: { label, text } }`. It is valid only alongside `fieldCardPrimaryStory`, is validated before persistence into `ThingToDo.fieldCard.secondaryStory`, and leaves `candidate.sections` for later Field Card chapters.
-- `src/content/field-card-secondary-story-copy.json` is the reviewed editorial override layer. Legacy activities without explicit Secondary Story data receive a deterministic compatibility fallback from the next available Field Card section.
+- `src/components/field-card/FieldCardSecondaryStory.astro` owns one light sheet with the third Field Card photo on the left and exactly two editorial chapter positions on the right. Their structural indexes are `03` and `04`.
+- The two chapter subjects are deliberately undefined. TIME, CONDITIONS, etiquette, equipment, seasonality, context or another verified subject are editorial choices, never runtime semantics.
+- The chapter block has no post-it. Its photo is resolved only from `thing.media.fieldCard.gallery[2]`; missing qualified media renders `Photo to add` instead of recycling another image.
+- `src/components/field-card/FieldCardBeforeYouLeave.astro` follows as a separate light sheet with one editorial text and one fixed-position post-it. `FIELD NOTE · BEFORE YOU LEAVE` belongs to presentation; its title, body, post-it label and post-it text are activity-specific editorial data.
+- Atlas chooses the two strongest distinct next angles after the Primary Story, then one final Before You Leave angle that adds perspective rather than acting as a fifth numbered chapter. The post-it should stay concise and practical.
+- Future generation supplies the whole sequence through `fieldCardSecondaryStory: { chapters: [{ label, title, body }, { label, title, body }], beforeYouLeave: { title, body, note: { label, text } } }`. It remains valid only alongside `fieldCardPrimaryStory`, is validated before persistence into `ThingToDo.fieldCard.secondaryStory`, and leaves `candidate.sections` only for chapters after `04`.
+- `src/content/field-card-secondary-story-copy.json` is the reviewed editorial override layer. Legacy activities without explicit Secondary Story data receive a deterministic compatibility fallback from the next two available Field Card sections plus existing practical editorial data.
+- Advertising remains outside the editorial data contract. The first existing Field Card ad slot stays after the 03/04 sheet and before Before You Leave.
 
 The executable Secondary Story rules live in `pipeline/contracts/field-card-secondary-story.json` and are verified in CI.
 

@@ -1,36 +1,61 @@
 const wordCount = (value) => String(value ?? '').trim().split(/\s+/).filter(Boolean).length;
 const text = (value) => typeof value === 'string' && value.trim().length > 0;
+const object = (value) => value && typeof value === 'object' && !Array.isArray(value);
 const unknownKeys = (value, allowed) => Object.keys(value).filter((key) => !allowed.includes(key));
+
+const validateChapter = (chapter, index, errors) => {
+  if (!object(chapter)) {
+    errors.push(`Secondary story chapter ${index + 1} must be an object.`);
+    return;
+  }
+  for (const key of unknownKeys(chapter, ['label', 'title', 'body'])) {
+    errors.push(`Secondary story chapter ${index + 1} contains unsupported key ${key}.`);
+  }
+  if (!text(chapter.label)) errors.push(`Secondary story chapter ${index + 1} label is required.`);
+  else if (wordCount(chapter.label) > 4) errors.push(`Secondary story chapter ${index + 1} label exceeds 4 words.`);
+  if (!text(chapter.title)) errors.push(`Secondary story chapter ${index + 1} title is required.`);
+  else if (wordCount(chapter.title) > 12) errors.push(`Secondary story chapter ${index + 1} title exceeds 12 words.`);
+  if (!text(chapter.body)) errors.push(`Secondary story chapter ${index + 1} body is required and must be one text string.`);
+  else if (wordCount(chapter.body) > 220) errors.push(`Secondary story chapter ${index + 1} body exceeds 220 words.`);
+};
 
 export function validateFieldCardSecondaryStory(value) {
   const errors = [];
-  if (!value || typeof value !== 'object' || Array.isArray(value)) {
-    return { valid: false, errors: ['Secondary story must be an object.'] };
-  }
+  if (!object(value)) return { valid: false, errors: ['Secondary story must be an object.'] };
 
-  for (const key of unknownKeys(value, ['label', 'title', 'body', 'note'])) {
+  for (const key of unknownKeys(value, ['chapters', 'beforeYouLeave'])) {
     errors.push(`Secondary story contains unsupported key ${key}.`);
   }
 
-  if (!text(value.label)) errors.push('Secondary story label is required.');
-  else if (wordCount(value.label) > 4) errors.push('Secondary story label exceeds 4 words.');
-
-  if (!text(value.title)) errors.push('Secondary story title is required.');
-  else if (wordCount(value.title) > 12) errors.push('Secondary story title exceeds 12 words.');
-
-  if (!text(value.body)) errors.push('Secondary story body is required and must be one text string.');
-  else if (wordCount(value.body) > 220) errors.push('Secondary story body exceeds 220 words.');
-
-  if (!value.note || typeof value.note !== 'object' || Array.isArray(value.note)) {
-    errors.push('Secondary story note is required.');
+  if (!Array.isArray(value.chapters) || value.chapters.length !== 2) {
+    errors.push('Secondary story must contain exactly two chapters.');
   } else {
-    for (const key of unknownKeys(value.note, ['label', 'text'])) {
-      errors.push(`Secondary story note contains unsupported key ${key}.`);
+    value.chapters.forEach((chapter, index) => validateChapter(chapter, index, errors));
+  }
+
+  const before = value.beforeYouLeave;
+  if (!object(before)) {
+    errors.push('Secondary story beforeYouLeave is required.');
+  } else {
+    for (const key of unknownKeys(before, ['title', 'body', 'note'])) {
+      errors.push(`Secondary story beforeYouLeave contains unsupported key ${key}.`);
     }
-    if (!text(value.note.label)) errors.push('Secondary story note label is required.');
-    else if (wordCount(value.note.label) > 4) errors.push('Secondary story note label exceeds 4 words.');
-    if (!text(value.note.text)) errors.push('Secondary story note text is required.');
-    else if (wordCount(value.note.text) > 18) errors.push('Secondary story note text exceeds 18 words.');
+    if (!text(before.title)) errors.push('Secondary story beforeYouLeave title is required.');
+    else if (wordCount(before.title) > 12) errors.push('Secondary story beforeYouLeave title exceeds 12 words.');
+    if (!text(before.body)) errors.push('Secondary story beforeYouLeave body is required and must be one text string.');
+    else if (wordCount(before.body) > 220) errors.push('Secondary story beforeYouLeave body exceeds 220 words.');
+
+    if (!object(before.note)) {
+      errors.push('Secondary story beforeYouLeave note is required.');
+    } else {
+      for (const key of unknownKeys(before.note, ['label', 'text'])) {
+        errors.push(`Secondary story beforeYouLeave note contains unsupported key ${key}.`);
+      }
+      if (!text(before.note.label)) errors.push('Secondary story beforeYouLeave note label is required.');
+      else if (wordCount(before.note.label) > 4) errors.push('Secondary story beforeYouLeave note label exceeds 4 words.');
+      if (!text(before.note.text)) errors.push('Secondary story beforeYouLeave note text is required.');
+      else if (wordCount(before.note.text) > 18) errors.push('Secondary story beforeYouLeave note text exceeds 18 words.');
+    }
   }
 
   return { valid: errors.length === 0, errors };
