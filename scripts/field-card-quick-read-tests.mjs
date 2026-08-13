@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { validateFieldCardQuickRead } from './lib/field-card-quick-read.mjs';
 
 const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-quick-read-copy.json', import.meta.url), 'utf8'));
+const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-quick-read.json', import.meta.url), 'utf8'));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardQuickRead.astro', import.meta.url), 'utf8');
 const fieldCard = readFileSync(new URL('../src/components/field-card/FieldCard.astro', import.meta.url), 'utf8');
 const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
@@ -26,6 +27,8 @@ assert.equal(validateFieldCardQuickRead({
   bestFor: { primary: 'Remote adventure', secondary: 'guided travel' },
 }).valid, false, 'Quick Read editorial copy must not own universal labels');
 
+assert.equal(contract.universalStructure.sectionEyebrow, 'FIELD NOTES', 'Quick Read contract must match the current unnumbered Field Notes header');
+assert.doesNotMatch(JSON.stringify(contract), /04 \/ FIELD NOTES/, 'Quick Read contract must not retain the obsolete numbered eyebrow');
 assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal Quick Read component must not contain destination-specific branches or copy');
 assert.match(component, />FIELD NOTES</, 'Quick Read must retain the unnumbered Field Notes editorial label');
 assert.doesNotMatch(component, /01 \/ FIELD NOTES/, 'Field Notes header must not duplicate the item numbering system');
