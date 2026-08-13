@@ -1,0 +1,50 @@
+.field-card .field-card-hero h1,
+.field-card .field-card-story-block__story h2,
+.field-card .field-card__body h2 {
+  font-family: var(--field-card-title);
+  font-weight: 600;
+}
+
+.field-card .field-card-hero__description,
+.field-card .field-card-story-block__story > p,
+.field-card .field-card-story-block__photo figcaption,
+.field-card .field-card__body > section > p,
+.field-card .field-card__body details p {
+  font-family: var(--field-card-editorial);
+  font-weight: 400;
+}
+
+.field-card .field-card-hero__eyebrow,
+.field-card .field-card-hero__aliases,
+.field-card .field-card-hero__axis-label,
+.field-card .field-card-hero__node,
+.field-card .field-card-hero__step,
+.field-card .field-card-hero__stamp span,
+.field-card .field-card-hero__stamp small,
+.field-card .field-card-hero__photo-placeholder small,
+.field-card .field-card-quick-read__kicker,
+.field-card .field-card-quick-read__context,
+.field-card .field-card-quick-read__heading h2,
+.field-card .field-card-quick-read__label,
+.field-card .field-card-quick-read__primary,
+.field-card .field-card-quick-read__secondary,
+.field-card .field-card-story-block__placeholder small,
+.field-card .field-card-story-block__note span,
+.field-card .field-card__body summary {
+  font-family: var(--field-card-practical);
+  font-weight: 400;
+}
+
+.field-card .field-card-quick-read__index {
+  font-family: var(--field-card-editorial);
+  font-weight: 400;
+}
+
+.field-card .field-card-hero__rhythm-note,
+.field-card .field-card-hero__stamp strong,
+.field-card .field-card-hero__photo-placeholder span,
+.field-card .field-card-hero__photo-note,
+.field-card .field-card-story-block__placeholder span,
+.field-card .field-card-story-block__note p {
+  font-family: var(--field-card-handwritten);
+}

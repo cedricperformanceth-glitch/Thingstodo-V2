@@ -1,22 +1,21 @@
 ---
-import type { FieldCardSection, MediaRecord, ThingToDo } from '../../core/models/types';
+import type { FieldCardPrimaryStoryContent, MediaRecord, ThingToDo } from '../../core/models/types';
 
 interface Props {
   thing: ThingToDo;
-  sections: FieldCardSection[];
+  story: FieldCardPrimaryStoryContent;
   image?: MediaRecord;
-  note: string;
 }
 
-const { thing, sections, image, note } = Astro.props;
+const { thing, story, image } = Astro.props;
 ---
 
 <section class="field-card-story-block" aria-label={`${thing.name} field notes`}>
   <div class="field-card-story-block__stories">
-    {sections.slice(0, 2).map((section) => (
+    {story.chapters.map((chapter) => (
       <section class="field-card-story-block__story">
-        <h2>{section.title}</h2>
-        <p>{section.body}</p>
+        <h2>{chapter.title}</h2>
+        <p>{chapter.body}</p>
       </section>
     ))}
   </div>
@@ -44,12 +43,10 @@ const { thing, sections, image, note } = Astro.props;
       )}
     </figure>
 
-    {note && (
-      <aside class="field-card-story-block__route-note" aria-label="Route note">
-        <span>ROUTE NOTE</span>
-        <p>{note}</p>
-      </aside>
-    )}
+    <aside class="field-card-story-block__note" aria-label={`${story.note.label}: ${story.note.text}`}>
+      <span>{story.note.label}</span>
+      <p>{story.note.text}</p>
+    </aside>
   </div>
 </section>
 
@@ -181,7 +178,7 @@ const { thing, sections, image, note } = Astro.props;
     color: rgb(49 85 69 / .72);
   }
 
-  .field-card-story-block__route-note {
+  .field-card-story-block__note {
     position: relative;
     z-index: 3;
     justify-self: start;
@@ -194,7 +191,7 @@ const { thing, sections, image, note } = Astro.props;
     transform: rotate(-2.2deg);
   }
 
-  .field-card-story-block__route-note::before {
+  .field-card-story-block__note::before {
     position: absolute;
     top: -6px;
     left: 24px;
@@ -205,7 +202,7 @@ const { thing, sections, image, note } = Astro.props;
     transform: rotate(-4deg);
   }
 
-  .field-card-story-block__route-note span {
+  .field-card-story-block__note span {
     color: #b76645;
     font-family: 'DM Sans', var(--sans);
     font-size: .45rem;
@@ -213,7 +210,7 @@ const { thing, sections, image, note } = Astro.props;
     letter-spacing: .15em;
   }
 
-  .field-card-story-block__route-note p {
+  .field-card-story-block__note p {
     margin: 5px 0 0;
     font-family: var(--handwritten);
     font-size: 1.08rem;
@@ -258,7 +255,7 @@ const { thing, sections, image, note } = Astro.props;
       line-height: 1.7;
     }
 
-    .field-card-story-block__route-note {
+    .field-card-story-block__note {
       margin-left: -6px;
     }
   }

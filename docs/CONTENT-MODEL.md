@@ -34,6 +34,31 @@ The Quick Read is the universal magazine-index block directly below the Hero.
 
 The executable Quick Read rules live in `pipeline/contracts/field-card-quick-read.json` and are verified in CI.
 
+## Field Card Primary Story
+
+The Primary Story is the first universal editorial chapter block after Quick Read. Its composition is fixed; its subjects are not.
+
+- `src/components/field-card/FieldCardStoryBlock.astro` always owns the same light sheet, top/bottom dividers, two chapter positions on the left, one secondary photo position on the right and one fixed-position post-it.
+- Every Primary Story contains exactly two chapters. Their titles and bodies are activity-specific editorial decisions. Chapter one is not inherently an access chapter and chapter two is not inherently a price chapter.
+- Atlas chooses the two strongest distinct angles supported by verified information. A difficult journey may justify an access chapter; an easy or free visit should not be forced into route or price copy when another subject is more useful.
+- The post-it is always present, but both its label and text are variable. It may carry a route note, price, clothing advice, timing, etiquette, weather, equipment, safety or another concise field note that complements the chapters.
+- The block requests `thing.media.fieldCard.gallery[1]`. Missing qualified media renders `Photo to add`; the runtime does not recycle an unrelated image simply to fill the slot.
+- Future generation can supply `fieldCardPrimaryStory: { chapters: [{ title, body }, { title, body }], note: { label, text } }`. It is validated and persisted into `ThingToDo.fieldCard.primaryStory`. When this explicit block is supplied, `candidate.sections` is reserved for later Field Card chapters.
+- `src/content/field-card-primary-story-copy.json` is the reviewed editorial override layer. Legacy activities without explicit Primary Story data receive a deterministic compatibility fallback so the universal block remains present while editorial personalization is completed.
+
+The executable Primary Story rules live in `pipeline/contracts/field-card-primary-story.json` and are verified in CI.
+
+## Field Card typography
+
+Field Cards use semantic typography roles rather than component-specific font choices.
+
+- Titles: `Newsreader 600`.
+- Editorial narrative, selected introductions and photo captions: `Newsreader 400`.
+- Practical information, itinerary, route, price, metadata and labels: `Manrope 400`.
+- Field notes, handwritten annotations and post-it text: `Caveat` through the handwritten role.
+
+The roles are defined in `src/core/design-system/tokens.css` and applied by `src/styles/field-card-typography.css` so future Field Card blocks inherit the same hierarchy.
+
 Every media group is explicit, and every media record carries provenance. Never claim a social-media image is public domain.
 
 Manual locks have one canonical form on the record they protect: `manualLocks["nested.field"] = { value, source: "manual", locked: true }`. This applies equally to `City`, `Place`, and `ThingToDo`; parent locks protect all nested fields beneath them. Pipeline drafts do not have a separate root-level lock map.

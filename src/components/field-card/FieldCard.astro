@@ -1,4 +1,5 @@
 ---
+import '../../styles/field-card-typography.css';
 import type { City, Country, ThingToDo } from '../../core/models/types';
 import { fieldCardView } from '../../engines/field-card/field-card-engine';
 import AdSlot from '../shared/AdSlot.astro';
@@ -20,10 +21,7 @@ const hasFaq = thing.fieldCard.faq.length > 0;
 <article class={`field-card field-card--${view.template}`}>
   <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
   <FieldCardQuickRead {thing} {country} quickRead={view.quickRead} />
-
-  {view.storySections.length > 0 && (
-    <FieldCardStoryBlock {thing} sections={view.storySections} image={view.storyImage} note={view.storyNote} />
-  )}
+  <FieldCardStoryBlock {thing} story={view.primaryStory} image={view.storyImage} />
 
   <div class="field-card__body">
     {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}

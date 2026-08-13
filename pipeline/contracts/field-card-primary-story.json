@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "principle": "The component owns the composition. Atlas editorial work chooses the two strongest activity-specific chapter angles and one complementary field note from verified information. The slots are never predefined as route, price, timing, history or any other topic.",
+  "presentation": {
+    "alwaysPresent": true,
+    "chapterCount": 2,
+    "layout": "two chapters on the left, one secondary Field Card photo on the right, one fixed-position post-it note",
+    "borders": "top and bottom dividers only",
+    "photoSource": [
+      "thing.media.fieldCard.gallery[1]",
+      "Photo to add placeholder"
+    ],
+    "postItPosition": "fixed by the universal component",
+    "postItContent": "variable"
+  },
+  "editorial": {
+    "chapters": {
+      "count": 2,
+      "titleMaxWords": 12,
+      "bodyMaxWords": 220,
+      "selectionRule": "Choose two distinct angles that deserve explanation for this specific activity. Lead with what is most useful, distinctive or consequential in the verified material.",
+      "antiPattern": "Do not fill chapter one with route or chapter two with price by habit. If access is trivial, admission is free, or another subject matters more, choose different angles."
+    },
+    "note": {
+      "required": true,
+      "labelMaxWords": 4,
+      "textMaxWords": 18,
+      "selectionRule": "Use one concise field note that complements rather than repeats the chapters. It may cover route, price, clothing, timing, etiquette, weather, safety, equipment or another useful detail."
+    }
+  },
+  "generationInput": {
+    "key": "fieldCardPrimaryStory",
+    "shape": {
+      "chapters": "exactly two { title, body } objects",
+      "note": "one { label, text } object"
+    },
+    "subsequentSections": "When fieldCardPrimaryStory is supplied, candidate.sections contains only later Field Card chapters."
+  },
+  "typography": {
+    "titles": "Newsreader 600",
+    "editorialNarrativeAndCaptions": "Newsreader 400",
+    "practicalRoutePriceLabels": "Manrope 400",
+    "fieldNotesAndPostIts": "Caveat handwritten"
+  }
+}

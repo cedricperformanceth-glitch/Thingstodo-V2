@@ -11,6 +11,7 @@ import { evaluateCandidateAcceptance } from './lib/verification-engine.mjs';
 import { evaluateCityPublication } from './lib/city-publish-qa.mjs';
 import { assertValidFieldCardHero } from './lib/field-card-hero.mjs';
 import { assertValidFieldCardQuickRead } from './lib/field-card-quick-read.mjs';
+import { assertValidFieldCardPrimaryStory } from './lib/field-card-primary-story.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
@@ -242,6 +243,9 @@ function normalizeThing(candidate, baseDraft) {
   const quickRead = candidate.fieldCardQuickRead
     ? structuredClone(assertValidFieldCardQuickRead(candidate.fieldCardQuickRead, candidate.name))
     : undefined;
+  const primaryStory = candidate.fieldCardPrimaryStory
+    ? structuredClone(assertValidFieldCardPrimaryStory(candidate.fieldCardPrimaryStory, candidate.name))
+    : undefined;
   return {
     ...entity,
     googleMapsUrl: candidate.googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(candidate.name)}`,
@@ -253,6 +257,7 @@ function normalizeThing(candidate, baseDraft) {
       template,
       hero,
       quickRead,
+      primaryStory,
       whyGo: candidate.whyGo ?? '',
       practical: candidate.practical ?? '',
       access: candidate.access ?? '',
