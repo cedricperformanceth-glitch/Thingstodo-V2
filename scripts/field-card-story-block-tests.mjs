@@ -11,15 +11,29 @@ const quickRead = readFileSync(new URL('../src/components/field-card/FieldCardQu
 const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
 const generator = readFileSync(new URL('./generate-city.mjs', import.meta.url), 'utf8');
 const tokens = readFileSync(new URL('../src/core/design-system/tokens.css', import.meta.url), 'utf8');
+const types = readFileSync(new URL('../src/core/models/types.ts', import.meta.url), 'utf8');
 
 for (const [id, story] of Object.entries(editorial)) {
   const result = validateFieldCardPrimaryStory(story);
   assert.equal(result.valid, true, `${id}: ${result.errors.join('; ')}`);
 }
 
+const validStory = {
+  chapters: [
+    { title: 'First angle', body: 'First body' },
+    { title: 'Second angle', body: 'Second body' },
+  ],
+  note: { label: 'FIELD NOTE', text: 'Useful detail' },
+};
+
 assert.equal(validateFieldCardPrimaryStory({ chapters: [{ title: 'Only one', body: 'Body' }], note: { label: 'NOTE', text: 'Text' } }).valid, false, 'Primary story must require exactly two chapters');
+assert.equal(validateFieldCardPrimaryStory({ ...validStory, layout: 'custom' }).valid, false, 'Primary story data must not own layout');
+assert.equal(validateFieldCardPrimaryStory({ ...validStory, chapters: [{ title: 'First angle', body: 'First body', image: '/custom.jpg' }, validStory.chapters[1]] }).valid, false, 'Primary story chapters must not own presentation/media keys');
+assert.equal(validateFieldCardPrimaryStory({ ...validStory, note: { ...validStory.note, position: 'left' } }).valid, false, 'Primary story note must not own its position');
+
 assert.equal(contract.presentation.alwaysPresent, true, 'Primary story block must be universal');
 assert.equal(contract.editorial.chapters.count, 2, 'Primary story contract must always expose two chapter slots');
+assert.equal(contract.editorial.contentOnlyShape.presentationKeysForbidden, true, 'Primary story contract must keep presentation out of editorial data');
 assert.match(contract.editorial.chapters.antiPattern, /Do not fill chapter one with route or chapter two with price by habit/i, 'Contract must forbid fixed route/price semantics');
 assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal story component must not contain destination-specific branches or copy');
 assert.doesNotMatch(component, /ROUTE NOTE/, 'Post-it label must be editorial data, not component copy');
@@ -31,16 +45,23 @@ assert.match(component, /width: min\(1000px, calc\(100% - 56px\)\)/, 'Story bloc
 assert.match(component, /border-top:/, 'Story block must retain a top divider');
 assert.match(component, /border-bottom:/, 'Story block must retain a bottom divider');
 assert.doesNotMatch(component, /border-left:|border-right:/, 'Story block must not gain side borders');
-assert.match(component, /background: #fffdf8/, 'Story block must use the light sheet background');
-assert.match(fieldCard, /<FieldCardQuickRead[\s\S]*<FieldCardStoryBlock/, 'Primary story block must render directly after Quick Read');
-assert.match(fieldCard, /body:has\(\.field-card\)[\s\S]*background: #f4f0e7/, 'Field Card routes must keep the V1 paper page background');
-assert.match(hero, /linear-gradient\(rgb\(255 253 248 \/ \.96\)/, 'Field Card Hero must keep the light sheet background');
+assert.match(component, /background:\s*var\(--field-card-sheet\)/, 'Story block must consume the shared Field Card sheet token');
+assert.match(fieldCard, /body:has\(\.field-card\)[\s\S]*background:\s*var\(--field-card-page\)/, 'Field Card routes must consume the shared page token');
+assert.match(hero, /linear-gradient\(var\(--field-card-sheet-wash\), var\(--field-card-sheet-wash\)\)/, 'Field Card Hero must consume the shared translucent sheet token');
+assert.doesNotMatch([fieldCard, hero, component].join('\n'), /#f4f0e7|#fffdf8/, 'Field Card components must not duplicate shared page/sheet hex values');
+assert.equal((hero.match(/\.field-card-hero__axis\s*\{/g) ?? []).length, 2, 'Hero axis should have one base rule and one mobile override only');
+assert.doesNotMatch(hero, /\.field-card-hero__axis\s*\{\s*overflow:\s*hidden;/, 'Hero mobile axis must not retain the obsolete overflow override');
 assert.match(engine, /primaryStoryEditorial/, 'View engine must support editorial primary-story overrides');
 assert.match(engine, /thing\.fieldCard\.primaryStory/, 'View engine must support generated primary-story content');
 assert.match(engine, /storyImage = gallery\[1\]/, 'Story block must request a distinct secondary Field Card image');
+assert.doesNotMatch(engine, /fieldCard\.whyGo/, 'Field Card rendering fallbacks must not depend on the removed Why Go presentation concept');
 assert.match(generator, /candidate\.fieldCardPrimaryStory/, 'City generation must accept authored primary-story content');
 assert.match(generator, /assertValidFieldCardPrimaryStory/, 'Primary-story generation input must be validated');
+assert.match(types, /FieldCardPrimaryStoryContent\s*\{\s*chapters:\s*\[FieldCardSection,\s*FieldCardSection\]/, 'TypeScript must encode the exact two-chapter Primary Story shape');
 
+assert.match(tokens, /--field-card-page:#f4f0e7/, 'Field Card page color must be a shared design token');
+assert.match(tokens, /--field-card-sheet:#fffdf8/, 'Field Card sheet color must be a shared design token');
+assert.match(tokens, /--field-card-sheet-wash:rgb\(255 253 248 \/ \.96\)/, 'Field Card translucent sheet color must be a shared design token');
 assert.match(tokens, /--field-card-title:'Newsreader'/, 'Newsreader title role must be defined');
 assert.match(tokens, /--field-card-editorial:'Newsreader'/, 'Newsreader editorial role must be defined');
 assert.match(tokens, /--field-card-practical:'Manrope'/, 'Manrope practical role must be defined');
