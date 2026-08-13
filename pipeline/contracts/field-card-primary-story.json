@@ -26,6 +26,12 @@
       "labelMaxWords": 4,
       "textMaxWords": 18,
       "selectionRule": "Use one concise field note that complements rather than repeats the chapters. It may cover route, price, clothing, timing, etiquette, weather, safety, equipment or another useful detail."
+    },
+    "contentOnlyShape": {
+      "topLevelKeys": ["chapters", "note"],
+      "chapterKeys": ["title", "body"],
+      "noteKeys": ["label", "text"],
+      "presentationKeysForbidden": true
     }
   },
   "generationInput": {

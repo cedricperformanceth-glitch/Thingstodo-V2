@@ -3,7 +3,7 @@
   "scope": "field-card-quick-read-editorial-content",
   "principle": "The component owns the four-slot magazine composition. Atlas editorial work supplies only the activity-specific primary and secondary copy for each slot.",
   "universalStructure": {
-    "sectionEyebrow": "04 / FIELD NOTES",
+    "sectionEyebrow": "FIELD NOTES",
     "sectionTitle": "THE QUICK READ",
     "layout": "invisible-editorial-grid",
     "visibleCards": false,

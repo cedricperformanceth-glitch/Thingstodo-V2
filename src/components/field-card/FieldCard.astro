@@ -34,8 +34,6 @@ const hasFaq = thing.fieldCard.faq.length > 0;
 
 <style>
   .field-card {
-    --field-card-page: #f4f0e7;
-    --field-card-sheet: #fffdf8;
     display: grid;
     gap: 0;
   }
@@ -64,6 +62,6 @@ const hasFaq = thing.fieldCard.faq.length > 0;
 
 <style is:global>
   body:has(.field-card) {
-    background: #f4f0e7;
+    background: var(--field-card-page);
   }
 </style>

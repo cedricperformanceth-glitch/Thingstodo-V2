@@ -84,7 +84,7 @@ const { thing, city, country, hero, image } = Astro.props;
     border-top: 1px solid rgb(49 85 69 / .2);
     border-bottom: 1px solid rgb(49 85 69 / .2);
     background:
-      linear-gradient(rgb(255 253 248 / .96), rgb(255 253 248 / .96)),
+      linear-gradient(var(--field-card-sheet-wash), var(--field-card-sheet-wash)),
       repeating-linear-gradient(0deg, transparent 0 34px, rgb(49 85 69 / .035) 34px 35px);
     color: var(--ink);
   }
@@ -396,17 +396,14 @@ const { thing, city, country, hero, image } = Astro.props;
     }
 
     .field-card-hero__axis {
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 4px;
     }
 
     .field-card-hero__axis ol {
       min-width: 430px;
       overflow-x: visible;
-    }
-
-    .field-card-hero__axis {
-      overflow-x: auto;
-      padding-bottom: 4px;
     }
 
     .field-card-hero__rhythm-note {
