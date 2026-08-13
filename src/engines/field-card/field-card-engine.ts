@@ -56,12 +56,23 @@ const fallbackQuickRead = (thing: ThingToDo, city: City, country: Country): Fiel
 export const fieldCardView = (thing: ThingToDo, city: City, country: Country) => {
   const hero = editorialHeroes[thing.id] ?? thing.fieldCard.hero ?? fallbackHero(thing, city, country);
   const quickRead = editorialQuickReads[thing.id] ?? thing.fieldCard.quickRead ?? fallbackQuickRead(thing, city, country);
-  const heroImage = thing.media.fieldCard?.gallery?.[0] ?? thing.media.card?.image;
+  const gallery = thing.media.fieldCard?.gallery ?? [];
+  const heroImage = gallery[0] ?? thing.media.card?.image;
+  const storyImage = gallery[1];
+  const sections = thing.fieldCard.sections ?? [];
+  const storySections = sections.slice(0, 2);
+  const remainingSections = sections.slice(2);
+  const storyNote = hero.photoNote || thing.spaCard?.gettingThere || `${city.name} · ${country.name}`;
+
   return {
     thing,
     hero,
     quickRead,
     heroImage,
+    storyImage,
+    storySections,
+    storyNote,
+    remainingSections,
     relatedLabel: thing.isLandmark ? 'Landmark' : 'Experience',
     template: thing.fieldCard.template,
     adSlots: editorialAdSlots.slice(0, thing.fieldCard.template === 'deep' ? 4 : 2),

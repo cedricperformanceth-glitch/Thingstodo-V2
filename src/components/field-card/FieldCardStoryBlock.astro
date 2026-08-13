@@ -1,0 +1,265 @@
+---
+import type { FieldCardSection, MediaRecord, ThingToDo } from '../../core/models/types';
+
+interface Props {
+  thing: ThingToDo;
+  sections: FieldCardSection[];
+  image?: MediaRecord;
+  note: string;
+}
+
+const { thing, sections, image, note } = Astro.props;
+---
+
+<section class="field-card-story-block" aria-label={`${thing.name} field notes`}>
+  <div class="field-card-story-block__stories">
+    {sections.slice(0, 2).map((section) => (
+      <section class="field-card-story-block__story">
+        <h2>{section.title}</h2>
+        <p>{section.body}</p>
+      </section>
+    ))}
+  </div>
+
+  <div class="field-card-story-block__visual">
+    <figure class:list={{ 'field-card-story-block__photo': true, 'is-missing': !image }}>
+      <span class="field-card-story-block__tape" aria-hidden="true"></span>
+      {image ? (
+        <img src={image.src} alt={image.alt} width="1100" height="900" loading="lazy" decoding="async" />
+      ) : (
+        <div class="field-card-story-block__placeholder" role="img" aria-label={`Photo to add for ${thing.name}`}>
+          <span>Photo to add</span>
+          <small>{thing.name}</small>
+        </div>
+      )}
+      {image && (image.author || image.sourceName || image.license) && (
+        <figcaption>
+          {image.sourceUrl ? (
+            <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a>
+          ) : (
+            <span>{image.author || image.sourceName || 'Photo source'}</span>
+          )}
+          {image.license && <> · {image.license}</>}
+        </figcaption>
+      )}
+    </figure>
+
+    {note && (
+      <aside class="field-card-story-block__route-note" aria-label="Route note">
+        <span>ROUTE NOTE</span>
+        <p>{note}</p>
+      </aside>
+    )}
+  </div>
+</section>
+
+<style>
+  .field-card-story-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1.34fr) minmax(280px, .66fr);
+    gap: clamp(44px, 7vw, 88px);
+    align-items: center;
+    width: min(1000px, calc(100% - 56px));
+    margin: 0 auto;
+    padding: clamp(48px, 6vw, 72px) clamp(30px, 4vw, 52px);
+    border-top: 1px solid rgb(49 85 69 / .18);
+    border-bottom: 1px solid rgb(49 85 69 / .18);
+    background: #fffdf8;
+    color: #203c31;
+  }
+
+  .field-card-story-block__stories {
+    display: grid;
+    gap: clamp(42px, 5vw, 62px);
+    min-width: 0;
+  }
+
+  .field-card-story-block__story {
+    max-width: 41rem;
+  }
+
+  .field-card-story-block__story + .field-card-story-block__story {
+    max-width: 37rem;
+  }
+
+  .field-card-story-block__story h2 {
+    max-width: 15ch;
+    margin: 0 0 18px;
+    color: #203c31;
+    font-family: Fraunces, var(--serif);
+    font-size: clamp(2.15rem, 3.8vw, 3.7rem);
+    font-weight: 500;
+    line-height: .98;
+    letter-spacing: -.035em;
+  }
+
+  .field-card-story-block__story p {
+    margin: 0;
+    color: #444c47;
+    font-family: 'DM Sans', var(--sans);
+    font-size: .96rem;
+    line-height: 1.78;
+  }
+
+  .field-card-story-block__visual {
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    min-width: 0;
+  }
+
+  .field-card-story-block__photo {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 8px 8px 26px;
+    background: #fffaf0;
+    box-shadow: 5px 7px 0 rgb(49 85 69 / .07), 0 13px 28px rgb(32 60 49 / .09);
+    transform: rotate(1deg);
+  }
+
+  .field-card-story-block__photo img,
+  .field-card-story-block__placeholder {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 31vw, 420px);
+  }
+
+  .field-card-story-block__photo img {
+    object-fit: cover;
+    filter: saturate(.88) contrast(.97);
+  }
+
+  .field-card-story-block__placeholder {
+    display: grid;
+    place-content: center;
+    gap: 6px;
+    border: 1px dashed rgb(49 85 69 / .2);
+    background: #eee8db;
+    color: rgb(49 85 69 / .55);
+    text-align: center;
+  }
+
+  .field-card-story-block__placeholder span {
+    font-family: var(--handwritten);
+    font-size: 1.35rem;
+    font-weight: 600;
+    transform: rotate(-2deg);
+  }
+
+  .field-card-story-block__placeholder small {
+    font-family: 'DM Sans', var(--sans);
+    font-size: .46rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  .field-card-story-block__tape {
+    position: absolute;
+    z-index: 2;
+    top: -10px;
+    left: 50%;
+    width: 72px;
+    height: 18px;
+    background: rgb(197 178 138 / .52);
+    transform: translateX(-50%) rotate(-4deg);
+  }
+
+  .field-card-story-block__photo figcaption {
+    min-height: 1em;
+    margin-top: 7px;
+    color: rgb(38 55 47 / .5);
+    font-family: 'DM Sans', var(--sans);
+    font-size: .48rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .field-card-story-block__photo figcaption a {
+    color: rgb(49 85 69 / .72);
+  }
+
+  .field-card-story-block__route-note {
+    position: relative;
+    z-index: 3;
+    justify-self: start;
+    width: min(220px, 82%);
+    margin: -12px 0 0 -18px;
+    padding: 14px 16px 13px;
+    background: #efe5c8;
+    box-shadow: 3px 4px 0 rgb(49 85 69 / .07);
+    color: #315545;
+    transform: rotate(-2.2deg);
+  }
+
+  .field-card-story-block__route-note::before {
+    position: absolute;
+    top: -6px;
+    left: 24px;
+    width: 46px;
+    height: 11px;
+    background: rgb(205 188 148 / .58);
+    content: '';
+    transform: rotate(-4deg);
+  }
+
+  .field-card-story-block__route-note span {
+    color: #b76645;
+    font-family: 'DM Sans', var(--sans);
+    font-size: .45rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+  }
+
+  .field-card-story-block__route-note p {
+    margin: 5px 0 0;
+    font-family: var(--handwritten);
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.12;
+  }
+
+  @media (max-width: 820px) {
+    .field-card-story-block {
+      grid-template-columns: 1fr;
+      gap: 38px;
+      width: min(100% - 32px, 680px);
+    }
+
+    .field-card-story-block__visual {
+      width: min(100%, 560px);
+      justify-self: center;
+    }
+
+    .field-card-story-block__photo img,
+    .field-card-story-block__placeholder {
+      height: clamp(260px, 65vw, 380px);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .field-card-story-block {
+      width: calc(100% - 16px);
+      padding: 38px 20px 44px;
+    }
+
+    .field-card-story-block__stories {
+      gap: 36px;
+    }
+
+    .field-card-story-block__story h2 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .field-card-story-block__story p {
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+
+    .field-card-story-block__route-note {
+      margin-left: -6px;
+    }
+  }
+</style>
