@@ -12,6 +12,7 @@ import { evaluateCityPublication } from './lib/city-publish-qa.mjs';
 import { assertValidFieldCardHero } from './lib/field-card-hero.mjs';
 import { assertValidFieldCardQuickRead } from './lib/field-card-quick-read.mjs';
 import { assertValidFieldCardPrimaryStory } from './lib/field-card-primary-story.mjs';
+import { assertValidFieldCardSecondaryStory } from './lib/field-card-secondary-story.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
@@ -246,6 +247,12 @@ function normalizeThing(candidate, baseDraft) {
   const primaryStory = candidate.fieldCardPrimaryStory
     ? structuredClone(assertValidFieldCardPrimaryStory(candidate.fieldCardPrimaryStory, candidate.name))
     : undefined;
+  const secondaryStory = candidate.fieldCardSecondaryStory
+    ? structuredClone(assertValidFieldCardSecondaryStory(candidate.fieldCardSecondaryStory, candidate.name))
+    : undefined;
+  if (secondaryStory && !primaryStory) {
+    throw new Error(`${candidate.name} fieldCardSecondaryStory requires fieldCardPrimaryStory so chapter ownership remains unambiguous.`);
+  }
   return {
     ...entity,
     googleMapsUrl: candidate.googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(candidate.name)}`,
@@ -258,6 +265,7 @@ function normalizeThing(candidate, baseDraft) {
       hero,
       quickRead,
       primaryStory,
+      secondaryStory,
       whyGo: candidate.whyGo ?? '',
       practical: candidate.practical ?? '',
       access: candidate.access ?? '',
