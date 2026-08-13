@@ -1,5 +1,4 @@
 ---
-import '../../styles/field-card-typography.css';
 import type { City, Country, ThingToDo } from '../../core/models/types';
 import { fieldCardView } from '../../engines/field-card/field-card-engine';
 import AdSlot from '../shared/AdSlot.astro';
@@ -44,6 +43,22 @@ const hasFaq = thing.fieldCard.faq.length > 0;
   .field-card__body {
     display: grid;
     gap: 2rem;
+  }
+
+  .field-card__body h2 {
+    font-family: var(--field-card-title);
+    font-weight: 600;
+  }
+
+  .field-card__body > section > p,
+  .field-card__body details p {
+    font-family: var(--field-card-editorial);
+    font-weight: 400;
+  }
+
+  .field-card__body summary {
+    font-family: var(--field-card-practical);
+    font-weight: 400;
   }
 </style>
 
