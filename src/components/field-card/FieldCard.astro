@@ -5,6 +5,7 @@ import AdSlot from '../shared/AdSlot.astro';
 import FieldCardHero from './FieldCardHero.astro';
 import FieldCardQuickRead from './FieldCardQuickRead.astro';
 import FieldCardStoryBlock from './FieldCardStoryBlock.astro';
+import FieldCardSecondaryStory from './FieldCardSecondaryStory.astro';
 
 interface Props {
   thing: ThingToDo;
@@ -21,6 +22,7 @@ const hasFaq = thing.fieldCard.faq.length > 0;
   <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
   <FieldCardQuickRead {thing} {country} quickRead={view.quickRead} />
   <FieldCardStoryBlock {thing} story={view.primaryStory} image={view.storyImage} />
+  <FieldCardSecondaryStory {thing} story={view.secondaryStory} />
 
   <div class="field-card__body">
     {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}

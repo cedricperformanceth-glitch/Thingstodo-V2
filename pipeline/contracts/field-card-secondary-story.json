@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "principle": "The component owns the third Field Card chapter composition. Atlas editorial work chooses one activity-specific angle and one complementary post-it from verified information. This slot is not inherently about time or any other fixed topic.",
+  "presentation": {
+    "alwaysPresent": true,
+    "chapterIndex": "03",
+    "chapterCount": 1,
+    "layout": "one editorial chapter on the left and one fixed-position post-it on the right",
+    "pageStyle": "new light Field Card sheet on the shared paper background",
+    "photo": false,
+    "postItPosition": "fixed by the universal component",
+    "postItContent": "variable"
+  },
+  "editorial": {
+    "label": {
+      "required": true,
+      "hardMaxWords": 4,
+      "selectionRule": "Name the angle concisely. TIME is valid only when timing genuinely deserves this chapter."
+    },
+    "title": {
+      "required": true,
+      "hardMaxWords": 12
+    },
+    "body": {
+      "required": true,
+      "hardMaxWords": 220,
+      "shape": "one text string",
+      "selectionRule": "Choose the strongest next angle not already explained by the two Primary Story chapters. Use the verified material that most improves the visit, whether that is timing, conditions, etiquette, equipment, seasonality, context or something else.",
+      "antiPattern": "Do not force this slot to be TIME. Do not split it into multiple chapters or paragraph arrays."
+    },
+    "note": {
+      "required": true,
+      "labelMaxWords": 4,
+      "textMaxWords": 18,
+      "selectionRule": "Use one concise field note that complements rather than repeats the chapter."
+    },
+    "contentOnlyShape": {
+      "topLevelKeys": ["label", "title", "body", "note"],
+      "noteKeys": ["label", "text"],
+      "presentationKeysForbidden": true
+    }
+  },
+  "generationInput": {
+    "key": "fieldCardSecondaryStory",
+    "requires": "fieldCardPrimaryStory",
+    "shape": {
+      "label": "one short editorial label",
+      "title": "one chapter title",
+      "body": "one text string",
+      "note": "one { label, text } object"
+    },
+    "subsequentSections": "When fieldCardSecondaryStory is supplied, candidate.sections contains only later Field Card chapters."
+  },
+  "typography": {
+    "title": "Newsreader 600",
+    "editorialNarrative": "Newsreader 400",
+    "chapterLabel": "Manrope 400",
+    "postItLabel": "Manrope 400",
+    "postItText": "Caveat handwritten"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "thing-xe-bang-fai-cave": {
+    "label": "TIME",
+    "title": "Day trip or overnight?",
+    "body": "The cave journey itself may take one to two hours, but the remote approach turns it into a full-day or multi-day plan. Keep margin for road conditions, the walk to the river and local coordination. Do not attach a fixed evening arrival elsewhere to the same day.",
+    "note": {
+      "label": "DAYLIGHT",
+      "text": "Leave enough daylight for the remote road back."
+    }
+  }
+}

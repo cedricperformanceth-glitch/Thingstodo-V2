@@ -48,6 +48,20 @@ The Primary Story is the first universal editorial chapter block after Quick Rea
 
 The executable Primary Story rules live in `pipeline/contracts/field-card-primary-story.json` and are verified in CI.
 
+## Field Card Secondary Story
+
+The Secondary Story is the universal chapter-three page after the Primary Story. It keeps the V1 one-story-plus-paper-note composition without inheriting V1's destination-specific TIME semantics.
+
+- `src/components/field-card/FieldCardSecondaryStory.astro` owns a new light sheet, top/bottom dividers, the structural `03` marker, one editorial text position on the left and one fixed-position post-it on the right. It has no photo slot.
+- The sheet and post-it are universal presentation. `label`, `title`, `body`, `note.label` and `note.text` are activity-specific editorial content.
+- The body is exactly one text string. This block is not a container for two chapters, paragraph arrays, photos, lists or custom layouts.
+- The subject is deliberately undefined. TIME is appropriate when timing, duration or overnight planning is the strongest next angle; another activity may instead need conditions, etiquette, equipment, seasonality, context or another verified subject.
+- Atlas should choose an angle that adds to rather than repeats the two Primary Story chapters. The post-it should complement rather than summarize the main text.
+- Future generation can supply `fieldCardSecondaryStory: { label, title, body, note: { label, text } }`. It is valid only alongside `fieldCardPrimaryStory`, is validated before persistence into `ThingToDo.fieldCard.secondaryStory`, and leaves `candidate.sections` for later Field Card chapters.
+- `src/content/field-card-secondary-story-copy.json` is the reviewed editorial override layer. Legacy activities without explicit Secondary Story data receive a deterministic compatibility fallback from the next available Field Card section.
+
+The executable Secondary Story rules live in `pipeline/contracts/field-card-secondary-story.json` and are verified in CI.
+
 ## Field Card typography
 
 Field Cards use semantic typography roles rather than component-specific font choices.
