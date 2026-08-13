@@ -1,12 +1,14 @@
-import type { City, Country, FieldCardHeroContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, ThingToDo } from '../../core/models/types';
+import type { City, Country, FieldCardHeroContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, ThingToDo } from '../../core/models/types';
 import { editorialAdSlots } from '../../core/ads/slots';
 import heroEditorial from '../../content/field-card-hero-copy.json';
 import primaryStoryEditorial from '../../content/field-card-primary-story-copy.json';
 import quickReadEditorial from '../../content/field-card-quick-read-copy.json';
+import secondaryStoryEditorial from '../../content/field-card-secondary-story-copy.json';
 
 const editorialHeroes = heroEditorial as Record<string, FieldCardHeroContent>;
 const editorialPrimaryStories = primaryStoryEditorial as Record<string, FieldCardPrimaryStoryContent>;
 const editorialQuickReads = quickReadEditorial as Record<string, FieldCardQuickReadContent>;
+const editorialSecondaryStories = secondaryStoryEditorial as Record<string, FieldCardSecondaryStoryContent>;
 
 const fallbackAliases = (thing: ThingToDo, city: City, country: Country) => {
   const tags = thing.spaCard?.handwrittenTags?.filter(Boolean) ?? [];
@@ -16,8 +18,9 @@ const fallbackAliases = (thing: ThingToDo, city: City, country: Country) => {
 
 const fallbackSteps = (thing: ThingToDo) => {
   const primaryTitles = thing.fieldCard.primaryStory?.chapters?.map((chapter) => chapter.title).filter(Boolean) ?? [];
+  const secondaryTitles = thing.fieldCard.secondaryStory?.title ? [thing.fieldCard.secondaryStory.title] : [];
   const sectionTitles = thing.fieldCard.sections?.map((section) => section.title).filter(Boolean) ?? [];
-  const titles = [...primaryTitles, ...sectionTitles];
+  const titles = [...primaryTitles, ...secondaryTitles, ...sectionTitles];
   if (titles.length >= 4) return titles.slice(0, 4);
   return ['Getting there', 'Time on site', 'Cost', 'Best time'];
 };
@@ -46,6 +49,21 @@ const fallbackPrimaryStory = (thing: ThingToDo, hero: FieldCardHeroContent): Fie
     note: {
       label: 'FIELD NOTE',
       text: hero.photoNote || thing.spaCard?.gettingThere || thing.shortDescription,
+    },
+  };
+};
+
+const fallbackSecondaryStory = (thing: ThingToDo, legacySection?: FieldCardSection): FieldCardSecondaryStoryContent => {
+  const fallbackBody = thing.fieldCard.practical || thing.fieldCard.notes || thing.longDescription || thing.shortDescription;
+  return {
+    label: 'FIELD NOTE',
+    title: legacySection?.title || 'One thing worth knowing',
+    body: legacySection?.body || fallbackBody,
+    note: {
+      label: 'KEEP CLOSE',
+      text: thing.spaCard?.bestTime
+        ? `Best time · ${thing.spaCard.bestTime}`
+        : thing.spaCard?.gettingThere || 'Reconfirm the practical details locally before you go.',
     },
   };
 };
@@ -81,17 +99,23 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const quickRead = editorialQuickReads[thing.id] ?? thing.fieldCard.quickRead ?? fallbackQuickRead(thing, city, country);
   const generatedPrimaryStory = thing.fieldCard.primaryStory;
   const primaryStory = editorialPrimaryStories[thing.id] ?? generatedPrimaryStory ?? fallbackPrimaryStory(thing, hero);
+  const sections = thing.fieldCard.sections ?? [];
+  const primaryLegacyOffset = generatedPrimaryStory ? 0 : 2;
+  const generatedSecondaryStory = thing.fieldCard.secondaryStory;
+  const secondaryStory = editorialSecondaryStories[thing.id]
+    ?? generatedSecondaryStory
+    ?? fallbackSecondaryStory(thing, sections[primaryLegacyOffset]);
+  const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 1);
   const gallery = thing.media.fieldCard?.gallery ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
-  const sections = thing.fieldCard.sections ?? [];
-  const remainingSections = generatedPrimaryStory ? sections : sections.slice(2);
 
   return {
     thing,
     hero,
     quickRead,
     primaryStory,
+    secondaryStory,
     heroImage,
     storyImage,
     remainingSections,
