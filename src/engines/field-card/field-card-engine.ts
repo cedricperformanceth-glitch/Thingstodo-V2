@@ -27,7 +27,7 @@ const fallbackHero = (thing: ThingToDo, city: City, country: Country): FieldCard
   aliases: fallbackAliases(thing, city, country),
   description: thing.longDescription || thing.shortDescription,
   steps: fallbackSteps(thing),
-  rhythmNote: thing.fieldCard.notes || thing.fieldCard.whyGo || thing.shortDescription,
+  rhythmNote: thing.fieldCard.notes || thing.shortDescription,
   photoNote: thing.spaCard?.gettingThere || `${city.name} · ${country.name}`,
 });
 
