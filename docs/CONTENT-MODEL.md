@@ -57,7 +57,7 @@ Field Cards use semantic typography roles rather than component-specific font ch
 - Practical information, itinerary, route, price, metadata and labels: `Manrope 400`.
 - Field notes, handwritten annotations and post-it text: `Caveat` through the handwritten role.
 
-The roles are defined in `src/core/design-system/tokens.css` and applied by `src/styles/field-card-typography.css` so future Field Card blocks inherit the same hierarchy.
+The font roles are defined once in `src/core/design-system/tokens.css`. Each Field Card component consumes those roles directly in its own scoped CSS; there is no global typography override stylesheet layered on top of component styles.
 
 Every media group is explicit, and every media record carries provenance. Never claim a social-media image is public domain.
 

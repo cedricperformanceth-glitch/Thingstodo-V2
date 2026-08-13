@@ -7,9 +7,9 @@ const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-ca
 const component = readFileSync(new URL('../src/components/field-card/FieldCardStoryBlock.astro', import.meta.url), 'utf8');
 const fieldCard = readFileSync(new URL('../src/components/field-card/FieldCard.astro', import.meta.url), 'utf8');
 const hero = readFileSync(new URL('../src/components/field-card/FieldCardHero.astro', import.meta.url), 'utf8');
+const quickRead = readFileSync(new URL('../src/components/field-card/FieldCardQuickRead.astro', import.meta.url), 'utf8');
 const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
 const generator = readFileSync(new URL('./generate-city.mjs', import.meta.url), 'utf8');
-const typography = readFileSync(new URL('../src/styles/field-card-typography.css', import.meta.url), 'utf8');
 const tokens = readFileSync(new URL('../src/core/design-system/tokens.css', import.meta.url), 'utf8');
 
 for (const [id, story] of Object.entries(editorial)) {
@@ -40,11 +40,21 @@ assert.match(engine, /thing\.fieldCard\.primaryStory/, 'View engine must support
 assert.match(engine, /storyImage = gallery\[1\]/, 'Story block must request a distinct secondary Field Card image');
 assert.match(generator, /candidate\.fieldCardPrimaryStory/, 'City generation must accept authored primary-story content');
 assert.match(generator, /assertValidFieldCardPrimaryStory/, 'Primary-story generation input must be validated');
-assert.match(tokens, /Newsreader/, 'Field Card title/editorial font must be loaded');
-assert.match(tokens, /Manrope/, 'Field Card practical font must be loaded');
-assert.match(typography, /field-card-title[\s\S]*font-weight:\s*600/, 'Titles must use the Newsreader 600 role');
-assert.match(typography, /field-card-editorial[\s\S]*font-weight:\s*400/, 'Narrative and captions must use the Newsreader 400 role');
-assert.match(typography, /field-card-practical[\s\S]*font-weight:\s*400/, 'Practical text and labels must use the Manrope 400 role');
-assert.match(typography, /field-card-story-block__note p[\s\S]*field-card-handwritten/, 'Post-it text must use the handwritten field-note role');
+
+assert.match(tokens, /--field-card-title:'Newsreader'/, 'Newsreader title role must be defined');
+assert.match(tokens, /--field-card-editorial:'Newsreader'/, 'Newsreader editorial role must be defined');
+assert.match(tokens, /--field-card-practical:'Manrope'/, 'Manrope practical role must be defined');
+assert.match(tokens, /--field-card-handwritten:'Caveat'/, 'Caveat handwritten role must be defined');
+assert.doesNotMatch(fieldCard, /field-card-typography\.css/, 'Field Card typography must not rely on an override stylesheet');
+assert.doesNotMatch([hero, quickRead, component].join('\n'), /font-family:\s*(?:Fraunces|'DM Sans')/, 'Field Card components must not retain legacy Fraunces or DM Sans declarations');
+assert.match(hero, /\.field-card-hero h1\s*\{[\s\S]*?font-family:\s*var\(--field-card-title\);[\s\S]*?font-weight:\s*600;/, 'Hero title must directly use Newsreader 600 role');
+assert.match(hero, /\.field-card-hero__description\s*\{[\s\S]*?font-family:\s*var\(--field-card-editorial\);[\s\S]*?font-weight:\s*400;/, 'Hero introduction must directly use Newsreader 400 role');
+assert.match(quickRead, /\.field-card-quick-read__primary\s*\{[\s\S]*?font-family:\s*var\(--field-card-practical\);[\s\S]*?font-weight:\s*400;/, 'Quick Read practical values must directly use Manrope 400 role');
+assert.match(component, /\.field-card-story-block__story h2\s*\{[\s\S]*?font-family:\s*var\(--field-card-title\);[\s\S]*?font-weight:\s*600;/, 'Story titles must directly use Newsreader 600 role');
+assert.match(component, /\.field-card-story-block__story p\s*\{[\s\S]*?font-family:\s*var\(--field-card-editorial\);[\s\S]*?font-weight:\s*400;/, 'Story narrative must directly use Newsreader 400 role');
+assert.match(component, /\.field-card-story-block__photo figcaption\s*\{[\s\S]*?font-family:\s*var\(--field-card-editorial\);[\s\S]*?font-weight:\s*400;/, 'Photo captions must directly use Newsreader 400 role');
+assert.match(component, /\.field-card-story-block__note span\s*\{[\s\S]*?font-family:\s*var\(--field-card-practical\);[\s\S]*?font-weight:\s*400;/, 'Post-it labels must directly use Manrope 400 role');
+assert.match(component, /\.field-card-story-block__note p\s*\{[\s\S]*?font-family:\s*var\(--field-card-handwritten\);/, 'Post-it text must directly use the handwritten role');
+assert.match(fieldCard, /\.field-card__body h2\s*\{[\s\S]*?font-family:\s*var\(--field-card-title\);[\s\S]*?font-weight:\s*600;/, 'Later Field Card headings must use Newsreader 600 directly');
 
 console.log(`Field Card primary story contract passed: ${Object.keys(editorial).length} authored override(s) validated.`);
