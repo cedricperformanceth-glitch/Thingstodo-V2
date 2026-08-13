@@ -43,6 +43,6 @@ assert.match(engine, /quickReadEditorial/, 'Manual editorial Quick Read override
 assert.match(engine, /fallbackQuickRead/, 'Activities without authored Quick Read copy must retain a deterministic fallback');
 assert.match(generator, /candidate\.fieldCardQuickRead/, 'City generation must accept authored Field Card Quick Read copy');
 assert.match(generator, /assertValidFieldCardQuickRead/, 'Authored Quick Read copy must be validated before generation');
-assert.match(generator, /quickRead,\s*\n\s*whyGo:/, 'Validated Quick Read copy must be persisted into fieldCard.quickRead');
+assert.match(generator, /fieldCard:\s*\{[\s\S]*?quickRead,/, 'Validated Quick Read copy must be persisted into fieldCard.quickRead');
 
 console.log(`Field Card Quick Read tests passed: ${Object.keys(editorial).length} authored Quick Read override(s) validated.`);
