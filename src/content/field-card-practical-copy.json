@@ -1,36 +1,22 @@
 {
   "thing-xe-bang-fai-cave": {
     "items": [
-      {
-        "label": "Route from Thakhek",
-        "value": "Remote approach via Route 12 and Boualapha",
-        "detail": "Leave Thakhek eastbound on Route 12, then continue through the Boualapha area and local village roads toward the cave approach. Road conditions can change with weather and season, so keep the route offline, leave enough daylight and reconfirm the latest access locally before departure."
-      },
-      {
-        "label": "Best season",
-        "value": "Dry season is the safer window",
-        "detail": "Access is usually easier when roads are drier and river levels are lower. Hin Nam No advises against entering the river cave from June to October, when stronger flows can make the visit unsafe."
-      },
-      {
-        "label": "What to wear",
-        "value": "Wet-ready clothes · shoes with grip",
-        "detail": "Expect wet rock and changing ground conditions around a remote river-cave visit. Quick-dry clothing and grippy footwear make sense here, with a light extra layer for the cooler end of the day."
-      },
-      {
-        "label": "Entrance & boat",
-        "value": "Entrance fee + local boat",
-        "detail": "Recent traveller reports have placed entry around 50,000 kip, motorbike parking around 10,000 kip and a small local boat around 150,000 kip. Use those numbers as a planning reference only and reconfirm them on arrival."
-      },
-      {
-        "label": "Time needed",
-        "value": "Full day minimum · overnight works better",
-        "detail": "The cave boat trip itself is roughly ninety minutes, but the remote journey from Thakhek turns the visit into a full-day expedition. Staying around Ban Nong Ping removes the pressure of forcing the return journey into the same day."
-      },
-      {
-        "label": "Road & cave difficulty",
-        "value": "Conditions matter more than fitness",
-        "detail": "The cave is visited with a local guide, but the overall trip still involves a long remote approach, river travel and slippery ground. When the road or river conditions look wrong, this is not an outing to force."
-      }
+      {"label": "Route from Thakhek", "value": "Remote approach via Route 12 and Boualapha", "detail": "Leave Thakhek eastbound on Route 12, then continue through the Boualapha area and local village roads toward the cave approach. Road conditions can change with weather and season, so keep the route offline, leave enough daylight and reconfirm the latest access locally before departure."},
+      {"label": "Best season", "value": "Dry season is the safer window", "detail": "Access is usually easier when roads are drier and river levels are lower. Hin Nam No advises against entering the river cave from June to October, when stronger flows can make the visit unsafe."},
+      {"label": "What to wear", "value": "Wet-ready clothes · shoes with grip", "detail": "Expect wet rock and changing ground conditions around a remote river-cave visit. Quick-dry clothing and grippy footwear make sense here, with a light extra layer for the cooler end of the day."},
+      {"label": "Entrance & boat", "value": "Entrance fee + local boat", "detail": "Recent traveller reports have placed entry around 50,000 kip, motorbike parking around 10,000 kip and a small local boat around 150,000 kip. Use those numbers as a planning reference only and reconfirm them on arrival."},
+      {"label": "Time needed", "value": "Full day minimum · overnight works better", "detail": "The cave boat trip itself is roughly ninety minutes, but the remote journey from Thakhek turns the visit into a full-day expedition. Staying around Ban Nong Ping removes the pressure of forcing the return journey into the same day."},
+      {"label": "Road & cave difficulty", "value": "Conditions matter more than fitness", "detail": "The cave is visited with a local guide, but the overall trip still involves a long remote approach, river travel and slippery ground. When the road or river conditions look wrong, this is not an outing to force."}
+    ]
+  },
+  "thing-old-french-railway-bridge": {
+    "items": [
+      {"label": "Where", "value": "Between Don Det and Don Khon", "detail": "The historic railway bridge links the southern end of Don Det with Ban Khon on Don Khon. It is an easy continuation of an island walk or bicycle ride."},
+      {"label": "Best way to visit", "value": "Walk or bicycle", "detail": "The bridge itself needs little time, but a bicycle makes it easy to continue along the old railway route and combine the crossing with the main sights of Don Khon."},
+      {"label": "Time needed", "value": "20–40 min for the bridge · half day with Don Khon", "detail": "Allow time to stop on both sides and look at the structure rather than simply crossing. Add several hours if you continue toward the locomotive, old railway alignment and Li Phi / Somphamit Falls."},
+      {"label": "Cost", "value": "Bridge crossing recently reported free", "detail": "A February 2024 Wikivoyage update reported the bridge itself as free to cross. Older and other guide references mention access charges connected with Don Khon or waterfall visits, so check locally if a ticket system is operating when you arrive."},
+      {"label": "History", "value": "Part of a roughly 7 km colonial portage railway", "detail": "The railway opened in 1893 on Don Khon and was later extended to Don Det. It moved vessels, freight and passengers around the Mekong rapids and falls that prevented continuous river navigation."},
+      {"label": "Good light", "value": "Early morning or late afternoon", "detail": "The crossing is exposed and the tropical midday heat can be strong. Softer light also works better for the arches, river reflections and views between the islands."}
     ]
   }
 }
