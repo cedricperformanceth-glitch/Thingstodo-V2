@@ -17,5 +17,12 @@
     {"sourceName":"Lonely Planet · Tat Somphamit","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/tat-somphamit/1407998","purpose":"route-and-swimming-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Tourism Lao · Si Phan Don / Xai Kong Nyai Beach","sourceUrl":"https://tourismlao.com/siphandon/","purpose":"facts","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikimedia Commons · Main beach of Don Khon","sourceUrl":"https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+  ],
+  "thing-si-phan-don-by-boat": [
+    {"sourceName":"DonDet.net · Tours and boat trips","sourceUrl":"https://www.dondet.net/tours.html","purpose":"current-local-boat-logistics","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikivoyage · Si Phan Don","sourceUrl":"https://en.wikivoyage.org/wiki/Si_Phan_Don","purpose":"boat-tour-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Rough Guides · Si Phan Don","sourceUrl":"https://www.roughguides.com/laos/far-south/si-phan-don/","purpose":"regional-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Si Phan Don","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Si_Phan_Don","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Pirogue near Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Pirogue_and_tiny_wooded_island_reflecting_in_the_water.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
   ]
 }
