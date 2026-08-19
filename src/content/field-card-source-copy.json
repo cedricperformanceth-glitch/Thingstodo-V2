@@ -11,5 +11,11 @@
     {"sourceName":"Lonely Planet · Khon Pa Soi Falls","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/khon-pa-soi-falls/1430698","purpose":"facts","reviewedAt":"2026-08-20"},
     {"sourceName":"Novo-Monde · Si Phan Don / Khon Pa Soy","sourceUrl":"https://www.novo-monde.com/en/4000-islands-laos-si-phan-don/","purpose":"facts","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikimedia Commons · Khone Pa Soi Falls","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Khone_Pa_Soi_Falls","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+  ],
+  "thing-xai-kong-nyai-beach": [
+    {"sourceName":"Lonely Planet · Xai Kong Nyai Beach","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/xai-kong-nyai-beach/1548151","purpose":"facts","reviewedAt":"2026-08-20"},
+    {"sourceName":"Lonely Planet · Tat Somphamit","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/tat-somphamit/1407998","purpose":"route-and-swimming-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Tourism Lao · Si Phan Don / Xai Kong Nyai Beach","sourceUrl":"https://tourismlao.com/siphandon/","purpose":"facts","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Main beach of Don Khon","sourceUrl":"https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
   ]
 }
