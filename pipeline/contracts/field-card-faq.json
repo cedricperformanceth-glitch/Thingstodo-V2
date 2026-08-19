@@ -1,0 +1,30 @@
+{
+  "name": "field-card-faq",
+  "version": 1,
+  "presentation": {
+    "itemCount": 5,
+    "surface": "page-background",
+    "cards": false,
+    "position": "immediately-before-practical-notebook"
+  },
+  "editorial": {
+    "exactCount": 5,
+    "contentOnlyShape": {
+      "topLevelType": "array",
+      "itemKeys": ["question", "answer"]
+    },
+    "question": {
+      "hardMaxWords": 18
+    },
+    "answer": {
+      "hardMaxWords": 80
+    },
+    "selectionRule": "Choose exactly five real visitor questions that remain useful after reading the page. When editorial AI is available, questions must be specific to the activity and should not merely repeat practical-note labels.",
+    "answerRule": "Answer from facts already supported by the page content or its research. Do not introduce unsupported claims just to fill the FAQ."
+  },
+  "generation": {
+    "genericFallback": "If no complete authored FAQ exists yet, render exactly five fallback questions using information already present in the generated page fields.",
+    "aiReplacement": "Editorial AI replaces the generic fallback with exactly five activity-specific questions and answers.",
+    "noForcedTopics": "Do not force price, booking, difficulty, transport or any other topic when it is not a useful residual question for the activity."
+  }
+}
