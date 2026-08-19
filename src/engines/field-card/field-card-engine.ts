@@ -1,18 +1,20 @@
 import type { City, Country, FieldCardHeroContent, FieldCardPracticalContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, ThingToDo } from '../../core/models/types';
 import { editorialAdSlots } from '../../core/ads/slots';
+import faqEditorial from '../../content/field-card-faq-copy.json';
 import heroEditorial from '../../content/field-card-hero-copy.json';
 import practicalEditorial from '../../content/field-card-practical-copy.json';
 import primaryStoryEditorial from '../../content/field-card-primary-story-copy.json';
 import quickReadEditorial from '../../content/field-card-quick-read-copy.json';
 import secondaryStoryEditorial from '../../content/field-card-secondary-story-copy.json';
 
+type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
+
+const editorialFaq = faqEditorial as Record<string, FieldCardFaqItem[]>;
 const editorialHeroes = heroEditorial as Record<string, FieldCardHeroContent>;
 const editorialPracticalNotes = practicalEditorial as Record<string, FieldCardPracticalContent>;
 const editorialPrimaryStories = primaryStoryEditorial as Record<string, FieldCardPrimaryStoryContent>;
 const editorialQuickReads = quickReadEditorial as Record<string, FieldCardQuickReadContent>;
 const editorialSecondaryStories = secondaryStoryEditorial as Record<string, FieldCardSecondaryStoryContent>;
-
-type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 
 const fallbackAliases = (thing: ThingToDo, city: City, country: Country) => {
   const tags = thing.spaCard?.handwrittenTags?.filter(Boolean) ?? [];
@@ -146,10 +148,15 @@ const fallbackFaq = (thing: ThingToDo): FieldCardFaqItem[] => [
   },
 ];
 
-const resolveFaq = (thing: ThingToDo): FieldCardFaqItem[] => {
-  const authored = thing.fieldCard.faq.filter((item) => item.question.trim() && item.answer.trim());
-  return authored.length === 5 ? authored.slice(0, 5) : fallbackFaq(thing);
+const completeFaq = (items?: FieldCardFaqItem[]) => {
+  const valid = items?.filter((item) => item.question.trim() && item.answer.trim()) ?? [];
+  return valid.length === 5 ? valid.slice(0, 5) : undefined;
 };
+
+const resolveFaq = (thing: ThingToDo): FieldCardFaqItem[] =>
+  completeFaq(editorialFaq[thing.id])
+  ?? completeFaq(thing.fieldCard.faq)
+  ?? fallbackFaq(thing);
 
 const routeParts = (thing: ThingToDo) => String(thing.spaCard?.gettingThere ?? '').split('·').map((part) => part.trim()).filter(Boolean);
 
