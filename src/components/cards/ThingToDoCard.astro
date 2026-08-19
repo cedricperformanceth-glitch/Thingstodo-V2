@@ -1,19 +1,24 @@
 ---
-import type { City, MediaRecord, ThingToDo } from '../../core/models/types';
+import type { City, MediaRecord, ThingToDo, ThingToDoSpaCardContent } from '../../core/models/types';
 import editorialMediaData from '../../content/field-card-media-copy.json';
+import editorialSpaData from '../../content/spa-thing-card-copy.json';
 import { thingPath } from '../../core/routing/paths';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import CardActions from './CardActions.astro';
 import './entry-card.css';
 interface Props { city: City; thing: ThingToDo; showDestination?: boolean; }
+type EditorialSpaCard = ThingToDoSpaCardContent & { description?: string };
 const { city, thing, showDestination = false } = Astro.props;
 const editorialMedia = editorialMediaData as Record<string, MediaRecord[]>;
+const editorialSpa = editorialSpaData as Record<string, EditorialSpaCard>;
+const spaCard = editorialSpa[thing.id] ?? thing.spaCard;
+const description = editorialSpa[thing.id]?.description ?? thing.shortDescription;
 const image = editorialMedia[thing.id]?.[0] ?? thing.media.card?.image;
 const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
   ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
   : '';
 const titleize = (value: string) => value.split('-').map((part) => part ? `${part.charAt(0).toUpperCase()}${part.slice(1)}` : '').join(' ');
-const costLabel = thing.spaCard?.costType === 'free' ? 'Free' : thing.spaCard?.costType === 'paid' ? 'Paid' : '';
+const costLabel = spaCard?.costType === 'free' ? 'Free' : spaCard?.costType === 'paid' ? 'Paid' : '';
 ---
 <article class="card atlas-entry-card">
   <div class:list={['card-media', { empty: !image }]}>
@@ -22,9 +27,9 @@ const costLabel = thing.spaCard?.costType === 'free' ? 'Free' : thing.spaCard?.c
     ) : (
       <span class="card-photo-placeholder" aria-label="Photo missing; manual photo needed">Photo to add</span>
     )}
-    {thing.spaCard?.handwrittenTags && (
+    {spaCard?.handwrittenTags && (
       <div class="card-handwritten" aria-label="Quick notes">
-        {thing.spaCard.handwrittenTags.map((tag) => <span>{tag}</span>)}
+        {spaCard.handwrittenTags.map((tag) => <span>{tag}</span>)}
       </div>
     )}
     {photoCredit && image?.sourceUrl && (
@@ -36,17 +41,17 @@ const costLabel = thing.spaCard?.costType === 'free' ? 'Free' : thing.spaCard?.c
   <div class="card-preview">
     <h3>{thing.name}</h3>
     {showDestination && <p class="destination">{titleize(thing.city)}, {titleize(thing.country)}</p>}
-    <p class="card-description">{thing.shortDescription}</p>
-    {thing.spaCard && (
+    <p class="card-description">{description}</p>
+    {spaCard && (
       <dl class="card-activity-meta">
-        <div><dt>Getting there</dt><dd>{thing.spaCard.gettingThere}</dd></div>
-        <div><dt>Duration</dt><dd>{thing.spaCard.duration}</dd></div>
+        <div><dt>Getting there</dt><dd>{spaCard.gettingThere}</dd></div>
+        <div><dt>Duration</dt><dd>{spaCard.duration}</dd></div>
         <div><dt>Cost</dt><dd>{costLabel}</dd></div>
-        <div><dt>Best time</dt><dd>{thing.spaCard.bestTime}</dd></div>
+        <div><dt>Best time</dt><dd>{spaCard.bestTime}</dd></div>
       </dl>
     )}
-    {thing.spaCard?.openingHours && (
-      <p class="card-practical-line"><span>Hours</span>{thing.spaCard.openingHours}</p>
+    {spaCard?.openingHours && (
+      <p class="card-practical-line"><span>Hours</span>{spaCard.openingHours}</p>
     )}
   </div>
 
