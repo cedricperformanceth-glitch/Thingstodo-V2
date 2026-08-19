@@ -22,5 +22,13 @@
     "duration": "Half day",
     "costType": "paid",
     "bestTime": "Morning or later afternoon"
+  },
+  "thing-don-som-island": {
+    "description": "Take a local boat north from Don Det to a much quieter Mekong island of villages, rice fields and fishing, with far less tourism infrastructure than Don Det.",
+    "handwrittenTags": ["Village life", "Rice fields", "Quiet island"],
+    "gettingThere": "Direct local boat from Don Det; arrange the return",
+    "duration": "Half day",
+    "costType": "paid",
+    "bestTime": "Early morning or late afternoon"
   }
 }
