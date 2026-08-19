@@ -1,0 +1,40 @@
+{
+  "thing-xe-bang-fai-cave": [
+    {
+      "id": "xe-bang-fai-lower-entrance",
+      "src": "https://whc.unesco.org/uploads/thumbs/site_0951_0031-1000-667-20250617115722.jpg",
+      "alt": "Lower entrance of Xe Bang Fai Cave in Hin Nam No National Park",
+      "sourceType": "manual",
+      "sourceUrl": "https://whc.unesco.org/en/documents/219851",
+      "sourceName": "UNESCO World Heritage Centre",
+      "author": "GIZ ProFEB / Lucas Wahl",
+      "license": "Attribution · NoDerivatives",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "xe-bang-fai-river-passage",
+      "src": "https://whc.unesco.org/document/219859",
+      "alt": "Underground Xe Bang Fai river passage inside the cave",
+      "sourceType": "manual",
+      "sourceUrl": "https://whc.unesco.org/en/documents/219859",
+      "sourceName": "UNESCO World Heritage Centre",
+      "author": "GIZ ProFEB",
+      "license": "Attribution · NoDerivatives",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "xe-bang-fai-river-context",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/XeBanFai.jpg?width=1600",
+      "alt": "Xe Bang Fai River downstream from Ban Chalou in Khammouane",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:XeBanFai.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Italian walrus-63",
+      "license": "CC BY-SA 3.0",
+      "manual": true,
+      "locked": true
+    }
+  ]
+}
