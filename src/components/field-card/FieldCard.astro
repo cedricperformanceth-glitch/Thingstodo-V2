@@ -23,7 +23,7 @@ interface Props {
 const { thing, city, country } = Astro.props;
 const view = fieldCardView(thing, city, country);
 const relatedActivities = fieldCardRelatedActivities(city, thing);
-const renderedPhotos = [view.heroImage, view.storyImage, view.secondaryImage].filter(Boolean);
+const renderedPhotos = [view.heroImage, view.storyImage, view.secondaryImage].flatMap((image) => image ? [image] : []);
 const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.image] : []);
 ---
 
