@@ -19,7 +19,10 @@ const rightItems = items.slice(leftCount);
     <header class="field-card-practical__heading">
       <div class="field-card-practical__heading-page field-card-practical__heading-page--left">
         <p class="field-card-practical__eyebrow">PLAN YOUR VISIT</p>
-        <h2 id={headingId}>{thing.name}, at a glance</h2>
+        <h2 id={headingId}>
+          <span class="field-card-practical__title-main">{thing.name},</span>
+          <span class="field-card-practical__title-sub">at a glance</span>
+        </h2>
         <span class="field-card-practical__divider field-card-practical__divider--blue" aria-hidden="true"></span>
       </div>
 
@@ -67,8 +70,8 @@ const rightItems = items.slice(leftCount);
     --laos-red-premium: #9d3040;
     position: relative;
     isolation: isolate;
-    width: clamp(1000px, 82vw, 1600px);
-    max-width: calc(100% - 48px);
+    width: clamp(1120px, 88vw, 1760px);
+    max-width: calc(100% - 24px);
     margin: clamp(72px, 8vw, 108px) auto 0;
     padding: clamp(48px, 5.4vw, 76px) clamp(36px, 4.5vw, 72px) clamp(52px, 5.6vw, 80px);
     overflow: hidden;
@@ -147,6 +150,15 @@ const rightItems = items.slice(leftCount);
     font-weight: 600;
     line-height: .99;
     letter-spacing: -.034em;
+  }
+
+  .field-card-practical__title-main,
+  .field-card-practical__title-sub {
+    display: block;
+  }
+
+  .field-card-practical__title-sub {
+    margin-top: .03em;
   }
 
   .field-card-practical__intro {
