@@ -9,6 +9,7 @@ import FieldCardSecondaryStory from './FieldCardSecondaryStory.astro';
 import FieldCardBeforeYouLeave from './FieldCardBeforeYouLeave.astro';
 import FieldCardFaq from './FieldCardFaq.astro';
 import FieldCardPracticalNotes from './FieldCardPracticalNotes.astro';
+import FieldCardAtlasCta from './FieldCardAtlasCta.astro';
 
 interface Props {
   thing: ThingToDo;
@@ -32,6 +33,7 @@ const view = fieldCardView(thing, city, country);
     {view.remainingSections.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
     <FieldCardFaq {thing} items={view.faq} />
     <FieldCardPracticalNotes {thing} content={view.practicalNotes} />
+    <FieldCardAtlasCta {thing} />
   </div>
 </article>
 
