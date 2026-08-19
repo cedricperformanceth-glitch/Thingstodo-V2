@@ -1,7 +1,7 @@
 {
   "thing-don-som-island": [
-    {"sourceName":"Don Som Riverside Guesthouse · 4000 Islands / Don Som","sourceUrl":"https://www.donsomlaos.com/4000-islands","purpose":"facts","sourceType":"first-party-official","reviewedAt":"2026-08-19"},
-    {"sourceName":"Don Som Riverside Guesthouse · About / local island context","sourceUrl":"https://www.donsomlaos.com/","purpose":"first-party","sourceType":"first-party-official","reviewedAt":"2026-08-19"},
+    {"sourceName":"Don Som Riverside Guesthouse · 4000 Islands / Don Som","sourceUrl":"https://www.donsomlaos.com/4000-islands","purpose":"facts","reviewedAt":"2026-08-19"},
+    {"sourceName":"Don Som Riverside Guesthouse · About / local island context","sourceUrl":"https://www.donsomlaos.com/","purpose":"first-party","reviewedAt":"2026-08-19"},
     {"sourceName":"Travelfish · Don Det ferry services","sourceUrl":"https://www.travelfish.org/transport/laos/southern_laos/champasak/don_dhet/all","purpose":"facts","reviewedAt":"2026-08-19"},
     {"sourceName":"DonDet.net · Tours and boat trips","sourceUrl":"https://www.dondet.net/tours.html","purpose":"facts","reviewedAt":"2026-08-19"},
     {"sourceName":"Wikimedia Commons · Don Som category","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Don_Som","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-19"}
