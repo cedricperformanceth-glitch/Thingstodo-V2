@@ -28,5 +28,15 @@
       {"label": "Best time", "value": "Morning or late afternoon", "detail": "The cooler hours are more comfortable for the bicycle ride and give better light across the rock and white water. The look of the falls changes substantially with Mekong water levels."},
       {"label": "Safety", "value": "View the rapids · do not challenge them", "detail": "The currents are powerful and the rocks can be slippery. Stay on established paths and viewpoints around the main falls and respect local barriers or instructions."}
     ]
+  },
+  "thing-khone-phapheng-falls": {
+    "items": [
+      {"label": "Where", "value": "Mainland east of Don Khon · near the Cambodian border", "detail": "Khone Phapheng is not on Don Det or Don Khon. Official Lao tourism information places it about 13 km from the Cambodian border and roughly 6 km south of Don Det as the crow flies, on the mainland side of the Mekong system."},
+      {"label": "From Don Det", "value": "Boat to Ban Nakasang + road transfer", "detail": "For an island-based visit, return by boat to Ban Nakasang and continue by tuk-tuk, minivan or arranged road transport to the waterfall visitor area. Agree the return plan and total transport price before leaving."},
+      {"label": "Time needed", "value": "1–2 hours at the falls", "detail": "The visitor area itself does not need a full day, but the boat and road transfers from Don Det add time. Leave enough margin that you are not rushing the return boat or onward transport."},
+      {"label": "Entrance", "value": "Confirm the current ticket on arrival", "detail": "Online price references are inconsistent and can become outdated quickly. Wikivoyage currently lists 30,000 kip for Khone Phapheng, but use that only as a rough reference and check the posted local rate."},
+      {"label": "Scale", "value": "Up to 21 m high · rapids across about 9.7 km", "detail": "Official Lao tourism information describes an average discharge close to 11,000 cubic metres per second. The attraction is the breadth and power of the cataract system rather than one tall vertical drop."},
+      {"label": "Safety", "value": "Stay with the developed viewpoints", "detail": "The Mekong here is exceptionally powerful. Keep to established visitor paths and platforms, respect barriers and do not scramble toward exposed rock or fast water for a closer photograph."}
+    ]
   }
 }
