@@ -7,6 +7,7 @@ import FieldCardQuickRead from './FieldCardQuickRead.astro';
 import FieldCardStoryBlock from './FieldCardStoryBlock.astro';
 import FieldCardSecondaryStory from './FieldCardSecondaryStory.astro';
 import FieldCardBeforeYouLeave from './FieldCardBeforeYouLeave.astro';
+import FieldCardFaq from './FieldCardFaq.astro';
 import FieldCardPracticalNotes from './FieldCardPracticalNotes.astro';
 
 interface Props {
@@ -17,7 +18,6 @@ interface Props {
 
 const { thing, city, country } = Astro.props;
 const view = fieldCardView(thing, city, country);
-const hasFaq = thing.fieldCard.faq.length > 0;
 ---
 
 <article class={`field-card field-card--${view.template}`}>
@@ -30,8 +30,8 @@ const hasFaq = thing.fieldCard.faq.length > 0;
 
   <div class="field-card__body">
     {view.remainingSections.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
+    <FieldCardFaq {thing} items={view.faq} />
     <FieldCardPracticalNotes {thing} content={view.practicalNotes} />
-    {hasFaq && <section><h2>FAQ</h2>{thing.fieldCard.faq.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section>}
   </div>
 </article>
 
@@ -51,14 +51,8 @@ const hasFaq = thing.fieldCard.faq.length > 0;
     font-weight: 600;
   }
 
-  .field-card__body > section > p,
-  .field-card__body details p {
+  .field-card__body > section > p {
     font-family: var(--field-card-editorial);
-    font-weight: 400;
-  }
-
-  .field-card__body summary {
-    font-family: var(--field-card-practical);
     font-weight: 400;
   }
 </style>
