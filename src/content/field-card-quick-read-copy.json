@@ -1,20 +1,14 @@
 {
   "thing-xe-bang-fai-cave": {
-    "time": {
-      "primary": "FULL DAY",
-      "secondary": "minimum · often multi-day"
-    },
-    "route": {
-      "primary": "ROUTE 12",
-      "secondary": "East of Thakhek"
-    },
-    "budget": {
-      "primary": "≈50K KIP",
-      "secondary": "entry · boat extra"
-    },
-    "bestFor": {
-      "primary": "REMOTE ADVENTURE",
-      "secondary": "guided cave travel"
-    }
+    "time": {"primary": "FULL DAY", "secondary": "minimum · often multi-day"},
+    "route": {"primary": "ROUTE 12", "secondary": "East of Thakhek"},
+    "budget": {"primary": "≈50K KIP", "secondary": "entry · boat extra"},
+    "bestFor": {"primary": "REMOTE ADVENTURE", "secondary": "guided cave travel"}
+  },
+  "thing-old-french-railway-bridge": {
+    "time": {"primary": "20–40 MIN", "secondary": "longer if you follow the old railway"},
+    "route": {"primary": "DON DET → DON KHON", "secondary": "easy on foot or bicycle"},
+    "budget": {"primary": "FREE CROSSING", "secondary": "reported free in recent traveller updates"},
+    "bestFor": {"primary": "HISTORY + ISLAND RIDE", "secondary": "pair with Don Khon and Li Phi"}
   }
 }
