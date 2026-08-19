@@ -24,5 +24,11 @@
     {"sourceName":"Rough Guides · Si Phan Don","sourceUrl":"https://www.roughguides.com/laos/far-south/si-phan-don/","purpose":"regional-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikimedia Commons · Si Phan Don","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Si_Phan_Don","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikimedia Commons · Pirogue near Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Pirogue_and_tiny_wooded_island_reflecting_in_the_water.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+  ],
+  "thing-4000-islands-kayaking": [
+    {"sourceName":"DonDet.net · Cycling and kayaking","sourceUrl":"https://www.dondet.net/cycling.html","purpose":"current-local-tour-format-price-and-safety","reviewedAt":"2026-08-20"},
+    {"sourceName":"Don Det Laos · Activities / kayaking","sourceUrl":"https://don-det-laos.com/activities","purpose":"tour-format-equipment-and-safety","reviewedAt":"2026-08-20"},
+    {"sourceName":"Southeast Asia Backpacker · Kayaking the 4000 Islands","sourceUrl":"https://southeastasiabackpacker.com/bookings/kayak-4000-islands-laos/","purpose":"current-price-and-schedule-cross-check","reviewedAt":"2026-08-20"},
+    {"sourceName":"Miss Travel The World · Kayaking the 4000 Islands","sourceUrl":"https://misstraveltheworld.com/4000-islands-by-kayak/","purpose":"recent-experience-cross-check","reviewedAt":"2026-08-20"}
   ]
 }
