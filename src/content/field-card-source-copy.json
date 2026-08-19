@@ -46,5 +46,12 @@
     {"sourceName":"Sawa Discovery · Don Det 2026","sourceUrl":"https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao","purpose":"2026-price-route-cross-check","reviewedAt":"2026-08-20"},
     {"sourceName":"Pexels · Group of People Having Fun tubing","sourceUrl":"https://www.pexels.com/photo/group-of-people-having-fun-1305095/","purpose":"hero-media-activity-illustration","reviewedAt":"2026-08-20"},
     {"sourceName":"Pexels · Aerial shot of people relaxing in tubes on a serene river","sourceUrl":"https://www.pexels.com/photo/aerial-view-of-a-lake-27033648/","purpose":"story-media-activity-illustration","reviewedAt":"2026-08-20"}
+  ],
+  "thing-don-det-sunset": [
+    {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-west-side-and-sunset-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Sawa Discovery · Don Det 2026","sourceUrl":"https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao","purpose":"current-sunset-side-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Gecko Routes · Don Det","sourceUrl":"https://www.geckoroutes.com/fr/laos/don-det/","purpose":"current-destination-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Blue stormy clouds at sunset in Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Blue_stormy_clouds_at_sunset_with_water_reflection_and_a_pirogue_moored_to_the_bank,_in_Don_Det,_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Silhouettes of green islands at sunset in Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Silhouettes_of_green_islands_at_sunset_with_colorful_sky_over_the_Mekong_in_Don_Det_Laos.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
   ]
 }
