@@ -1,24 +1,16 @@
 {
   "thing-xe-bang-fai-cave": [
-    {
-      "question": "Can Xe Bang Fai Cave be visited as a day trip from Thakhek?",
-      "answer": "Yes, but make the cave the centre of the day rather than one more stop. The boat visit itself is relatively short; the long remote journey, river crossing and local coordination are what make the schedule demanding."
-    },
-    {
-      "question": "Can you visit Xe Bang Fai Cave during the rainy season?",
-      "answer": "Hin Nam No advises against entering the river cave from June to October, when flows can become dangerous. Road access can also deteriorate quickly after heavy rain, so reconfirm river levels, boat operation and current road conditions locally before leaving Thakhek."
-    },
-    {
-      "question": "Do you need a guide for Xe Bang Fai Cave?",
-      "answer": "Yes. The cave visit is guided, and local coordination matters for the boat, river conditions and the remote approach. Do not enter the cave or attempt the surrounding forest route independently."
-    },
-    {
-      "question": "Where can you stay near Xe Bang Fai Cave?",
-      "answer": "Ban Nong Ping has homestays, a village lodge and simple bungalows close to the river. Staying nearby removes the pressure of making the long return journey immediately after the cave and gives the visit a slower rhythm."
-    },
-    {
-      "question": "How long is the Xe Bang Fai Cave boat trip?",
-      "answer": "The standard local boat visit is about ninety minutes. The complete trip needs much more time because the journey from Thakhek, river crossing and local coordination turn Xe Bang Fai into a full-day or overnight plan."
-    }
+    {"question": "Can Xe Bang Fai Cave be visited as a day trip from Thakhek?", "answer": "Yes, but make the cave the centre of the day rather than one more stop. The boat visit itself is relatively short; the long remote journey, river crossing and local coordination are what make the schedule demanding."},
+    {"question": "Can you visit Xe Bang Fai Cave during the rainy season?", "answer": "Hin Nam No advises against entering the river cave from June to October, when flows can become dangerous. Road access can also deteriorate quickly after heavy rain, so reconfirm river levels, boat operation and current road conditions locally before leaving Thakhek."},
+    {"question": "Do you need a guide for Xe Bang Fai Cave?", "answer": "Yes. The cave visit is guided, and local coordination matters for the boat, river conditions and the remote approach. Do not enter the cave or attempt the surrounding forest route independently."},
+    {"question": "Where can you stay near Xe Bang Fai Cave?", "answer": "Ban Nong Ping has homestays, a village lodge and simple bungalows close to the river. Staying nearby removes the pressure of making the long return journey immediately after the cave and gives the visit a slower rhythm."},
+    {"question": "How long is the Xe Bang Fai Cave boat trip?", "answer": "The standard local boat visit is about ninety minutes. The complete trip needs much more time because the journey from Thakhek, river crossing and local coordination turn Xe Bang Fai into a full-day or overnight plan."}
+  ],
+  "thing-old-french-railway-bridge": [
+    {"question": "What is the old railway bridge between Don Det and Don Khon?", "answer": "It is a surviving part of the colonial Don Det–Don Khon portage railway. The railway was created to move vessels, freight and passengers around the rapids and falls of Si Phan Don that made this section of the Mekong impossible to navigate continuously."},
+    {"question": "When was the Don Det–Don Khon railway built?", "answer": "The first railway opened on Don Khon in 1893. A permanent line followed and the system was later extended roughly three kilometres onto Don Det, producing a route of about seven kilometres across the two islands."},
+    {"question": "Can you cross the bridge on foot or by bicycle?", "answer": "Yes. The former railway bridge is now the practical connection between Don Det and Don Khon and is commonly crossed on foot or by bicycle. It works particularly well as the start of a bicycle loop around Don Khon."},
+    {"question": "Do you have to pay to cross the bridge?", "answer": "Recent traveller information reported the bridge itself as free in February 2024, while some older guide information refers to charges associated with Don Khon or waterfall access. Treat any quoted fee as changeable and check the current arrangement locally."},
+    {"question": "What else from the old railway can you see?", "answer": "Continue onto Don Khon to follow sections of the former railway alignment. Near Ban Khon, a surviving steam locomotive is displayed on a short stretch of track, giving useful context to the bridge and the old portage system."}
   ]
 }
