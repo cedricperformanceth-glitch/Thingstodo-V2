@@ -20,9 +20,11 @@ export function validateFieldCardPrimaryStory(value) {
         errors.push(`Chapter ${index + 1} must be an object.`);
         return;
       }
-      for (const key of unknownKeys(chapter, ['title', 'body'])) {
+      for (const key of unknownKeys(chapter, ['label', 'title', 'body'])) {
         errors.push(`Chapter ${index + 1} contains unsupported key ${key}.`);
       }
+      if (!text(chapter.label)) errors.push(`Chapter ${index + 1} label is required.`);
+      else if (wordCount(chapter.label) > 4) errors.push(`Chapter ${index + 1} label exceeds 4 words.`);
       if (!text(chapter.title)) errors.push(`Chapter ${index + 1} title is required.`);
       else if (wordCount(chapter.title) > 12) errors.push(`Chapter ${index + 1} title exceeds 12 words.`);
       if (!text(chapter.body)) errors.push(`Chapter ${index + 1} body is required.`);

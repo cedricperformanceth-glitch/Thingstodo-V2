@@ -8,12 +8,19 @@ interface Props {
 }
 
 const { thing, story, image } = Astro.props;
+const fallbackChapterLabel = (title: string, index: number) => {
+  const words = title.replace(/[?!.,:;]/g, '').trim().split(/\s+/).filter(Boolean).slice(0, 3).join(' ');
+  return words ? words.toUpperCase() : `CHAPTER ${index + 1}`;
+};
 ---
 
 <section class="field-card-story-block" aria-label={`${thing.name} field notes`}>
   <div class="field-card-story-block__stories">
-    {story.chapters.map((chapter) => (
+    {story.chapters.map((chapter, index) => (
       <section class="field-card-story-block__story">
+        <p class="field-card-story-block__label">
+          <span aria-hidden="true">{String(index + 1).padStart(2, '0')} ·</span> {chapter.label || fallbackChapterLabel(chapter.title, index)}
+        </p>
         <h2>{chapter.title}</h2>
         <p>{chapter.body}</p>
       </section>
@@ -79,6 +86,26 @@ const { thing, story, image } = Astro.props;
     max-width: 37rem;
   }
 
+  .field-card-story-block__story p {
+    margin: 0;
+    color: #444c47;
+    font-family: var(--field-card-editorial);
+    font-size: .96rem;
+    font-weight: 400;
+    line-height: 1.78;
+  }
+
+  .field-card-story-block__label {
+    margin: 0 0 14px !important;
+    color: #b76645 !important;
+    font-family: var(--field-card-practical) !important;
+    font-size: .54rem !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
   .field-card-story-block__story h2 {
     max-width: 15ch;
     margin: 0 0 18px;
@@ -88,15 +115,6 @@ const { thing, story, image } = Astro.props;
     font-weight: 600;
     line-height: .98;
     letter-spacing: -.035em;
-  }
-
-  .field-card-story-block__story p {
-    margin: 0;
-    color: #444c47;
-    font-family: var(--field-card-editorial);
-    font-size: .96rem;
-    font-weight: 400;
-    line-height: 1.78;
   }
 
   .field-card-story-block__visual {
@@ -251,7 +269,7 @@ const { thing, story, image } = Astro.props;
       font-size: clamp(2rem, 10vw, 3rem);
     }
 
-    .field-card-story-block__story p {
+    .field-card-story-block__story p:not(.field-card-story-block__label) {
       font-size: .92rem;
       line-height: 1.7;
     }

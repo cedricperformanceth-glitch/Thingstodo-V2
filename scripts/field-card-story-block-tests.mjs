@@ -19,24 +19,29 @@ for (const [id, story] of Object.entries(editorial)) {
 
 const validStory = {
   chapters: [
-    { title: 'First angle', body: 'First body' },
-    { title: 'Second angle', body: 'Second body' },
+    { label: 'FIRST ANGLE', title: 'First angle', body: 'First body' },
+    { label: 'SECOND ANGLE', title: 'Second angle', body: 'Second body' },
   ],
   note: { label: 'FIELD NOTE', text: 'Useful detail' },
 };
 
-assert.equal(validateFieldCardPrimaryStory({ chapters: [{ title: 'Only one', body: 'Body' }], note: { label: 'NOTE', text: 'Text' } }).valid, false, 'Primary story must require exactly two chapters');
+assert.equal(validateFieldCardPrimaryStory({ chapters: [{ label: 'ONLY', title: 'Only one', body: 'Body' }], note: { label: 'NOTE', text: 'Text' } }).valid, false, 'Primary story must require exactly two chapters');
+assert.equal(validateFieldCardPrimaryStory({ ...validStory, chapters: [{ title: 'First angle', body: 'First body' }, validStory.chapters[1]] }).valid, false, 'Primary story chapters must require editorial labels');
 assert.equal(validateFieldCardPrimaryStory({ ...validStory, layout: 'custom' }).valid, false, 'Primary story data must not own layout');
-assert.equal(validateFieldCardPrimaryStory({ ...validStory, chapters: [{ title: 'First angle', body: 'First body', image: '/custom.jpg' }, validStory.chapters[1]] }).valid, false, 'Primary story chapters must not own presentation/media keys');
+assert.equal(validateFieldCardPrimaryStory({ ...validStory, chapters: [{ label: 'FIRST ANGLE', title: 'First angle', body: 'First body', image: '/custom.jpg' }, validStory.chapters[1]] }).valid, false, 'Primary story chapters must not own presentation/media keys');
 assert.equal(validateFieldCardPrimaryStory({ ...validStory, note: { ...validStory.note, position: 'left' } }).valid, false, 'Primary story note must not own its position');
 
 assert.equal(contract.presentation.alwaysPresent, true, 'Primary story block must be universal');
+assert.equal(contract.presentation.chapterNumbering, '01 and 02 are presentation-owned and derive from chapter order', 'Primary story numbering must stay presentation-owned');
 assert.equal(contract.editorial.chapters.count, 2, 'Primary story contract must always expose two chapter slots');
+assert.deepEqual(contract.editorial.contentOnlyShape.chapterKeys, ['label', 'title', 'body'], 'Primary story chapters must expose label, title and body only');
 assert.equal(contract.editorial.contentOnlyShape.presentationKeysForbidden, true, 'Primary story contract must keep presentation out of editorial data');
 assert.match(contract.editorial.chapters.antiPattern, /Do not fill chapter one with route or chapter two with price by habit/i, 'Contract must forbid fixed route/price semantics');
 assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal story component must not contain destination-specific branches or copy');
 assert.doesNotMatch(component, /ROUTE NOTE/, 'Post-it label must be editorial data, not component copy');
-assert.match(component, /story\.chapters\.map/, 'Story block must render exactly the authored chapter slots');
+assert.match(component, /story\.chapters\.map\(\(chapter, index\)/, 'Story block must render exactly the authored chapter slots with ordered numbering');
+assert.match(component, /String\(index \+ 1\)\.padStart\(2, '0'\)/, 'Story block must render 01 and 02 from chapter order');
+assert.match(component, /chapter\.label \|\| fallbackChapterLabel/, 'Story block must render authored chapter labels while retaining legacy fallback compatibility');
 assert.match(component, /story\.note\.label/, 'Story block must render a variable post-it label');
 assert.match(component, /story\.note\.text/, 'Story block must render variable post-it text');
 assert.match(component, /Photo to add/, 'Story block must keep a manual-fill placeholder when its dedicated photo is missing');
@@ -71,6 +76,7 @@ assert.match(hero, /\.field-card-hero__description\s*\{[\s\S]*?font-family:\s*va
 assert.match(quickRead, /\.field-card-quick-read__primary\s*\{[\s\S]*?font-family:\s*var\(--field-card-practical\);[\s\S]*?font-weight:\s*400;/, 'Quick Read practical values must directly use Manrope 400 role');
 assert.match(component, /\.field-card-story-block__story h2\s*\{[\s\S]*?font-family:\s*var\(--field-card-title\);[\s\S]*?font-weight:\s*600;/, 'Story titles must directly use Newsreader 600 role');
 assert.match(component, /\.field-card-story-block__story p\s*\{[\s\S]*?font-family:\s*var\(--field-card-editorial\);[\s\S]*?font-weight:\s*400;/, 'Story narrative must directly use Newsreader 400 role');
+assert.match(component, /\.field-card-story-block__label\s*\{[\s\S]*?font-family:\s*var\(--field-card-practical\)/, 'Chapter labels must use the same Manrope role as chapters 03 and 04');
 assert.match(component, /\.field-card-story-block__photo figcaption\s*\{[\s\S]*?font-family:\s*var\(--field-card-editorial\);[\s\S]*?font-weight:\s*400;/, 'Photo captions must directly use Newsreader 400 role');
 assert.match(component, /\.field-card-story-block__note span\s*\{[\s\S]*?font-family:\s*var\(--field-card-practical\);[\s\S]*?font-weight:\s*400;/, 'Post-it labels must directly use Manrope 400 role');
 assert.match(component, /\.field-card-story-block__note p\s*\{[\s\S]*?font-family:\s*var\(--field-card-handwritten\);/, 'Post-it text must directly use the handwritten role');

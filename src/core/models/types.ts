@@ -18,7 +18,8 @@ export interface FieldCardPracticalItem { label: string; value: string; detail?:
 export interface FieldCardPracticalContent { items: FieldCardPracticalItem[]; }
 export interface FieldCardSection { title: string; body: string; }
 export interface FieldCardStoryNote { label: string; text: string; }
-export interface FieldCardPrimaryStoryContent { chapters: FieldCardSection[]; note: FieldCardStoryNote; }
+export interface FieldCardPrimaryStoryChapter { label?: string; title: string; body: string; }
+export interface FieldCardPrimaryStoryContent { chapters: FieldCardPrimaryStoryChapter[]; note: FieldCardStoryNote; }
 export interface FieldCardSecondaryStoryChapter { label: string; title: string; body: string; }
 export interface FieldCardBeforeYouLeaveContent { title: string; body: string; note: FieldCardStoryNote; }
 export interface FieldCardSecondaryStoryContent { chapters: FieldCardSecondaryStoryChapter[]; beforeYouLeave: FieldCardBeforeYouLeaveContent; }

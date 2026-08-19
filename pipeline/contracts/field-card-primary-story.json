@@ -1,9 +1,10 @@
 {
-  "version": 1,
-  "principle": "The component owns the composition. Atlas editorial work chooses the two strongest activity-specific chapter angles and one complementary field note from verified information. The slots are never predefined as route, price, timing, history or any other topic.",
+  "version": 2,
+  "principle": "The component owns the composition. Atlas editorial work chooses the two strongest activity-specific chapter angles, gives each a short editorial label, and adds one complementary field note from verified information. The slots are never predefined as route, price, timing, history or any other topic.",
   "presentation": {
     "alwaysPresent": true,
     "chapterCount": 2,
+    "chapterNumbering": "01 and 02 are presentation-owned and derive from chapter order",
     "layout": "two chapters on the left, one secondary Field Card photo on the right, one fixed-position post-it note",
     "borders": "top and bottom dividers only",
     "photoSource": [
@@ -16,10 +17,11 @@
   "editorial": {
     "chapters": {
       "count": 2,
+      "labelMaxWords": 4,
       "titleMaxWords": 12,
       "bodyMaxWords": 220,
-      "selectionRule": "Choose two distinct angles that deserve explanation for this specific activity. Lead with what is most useful, distinctive or consequential in the verified material.",
-      "antiPattern": "Do not fill chapter one with route or chapter two with price by habit. If access is trivial, admission is free, or another subject matters more, choose different angles."
+      "selectionRule": "Choose two distinct angles that deserve explanation for this specific activity. Give each chapter a concise label that names its actual subject, then lead with what is most useful, distinctive or consequential in the verified material.",
+      "antiPattern": "Do not fill chapter one with route or chapter two with price by habit. If access is trivial, admission is free, or another subject matters more, choose different angles and labels."
     },
     "note": {
       "required": true,
@@ -29,7 +31,7 @@
     },
     "contentOnlyShape": {
       "topLevelKeys": ["chapters", "note"],
-      "chapterKeys": ["title", "body"],
+      "chapterKeys": ["label", "title", "body"],
       "noteKeys": ["label", "text"],
       "presentationKeysForbidden": true
     }
@@ -37,7 +39,7 @@
   "generationInput": {
     "key": "fieldCardPrimaryStory",
     "shape": {
-      "chapters": "exactly two { title, body } objects",
+      "chapters": "exactly two { label, title, body } objects",
       "note": "one { label, text } object"
     },
     "subsequentSections": "When fieldCardPrimaryStory is supplied, candidate.sections contains only later Field Card chapters."
