@@ -46,7 +46,7 @@ const structuredData = {
   headline: seo.title.replace(/\s*\|\s*Things To Do Atlas$/, ''),
   description: seo.description,
   mainEntityOfPage: absoluteCanonical(canonicalPath),
-  ...(seo.image ? { image: [seo.image] } : {}),
+  ...(seo.image ? { image: [absoluteCanonical(seo.image)] } : {}),
   about: {
     '@type': 'Place',
     name: thing.name,
