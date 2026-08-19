@@ -35,9 +35,11 @@ assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal practical comp
 assert.match(component, /content\.items/, 'Practical component must render authored items');
 assert.match(component, /PLAN YOUR VISIT/, 'Practical component must own the generic presentation eyebrow');
 assert.match(component, /at a glance/, 'Practical component must own the generic activity title pattern');
-assert.match(component, /grid-template-columns:\s*repeat\(2/, 'Practical component must use the two-column desktop field-sheet layout');
-assert.match(component, /last-child:nth-child\(odd\)/, 'Practical component must adapt an odd final item without an empty slot');
-assert.doesNotMatch(component, /border-radius|box-shadow/, 'Practical notes must not regress to boxed dashboard cards');
+assert.match(component, /grid-template-columns:\s*repeat\(2/, 'Practical component must use the two-page desktop field-sheet layout');
+assert.match(component, /leftItems/, 'Practical notebook must explicitly split the first page items');
+assert.match(component, /rightItems/, 'Practical notebook must explicitly split the second page items without empty filler slots');
+assert.match(component, /justify-self:\s*center/, 'Practical notebook must center itself independently from the narrow editorial column');
+assert.match(component, /max-width:\s*calc\(100vw - 24px\)/, 'Practical notebook width must be capped against the viewport rather than the parent column');
 
 assert.match(fieldCard, /FieldCardPracticalNotes/, 'Field Card must render the universal practical-notes component');
 assert.doesNotMatch(fieldCard, /<h2>Practical information<\/h2>/, 'Field Card must remove the old raw practical paragraph');
