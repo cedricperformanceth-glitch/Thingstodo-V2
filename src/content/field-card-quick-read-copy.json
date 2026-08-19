@@ -16,5 +16,11 @@
     "route": {"primary": "DON KHON", "secondary": "about 2 km south of the old railway bridge"},
     "budget": {"primary": "≈30–35K KIP", "secondary": "recent entry references · reconfirm locally"},
     "bestFor": {"primary": "MEKONG POWER", "secondary": "waterfall viewpoints + bicycle day"}
+  },
+  "thing-khone-phapheng-falls": {
+    "time": {"primary": "1–2 HOURS", "secondary": "allow longer for the mainland transfer"},
+    "route": {"primary": "MAINLAND", "secondary": "via Ban Nakasang from Don Det"},
+    "budget": {"primary": "CHECK LOCALLY", "secondary": "entry + island transfer can change"},
+    "bestFor": {"primary": "MEKONG SCALE", "secondary": "the essential Si Phan Don cataract"}
   }
 }
