@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+
+const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-faq.json', import.meta.url), 'utf8'));
+const component = readFileSync(new URL('../src/components/field-card/FieldCardFaq.astro', import.meta.url), 'utf8');
+const fieldCard = readFileSync(new URL('../src/components/field-card/FieldCard.astro', import.meta.url), 'utf8');
+const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
+
+assert.equal(contract.editorial.exactCount, 5, 'Field Card FAQ must contain exactly five questions');
+assert.equal(contract.presentation.cards, false, 'FAQ must not regress to white dashboard cards');
+assert.equal(contract.presentation.surface, 'page-background', 'FAQ must sit directly on the Field Card page background');
+assert.equal(contract.presentation.position, 'immediately-before-practical-notebook', 'FAQ must sit immediately before the closing practical notebook');
+assert.match(contract.editorial.selectionRule, /exactly five/i, 'Editorial AI contract must explicitly select five questions');
+assert.match(contract.editorial.answerRule, /supported/i, 'FAQ answers must stay grounded in supported page facts');
+assert.match(contract.generation.noForcedTopics, /Do not force/i, 'FAQ generation must not force irrelevant topics');
+
+assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal FAQ component must not contain destination-specific branches or copy');
+assert.match(component, /sourceItems[\s\S]*slice\(0, 5\)/, 'FAQ presentation must cap itself at five items');
+assert.match(component, /QUESTIONS BEFORE GOING/, 'FAQ component must own the generic presentation eyebrow');
+assert.match(component, /<details/, 'FAQ must use accessible expandable questions');
+assert.match(component, /field-card-faq__index/, 'FAQ must use the faded index depth treatment');
+assert.doesNotMatch(component, /background:\s*var\(--field-card-sheet\)/, 'FAQ must remain on the page background rather than a white sheet');
+
+assert.match(engine, /const fallbackFaq/, 'Field Card engine must provide a generic FAQ fallback');
+assert.equal((engine.match(/question:\s*'/g) ?? []).length, 5, 'Generic fallback must define exactly five questions');
+assert.match(engine, /authored\.length === 5/, 'A complete five-question authored FAQ must replace the fallback');
+assert.match(engine, /const faq = resolveFaq\(thing\)/, 'Field Card view must always resolve FAQ content');
+
+const faqPosition = fieldCard.indexOf('<FieldCardFaq');
+const practicalPosition = fieldCard.indexOf('<FieldCardPracticalNotes');
+assert.ok(faqPosition >= 0, 'Field Card must render the FAQ component');
+assert.ok(practicalPosition >= 0, 'Field Card must still render the practical notebook');
+assert.ok(faqPosition < practicalPosition, 'FAQ must render immediately before the practical notebook');
+assert.match(fieldCard, /items=\{view\.faq\}/, 'Field Card must use the resolved generic or authored FAQ');
+
+console.log('Field Card FAQ contract passed.');
