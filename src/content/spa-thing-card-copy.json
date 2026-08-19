@@ -1,0 +1,26 @@
+{
+  "thing-old-french-railway-bridge": {
+    "description": "Cross from Don Det to Don Khon on the historic railway bridge, then follow traces of the former Mekong portage line by bicycle or on foot.",
+    "handwrittenTags": ["Historic crossing", "Railway story", "Bike friendly"],
+    "gettingThere": "Cross from south Don Det to Don Khon",
+    "duration": "1–2 hours",
+    "costType": "free",
+    "bestTime": "Early morning or late afternoon"
+  },
+  "thing-li-phi-somphamit-waterfalls": {
+    "description": "Ride across Don Khon to Li Phi / Tad Somphamit, where the Mekong breaks into powerful rocky channels and broad white-water rapids.",
+    "handwrittenTags": ["Mekong rapids", "Don Khon ride", "Late light"],
+    "gettingThere": "About 2 km from the railway bridge on Don Khon",
+    "duration": "1–2 hours",
+    "costType": "paid",
+    "bestTime": "Morning comfort or late-afternoon light"
+  },
+  "thing-khone-phapheng-falls": {
+    "description": "Leave the islands for the immense Khone Phapheng cataract, combining the Don Det boat crossing with a mainland road transfer to the Mekong viewpoints.",
+    "handwrittenTags": ["Huge cataract", "Mainland trip", "Mekong scale"],
+    "gettingThere": "Boat to Ban Nakasang, then road transfer",
+    "duration": "Half day",
+    "costType": "paid",
+    "bestTime": "Morning or later afternoon"
+  }
+}
