@@ -65,7 +65,7 @@ const headingId = `field-card-related-${city.id}`;
 
 <style>
   .field-card-related {
-    --related-gap: clamp(12px, 1.5vw, 18px);
+    --related-gap: 16px;
     justify-self: center;
     width: min(1180px, calc(100vw - 56px));
     margin: clamp(96px, 11vw, 150px) 0 clamp(58px, 7vw, 92px);
@@ -157,12 +157,12 @@ const headingId = `field-card-related-${city.id}`;
   .field-card-related__track {
     display: flex;
     gap: var(--related-gap);
-    width: max-content;
+    width: 100%;
   }
 
   .field-card-related__card {
-    flex: 0 0 calc((min(1180px, calc(100vw - 56px)) - (3 * var(--related-gap))) / 4);
-    width: calc((min(1180px, calc(100vw - 56px)) - (3 * var(--related-gap))) / 4);
+    flex: 0 0 calc(25% - 12px);
+    width: calc(25% - 12px);
     min-width: 0;
     color: inherit;
     text-decoration: none;
@@ -338,8 +338,8 @@ const headingId = `field-card-related-${city.id}`;
     }
 
     .field-card-related__card {
-      flex-basis: calc((calc(100vw - 24px) - var(--related-gap)) / 2);
-      width: calc((calc(100vw - 24px) - var(--related-gap)) / 2);
+      flex-basis: calc(50% - 6px);
+      width: calc(50% - 6px);
     }
 
     .field-card-related__media {
@@ -380,10 +380,6 @@ const headingId = `field-card-related-${city.id}`;
 
     .field-card-related__copy > strong {
       font-size: 1rem;
-    }
-
-    .field-card-related__description {
-      -webkit-line-clamp: 2;
     }
   }
 
