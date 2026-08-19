@@ -1,32 +1,8 @@
 {
-  "thing-xe-bang-fai-cave": {
-    "time": {"primary": "FULL DAY", "secondary": "minimum · often multi-day"},
-    "route": {"primary": "ROUTE 12", "secondary": "East of Thakhek"},
-    "budget": {"primary": "≈50K KIP", "secondary": "entry · boat extra"},
-    "bestFor": {"primary": "REMOTE ADVENTURE", "secondary": "guided cave travel"}
-  },
-  "thing-old-french-railway-bridge": {
-    "time": {"primary": "20–40 MIN", "secondary": "longer if you follow the old railway"},
-    "route": {"primary": "DON DET → DON KHON", "secondary": "easy on foot or bicycle"},
-    "budget": {"primary": "FREE CROSSING", "secondary": "reported free in recent traveller updates"},
-    "bestFor": {"primary": "HISTORY + ISLAND RIDE", "secondary": "pair with Don Khon and Li Phi"}
-  },
-  "thing-li-phi-somphamit-waterfalls": {
-    "time": {"primary": "1–2 HOURS", "secondary": "half day if paired with Don Khon"},
-    "route": {"primary": "DON KHON", "secondary": "about 2 km south of the old railway bridge"},
-    "budget": {"primary": "≈30–35K KIP", "secondary": "recent entry references · reconfirm locally"},
-    "bestFor": {"primary": "MEKONG POWER", "secondary": "waterfall viewpoints + bicycle day"}
-  },
-  "thing-khone-phapheng-falls": {
-    "time": {"primary": "1–2 HOURS", "secondary": "allow longer for the mainland transfer"},
-    "route": {"primary": "MAINLAND", "secondary": "via Ban Nakasang from Don Det"},
-    "budget": {"primary": "CHECK LOCALLY", "secondary": "entry + island transfer can change"},
-    "bestFor": {"primary": "MEKONG SCALE", "secondary": "the essential Si Phan Don cataract"}
-  },
-  "thing-don-som-island": {
-    "time": {"primary": "HALF DAY", "secondary": "full day if you settle into the island rhythm"},
-    "route": {"primary": "LOCAL BOAT", "secondary": "direct from Don Det · arrange the return"},
-    "budget": {"primary": "BOAT ONLY", "secondary": "no attraction ticket · confirm fare locally"},
-    "bestFor": {"primary": "LOCAL ISLAND LIFE", "secondary": "villages · rice fields · quiet Mekong"}
-  }
+  "thing-xe-bang-fai-cave": {"time":{"primary":"FULL DAY","secondary":"minimum · often multi-day"},"route":{"primary":"ROUTE 12","secondary":"East of Thakhek"},"budget":{"primary":"≈50K KIP","secondary":"entry · boat extra"},"bestFor":{"primary":"REMOTE ADVENTURE","secondary":"guided cave travel"}},
+  "thing-old-french-railway-bridge": {"time":{"primary":"20–40 MIN","secondary":"longer if you follow the old railway"},"route":{"primary":"DON DET → DON KHON","secondary":"easy on foot or bicycle"},"budget":{"primary":"FREE CROSSING","secondary":"reported free in recent traveller updates"},"bestFor":{"primary":"HISTORY + ISLAND RIDE","secondary":"pair with Don Khon and Li Phi"}},
+  "thing-li-phi-somphamit-waterfalls": {"time":{"primary":"1–2 HOURS","secondary":"half day if paired with Don Khon"},"route":{"primary":"DON KHON","secondary":"about 2 km south of the old railway bridge"},"budget":{"primary":"≈30–35K KIP","secondary":"recent entry references · reconfirm locally"},"bestFor":{"primary":"MEKONG POWER","secondary":"waterfall viewpoints + bicycle day"}},
+  "thing-khone-phapheng-falls": {"time":{"primary":"1–2 HOURS","secondary":"allow longer for the mainland transfer"},"route":{"primary":"MAINLAND","secondary":"via Ban Nakasang from Don Det"},"budget":{"primary":"CHECK LOCALLY","secondary":"entry + island transfer can change"},"bestFor":{"primary":"MEKONG SCALE","secondary":"the essential Si Phan Don cataract"}},
+  "thing-don-som-island": {"time":{"primary":"HALF DAY","secondary":"full day if you settle into the island rhythm"},"route":{"primary":"LOCAL BOAT","secondary":"direct from Don Det · arrange the return"},"budget":{"primary":"BOAT ONLY","secondary":"no attraction ticket · confirm fare locally"},"bestFor":{"primary":"LOCAL ISLAND LIFE","secondary":"villages · rice fields · quiet Mekong"}},
+  "thing-khone-pa-soi-waterfall": {"time":{"primary":"2–3 HOURS","secondary":"half day from Don Det at an easy pace"},"route":{"primary":"EAST DON KHON","secondary":"rough bicycle tracks · bridge access can change"},"budget":{"primary":"USUALLY FREE","secondary":"recent guides report free access · verify locally"},"bestFor":{"primary":"QUIET WATERFALL RIDE","secondary":"backroads · rapids · railway-era traces"}}
 }
