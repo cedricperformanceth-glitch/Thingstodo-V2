@@ -16,7 +16,7 @@ const editorialMedia = mediaEditorial as Record<string, MediaRecord[]>;
 const editorialPracticalNotes = practicalEditorial as Record<string, FieldCardPracticalContent>;
 const editorialPrimaryStories = primaryStoryEditorial as Record<string, FieldCardPrimaryStoryContent>;
 const editorialQuickReads = quickReadEditorial as Record<string, FieldCardQuickReadContent>;
-const editorialSecondaryStories = secondaryStoryEditorial as Record<string, FieldCardSecondaryStoryContent>;
+const editorialSecondaryStories = secondaryStoryEditorial as Record<string, FieldCardSecondaryStoryContent | null>;
 
 const fallbackAliases = (thing: ThingToDo, city: City, country: Country) => {
   const tags = thing.spaCard?.handwrittenTags?.filter(Boolean) ?? [];
@@ -194,9 +194,10 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const sections = thing.fieldCard.sections ?? [];
   const primaryLegacyOffset = generatedPrimaryStory ? 0 : 2;
   const generatedSecondaryStory = thing.fieldCard.secondaryStory;
-  const secondaryStory = editorialSecondaryStories[thing.id]
-    ?? generatedSecondaryStory
-    ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
+  const hasEditorialSecondaryStory = Object.prototype.hasOwnProperty.call(editorialSecondaryStories, thing.id);
+  const secondaryStory = hasEditorialSecondaryStory
+    ? editorialSecondaryStories[thing.id]
+    : generatedSecondaryStory ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
   const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 2);
   const practicalNotes = editorialPracticalNotes[thing.id] ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
   const faq = resolveFaq(thing);
