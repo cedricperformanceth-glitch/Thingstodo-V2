@@ -1,5 +1,8 @@
 ---
 import '../core/design-system/tokens.css';
+import { getCountries } from '../engines/country/country-engine';
+
+const countries = getCountries();
 ---
 
 <!doctype html>
@@ -15,55 +18,25 @@ import '../core/design-system/tokens.css';
     <main class="admin-shell">
       <header class="admin-header">
         <div class="admin-brand">
-          <div class="admin-brand__mark" aria-hidden="true">
-            <span>ATLAS</span>
-            <small>V2</small>
-          </div>
+          <div class="admin-brand__mark" aria-hidden="true"><span>ATLAS</span><small>V2</small></div>
           <div>
             <p class="admin-eyebrow">EDITORIAL WORKSPACE</p>
             <h1>Atlas Admin</h1>
-            <p class="admin-intro">Prepare the next destination, then shape the field notes that belong to it.</p>
+            <p class="admin-intro">Prepare the next destination, then let the Atlas pipeline do the repetitive work.</p>
           </div>
         </div>
-        <div class="admin-status" aria-label="Workspace status">
-          <span class="admin-status__dot" aria-hidden="true"></span>
-          <span>Private workspace</span>
-        </div>
+        <div class="admin-status"><span class="admin-status__dot"></span><span>Private workspace</span></div>
       </header>
 
       <section class="admin-workspace" aria-label="Atlas admin workspace">
         <nav class="admin-tabs" role="tablist" aria-label="Admin sections">
-          <button
-            class="admin-tab is-active"
-            type="button"
-            role="tab"
-            id="admin-tab-city"
-            aria-controls="admin-panel-city"
-            aria-selected="true"
-            data-admin-tab="city"
-          >
+          <button class="admin-tab is-active" type="button" role="tab" id="admin-tab-city" aria-controls="admin-panel-city" aria-selected="true" data-admin-tab="city">
             <span class="admin-tab__index">01</span>
-            <span class="admin-tab__copy">
-              <strong>Create a city</strong>
-              <small>New destination workspace</small>
-            </span>
+            <span class="admin-tab__copy"><strong>Create a city</strong><small>New destination workspace</small></span>
           </button>
-
-          <button
-            class="admin-tab"
-            type="button"
-            role="tab"
-            id="admin-tab-field-cards"
-            aria-controls="admin-panel-field-cards"
-            aria-selected="false"
-            tabindex="-1"
-            data-admin-tab="field-cards"
-          >
+          <button class="admin-tab" type="button" role="tab" id="admin-tab-field-cards" aria-controls="admin-panel-field-cards" aria-selected="false" tabindex="-1" data-admin-tab="field-cards">
             <span class="admin-tab__index">02</span>
-            <span class="admin-tab__copy">
-              <strong>Field Cards</strong>
-              <small>Activity page workspace</small>
-            </span>
+            <span class="admin-tab__copy"><strong>Field Cards</strong><small>Activity page workspace</small></span>
           </button>
         </nav>
 
@@ -71,22 +44,98 @@ import '../core/design-system/tokens.css';
           <span class="admin-tape admin-tape--left" aria-hidden="true"></span>
           <span class="admin-tape admin-tape--right" aria-hidden="true"></span>
 
-          <section
-            class="admin-panel is-active"
-            id="admin-panel-city"
-            role="tabpanel"
-            aria-labelledby="admin-tab-city"
-            data-admin-panel="city"
-          ></section>
+          <section class="admin-panel is-active" id="admin-panel-city" role="tabpanel" aria-labelledby="admin-tab-city" data-admin-panel="city">
+            <form class="city-form" id="city-create-form">
+              <header class="panel-heading">
+                <p class="panel-kicker">NEW DESTINATION · STEP 01</p>
+                <h2>Create the next place</h2>
+                <p>Only the choices that belong to you are shown here. Categories, search ranges and the technical profile stay automatic.</p>
+              </header>
 
-          <section
-            class="admin-panel"
-            id="admin-panel-field-cards"
-            role="tabpanel"
-            aria-labelledby="admin-tab-field-cards"
-            data-admin-panel="field-cards"
-            hidden
-          ></section>
+              <section class="form-section">
+                <div class="section-number">01</div>
+                <div class="section-content">
+                  <div class="section-heading"><h3>Destination</h3><p>Name the place and tell Atlas what kind of settlement it is.</p></div>
+                  <div class="field-grid field-grid--two">
+                    <label class="field">
+                      <span>Country</span>
+                      <select name="country" id="city-country">
+                        {countries.map((country) => <option value={country.slug}>{country.name}</option>)}
+                      </select>
+                    </label>
+                    <label class="field">
+                      <span>City or village name</span>
+                      <input name="cityName" id="city-name" type="text" autocomplete="off" placeholder="Pakse" required />
+                    </label>
+                  </div>
+
+                  <fieldset class="choice-fieldset">
+                    <legend>Settlement type</legend>
+                    <div class="settlement-options">
+                      <label class="settlement-card">
+                        <input type="radio" name="settlement" value="village" checked />
+                        <span class="settlement-card__body"><strong>Village</strong><small>Lighter Atlas structure</small></span>
+                      </label>
+                      <label class="settlement-card">
+                        <input type="radio" name="settlement" value="city" />
+                        <span class="settlement-card__body"><strong>City</strong><small>Full default city categories</small></span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <div class="automatic-note">
+                    <span class="automatic-note__stamp">AUTO</span>
+                    <div><strong>Categories follow the settlement type.</strong><p id="category-summary">Things to do · Restaurants · Coffee · Guest Houses · Essential Information</p></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section">
+                <div class="section-number">02</div>
+                <div class="section-content">
+                  <div class="section-heading"><h3>Things to do</h3><p>You decide the size of the activity inventory. Atlas will research and build the shortlist later.</p></div>
+                  <label class="field field--short">
+                    <span>Number of activities</span>
+                    <div class="number-input"><input name="thingsTarget" id="things-target" type="number" min="5" max="25" value="10" required /><small>5–25</small></div>
+                  </label>
+                  <p class="field-hint">The Explore Board stays empty on purpose. You will choose its three featured activities after the activity inventory exists.</p>
+                </div>
+              </section>
+
+              <section class="form-section">
+                <div class="section-number">03</div>
+                <div class="section-content">
+                  <div class="section-heading"><h3>Hero artwork</h3><p>Place the three files in GitHub using these canonical paths. Atlas already knows how to read them.</p></div>
+                  <div class="asset-list">
+                    <div class="asset-row"><span class="asset-row__type">STAMP</span><code id="asset-stamp">/assets/cities/laos/place/hero/stamps/place-hero-stamp.webp</code></div>
+                    <div class="asset-row"><span class="asset-row__type">DRAWING</span><code id="asset-drawing">/assets/cities/laos/place/hero/drawings/place-hero-drawing.webp</code></div>
+                    <div class="asset-row"><span class="asset-row__type">PHOTO</span><code id="asset-photo">/assets/cities/laos/place/hero/photos/place-hero-photo.webp</code></div>
+                  </div>
+                  <p class="field-hint">No upload system: the files stay in the repository and the admin only follows the asset convention.</p>
+                </div>
+              </section>
+
+              <section class="form-section form-section--last">
+                <div class="section-number">04</div>
+                <div class="section-content">
+                  <div class="section-heading"><h3>Generation handoff</h3><p>The admin is still static, so this first version prepares the exact pipeline command instead of exposing a GitHub token in the browser.</p></div>
+                  <div class="command-card">
+                    <div class="command-card__top"><span>READY COMMAND</span><button type="button" id="copy-command">Copy</button></div>
+                    <code id="create-command">npm run create-city -- laos place --settlement village --profile compact --things-target 10</code>
+                  </div>
+                  <div class="generation-summary">
+                    <div><small>Profile</small><strong>compact · automatic</strong></div>
+                    <div><small>Explore Board</small><strong>empty · chosen later</strong></div>
+                    <div><small>SEO</small><strong>noindex · draft</strong></div>
+                  </div>
+                  <button class="generate-button" type="button" id="prepare-city"><span>Prepare this destination</span><small>Copies the pipeline command</small></button>
+                  <p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+                </div>
+              </section>
+            </form>
+          </section>
+
+          <section class="admin-panel" id="admin-panel-field-cards" role="tabpanel" aria-labelledby="admin-tab-field-cards" data-admin-panel="field-cards" hidden></section>
         </div>
       </section>
 
@@ -96,17 +145,54 @@ import '../core/design-system/tokens.css';
     <script>
       const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-admin-tab]'));
       const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-admin-panel]'));
+      const cityName = document.querySelector<HTMLInputElement>('#city-name');
+      const country = document.querySelector<HTMLSelectElement>('#city-country');
+      const thingsTarget = document.querySelector<HTMLInputElement>('#things-target');
+      const command = document.querySelector<HTMLElement>('#create-command');
+      const stamp = document.querySelector<HTMLElement>('#asset-stamp');
+      const drawing = document.querySelector<HTMLElement>('#asset-drawing');
+      const photo = document.querySelector<HTMLElement>('#asset-photo');
+      const categorySummary = document.querySelector<HTMLElement>('#category-summary');
+      const feedback = document.querySelector<HTMLElement>('#copy-feedback');
+
+      const slugify = (value: string) => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const settlementValue = () => document.querySelector<HTMLInputElement>('input[name="settlement"]:checked')?.value ?? 'village';
+
+      const updatePreview = () => {
+        const countrySlug = country?.value || 'laos';
+        const slug = slugify(cityName?.value || '') || 'place';
+        const settlement = settlementValue();
+        const target = Math.min(25, Math.max(5, Number(thingsTarget?.value || 10)));
+        const base = `/assets/cities/${countrySlug}/${slug}/hero`;
+        if (stamp) stamp.textContent = `${base}/stamps/${slug}-hero-stamp.webp`;
+        if (drawing) drawing.textContent = `${base}/drawings/${slug}-hero-drawing.webp`;
+        if (photo) photo.textContent = `${base}/photos/${slug}-hero-photo.webp`;
+        if (command) command.textContent = `npm run create-city -- ${countrySlug} ${slug} --settlement ${settlement} --profile compact --things-target ${target}`;
+        if (categorySummary) categorySummary.textContent = settlement === 'city'
+          ? 'Things to do · Restaurants · Coffee · Guest Houses · Rental Scooter · Gym & Fitness · Market & Shopping · Essential Information'
+          : 'Things to do · Restaurants · Coffee · Guest Houses · Essential Information';
+      };
+
+      const copyCommand = async () => {
+        updatePreview();
+        const value = command?.textContent?.trim();
+        if (!value) return;
+        try {
+          await navigator.clipboard.writeText(value);
+          if (feedback) feedback.textContent = 'Command copied. It is ready for Codex or your local terminal.';
+        } catch {
+          if (feedback) feedback.textContent = value;
+        }
+      };
 
       const activateTab = (tab: HTMLButtonElement) => {
         const target = tab.dataset.adminTab;
-
         tabs.forEach((item) => {
           const active = item === tab;
           item.classList.toggle('is-active', active);
           item.setAttribute('aria-selected', String(active));
           item.tabIndex = active ? 0 : -1;
         });
-
         panels.forEach((panel) => {
           const active = panel.dataset.adminPanel === target;
           panel.classList.toggle('is-active', active);
@@ -119,371 +205,36 @@ import '../core/design-system/tokens.css';
         tab.addEventListener('keydown', (event) => {
           if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
           event.preventDefault();
-
           let nextIndex = index;
           if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
           if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
           if (event.key === 'Home') nextIndex = 0;
           if (event.key === 'End') nextIndex = tabs.length - 1;
-
           const nextTab = tabs[nextIndex];
           if (!nextTab) return;
           activateTab(nextTab);
           nextTab.focus();
         });
       });
+
+      document.querySelectorAll('input[name="settlement"]').forEach((input) => input.addEventListener('change', updatePreview));
+      cityName?.addEventListener('input', updatePreview);
+      country?.addEventListener('change', updatePreview);
+      thingsTarget?.addEventListener('input', updatePreview);
+      document.querySelector('#copy-command')?.addEventListener('click', copyCommand);
+      document.querySelector('#prepare-city')?.addEventListener('click', copyCommand);
+      updatePreview();
     </script>
   </body>
 </html>
 
 <style>
-  :global(html) {
-    min-height: 100%;
-    background: #ebe4d5;
-  }
-
-  :global(body.admin-body) {
-    min-height: 100vh;
-    margin: 0;
-    color: #213229;
-    background:
-      radial-gradient(circle at 16% 4%, rgb(255 255 255 / .7), transparent 28rem),
-      linear-gradient(180deg, #f3eee3 0%, #e8e0d0 100%);
-    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
-  }
-
-  :global(body.admin-body::before) {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    content: '';
-    opacity: .16;
-    background-image:
-      repeating-linear-gradient(0deg, rgb(70 58 39 / .035) 0, rgb(70 58 39 / .035) 1px, transparent 1px, transparent 4px);
-    mix-blend-mode: multiply;
-  }
-
-  .admin-shell {
-    position: relative;
-    width: min(1380px, calc(100% - clamp(28px, 6vw, 96px)));
-    margin: 0 auto;
-    padding: clamp(38px, 6vw, 86px) 0 clamp(80px, 10vw, 150px);
-  }
-
-  .admin-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 32px;
-    margin-bottom: clamp(42px, 7vw, 82px);
-  }
-
-  .admin-brand {
-    display: flex;
-    align-items: flex-start;
-    gap: clamp(20px, 3vw, 38px);
-  }
-
-  .admin-brand__mark {
-    display: grid;
-    place-items: center;
-    width: clamp(72px, 8vw, 96px);
-    aspect-ratio: 1;
-    border: 1px solid rgb(49 87 59 / .32);
-    border-radius: 50%;
-    color: #31573b;
-    transform: rotate(-5deg);
-    box-shadow: inset 0 0 0 7px rgb(49 87 59 / .035);
-  }
-
-  .admin-brand__mark span {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(.86rem, 1.15vw, 1rem);
-    font-weight: 600;
-    letter-spacing: .13em;
-  }
-
-  .admin-brand__mark small {
-    margin-top: -22px;
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-  }
-
-  .admin-eyebrow {
-    margin: 0 0 8px;
-    color: #6e766c;
-    font-size: .69rem;
-    font-weight: 600;
-    letter-spacing: .22em;
-  }
-
-  .admin-header h1 {
-    margin: 0;
-    color: #203329;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(3rem, 6vw, 6.4rem);
-    font-weight: 400;
-    letter-spacing: -.055em;
-    line-height: .86;
-  }
-
-  .admin-intro {
-    max-width: 640px;
-    margin: 20px 0 0;
-    color: #667067;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(1.05rem, 1.6vw, 1.34rem);
-    line-height: 1.5;
-  }
-
-  .admin-status {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    padding-bottom: 7px;
-    color: #6d746c;
-    font-size: .72rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .admin-status__dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #31573b;
-    box-shadow: 0 0 0 4px rgb(49 87 59 / .1);
-  }
-
-  .admin-workspace {
-    display: grid;
-    grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
-    gap: clamp(28px, 4.5vw, 70px);
-    align-items: start;
-  }
-
-  .admin-tabs {
-    position: sticky;
-    top: 32px;
-    display: grid;
-    gap: 2px;
-  }
-
-  .admin-tab {
-    position: relative;
-    display: grid;
-    grid-template-columns: 38px 1fr;
-    gap: 13px;
-    width: 100%;
-    padding: 19px 14px 19px 8px;
-    border: 0;
-    border-bottom: 1px solid rgb(64 74 66 / .13);
-    color: #72776f;
-    background: transparent;
-    text-align: left;
-    cursor: pointer;
-    transition: color .18s ease, transform .18s ease;
-  }
-
-  .admin-tab:hover {
-    color: #203329;
-    transform: translateX(3px);
-  }
-
-  .admin-tab::before {
-    position: absolute;
-    left: -14px;
-    top: 50%;
-    width: 4px;
-    height: 0;
-    border-radius: 4px;
-    background: #31573b;
-    content: '';
-    transform: translateY(-50%);
-    transition: height .18s ease;
-  }
-
-  .admin-tab.is-active {
-    color: #203329;
-  }
-
-  .admin-tab.is-active::before {
-    height: 44px;
-  }
-
-  .admin-tab__index {
-    padding-top: 3px;
-    color: #a1a096;
-    font-size: .64rem;
-    font-weight: 600;
-    letter-spacing: .14em;
-  }
-
-  .admin-tab__copy {
-    display: grid;
-    gap: 4px;
-  }
-
-  .admin-tab__copy strong {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.32rem;
-    font-weight: 600;
-  }
-
-  .admin-tab__copy small {
-    color: #8a8c84;
-    font-size: .72rem;
-  }
-
-  .admin-canvas-wrap {
-    position: relative;
-    min-width: 0;
-  }
-
-  .admin-panel {
-    position: relative;
-    min-height: clamp(680px, 73vh, 980px);
-    border: 1px solid rgb(74 68 55 / .11);
-    background:
-      linear-gradient(90deg, transparent 0, transparent 52px, rgb(188 83 70 / .06) 53px, transparent 54px),
-      repeating-linear-gradient(180deg, transparent 0, transparent 41px, rgb(55 86 74 / .055) 42px),
-      #fffdf8;
-    box-shadow:
-      0 26px 70px rgb(57 47 31 / .09),
-      0 2px 4px rgb(57 47 31 / .05);
-  }
-
-  .admin-panel::after {
-    position: absolute;
-    inset: 16px;
-    border: 1px solid rgb(49 87 59 / .045);
-    content: '';
-    pointer-events: none;
-  }
-
-  .admin-tape {
-    position: absolute;
-    z-index: 2;
-    top: -14px;
-    width: 90px;
-    height: 30px;
-    background: rgb(226 210 165 / .68);
-    box-shadow: 0 1px 1px rgb(54 46 31 / .08);
-    pointer-events: none;
-  }
-
-  .admin-tape--left {
-    left: 9%;
-    transform: rotate(-4deg);
-  }
-
-  .admin-tape--right {
-    right: 8%;
-    transform: rotate(3deg);
-  }
-
-  .admin-note {
-    width: max-content;
-    margin: clamp(30px, 5vw, 54px) 5% 0 auto;
-    color: rgb(49 87 59 / .62);
-    font-family: 'Caveat', cursive;
-    font-size: clamp(1.1rem, 1.8vw, 1.45rem);
-    transform: rotate(-2deg);
-  }
-
-  @media (max-width: 820px) {
-    .admin-shell {
-      width: min(100% - 28px, 720px);
-      padding-top: 28px;
-    }
-
-    .admin-header {
-      align-items: flex-start;
-    }
-
-    .admin-brand__mark {
-      display: none;
-    }
-
-    .admin-status {
-      display: none;
-    }
-
-    .admin-workspace {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .admin-tabs {
-      position: static;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .admin-tab {
-      grid-template-columns: 1fr;
-      min-height: 108px;
-      padding: 16px;
-      border: 1px solid rgb(49 87 59 / .12);
-      background: rgb(255 253 248 / .45);
-    }
-
-    .admin-tab::before {
-      left: 15px;
-      top: auto;
-      bottom: -1px;
-      width: 0;
-      height: 3px;
-      transform: none;
-      transition: width .18s ease;
-    }
-
-    .admin-tab.is-active::before {
-      width: 52px;
-      height: 3px;
-    }
-
-    .admin-tab:hover {
-      transform: none;
-    }
-
-    .admin-tab__index {
-      padding: 0;
-    }
-
-    .admin-tab__copy strong {
-      font-size: 1.08rem;
-    }
-
-    .admin-panel {
-      min-height: 68vh;
-      background:
-        repeating-linear-gradient(180deg, transparent 0, transparent 41px, rgb(55 86 74 / .05) 42px),
-        #fffdf8;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .admin-header h1 {
-      font-size: clamp(2.85rem, 15vw, 4.2rem);
-    }
-
-    .admin-intro {
-      margin-top: 14px;
-      font-size: 1rem;
-    }
-
-    .admin-tabs {
-      grid-template-columns: 1fr;
-    }
-
-    .admin-tab {
-      min-height: 88px;
-    }
-
-    .admin-panel {
-      min-height: 72vh;
-    }
-  }
+  :global(html){min-height:100%;background:#ebe4d5} :global(body.admin-body){min-height:100vh;margin:0;color:#213229;background:radial-gradient(circle at 16% 4%,rgb(255 255 255/.7),transparent 28rem),linear-gradient(180deg,#f3eee3 0%,#e8e0d0 100%);font-family:'Manrope',ui-sans-serif,system-ui,sans-serif} :global(body.admin-body::before){position:fixed;inset:0;pointer-events:none;content:'';opacity:.16;background-image:repeating-linear-gradient(0deg,rgb(70 58 39/.035) 0,rgb(70 58 39/.035) 1px,transparent 1px,transparent 4px);mix-blend-mode:multiply}
+  .admin-shell{position:relative;width:min(1380px,calc(100% - clamp(28px,6vw,96px)));margin:0 auto;padding:clamp(38px,6vw,86px) 0 clamp(80px,10vw,150px)} .admin-header{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:clamp(42px,7vw,82px)} .admin-brand{display:flex;align-items:flex-start;gap:clamp(20px,3vw,38px)} .admin-brand__mark{display:grid;place-items:center;width:clamp(72px,8vw,96px);aspect-ratio:1;border:1px solid rgb(49 87 59/.32);border-radius:50%;color:#31573b;transform:rotate(-5deg);box-shadow:inset 0 0 0 7px rgb(49 87 59/.035)} .admin-brand__mark span{font-family:'Newsreader',Georgia,serif;font-size:clamp(.86rem,1.15vw,1rem);font-weight:600;letter-spacing:.13em}.admin-brand__mark small{margin-top:-22px;font-family:'Caveat',cursive;font-size:1rem}.admin-eyebrow{margin:0 0 8px;color:#6e766c;font-size:.69rem;font-weight:600;letter-spacing:.22em}.admin-header h1{margin:0;color:#203329;font-family:'Newsreader',Georgia,serif;font-size:clamp(3rem,6vw,6.4rem);font-weight:400;letter-spacing:-.055em;line-height:.86}.admin-intro{max-width:640px;margin:20px 0 0;color:#667067;font-family:'Newsreader',Georgia,serif;font-size:clamp(1.05rem,1.6vw,1.34rem);line-height:1.5}.admin-status{display:flex;align-items:center;gap:9px;padding-bottom:7px;color:#6d746c;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}.admin-status__dot{width:7px;height:7px;border-radius:50%;background:#31573b;box-shadow:0 0 0 4px rgb(49 87 59/.1)}
+  .admin-workspace{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:clamp(28px,4.5vw,70px);align-items:start}.admin-tabs{position:sticky;top:32px;display:grid;gap:2px}.admin-tab{position:relative;display:grid;grid-template-columns:38px 1fr;gap:13px;width:100%;padding:19px 14px 19px 8px;border:0;border-bottom:1px solid rgb(64 74 66/.13);color:#72776f;background:transparent;text-align:left;cursor:pointer;transition:color .18s ease,transform .18s ease}.admin-tab:hover{color:#203329;transform:translateX(3px)}.admin-tab::before{position:absolute;left:-14px;top:50%;width:4px;height:0;border-radius:4px;background:#31573b;content:'';transform:translateY(-50%);transition:height .18s ease}.admin-tab.is-active{color:#203329}.admin-tab.is-active::before{height:44px}.admin-tab__index{padding-top:3px;color:#a1a096;font-size:.64rem;font-weight:600;letter-spacing:.14em}.admin-tab__copy{display:grid;gap:4px}.admin-tab__copy strong{font-family:'Newsreader',Georgia,serif;font-size:1.32rem;font-weight:600}.admin-tab__copy small{color:#8a8c84;font-size:.72rem}
+  .admin-canvas-wrap{position:relative;min-width:0}.admin-panel{position:relative;min-height:760px;border:1px solid rgb(74 68 55/.11);background:#fffdf8;box-shadow:0 26px 70px rgb(57 47 31/.09),0 2px 4px rgb(57 47 31/.05)}.admin-panel::after{position:absolute;inset:16px;border:1px solid rgb(49 87 59/.035);content:'';pointer-events:none}.admin-tape{position:absolute;z-index:3;top:-14px;width:90px;height:30px;background:rgb(226 210 165/.68);box-shadow:0 1px 1px rgb(54 46 31/.08);pointer-events:none}.admin-tape--left{left:9%;transform:rotate(-4deg)}.admin-tape--right{right:8%;transform:rotate(3deg)}
+  .city-form{position:relative;z-index:1;padding:clamp(34px,5vw,74px)}.panel-heading{max-width:720px;padding-bottom:clamp(34px,5vw,58px);border-bottom:1px solid #ded7c9}.panel-kicker{margin:0 0 10px;color:#738076;font-size:.67rem;font-weight:700;letter-spacing:.2em}.panel-heading h2{margin:0;color:#203329;font-family:'Newsreader',Georgia,serif;font-size:clamp(2.4rem,4.5vw,4.5rem);font-weight:400;letter-spacing:-.045em;line-height:.95}.panel-heading>p:last-child{max-width:620px;margin:18px 0 0;color:#72786f;font-family:'Newsreader',Georgia,serif;font-size:1.05rem;line-height:1.55}
+  .form-section{display:grid;grid-template-columns:54px minmax(0,1fr);gap:clamp(18px,3vw,38px);padding:clamp(42px,6vw,70px) 0;border-bottom:1px solid #e4ddcf}.form-section--last{border-bottom:0;padding-bottom:0}.section-number{padding-top:4px;color:#a39d91;font-size:.64rem;font-weight:700;letter-spacing:.14em}.section-content{min-width:0}.section-heading{max-width:690px;margin-bottom:28px}.section-heading h3{margin:0 0 7px;color:#263a30;font-family:'Newsreader',Georgia,serif;font-size:1.75rem;font-weight:600}.section-heading p{margin:0;color:#7a7f77;font-size:.84rem;line-height:1.6}.field-grid{display:grid;gap:18px}.field-grid--two{grid-template-columns:repeat(2,minmax(0,1fr))}.field{display:grid;gap:9px}.field>span,.choice-fieldset legend{color:#59665e;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.field input,.field select{width:100%;min-height:52px;padding:0 14px;border:1px solid #d7d0c2;border-radius:3px;color:#23352c;background:#fffdf8;font:inherit;outline:none}.field input:focus,.field select:focus{border-color:#6e8a76;box-shadow:0 0 0 3px rgb(49 87 59/.08)}.field--short{max-width:240px}.choice-fieldset{margin:28px 0 0;padding:0;border:0}.settlement-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}.settlement-card{position:relative;cursor:pointer}.settlement-card input{position:absolute;opacity:0}.settlement-card__body{display:grid;gap:4px;padding:18px 20px;border:1px solid #d8d1c4;background:#fbf8f1;transition:.18s ease}.settlement-card__body strong{font-family:'Newsreader',Georgia,serif;font-size:1.18rem}.settlement-card__body small{color:#85877f;font-size:.72rem}.settlement-card input:checked+.settlement-card__body{border-color:#31573b;background:#f0f3eb;box-shadow:inset 4px 0 0 #31573b}.automatic-note{display:flex;gap:15px;align-items:flex-start;margin-top:18px;padding:17px 18px;background:#f5f0df}.automatic-note__stamp{flex:0 0 auto;padding:4px 7px;border:1px solid rgb(49 87 59/.28);color:#31573b;font-size:.59rem;font-weight:700;letter-spacing:.12em;transform:rotate(-2deg)}.automatic-note strong{display:block;color:#44534b;font-size:.78rem}.automatic-note p{margin:4px 0 0;color:#777b74;font-size:.72rem;line-height:1.5}.number-input{display:flex;align-items:center;gap:10px}.number-input input{max-width:112px}.number-input small{color:#8d8d84;font-size:.72rem}.field-hint{max-width:650px;margin:16px 0 0;color:#8a887f;font-family:'Newsreader',Georgia,serif;font-size:.9rem;font-style:italic;line-height:1.55}.asset-list{display:grid;border-top:1px solid #ddd5c6}.asset-row{display:grid;grid-template-columns:90px minmax(0,1fr);gap:18px;align-items:start;padding:16px 0;border-bottom:1px solid #e5ded1}.asset-row__type{padding-top:3px;color:#7b8179;font-size:.62rem;font-weight:700;letter-spacing:.12em}.asset-row code{overflow-wrap:anywhere;color:#385446;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.77rem}.command-card{border:1px solid #d5cebf;background:#f3efe5}.command-card__top{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;border-bottom:1px solid #ddd5c7;color:#7b7e76;font-size:.61rem;font-weight:700;letter-spacing:.12em}.command-card__top button{border:0;color:#31573b;background:transparent;font:inherit;cursor:pointer}.command-card>code{display:block;padding:18px;overflow-wrap:anywhere;color:#253c30;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.6}.generation-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}.generation-summary>div{padding:14px;border:1px solid #e0d8ca}.generation-summary small{display:block;margin-bottom:4px;color:#98958b;font-size:.59rem;letter-spacing:.1em;text-transform:uppercase}.generation-summary strong{color:#4c5c53;font-size:.72rem;font-weight:600}.generate-button{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;margin-top:24px;padding:18px 20px;border:1px solid #263c30;border-radius:2px;color:#fbf7ed;background:#263c30;cursor:pointer;text-align:left}.generate-button span{font-family:'Newsreader',Georgia,serif;font-size:1.05rem}.generate-button small{color:#cad4cc;font-size:.68rem}.copy-feedback{min-height:1.2em;margin:10px 0 0;color:#64736a;font-size:.72rem}
+  .admin-note{width:max-content;margin:clamp(30px,5vw,54px) 5% 0 auto;color:rgb(49 87 59/.62);font-family:'Caveat',cursive;font-size:clamp(1.1rem,1.8vw,1.45rem);transform:rotate(-2deg)}
+  @media(max-width:820px){.admin-shell{width:min(100% - 28px,720px);padding-top:28px}.admin-header{align-items:flex-start}.admin-brand__mark,.admin-status{display:none}.admin-workspace{grid-template-columns:1fr;gap:24px}.admin-tabs{position:static;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.admin-tab{grid-template-columns:1fr;min-height:108px;padding:16px;border:1px solid rgb(49 87 59/.12);background:rgb(255 253 248/.45)}.admin-tab::before{left:15px;top:auto;bottom:-1px;width:0;height:3px;transform:none}.admin-tab.is-active::before{width:52px;height:3px}.admin-tab:hover{transform:none}.admin-tab__index{padding:0}.field-grid--two,.settlement-options,.generation-summary{grid-template-columns:1fr}.city-form{padding:34px 24px}.form-section{grid-template-columns:1fr;gap:10px}.section-number{padding:0}.admin-panel::after{inset:8px}} @media(max-width:520px){.admin-header h1{font-size:clamp(2.85rem,15vw,4.2rem)}.admin-intro{margin-top:14px;font-size:1rem}.admin-tabs{grid-template-columns:1fr}.admin-tab{min-height:88px}.asset-row{grid-template-columns:1fr;gap:6px}.generate-button{align-items:flex-start;flex-direction:column}}
 </style>
