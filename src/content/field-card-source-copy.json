@@ -38,5 +38,13 @@
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"current-bridge-and-bike-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Pexels · Cyclist Riding on a Road Among Palm Trees","sourceUrl":"https://www.pexels.com/photo/cyclist-riding-on-a-road-among-palm-trees-22803811/","purpose":"hero-media","reviewedAt":"2026-08-20"},
     {"sourceName":"Pexels · Woman Biking On A Narrow Road","sourceUrl":"https://www.pexels.com/photo/woman-biking-on-a-narrow-road-6127063/","purpose":"story-media","reviewedAt":"2026-08-20"}
+  ],
+  "thing-don-det-tubing": [
+    {"sourceName":"Don Det Laos · Activities / Tubing","sourceUrl":"https://don-det-laos.com/activities","purpose":"current-local-route-price-and-safety","reviewedAt":"2026-08-20"},
+    {"sourceName":"BABA Guesthouse · Don Det health and river warnings","sourceUrl":"https://www.dondet.net/health.html","purpose":"current-local-river-safety","reviewedAt":"2026-08-20"},
+    {"sourceName":"Rough Guides · Don Khon and Don Det","sourceUrl":"https://www.roughguides.com/laos/far-south/don-khon-don-det/","purpose":"tubing-start-and-current-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Sawa Discovery · Don Det 2026","sourceUrl":"https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao","purpose":"2026-price-route-cross-check","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Tubing on Vang Vieng river in Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Tourist_Rudolph.Furtado_tubing_on_Vang_Vieng_river_in_Laos.JPG","purpose":"hero-media-activity-illustration","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Pexels · Aerial shot of people relaxing in tubes on a serene river","sourceUrl":"https://www.pexels.com/photo/aerial-view-of-a-lake-27033648/","purpose":"story-media-activity-illustration","reviewedAt":"2026-08-20"}
   ]
 }
