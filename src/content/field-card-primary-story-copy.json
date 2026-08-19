@@ -1,20 +1,16 @@
 {
   "thing-xe-bang-fai-cave": {
     "chapters": [
-      {
-        "label": "ROUTE",
-        "title": "The long road from Thakhek",
-        "body": "From Thakhek, follow Highway 12 east toward the Vietnamese border, then continue through the Boualapha area and the villages leading toward Ban Kouankaphoung and the cave approach. The journey is remote and road conditions can change with weather, maintenance and season, so keep an offline map, leave enough daylight and reconfirm the latest route, ferry and access conditions locally before departure. Arrange a local guide rather than treating the final approach as a fixed self-guided road itinerary."
-      },
-      {
-        "label": "MONEY",
-        "title": "What the expedition costs",
-        "body": "Recent visitor reports put the entrance at around 50,000 kip per person, with motorbike parking around 10,000 kip. A small local boat has recently been reported at around 150,000 kip, while larger boats may cost more depending on the group. The boat is the part of the visit worth making room for: once you leave the riverbank and move into the darkness, the scale of Xe Bang Fai really begins to make sense. Prices and boat capacity can change between seasons, so treat these figures as a useful reference and confirm the current rate at the park office when you arrive."
-      }
+      {"label": "ROUTE", "title": "The long road from Thakhek", "body": "From Thakhek, follow Highway 12 east toward the Vietnamese border, then continue through the Boualapha area and the villages leading toward Ban Kouankaphoung and the cave approach. The journey is remote and road conditions can change with weather, maintenance and season, so keep an offline map, leave enough daylight and reconfirm the latest route, ferry and access conditions locally before departure. Arrange a local guide rather than treating the final approach as a fixed self-guided road itinerary."},
+      {"label": "MONEY", "title": "What the expedition costs", "body": "Recent visitor reports put the entrance at around 50,000 kip per person, with motorbike parking around 10,000 kip. A small local boat has recently been reported at around 150,000 kip, while larger boats may cost more depending on the group. The boat is the part of the visit worth making room for: once you leave the riverbank and move into the darkness, the scale of Xe Bang Fai really begins to make sense. Prices and boat capacity can change between seasons, so treat these figures as a useful reference and confirm the current rate at the park office when you arrive."}
     ],
-    "note": {
-      "label": "ROUTE TO KEEP",
-      "text": "Route 12 → Boualapha area → local village roads → Ban Kouankaphoung → cave approach. Reconfirm the latest access locally."
-    }
+    "note": {"label": "ROUTE TO KEEP", "text": "Route 12 → Boualapha area → local village roads → Ban Kouankaphoung → cave approach. Reconfirm the latest access locally."}
+  },
+  "thing-old-french-railway-bridge": {
+    "chapters": [
+      {"label": "HISTORY", "title": "Why a railway appeared on two Mekong islands", "body": "In the late nineteenth century, the French colonial administration wanted the Mekong to work as a transport route through Indochina. Si Phan Don was the problem: the falls and rapids around Khone made continuous navigation impossible. In 1893 a portage railway opened on Don Khon so vessels, freight and passengers could bypass the dangerous stretch. The line was later extended across to Don Det, creating a railway of roughly seven kilometres. The bridge you cross today belonged to that system."},
+      {"label": "THE CROSSING", "title": "Cross the bridge slowly", "body": "Today the rails are gone and the bridge works as the everyday link between Don Det and Don Khon. That makes it easy to miss what you are standing on. Stop halfway. Look along the Mekong channels and back toward the two islands. The old railway was not built for sightseeing; it was an engineering answer to a river that refused to become the transport corridor colonial planners wanted it to be."}
+    ],
+    "note": {"label": "THE STORY IN ONE LINE", "text": "The Mekong rapids stopped the boats, so the French carried the journey overland across Don Khon and Don Det instead."}
   }
 }
