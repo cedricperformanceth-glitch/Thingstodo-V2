@@ -2,10 +2,13 @@
 import BaseLayout from '../../../../components/layout/BaseLayout.astro';
 import FieldCard from '../../../../components/field-card/FieldCard.astro';
 import FieldCardNavigation from '../../../../components/field-card/FieldCardNavigation.astro';
+import seoEditorial from '../../../../content/field-card-seo-copy.json';
 import { getCities, getCity } from '../../../../engines/city/city-engine';
 import { getCountry } from '../../../../engines/country/country-engine';
 import { getThings, getThing } from '../../../../engines/category/category-engine';
 import { cityPath, countryPath, thingPath } from '../../../../core/routing/paths';
+import { absoluteCanonical } from '../../../../core/seo/metadata';
+import type { SeoMetadata } from '../../../../core/models/types';
 
 export function getStaticPaths() {
   return getCities().flatMap((city) => getThings(city).map((thing) => ({
@@ -18,22 +21,47 @@ const country = getCountry(Astro.params.country ?? '');
 const thing = city ? getThing(city, Astro.params.slug ?? '') : undefined;
 if (!city || !country || !thing) return Astro.redirect('/');
 
-const seo = {
-  title: `${thing.name} | Things To Do Atlas`,
-  description: thing.shortDescription,
-  canonicalPath: thingPath(city, thing),
+type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
+const seoOverrides = seoEditorial as Record<string, FieldCardSeoOverride>;
+const reviewedSeo = seoOverrides[thing.id];
+const canonicalPath = thingPath(city, thing);
+const seo: SeoMetadata = {
+  title: reviewedSeo?.title ?? `${thing.name} | Things To Do Atlas`,
+  description: reviewedSeo?.description ?? thing.shortDescription,
+  canonicalPath,
   indexable: city.seo.indexable,
+  image: reviewedSeo?.image ?? thing.media.fieldCard?.gallery?.[0]?.src ?? thing.media.card?.image?.src,
 };
 
 const breadcrumbs = [
   { name: 'Atlas', path: '/' },
   { name: country.name, path: countryPath(country) },
   { name: city.name, path: cityPath(city) },
-  { name: thing.name, path: thingPath(city, thing) },
+  { name: thing.name, path: canonicalPath },
 ];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: seo.title.replace(/\s*\|\s*Things To Do Atlas$/, ''),
+  description: seo.description,
+  mainEntityOfPage: absoluteCanonical(canonicalPath),
+  ...(seo.image ? { image: [seo.image] } : {}),
+  about: {
+    '@type': 'Place',
+    name: thing.name,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: city.name,
+      addressCountry: country.name,
+    },
+  },
+  author: { '@type': 'Organization', name: 'Things To Do Atlas' },
+  publisher: { '@type': 'Organization', name: 'Things To Do Atlas' },
+};
 ---
 
-<BaseLayout {seo} {breadcrumbs}>
+<BaseLayout {seo} {breadcrumbs} structuredData={[structuredData]}>
   <FieldCardNavigation {country} {city} {thing} />
   <FieldCard {thing} {city} {country} />
 </BaseLayout>
