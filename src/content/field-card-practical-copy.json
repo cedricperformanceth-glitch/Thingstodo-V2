@@ -38,5 +38,15 @@
       {"label": "Scale", "value": "Up to 21 m high · rapids across about 9.7 km", "detail": "Official Lao tourism information describes an average discharge close to 11,000 cubic metres per second. The attraction is the breadth and power of the cataract system rather than one tall vertical drop."},
       {"label": "Safety", "value": "Stay with the developed viewpoints", "detail": "The Mekong here is exceptionally powerful. Keep to established visitor paths and platforms, respect barriers and do not scramble toward exposed rock or fast water for a closer photograph."}
     ]
+  },
+  "thing-don-som-island": {
+    "items": [
+      {"label": "Where", "value": "North of Don Det in Si Phan Don", "detail": "Don Som is a long inhabited Mekong island between Don Det to the south and Don Khong to the north. A local island source describes it as roughly 13 km long, up to 3 km wide, with 12 villages."},
+      {"label": "From Don Det", "value": "Direct local boat", "detail": "Ask at the Don Det pier for a boat to Don Som. Published traveller guidance has quoted simple per-person fares, but boat prices and availability are informal enough that you should confirm the fare and return arrangement before departure."},
+      {"label": "Time needed", "value": "Half day minimum", "detail": "A half day gives you time to cross, walk or ride through part of the island and return without rushing. A full day makes more sense if you want to explore farther, eat locally or spend time around the villages and river."},
+      {"label": "What to expect", "value": "Villages, rice fields, fishing and very little tourism", "detail": "Most residents are farmers or fishers. There are small shops and simple food options, but no market and much less visitor infrastructure than on Don Det or Don Khon."},
+      {"label": "Best time", "value": "Early morning or late afternoon", "detail": "The cooler hours suit walking or cycling and are when island life is most active around homes, fields and river crossings. Midday can be hot and exposed."},
+      {"label": "Respect", "value": "Treat the island as a home, not an attraction", "detail": "Stay on obvious public routes, ask before taking close portraits, dress respectfully around villages and temples, and do not enter homes, fields or private compounds without invitation."}
+    ]
   }
 }
