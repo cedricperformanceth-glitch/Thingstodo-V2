@@ -42,10 +42,6 @@ const headingId = `field-card-faq-${thing.id}`;
 
 <style>
   .field-card-faq {
-    --faq-laos-blue: #213f68;
-    --faq-laos-red: #9d3040;
-    --faq-laos-ivory: #fffdf8;
-
     justify-self: center;
     width: min(980px, calc(100vw - 48px));
     margin-top: clamp(60px, 7vw, 90px);
@@ -125,35 +121,22 @@ const headingId = `field-card-faq-${thing.id}`;
     z-index: 0;
     top: 50%;
     left: 0;
-    color: var(--faq-laos-red);
+    color: rgb(49 85 69 / .075);
     font-family: var(--field-card-editorial);
-    font-size: clamp(3.3rem, 5.7vw, 4.8rem);
-    font-weight: 600;
-    line-height: .76;
-    letter-spacing: -.065em;
-    opacity: .72;
+    font-size: clamp(3.25rem, 5.4vw, 4.55rem);
+    font-weight: 400;
+    line-height: .8;
+    letter-spacing: -.06em;
     transform: translateY(-50%);
     pointer-events: none;
     user-select: none;
-  }
-
-  .field-card-faq__item:nth-child(2) .field-card-faq__index,
-  .field-card-faq__item:nth-child(4) .field-card-faq__index {
-    color: var(--faq-laos-blue);
-    opacity: .7;
-  }
-
-  .field-card-faq__item:nth-child(3) .field-card-faq__index {
-    color: var(--faq-laos-ivory);
-    opacity: .98;
-    text-shadow: 0 1px 0 rgb(32 60 49 / .06), 0 5px 16px rgb(32 60 49 / .045);
   }
 
   .field-card-faq__question {
     position: relative;
     z-index: 1;
     max-width: 38ch;
-    padding-left: clamp(42px, 5.2vw, 66px);
+    padding-left: clamp(34px, 4.4vw, 54px);
     color: #203c31;
     font-family: var(--field-card-title);
     font-size: clamp(1.14rem, 1.7vw, 1.5rem);
@@ -241,7 +224,7 @@ const headingId = `field-card-faq-${thing.id}`;
     }
 
     .field-card-faq__question {
-      padding-left: 38px;
+      padding-left: 32px;
       font-size: 1.08rem;
     }
 
