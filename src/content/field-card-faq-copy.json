@@ -19,5 +19,12 @@
     {"question": "How long should I spend at Li Phi Falls?", "answer": "Allow around one to two hours for the main paths and viewpoints. If you are cycling from Don Det and combining the falls with the old railway bridge and other Don Khon stops, a half day works better."},
     {"question": "Can you swim at Li Phi Falls?", "answer": "Treat the main rapids as a viewing area, not a swimming spot. The currents are powerful and the rocks can be slippery; follow local signs, barriers and instructions around the water."},
     {"question": "What is the difference between Li Phi and Somphamit?", "answer": "The names are often used interchangeably by travellers. Official Lao tourism information distinguishes Som Pha Mit as this waterfall area and uses Li Phi for the wider dangerous stretch of rapids across Si Phan Don, while also explaining local stories behind both names."}
+  ],
+  "thing-khone-phapheng-falls": [
+    {"question": "Where are Khone Phapheng Falls?", "answer": "Khone Phapheng is on the Mekong in Champasak Province in southern Laos, on the mainland side of Si Phan Don near the Cambodian border. It is separate from Don Det and Don Khon."},
+    {"question": "How do you visit Khone Phapheng from Don Det?", "answer": "The practical route is to take a boat from Don Det back to Ban Nakasang and continue by road to the waterfall visitor area. Tuk-tuks, vans or arranged transfers can make the road leg; agree the return plan and price before leaving."},
+    {"question": "How much does Khone Phapheng cost?", "answer": "Wikivoyage currently lists 30,000 kip, but entrance prices can change and online references are inconsistent. Treat that figure as a rough planning reference and confirm the posted rate at the entrance."},
+    {"question": "Is Khone Phapheng the biggest waterfall in Southeast Asia?", "answer": "Official Lao tourism information describes Khone Phapheng as Southeast Asia's largest waterfall by water volume. The Khone Falls system is also exceptionally wide, spread across multiple Mekong channels rather than forming one single curtain."},
+    {"question": "Can you swim at Khone Phapheng Falls?", "answer": "No part of the main cataract should be treated as a swimming area. The Mekong is extremely powerful here; stay on developed paths and viewpoints and respect all barriers and local safety instructions."}
   ]
 }
