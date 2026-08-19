@@ -21,6 +21,14 @@ const headingId = `field-card-atlas-cta-${thing.id}`;
   </div>
 
   <div class="field-card-atlas-cta__actions">
+    <img
+      class="field-card-atlas-cta__atlas-mark"
+      src="/assets/shared/make-your-own-atlas/Logo%20MY%20ATLAS%20CTA%20FINAL.webp"
+      alt="Make Your Own Atlas"
+      loading="lazy"
+      decoding="async"
+    />
+
     <button
       class="field-card-atlas-cta__primary"
       type="button"
@@ -146,6 +154,14 @@ const headingId = `field-card-atlas-cta-${thing.id}`;
     justify-self: end;
   }
 
+  .field-card-atlas-cta__atlas-mark {
+    display: block;
+    width: min(100%, 310px);
+    height: auto;
+    margin: 0 auto 8px;
+    object-fit: contain;
+  }
+
   .field-card-atlas-cta__primary,
   .field-card-atlas-cta__secondary {
     display: inline-flex;
@@ -259,6 +275,11 @@ const headingId = `field-card-atlas-cta-${thing.id}`;
 
     .field-card-atlas-cta__actions {
       width: 100%;
+    }
+
+    .field-card-atlas-cta__atlas-mark {
+      width: min(88%, 300px);
+      margin-bottom: 6px;
     }
   }
 
