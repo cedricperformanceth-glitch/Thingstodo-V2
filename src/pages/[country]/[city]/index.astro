@@ -9,10 +9,11 @@ import { cityPath } from '../../../core/routing/paths';
 export function getStaticPaths() { return getCities().map((city) => ({ params:{country:city.country,city:city.slug} })); }
 const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
 if (!city) return Astro.redirect('/');
+const hasExploreBoard = city.exploreBoard.featuredThingIds?.length === 3;
 ---
 <BaseLayout seo={city.seo} breadcrumbs={[{name:'Home',path:'/'},{name:city.country.toUpperCase(),path:`/${city.country}`},{name:city.name,path:cityPath(city)}]}>
   <CityHero {city} />
-  <ExploreBoard {city} />
+  {hasExploreBoard && <ExploreBoard {city} />}
   <CitySpa {city} />
   <FinalCta country={city.country} />
   <div class="final-cta-footer-transition" aria-hidden="true"></div>
