@@ -23,6 +23,7 @@ interface Props {
 const { thing, city, country } = Astro.props;
 const view = fieldCardView(thing, city, country);
 const relatedActivities = fieldCardRelatedActivities(city, thing);
+const renderedPhotos = [view.heroImage, view.storyImage, view.secondaryImage].filter(Boolean);
 const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.image] : []);
 ---
 
@@ -40,7 +41,7 @@ const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.ima
     <FieldCardPracticalNotes {thing} content={view.practicalNotes} />
     <FieldCardAtlasCta {thing} />
     <FieldCardRelatedActivities {city} items={relatedActivities} />
-    <FieldCardMethodSources {thing} additionalPhotos={relatedPhotos} />
+    <FieldCardMethodSources {thing} additionalPhotos={[...renderedPhotos, ...relatedPhotos]} />
   </div>
 </article>
 
