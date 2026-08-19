@@ -1,24 +1,16 @@
 {
   "thing-xe-bang-fai-cave": {
     "chapters": [
-      {
-        "label": "TIME",
-        "title": "Day trip or overnight?",
-        "body": "The cave journey itself may take one to two hours, but the remote approach turns it into a full-day or multi-day plan. Keep margin for road conditions, the walk to the river and local coordination. Do not attach a fixed evening arrival elsewhere to the same day."
-      },
-      {
-        "label": "CONDITIONS",
-        "title": "Let the river and season decide",
-        "body": "Confirm river levels and boat access locally. Wear quick-dry clothing and shoes with grip, use the supplied life jacket and carry a strong headlamp. Do not enter the cave or surrounding forest route without a guide."
-      }
+      {"label": "TIME", "title": "Day trip or overnight?", "body": "The cave journey itself may take one to two hours, but the remote approach turns it into a full-day or multi-day plan. Keep margin for road conditions, the walk to the river and local coordination. Do not attach a fixed evening arrival elsewhere to the same day."},
+      {"label": "CONDITIONS", "title": "Let the river and season decide", "body": "Confirm river levels and boat access locally. Wear quick-dry clothing and shoes with grip, use the supplied life jacket and carry a strong headlamp. Do not enter the cave or surrounding forest route without a guide."}
     ],
-    "beforeYouLeave": {
-      "title": "Inside Hin Nam No, beyond the photograph",
-      "body": "Xe Bang Fai sits inside Hin Nam No, now part of a UNESCO World Heritage property, and it deserves to be treated as more than an extraordinary Instagram backdrop. The scale of the cave makes photographs incredible, but even the best pictures flatten what the place actually feels like. On a shared boat, remember that sharing the same journey does not automatically mean other passengers want to appear in your photos. Frame around people when you can, ask when you cannot, and respect the fact that someone else may simply want to experience the cave quietly. Take the pictures because they will become part of the trip, but put the camera down often enough to live the place itself. The photos are part of the journey. The cave is the journey.",
-      "note": {
-        "label": "READ THE CONDITIONS",
-        "text": "Dry-season access is usually easier. Reconfirm the river, boat and current road conditions before leaving Thakhek, and keep enough daylight for the return. If conditions turn bad, do not force the journey."
-      }
-    }
+    "beforeYouLeave": {"title": "Inside Hin Nam No, beyond the photograph", "body": "Xe Bang Fai sits inside Hin Nam No, now part of a UNESCO World Heritage property, and it deserves to be treated as more than an extraordinary Instagram backdrop. The scale of the cave makes photographs incredible, but even the best pictures flatten what the place actually feels like. On a shared boat, remember that sharing the same journey does not automatically mean other passengers want to appear in your photos. Frame around people when you can, ask when you cannot, and respect the fact that someone else may simply want to experience the cave quietly. Take the pictures because they will become part of the trip, but put the camera down often enough to live the place itself. The photos are part of the journey. The cave is the journey.", "note": {"label": "READ THE CONDITIONS", "text": "Dry-season access is usually easier. Reconfirm the river, boat and current road conditions before leaving Thakhek, and keep enough daylight for the return. If conditions turn bad, do not force the journey."}}
+  },
+  "thing-old-french-railway-bridge": {
+    "chapters": [
+      {"label": "KEEP GOING", "title": "Follow the old railway onto Don Khon", "body": "The bridge makes more sense when you continue south onto Don Khon. Parts of the former railway alignment can still be followed on foot or by bicycle, and near Ban Khon a surviving steam locomotive sits on a short piece of track. The remains turn an abstract colonial story into something physical: bridge, trackbed, locomotive and the river obstacle they were designed to bypass."},
+      {"label": "RHYTHM", "title": "Make it part of a bicycle day", "body": "The bridge is best used as the hinge between Don Det and Don Khon rather than as a standalone excursion. Ride or walk across in the cooler part of the day, continue toward the railway remains and Li Phi / Somphamit Falls, then return without rushing. The crossing itself is short; the good experience is letting it open the rest of Don Khon."}
+    ],
+    "beforeYouLeave": {"title": "A piece of infrastructure that became part of island life", "body": "The railway disappeared, but the crossing stayed. That is what makes this place more interesting than a preserved monument behind a fence: people still move between the islands over a structure born from a failed attempt to tame the Mekong as a transport route. Come for the view, but keep the history in the frame. The bridge is both a beautiful crossing and evidence of how much effort was once spent trying to get around the power of the river.", "note": {"label": "ATLAS NOTE", "text": "Pair the bridge with the surviving railway alignment and locomotive on Don Khon. Together they tell the story far better than the bridge alone."}}
   }
 }
