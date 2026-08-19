@@ -30,5 +30,13 @@
     {"sourceName":"Don Det Laos · Activities / kayaking","sourceUrl":"https://don-det-laos.com/activities","purpose":"tour-format-equipment-and-safety","reviewedAt":"2026-08-20"},
     {"sourceName":"Southeast Asia Backpacker · Kayaking the 4000 Islands","sourceUrl":"https://southeastasiabackpacker.com/bookings/kayak-4000-islands-laos/","purpose":"current-price-and-schedule-cross-check","reviewedAt":"2026-08-20"},
     {"sourceName":"Miss Travel The World · Kayaking the 4000 Islands","sourceUrl":"https://misstraveltheworld.com/4000-islands-by-kayak/","purpose":"recent-experience-cross-check","reviewedAt":"2026-08-20"}
+  ],
+  "thing-cycle-don-det-don-khon": [
+    {"sourceName":"DonDet.net · Cycling and kayaking","sourceUrl":"https://www.dondet.net/cycling.html","purpose":"current-local-bike-rental-route-distances-and-night-riding","reviewedAt":"2026-08-20"},
+    {"sourceName":"Travelfish · Don Det getting around","sourceUrl":"https://www.travelfish.org/transport/laos/southern_laos/champasak/don_dhet/all","purpose":"bike-condition-and-road-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"route-and-bicycle-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"current-bridge-and-bike-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Pexels · Cyclist Riding on a Road Among Palm Trees","sourceUrl":"https://www.pexels.com/photo/cyclist-riding-on-a-road-among-palm-trees-22803811/","purpose":"hero-media","reviewedAt":"2026-08-20"},
+    {"sourceName":"Pexels · Woman Biking On A Narrow Road","sourceUrl":"https://www.pexels.com/photo/woman-biking-on-a-narrow-road-6127063/","purpose":"story-media","reviewedAt":"2026-08-20"}
   ]
 }
