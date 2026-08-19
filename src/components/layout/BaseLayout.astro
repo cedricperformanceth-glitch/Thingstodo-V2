@@ -5,8 +5,14 @@ import { pageSeo } from '../../core/seo/metadata';
 import Navbar from './Navbar.astro';
 import SiteFooter from './SiteFooter.astro';
 import MakeYourOwnAtlas from '../shared/MakeYourOwnAtlas.astro';
-interface Props { seo: SeoMetadata; breadcrumbs?: Array<{name:string;path:string}>; }
-const { seo, breadcrumbs = [] } = Astro.props;
+
+interface Props {
+  seo: SeoMetadata;
+  breadcrumbs?: Array<{ name: string; path: string }>;
+  structuredData?: Record<string, unknown>[];
+}
+
+const { seo, breadcrumbs = [], structuredData = [] } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
 ---
 <!doctype html>
@@ -22,6 +28,9 @@ const meta = pageSeo(seo, breadcrumbs);
     {meta.image && <meta property="og:image" content={meta.image} />}
     {!meta.indexable && <meta name="robots" content="noindex,nofollow" />}
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.breadcrumbs)} />
+    {structuredData.map((item) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
   </head>
   <body>
     <Navbar />
