@@ -14,13 +14,15 @@ export interface HeroFact { label: string; value: string; }
 export interface FieldCardHeroContent { eyebrow: string; aliases: string[]; description: string; steps: string[]; rhythmNote: string; photoNote: string; }
 export interface FieldCardQuickReadItem { primary: string; secondary: string; }
 export interface FieldCardQuickReadContent { time: FieldCardQuickReadItem; route: FieldCardQuickReadItem; budget: FieldCardQuickReadItem; bestFor: FieldCardQuickReadItem; }
+export interface FieldCardPracticalItem { label: string; value: string; detail?: string; }
+export interface FieldCardPracticalContent { items: FieldCardPracticalItem[]; }
 export interface FieldCardSection { title: string; body: string; }
 export interface FieldCardStoryNote { label: string; text: string; }
 export interface FieldCardPrimaryStoryContent { chapters: FieldCardSection[]; note: FieldCardStoryNote; }
 export interface FieldCardSecondaryStoryChapter { label: string; title: string; body: string; }
 export interface FieldCardBeforeYouLeaveContent { title: string; body: string; note: FieldCardStoryNote; }
 export interface FieldCardSecondaryStoryContent { chapters: FieldCardSecondaryStoryChapter[]; beforeYouLeave: FieldCardBeforeYouLeaveContent; }
-export interface FieldCardContent { template: 'compact' | 'deep'; hero?: FieldCardHeroContent; quickRead?: FieldCardQuickReadContent; primaryStory?: FieldCardPrimaryStoryContent; secondaryStory?: FieldCardSecondaryStoryContent; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
+export interface FieldCardContent { template: 'compact' | 'deep'; hero?: FieldCardHeroContent; quickRead?: FieldCardQuickReadContent; practicalNotes?: FieldCardPracticalContent; primaryStory?: FieldCardPrimaryStoryContent; secondaryStory?: FieldCardSecondaryStoryContent; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
 // Exact SPA tag cardinality is enforced by the generation and publication contracts.
 // Generated JSON is inferred as string[], so the model keeps the serializable shape here.
 export interface SpaCardContent { handwrittenTags: string[]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; }

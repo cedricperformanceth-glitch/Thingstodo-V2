@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "principle": "The Practical Notes block is a universal Field Card summary. Atlas editorial work chooses only the practical facts that materially help someone plan this specific activity. The presentation never requires fixed topics such as price, duration, difficulty or season.",
+  "presentation": {
+    "alwaysPresent": true,
+    "fixedEyebrow": "PLAN YOUR VISIT",
+    "titlePattern": "{activity}, at a glance",
+    "intro": "The practical details worth keeping close before you go.",
+    "layout": "one editorial field sheet with two note columns on desktop and one column on mobile",
+    "numbering": "01–06 from item order",
+    "cards": false,
+    "emptySlots": false
+  },
+  "editorial": {
+    "items": {
+      "required": true,
+      "minCount": 4,
+      "maxCount": 6,
+      "selectionRule": "Choose the four to six most useful applicable planning facts from verified material. Possible subjects include access, timing, seasonality, booking, fees, equipment, clothing, difficulty, facilities, restrictions, safety, accessibility or etiquette, but these are examples rather than slots.",
+      "antiPatterns": [
+        "Do not fill a topic merely because it exists in a generic checklist.",
+        "Do not add a price or cost item for a free activity just to fill the layout.",
+        "Do not invent an amount when a paid activity has no reliable current price; research the current fee when cost materially affects planning.",
+        "Do not repeat the same fact under different labels.",
+        "Do not add empty, unknown or non-applicable items. Omission is correct when a topic does not apply."
+      ]
+    },
+    "item": {
+      "label": {
+        "required": true,
+        "hardMaxWords": 5,
+        "selectionRule": "Use a short visitor-facing label that names the practical subject."
+      },
+      "value": {
+        "required": true,
+        "hardMaxWords": 22,
+        "selectionRule": "Lead with the useful answer or planning takeaway, not a generic heading restatement."
+      },
+      "detail": {
+        "required": false,
+        "hardMaxWords": 42,
+        "selectionRule": "Use only when one short clarification materially improves the value."
+      }
+    },
+    "contentOnlyShape": {
+      "topLevelKeys": ["items"],
+      "itemKeys": ["label", "value", "detail"],
+      "presentationKeysForbidden": true
+    }
+  },
+  "generation": {
+    "key": "fieldCardPractical",
+    "shape": {
+      "items": "four to six { label, value, optional detail } objects"
+    },
+    "sourceRule": "Use researched and activity-specific material. Applicability comes before checklist completeness.",
+    "paidVsFreeRule": "If the activity is free, omit a cost item unless there is another unavoidable paid component worth explaining. If the activity is paid and cost matters to planning, research and state the current fee or pricing structure when reliably available."
+  },
+  "compatibility": {
+    "legacyFields": ["spaCard.gettingThere", "spaCard.bestTime", "spaCard.duration", "spaCard.costType", "fieldCard.practical", "fieldCard.access", "fieldCard.notes"],
+    "rule": "Legacy activities may receive a deterministic compatibility summary. Compatibility data may contain fewer than four notes; runtime must never invent filler to satisfy the generated-content contract."
+  },
+  "typography": {
+    "heading": "Newsreader 600",
+    "label": "Manrope 400",
+    "value": "Newsreader 600",
+    "detail": "Newsreader 400",
+    "number": "Caveat 600"
+  }
+}

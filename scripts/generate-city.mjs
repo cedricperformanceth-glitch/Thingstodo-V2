@@ -13,6 +13,7 @@ import { assertValidFieldCardHero } from './lib/field-card-hero.mjs';
 import { assertValidFieldCardQuickRead } from './lib/field-card-quick-read.mjs';
 import { assertValidFieldCardPrimaryStory } from './lib/field-card-primary-story.mjs';
 import { assertValidFieldCardSecondaryStory } from './lib/field-card-secondary-story.mjs';
+import { assertValidFieldCardPractical } from './lib/field-card-practical.mjs';
 
 const [country, city, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
@@ -250,6 +251,9 @@ function normalizeThing(candidate, baseDraft) {
   const secondaryStory = candidate.fieldCardSecondaryStory
     ? structuredClone(assertValidFieldCardSecondaryStory(candidate.fieldCardSecondaryStory, candidate.name))
     : undefined;
+  const practicalNotes = candidate.fieldCardPractical
+    ? structuredClone(assertValidFieldCardPractical(candidate.fieldCardPractical, candidate.name))
+    : undefined;
   if (secondaryStory && !primaryStory) {
     throw new Error(`${candidate.name} fieldCardSecondaryStory requires fieldCardPrimaryStory so chapter ownership remains unambiguous.`);
   }
@@ -266,6 +270,7 @@ function normalizeThing(candidate, baseDraft) {
       quickRead,
       primaryStory,
       secondaryStory,
+      practicalNotes,
       whyGo: candidate.whyGo ?? '',
       practical: candidate.practical ?? '',
       access: candidate.access ?? '',

@@ -1,0 +1,223 @@
+---
+import type { FieldCardPracticalContent, ThingToDo } from '../../core/models/types';
+
+interface Props {
+  thing: ThingToDo;
+  content: FieldCardPracticalContent;
+}
+
+const { thing, content } = Astro.props;
+const items = content.items.filter((item) => item.label.trim() && item.value.trim()).slice(0, 6);
+const headingId = `field-card-practical-${thing.id}`;
+---
+
+{items.length > 0 && (
+  <section class="field-card-practical" aria-labelledby={headingId}>
+    <header class="field-card-practical__heading">
+      <div>
+        <p class="field-card-practical__eyebrow">PLAN YOUR VISIT</p>
+        <h2 id={headingId}>{thing.name}, at a glance</h2>
+      </div>
+      <p class="field-card-practical__intro">The practical details worth keeping close before you go.</p>
+    </header>
+
+    <ol class="field-card-practical__notes" aria-label={`${thing.name} practical field notes`}>
+      {items.map((item, index) => (
+        <li class="field-card-practical__note">
+          <span class="field-card-practical__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <div class="field-card-practical__content">
+            <h3>{item.label}</h3>
+            <p class="field-card-practical__value">{item.value}</p>
+            {item.detail && <p class="field-card-practical__detail">{item.detail}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
+
+<style>
+  .field-card-practical {
+    width: min(1000px, calc(100% - 56px));
+    margin: clamp(64px, 8vw, 96px) auto 0;
+    padding: clamp(48px, 6vw, 72px) clamp(30px, 4vw, 52px) clamp(46px, 5.5vw, 66px);
+    border-top: 1px solid rgb(49 85 69 / .18);
+    border-bottom: 1px solid rgb(49 85 69 / .18);
+    background: var(--field-card-sheet);
+    color: #203c31;
+  }
+
+  .field-card-practical__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(240px, .75fr);
+    gap: clamp(28px, 6vw, 72px);
+    align-items: end;
+    margin-bottom: clamp(30px, 4vw, 42px);
+  }
+
+  .field-card-practical__eyebrow {
+    margin: 0 0 12px;
+    color: #b76645;
+    font-family: var(--field-card-practical);
+    font-size: .54rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
+  .field-card-practical__heading h2 {
+    max-width: 14ch;
+    margin: 0;
+    color: #203c31;
+    font-family: var(--field-card-title);
+    font-size: clamp(2.2rem, 4vw, 3.9rem);
+    font-weight: 600;
+    line-height: .98;
+    letter-spacing: -.035em;
+  }
+
+  .field-card-practical__intro {
+    max-width: 24rem;
+    margin: 0 0 5px auto;
+    color: #5d665f;
+    font-family: var(--field-card-editorial);
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.62;
+  }
+
+  .field-card-practical__notes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgb(49 85 69 / .18);
+    list-style: none;
+  }
+
+  .field-card-practical__note {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    min-width: 0;
+    padding: 28px 32px 30px 0;
+    border-bottom: 1px solid rgb(49 85 69 / .16);
+  }
+
+  .field-card-practical__note:nth-child(even) {
+    padding-right: 0;
+    padding-left: 32px;
+  }
+
+  .field-card-practical__note:nth-child(odd) {
+    border-right: 1px dashed rgb(49 85 69 / .18);
+  }
+
+  .field-card-practical__note:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    grid-template-columns: 38px minmax(0, 42rem);
+    border-right: 0;
+  }
+
+  .field-card-practical__number {
+    padding-top: 2px;
+    color: #b76645;
+    font-family: var(--field-card-handwritten);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1;
+    opacity: .78;
+    transform: rotate(-5deg);
+  }
+
+  .field-card-practical__content {
+    min-width: 0;
+  }
+
+  .field-card-practical__content h3 {
+    margin: 0 0 9px;
+    color: #315545;
+    font-family: var(--field-card-practical);
+    font-size: .57rem;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  .field-card-practical__value {
+    margin: 0;
+    color: #203c31;
+    font-family: var(--field-card-title);
+    font-size: clamp(1.18rem, 1.8vw, 1.48rem);
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: -.015em;
+  }
+
+  .field-card-practical__detail {
+    max-width: 34rem;
+    margin: 9px 0 0;
+    color: #59625d;
+    font-family: var(--field-card-editorial);
+    font-size: .82rem;
+    font-weight: 400;
+    line-height: 1.62;
+  }
+
+  @media (max-width: 820px) {
+    .field-card-practical {
+      width: min(100% - 32px, 680px);
+    }
+
+    .field-card-practical__heading {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .field-card-practical__intro {
+      max-width: 32rem;
+      margin-left: 0;
+    }
+
+    .field-card-practical__notes {
+      grid-template-columns: 1fr;
+    }
+
+    .field-card-practical__note,
+    .field-card-practical__note:nth-child(even),
+    .field-card-practical__note:last-child:nth-child(odd) {
+      grid-column: auto;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      padding: 24px 0 26px;
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .field-card-practical {
+      width: calc(100% - 16px);
+      margin-top: 56px;
+      padding: 40px 20px 44px;
+    }
+
+    .field-card-practical__heading {
+      margin-bottom: 26px;
+    }
+
+    .field-card-practical__heading h2 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .field-card-practical__value {
+      font-size: 1.18rem;
+    }
+
+    .field-card-practical__detail {
+      font-size: .79rem;
+      line-height: 1.58;
+    }
+  }
+</style>

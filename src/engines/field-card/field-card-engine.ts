@@ -1,11 +1,13 @@
-import type { City, Country, FieldCardHeroContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, ThingToDo } from '../../core/models/types';
+import type { City, Country, FieldCardHeroContent, FieldCardPracticalContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, ThingToDo } from '../../core/models/types';
 import { editorialAdSlots } from '../../core/ads/slots';
 import heroEditorial from '../../content/field-card-hero-copy.json';
+import practicalEditorial from '../../content/field-card-practical-copy.json';
 import primaryStoryEditorial from '../../content/field-card-primary-story-copy.json';
 import quickReadEditorial from '../../content/field-card-quick-read-copy.json';
 import secondaryStoryEditorial from '../../content/field-card-secondary-story-copy.json';
 
 const editorialHeroes = heroEditorial as Record<string, FieldCardHeroContent>;
+const editorialPracticalNotes = practicalEditorial as Record<string, FieldCardPracticalContent>;
 const editorialPrimaryStories = primaryStoryEditorial as Record<string, FieldCardPrimaryStoryContent>;
 const editorialQuickReads = quickReadEditorial as Record<string, FieldCardQuickReadContent>;
 const editorialSecondaryStories = secondaryStoryEditorial as Record<string, FieldCardSecondaryStoryContent>;
@@ -81,6 +83,41 @@ const fallbackSecondaryStory = (thing: ThingToDo, legacySections: FieldCardSecti
   };
 };
 
+const practicalSummary = (value?: string) => {
+  const text = String(value ?? '').trim();
+  if (!text) return '';
+  const sentence = text.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim();
+  return sentence || text;
+};
+
+const fallbackPracticalNotes = (thing: ThingToDo): FieldCardPracticalContent => {
+  const items: FieldCardPracticalContent['items'] = [];
+  const seen = new Set<string>();
+  const add = (label: string, value?: string, detail?: string) => {
+    const cleanValue = String(value ?? '').trim();
+    const key = label.trim().toLowerCase();
+    if (!cleanValue || seen.has(key) || items.length >= 6) return;
+    seen.add(key);
+    items.push({ label, value: cleanValue, ...(detail?.trim() ? { detail: detail.trim() } : {}) });
+  };
+
+  add('Getting there', practicalSummary(thing.spaCard?.gettingThere || thing.fieldCard.access));
+  add('Best time', thing.spaCard?.bestTime);
+  add('Time needed', thing.spaCard?.duration);
+  add('Plan ahead', practicalSummary(thing.fieldCard.practical));
+
+  if (thing.spaCard?.costType === 'paid') {
+    add('Cost', 'Paid activity', 'Confirm the current fee or pricing structure before you go.');
+  }
+
+  add('Keep in mind', practicalSummary(thing.fieldCard.notes));
+  if (items.length < 4 && thing.fieldCard.access && thing.fieldCard.access !== thing.spaCard?.gettingThere) {
+    add('Access details', practicalSummary(thing.fieldCard.access));
+  }
+
+  return { items };
+};
+
 const routeParts = (thing: ThingToDo) => String(thing.spaCard?.gettingThere ?? '').split('·').map((part) => part.trim()).filter(Boolean);
 
 const fallbackQuickRead = (thing: ThingToDo, city: City, country: Country): FieldCardQuickReadContent => {
@@ -119,6 +156,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
     ?? generatedSecondaryStory
     ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
   const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 2);
+  const practicalNotes = editorialPracticalNotes[thing.id] ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
   const gallery = thing.media.fieldCard?.gallery ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
@@ -130,6 +168,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
     quickRead,
     primaryStory,
     secondaryStory,
+    practicalNotes,
     heroImage,
     storyImage,
     secondaryImage,

@@ -7,6 +7,7 @@ import FieldCardQuickRead from './FieldCardQuickRead.astro';
 import FieldCardStoryBlock from './FieldCardStoryBlock.astro';
 import FieldCardSecondaryStory from './FieldCardSecondaryStory.astro';
 import FieldCardBeforeYouLeave from './FieldCardBeforeYouLeave.astro';
+import FieldCardPracticalNotes from './FieldCardPracticalNotes.astro';
 
 interface Props {
   thing: ThingToDo;
@@ -29,9 +30,7 @@ const hasFaq = thing.fieldCard.faq.length > 0;
 
   <div class="field-card__body">
     {view.remainingSections.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
-    {thing.fieldCard.practical && <section><h2>Practical information</h2><p>{thing.fieldCard.practical}</p></section>}
-    {thing.fieldCard.access && <section><h2>How to get there</h2><p>{thing.fieldCard.access}</p></section>}
-    {thing.fieldCard.notes && <section><h2>Useful notes</h2><p>{thing.fieldCard.notes}</p></section>}
+    <FieldCardPracticalNotes {thing} content={view.practicalNotes} />
     {hasFaq && <section><h2>FAQ</h2>{thing.fieldCard.faq.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section>}
   </div>
 </article>
