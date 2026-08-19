@@ -1,8 +1,11 @@
 import { getThings } from '../category/category-engine';
-import type { City, ThingToDo } from '../../core/models/types';
+import type { City, MediaRecord, ThingToDo } from '../../core/models/types';
+import fieldCardMediaEditorial from '../../content/field-card-media-copy.json';
 import { getExploreBoardCopy } from './explore-board-copy';
 
 export const EXPLORE_BOARD_LANDMARK_COUNT = 3;
+
+const editorialMedia = fieldCardMediaEditorial as Record<string, MediaRecord[]>;
 
 export interface ExploreBoardEntry {
   thing: ThingToDo;
@@ -10,6 +13,19 @@ export interface ExploreBoardEntry {
   duration: string;
   route: string;
 }
+
+const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
+  const heroImage = editorialMedia[thing.id]?.[0];
+  if (!heroImage) return thing;
+
+  return {
+    ...thing,
+    media: {
+      ...thing.media,
+      card: { image: heroImage },
+    },
+  };
+};
 
 export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intro: string; note: string } {
   const ids = city.exploreBoard.featuredThingIds ?? [];
@@ -22,15 +38,17 @@ export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intr
 
   const allThings = getThings(city);
   const things = ids.map((id) => {
-    const thing = allThings.find((candidate) => candidate.id === id);
-    if (!thing) throw new Error(`Explore Board references missing ThingToDo '${id}': ${city.country}/${city.slug}`);
-    if (!thing.isLandmark) throw new Error(`Explore Board entry must be a landmark ThingToDo '${id}': ${city.country}/${city.slug}`);
-    if (!thing.exploreBoard) throw new Error(`Explore Board metadata is missing for '${id}': ${city.country}/${city.slug}`);
+    const sourceThing = allThings.find((candidate) => candidate.id === id);
+    if (!sourceThing) throw new Error(`Explore Board references missing ThingToDo '${id}': ${city.country}/${city.slug}`);
+    if (!sourceThing.isLandmark) throw new Error(`Explore Board entry must be a landmark ThingToDo '${id}': ${city.country}/${city.slug}`);
+    if (!sourceThing.exploreBoard) throw new Error(`Explore Board metadata is missing for '${id}': ${city.country}/${city.slug}`);
+
+    const thing = withEditorialHeroAsCardImage(sourceThing);
     return {
       thing,
-      kicker: thing.exploreBoard.kicker,
-      duration: thing.exploreBoard.duration,
-      route: thing.exploreBoard.route,
+      kicker: sourceThing.exploreBoard.kicker,
+      duration: sourceThing.exploreBoard.duration,
+      route: sourceThing.exploreBoard.route,
     };
   });
 
