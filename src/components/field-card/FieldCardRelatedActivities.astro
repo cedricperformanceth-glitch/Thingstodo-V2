@@ -1,0 +1,441 @@
+---
+import type { City } from '../../core/models/types';
+import type { FieldCardRelatedActivity } from '../../engines/field-card/related-activities-engine';
+
+interface Props {
+  city: City;
+  items: FieldCardRelatedActivity[];
+}
+
+const { city, items } = Astro.props;
+const headingId = `field-card-related-${city.id}`;
+---
+
+{items.length >= 4 && (
+  <section class="field-card-related" aria-labelledby={headingId} data-related-carousel>
+    <header class="field-card-related__heading">
+      <div>
+        <p class="field-card-related__eyebrow">MORE FROM {city.name.toUpperCase()}</p>
+        <h2 id={headingId}>Keep exploring {city.name}.</h2>
+      </div>
+
+      <div class="field-card-related__controls" aria-label="Related activities carousel controls">
+        <button type="button" data-related-prev aria-label="Show previous two activities">←</button>
+        <button type="button" data-related-next aria-label="Show next two activities">→</button>
+      </div>
+    </header>
+
+    <div class="field-card-related__viewport" data-related-viewport>
+      <div class="field-card-related__track" data-related-track>
+        {items.map((item, index) => (
+          <a class="field-card-related__card" href={item.path} data-related-card>
+            <span class="field-card-related__media">
+              {item.image ? (
+                <img
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  width="720"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <span class="field-card-related__placeholder" aria-hidden="true">
+                  <b>{String(index + 1).padStart(2, '0')}</b>
+                  <small>FIELD NOTE</small>
+                </span>
+              )}
+            </span>
+
+            <span class="field-card-related__copy">
+              <small>{item.eyebrow}</small>
+              <strong>{item.name}</strong>
+              <span class="field-card-related__description">{item.description}</span>
+              <span class="field-card-related__meta">
+                {item.duration && <span>{item.duration}</span>}
+                <b aria-hidden="true">↗</b>
+              </span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .field-card-related {
+    --related-gap: clamp(12px, 1.5vw, 18px);
+    justify-self: center;
+    width: min(1180px, calc(100vw - 56px));
+    margin: clamp(96px, 11vw, 150px) 0 clamp(58px, 7vw, 92px);
+    color: #203c31;
+  }
+
+  .field-card-related__heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: clamp(28px, 3.5vw, 42px);
+  }
+
+  .field-card-related__eyebrow {
+    margin: 0 0 10px;
+    color: #9d3040;
+    font-family: var(--field-card-practical);
+    font-size: .53rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
+  .field-card-related__heading h2 {
+    margin: 0;
+    color: #203c31;
+    font-family: var(--field-card-title);
+    font-size: clamp(2.05rem, 3.6vw, 3.45rem);
+    font-weight: 600;
+    line-height: .98;
+    letter-spacing: -.034em;
+  }
+
+  .field-card-related__controls {
+    display: flex;
+    gap: 8px;
+    flex: 0 0 auto;
+  }
+
+  .field-card-related__controls button {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgb(49 85 69 / .24);
+    border-radius: 50%;
+    background: transparent;
+    color: #315545;
+    font-family: var(--field-card-editorial);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 160ms ease, color 160ms ease, transform 160ms ease, opacity 160ms ease;
+  }
+
+  .field-card-related__controls button:hover:not(:disabled),
+  .field-card-related__controls button:focus-visible:not(:disabled) {
+    border-color: #9d3040;
+    color: #9d3040;
+    transform: translateY(-1px);
+  }
+
+  .field-card-related__controls button:focus-visible {
+    outline: 2px solid rgb(157 48 64 / .4);
+    outline-offset: 3px;
+  }
+
+  .field-card-related__controls button:disabled {
+    opacity: .26;
+    cursor: default;
+  }
+
+  .field-card-related__viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+  }
+
+  .field-card-related__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .field-card-related__track {
+    display: flex;
+    gap: var(--related-gap);
+    width: max-content;
+  }
+
+  .field-card-related__card {
+    flex: 0 0 calc((min(1180px, calc(100vw - 56px)) - (3 * var(--related-gap))) / 4);
+    width: calc((min(1180px, calc(100vw - 56px)) - (3 * var(--related-gap))) / 4);
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+    scroll-snap-align: start;
+  }
+
+  .field-card-related__media {
+    position: relative;
+    display: block;
+    height: clamp(158px, 15vw, 205px);
+    overflow: hidden;
+    border: 1px solid rgb(49 85 69 / .12);
+    background: #e8e1d2;
+    box-shadow: 0 10px 24px rgb(32 60 49 / .09);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .field-card-related__card:nth-child(4n + 2) .field-card-related__media {
+    transform: rotate(.45deg);
+  }
+
+  .field-card-related__card:nth-child(4n + 3) .field-card-related__media {
+    transform: rotate(-.4deg);
+  }
+
+  .field-card-related__card:hover .field-card-related__media,
+  .field-card-related__card:focus-visible .field-card-related__media {
+    transform: translateY(-4px) rotate(0deg);
+    box-shadow: 0 15px 30px rgb(32 60 49 / .13);
+  }
+
+  .field-card-related__card:focus-visible {
+    outline: none;
+  }
+
+  .field-card-related__card:focus-visible .field-card-related__copy {
+    outline: 2px solid rgb(157 48 64 / .36);
+    outline-offset: 4px;
+  }
+
+  .field-card-related__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.84) contrast(.96);
+    transition: transform 260ms ease;
+  }
+
+  .field-card-related__card:hover .field-card-related__media img {
+    transform: scale(1.025);
+  }
+
+  .field-card-related__placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: end;
+    gap: 4px;
+    padding: 18px;
+    background:
+      linear-gradient(145deg, rgb(33 63 104 / .14), transparent 58%),
+      linear-gradient(325deg, rgb(157 48 64 / .11), transparent 52%),
+      repeating-linear-gradient(0deg, transparent 0 28px, rgb(49 85 69 / .035) 28px 29px),
+      #ece4d5;
+  }
+
+  .field-card-related__placeholder b {
+    color: rgb(49 85 69 / .24);
+    font-family: var(--field-card-editorial);
+    font-size: clamp(2.7rem, 4vw, 4rem);
+    font-weight: 400;
+    line-height: .8;
+    letter-spacing: -.06em;
+  }
+
+  .field-card-related__placeholder small {
+    color: rgb(49 85 69 / .52);
+    font-family: var(--field-card-practical);
+    font-size: .48rem;
+    letter-spacing: .14em;
+  }
+
+  .field-card-related__copy {
+    display: flex;
+    min-height: 178px;
+    flex-direction: column;
+    padding: 16px 3px 0;
+  }
+
+  .field-card-related__copy > small {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 7px;
+    color: #9d3040;
+    font-family: var(--field-card-practical);
+    font-size: .48rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: .11em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .field-card-related__copy > strong {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #203c31;
+    font-family: var(--field-card-title);
+    font-size: clamp(1.08rem, 1.6vw, 1.36rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -.018em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .field-card-related__description {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 9px;
+    color: rgb(49 69 58 / .66);
+    font-family: var(--field-card-editorial);
+    font-size: .76rem;
+    font-weight: 400;
+    line-height: 1.48;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .field-card-related__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 13px;
+    border-top: 1px solid rgb(49 85 69 / .12);
+    color: rgb(49 85 69 / .58);
+    font-family: var(--field-card-practical);
+    font-size: .52rem;
+    line-height: 1.2;
+  }
+
+  .field-card-related__meta > b {
+    color: #9d3040;
+    font-family: var(--field-card-editorial);
+    font-size: .9rem;
+    font-weight: 400;
+  }
+
+  @media (max-width: 760px) {
+    .field-card-related {
+      --related-gap: 12px;
+      width: calc(100vw - 24px);
+      margin-top: 82px;
+    }
+
+    .field-card-related__heading {
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .field-card-related__heading h2 {
+      font-size: clamp(1.9rem, 8vw, 2.6rem);
+    }
+
+    .field-card-related__controls button {
+      width: 38px;
+      height: 38px;
+    }
+
+    .field-card-related__card {
+      flex-basis: calc((calc(100vw - 24px) - var(--related-gap)) / 2);
+      width: calc((calc(100vw - 24px) - var(--related-gap)) / 2);
+    }
+
+    .field-card-related__media {
+      height: clamp(128px, 38vw, 170px);
+    }
+
+    .field-card-related__copy {
+      min-height: 166px;
+      padding-top: 13px;
+    }
+
+    .field-card-related__description {
+      font-size: .72rem;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .field-card-related__heading {
+      align-items: end;
+    }
+
+    .field-card-related__eyebrow {
+      font-size: .47rem;
+    }
+
+    .field-card-related__heading h2 {
+      font-size: 1.85rem;
+    }
+
+    .field-card-related__controls {
+      gap: 6px;
+    }
+
+    .field-card-related__controls button {
+      width: 34px;
+      height: 34px;
+    }
+
+    .field-card-related__copy > strong {
+      font-size: 1rem;
+    }
+
+    .field-card-related__description {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .field-card-related__viewport {
+      scroll-behavior: auto;
+    }
+
+    .field-card-related__media,
+    .field-card-related__media img,
+    .field-card-related__controls button {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const setupRelatedCarousels = () => {
+    document.querySelectorAll<HTMLElement>('[data-related-carousel]').forEach((carousel) => {
+      if (carousel.dataset.relatedReady === 'true') return;
+      carousel.dataset.relatedReady = 'true';
+
+      const viewport = carousel.querySelector<HTMLElement>('[data-related-viewport]');
+      const track = carousel.querySelector<HTMLElement>('[data-related-track]');
+      const previous = carousel.querySelector<HTMLButtonElement>('[data-related-prev]');
+      const next = carousel.querySelector<HTMLButtonElement>('[data-related-next]');
+      if (!viewport || !track || !previous || !next) return;
+
+      const cards = [...track.querySelectorAll<HTMLElement>('[data-related-card]')];
+      if (!cards.length) return;
+
+      const step = () => {
+        const first = cards[0];
+        const styles = getComputedStyle(track);
+        const gap = Number.parseFloat(styles.columnGap || styles.gap || '0') || 0;
+        return (first.getBoundingClientRect().width + gap) * 2;
+      };
+
+      const sync = () => {
+        const max = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+        previous.disabled = viewport.scrollLeft <= 2;
+        next.disabled = viewport.scrollLeft >= max - 2;
+      };
+
+      previous.addEventListener('click', () => viewport.scrollBy({ left: -step(), behavior: 'smooth' }));
+      next.addEventListener('click', () => viewport.scrollBy({ left: step(), behavior: 'smooth' }));
+      viewport.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    });
+  };
+
+  setupRelatedCarousels();
+  document.addEventListener('astro:page-load', setupRelatedCarousels);
+</script>
