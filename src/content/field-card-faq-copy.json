@@ -26,5 +26,12 @@
     {"question": "How much does Khone Phapheng cost?", "answer": "Wikivoyage currently lists 30,000 kip, but entrance prices can change and online references are inconsistent. Treat that figure as a rough planning reference and confirm the posted rate at the entrance."},
     {"question": "Is Khone Phapheng the biggest waterfall in Southeast Asia?", "answer": "Official Lao tourism information describes Khone Phapheng as Southeast Asia's largest waterfall by water volume. The Khone Falls system is also exceptionally wide, spread across multiple Mekong channels rather than forming one single curtain."},
     {"question": "Can you swim at Khone Phapheng Falls?", "answer": "No part of the main cataract should be treated as a swimming area. The Mekong is extremely powerful here; stay on developed paths and viewpoints and respect all barriers and local safety instructions."}
+  ],
+  "thing-don-som-island": [
+    {"question": "What is Don Som?", "answer": "Don Som is an inhabited island in Si Phan Don, north of Don Det. It is much less tourism-oriented than Don Det or Don Khon and is best visited for village life, farming, fishing and the quieter Mekong landscape."},
+    {"question": "How do you get to Don Som from Don Det?", "answer": "Ask at the Don Det pier for a local boat to Don Som. Direct transfers are commonly arranged, but schedules and fares are informal, so confirm the price and your return or pickup time before leaving."},
+    {"question": "How long should you spend on Don Som?", "answer": "Allow at least half a day. That gives enough time for the crossing and a slow walk or ride through part of the island. A full day is better if you want to explore farther or spend time eating and observing village life without rushing."},
+    {"question": "Is there much tourist infrastructure on Don Som?", "answer": "No. There are small local shops, simple food options and a small number of places to stay, but no market and far fewer visitor services than on Don Det or Don Khon."},
+    {"question": "What should visitors be careful about on Don Som?", "answer": "The main issue is not difficulty but respect and logistics. Arrange your return boat, carry water and cash, stay on obvious public routes, dress appropriately around villages and temples, and ask before taking close photographs of residents."}
   ]
 }
