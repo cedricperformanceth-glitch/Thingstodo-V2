@@ -5,73 +5,34 @@
   "profile": "compact",
   "generatedAt": null,
   "researchPlan": {
-    "categoryTargetPolicies": {
-      "things-to-do": {
-        "min": 5,
-        "max": 25,
-        "selectionMode": "editorial"
-      }
-    },
-    "subcategoryTargets": {
-      "restaurants": {
-        "bar": 4
-      }
-    },
-    "searchPriorities": {
-      "practical-services": [
-        "hospital",
-        "tourism-office",
-        "immigration-office"
-      ]
-    }
+    "categoryTargetPolicies": { "things-to-do": { "min": 5, "max": 25, "selectionMode": "editorial" } },
+    "subcategoryTargets": { "restaurants": { "bar": 0 } },
+    "searchPriorities": { "practical-services": ["tourism-office", "health", "transport", "money"] }
   },
   "cityData": {
-    "id": "city-tad-lo",
-    "slug": "tad-lo",
-    "name": "Tad Lo",
-    "country": "laos",
-    "profile": "compact",
-    "settlementType": "village",
-    "coordinates": {
-      "latitude": 15.53441,
-      "longitude": 106.27473
-    },
-    "description": "",
-    "categories": [
-      "things-to-do",
-      "restaurants",
-      "cafes",
-      "accommodation",
-      "practical-services"
-    ],
-    "categoryTargets": {
-      "things-to-do": 12,
-      "restaurants": 13,
-      "cafes": 12,
-      "accommodation": 15
-    },
+    "id": "city-tad-lo", "slug": "tad-lo", "name": "Tad Lo", "country": "laos", "profile": "compact", "settlementType": "village",
+    "coordinates": { "latitude": 15.53441, "longitude": 106.27473 },
+    "description": "A waterfall village in Salavan Province and a slow-travel base for the Bolaven Plateau, with village walks, coffee, Katu culture and guided nature experiences.",
+    "categories": ["things-to-do", "restaurants", "cafes", "accommodation", "practical-services"],
+    "categoryTargets": { "things-to-do": 18, "restaurants": 12, "cafes": 8, "accommodation": 8 },
     "hero": {
-      "eyebrow": "laos",
-      "title": "Tad Lo",
-      "subtitle": "",
-      "facts": []
+      "eyebrow": "Salavan · Southern Laos", "title": "Tad Lo travel guide",
+      "subtitle": "Waterfalls, village life, coffee country and a slower way into the Bolaven Plateau.",
+      "facts": [
+        { "label": "Updated", "value": "August 2026" },
+        { "label": "Type", "value": "Waterfall village" },
+        { "label": "Region", "value": "Salavan Province" },
+        { "label": "Pace", "value": "Slow travel base" }
+      ]
     },
-    "exploreBoard": {
-      "featuredThingIds": []
-    },
+    "exploreBoard": { "featuredThingIds": [] },
     "manualLocks": {
-      "categoryTargets.things-to-do": {
-        "value": 12,
-        "source": "manual",
-        "locked": true
-      }
+      "categoryTargets.things-to-do": { "value": 18, "source": "manual", "locked": true },
+      "categoryTargets.accommodation": { "value": 8, "source": "manual", "locked": true },
+      "categoryTargets.restaurants": { "value": 12, "source": "manual", "locked": true },
+      "categoryTargets.cafes": { "value": 8, "source": "manual", "locked": true }
     },
-    "seo": {
-      "title": "Tad Lo travel guide | Things To Do Atlas",
-      "description": "",
-      "canonicalPath": "/laos/tad-lo",
-      "indexable": false
-    }
+    "seo": { "title": "Tad Lo travel guide | Things To Do Atlas", "description": "Independent Tad Lo guide for waterfalls, village life, coffee, stays and practical travel in Salavan Province.", "canonicalPath": "/laos/tad-lo", "indexable": false }
   },
   "places": [],
   "things": []
