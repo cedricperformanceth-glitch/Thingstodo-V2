@@ -1,12 +1,14 @@
 ---
-import type { City, ThingToDo } from '../../core/models/types';
+import type { City, MediaRecord, ThingToDo } from '../../core/models/types';
+import editorialMediaData from '../../content/field-card-media-copy.json';
 import { thingPath } from '../../core/routing/paths';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import CardActions from './CardActions.astro';
 import './entry-card.css';
 interface Props { city: City; thing: ThingToDo; showDestination?: boolean; }
 const { city, thing, showDestination = false } = Astro.props;
-const image = thing.media.card?.image;
+const editorialMedia = editorialMediaData as Record<string, MediaRecord[]>;
+const image = editorialMedia[thing.id]?.[0] ?? thing.media.card?.image;
 const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
   ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
   : '';
