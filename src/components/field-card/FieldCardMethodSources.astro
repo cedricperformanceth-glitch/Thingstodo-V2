@@ -1,0 +1,221 @@
+---
+import type { MediaRecord, ThingToDo } from '../../core/models/types';
+
+interface Props {
+  thing: ThingToDo;
+  additionalPhotos?: MediaRecord[];
+}
+
+const { thing, additionalPhotos = [] } = Astro.props;
+const gallery = thing.media.fieldCard?.gallery ?? [];
+const fieldCardPhotos = [gallery[0] ?? thing.media.card?.image, gallery[1], gallery[2]]
+  .filter((photo): photo is MediaRecord => Boolean(photo));
+
+const sources = thing.researchSources.filter((source, index, list) => {
+  const key = source.sourceUrl || source.sourceName;
+  return list.findIndex((candidate) => (candidate.sourceUrl || candidate.sourceName) === key) === index;
+});
+
+const photos = [...fieldCardPhotos, ...additionalPhotos].filter((photo, index, list) => {
+  const key = photo.sourceUrl || photo.src || photo.id;
+  return list.findIndex((candidate) => (candidate.sourceUrl || candidate.src || candidate.id) === key) === index;
+});
+---
+
+<section class="field-card-method" aria-label="Field note method and sources">
+  <p class="field-card-method__copy">
+    <strong>Field note method.</strong> Wikipedia is used as a research starting point for history and geography when a relevant article exists. Facts are checked against official, local or specialist sources where possible. Independent travel blogs and field reports are used to identify practical questions, recurring observations and traveller perspective; their wording is not copied.
+  </p>
+
+  <details class="field-card-method__sources">
+    <summary>Sources &amp; photo licences</summary>
+
+    <div class="field-card-method__source-grid">
+      <section>
+        <h3>Research sources</h3>
+        {sources.length ? (
+          <ul>
+            {sources.map((source) => (
+              <li>
+                {source.sourceUrl ? (
+                  <a href={source.sourceUrl} target="_blank" rel="noreferrer">{source.sourceName} ↗</a>
+                ) : (
+                  <span>{source.sourceName}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No external research source is recorded for this field note.</p>
+        )}
+      </section>
+
+      <section>
+        <h3>Photo licences</h3>
+        {photos.length ? (
+          <ul>
+            {photos.map((photo) => (
+              <li>
+                {photo.sourceUrl ? (
+                  <a href={photo.sourceUrl} target="_blank" rel="noreferrer">
+                    {photo.author || photo.sourceName || 'Photo source'}{photo.license ? ` · ${photo.license}` : ''} ↗
+                  </a>
+                ) : (
+                  <span>{photo.author || photo.sourceName || 'Photo source'}{photo.license ? ` · ${photo.license}` : ''}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No external photo licence is recorded for this field note.</p>
+        )}
+      </section>
+    </div>
+  </details>
+</section>
+
+<style>
+  .field-card-method {
+    justify-self: center;
+    width: min(1000px, calc(100vw - 48px));
+    margin: clamp(16px, 2.5vw, 32px) 0 clamp(42px, 5vw, 68px);
+    padding-top: 20px;
+    border-top: 1px solid rgb(49 85 69 / .14);
+    color: #203c31;
+  }
+
+  .field-card-method__copy {
+    max-width: 880px;
+    margin: 0;
+    color: rgb(38 55 47 / .56);
+    font-family: var(--field-card-editorial);
+    font-size: .66rem;
+    font-weight: 400;
+    line-height: 1.62;
+  }
+
+  .field-card-method__copy strong {
+    color: rgb(38 55 47 / .78);
+    font-weight: 600;
+  }
+
+  .field-card-method__sources {
+    margin-top: 12px;
+    border-top: 1px solid rgb(49 85 69 / .1);
+    border-bottom: 1px solid rgb(49 85 69 / .12);
+  }
+
+  .field-card-method__sources summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 12px 2px;
+    color: rgb(49 85 69 / .72);
+    font-family: var(--field-card-practical);
+    font-size: .56rem;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .field-card-method__sources summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .field-card-method__sources summary::after {
+    content: '+';
+    color: #9d3040;
+    font-family: var(--field-card-editorial);
+    font-size: .95rem;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 160ms ease;
+  }
+
+  .field-card-method__sources[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .field-card-method__source-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(28px, 6vw, 72px);
+    padding: 6px 2px 19px;
+  }
+
+  .field-card-method__source-grid h3 {
+    margin: 0 0 9px;
+    color: rgb(49 85 69 / .66);
+    font-family: var(--field-card-practical);
+    font-size: .49rem;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+
+  .field-card-method__source-grid ul {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .field-card-method__source-grid li,
+  .field-card-method__source-grid p {
+    margin: 0;
+    color: rgb(38 55 47 / .56);
+    font-family: var(--field-card-editorial);
+    font-size: .61rem;
+    font-weight: 400;
+    line-height: 1.48;
+  }
+
+  .field-card-method__source-grid a {
+    color: rgb(49 85 69 / .7);
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgb(49 85 69 / .2);
+    text-underline-offset: 2px;
+  }
+
+  .field-card-method__source-grid a:hover,
+  .field-card-method__source-grid a:focus-visible {
+    color: #9d3040;
+    text-decoration-color: rgb(157 48 64 / .35);
+  }
+
+  .field-card-method__sources summary:focus-visible {
+    outline: 2px solid rgb(157 48 64 / .35);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 620px) {
+    .field-card-method {
+      width: calc(100vw - 24px);
+      margin-bottom: 40px;
+      padding-top: 17px;
+    }
+
+    .field-card-method__copy {
+      font-size: .63rem;
+      line-height: 1.58;
+    }
+
+    .field-card-method__source-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding-bottom: 17px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .field-card-method__sources summary::after {
+      transition: none;
+    }
+  }
+</style>

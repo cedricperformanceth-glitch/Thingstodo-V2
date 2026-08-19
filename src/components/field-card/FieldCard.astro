@@ -12,6 +12,7 @@ import FieldCardFaq from './FieldCardFaq.astro';
 import FieldCardPracticalNotes from './FieldCardPracticalNotes.astro';
 import FieldCardAtlasCta from './FieldCardAtlasCta.astro';
 import FieldCardRelatedActivities from './FieldCardRelatedActivities.astro';
+import FieldCardMethodSources from './FieldCardMethodSources.astro';
 
 interface Props {
   thing: ThingToDo;
@@ -22,6 +23,7 @@ interface Props {
 const { thing, city, country } = Astro.props;
 const view = fieldCardView(thing, city, country);
 const relatedActivities = fieldCardRelatedActivities(city, thing);
+const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.image] : []);
 ---
 
 <article class={`field-card field-card--${view.template}`}>
@@ -38,6 +40,7 @@ const relatedActivities = fieldCardRelatedActivities(city, thing);
     <FieldCardPracticalNotes {thing} content={view.practicalNotes} />
     <FieldCardAtlasCta {thing} />
     <FieldCardRelatedActivities {city} items={relatedActivities} />
+    <FieldCardMethodSources {thing} additionalPhotos={relatedPhotos} />
   </div>
 </article>
 
