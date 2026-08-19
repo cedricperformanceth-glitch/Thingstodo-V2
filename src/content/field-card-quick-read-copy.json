@@ -10,5 +10,11 @@
     "route": {"primary": "DON DET → DON KHON", "secondary": "easy on foot or bicycle"},
     "budget": {"primary": "FREE CROSSING", "secondary": "reported free in recent traveller updates"},
     "bestFor": {"primary": "HISTORY + ISLAND RIDE", "secondary": "pair with Don Khon and Li Phi"}
+  },
+  "thing-li-phi-somphamit-waterfalls": {
+    "time": {"primary": "1–2 HOURS", "secondary": "half day if paired with Don Khon"},
+    "route": {"primary": "DON KHON", "secondary": "about 2 km south of the old railway bridge"},
+    "budget": {"primary": "≈30–35K KIP", "secondary": "recent entry references · reconfirm locally"},
+    "bestFor": {"primary": "MEKONG POWER", "secondary": "waterfall viewpoints + bicycle day"}
   }
 }
