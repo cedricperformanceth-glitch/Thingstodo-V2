@@ -18,5 +18,15 @@
       {"label": "History", "value": "Part of a roughly 7 km colonial portage railway", "detail": "The railway opened in 1893 on Don Khon and was later extended to Don Det. It moved vessels, freight and passengers around the Mekong rapids and falls that prevented continuous river navigation."},
       {"label": "Good light", "value": "Early morning or late afternoon", "detail": "The crossing is exposed and the tropical midday heat can be strong. Softer light also works better for the arches, river reflections and views between the islands."}
     ]
+  },
+  "thing-li-phi-somphamit-waterfalls": {
+    "items": [
+      {"label": "Where", "value": "Don Khon · about 2 km south of the railway bridge", "detail": "From Don Det, cross the old railway bridge onto Don Khon and continue south toward the signed Li Phi / Somphamit waterfall area. It is an easy bicycle continuation from the bridge."},
+      {"label": "Time needed", "value": "1–2 hours", "detail": "That is enough for the main paths and viewpoints without rushing. Allow a half day if you combine the falls with the railway bridge, locomotive and a slower ride around Don Khon."},
+      {"label": "Entrance", "value": "Recent references: about 30,000–35,000 kip", "detail": "A June 2026 Wikivoyage update lists 30,000 kip, while Petit Futé 2026 lists 35,000 kip. Treat that range as a planning reference and confirm the current ticket at the entrance."},
+      {"label": "Optional extras", "value": "Some attractions may cost separately", "detail": "Recent guide information mentions an additional paid suspension-bridge experience at the site. Do not assume it is included in the standard waterfall entry; check the current options and price before paying."},
+      {"label": "Best time", "value": "Morning or late afternoon", "detail": "The cooler hours are more comfortable for the bicycle ride and give better light across the rock and white water. The look of the falls changes substantially with Mekong water levels."},
+      {"label": "Safety", "value": "View the rapids · do not challenge them", "detail": "The currents are powerful and the rocks can be slippery. Stay on established paths and viewpoints around the main falls and respect local barriers or instructions."}
+    ]
   }
 }
