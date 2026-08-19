@@ -12,6 +12,8 @@ const editorialPrimaryStories = primaryStoryEditorial as Record<string, FieldCar
 const editorialQuickReads = quickReadEditorial as Record<string, FieldCardQuickReadContent>;
 const editorialSecondaryStories = secondaryStoryEditorial as Record<string, FieldCardSecondaryStoryContent>;
 
+type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
+
 const fallbackAliases = (thing: ThingToDo, city: City, country: Country) => {
   const tags = thing.spaCard?.handwrittenTags?.filter(Boolean) ?? [];
   if (tags.length === 3) return tags;
@@ -118,6 +120,37 @@ const fallbackPracticalNotes = (thing: ThingToDo): FieldCardPracticalContent => 
   return { items };
 };
 
+const firstUsefulText = (...values: Array<string | undefined>) =>
+  values.map((value) => String(value ?? '').trim()).find(Boolean) ?? '';
+
+const fallbackFaq = (thing: ThingToDo): FieldCardFaqItem[] => [
+  {
+    question: 'How should I plan the visit?',
+    answer: firstUsefulText(thing.fieldCard.practical, thing.longDescription, thing.shortDescription),
+  },
+  {
+    question: 'How much time should I allow?',
+    answer: firstUsefulText(thing.spaCard?.duration, thing.fieldCard.practical, thing.longDescription, thing.shortDescription),
+  },
+  {
+    question: 'When is the best time to go?',
+    answer: firstUsefulText(thing.spaCard?.bestTime, thing.fieldCard.notes, thing.longDescription, thing.shortDescription),
+  },
+  {
+    question: 'What should I know about getting there?',
+    answer: firstUsefulText(thing.spaCard?.gettingThere, thing.fieldCard.access, thing.longDescription, thing.shortDescription),
+  },
+  {
+    question: 'What should I keep in mind before going?',
+    answer: firstUsefulText(thing.fieldCard.notes, thing.fieldCard.access, thing.fieldCard.practical, thing.longDescription, thing.shortDescription),
+  },
+];
+
+const resolveFaq = (thing: ThingToDo): FieldCardFaqItem[] => {
+  const authored = thing.fieldCard.faq.filter((item) => item.question.trim() && item.answer.trim());
+  return authored.length === 5 ? authored.slice(0, 5) : fallbackFaq(thing);
+};
+
 const routeParts = (thing: ThingToDo) => String(thing.spaCard?.gettingThere ?? '').split('·').map((part) => part.trim()).filter(Boolean);
 
 const fallbackQuickRead = (thing: ThingToDo, city: City, country: Country): FieldCardQuickReadContent => {
@@ -157,6 +190,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
     ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
   const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 2);
   const practicalNotes = editorialPracticalNotes[thing.id] ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
+  const faq = resolveFaq(thing);
   const gallery = thing.media.fieldCard?.gallery ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
@@ -169,6 +203,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
     primaryStory,
     secondaryStory,
     practicalNotes,
+    faq,
     heroImage,
     storyImage,
     secondaryImage,
