@@ -1,12 +1,43 @@
-import type { City, Place, ThingToDo } from '../../../core/models/types';
+import type { City, Place, ThingToDo, MediaRecord } from '../../../core/models/types';
 
 const source = 'https://visit-tadlo.com/en';
 const checkedAt = '2026-08-19T00:00:00.000Z';
 const coords = { latitude: 15.53441, longitude: 106.27473 };
-const media = () => ({ card: {}, fieldCard: { gallery: [] } });
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const maps = (name: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name} Tad Lo Laos`)}`;
 const sources = [{ sourceName: 'Visit Tad Lo', sourceUrl: source, purpose: 'first-party' as const, sourceType: 'first-party-official' as const }];
+
+const activityCardMedia: Record<string, MediaRecord> = {
+  'tad-hang-waterfall': {
+    id: 'media-tad-hang-waterfall-basile-morin',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Tad_Hang_waterfalls%2C_Tad_Lo_village%2C_Bolaven_Plateau%2C_Laos.jpg',
+    alt: 'Tad Hang waterfalls in Tad Lo village, Bolaven Plateau, Laos',
+    sourceType: 'wikimedia',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tad_Hang_waterfalls,_Tad_Lo_village,_Bolaven_Plateau,_Laos.jpg',
+    sourceName: 'Wikimedia Commons',
+    author: 'Basile Morin',
+    license: 'CC BY-SA 4.0',
+    manual: false,
+    locked: true,
+  },
+  'tad-lo-waterfall': {
+    id: 'media-tad-lo-waterfall-tango7174',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Salavan_TadLo3_tango7174.jpg',
+    alt: 'Tad Lo Waterfalls in Salavan Province, Laos',
+    sourceType: 'wikimedia',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg',
+    sourceName: 'Wikimedia Commons',
+    author: 'Tango7174',
+    license: 'CC BY-SA 4.0',
+    manual: false,
+    locked: true,
+  },
+};
+
+const media = (slug?: string) => {
+  const image = slug ? activityCardMedia[slug] : undefined;
+  return { card: image ? { image } : {}, fieldCard: { gallery: image ? [image] : [] } };
+};
 
 const city = {
   id: 'city-tad-lo', slug: 'tad-lo', name: 'Tad Lo', country: 'laos', profile: 'compact', settlementType: 'village', coordinates: coords,
@@ -67,15 +98,20 @@ const places = [
   place('Tad Lo 24-hour Dispensary','practical-services','Medicine and basic health reference reported in the locally checked practical guide.','manual-review'),
 ];
 
-const thing = (name:string, shortDescription:string, duration:string, costType:'free'|'paid', bestTime:string, decision:'accept'|'manual-review'='accept', exploreBoard?: { kicker:string; duration:string; route:string }) => ({
-  id:`thing-${slugify(name)}`,slug:slugify(name),name,country:'laos',city:'tad-lo',category:'things-to-do' as const,coordinates:coords,shortDescription,media:media(),
-  spaCard:{handwrittenTags:['Tad Lo','Local experience','Field note'],photoStatus:'missing' as const,photoRequiresManualFill:true,gettingThere:'Start from Tad Lo and confirm the current route locally before leaving.',duration,costType,bestTime},
-  verification:{decision,reason:'Retained from Tad Lo partner/local research; conditions and availability can change.',checkedAt},
-  sourceMetadata:{sourceName:'Visit Tad Lo partner research',sourceUrl:source,reviewedAt:'2026-08-19'},researchSources:sources,manualLocks:{},googleMapsUrl:maps(name),isLandmark:Boolean(exploreBoard),
-  longDescription:shortDescription,breadcrumbs:['Laos','Tad Lo','Things to do',name],
-  fieldCard:{template:'compact' as const,whyGo:shortDescription,practical:'Confirm current opening, price, weather and availability locally before setting out.',access:'Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.',faq:[]},
-  ...(exploreBoard ? { exploreBoard } : {}),
-});
+const thing = (name:string, shortDescription:string, duration:string, costType:'free'|'paid', bestTime:string, decision:'accept'|'manual-review'='accept', exploreBoard?: { kicker:string; duration:string; route:string }) => {
+  const slug = slugify(name);
+  const thingMedia = media(slug);
+  const hasVerifiedPhoto = Boolean(thingMedia.card.image);
+  return {
+    id:`thing-${slug}`,slug,name,country:'laos',city:'tad-lo',category:'things-to-do' as const,coordinates:coords,shortDescription,media:thingMedia,
+    spaCard:{handwrittenTags:['Tad Lo','Local experience','Field note'],photoStatus:(hasVerifiedPhoto?'verified':'missing') as 'verified'|'missing',photoRequiresManualFill:!hasVerifiedPhoto,gettingThere:'Start from Tad Lo and confirm the current route locally before leaving.',duration,costType,bestTime},
+    verification:{decision,reason:'Retained from Tad Lo partner/local research; conditions and availability can change.',checkedAt},
+    sourceMetadata:{sourceName:'Visit Tad Lo partner research',sourceUrl:source,reviewedAt:'2026-08-19'},researchSources:sources,manualLocks:{},googleMapsUrl:maps(name),isLandmark:Boolean(exploreBoard),
+    longDescription:shortDescription,breadcrumbs:['Laos','Tad Lo','Things to do',name],
+    fieldCard:{template:'compact' as const,whyGo:shortDescription,practical:'Confirm current opening, price, weather and availability locally before setting out.',access:'Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.',faq:[]},
+    ...(exploreBoard ? { exploreBoard } : {}),
+  };
+};
 
 const things = [
   thing('Tad Hang Waterfall','Easy riverside waterfall close to the village, combining broad rocks, water and everyday local life.','Less than 3 hours','free','Morning'),
