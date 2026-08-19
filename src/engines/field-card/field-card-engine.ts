@@ -1,7 +1,8 @@
-import type { City, Country, FieldCardHeroContent, FieldCardPracticalContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, ThingToDo } from '../../core/models/types';
+import type { City, Country, FieldCardHeroContent, FieldCardPracticalContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, MediaRecord, ThingToDo } from '../../core/models/types';
 import { editorialAdSlots } from '../../core/ads/slots';
 import faqEditorial from '../../content/field-card-faq-copy.json';
 import heroEditorial from '../../content/field-card-hero-copy.json';
+import mediaEditorial from '../../content/field-card-media-copy.json';
 import practicalEditorial from '../../content/field-card-practical-copy.json';
 import primaryStoryEditorial from '../../content/field-card-primary-story-copy.json';
 import quickReadEditorial from '../../content/field-card-quick-read-copy.json';
@@ -11,6 +12,7 @@ type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 
 const editorialFaq = faqEditorial as Record<string, FieldCardFaqItem[]>;
 const editorialHeroes = heroEditorial as Record<string, FieldCardHeroContent>;
+const editorialMedia = mediaEditorial as Record<string, MediaRecord[]>;
 const editorialPracticalNotes = practicalEditorial as Record<string, FieldCardPracticalContent>;
 const editorialPrimaryStories = primaryStoryEditorial as Record<string, FieldCardPrimaryStoryContent>;
 const editorialQuickReads = quickReadEditorial as Record<string, FieldCardQuickReadContent>;
@@ -198,7 +200,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 2);
   const practicalNotes = editorialPracticalNotes[thing.id] ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
   const faq = resolveFaq(thing);
-  const gallery = thing.media.fieldCard?.gallery ?? [];
+  const gallery = editorialMedia[thing.id] ?? thing.media.fieldCard?.gallery ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
   const secondaryImage = gallery[2];
