@@ -14,7 +14,7 @@ const city = {
   categories: ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services'],
   categoryTargets: { 'things-to-do': 18, restaurants: 12, cafes: 8, accommodation: 8 },
   hero: { eyebrow: 'Salavan · Southern Laos', title: 'Tad Lo travel guide', subtitle: 'Waterfalls, village life, coffee country and a slower way into the Bolaven Plateau.', facts: [{label:'Updated',value:'August 2026'},{label:'Type',value:'Waterfall village'},{label:'Region',value:'Salavan Province'},{label:'Pace',value:'Slow travel base'}] },
-  exploreBoard: { featuredThingIds: [] },
+  exploreBoard: { featuredThingIds: ['thing-tad-lo-waterfall','thing-vat-paa-forest-buddha-and-mystery-cave','thing-coffee-and-katu-culture-with-mr-hook'] },
   manualLocks: {
     'categoryTargets.things-to-do': { value: 18, source: 'manual', locked: true },
     'categoryTargets.accommodation': { value: 8, source: 'manual', locked: true },
@@ -67,27 +67,28 @@ const places = [
   place('Tad Lo 24-hour Dispensary','practical-services','Medicine and basic health reference reported in the locally checked practical guide.','manual-review'),
 ];
 
-const thing = (name:string, shortDescription:string, duration:string, costType:'free'|'paid', bestTime:string, decision:'accept'|'manual-review'='accept') => ({
+const thing = (name:string, shortDescription:string, duration:string, costType:'free'|'paid', bestTime:string, decision:'accept'|'manual-review'='accept', exploreBoard?: { kicker:string; duration:string; route:string }) => ({
   id:`thing-${slugify(name)}`,slug:slugify(name),name,country:'laos',city:'tad-lo',category:'things-to-do' as const,coordinates:coords,shortDescription,media:media(),
   spaCard:{handwrittenTags:['Tad Lo','Local experience','Field note'],photoStatus:'missing' as const,photoRequiresManualFill:true,gettingThere:'Start from Tad Lo and confirm the current route locally before leaving.',duration,costType,bestTime},
   verification:{decision,reason:'Retained from Tad Lo partner/local research; conditions and availability can change.',checkedAt},
-  sourceMetadata:{sourceName:'Visit Tad Lo partner research',sourceUrl:source,reviewedAt:'2026-08-19'},researchSources:sources,manualLocks:{},googleMapsUrl:maps(name),isLandmark:false,
+  sourceMetadata:{sourceName:'Visit Tad Lo partner research',sourceUrl:source,reviewedAt:'2026-08-19'},researchSources:sources,manualLocks:{},googleMapsUrl:maps(name),isLandmark:Boolean(exploreBoard),
   longDescription:shortDescription,breadcrumbs:['Laos','Tad Lo','Things to do',name],
   fieldCard:{template:'compact' as const,whyGo:shortDescription,practical:'Confirm current opening, price, weather and availability locally before setting out.',access:'Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.',faq:[]},
+  ...(exploreBoard ? { exploreBoard } : {}),
 });
 
 const things = [
   thing('Tad Hang Waterfall','Easy riverside waterfall close to the village, combining broad rocks, water and everyday local life.','Less than 3 hours','free','Morning'),
-  thing('Tad Lo Waterfall','Graceful waterfall woven into the village landscape and an easy slow-travel outing from Tad Lo.','Less than 3 hours','free','Morning or late afternoon'),
+  thing('Tad Lo Waterfall','Graceful waterfall woven into the village landscape and an easy slow-travel outing from Tad Lo.','Less than 3 hours','free','Morning or late afternoon','accept',{kicker:'THE VILLAGE WATERFALL',duration:'Easy outing',route:'From Tad Lo village'}),
   thing('Tad Soung Waterfall','Higher rural waterfall reached through fields and villages, with wide views over the surrounding landscape.','Half day','free','Morning'),
   thing('Katu Weaving Workshop','Hands-on introduction to Katu weaving, textile technique and the patience behind local craft.','Half day','paid','By arrangement'),
   thing('Lao Cooking Class with Nyay','Prepare, understand and share a Lao meal in a relaxed local cooking workshop.','Half day','paid','By arrangement'),
   thing('Tad Lo Treasure Hunt','Free self-guided village game using phone-based clues to notice details most visitors walk past.','Less than 1 hour','free','Daytime'),
   thing('Fandee Adventure Park','Forest aerial course with thirteen ziplines and suspended monkey bridges near Tad Lo.','Less than 3 hours','paid','Daytime'),
-  thing('Coffee and Katu Culture with Mr Hook','Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.','Half day','paid','By arrangement'),
+  thing('Coffee and Katu Culture with Mr Hook','Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.','Half day','paid','By arrangement','accept',{kicker:'COFFEE & KATU CULTURE',duration:'Half day',route:'Local guided experience'}),
   thing('Coffee from Tree to Cup with Mr Vieng','Friendly tree-to-cup coffee experience near Laongam covering growing, processing and preparation.','Less than 3 hours','paid','By arrangement'),
   thing('Traditional Coffee Roasting with Mr M','Seasonal hands-on traditional coffee roasting workshop when the host is available.','Half day','paid','By arrangement','manual-review'),
-  thing('Vat Paa Forest, Buddha and Mystery Cave','Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.','Less than 3 hours','free','Daytime'),
+  thing('Vat Paa Forest, Buddha and Mystery Cave','Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.','Less than 3 hours','free','Daytime','accept',{kicker:'FOREST & MYSTERY CAVE',duration:'Short outing',route:'From Tad Lo village'}),
   thing('Tad Lo Half-Day Guided Trek','Official locally guided short trek option for travellers who want forest and village paths beyond the immediate waterfalls.','Half day','paid','Morning'),
   thing('Tad Soung Community Trek','Full-day community-based guided route linking forest, rural scenery, villages and the Tad Soung area.','Full day','paid','Morning'),
   thing('Tad Lo Two-Day Village Trek','Longer guided trekking format using Tad Lo as a base for remote village and forest exploration.','2 days','paid','Morning departure'),
