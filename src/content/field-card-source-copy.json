@@ -5,5 +5,11 @@
     {"sourceName":"Travelfish · Don Det ferry services","sourceUrl":"https://www.travelfish.org/transport/laos/southern_laos/champasak/don_dhet/all","purpose":"facts","reviewedAt":"2026-08-19"},
     {"sourceName":"DonDet.net · Tours and boat trips","sourceUrl":"https://www.dondet.net/tours.html","purpose":"facts","reviewedAt":"2026-08-19"},
     {"sourceName":"Wikimedia Commons · Don Som category","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Don_Som","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-19"}
+  ],
+  "thing-khone-pa-soi-waterfall": [
+    {"sourceName":"Travelfish · Khone Pa Soi Waterfall","sourceUrl":"https://www.travelfish.org/sight_profile/laos/southern_laos/champasak/don_khon/3909","purpose":"facts","reviewedAt":"2026-08-20"},
+    {"sourceName":"Lonely Planet · Khon Pa Soi Falls","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/khon-pa-soi-falls/1430698","purpose":"facts","reviewedAt":"2026-08-20"},
+    {"sourceName":"Novo-Monde · Si Phan Don / Khon Pa Soy","sourceUrl":"https://www.novo-monde.com/en/4000-islands-laos-si-phan-don/","purpose":"facts","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Khone Pa Soi Falls","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Khone_Pa_Soi_Falls","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
   ]
 }
