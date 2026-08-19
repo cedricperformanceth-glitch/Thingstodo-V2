@@ -23,7 +23,7 @@ interface Props {
 const { thing, city, country } = Astro.props;
 const view = fieldCardView(thing, city, country);
 const relatedActivities = fieldCardRelatedActivities(city, thing);
-const renderedPhotos = [view.heroImage, view.storyImage, view.secondaryImage].flatMap((image) => image ? [image] : []);
+const renderedPhotos = [view.heroImage, view.storyImage, view.secondaryStory ? view.secondaryImage : undefined].flatMap((image) => image ? [image] : []);
 const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.image] : []);
 ---
 
@@ -31,9 +31,9 @@ const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.ima
   <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
   <FieldCardQuickRead {thing} {country} quickRead={view.quickRead} />
   <FieldCardStoryBlock {thing} story={view.primaryStory} image={view.storyImage} />
-  <FieldCardSecondaryStory {thing} story={view.secondaryStory} image={view.secondaryImage} />
+  {view.secondaryStory && <FieldCardSecondaryStory {thing} story={view.secondaryStory} image={view.secondaryImage} />}
   {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}
-  <FieldCardBeforeYouLeave {thing} content={view.secondaryStory.beforeYouLeave} />
+  {view.secondaryStory && <FieldCardBeforeYouLeave {thing} content={view.secondaryStory.beforeYouLeave} />}
 
   <div class="field-card__body">
     {view.remainingSections.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
