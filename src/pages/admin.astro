@@ -1,0 +1,489 @@
+---
+import '../core/design-system/tokens.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#f4f0e7" />
+    <title>Atlas Admin</title>
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell">
+      <header class="admin-header">
+        <div class="admin-brand">
+          <div class="admin-brand__mark" aria-hidden="true">
+            <span>ATLAS</span>
+            <small>V2</small>
+          </div>
+          <div>
+            <p class="admin-eyebrow">EDITORIAL WORKSPACE</p>
+            <h1>Atlas Admin</h1>
+            <p class="admin-intro">Prepare the next destination, then shape the field notes that belong to it.</p>
+          </div>
+        </div>
+        <div class="admin-status" aria-label="Workspace status">
+          <span class="admin-status__dot" aria-hidden="true"></span>
+          <span>Private workspace</span>
+        </div>
+      </header>
+
+      <section class="admin-workspace" aria-label="Atlas admin workspace">
+        <nav class="admin-tabs" role="tablist" aria-label="Admin sections">
+          <button
+            class="admin-tab is-active"
+            type="button"
+            role="tab"
+            id="admin-tab-city"
+            aria-controls="admin-panel-city"
+            aria-selected="true"
+            data-admin-tab="city"
+          >
+            <span class="admin-tab__index">01</span>
+            <span class="admin-tab__copy">
+              <strong>Create a city</strong>
+              <small>New destination workspace</small>
+            </span>
+          </button>
+
+          <button
+            class="admin-tab"
+            type="button"
+            role="tab"
+            id="admin-tab-field-cards"
+            aria-controls="admin-panel-field-cards"
+            aria-selected="false"
+            tabindex="-1"
+            data-admin-tab="field-cards"
+          >
+            <span class="admin-tab__index">02</span>
+            <span class="admin-tab__copy">
+              <strong>Field Cards</strong>
+              <small>Activity page workspace</small>
+            </span>
+          </button>
+        </nav>
+
+        <div class="admin-canvas-wrap">
+          <span class="admin-tape admin-tape--left" aria-hidden="true"></span>
+          <span class="admin-tape admin-tape--right" aria-hidden="true"></span>
+
+          <section
+            class="admin-panel is-active"
+            id="admin-panel-city"
+            role="tabpanel"
+            aria-labelledby="admin-tab-city"
+            data-admin-panel="city"
+          ></section>
+
+          <section
+            class="admin-panel"
+            id="admin-panel-field-cards"
+            role="tabpanel"
+            aria-labelledby="admin-tab-field-cards"
+            data-admin-panel="field-cards"
+            hidden
+          ></section>
+        </div>
+      </section>
+
+      <p class="admin-note" aria-hidden="true">build the atlas, one place at a time</p>
+    </main>
+
+    <script>
+      const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-admin-tab]'));
+      const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-admin-panel]'));
+
+      const activateTab = (tab: HTMLButtonElement) => {
+        const target = tab.dataset.adminTab;
+
+        tabs.forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-selected', String(active));
+          item.tabIndex = active ? 0 : -1;
+        });
+
+        panels.forEach((panel) => {
+          const active = panel.dataset.adminPanel === target;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateTab(tab));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+
+          let nextIndex = index;
+          if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') nextIndex = 0;
+          if (event.key === 'End') nextIndex = tabs.length - 1;
+
+          const nextTab = tabs[nextIndex];
+          if (!nextTab) return;
+          activateTab(nextTab);
+          nextTab.focus();
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(html) {
+    min-height: 100%;
+    background: #ebe4d5;
+  }
+
+  :global(body.admin-body) {
+    min-height: 100vh;
+    margin: 0;
+    color: #213229;
+    background:
+      radial-gradient(circle at 16% 4%, rgb(255 255 255 / .7), transparent 28rem),
+      linear-gradient(180deg, #f3eee3 0%, #e8e0d0 100%);
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  :global(body.admin-body::before) {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    opacity: .16;
+    background-image:
+      repeating-linear-gradient(0deg, rgb(70 58 39 / .035) 0, rgb(70 58 39 / .035) 1px, transparent 1px, transparent 4px);
+    mix-blend-mode: multiply;
+  }
+
+  .admin-shell {
+    position: relative;
+    width: min(1380px, calc(100% - clamp(28px, 6vw, 96px)));
+    margin: 0 auto;
+    padding: clamp(38px, 6vw, 86px) 0 clamp(80px, 10vw, 150px);
+  }
+
+  .admin-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: clamp(42px, 7vw, 82px);
+  }
+
+  .admin-brand {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(20px, 3vw, 38px);
+  }
+
+  .admin-brand__mark {
+    display: grid;
+    place-items: center;
+    width: clamp(72px, 8vw, 96px);
+    aspect-ratio: 1;
+    border: 1px solid rgb(49 87 59 / .32);
+    border-radius: 50%;
+    color: #31573b;
+    transform: rotate(-5deg);
+    box-shadow: inset 0 0 0 7px rgb(49 87 59 / .035);
+  }
+
+  .admin-brand__mark span {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(.86rem, 1.15vw, 1rem);
+    font-weight: 600;
+    letter-spacing: .13em;
+  }
+
+  .admin-brand__mark small {
+    margin-top: -22px;
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+  }
+
+  .admin-eyebrow {
+    margin: 0 0 8px;
+    color: #6e766c;
+    font-size: .69rem;
+    font-weight: 600;
+    letter-spacing: .22em;
+  }
+
+  .admin-header h1 {
+    margin: 0;
+    color: #203329;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(3rem, 6vw, 6.4rem);
+    font-weight: 400;
+    letter-spacing: -.055em;
+    line-height: .86;
+  }
+
+  .admin-intro {
+    max-width: 640px;
+    margin: 20px 0 0;
+    color: #667067;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.05rem, 1.6vw, 1.34rem);
+    line-height: 1.5;
+  }
+
+  .admin-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding-bottom: 7px;
+    color: #6d746c;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .admin-status__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #31573b;
+    box-shadow: 0 0 0 4px rgb(49 87 59 / .1);
+  }
+
+  .admin-workspace {
+    display: grid;
+    grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
+    gap: clamp(28px, 4.5vw, 70px);
+    align-items: start;
+  }
+
+  .admin-tabs {
+    position: sticky;
+    top: 32px;
+    display: grid;
+    gap: 2px;
+  }
+
+  .admin-tab {
+    position: relative;
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 13px;
+    width: 100%;
+    padding: 19px 14px 19px 8px;
+    border: 0;
+    border-bottom: 1px solid rgb(64 74 66 / .13);
+    color: #72776f;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    transition: color .18s ease, transform .18s ease;
+  }
+
+  .admin-tab:hover {
+    color: #203329;
+    transform: translateX(3px);
+  }
+
+  .admin-tab::before {
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    width: 4px;
+    height: 0;
+    border-radius: 4px;
+    background: #31573b;
+    content: '';
+    transform: translateY(-50%);
+    transition: height .18s ease;
+  }
+
+  .admin-tab.is-active {
+    color: #203329;
+  }
+
+  .admin-tab.is-active::before {
+    height: 44px;
+  }
+
+  .admin-tab__index {
+    padding-top: 3px;
+    color: #a1a096;
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+  }
+
+  .admin-tab__copy {
+    display: grid;
+    gap: 4px;
+  }
+
+  .admin-tab__copy strong {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.32rem;
+    font-weight: 600;
+  }
+
+  .admin-tab__copy small {
+    color: #8a8c84;
+    font-size: .72rem;
+  }
+
+  .admin-canvas-wrap {
+    position: relative;
+    min-width: 0;
+  }
+
+  .admin-panel {
+    position: relative;
+    min-height: clamp(680px, 73vh, 980px);
+    border: 1px solid rgb(74 68 55 / .11);
+    background:
+      linear-gradient(90deg, transparent 0, transparent 52px, rgb(188 83 70 / .06) 53px, transparent 54px),
+      repeating-linear-gradient(180deg, transparent 0, transparent 41px, rgb(55 86 74 / .055) 42px),
+      #fffdf8;
+    box-shadow:
+      0 26px 70px rgb(57 47 31 / .09),
+      0 2px 4px rgb(57 47 31 / .05);
+  }
+
+  .admin-panel::after {
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgb(49 87 59 / .045);
+    content: '';
+    pointer-events: none;
+  }
+
+  .admin-tape {
+    position: absolute;
+    z-index: 2;
+    top: -14px;
+    width: 90px;
+    height: 30px;
+    background: rgb(226 210 165 / .68);
+    box-shadow: 0 1px 1px rgb(54 46 31 / .08);
+    pointer-events: none;
+  }
+
+  .admin-tape--left {
+    left: 9%;
+    transform: rotate(-4deg);
+  }
+
+  .admin-tape--right {
+    right: 8%;
+    transform: rotate(3deg);
+  }
+
+  .admin-note {
+    width: max-content;
+    margin: clamp(30px, 5vw, 54px) 5% 0 auto;
+    color: rgb(49 87 59 / .62);
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+    transform: rotate(-2deg);
+  }
+
+  @media (max-width: 820px) {
+    .admin-shell {
+      width: min(100% - 28px, 720px);
+      padding-top: 28px;
+    }
+
+    .admin-header {
+      align-items: flex-start;
+    }
+
+    .admin-brand__mark {
+      display: none;
+    }
+
+    .admin-status {
+      display: none;
+    }
+
+    .admin-workspace {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .admin-tabs {
+      position: static;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .admin-tab {
+      grid-template-columns: 1fr;
+      min-height: 108px;
+      padding: 16px;
+      border: 1px solid rgb(49 87 59 / .12);
+      background: rgb(255 253 248 / .45);
+    }
+
+    .admin-tab::before {
+      left: 15px;
+      top: auto;
+      bottom: -1px;
+      width: 0;
+      height: 3px;
+      transform: none;
+      transition: width .18s ease;
+    }
+
+    .admin-tab.is-active::before {
+      width: 52px;
+      height: 3px;
+    }
+
+    .admin-tab:hover {
+      transform: none;
+    }
+
+    .admin-tab__index {
+      padding: 0;
+    }
+
+    .admin-tab__copy strong {
+      font-size: 1.08rem;
+    }
+
+    .admin-panel {
+      min-height: 68vh;
+      background:
+        repeating-linear-gradient(180deg, transparent 0, transparent 41px, rgb(55 86 74 / .05) 42px),
+        #fffdf8;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .admin-header h1 {
+      font-size: clamp(2.85rem, 15vw, 4.2rem);
+    }
+
+    .admin-intro {
+      margin-top: 14px;
+      font-size: 1rem;
+    }
+
+    .admin-tabs {
+      grid-template-columns: 1fr;
+    }
+
+    .admin-tab {
+      min-height: 88px;
+    }
+
+    .admin-panel {
+      min-height: 72vh;
+    }
+  }
+</style>
