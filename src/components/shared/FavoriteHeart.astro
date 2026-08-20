@@ -1,8 +1,21 @@
 ---
-import type { AtlasEntity } from '../../core/models/types';
+import type { AtlasEntity, MediaRecord, SpaCardContent, ThingToDoSpaCardContent } from '../../core/models/types';
+import { getCountry } from '../../engines/country/country-engine';
 import { favoriteSnapshot } from '../../features/favorites/store';
-interface Props { entity: AtlasEntity; }
-const { entity } = Astro.props;
-const snapshot = favoriteSnapshot(entity);
+
+interface Props {
+  entity: AtlasEntity;
+  cardImage?: MediaRecord;
+  shortDescription?: string;
+  spaCard?: SpaCardContent | ThingToDoSpaCardContent;
+}
+
+const { entity, cardImage, shortDescription, spaCard } = Astro.props;
+const snapshot = favoriteSnapshot(entity, {
+  cardImage,
+  shortDescription,
+  spaCard,
+  countryAccent: getCountry(entity.country)?.accentColor ?? '#b7473b',
+});
 ---
 <button class="favorite-heart" type="button" data-favorite data-entity-key={`${snapshot.country}:${snapshot.city}:${snapshot.id}`} data-entity-name={snapshot.name} data-entity={JSON.stringify(snapshot)} aria-label={`Add ${snapshot.name} to My Favorites`} aria-pressed="false"><span aria-hidden="true">♡</span></button>
