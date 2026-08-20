@@ -36,6 +36,8 @@ for (const thing of things) {
   const media = editorial.media[id];
   assert.ok(media?.length >= 1, `${id}: at least one editorial image is required`);
   assert.equal(editorial.seo[id].image, media[0].src, `${id}: SEO image must match the first editorial image`);
+  assert.ok(editorial.seo[id].title?.trim(), `${id}: SEO title is required`);
+  assert.ok(editorial.seo[id].description?.trim(), `${id}: SEO description is required`);
 
   assert.equal(editorial.spa[id].handwrittenTags?.length, 3, `${id}: SPA card must keep exactly three handwritten tags`);
   assert.ok(editorial.spa[id].gettingThere, `${id}: SPA gettingThere is required`);
@@ -57,6 +59,10 @@ for (const thing of things) {
     assert.doesNotMatch(source.sourceUrl, /thingstodoatlas/i, `${id}: Atlas/V1 must never be used as a final editorial source`);
   }
 }
+
+const seoEntries = things.map((thing) => editorial.seo[thing.id]);
+assert.equal(new Set(seoEntries.map((entry) => entry.title.trim().toLowerCase())).size, things.length, 'Don Det SEO titles must be unique');
+assert.equal(new Set(seoEntries.map((entry) => entry.description.trim().toLowerCase())).size, things.length, 'Don Det SEO descriptions must be unique');
 
 const compactWithoutSecondary = [
   'thing-4000-islands-kayaking',
@@ -81,4 +87,4 @@ for (const path of genericRuntimeFiles) {
   assert.doesNotMatch(source, /don-det|thing-don-det/i, `${path}: generic runtime must not contain Don Det-specific branches`);
 }
 
-console.log(`Don Det final editorial audit passed: ${things.length}/11 activities complete and detached from generic runtime.`);
+console.log(`Don Det final editorial audit passed: ${things.length}/11 activities complete, SEO-unique and detached from generic runtime.`);
