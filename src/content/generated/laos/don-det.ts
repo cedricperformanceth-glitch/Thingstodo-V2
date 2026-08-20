@@ -1312,7 +1312,7 @@ const data = {
       },
       "shortDescription": "Sunset-side riverside studios with private outdoor space, suited to travellers wanting a quieter stay directly beside the Mekong.",
       "media": {
-        "card": {},
+        "card": { "id": "dodand-studio-and-sunset-riverside-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/dodand-studio-and-sunset-riverside-guesthouse/dodand-studio-and-sunset-riverside-guesthouse.webp", "alt": "Dodand Studio And Sunset Riverside Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1364,7 +1364,7 @@ const data = {
       },
       "shortDescription": "Riverside rooms and bungalows with broad sunset views, offering an easy island base with food and drinks available on site.",
       "media": {
-        "card": {},
+        "card": { "id": "dondet-vixay-sunset-and-river-view-card", "src": "/assets/cities/laos/don-det/accommodation/dondet-vixay-sunset-and-river-view/dondet-vixay-sunset-and-river-view.webp", "alt": "Dondet Vixay Sunset And River View on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1416,7 +1416,7 @@ const data = {
       },
       "shortDescription": "A small sunrise-side guesthouse with river-facing balconies and simple rooms, positioned away from the busiest northern part of Don Det.",
       "media": {
-        "card": {},
+        "card": { "id": "thiptavanh-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/thiptavanh-guesthouse/thiptavanh-guesthouse.webp", "alt": "Thiptavanh Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1468,7 +1468,7 @@ const data = {
       },
       "shortDescription": "A sunset-side bungalow stay with garden space, close enough to restaurants and bars while still offering a quieter place to sleep.",
       "media": {
-        "card": {},
+        "card": { "id": "moon-by-night-card", "src": "/assets/cities/laos/don-det/accommodation/moon-by-night/moon-by-night.webp", "alt": "Moon By Night on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1520,7 +1520,7 @@ const data = {
       },
       "shortDescription": "A more polished hotel option near the northern arrival area, useful for travellers wanting a conventional room and easy village access.",
       "media": {
-        "card": {},
+        "card": { "id": "don-det-hotel-card", "src": "/assets/cities/laos/don-det/accommodation/don-det-hotel/don-det-hotel.webp", "alt": "Don Det Hotel on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1572,7 +1572,7 @@ const data = {
       },
       "shortDescription": "A well-kept guesthouse near the village centre with private rooms and balconies, convenient for the ferry, restaurants and island paths.",
       "media": {
-        "card": {},
+        "card": { "id": "baba-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/baba-guesthouse/baba-guesthouse.webp", "alt": "Baba Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1624,7 +1624,7 @@ const data = {
       },
       "shortDescription": "Sunrise-side bungalows with a garden and restaurant, suited to travellers cycling between Don Det, the bridge and Don Khon.",
       "media": {
-        "card": {},
+        "card": { "id": "boonmy-bungalows-and-restaurant-don-det-4000-islands-card", "src": "/assets/cities/laos/don-det/accommodation/boonmy-bungalows-and-restaurant-don-det-4000-islands/boonmy-bungalows-and-restaurant-don-det-4000-islands.webp", "alt": "Boonmy Bungalows And Restaurant Don Det 4000 Islands on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1676,7 +1676,7 @@ const data = {
       },
       "shortDescription": "A sunset-side guesthouse with river-facing verandas, useful for a quieter stay slightly removed from the busiest part of the village.",
       "media": {
-        "card": {},
+        "card": { "id": "namknong-view-card", "src": "/assets/cities/laos/don-det/accommodation/namknong-view/namknong-view.webp", "alt": "Namknong View on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1728,7 +1728,7 @@ const data = {
       },
       "shortDescription": "Simple garden rooms close to the main village, practical for travellers who want privacy while staying within walking distance of services.",
       "media": {
-        "card": {},
+        "card": { "id": "dondet-garden-guest-house-card", "src": "/assets/cities/laos/don-det/accommodation/dondet-garden-guest-house/dondet-garden-guest-house.webp", "alt": "Dondet Garden Guest House on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1780,7 +1780,7 @@ const data = {
       },
       "shortDescription": "A small guesthouse on the southern island route, useful as a quieter base closer to the bridge and Don Khon.",
       "media": {
-        "card": {},
+        "card": { "id": "rivergarden-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/rivergarden-guesthouse/rivergarden-guesthouse.webp", "alt": "Rivergarden Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1884,7 +1884,7 @@ const data = {
       },
       "shortDescription": "A straightforward sunset-side guesthouse, useful for budget travellers who want simple lodging near the main Don Det village area.",
       "media": {
-        "card": {},
+        "card": { "id": "green-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/green-guesthouse/green-guesthouse.webp", "alt": "Green Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -1936,7 +1936,7 @@ const data = {
       },
       "shortDescription": "A budget-friendly guesthouse near northern Don Det, convenient for the ferry, restaurants and the first section of the island paths.",
       "media": {
-        "card": {},
+        "card": { "id": "yommalay-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/yommalay-guesthouse/yommalay-guesthouse.webp", "alt": "Yommalay Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
@@ -2040,7 +2040,7 @@ const data = {
       },
       "shortDescription": "A small sunset-side homestay-style guesthouse, useful for travellers seeking simple lodging away from the main arrival strip.",
       "media": {
-        "card": {},
+        "card": { "id": "noupad-sunset-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/noupad-sunset-guesthouse/noupad-sunset-guesthouse.webp", "alt": "Noupad Sunset Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true },
         "fieldCard": {
           "gallery": []
         }
