@@ -15,6 +15,7 @@ export interface CityFieldNoteChapter {
   paragraphs: string[];
   facts?: CityFieldNoteFact[];
   note?: { label: string; text: string };
+  photoSlot?: boolean;
 }
 export interface CityFieldNoteContent {
   typeLabel: string;
@@ -48,7 +49,7 @@ const generatedChapters = (city: City, country: Country): CityFieldNoteChapter[]
     { id:'stay', eyebrow:'04 · CHOOSE YOUR BASE', title:'Choose where to stay by experience, not ranking', paragraphs:[`Explain the real trade-offs between different parts of ${city.name}: convenience, atmosphere, quiet, access, landscape or onward transport.`,'Only create neighbourhood or area distinctions when they are genuinely useful and verified.'], facts:addressTargets.length ? addressTargets.slice(0,4).map((value,index)=>({label:index===0?'Generated inventory':'Also mapped',value})) : undefined, note:{label:'Atlas note',text:'Location should explain the stay before individual properties are compared.'} },
     { id:'conditions', eyebrow:'05 · READ THE CONDITIONS', title:'Let season and conditions change the plan', paragraphs:[`${climate} is only the generated climate cue. The editorial pass should identify what seasonality really changes on the ground.`,'Prioritise consequences over generic weather: road or river access, heat, rain, visibility, opening patterns, crowds or water levels.'], note:{label:'Living guide',text:'Write changing conditions so they can be reconfirmed without rewriting the whole chapter.'} },
     { id:'practical', eyebrow:'06 · PRACTICAL REALITY', title:'Keep the practical details that prevent a bad day', paragraphs:[`Add only the practical constraints that matter specifically in ${city.name}: money, connectivity, healthcare, tickets, local services or limited backup.`,'Ordinary travel advice belongs elsewhere. This chapter should stay short and destination-specific.'], facts:[{label:'Coordinates',value:`${city.coordinates.latitude.toFixed(4)}, ${city.coordinates.longitude.toFixed(4)}`},{label:'Categories',value:`${city.categories.length} planning chapters`},{label:'Inventory',value:addressTargets.length?addressTargets.join(' · '):'No address targets configured'},{label:'Rule',value:'Reconfirm changing details before publication'}] },
-    { id:'pace', eyebrow:'07 · BUILD THE STAY', title:`Give ${city.name} the right amount of time`, paragraphs:['Use the verified activity set and local geography to recommend a realistic stay length. The generic layer deliberately does not invent a number of nights.',`The final version should explain what an extra day unlocks and whether ${city.name} works best as a short stop, a base or a slower chapter in the wider ${country.name} route.`], note:{label:'Atlas note',text:'End with a point of view about the stay, not another checklist.'} }
+    { id:'pace', eyebrow:'07 · BUILD THE STAY', title:`Give ${city.name} the right amount of time`, paragraphs:['Use the verified activity set and local geography to recommend a realistic stay length. The generic layer deliberately does not invent a number of nights.',`The final version should explain what an extra day unlocks and whether ${city.name} works best as a short stop, a base or a slower chapter in the wider ${country.name} route.`], photoSlot:true }
   ];
 };
 
