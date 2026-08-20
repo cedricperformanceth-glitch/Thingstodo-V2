@@ -26,7 +26,14 @@ const initializeSpa = (spa: HTMLElement) => {
 
   const activateFromHash = () => {
     const hash = decodeURIComponent(location.hash.replace(/^#/, ''));
-    activate(available.has(hash) ? hash : defaultTab, false);
+    const hasCategoryHash = available.has(hash);
+    activate(hasCategoryHash ? hash : defaultTab, false);
+
+    if (hasCategoryHash) {
+      requestAnimationFrame(() => {
+        spa.scrollIntoView({ block: 'start', behavior: 'auto' });
+      });
+    }
   };
 
   tabs.forEach((tab, index) => {
