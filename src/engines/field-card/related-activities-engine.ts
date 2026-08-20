@@ -1,7 +1,7 @@
 import type { City, MediaRecord, ThingToDo } from '../../core/models/types';
 import { thingPath } from '../../core/routing/paths';
-import editorialMediaData from '../../content/field-card-media-copy.json';
 import { getThings } from '../category/category-engine';
+import { getEditorialMedia } from './field-card-editorial';
 
 export interface FieldCardRelatedActivity {
   id: string;
@@ -12,8 +12,6 @@ export interface FieldCardRelatedActivity {
   duration?: string;
   image?: MediaRecord;
 }
-
-const editorialMedia = editorialMediaData as Record<string, MediaRecord[]>;
 
 const compactDescription = (value: string, maxWords = 20) => {
   const words = value.trim().split(/\s+/).filter(Boolean);
@@ -37,7 +35,7 @@ const activityEyebrow = (thing: ThingToDo) => {
 };
 
 const activityImage = (thing: ThingToDo) =>
-  editorialMedia[thing.id]?.[0]
+  getEditorialMedia(thing.id)?.[0]
   ?? thing.media.card?.image
   ?? thing.media.fieldCard?.gallery?.[0]
   ?? thing.media.research?.activityPhotoReserve?.[0];
