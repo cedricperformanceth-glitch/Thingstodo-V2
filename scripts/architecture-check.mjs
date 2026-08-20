@@ -9,6 +9,7 @@ const reusableFolders = [
   'src/components/hero',
   'src/components/explore-board',
   'src/components/spa',
+  'src/components/city-field-note',
   'src/pages/[country]',
 ];
 const presentationFolders = ['src/components', 'src/pages'];
