@@ -1,11 +1,9 @@
 import { getThings } from '../category/category-engine';
-import type { City, MediaRecord, ThingToDo } from '../../core/models/types';
-import fieldCardMediaEditorial from '../../content/field-card-media-copy.json';
+import type { City, ThingToDo } from '../../core/models/types';
+import { getEditorialMedia } from '../field-card/field-card-editorial';
 import { getExploreBoardCopy } from './explore-board-copy';
 
 export const EXPLORE_BOARD_LANDMARK_COUNT = 3;
-
-const editorialMedia = fieldCardMediaEditorial as Record<string, MediaRecord[]>;
 
 export interface ExploreBoardEntry {
   thing: ThingToDo;
@@ -15,7 +13,7 @@ export interface ExploreBoardEntry {
 }
 
 const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
-  const heroImage = editorialMedia[thing.id]?.[0];
+  const heroImage = getEditorialMedia(thing.id)?.[0];
   if (!heroImage) return thing;
 
   return {
