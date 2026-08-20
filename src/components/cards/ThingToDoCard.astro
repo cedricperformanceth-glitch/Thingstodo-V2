@@ -1,19 +1,16 @@
 ---
-import type { City, MediaRecord, ThingToDo, ThingToDoSpaCardContent } from '../../core/models/types';
-import editorialMediaData from '../../content/field-card-media-copy.json';
-import editorialSpaData from '../../content/spa-thing-card-copy.json';
+import type { City, ThingToDo } from '../../core/models/types';
+import { getEditorialMedia, getEditorialSpa } from '../../engines/field-card/field-card-editorial';
 import { thingPath } from '../../core/routing/paths';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import CardActions from './CardActions.astro';
 import './entry-card.css';
 interface Props { city: City; thing: ThingToDo; showDestination?: boolean; }
-type EditorialSpaCard = ThingToDoSpaCardContent & { description?: string };
 const { city, thing, showDestination = false } = Astro.props;
-const editorialMedia = editorialMediaData as Record<string, MediaRecord[]>;
-const editorialSpa = editorialSpaData as Record<string, EditorialSpaCard>;
-const spaCard = editorialSpa[thing.id] ?? thing.spaCard;
-const description = editorialSpa[thing.id]?.description ?? thing.shortDescription;
-const image = editorialMedia[thing.id]?.[0] ?? thing.media.card?.image;
+const editorialSpa = getEditorialSpa(thing.id);
+const spaCard = editorialSpa ?? thing.spaCard;
+const description = editorialSpa?.description ?? thing.shortDescription;
+const image = getEditorialMedia(thing.id)?.[0] ?? thing.media.card?.image;
 const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
   ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
   : '';
