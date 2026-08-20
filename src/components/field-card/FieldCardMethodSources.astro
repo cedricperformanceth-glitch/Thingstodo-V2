@@ -1,6 +1,6 @@
 ---
 import type { MediaRecord, ResearchSource, ThingToDo } from '../../core/models/types';
-import editorialSourceData from '../../content/field-card-source-copy.json';
+import { getEditorialSources } from '../../engines/field-card/field-card-editorial';
 
 interface Props {
   thing: ThingToDo;
@@ -12,9 +12,8 @@ const gallery = thing.media.fieldCard?.gallery ?? [];
 const fieldCardPhotos = [gallery[0] ?? thing.media.card?.image, gallery[1], gallery[2]]
   .filter((photo): photo is MediaRecord => Boolean(photo));
 
-const editorialSources = editorialSourceData as Record<string, ResearchSource[]>;
 const generatedSources = (thing as ThingToDo & { researchSources?: ResearchSource[] }).researchSources ?? [];
-const sourceCandidates = editorialSources[thing.id] ?? generatedSources;
+const sourceCandidates = getEditorialSources(thing.id) ?? generatedSources;
 const sources = sourceCandidates.filter((source, index, list) => {
   const key = source.sourceUrl || source.sourceName;
   return list.findIndex((candidate) => (candidate.sourceUrl || candidate.sourceName) === key) === index;
