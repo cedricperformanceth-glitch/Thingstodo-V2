@@ -26,13 +26,16 @@ const meta = pageSeo(seo, breadcrumbs);
     <link rel="canonical" href={meta.canonical} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={meta.canonical} />
+    <meta property="og:site_name" content="Things To Do Atlas" />
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
     {meta.image && <meta property="og:image" content={meta.image} />}
+    {meta.image && meta.imageAlt && <meta property="og:image:alt" content={meta.imageAlt} />}
     <meta name="twitter:card" content={meta.image ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={meta.title} />
     <meta name="twitter:description" content={meta.description} />
     {meta.image && <meta name="twitter:image" content={meta.image} />}
+    {meta.image && meta.imageAlt && <meta name="twitter:image:alt" content={meta.imageAlt} />}
     {!meta.indexable && <meta name="robots" content="noindex,nofollow" />}
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.breadcrumbs)} />
     {structuredData.map((item) => (
