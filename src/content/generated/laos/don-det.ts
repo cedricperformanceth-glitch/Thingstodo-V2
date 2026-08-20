@@ -626,7 +626,7 @@ const data = {
       "shortDescription": "A simple local restaurant toward Don Khon, serving breakfast and everyday meals for travellers exploring the southern end of the islands.",
       "media": {
         "card": {
-          "image": "/assets/cities/laos/don-det/restaurants/restaurant-naly/restaurant-naly.webp"
+          "image": { "id": "restaurant-naly-card", "src": "/assets/cities/laos/don-det/restaurants/restaurant-naly/restaurant-naly.webp", "alt": "Restaurant Naly on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }
         },
         "fieldCard": {
           "gallery": []
