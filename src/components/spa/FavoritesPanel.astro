@@ -1,4 +1,6 @@
 ---
+import '../cards/entry-card.css';
+import '../cards/card-actions.css';
 interface Props { currentCountry: string; }
 const { currentCountry } = Astro.props;
 ---
@@ -22,7 +24,5 @@ const { currentCountry } = Astro.props;
   .favorites-panel :global(.favorites-country>summary strong){font-size:1.05rem;font-weight:500}.favorites-panel :global(.favorites-country>summary small){color:#b76645;font:700 .5rem/1 'DM Sans',var(--sans);letter-spacing:.1em;text-transform:uppercase}
   .favorites-panel :global(.favorites-country[open]>summary){border-bottom:1px solid rgba(49,85,69,.14);background:rgba(49,85,69,.035)}
   .favorites-panel :global(.favorites-country__cards){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;padding:1rem}
-  .favorites-panel :global(.favorite-card){min-width:0;border:1px solid rgba(49,85,69,.18);border-radius:0;background:#fffdf8;box-shadow:3px 4px 0 rgba(49,85,69,.07);padding:.75rem}
-  .favorites-panel :global(.favorite-card__media){position:relative;min-height:3.2rem;background:#eee7d8}.favorites-panel :global(.favorite-card__media img){display:block;width:100%;aspect-ratio:1.6;object-fit:cover}.favorites-panel :global(.favorite-card h3){margin:.7rem 0 .35rem;color:#1f2924;font:500 1.25rem/1.05 Fraunces,var(--serif)}.favorites-panel :global(.favorite-card p){margin:.35rem 0;color:rgba(31,41,36,.68);font-size:.7rem}.favorites-panel :global(.favorite-card__destination){color:#b76645!important;font-weight:700;text-transform:capitalize}.favorites-panel :global(.favorite-card__actions){display:flex;flex-wrap:wrap;gap:.45rem}.favorites-panel :global(.favorite-card .button){min-height:34px;padding:.5rem .65rem;font-size:.62rem}
   @media(max-width:760px){.favorites-panel__heading{grid-template-columns:1fr}.favorites-panel__heading>span{max-width:30rem}.favorites-panel :global(.favorites-country__cards){grid-template-columns:1fr}}
 </style>
