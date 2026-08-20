@@ -5,7 +5,7 @@ import FieldCardNavigation from '../../../../components/field-card/FieldCardNavi
 import { getCities, getCity } from '../../../../engines/city/city-engine';
 import { getCountry } from '../../../../engines/country/country-engine';
 import { getThings, getThing } from '../../../../engines/category/category-engine';
-import { getEditorialSeo } from '../../../../engines/field-card/field-card-editorial';
+import { getEditorialMedia, getEditorialSeo } from '../../../../engines/field-card/field-card-editorial';
 import { cityPath, countryPath, thingPath } from '../../../../core/routing/paths';
 import { absoluteCanonical } from '../../../../core/seo/metadata';
 import type { SeoMetadata } from '../../../../core/models/types';
@@ -22,13 +22,16 @@ const thing = city ? getThing(city, Astro.params.slug ?? '') : undefined;
 if (!city || !country || !thing) return Astro.redirect('/');
 
 const reviewedSeo = getEditorialSeo(thing.id);
+const editorialHeroImage = getEditorialMedia(thing.id)?.[0];
+const fallbackImage = thing.media.fieldCard?.gallery?.[0] ?? thing.media.card?.image;
 const canonicalPath = thingPath(city, thing);
 const seo: SeoMetadata = {
   title: reviewedSeo?.title ?? `${thing.name} | Things To Do Atlas`,
   description: reviewedSeo?.description ?? thing.shortDescription,
   canonicalPath,
   indexable: city.seo.indexable,
-  image: reviewedSeo?.image ?? thing.media.fieldCard?.gallery?.[0]?.src ?? thing.media.card?.image?.src,
+  image: reviewedSeo?.image ?? editorialHeroImage?.src ?? fallbackImage?.src,
+  imageAlt: editorialHeroImage?.alt ?? fallbackImage?.alt,
 };
 
 const breadcrumbs = [
