@@ -7,80 +7,111 @@ import AdSlot from '../shared/AdSlot.astro';
 interface Props { city: City; country: Country; }
 const { city, country } = Astro.props;
 const view = cityFieldNoteView(city, country);
-const heroChapters = view.chapters.slice(0, 4);
-const categoryLinks = city.categories.map((category) => ({
-  label: category === 'things-to-do' ? 'Things to do' : category.split('-').map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(' '),
-  href: categoryPath(city, category)
+const heroSections = view.chapters.slice(0, 4);
+const categoryLinks = city.categories.slice(0, 4).map((category) => ({
+  label: category === 'things-to-do'
+    ? 'Things to do'
+    : category.split('-').map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(' '),
+  href: categoryPath(city, category),
 }));
-const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ? view.adSlots[1] : index === 5 ? view.adSlots[2] : undefined;
-const generatedPostIts = [
-  { label: 'ATLAS NOTE', text: 'Read the destination as a place first. The checklist comes after.' },
-  { label: 'FIELD NOTE', text: 'The final editorial pass should turn this framework into one clear local point of view.' },
-  { label: 'ON THE GROUND', text: 'Keep only the movement details that genuinely change how a traveller plans the day.' },
-  { label: 'SLEEP WELL', text: 'Where you stay should explain the experience around the room, not rank the room itself.' },
-  { label: 'KEEP CLOSE', text: 'Seasonal details belong here only when they materially change the trip.' },
-  { label: 'PRACTICAL', text: 'Save the small detail that can prevent a bad travel day.' },
-  { label: 'ATLAS NOTE', text: 'End with a useful sense of pace, not another list.' }
-];
+const adIndexes = new Map([[1, view.adSlots[0]], [4, view.adSlots[1]], [6, view.adSlots[2]]]);
 ---
 
 <article class="city-note" aria-labelledby="city-note-title">
   <header class="city-note__hero">
     <div class="city-note__hero-copy">
-      <p class="city-note__kicker">{view.typeLabel} · {country.name}</p>
+      <p class="city-note__kicker">{view.typeLabel}</p>
       <h1 id="city-note-title">{view.title}</h1>
+      <p class="city-note__context">{view.contextLine}</p>
       <p class="city-note__deck">{view.subtitle}</p>
-      <div class="city-note__read">
+
+      <div class="city-note__read" aria-label={`${city.name} guide chapters`}>
         <span>READ THE CITY</span>
-        <ol>{heroChapters.map((chapter, index) => <li><b>{String(index + 1).padStart(2, '0')}</b><span>{chapter.title}</span></li>)}</ol>
+        <ol>
+          {heroSections.map((section, index) => (
+            <li><b>{String(index + 1).padStart(2, '0')}</b>{section.title}</li>
+          ))}
+        </ol>
       </div>
-      <div class="city-note__stamp"><span>CITY FIELD NOTE</span><strong>Before you begin</strong><small>{city.name} · {country.name}</small></div>
+
+      <div class="city-note__stamp" aria-label={`${city.name} field note`}>
+        <span>CITY FIELD NOTE</span>
+        <strong>Before you begin</strong>
+        <small>{city.name} · {country.name}</small>
+      </div>
     </div>
 
-    <div class="city-note__hero-visual" aria-label={`${city.name} city note cover`}>
-      <span class="city-note__tape" aria-hidden="true"></span>
-      <div class="city-note__photo-placeholder"><span>FIELD PHOTO</span><strong>Editorial media to add</strong><small>{city.name} · exact-place image</small></div>
-      <p>{view.intro}</p>
-      <span class="city-note__scribble">read the place<br/>before the list ↘</span>
-    </div>
+    <figure class="city-note__hero-visual">
+      <div class="city-note__hero-placeholder" role="img" aria-label={`Editorial hero photo to add for ${city.name}`}>
+        <span>FIELD PHOTO</span>
+        <strong>Editorial media to add</strong>
+        <small>{city.name} · exact-place image</small>
+      </div>
+      <figcaption>{view.intro}</figcaption>
+    </figure>
   </header>
 
-  <section class="city-note__quick" aria-label={`${city.name} city note overview`}>
-    {view.quickRead.map((item) => <div><span>{item.label}</span><strong>{item.value}</strong><small>{item.detail}</small></div>)}
+  <section class="city-note__quick" aria-label={`${city.name} guide overview`}>
+    {view.quickRead.map((item) => (
+      <div>
+        <span>{item.label}</span>
+        <strong>{item.value}</strong>
+        <small>{item.detail}</small>
+      </div>
+    ))}
   </section>
 
   <div class="city-note__chapters">
     {view.chapters.map((chapter, index) => {
-      const adSlot = adAfter(index);
-      const postIt = chapter.note ?? generatedPostIts[index];
+      const hasSupport = Boolean((chapter.facts && chapter.facts.length) || chapter.note);
+      const adSlot = adIndexes.get(index);
       return <>
-        <section class:list={['city-note__chapter', { 'city-note__chapter--reverse': index % 2 === 1 }]}> 
+        <section class:list={[
+          'city-note__chapter',
+          { 'city-note__chapter--reverse': index % 2 === 1 && hasSupport },
+          { 'city-note__chapter--solo': !hasSupport },
+        ]}>
           <div class="city-note__chapter-copy">
             <p class="city-note__section-label">{chapter.eyebrow}</p>
             <h2>{chapter.title}</h2>
-            <div class="city-note__prose">{chapter.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
+            <div class="city-note__prose">
+              {chapter.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
           </div>
 
-          <aside class="city-note__side">
-            {chapter.facts && chapter.facts.length > 0 && <div class="city-note__facts">
-              <h3>Keep close</h3>
-              <dl>{chapter.facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
-            </div>}
-            {postIt && <div class:list={['city-note__postit', `city-note__postit--${index % 3}`]}>
-              <span class="city-note__postit-tape" aria-hidden="true"></span>
-              <small>{postIt.label}</small>
-              <p>{postIt.text}</p>
-            </div>}
-          </aside>
+          {hasSupport && (
+            <aside class="city-note__chapter-side">
+              {chapter.facts && chapter.facts.length > 0 && <>
+                <h3>Keep close</h3>
+                <dl class="city-note__facts">
+                  {chapter.facts.map((fact) => (
+                    <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>
+                  ))}
+                </dl>
+              </>}
+
+              {chapter.note && (
+                <div class="city-note__note">
+                  <span>{chapter.note.label}</span>
+                  <p>{chapter.note.text}</p>
+                </div>
+              )}
+            </aside>
+          )}
         </section>
 
-        {index === 2 && <section class="city-note__photo-spread" aria-label="Editorial photo positions">
-          {[1,2,3].map((number) => <figure>
-            <span class="city-note__mini-tape" aria-hidden="true"></span>
-            <div><small>PHOTO {String(number).padStart(2,'0')}</small><strong>Editorial image to add</strong></div>
-            <figcaption>{number === 1 ? 'Landscape / orientation' : number === 2 ? 'Daily life / movement' : 'Detail / atmosphere'}</figcaption>
-          </figure>)}
-        </section>}
+        {index === 2 && (
+          <section class="city-note__photo-spread" aria-label={`${city.name} editorial photo positions`}>
+            <figure class="city-note__photo-card">
+              <div class="city-note__photo-placeholder"><span>FIELD PHOTO 01</span></div>
+              <figcaption>Landscape / orientation · editorial image to add</figcaption>
+            </figure>
+            <figure class="city-note__photo-card">
+              <div class="city-note__photo-placeholder"><span>FIELD PHOTO 02</span></div>
+              <figcaption>Daily life / atmosphere · editorial image to add</figcaption>
+            </figure>
+          </section>
+        )}
 
         {adSlot && <AdSlot slot={adSlot} />}
       </>;
@@ -94,114 +125,487 @@ const generatedPostIts = [
     <h2>{view.closing.title}</h2>
     <p>{view.closing.text}</p>
     <div class="city-note__next">
-      <a href={cityPath(city)}><strong>Back to {city.name}</strong><small>Explore Board and destination overview</small></a>
-      {categoryLinks.slice(0, 4).map((link) => <a href={link.href}><strong>{link.label}</strong><small>Open this Atlas chapter</small></a>)}
+      <a href={cityPath(city)}>
+        <strong>Explore {city.name}</strong>
+        <small>Destination overview and Explore Board</small>
+      </a>
+      {categoryLinks.map((link) => (
+        <a href={link.href}><strong>{link.label}</strong><small>Open this Atlas chapter</small></a>
+      ))}
     </div>
   </section>
 </article>
 
 <style>
-  .city-note { --green:#294c3b; --red:#a74b3d; --blue:#396f7c; width:min(1200px,100%); margin:0 auto; color:#27342d; font-family:var(--field-card-practical); }
-  .city-note__hero { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(350px,.92fr); gap:clamp(3.5rem,7vw,7rem); align-items:start; padding:clamp(3rem,6vw,6rem) clamp(1.5rem,4vw,3.5rem) clamp(5rem,8vw,7rem); border-bottom:1px solid rgb(49 85 69/.16); }
-  .city-note__hero-copy { padding-top:clamp(.5rem,2vw,1.5rem); }
-  .city-note__kicker,.city-note__section-label { margin:0 0 1rem; color:var(--red); font:700 .68rem/1.2 var(--field-card-practical); letter-spacing:.17em; text-transform:uppercase; }
-  .city-note h1,.city-note h2 { font-family:var(--field-card-title); font-weight:600; }
-  .city-note h1 { max-width:10ch; margin:0; color:var(--green); font-size:clamp(4.2rem,8.5vw,7.2rem); letter-spacing:-.055em; line-height:.9; }
-  .city-note__deck { max-width:34rem; margin:2rem 0 2.4rem; color:#46524b; font:400 clamp(1.12rem,1.7vw,1.32rem)/1.62 var(--field-card-editorial); }
-  .city-note__read { display:grid; grid-template-columns:7rem 1fr; gap:1.4rem 2rem; max-width:38rem; padding:1.5rem 0; border-block:1px solid #d8d0c1; }
-  .city-note__read>span { padding-top:.2rem; color:var(--blue); font-size:.64rem; font-weight:700; letter-spacing:.14em; }
-  .city-note__read ol { display:grid; gap:.9rem; margin:0; padding:0; list-style:none; }
-  .city-note__read li { display:grid; grid-template-columns:2.2rem minmax(0,1fr); gap:.7rem; font:400 .96rem/1.45 var(--field-card-editorial); }
-  .city-note__read b { color:var(--red); font:600 .68rem var(--field-card-practical); }
-  .city-note__stamp { width:max-content; max-width:100%; margin:2rem 0 0 auto; padding:.85rem 1.15rem; border:2px solid rgba(41,76,59,.52); color:var(--green); text-align:center; transform:rotate(-2deg); }
-  .city-note__stamp span,.city-note__stamp small { display:block; font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; }
-  .city-note__stamp strong { display:block; margin:.1rem 0; font:500 1.18rem var(--field-card-handwritten); }
-  .city-note__hero-visual { position:relative; padding:1rem 1rem 1.8rem; background:#f1eadb; box-shadow:0 16px 34px rgb(39 44 39/.11); transform:rotate(.7deg); }
-  .city-note__photo-placeholder { display:grid; min-height:clamp(330px,40vw,500px); place-content:center; gap:.55rem; padding:2rem; background:linear-gradient(145deg,#d8dfd5,#b7c5b7); color:#315545; text-align:center; }
-  .city-note__photo-placeholder span,.city-note__photo-placeholder small { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; }
-  .city-note__photo-placeholder strong { font:500 clamp(1.45rem,2.6vw,2.1rem) var(--field-card-title); }
-  .city-note__hero-visual>p { max-width:30rem; margin:1.25rem .6rem 0; color:#46524b; font:400 .98rem/1.72 var(--field-card-editorial); }
-  .city-note__tape,.city-note__mini-tape,.city-note__postit-tape { position:absolute; z-index:2; background:rgba(214,198,159,.72); box-shadow:0 1px 2px rgb(0 0 0/.08); }
-  .city-note__tape { top:-.55rem; left:38%; width:6rem; height:1.2rem; transform:rotate(-3deg); }
-  .city-note__scribble { position:absolute; right:.5rem; bottom:-2.3rem; color:var(--red); font:500 1.08rem/1.05 var(--field-card-handwritten); transform:rotate(-4deg); }
-
-  .city-note__quick { display:grid; grid-template-columns:repeat(4,1fr); margin:0 clamp(1.5rem,4vw,3.5rem); padding:1.2rem 0; border-bottom:1px solid rgb(49 85 69/.16); }
-  .city-note__quick>div { min-height:6.8rem; padding:1.1rem 1.5rem 1.2rem; border-right:1px solid #d8d0c1; }
-  .city-note__quick>div:last-child { border-right:0; }
-  .city-note__quick span,.city-note__quick small { display:block; }
-  .city-note__quick span { color:var(--red); font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-  .city-note__quick strong { display:block; margin:.45rem 0 .25rem; color:var(--green); font:600 1.08rem/1.2 var(--field-card-title); }
-  .city-note__quick small { max-width:14rem; color:#68716c; font-size:.72rem; line-height:1.45; }
-
-  .city-note__chapters { display:grid; }
-  .city-note__chapter { display:grid; grid-template-columns:minmax(0,2.05fr) minmax(210px,.62fr); gap:clamp(3.5rem,7vw,6.5rem); align-items:start; padding:clamp(6.5rem,10vw,9.5rem) clamp(2rem,5vw,5rem); border-bottom:1px solid rgb(49 85 69/.15); }
-  .city-note__chapter--reverse { grid-template-columns:minmax(210px,.62fr) minmax(0,2.05fr); }
-  .city-note__chapter--reverse .city-note__chapter-copy { order:2; }
-  .city-note__chapter--reverse .city-note__side { order:1; }
-  .city-note__chapter-copy { width:100%; max-width:48rem; }
-  .city-note__chapter--reverse .city-note__chapter-copy { justify-self:end; }
-  .city-note__chapter h2,.city-note__closing h2 { max-width:20ch; margin:.15rem 0 2.2rem; color:var(--green); font-size:clamp(2.3rem,3.5vw,3.35rem); letter-spacing:-.03em; line-height:1.04; text-wrap:balance; }
-  .city-note__prose { display:grid; gap:1.4rem; width:100%; max-width:44rem; color:#444c47; font:400 clamp(1rem,1.25vw,1.1rem)/1.82 var(--field-card-editorial); }
-  .city-note__prose p { width:100%; max-width:42rem; margin:0; }
-  .city-note__prose p:first-child::first-letter { float:left; margin:.1em .12em 0 0; color:var(--red); font:500 3.7rem/.78 var(--field-card-title); }
-
-  .city-note__side { display:grid; gap:2.4rem; align-self:start; width:min(100%,16.5rem); margin-top:clamp(1.25rem,3vw,3rem); }
-  .city-note__chapter:not(.city-note__chapter--reverse) .city-note__side { justify-self:end; }
-  .city-note__facts h3 { margin:0 0 1rem; color:var(--blue); font:600 .66rem var(--field-card-practical); letter-spacing:.12em; text-transform:uppercase; }
-  .city-note__facts dl { margin:0; border-top:1px solid #cfc6b6; }
-  .city-note__facts dl div { padding:.85rem 0; border-bottom:1px solid #d8d0c1; }
-  .city-note__facts dt { color:#747970; font-size:.6rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-  .city-note__facts dd { margin:.28rem 0 0; color:#455149; font:400 .86rem/1.5 var(--field-card-editorial); }
-
-  .city-note__postit { position:relative; width:min(15.5rem,96%); padding:1.45rem 1.35rem 1.5rem; background:#e8dca8; box-shadow:5px 7px 0 rgb(49 85 69/.055),0 10px 22px rgb(60 48 28/.1); color:#315545; transform:rotate(-2.2deg); }
-  .city-note__postit--1 { background:#e5d5b9; transform:rotate(2deg); }
-  .city-note__postit--2 { background:#d9dfc2; transform:rotate(-1deg); }
-  .city-note__postit-tape { top:-.45rem; left:50%; width:4.8rem; height:.9rem; transform:translateX(-50%) rotate(3deg); }
-  .city-note__postit small { display:block; font:700 .58rem/1.2 var(--field-card-practical); letter-spacing:.12em; text-transform:uppercase; }
-  .city-note__postit p { margin:.55rem 0 0; font:500 1.18rem/1.24 var(--field-card-handwritten); }
-
-  .city-note__photo-spread { display:grid; grid-template-columns:1.12fr .9fr .82fr; gap:clamp(1.5rem,4vw,3rem); padding:clamp(5rem,8vw,7rem) clamp(1.5rem,5vw,5rem); background:#e8e0d0; }
-  .city-note__photo-spread figure { position:relative; margin:0; padding:.8rem .8rem 1.1rem; background:#fffdf8; box-shadow:0 10px 22px rgb(44 39 30/.1); }
-  .city-note__photo-spread figure:nth-child(2) { transform:rotate(-1.6deg) translateY(1.8rem); }
-  .city-note__photo-spread figure:nth-child(3) { transform:rotate(1.5deg) translateY(-1rem); }
-  .city-note__photo-spread figure>div { display:grid; min-height:250px; place-content:center; gap:.35rem; background:#c9d2c8; color:#466152; text-align:center; }
-  .city-note__photo-spread strong,.city-note__photo-spread small { display:block; }
-  .city-note__photo-spread figcaption { padding:.9rem .25rem 0; font:500 1rem var(--field-card-handwritten); }
-  .city-note__mini-tape { top:-.45rem; left:35%; width:4rem; height:.8rem; transform:rotate(3deg); }
-
-  .city-note__warning { max-width:46rem; margin:5rem auto; padding:1.4rem 1.7rem; border-left:3px solid var(--red); background:#efe7d7; color:#4c554f; font:400 .98rem/1.65 var(--field-card-editorial); }
-  .city-note__closing { margin:0 clamp(1.5rem,6vw,6rem); padding:5rem 0 3rem; }
-  .city-note__closing>p:not(.city-note__section-label) { max-width:38rem; font:400 1.08rem/1.7 var(--field-card-editorial); }
-  .city-note__next { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1rem; margin-top:2.5rem; }
-  .city-note__next a { display:grid; gap:.35rem; min-height:7rem; align-content:start; padding:1.2rem; border:1px solid #d2c8b7; background:#fffdf8; text-decoration:none; }
-  .city-note__next strong { color:var(--green); font:600 1.05rem var(--field-card-title); }
-  .city-note__next small { color:#6d746e; line-height:1.45; }
-
-  @media(max-width:900px) {
-    .city-note__hero,.city-note__chapter,.city-note__chapter--reverse { grid-template-columns:1fr; }
-    .city-note__chapter--reverse .city-note__chapter-copy,.city-note__chapter--reverse .city-note__side { order:initial; justify-self:initial; }
-    .city-note__side,.city-note__chapter:not(.city-note__chapter--reverse) .city-note__side { width:min(100%,26rem); margin-top:0; margin-left:auto; justify-self:end; }
-    .city-note__quick { grid-template-columns:1fr 1fr; }
-    .city-note__quick>div:nth-child(2) { border-right:0; }
-    .city-note__quick>div:nth-child(-n+2) { border-bottom:1px solid #d8d0c1; }
-    .city-note__photo-spread { grid-template-columns:1fr; }
-    .city-note__photo-spread figure:nth-child(n) { transform:none; }
+  .city-note {
+    --note-paper: var(--field-card-page);
+    --note-paper-soft: var(--field-card-sheet);
+    --note-paper-deep: #e8e3d6;
+    --note-ink: #252923;
+    --note-muted: #70766d;
+    --note-green: #315545;
+    --note-green-dark: #203c31;
+    --note-terracotta: #b76645;
+    --note-line: rgb(49 85 69 / .2);
+    width: min(1180px, calc(100% - 48px));
+    margin-inline: auto;
+    color: var(--note-ink);
+    font-family: var(--field-card-practical);
   }
 
-  @media(max-width:560px) {
-    .city-note__hero { gap:3.5rem; padding-inline:.5rem; }
-    .city-note h1 { font-size:clamp(3.6rem,18vw,5.4rem); line-height:.92; }
-    .city-note__read { grid-template-columns:1fr; }
-    .city-note__quick { grid-template-columns:1fr; margin-inline:.5rem; }
-    .city-note__quick>div { min-height:auto; border-right:0; border-bottom:1px solid #d8d0c1; }
-    .city-note__quick>div:last-child { border-bottom:0; }
-    .city-note__chapter { gap:3rem; padding:5rem .5rem; }
-    .city-note__chapter h2 { max-width:15ch; font-size:clamp(2.2rem,12vw,3.1rem); }
-    .city-note__side { justify-self:start; margin-left:0; }
-    .city-note__photo-spread { padding-inline:.5rem; }
-    .city-note__warning { margin:4rem .5rem; }
-    .city-note__closing { margin-inline:.5rem; }
+  .city-note__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+    gap: clamp(42px, 7vw, 92px);
+    align-items: center;
+    padding: clamp(54px, 8vw, 96px) 0 56px;
+  }
+
+  .city-note__kicker,
+  .city-note__section-label {
+    margin: 0 0 12px;
+    color: var(--note-terracotta);
+    font-size: .69rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .city-note h1,
+  .city-note h2 {
+    margin: 0;
+    color: var(--note-green-dark);
+    font-family: var(--field-card-title);
+    font-weight: 500;
+  }
+
+  .city-note h1 {
+    max-width: 760px;
+    font-size: clamp(3.8rem, 9vw, 7.7rem);
+    line-height: .88;
+    letter-spacing: -.055em;
+  }
+
+  .city-note__context {
+    margin: 18px 0 0;
+    color: var(--note-green);
+    font: 600 clamp(1.05rem, 2vw, 1.45rem)/1.1 var(--field-card-handwritten);
+  }
+
+  .city-note__deck {
+    max-width: 680px;
+    margin: 24px 0 0;
+    color: #4d554f;
+    font: 400 clamp(1rem, 1.7vw, 1.18rem)/1.7 var(--field-card-editorial);
+  }
+
+  .city-note__read {
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid var(--note-line);
+  }
+
+  .city-note__read > span {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--note-muted);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .city-note__read ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .city-note__read li {
+    display: flex;
+    gap: 8px;
+    color: var(--note-green-dark);
+    font: 400 .82rem/1.35 var(--field-card-practical);
+  }
+
+  .city-note__read li b {
+    color: var(--note-terracotta);
+    font: 600 1rem/1 var(--field-card-handwritten);
+  }
+
+  .city-note__stamp {
+    display: inline-grid;
+    margin-top: 30px;
+    padding: 12px 18px 10px;
+    border: 1px solid rgb(183 102 69 / .48);
+    color: var(--note-terracotta);
+    transform: rotate(-2deg);
+  }
+
+  .city-note__stamp span,
+  .city-note__stamp small {
+    font-size: .58rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  .city-note__stamp strong {
+    margin: 2px 0;
+    font: 600 1.32rem/1 var(--field-card-handwritten);
+  }
+
+  .city-note__hero-visual {
+    position: relative;
+    margin: 0;
+    padding: 13px 13px 30px;
+    background: var(--note-paper-soft);
+    box-shadow: 6px 8px 0 rgb(49 85 69 / .08), 0 16px 34px rgb(32 60 49 / .1);
+    transform: rotate(1deg);
+  }
+
+  .city-note__hero-visual::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: -10px;
+    left: 14%;
+    width: 86px;
+    height: 21px;
+    background: rgb(205 188 148 / .58);
+    transform: rotate(-4deg);
+  }
+
+  .city-note__hero-placeholder {
+    display: grid;
+    width: 100%;
+    height: clamp(390px, 50vw, 650px);
+    place-content: center;
+    gap: 7px;
+    background: linear-gradient(145deg, #d9dfd5, #bcc8bc);
+    color: var(--note-green);
+    text-align: center;
+  }
+
+  .city-note__hero-placeholder span,
+  .city-note__hero-placeholder small {
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .city-note__hero-placeholder strong {
+    font: 500 clamp(1.45rem, 2.8vw, 2.2rem)/1 var(--field-card-title);
+  }
+
+  .city-note__hero-visual figcaption {
+    padding: 11px 6px 0;
+    color: var(--note-green);
+    font: 600 1rem/1.15 var(--field-card-handwritten);
+  }
+
+  .city-note__quick {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: clamp(72px, 9vw, 118px);
+    border-top: 1px solid var(--note-line);
+    border-bottom: 1px solid var(--note-line);
+  }
+
+  .city-note__quick > div {
+    min-height: 118px;
+    padding: 20px 22px;
+    border-right: 1px solid var(--note-line);
+  }
+
+  .city-note__quick > div:last-child { border-right: 0; }
+  .city-note__quick span {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--note-muted);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .city-note__quick strong {
+    display: block;
+    color: var(--note-green-dark);
+    font: 600 clamp(1.1rem, 2vw, 1.45rem)/1.05 var(--field-card-handwritten);
+  }
+
+  .city-note__quick small {
+    display: block;
+    margin-top: 8px;
+    color: var(--note-muted);
+    font-size: .74rem;
+    line-height: 1.45;
+  }
+
+  .city-note__chapters {
+    display: grid;
+    gap: clamp(72px, 10vw, 130px);
+  }
+
+  .city-note__chapter {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
+    gap: clamp(38px, 7vw, 88px);
+    align-items: start;
+  }
+
+  .city-note__chapter--reverse {
+    grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr);
+  }
+
+  .city-note__chapter--reverse .city-note__chapter-copy { grid-column: 2; }
+  .city-note__chapter--reverse .city-note__chapter-side { grid-column: 1; grid-row: 1; }
+  .city-note__chapter--solo { grid-template-columns: minmax(0, 760px); }
+  .city-note__chapter-copy { max-width: 760px; }
+
+  .city-note__chapter h2,
+  .city-note__closing h2 {
+    max-width: 720px;
+    font-size: clamp(2.15rem, 4.5vw, 4.15rem);
+    line-height: .98;
+    letter-spacing: -.035em;
+  }
+
+  .city-note__prose { margin-top: 24px; }
+  .city-note__prose p {
+    margin: 0;
+    max-width: 720px;
+    color: #444c47;
+    font: 400 1rem/1.82 var(--field-card-editorial);
+  }
+  .city-note__prose p + p { margin-top: 19px; }
+
+  .city-note__chapter-side {
+    position: relative;
+    padding: 24px 25px 22px;
+    background: var(--note-paper-soft);
+    box-shadow: 4px 6px 0 rgb(49 85 69 / .07);
+    transform: rotate(-.7deg);
+  }
+
+  .city-note__chapter--reverse .city-note__chapter-side { transform: rotate(.7deg); }
+  .city-note__chapter-side::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 34px;
+    width: 64px;
+    height: 17px;
+    background: rgb(205 188 148 / .55);
+    transform: rotate(-3deg);
+  }
+
+  .city-note__chapter-side h3 {
+    margin: 0 0 18px;
+    color: var(--note-green-dark);
+    font: 600 1.4rem/1 var(--field-card-handwritten);
+  }
+
+  .city-note__facts {
+    display: grid;
+    gap: 15px;
+    margin: 0;
+  }
+
+  .city-note__facts div {
+    padding-top: 13px;
+    border-top: 1px solid rgb(49 85 69 / .12);
+  }
+
+  .city-note__facts dt {
+    color: var(--note-green);
+    font-size: .69rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .city-note__facts dd {
+    margin: 5px 0 0;
+    color: #555e58;
+    font: 400 .8rem/1.55 var(--field-card-practical);
+  }
+
+  .city-note__note {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed rgb(183 102 69 / .35);
+  }
+
+  .city-note__note span {
+    color: var(--note-terracotta);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+
+  .city-note__note p {
+    margin: 7px 0 0;
+    color: var(--note-green-dark);
+    font: 600 1.1rem/1.3 var(--field-card-handwritten);
+  }
+
+  .city-note__photo-spread {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(22px, 4vw, 46px);
+    align-items: end;
+    padding: clamp(20px, 3vw, 34px) 0;
+  }
+
+  .city-note__photo-spread::before {
+    content: 'FROM THE FIELD';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    color: var(--note-terracotta);
+    font-size: .58rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+  }
+
+  .city-note__photo-card {
+    position: relative;
+    margin: 0;
+    padding: 11px 11px 26px;
+    background: var(--note-paper-soft);
+    box-shadow: 5px 7px 0 rgb(49 85 69 / .065), 0 14px 28px rgb(32 60 49 / .08);
+    transform: rotate(-.65deg);
+  }
+
+  .city-note__photo-card:nth-child(even) { transform: translateY(24px) rotate(.8deg); }
+  .city-note__photo-card::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: -8px;
+    left: 18%;
+    width: 70px;
+    height: 17px;
+    background: rgb(205 188 148 / .58);
+    transform: rotate(-3deg);
+  }
+
+  .city-note__photo-placeholder {
+    display: grid;
+    width: 100%;
+    height: clamp(260px, 33vw, 430px);
+    place-items: center;
+    background: #c9d2c8;
+    color: var(--note-green);
+  }
+
+  .city-note__photo-placeholder span {
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+  }
+
+  .city-note__photo-card figcaption {
+    padding: 10px 5px 0;
+    color: var(--note-green-dark);
+    font: 600 1rem/1.2 var(--field-card-handwritten);
+  }
+
+  .city-note__warning {
+    max-width: 820px;
+    margin: clamp(76px, 10vw, 124px) auto 0;
+    padding: 22px 28px;
+    border-left: 3px solid var(--note-terracotta);
+    background: rgb(248 245 236 / .62);
+    color: #56605a;
+    font: 400 .86rem/1.65 var(--field-card-practical);
+  }
+
+  .city-note__closing {
+    margin-top: clamp(82px, 11vw, 138px);
+    padding: clamp(42px, 7vw, 72px);
+    border-top: 1px solid var(--note-line);
+    background: rgb(248 245 236 / .58);
+  }
+
+  .city-note__closing h2 {
+    max-width: 760px;
+    font-size: clamp(2.4rem, 5vw, 4.7rem);
+    line-height: .95;
+  }
+
+  .city-note__closing > p:not(.city-note__section-label) {
+    max-width: 650px;
+    margin: 18px 0 0;
+    color: var(--note-muted);
+    line-height: 1.65;
+  }
+
+  .city-note__next {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .city-note__next a {
+    display: grid;
+    min-height: 112px;
+    align-content: end;
+    padding: 19px;
+    border: 1px solid var(--note-line);
+    background: var(--note-paper);
+    color: var(--note-green-dark);
+    text-decoration: none;
+  }
+
+  .city-note__next strong { font: 500 1.08rem var(--field-card-title); }
+  .city-note__next small { margin-top: 5px; color: var(--note-muted); font-size: .72rem; line-height: 1.4; }
+
+  @media (max-width: 900px) {
+    .city-note__hero,
+    .city-note__chapter,
+    .city-note__chapter--reverse { grid-template-columns: 1fr; }
+    .city-note__chapter--reverse .city-note__chapter-copy,
+    .city-note__chapter--reverse .city-note__chapter-side { grid-column: auto; grid-row: auto; }
+    .city-note__hero-visual { width: min(100%, 680px); }
+    .city-note__quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .city-note__quick > div:nth-child(2) { border-right: 0; }
+    .city-note__quick > div:nth-child(-n + 2) { border-bottom: 1px solid var(--note-line); }
+  }
+
+  @media (max-width: 620px) {
+    .city-note { width: min(100% - 24px, 1180px); }
+    .city-note__hero { padding-top: 42px; }
+    .city-note h1 { font-size: clamp(3.55rem, 21vw, 5.6rem); }
+    .city-note__read ol,
+    .city-note__quick,
+    .city-note__next,
+    .city-note__photo-spread { grid-template-columns: 1fr; }
+    .city-note__quick > div,
+    .city-note__quick > div:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--note-line); }
+    .city-note__quick > div:last-child { border-bottom: 0; }
+    .city-note__hero-placeholder { height: clamp(330px, 105vw, 520px); }
+    .city-note__chapter-side { width: calc(100% - 16px); }
+    .city-note__photo-card,
+    .city-note__photo-card:nth-child(even) { transform: rotate(-.45deg); }
+    .city-note__photo-card:nth-child(even) { margin-left: 14px; }
+    .city-note__closing { padding: 34px 22px; }
   }
 </style>
 
-<style is:global>body:has(.city-note) { background:var(--field-card-page); }</style>
+<style is:global>
+  body:has(.city-note) {
+    background:
+      linear-gradient(rgb(244 240 231 / .96), rgb(244 240 231 / .96)),
+      repeating-linear-gradient(0deg, transparent 0 31px, rgb(49 85 69 / .028) 31px 32px);
+  }
+</style>
