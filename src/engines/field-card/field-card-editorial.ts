@@ -1,0 +1,52 @@
+import type {
+  FieldCardHeroContent,
+  FieldCardPracticalContent,
+  FieldCardPrimaryStoryContent,
+  FieldCardQuickReadContent,
+  FieldCardSecondaryStoryContent,
+  MediaRecord,
+  ResearchSource,
+  SeoMetadata,
+  ThingToDo,
+  ThingToDoSpaCardContent,
+} from '../../core/models/types';
+import faqData from '../../content/field-card-faq-copy.json';
+import heroData from '../../content/field-card-hero-copy.json';
+import mediaData from '../../content/field-card-media-copy.json';
+import practicalData from '../../content/field-card-practical-copy.json';
+import primaryStoryData from '../../content/field-card-primary-story-copy.json';
+import quickReadData from '../../content/field-card-quick-read-copy.json';
+import secondaryStoryData from '../../content/field-card-secondary-story-copy.json';
+import seoData from '../../content/field-card-seo-copy.json';
+import sourceData from '../../content/field-card-source-copy.json';
+import spaData from '../../content/spa-thing-card-copy.json';
+
+type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
+export type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
+export type EditorialSpaCard = ThingToDoSpaCardContent & { description?: string };
+
+const faq = faqData as Record<string, FieldCardFaqItem[]>;
+const hero = heroData as Record<string, FieldCardHeroContent>;
+const media = mediaData as Record<string, MediaRecord[]>;
+const practical = practicalData as Record<string, FieldCardPracticalContent>;
+const primaryStory = primaryStoryData as Record<string, FieldCardPrimaryStoryContent>;
+const quickRead = quickReadData as Record<string, FieldCardQuickReadContent>;
+const secondaryStory = secondaryStoryData as Record<string, FieldCardSecondaryStoryContent | null>;
+const seo = seoData as Record<string, FieldCardSeoOverride>;
+const sources = sourceData as unknown as Record<string, ResearchSource[]>;
+const spa = spaData as Record<string, EditorialSpaCard>;
+
+export const getEditorialFaq = (id: string) => faq[id];
+export const getEditorialHero = (id: string) => hero[id];
+export const getEditorialMedia = (id: string) => media[id];
+export const getEditorialPractical = (id: string) => practical[id];
+export const getEditorialPrimaryStory = (id: string) => primaryStory[id];
+export const getEditorialQuickRead = (id: string) => quickRead[id];
+export const getEditorialSeo = (id: string) => seo[id];
+export const getEditorialSources = (id: string) => sources[id];
+export const getEditorialSpa = (id: string) => spa[id];
+
+export const getEditorialSecondaryStory = (id: string) => ({
+  hasOverride: Object.prototype.hasOwnProperty.call(secondaryStory, id),
+  value: secondaryStory[id],
+});
