@@ -31,18 +31,58 @@ const seo = {
   ]}
   ogType="article"
 >
-  <main class="city-field-note-page">
+  <div class="city-field-note-page">
     <nav class="city-field-note-page__return" aria-label={`${city.name} field note navigation`}>
       <a href={cityPath(city)}>← Back to {city.name}</a>
       <span>City note · generated layer</span>
     </nav>
     <CityFieldNote {city} {country} />
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
-  .city-field-note-page { width:min(1280px,calc(100% - 1rem)); margin:0 auto; padding:clamp(5rem,8vw,7rem) 0 4rem; }
-  .city-field-note-page__return { display:flex; justify-content:space-between; gap:1rem; padding:0 clamp(.5rem,3vw,2.5rem) 1.25rem; color:#315545; font:500 .78rem var(--field-card-handwritten); }
-  .city-field-note-page__return a { text-decoration:none; }.city-field-note-page__return span { color:#8c4c40; }
-  @media(max-width:600px){.city-field-note-page{width:calc(100% - .5rem)}.city-field-note-page__return span{display:none}}
+  .city-field-note-page {
+    width: 100%;
+    padding: clamp(5rem, 8vw, 7rem) 0 4rem;
+  }
+
+  .city-field-note-page__return {
+    display: flex;
+    width: min(1180px, calc(100% - 48px));
+    margin-inline: auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 0 24px;
+    border-bottom: 1px solid rgb(49 85 69 / .2);
+    color: #315545;
+    font: 700 .72rem/1.2 var(--field-card-practical);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .city-field-note-page__return a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .city-field-note-page__return span {
+    color: #8c4c40;
+  }
+
+  :global(body:has(.city-note) #main-content) {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  @media (max-width: 620px) {
+    .city-field-note-page__return {
+      width: min(100% - 24px, 1180px);
+    }
+
+    .city-field-note-page__return span {
+      display: none;
+    }
+  }
 </style>
