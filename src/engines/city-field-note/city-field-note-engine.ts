@@ -23,7 +23,6 @@ export interface CityFieldNoteContent {
   contextLine: string;
   subtitle: string;
   intro: string;
-  warning: string;
   quickRead: Array<{ label: string; value: string; detail: string }>;
   chapters: CityFieldNoteChapter[];
   closing: { eyebrow: string; title: string; text: string };
@@ -60,7 +59,6 @@ const generatedContent = (city: City, country: Country): CityFieldNoteContent =>
   return {
     typeLabel:`${titleize(city.settlementType)} notes`, title:city.name, contextLine:`${region} · ${base}`,
     subtitle:city.hero.subtitle, intro:city.description,
-    warning:'This page is still the generated city-note layer. Transport, prices, opening patterns, safety advice and seasonal conditions must be verified during the editorial pass.',
     quickRead:[
       {label:'Chapters',value:'7 field notes',detail:'A destination overview, not a checklist.'},
       {label:'Use it for',value:`Reading ${city.name}`,detail:'Context first; individual stops second.'},
