@@ -1988,7 +1988,7 @@ const data = {
       },
       "shortDescription": "A guesthouse farther down the sunrise path toward the old bridge, suited to travellers who prefer the quieter southern side.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "tawan-daeng-guesthouse-card", "src": "/assets/cities/laos/don-det/accommodation/tawan-daeng-guesthouse/tawan-daeng-guesthouse.webp", "alt": "Tawan Daeng Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
