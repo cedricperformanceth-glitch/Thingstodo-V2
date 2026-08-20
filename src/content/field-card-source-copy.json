@@ -1,4 +1,25 @@
 {
+  "thing-old-french-railway-bridge": [
+    {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Don Det–Don Khon Railway","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Don_Det%E2%80%93Don_Khon_Railway","purpose":"history-and-media-context","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Bridge to Don Khon seen from Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Bridge_to_Don_Khon_seen_from_Don_Det_with_water_reflection_of_stringy_orange_clouds_at_sunrise_in_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Si Phan Don bridge crossing, August 2024","sourceUrl":"https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+  ],
+  "thing-li-phi-somphamit-waterfalls": [
+    {"sourceName":"Tourism Lao · Si Phan Don","sourceUrl":"https://tourismlao.com/siphandon/","purpose":"waterfall-and-regional-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikivoyage · Si Phan Don","sourceUrl":"https://en.wikivoyage.org/wiki/Si_Phan_Don","purpose":"current-access-and-price-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Li Phi Falls at dusk","sourceUrl":"https://commons.wikimedia.org/wiki/File:Li_Phi_falls_at_dusk_with_yellow_sky_in_Don_Khon_Si_Phan_Don_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Li Phi Falls","sourceUrl":"https://commons.wikimedia.org/wiki/File:Li_Phi_Falls.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Li Phi sunset and fishing boat","sourceUrl":"https://commons.wikimedia.org/wiki/File:Li_Phi_falls_at_sunset_with_orange_sky_and_a_fishing_boat_in_Don_Khon_Si_Phan_Don_Laos.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+  ],
+  "thing-khone-phapheng-falls": [
+    {"sourceName":"Tourism Lao · Si Phan Don / Khone Phapheng","sourceUrl":"https://tourismlao.com/siphandon/","purpose":"waterfall-scale-and-visitor-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikivoyage · Si Phan Don","sourceUrl":"https://en.wikivoyage.org/wiki/Si_Phan_Don","purpose":"current-access-and-price-context","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Khone Phapheng Falls, Si Phan Don","sourceUrl":"https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Khone Phapheng Falls 3923","sourceUrl":"https://commons.wikimedia.org/wiki/File:20171122_Khone_Phapheng_Falls_3923_DxO.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
+    {"sourceName":"Wikimedia Commons · Khone Phapheng Falls 3935","sourceUrl":"https://commons.wikimedia.org/wiki/File:20171122_Khone_Phapheng_Falls_3935_DxO.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+  ],
   "thing-don-som-island": [
     {"sourceName":"Don Som Riverside Guesthouse · 4000 Islands / Don Som","sourceUrl":"https://www.donsomlaos.com/4000-islands","purpose":"facts","reviewedAt":"2026-08-19"},
     {"sourceName":"Don Som Riverside Guesthouse · About / local island context","sourceUrl":"https://www.donsomlaos.com/","purpose":"first-party","reviewedAt":"2026-08-19"},
@@ -44,8 +65,8 @@
     {"sourceName":"BABA Guesthouse · Don Det health and river warnings","sourceUrl":"https://www.dondet.net/health.html","purpose":"current-local-river-safety","reviewedAt":"2026-08-20"},
     {"sourceName":"Rough Guides · Don Khon and Don Det","sourceUrl":"https://www.roughguides.com/laos/far-south/don-khon-don-det/","purpose":"tubing-start-and-current-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Sawa Discovery · Don Det 2026","sourceUrl":"https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao","purpose":"2026-price-route-cross-check","reviewedAt":"2026-08-20"},
-    {"sourceName":"Pexels · Group of People Having Fun tubing","sourceUrl":"https://www.pexels.com/photo/group-of-people-having-fun-1305095/","purpose":"hero-media-activity-illustration","reviewedAt":"2026-08-20"},
-    {"sourceName":"Pexels · Aerial shot of people relaxing in tubes on a serene river","sourceUrl":"https://www.pexels.com/photo/aerial-view-of-a-lake-27033648/","purpose":"story-media-activity-illustration","reviewedAt":"2026-08-20"}
+    {"sourceName":"Pexels · Group of People Having Fun tubing","sourceUrl":"https://www.pexels.com/photo/group-of-people-having-fun-1305095/","purpose":"activity-illustration","reviewedAt":"2026-08-20"},
+    {"sourceName":"Pexels · Aerial shot of people relaxing in tubes on a serene river","sourceUrl":"https://www.pexels.com/photo/aerial-view-of-a-lake-27033648/","purpose":"hero-media-activity-illustration","reviewedAt":"2026-08-20"}
   ],
   "thing-don-det-sunset": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-west-side-and-sunset-context","reviewedAt":"2026-08-20"},
