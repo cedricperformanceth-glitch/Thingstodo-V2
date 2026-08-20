@@ -43,7 +43,8 @@ const generatedChapters = (city: City, country: Country): CityFieldNoteChapter[]
       title: `Start by understanding ${city.name} as a base`,
       paragraphs: [
         city.description,
-        `This generated city note treats ${city.name} as part of ${region}, not as an isolated checklist. The editorial pass should sharpen the geography, local rhythm and reason to stay here before adding destination-specific claims.`
+        `${city.name} belongs to a wider ${region} chapter. The final guide should explain that geography before listing individual stops.`,
+        'Editorial task: define the local character, the real reason to stay here and the relationship with the surrounding area.'
       ],
       facts: [
         { label: 'Country', value: country.name },
@@ -55,14 +56,15 @@ const generatedChapters = (city: City, country: Country): CityFieldNoteChapter[]
     {
       id: 'rhythm',
       eyebrow: '02 · FIND THE RHYTHM',
-      title: `Work out how ${city.name} should actually be experienced`,
+      title: `How should ${city.name} actually be experienced?`,
       paragraphs: [
-        `Use the city structure to explain the natural pace of a stay: how visitors move, what belongs together in one day and what deserves its own chapter. Avoid turning the guide into a list of attractions.`,
-        `The editorial pass should replace generic planning language with verified local patterns: arrival rhythm, useful neighbourhoods or sides of town, realistic day shapes and the moments when slowing down improves the trip.`
+        'This chapter should describe the natural pace of a stay rather than turn the destination into a checklist.',
+        'Explain what belongs together in one day, what deserves more time and where the visitor naturally slows down.',
+        'Editorial task: replace this framework with verified arrival patterns, local areas and realistic day shapes.'
       ],
       facts: [
         { label: 'Climate cue', value: climate },
-        { label: 'City profile', value: titleize(city.profile) },
+        { label: 'Profile', value: titleize(city.profile) },
         { label: 'Atlas scope', value: categorySummary(city) },
         { label: 'Things to do', value: thingsTarget ? `${thingsTarget} generated candidates` : 'Editorial selection' }
       ]
@@ -70,57 +72,62 @@ const generatedChapters = (city: City, country: Country): CityFieldNoteChapter[]
     {
       id: 'move',
       eyebrow: '03 · MOVE THROUGH IT',
-      title: 'Turn transport and geography into useful field knowledge',
+      title: 'Turn geography into useful field knowledge',
       paragraphs: [
-        `Explain the practical movement logic around ${city.name}: arrival points, distances, walking or riding patterns, local transport and the routes that connect the destination to its surrounding landscape.`,
-        `This block is intentionally generic until research is complete. The editorial layer should add only verified routes, realistic transfer advice and any safety or seasonal constraint that materially changes how the destination works.`
+        `Map the practical movement logic around ${city.name}: arrival points, distances and the easiest ways to move locally.`,
+        'Then connect the destination to the surrounding landscape and the routes travellers are actually likely to use.',
+        'Editorial task: add only verified transport, transfer and seasonal constraints.'
       ],
-      note: { label: 'EDITORIAL PASS', text: 'Replace this note with the one movement rule a first-time visitor is most likely to misunderstand.' }
+      note: { label: 'EDITORIAL PASS', text: 'Find the one movement rule a first-time visitor is most likely to misunderstand.' }
     },
     {
       id: 'stay',
       eyebrow: '04 · CHOOSE YOUR BASE',
-      title: 'Explain where to stay by experience, not by hotel ranking',
+      title: 'Where you stay changes the trip',
       paragraphs: [
-        `Use the accommodation geography to describe the trade-offs that shape a stay in ${city.name}: convenience, atmosphere, access, quiet, nightlife, landscape or onward transport.`,
-        `The editorial pass should identify meaningful areas only when the distinction is real and verified. The purpose is to help someone choose the right part of the destination before they compare individual properties.`
+        `Describe the meaningful location choices inside ${city.name}: convenience, atmosphere, quiet, access or onward transport.`,
+        'The goal is not to rank hotels. It is to explain the experience of staying in one area rather than another.',
+        'Editorial task: keep only distinctions that are real, useful and locally verified.'
       ],
       facts: addressTargets.length ? addressTargets.slice(0, 4).map((value, index) => ({ label: index === 0 ? 'Generated inventory' : 'Also mapped', value })) : undefined
     },
     {
       id: 'conditions',
       eyebrow: '05 · READ THE CONDITIONS',
-      title: 'Make season, weather and local conditions part of the plan',
+      title: 'Season and conditions should change the advice',
       paragraphs: [
-        `${climate} is the current generated climate cue for ${city.name}. Use it only as orientation until the editorial pass verifies what seasonality actually changes on the ground.`,
-        `Add the conditions that alter the experience rather than generic weather prose: road or river access, heat, rain, visibility, opening patterns, crowds, water levels or any other destination-specific constraint supported by reliable sources.`
+        `${climate} is the generated climate cue for ${city.name}. It is orientation, not finished editorial guidance.`,
+        'Focus on what conditions actually change: access, heat, rain, visibility, crowds, water levels or opening patterns.',
+        'Editorial task: remove generic weather prose and keep only consequences a traveller can act on.'
       ],
-      note: { label: 'KEEP CLOSE', text: 'Time-sensitive conditions should be written so they can be reconfirmed without rewriting the whole guide.' }
+      note: { label: 'KEEP CLOSE', text: 'Write changing conditions so they can be reconfirmed without rewriting the whole guide.' }
     },
     {
       id: 'practical',
       eyebrow: '06 · PRACTICAL REALITY',
-      title: 'Record the small details that prevent a bad travel day',
+      title: 'Keep only the details that prevent a bad travel day',
       paragraphs: [
-        `Build a compact practical layer for ${city.name}: money, connectivity, healthcare, opening patterns, tickets, local services and any limitation that matters more here than it would in a larger destination.`,
-        `Do not pad this chapter. If a practical issue is ordinary or already handled elsewhere in the Atlas, leave it out. The editorial version should keep only the details a traveller benefits from knowing before arrival.`
+        `Build the practical layer for ${city.name}: money, connectivity, healthcare, tickets and local service limits.`,
+        'Ordinary information does not need another paragraph just because space is available.',
+        'Editorial task: retain only the details that are genuinely useful before arrival or before leaving for the day.'
       ],
       facts: [
         { label: 'Coordinates', value: `${city.coordinates.latitude.toFixed(4)}, ${city.coordinates.longitude.toFixed(4)}` },
         { label: 'Categories mapped', value: `${city.categories.length}` },
-        { label: 'Generated addresses', value: addressTargets.length ? addressTargets.join(' · ') : 'No address targets configured' },
+        { label: 'Inventory', value: addressTargets.length ? addressTargets.join(' · ') : 'No address targets configured' },
         { label: 'Rule', value: 'Verify changing details before publication' }
       ]
     },
     {
       id: 'pace',
       eyebrow: '07 · BUILD THE STAY',
-      title: `Give ${city.name} enough time for its strongest chapters`,
+      title: `How much time does ${city.name} deserve?`,
       paragraphs: [
-        `Use the verified activity set and local geography to recommend a realistic stay length. The generic layer does not invent a number of nights: that decision belongs to research and editorial judgement.`,
-        `The final version should explain what an extra day unlocks, what can sensibly be combined and when ${city.name} works better as a short stop, a base or a slower chapter in the wider ${country.name} route.`
+        'Use the verified activity set and local geography to recommend a realistic stay length.',
+        'Do not invent a number of nights in the generic layer. Explain what an extra day genuinely unlocks.',
+        `Editorial task: decide whether ${city.name} works best as a short stop, a base or a slower chapter in the wider ${country.name} route.`
       ],
-      note: { label: 'ATLAS NOTE', text: 'The final chapter should end with a point of view, not another checklist.' }
+      note: { label: 'ATLAS NOTE', text: 'End with a point of view, not another checklist.' }
     }
   ];
 };
@@ -131,21 +138,21 @@ export const cityFieldNoteView = (city: City, country: Country) => {
   const content: CityFieldNoteContent = {
     typeLabel: `${titleize(city.settlementType)} field note`,
     title: city.name,
-    subtitle: `${city.hero.subtitle} A generated editorial framework for reading the destination before the detailed Atlas planning layer.`,
+    subtitle: city.hero.subtitle,
     intro: city.description,
     edition,
-    warning: 'This is the generated city-note layer. Time-sensitive transport, prices, opening patterns, border procedures, safety advice and seasonal conditions must be verified during the editorial pass.',
+    warning: 'Generated city-note framework. Transport, prices, opening patterns, border procedures, safety advice and seasonal conditions must be verified during the editorial pass.',
     quickRead: [
-      { label: 'Read it for', value: 'Context before checklist', detail: 'Understand the destination first; plan individual stops second.' },
-      { label: 'Base', value: heroFact(city, 'Base') || `${titleize(city.settlementType)} base`, detail: city.description },
-      { label: 'Scope', value: region, detail: `${city.categories.length} Atlas planning categories are attached to this destination.` },
-      { label: 'Edition', value: edition, detail: 'Generated structure first; researched editorial layer follows.' }
+      { label: 'Read it for', value: 'Context first', detail: 'Understand the place before opening individual stops.' },
+      { label: 'Base', value: heroFact(city, 'Base') || `${titleize(city.settlementType)} base`, detail: `${city.name} · ${country.name}` },
+      { label: 'Scope', value: region, detail: `${city.categories.length} Atlas chapters` },
+      { label: 'Edition', value: edition, detail: 'Generated framework · editorial pass next' }
     ],
     chapters: generatedChapters(city, country),
     closing: {
       eyebrow: 'BACK TO THE ATLAS',
       title: `Start exploring ${city.name}`,
-      text: `Keep the city note as context, then return to ${city.name} for activities, addresses and the practical planning layer.`
+      text: `Keep this note as context, then return to ${city.name} for activities, addresses and practical planning.`
     }
   };
 
