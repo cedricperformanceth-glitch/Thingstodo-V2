@@ -8,8 +8,20 @@ interface Props { city: City; country: Country; }
 const { city, country } = Astro.props;
 const view = cityFieldNoteView(city, country);
 const heroChapters = view.chapters.slice(0, 4);
-const categoryLinks = city.categories.map((category) => ({ label: category === 'things-to-do' ? 'Things to do' : category.split('-').map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(' '), href: categoryPath(city, category) }));
+const categoryLinks = city.categories.map((category) => ({
+  label: category === 'things-to-do' ? 'Things to do' : category.split('-').map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(' '),
+  href: categoryPath(city, category)
+}));
 const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ? view.adSlots[1] : index === 5 ? view.adSlots[2] : undefined;
+const generatedPostIts = [
+  { label: 'ATLAS NOTE', text: 'Read the destination as a place first. The checklist comes after.' },
+  { label: 'FIELD NOTE', text: 'The final editorial pass should turn this framework into one clear local point of view.' },
+  { label: 'ON THE GROUND', text: 'Keep only the movement details that genuinely change how a traveller plans the day.' },
+  { label: 'SLEEP WELL', text: 'Where you stay should explain the experience around the room, not rank the room itself.' },
+  { label: 'KEEP CLOSE', text: 'Seasonal details belong here only when they materially change the trip.' },
+  { label: 'PRACTICAL', text: 'Save the small detail that can prevent a bad travel day.' },
+  { label: 'ATLAS NOTE', text: 'End with a useful sense of pace, not another list.' }
+];
 ---
 
 <article class="city-note" aria-labelledby="city-note-title">
@@ -18,26 +30,16 @@ const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ?
       <p class="city-note__kicker">{view.typeLabel} · {country.name}</p>
       <h1 id="city-note-title">{view.title}</h1>
       <p class="city-note__deck">{view.subtitle}</p>
-
       <div class="city-note__read">
         <span>READ THE CITY</span>
         <ol>{heroChapters.map((chapter, index) => <li><b>{String(index + 1).padStart(2, '0')}</b><span>{chapter.title}</span></li>)}</ol>
       </div>
-
-      <div class="city-note__stamp">
-        <span>CITY FIELD NOTE</span>
-        <strong>Before you begin</strong>
-        <small>{city.name} · {country.name}</small>
-      </div>
+      <div class="city-note__stamp"><span>CITY FIELD NOTE</span><strong>Before you begin</strong><small>{city.name} · {country.name}</small></div>
     </div>
 
     <div class="city-note__hero-visual" aria-label={`${city.name} city note cover`}>
       <span class="city-note__tape" aria-hidden="true"></span>
-      <div class="city-note__photo-placeholder">
-        <span>FIELD PHOTO</span>
-        <strong>Editorial media to add</strong>
-        <small>{city.name} · exact-place image</small>
-      </div>
+      <div class="city-note__photo-placeholder"><span>FIELD PHOTO</span><strong>Editorial media to add</strong><small>{city.name} · exact-place image</small></div>
       <p>{view.intro}</p>
       <span class="city-note__scribble">read the place<br/>before the list ↘</span>
     </div>
@@ -50,21 +52,26 @@ const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ?
   <div class="city-note__chapters">
     {view.chapters.map((chapter, index) => {
       const adSlot = adAfter(index);
+      const postIt = chapter.note ?? generatedPostIts[index];
       return <>
-        <section class:list={['city-note__chapter', { 'city-note__chapter--reverse': index % 2 === 1 }, { 'city-note__chapter--solo': !chapter.facts && !chapter.note }]}>
+        <section class:list={['city-note__chapter', { 'city-note__chapter--reverse': index % 2 === 1 }]}> 
           <div class="city-note__chapter-copy">
             <p class="city-note__section-label">{chapter.eyebrow}</p>
             <h2>{chapter.title}</h2>
             <div class="city-note__prose">{chapter.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
           </div>
 
-          {(chapter.facts || chapter.note) && <aside class="city-note__side">
-            {chapter.facts && <>
+          <aside class="city-note__side">
+            {chapter.facts && chapter.facts.length > 0 && <div class="city-note__facts">
               <h3>Keep close</h3>
               <dl>{chapter.facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
-            </>}
-            {chapter.note && <div class="city-note__postit"><span>{chapter.note.label}</span><p>{chapter.note.text}</p></div>}
-          </aside>}
+            </div>}
+            {postIt && <div class:list={['city-note__postit', `city-note__postit--${index % 3}`]}>
+              <span class="city-note__postit-tape" aria-hidden="true"></span>
+              <small>{postIt.label}</small>
+              <p>{postIt.text}</p>
+            </div>}
+          </aside>
         </section>
 
         {index === 2 && <section class="city-note__photo-spread" aria-label="Editorial photo positions">
@@ -94,245 +101,75 @@ const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ?
 </article>
 
 <style>
-  .city-note {
-    --green:#294c3b;
-    --red:#a74b3d;
-    --blue:#396f7c;
-    width:min(1160px,100%);
-    margin:0 auto;
-    color:#27342d;
-    font-family:var(--field-card-practical);
-  }
-
-  .city-note__hero {
-    display:grid;
-    grid-template-columns:minmax(0,1.02fr) minmax(340px,.98fr);
-    gap:clamp(3.5rem,7vw,7rem);
-    align-items:start;
-    padding:clamp(3rem,6vw,6rem) clamp(1.5rem,4vw,3.5rem) clamp(5rem,8vw,7rem);
-    border-bottom:1px solid rgb(49 85 69 / .16);
-  }
-
+  .city-note { --green:#294c3b; --red:#a74b3d; --blue:#396f7c; width:min(1200px,100%); margin:0 auto; color:#27342d; font-family:var(--field-card-practical); }
+  .city-note__hero { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(350px,.92fr); gap:clamp(3.5rem,7vw,7rem); align-items:start; padding:clamp(3rem,6vw,6rem) clamp(1.5rem,4vw,3.5rem) clamp(5rem,8vw,7rem); border-bottom:1px solid rgb(49 85 69/.16); }
   .city-note__hero-copy { padding-top:clamp(.5rem,2vw,1.5rem); }
-
-  .city-note__kicker,
-  .city-note__section-label {
-    margin:0 0 1rem;
-    color:var(--red);
-    font:700 .68rem/1.2 var(--field-card-practical);
-    letter-spacing:.17em;
-    text-transform:uppercase;
-  }
-
-  .city-note h1,
-  .city-note h2 { font-family:var(--field-card-title); font-weight:600; }
-
-  .city-note h1 {
-    max-width:10ch;
-    margin:0;
-    color:var(--green);
-    font-size:clamp(4.2rem,9vw,7.5rem);
-    letter-spacing:-.055em;
-    line-height:.9;
-  }
-
-  .city-note__deck {
-    max-width:31rem;
-    margin:2rem 0 2.4rem;
-    color:#46524b;
-    font:400 clamp(1.15rem,1.8vw,1.38rem)/1.62 var(--field-card-editorial);
-  }
-
-  .city-note__read {
-    display:grid;
-    grid-template-columns:7.5rem 1fr;
-    gap:1.4rem 2rem;
-    max-width:36rem;
-    padding:1.5rem 0;
-    border-block:1px solid #d8d0c1;
-  }
-
-  .city-note__read>span {
-    padding-top:.2rem;
-    color:var(--blue);
-    font-size:.64rem;
-    font-weight:700;
-    letter-spacing:.14em;
-  }
-
+  .city-note__kicker,.city-note__section-label { margin:0 0 1rem; color:var(--red); font:700 .68rem/1.2 var(--field-card-practical); letter-spacing:.17em; text-transform:uppercase; }
+  .city-note h1,.city-note h2 { font-family:var(--field-card-title); font-weight:600; }
+  .city-note h1 { max-width:10ch; margin:0; color:var(--green); font-size:clamp(4.2rem,8.5vw,7.2rem); letter-spacing:-.055em; line-height:.9; }
+  .city-note__deck { max-width:34rem; margin:2rem 0 2.4rem; color:#46524b; font:400 clamp(1.12rem,1.7vw,1.32rem)/1.62 var(--field-card-editorial); }
+  .city-note__read { display:grid; grid-template-columns:7rem 1fr; gap:1.4rem 2rem; max-width:38rem; padding:1.5rem 0; border-block:1px solid #d8d0c1; }
+  .city-note__read>span { padding-top:.2rem; color:var(--blue); font-size:.64rem; font-weight:700; letter-spacing:.14em; }
   .city-note__read ol { display:grid; gap:.9rem; margin:0; padding:0; list-style:none; }
   .city-note__read li { display:grid; grid-template-columns:2.2rem minmax(0,1fr); gap:.7rem; font:400 .96rem/1.45 var(--field-card-editorial); }
   .city-note__read b { color:var(--red); font:600 .68rem var(--field-card-practical); }
-
-  .city-note__stamp {
-    width:max-content;
-    max-width:100%;
-    margin:2rem 0 0 auto;
-    padding:.85rem 1.15rem;
-    border:2px solid rgba(41,76,59,.52);
-    color:var(--green);
-    text-align:center;
-    transform:rotate(-2deg);
-  }
-
-  .city-note__stamp span,
-  .city-note__stamp small { display:block; font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; }
+  .city-note__stamp { width:max-content; max-width:100%; margin:2rem 0 0 auto; padding:.85rem 1.15rem; border:2px solid rgba(41,76,59,.52); color:var(--green); text-align:center; transform:rotate(-2deg); }
+  .city-note__stamp span,.city-note__stamp small { display:block; font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; }
   .city-note__stamp strong { display:block; margin:.1rem 0; font:500 1.18rem var(--field-card-handwritten); }
-
-  .city-note__hero-visual {
-    position:relative;
-    padding:1rem 1rem 1.8rem;
-    background:#f1eadb;
-    box-shadow:0 16px 34px rgb(39 44 39/.11);
-    transform:rotate(.7deg);
-  }
-
-  .city-note__photo-placeholder {
-    display:grid;
-    min-height:clamp(330px,40vw,500px);
-    place-content:center;
-    gap:.55rem;
-    padding:2rem;
-    background:linear-gradient(145deg,#d8dfd5,#b7c5b7);
-    color:#315545;
-    text-align:center;
-  }
-
-  .city-note__photo-placeholder span,
-  .city-note__photo-placeholder small { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; }
+  .city-note__hero-visual { position:relative; padding:1rem 1rem 1.8rem; background:#f1eadb; box-shadow:0 16px 34px rgb(39 44 39/.11); transform:rotate(.7deg); }
+  .city-note__photo-placeholder { display:grid; min-height:clamp(330px,40vw,500px); place-content:center; gap:.55rem; padding:2rem; background:linear-gradient(145deg,#d8dfd5,#b7c5b7); color:#315545; text-align:center; }
+  .city-note__photo-placeholder span,.city-note__photo-placeholder small { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; }
   .city-note__photo-placeholder strong { font:500 clamp(1.45rem,2.6vw,2.1rem) var(--field-card-title); }
-
-  .city-note__hero-visual>p {
-    max-width:30rem;
-    margin:1.25rem .6rem 0;
-    color:#46524b;
-    font:400 .98rem/1.72 var(--field-card-editorial);
-  }
-
-  .city-note__tape,
-  .city-note__mini-tape {
-    position:absolute;
-    z-index:2;
-    background:rgba(214,198,159,.72);
-    box-shadow:0 1px 2px rgb(0 0 0/.08);
-  }
-
+  .city-note__hero-visual>p { max-width:30rem; margin:1.25rem .6rem 0; color:#46524b; font:400 .98rem/1.72 var(--field-card-editorial); }
+  .city-note__tape,.city-note__mini-tape,.city-note__postit-tape { position:absolute; z-index:2; background:rgba(214,198,159,.72); box-shadow:0 1px 2px rgb(0 0 0/.08); }
   .city-note__tape { top:-.55rem; left:38%; width:6rem; height:1.2rem; transform:rotate(-3deg); }
   .city-note__scribble { position:absolute; right:.5rem; bottom:-2.3rem; color:var(--red); font:500 1.08rem/1.05 var(--field-card-handwritten); transform:rotate(-4deg); }
 
-  .city-note__quick {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:0;
-    margin:0 clamp(1.5rem,4vw,3.5rem);
-    padding:1.2rem 0;
-    border-bottom:1px solid rgb(49 85 69 / .16);
-  }
-
-  .city-note__quick>div {
-    min-height:7.4rem;
-    padding:1.2rem 1.5rem 1.3rem;
-    border-right:1px solid #d8d0c1;
-  }
-
+  .city-note__quick { display:grid; grid-template-columns:repeat(4,1fr); margin:0 clamp(1.5rem,4vw,3.5rem); padding:1.2rem 0; border-bottom:1px solid rgb(49 85 69/.16); }
+  .city-note__quick>div { min-height:6.8rem; padding:1.1rem 1.5rem 1.2rem; border-right:1px solid #d8d0c1; }
   .city-note__quick>div:last-child { border-right:0; }
-  .city-note__quick span,
-  .city-note__quick small { display:block; }
+  .city-note__quick span,.city-note__quick small { display:block; }
   .city-note__quick span { color:var(--red); font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-  .city-note__quick strong { display:block; margin:.5rem 0 .35rem; color:var(--green); font:600 1.12rem/1.2 var(--field-card-title); }
-  .city-note__quick small { max-width:16rem; color:#68716c; font-size:.76rem; line-height:1.5; }
+  .city-note__quick strong { display:block; margin:.45rem 0 .25rem; color:var(--green); font:600 1.08rem/1.2 var(--field-card-title); }
+  .city-note__quick small { max-width:14rem; color:#68716c; font-size:.72rem; line-height:1.45; }
 
-  .city-note__chapters { display:grid; gap:0; }
-
-  .city-note__chapter {
-    display:grid;
-    grid-template-columns:minmax(0,1.3fr) minmax(240px,.55fr);
-    gap:clamp(4rem,8vw,8rem);
-    align-items:start;
-    padding:clamp(6rem,10vw,9rem) clamp(1.5rem,6vw,6rem);
-    border-bottom:1px solid rgb(49 85 69 / .15);
-  }
-
+  .city-note__chapters { display:grid; }
+  .city-note__chapter { display:grid; grid-template-columns:minmax(0,2.05fr) minmax(210px,.62fr); gap:clamp(3.5rem,7vw,6.5rem); align-items:start; padding:clamp(6.5rem,10vw,9.5rem) clamp(2rem,5vw,5rem); border-bottom:1px solid rgb(49 85 69/.15); }
+  .city-note__chapter--reverse { grid-template-columns:minmax(210px,.62fr) minmax(0,2.05fr); }
   .city-note__chapter--reverse .city-note__chapter-copy { order:2; }
   .city-note__chapter--reverse .city-note__side { order:1; }
-  .city-note__chapter--solo { grid-template-columns:minmax(0,44rem); justify-content:center; }
-  .city-note__chapter-copy { max-width:46rem; }
+  .city-note__chapter-copy { width:100%; max-width:48rem; }
+  .city-note__chapter--reverse .city-note__chapter-copy { justify-self:end; }
+  .city-note__chapter h2,.city-note__closing h2 { max-width:20ch; margin:.15rem 0 2.2rem; color:var(--green); font-size:clamp(2.3rem,3.5vw,3.35rem); letter-spacing:-.03em; line-height:1.04; text-wrap:balance; }
+  .city-note__prose { display:grid; gap:1.4rem; width:100%; max-width:44rem; color:#444c47; font:400 clamp(1rem,1.25vw,1.1rem)/1.82 var(--field-card-editorial); }
+  .city-note__prose p { width:100%; max-width:42rem; margin:0; }
+  .city-note__prose p:first-child::first-letter { float:left; margin:.1em .12em 0 0; color:var(--red); font:500 3.7rem/.78 var(--field-card-title); }
 
-  .city-note__chapter h2,
-  .city-note__closing h2 {
-    max-width:15ch;
-    margin:.15rem 0 2rem;
-    color:var(--green);
-    font-size:clamp(2.35rem,4.2vw,3.8rem);
-    letter-spacing:-.035em;
-    line-height:1.02;
-  }
+  .city-note__side { display:grid; gap:2.4rem; align-self:start; width:min(100%,16.5rem); margin-top:clamp(1.25rem,3vw,3rem); }
+  .city-note__chapter:not(.city-note__chapter--reverse) .city-note__side { justify-self:end; }
+  .city-note__facts h3 { margin:0 0 1rem; color:var(--blue); font:600 .66rem var(--field-card-practical); letter-spacing:.12em; text-transform:uppercase; }
+  .city-note__facts dl { margin:0; border-top:1px solid #cfc6b6; }
+  .city-note__facts dl div { padding:.85rem 0; border-bottom:1px solid #d8d0c1; }
+  .city-note__facts dt { color:#747970; font-size:.6rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+  .city-note__facts dd { margin:.28rem 0 0; color:#455149; font:400 .86rem/1.5 var(--field-card-editorial); }
 
-  .city-note__prose {
-    display:grid;
-    gap:1.55rem;
-    max-width:38rem;
-    color:#444c47;
-    font:400 clamp(1rem,1.35vw,1.12rem)/1.82 var(--field-card-editorial);
-  }
+  .city-note__postit { position:relative; width:min(15.5rem,96%); padding:1.45rem 1.35rem 1.5rem; background:#e8dca8; box-shadow:5px 7px 0 rgb(49 85 69/.055),0 10px 22px rgb(60 48 28/.1); color:#315545; transform:rotate(-2.2deg); }
+  .city-note__postit--1 { background:#e5d5b9; transform:rotate(2deg); }
+  .city-note__postit--2 { background:#d9dfc2; transform:rotate(-1deg); }
+  .city-note__postit-tape { top:-.45rem; left:50%; width:4.8rem; height:.9rem; transform:translateX(-50%) rotate(3deg); }
+  .city-note__postit small { display:block; font:700 .58rem/1.2 var(--field-card-practical); letter-spacing:.12em; text-transform:uppercase; }
+  .city-note__postit p { margin:.55rem 0 0; font:500 1.18rem/1.24 var(--field-card-handwritten); }
 
-  .city-note__prose p { margin:0; max-width:34rem; }
-  .city-note__prose p:nth-child(2) { margin-left:clamp(0rem,2vw,2rem); }
-  .city-note__prose p:nth-child(3) { max-width:30rem; margin-left:clamp(1rem,4vw,4rem); color:#59635d; }
-  .city-note__prose p:first-child::first-letter { float:left; margin:.1em .12em 0 0; color:var(--red); font:500 3.9rem/.78 var(--field-card-title); }
-
-  .city-note__side {
-    align-self:start;
-    width:min(100%,18rem);
-    margin-top:clamp(2rem,5vw,4.8rem);
-  }
-
-  .city-note__side h3 { margin:0 0 1rem; color:var(--blue); font:600 .66rem var(--field-card-practical); letter-spacing:.12em; text-transform:uppercase; }
-  .city-note__side dl { margin:0; border-top:1px solid #cfc6b6; }
-  .city-note__side dl div { padding:1rem 0; border-bottom:1px solid #d8d0c1; }
-  .city-note__side dt { color:#747970; font-size:.62rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-  .city-note__side dd { margin:.3rem 0 0; color:#455149; font:400 .9rem/1.55 var(--field-card-editorial); }
-
-  .city-note__postit {
-    position:relative;
-    width:min(15rem,92%);
-    margin:2.2rem 0 0 auto;
-    padding:1.5rem 1.4rem;
-    background:#e6d79d;
-    box-shadow:0 7px 15px rgb(60 48 28/.11);
-    transform:rotate(-1.5deg);
-  }
-
-  .city-note__postit span { color:var(--green); font-size:.6rem; font-weight:700; letter-spacing:.1em; }
-  .city-note__postit p { margin:.5rem 0 0; font:500 1.16rem/1.28 var(--field-card-handwritten); }
-
-  .city-note__photo-spread {
-    display:grid;
-    grid-template-columns:1.12fr .9fr .82fr;
-    gap:clamp(1.5rem,4vw,3rem);
-    padding:clamp(5rem,8vw,7rem) clamp(1.5rem,5vw,5rem);
-    background:#e8e0d0;
-  }
-
+  .city-note__photo-spread { display:grid; grid-template-columns:1.12fr .9fr .82fr; gap:clamp(1.5rem,4vw,3rem); padding:clamp(5rem,8vw,7rem) clamp(1.5rem,5vw,5rem); background:#e8e0d0; }
   .city-note__photo-spread figure { position:relative; margin:0; padding:.8rem .8rem 1.1rem; background:#fffdf8; box-shadow:0 10px 22px rgb(44 39 30/.1); }
   .city-note__photo-spread figure:nth-child(2) { transform:rotate(-1.6deg) translateY(1.8rem); }
   .city-note__photo-spread figure:nth-child(3) { transform:rotate(1.5deg) translateY(-1rem); }
   .city-note__photo-spread figure>div { display:grid; min-height:250px; place-content:center; gap:.35rem; background:#c9d2c8; color:#466152; text-align:center; }
-  .city-note__photo-spread strong,
-  .city-note__photo-spread small { display:block; }
+  .city-note__photo-spread strong,.city-note__photo-spread small { display:block; }
   .city-note__photo-spread figcaption { padding:.9rem .25rem 0; font:500 1rem var(--field-card-handwritten); }
   .city-note__mini-tape { top:-.45rem; left:35%; width:4rem; height:.8rem; transform:rotate(3deg); }
 
-  .city-note__warning {
-    max-width:46rem;
-    margin:5rem auto;
-    padding:1.4rem 1.7rem;
-    border-left:3px solid var(--red);
-    background:#efe7d7;
-    color:#4c554f;
-    font:400 .98rem/1.65 var(--field-card-editorial);
-  }
-
+  .city-note__warning { max-width:46rem; margin:5rem auto; padding:1.4rem 1.7rem; border-left:3px solid var(--red); background:#efe7d7; color:#4c554f; font:400 .98rem/1.65 var(--field-card-editorial); }
   .city-note__closing { margin:0 clamp(1.5rem,6vw,6rem); padding:5rem 0 3rem; }
   .city-note__closing>p:not(.city-note__section-label) { max-width:38rem; font:400 1.08rem/1.7 var(--field-card-editorial); }
   .city-note__next { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1rem; margin-top:2.5rem; }
@@ -341,17 +178,14 @@ const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ?
   .city-note__next small { color:#6d746e; line-height:1.45; }
 
   @media(max-width:900px) {
-    .city-note__hero,
-    .city-note__chapter { grid-template-columns:1fr; }
-    .city-note__chapter--reverse .city-note__chapter-copy,
-    .city-note__chapter--reverse .city-note__side { order:initial; }
-    .city-note__side { width:min(100%,26rem); margin-top:0; margin-left:auto; }
+    .city-note__hero,.city-note__chapter,.city-note__chapter--reverse { grid-template-columns:1fr; }
+    .city-note__chapter--reverse .city-note__chapter-copy,.city-note__chapter--reverse .city-note__side { order:initial; justify-self:initial; }
+    .city-note__side,.city-note__chapter:not(.city-note__chapter--reverse) .city-note__side { width:min(100%,26rem); margin-top:0; margin-left:auto; justify-self:end; }
     .city-note__quick { grid-template-columns:1fr 1fr; }
     .city-note__quick>div:nth-child(2) { border-right:0; }
     .city-note__quick>div:nth-child(-n+2) { border-bottom:1px solid #d8d0c1; }
     .city-note__photo-spread { grid-template-columns:1fr; }
     .city-note__photo-spread figure:nth-child(n) { transform:none; }
-    .city-note__scribble { right:.5rem; }
   }
 
   @media(max-width:560px) {
@@ -362,13 +196,12 @@ const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ?
     .city-note__quick>div { min-height:auto; border-right:0; border-bottom:1px solid #d8d0c1; }
     .city-note__quick>div:last-child { border-bottom:0; }
     .city-note__chapter { gap:3rem; padding:5rem .5rem; }
-    .city-note__prose p:nth-child(n) { margin-left:0; }
+    .city-note__chapter h2 { max-width:15ch; font-size:clamp(2.2rem,12vw,3.1rem); }
+    .city-note__side { justify-self:start; margin-left:0; }
     .city-note__photo-spread { padding-inline:.5rem; }
     .city-note__warning { margin:4rem .5rem; }
     .city-note__closing { margin-inline:.5rem; }
   }
 </style>
 
-<style is:global>
-  body:has(.city-note) { background:var(--field-card-page); }
-</style>
+<style is:global>body:has(.city-note) { background:var(--field-card-page); }</style>
