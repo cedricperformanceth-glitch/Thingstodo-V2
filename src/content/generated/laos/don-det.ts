@@ -2144,7 +2144,7 @@ const data = {
       },
       "shortDescription": "The main Don Det boat connection for Nakasang, useful to save before arrival, departure and onward bus or minivan connections.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "don-det-ferry-card", "src": "/assets/cities/laos/don-det/practical-services/don-det-ferry/don-det-ferry.webp", "alt": "Motorbike crossing on the Don Det ferry", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -2196,7 +2196,7 @@ const data = {
       },
       "shortDescription": "A public local health centre on Don Khon for basic primary care and first assessment, not a substitute for a fully equipped hospital.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "khon-health-center-khonnua-card", "src": "/assets/cities/laos/don-det/practical-services/khon-health-center-khonnua/khon-health-center-khonnua.webp", "alt": "Khon Health Center building in Khonnua", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
