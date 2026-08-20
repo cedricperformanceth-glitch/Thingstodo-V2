@@ -32,3 +32,23 @@ jobs:
 
       - name: Verify universal city template and pipeline
         run: npm run verify:city-template
+
+  don-det-editorial:
+    name: Verify frozen Don Det editorial
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit Don Det editorial completeness
+        run: npm run audit:don-det-editorial
