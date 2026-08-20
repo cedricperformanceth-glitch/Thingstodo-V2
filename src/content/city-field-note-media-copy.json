@@ -35,6 +35,18 @@
       "license": "CC BY-SA 4.0",
       "manual": true,
       "locked": true
+    },
+    {
+      "id": "don-det-field-note-chapter-seven-sunset-islands",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Silhouettes_of_green_islands_at_sunset_with_colorful_sky_over_the_Mekong_in_Don_Det_Laos.jpg?width=1600",
+      "alt": "Silhouettes of green Mekong islands under a colorful sunset sky in Don Det, Laos",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silhouettes_of_green_islands_at_sunset_with_colorful_sky_over_the_Mekong_in_Don_Det_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
     }
   ]
 }
