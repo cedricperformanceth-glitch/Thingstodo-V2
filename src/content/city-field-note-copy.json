@@ -1,0 +1,137 @@
+{
+  "city-don-det": {
+    "typeLabel": "Island field note",
+    "title": "Don Det",
+    "contextLine": "Si Phan Don · Southern Mekong · Champasak",
+    "subtitle": "A slow Mekong island base where bicycles, boats and the old railway link Don Det to Don Khon and the southern falls.",
+    "intro": "Don Det makes more sense as a base inside Si Phan Don than as a single attraction. The north of the island is the practical arrival point; farther south, the stay shifts toward riverbanks, rice fields, quiet tracks and the bridge into Don Khon.",
+    "focusLabel": "Island rhythm, bicycle days & river routes",
+    "regionLabel": "Si Phan Don · Champasak · Southern Laos",
+    "warning": "Boat schedules, river conditions, local services and onward transport can change. Reconfirm any fixed departure, water activity or Cambodia-bound connection locally before relying on it.",
+    "quickRead": [
+      {"label":"Chapters","value":"7 island notes","detail":"Context, movement, where to base yourself and how to pace the stay."},
+      {"label":"Use it for","value":"Building the island stay","detail":"Read Don Det and Don Khon together before fixing individual activities."},
+      {"label":"Scope","value":"Don Det · Don Khon · southern falls","detail":"The island is a base inside the wider Si Phan Don river landscape."},
+      {"label":"Edition","value":"Researched · August 2026","detail":"Current context checked against official, local and Atlas activity sources."}
+    ],
+    "chapters": [
+      {
+        "id": "orientation",
+        "eyebrow": "01 · READ THE PLACE",
+        "title": "Don Det is one island inside a much larger river landscape",
+        "paragraphs": [
+          "Si Phan Don is the stretch of the Mekong in far southern Laos where the river breaks around islands, sandbars and channels before reaching the great falls near Cambodia. Don Det is one of the best-known traveller bases in that landscape, but the useful mental map is bigger than the island itself.",
+          "The current national tourism plan treats Nakasang, Don Det and Don Khon as one connected corridor. That is also the simplest way to plan the stay: arrive through the mainland gateway, use Don Det as the social and practical base, then let Don Khon and the river routes expand the day beyond the island." 
+        ],
+        "facts": [
+          {"label":"Region","value":"Si Phan Don · Khong District · Champasak Province"},
+          {"label":"River","value":"Mekong"},
+          {"label":"Mainland gateway","value":"Nakasang"},
+          {"label":"Linked island","value":"Don Khon, reached by the historic bridge"}
+        ],
+        "note": {"label":"Atlas note","text":"Think of Don Det as the base camp for a river landscape, not the whole chapter."}
+      },
+      {
+        "id": "rhythm",
+        "eyebrow": "02 · FIND THE RHYTHM",
+        "title": "The island works best when every hour is not already occupied",
+        "paragraphs": [
+          "Don Det has a practical traveller centre, but its strongest moments are usually simple: riding an island track before the heat builds, watching boats work the channels, stopping over the water, or letting sunset become the plan rather than the space between two plans.",
+          "A rushed overnight stop spends too much of the visit arriving and leaving. A better rhythm leaves one proper day for Don Khon and the bridge, then keeps another half-day or full day open for a boat, kayak, tubing, a slower bicycle loop or simply the river edge. The exact number of nights is less important than protecting that unfilled time." 
+        ],
+        "facts": [
+          {"label":"Natural transport","value":"Bicycle for the islands; local boats for the wider river"},
+          {"label":"Strong pairing","value":"Don Det + Don Khon"},
+          {"label":"Good slow moment","value":"Early morning or the final light on the Mekong"},
+          {"label":"Planning rule","value":"One strong direction per day beats stacking every attraction"}
+        ],
+        "note": {"label":"Field note","text":"Leave one part of the day intentionally empty. Don Det is better when the schedule has room to move."}
+      },
+      {
+        "id": "move",
+        "eyebrow": "03 · MOVE THROUGH IT",
+        "title": "Arrival is by river; the islands themselves are made for bicycles",
+        "paragraphs": [
+          "The normal arrival logic runs through Nakasang on the mainland and then by boat to Don Det. Once on the island, the scale changes: walking works around the northern centre, while a bicycle is the most useful way to connect the quieter southern tracks, the old railway bridge and Don Khon.",
+          "The bridge is not only a convenient crossing. It is part of the former Don Det–Don Khon railway, built during the French colonial period to bypass the Mekong falls that blocked through-navigation. Today it turns the two islands into one practical bicycle chapter. Boat infrastructure in the area is also still evolving: Laos' 2026 tourism programme includes a tourist-boat pier project in the Don Det area, so fixed arrival details should be checked close to travel." 
+        ],
+        "facts": [
+          {"label":"Arrival sequence","value":"Road to Nakasang · boat to Don Det"},
+          {"label":"Island transport","value":"Walking for short sections · bicycle for the full island pair"},
+          {"label":"Bridge","value":"Historic Don Det–Don Khon railway bridge"},
+          {"label":"Before riding","value":"Check brakes, tyres and lights; tracks can change after rain"}
+        ],
+        "note": {"label":"Keep close","text":"Do not plan around an old boat timetable. Reconfirm the actual departure and transfer sequence locally."}
+      },
+      {
+        "id": "stay",
+        "eyebrow": "04 · CHOOSE YOUR BASE",
+        "title": "Choose the side of Don Det for the evening you want",
+        "paragraphs": [
+          "The northern arrival area is the easiest base for a short stay: boats, food, tickets, bicycle rentals and tour operators are concentrated around the pier and main traveller strip. It is convenient, social and simple when the next connection matters.",
+          "Farther from the pier, the island becomes quieter. The eastern side catches the morning light; the western side is the natural choice if sunset over the Mekong matters more than being next to the arrival point. Staying toward the south also shortens the ride to the Don Khon bridge. On Don Det, location usually shapes the stay more than another layer of room facilities." 
+        ],
+        "facts": [
+          {"label":"North / pier","value":"Best for arrivals, departures and easy access to services"},
+          {"label":"East side","value":"Sunrise-facing river edge"},
+          {"label":"West side","value":"Sunset-facing river edge"},
+          {"label":"South","value":"Quieter and closer to the bridge toward Don Khon"}
+        ],
+        "note": {"label":"Island note","text":"Pick the river side and distance from the pier before comparing the room photo."}
+      },
+      {
+        "id": "conditions",
+        "eyebrow": "05 · READ THE CONDITIONS",
+        "title": "The Mekong changes the trip more than the calendar does",
+        "paragraphs": [
+          "Water level, recent rain and heat change how the islands feel. Dry conditions can expose beaches and make tracks dusty; wetter periods can soften rural roads, raise the river and alter the character of boat, kayak and swimming access. A route that looked easy in one season may feel completely different in another.",
+          "Treat the Mekong as scenery, transport and a safety decision at the same time. Calm-looking water does not remove current, and the major falls farther south are not casual swimming areas. For organised water activities, use the provided safety equipment and ask how current conditions change the planned route before starting." 
+        ],
+        "facts": [
+          {"label":"Rain changes","value":"Tracks, mud, water level and some river access"},
+          {"label":"Dry conditions","value":"Dustier roads and more exposed river edges or beaches"},
+          {"label":"Water activities","value":"Confirm the route and use a life jacket"},
+          {"label":"Falls","value":"Treat major rapids and waterfalls as viewing zones, not swimming spots"}
+        ],
+        "note": {"label":"River rule","text":"Ask what the Mekong is doing today, not what a guidebook says it usually does."}
+      },
+      {
+        "id": "practical",
+        "eyebrow": "06 · PRACTICAL REALITY",
+        "title": "Don Det has traveller services, but the backup is still on the mainland",
+        "paragraphs": [
+          "The island is well set up for travellers with guesthouses, restaurants, rentals, tickets and organised activities, yet it remains a small river island. Carry enough cash for ordinary island spending and keep your guesthouse, ticket and operator details available offline rather than depending on one payment method or one connection.",
+          "For anything medically significant, administratively complicated or tied to a fixed onward connection, plan with more margin than you would in a city. The Don Det–Don Khon area is receiving new tourism infrastructure under the 2026–2036 master plan, but development does not remove the basic island reality: boats, handovers and mainland transfers can still add friction to a travel day." 
+        ],
+        "facts": [
+          {"label":"Cash","value":"Bring enough kip for food, local transport and small services"},
+          {"label":"Offline backup","value":"Save accommodation and ticket details without relying on data"},
+          {"label":"Health","value":"Local options are limited; serious care may require the mainland or Pakse"},
+          {"label":"Onward travel","value":"Avoid a tight international connection after an island transfer"}
+        ],
+        "note": {"label":"Practical","text":"An island transfer is still a transfer. Build margin into the day you leave."}
+      },
+      {
+        "id": "pace",
+        "eyebrow": "07 · BUILD THE STAY",
+        "title": "Build the stay around one island day, one river day and the space between",
+        "paragraphs": [
+          "A balanced Don Det stay can be built very simply: use one full day to cycle Don Det and Don Khon, cross the old railway bridge and choose a waterfall route such as Li Phi; use another day for the river, whether that means a boat, kayaking, tubing or a slower island loop.",
+          "Khone Phapheng deserves a different planning frame because it sits on the mainland route rather than inside the Don Det–Don Khon bicycle rhythm. Keeping it separate prevents the trip from becoming one overloaded waterfall checklist. If an extra night appears, spend it on the part of Si Phan Don that cannot be scheduled well in advance: weather, another sunset, a quiet ride or simply doing less." 
+        ],
+        "facts": [
+          {"label":"Island day","value":"Don Det + Don Khon by bicycle"},
+          {"label":"River day","value":"Boat, kayak, tubing or a slower local loop"},
+          {"label":"Mainland excursion","value":"Khone Phapheng works better as its own route"},
+          {"label":"Extra time","value":"Useful for weather, river conditions and unplanned slow time"}
+        ],
+        "note": {"label":"Atlas note","text":"The best extra night is the one that stops Don Det from feeling like transit."}
+      }
+    ],
+    "closing": {
+      "eyebrow": "BACK TO DON DET",
+      "title": "Now build the island days",
+      "text": "Use these notes as the context layer, then open the Don Det activities, restaurants, cafés and stays to build the actual trip." 
+    }
+  }
+}
