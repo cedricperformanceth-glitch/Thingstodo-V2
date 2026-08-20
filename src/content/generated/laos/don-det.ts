@@ -787,7 +787,7 @@ const data = {
       },
       "shortDescription": "A practical sunrise-side stop for breakfast, coffee and generous casual meals, about a short walk from Don Det’s ferry area.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "street-view-restaurant-card", "src": "/assets/cities/laos/don-det/cafes/street-view-restaurant/street-view-restaurant.webp", "alt": "Street View Restaurant on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -839,7 +839,7 @@ const data = {
       },
       "shortDescription": "A small guesthouse restaurant that works well for breakfast, coffee or an easy daytime meal without leaving the quieter island rhythm.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "mama-tanon-guest-house-and-restaurant-card", "src": "/assets/cities/laos/don-det/cafes/mama-tanon-guest-house-and-restaurant/mama-tanon-guest-house-and-restaurant.webp", "alt": "Mama Tanon Guest House and Restaurant on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -891,7 +891,7 @@ const data = {
       },
       "shortDescription": "A dedicated café on sunset street combining proper coffee and fresh drinks with brunch and Korean food, unusual by Don Det standards.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "bamboo-cafe-and-korean-restaurant-card", "src": "/assets/cities/laos/don-det/cafes/bamboo-cafe-and-korean-restaurant/bamboo-cafe-and-korean-restaurant.webp", "alt": "Bamboo Cafe and Korean Restaurant on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -943,7 +943,7 @@ const data = {
       },
       "shortDescription": "A central guesthouse restaurant serving breakfast and brunch, convenient for coffee and a simple meal close to Don Det’s main village.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "ms-ning-restaurant-and-guesthouse-card", "src": "/assets/cities/laos/don-det/cafes/ms-ning-restaurant-and-guesthouse/ms-ning-restaurant-and-guesthouse.webp", "alt": "Ms Ning Restaurant and Guesthouse on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -995,7 +995,7 @@ const data = {
       },
       "shortDescription": "A current Don Det coffee-and-restaurant stop with a clear coffee focus, suitable for a daytime drink or an uncomplicated meal.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "allnew-coffee-and-restaurant-card", "src": "/assets/cities/laos/don-det/cafes/allnew-coffee-and-restaurant/allnew-coffee-and-restaurant.webp", "alt": "AllNew Coffee and Restaurant on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1047,7 +1047,7 @@ const data = {
       },
       "shortDescription": "A riverside all-day restaurant known for coffee and breakfast as well as meals, useful for an early start near the water.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "kamphong-riverside-restaurant-card", "src": "/assets/cities/laos/don-det/cafes/kamphong-riverside-restaurant/kamphong-riverside-restaurant.webp", "alt": "Kamphong Riverside Restaurant on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1099,7 +1099,7 @@ const data = {
       },
       "shortDescription": "An early-opening Don Det restaurant offering coffee, breakfast and brunch, useful when you want food before starting a full island day.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "jimmee-restaurant-card", "src": "/assets/cities/laos/don-det/cafes/jimmee-restaurant/jimmee-restaurant.webp", "alt": "Jimmee Restaurant on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1151,7 +1151,7 @@ const data = {
       },
       "shortDescription": "A small all-day stop toward Don Khon with coffee and brunch, handy before or after cycling the southern island routes.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "noupad-restaurant-card", "src": "/assets/cities/laos/don-det/cafes/noupad-restaurant/noupad-restaurant.webp", "alt": "Noupad Restaurant on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1203,7 +1203,7 @@ const data = {
       },
       "shortDescription": "A genuine coffee shop and small gift stop with Wi-Fi and power outlets, especially useful for a work break on Don Det.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "dondet-coffee-house-and-gift-shop-card", "src": "/assets/cities/laos/don-det/cafes/dondet-coffee-house-and-gift-shop/dondet-coffee-house-and-gift-shop.webp", "alt": "Dondet Coffee House and Gift Shop on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1260,7 +1260,7 @@ const data = {
       },
       "shortDescription": "An all-day café-bar near northern Don Det with coffee, breakfast and meals, convenient when you want one flexible stop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "paradise-restaurant-cafe-and-bar-card", "src": "/assets/cities/laos/don-det/cafes/paradise-restaurant-cafe-and-bar/paradise-restaurant-cafe-and-bar.webp", "alt": "Paradise Restaurant Cafe and Bar on Don Det", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
