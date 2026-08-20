@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "country": "laos",
+  "city": "don-det",
+  "category": "restaurants",
+  "checkedAt": "2026-08-20",
+  "policy": {
+    "exactEntityRequired": true,
+    "acceptedLicenses": ["public-domain", "cc0", "cc-by", "cc-by-sa"],
+    "rejectedWhenUnclear": true,
+    "platformPhotosWithoutReusableLicense": "reject",
+    "wrongPlaceFalsePositives": "reject",
+    "whenNoQualifiedOpenMedia": "keep-placeholder-and-use-authorized-photo-or-atlas-illustration-later"
+  },
+  "summary": {
+    "restaurantsAudited": 12,
+    "qualifiedOpenPhotos": 0,
+    "keptAsMissing": 12
+  },
+  "restaurants": [
+    {
+      "id": "place-mama-leuah-restaurant",
+      "name": "Mama Leuah Restaurant",
+      "status": "no-qualified-open-media-found",
+      "notes": "Exact photos are publicly visible on Tripadvisor and Booking, but no commercial reuse licence was verified. Exact-name searches across Wikimedia Commons, Flickr and Creative Commons sources did not yield a qualified exact-entity asset."
+    },
+    {
+      "id": "place-the-4000-island-bar",
+      "name": "The 4000 Island Bar",
+      "status": "no-qualified-open-media-found",
+      "notes": "Exact venue photos exist on Tripadvisor, but no reusable licence was verified. No qualified exact-entity Wikimedia/Flickr/Creative Commons asset was found."
+    },
+    {
+      "id": "place-keas-backpackers-paradise-restaurant-and-bar",
+      "name": "Kea's Backpackers Paradise Restaurant & Bar",
+      "status": "no-qualified-open-media-found",
+      "notes": "Public travel-platform and blog photos exist, but no explicit licence compatible with commercial Atlas reuse was verified. No qualified exact-entity open-media asset was found."
+    },
+    {
+      "id": "place-the-boathouse",
+      "name": "The Boathouse",
+      "status": "no-qualified-open-media-found",
+      "notes": "The venue is verified on Don Det and has first-party/travel-platform imagery, but exact-name Wikimedia results were false positives for unrelated boathouses in the United States, Australia and the United Kingdom. No exact Don Det asset with a reusable licence was found."
+    },
+    {
+      "id": "place-datta-bananaleaf-restaurant",
+      "name": "Datta Bananaleaf Restaurant",
+      "status": "no-qualified-open-media-found",
+      "notes": "Exact photos are visible on travel platforms and blogs, but no reusable licence was verified. No qualified exact-entity Wikimedia/Flickr/Creative Commons asset was found."
+    },
+    {
+      "id": "place-hathim-indian-restaurant",
+      "name": "Hathim Indian Restaurant",
+      "status": "no-qualified-open-media-found",
+      "notes": "Exact current photos exist on Tripadvisor and other listing/review sites, but no compatible reuse licence was verified. No qualified exact-entity open-media asset was found."
+    },
+    {
+      "id": "place-ois-place",
+      "name": "Oi's Place",
+      "status": "no-qualified-open-media-found",
+      "notes": "Exact venue imagery is publicly discoverable, but no explicit reusable licence was verified. No qualified exact-entity Wikimedia/Flickr/Creative Commons asset was found."
+    },
+    {
+      "id": "place-banana-restaurant-and-bar",
+      "name": "Banana Restaurant & Bar",
+      "status": "no-qualified-open-media-found",
+      "notes": "Tripadvisor has exact venue photography, but it is not treated as reusable. No qualified exact-entity open-media asset with a verified commercial-use licence was found."
+    },
+    {
+      "id": "place-wrap-and-roll",
+      "name": "Wrap and Roll",
+      "status": "no-qualified-open-media-found",
+      "notes": "Exact imagery exists under Wrap and Roll / Mango Bar / Barefoot Island references, but available pages do not provide a verified reusable licence for those photos. No qualified exact-entity open-media asset was found."
+    },
+    {
+      "id": "place-mama-piang-guesthouse-and-restaurant",
+      "name": "Mama Piang Guesthouse & Restaurant",
+      "status": "no-qualified-open-media-found",
+      "notes": "Tripadvisor and travel-editorial photos exist, including food and interior images, but no compatible reuse licence was verified. No qualified exact-entity open-media asset was found."
+    },
+    {
+      "id": "place-restaurant-naly",
+      "name": "Restaurant Naly",
+      "status": "no-qualified-open-media-found",
+      "notes": "The restaurant is listed publicly, but no exact photograph with a verifiable commercial reuse licence was found in open-media searches."
+    },
+    {
+      "id": "place-sahai-bar",
+      "name": "Sahai Bar",
+      "status": "no-qualified-open-media-found",
+      "notes": "The business is publicly listed, but no exact photograph with a verifiable commercial reuse licence was found in Wikimedia/Flickr/Creative Commons searches."
+    }
+  ]
+}
