@@ -16,9 +16,6 @@ export interface CityFieldNoteContent {
   contextLine: string;
   subtitle: string;
   intro: string;
-  edition: string;
-  focusLabel: string;
-  regionLabel: string;
   warning: string;
   quickRead: Array<{ label: string; value: string; detail: string }>;
   chapters: CityFieldNoteChapter[];
@@ -139,9 +136,6 @@ export const cityFieldNoteView = (city: City, country: Country) => {
     contextLine: `${region} · ${base}`,
     subtitle: city.hero.subtitle,
     intro: city.description,
-    edition,
-    focusLabel: `Understanding ${city.name} before fixing the day`,
-    regionLabel: region,
     warning: 'This page is still the generated city-note layer. Transport, prices, opening patterns, safety advice and seasonal conditions must be verified during the editorial pass.',
     quickRead: [
       { label: 'Chapters', value: '7 field notes', detail: 'A destination overview, not a checklist.' },
@@ -157,5 +151,5 @@ export const cityFieldNoteView = (city: City, country: Country) => {
     }
   };
 
-  return { ...content, adSlots: editorialAdSlots.slice(0, 4) };
+  return { ...content, adSlots: editorialAdSlots.slice(0, 3) };
 };
