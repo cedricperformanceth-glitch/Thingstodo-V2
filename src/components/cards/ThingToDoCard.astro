@@ -32,7 +32,7 @@ const costLabel = spaCard?.costType === 'free' ? 'Free' : spaCard?.costType === 
     {photoCredit && image?.sourceUrl && (
       <a class="card-photo-credit" href={image.sourceUrl} target="_blank" rel="noreferrer">Photo: {photoCredit}</a>
     )}
-    <FavoriteHeart entity={thing} />
+    <FavoriteHeart entity={thing} cardImage={image} shortDescription={description} spaCard={spaCard} />
   </div>
 
   <div class="card-preview">
