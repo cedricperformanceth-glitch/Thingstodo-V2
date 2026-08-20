@@ -1,0 +1,46 @@
+{
+  "city-don-det": [
+    {
+      "sourceName": "Tourism Laos · Champasak Province / 4,000 Islands",
+      "sourceUrl": "https://www.tourismlaos.org/southern-provinces/champasak-province/",
+      "note": "Official tourism context for Si Phan Don, southern Laos, the Mekong islands and local livelihoods.",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "KPL · Tourism Master Plan for Don Det–Don Khon",
+      "sourceUrl": "https://kpl.gov.la/EN/detail.aspx?id=101477",
+      "note": "June 2026 government reporting on the 2026–2036 tourism master plan covering Nakasang, Don Det and Don Khon.",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "KPL · Laos tourism infrastructure update 2026",
+      "sourceUrl": "https://kpl.gov.la/EN/detail.aspx?id=97713",
+      "note": "Government reporting confirming the Don Det-area tourist boat pier project and the Nakasang–Don Det–Don Khon priority corridor.",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Visit Champasak",
+      "sourceUrl": "https://tourismchampasak.com/",
+      "note": "Regional tourism context for Champasak, the Mekong, local life and southern Laos travel services.",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Mekong Tourism · Don Det",
+      "sourceUrl": "https://mekongtourism.org/don-det-emerges-as-a-tranquil-haven-for-stressed-travelers/",
+      "note": "Regional tourism context for Don Det's slow-travel character and place within the Si Phan Don archipelago.",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "DonDet.net · local island maps and logistics",
+      "sourceUrl": "https://www.dondet.net/maps.html",
+      "note": "Local operational cross-check for the northern pier, island layout, bridge connection and traveller-service geography.",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Don Det category",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Don_Det",
+      "note": "Exact-location media discovery and geographic cross-check.",
+      "reviewedAt": "2026-08-20"
+    }
+  ]
+}
