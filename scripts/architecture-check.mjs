@@ -30,7 +30,7 @@ if (destinationFailures.length) {
   throw new Error(`Destination-specific reusable code: ${destinationFailures.join(', ')}`);
 }
 
-const rawEditorialImport = /from ['"][^'"]*content\/(?:field-card-[^'"]*-copy|spa-thing-card-copy)\.json['"]/i;
+const rawEditorialImport = /from ['"][^'"]*content\/(?:field-card-[^'"]*-copy|city-field-note-[^'"]*-copy|spa-thing-card-copy)\.json['"]/i;
 const editorialBoundaryFailures = presentationFolders
   .flatMap(sourceFiles)
   .filter((file) => rawEditorialImport.test(fs.readFileSync(path.join(root, file), 'utf8')));
