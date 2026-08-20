@@ -2,10 +2,10 @@
 import BaseLayout from '../../../../components/layout/BaseLayout.astro';
 import FieldCard from '../../../../components/field-card/FieldCard.astro';
 import FieldCardNavigation from '../../../../components/field-card/FieldCardNavigation.astro';
-import seoEditorial from '../../../../content/field-card-seo-copy.json';
 import { getCities, getCity } from '../../../../engines/city/city-engine';
 import { getCountry } from '../../../../engines/country/country-engine';
 import { getThings, getThing } from '../../../../engines/category/category-engine';
+import { getEditorialSeo } from '../../../../engines/field-card/field-card-editorial';
 import { cityPath, countryPath, thingPath } from '../../../../core/routing/paths';
 import { absoluteCanonical } from '../../../../core/seo/metadata';
 import type { SeoMetadata } from '../../../../core/models/types';
@@ -21,9 +21,7 @@ const country = getCountry(Astro.params.country ?? '');
 const thing = city ? getThing(city, Astro.params.slug ?? '') : undefined;
 if (!city || !country || !thing) return Astro.redirect('/');
 
-type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
-const seoOverrides = seoEditorial as Record<string, FieldCardSeoOverride>;
-const reviewedSeo = seoOverrides[thing.id];
+const reviewedSeo = getEditorialSeo(thing.id);
 const canonicalPath = thingPath(city, thing);
 const seo: SeoMetadata = {
   title: reviewedSeo?.title ?? `${thing.name} | Things To Do Atlas`,
@@ -45,11 +43,21 @@ const structuredData = {
   '@type': 'Article',
   headline: seo.title.replace(/\s*\|\s*Things To Do Atlas$/, ''),
   description: seo.description,
+  inLanguage: 'en',
   mainEntityOfPage: absoluteCanonical(canonicalPath),
   ...(seo.image ? { image: [absoluteCanonical(seo.image)] } : {}),
   about: {
-    '@type': 'Place',
+    '@type': 'Thing',
     name: thing.name,
+  },
+  contentLocation: {
+    '@type': 'Place',
+    name: city.name,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: city.coordinates.latitude,
+      longitude: city.coordinates.longitude,
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: city.name,
@@ -61,7 +69,7 @@ const structuredData = {
 };
 ---
 
-<BaseLayout {seo} {breadcrumbs} structuredData={[structuredData]}>
+<BaseLayout {seo} {breadcrumbs} structuredData={[structuredData]} ogType="article">
   <FieldCardNavigation {country} {city} {thing} />
   <FieldCard {thing} {city} {country} />
 </BaseLayout>
