@@ -4,7 +4,7 @@ export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
 
 export interface Coordinates { latitude: number; longitude: number; }
-export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; }
+export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; imageAlt?: string; }
 export interface MediaRecord { id: string; src: string; alt: string; sourceType: SourceType; sourceUrl?: string; sourceName?: string; author?: string; license?: string; manual: boolean; locked: boolean; }
 export interface ActivityPhotoReserveEntry extends MediaRecord { width: number; height: number; subjectConfidence: number; sourceConfidence: number; }
 export interface MediaResearch { activityPhotoReserve?: ActivityPhotoReserveEntry[]; }
