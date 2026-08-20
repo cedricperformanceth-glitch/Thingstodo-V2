@@ -5,13 +5,23 @@ import type { CategorySlug, City, Place } from '../../core/models/types';
 const belongsTo = (item:{country:string;city:string}, city:City) => item.country === city.country && item.city === city.slug;
 
 const swapPlacePositions = (items: Place[], city: City, category?: CategorySlug) => {
-  if (city.country !== 'laos' || city.slug !== 'don-det' || category !== 'restaurants') return items;
+  if (city.country !== 'laos' || city.slug !== 'don-det' || !category) return items;
 
-  const swaps: Array<[string, string]> = [
-    ['place-keas-backpackers-paradise-restaurant-and-bar', 'place-ois-place'],
-    ['place-hathim-indian-restaurant', 'place-sahai-bar'],
-    ['place-datta-bananaleaf-restaurant', 'place-mama-piang-guesthouse-and-restaurant'],
-  ];
+  const swapsByCategory: Partial<Record<CategorySlug, Array<[string, string]>>> = {
+    restaurants: [
+      ['place-keas-backpackers-paradise-restaurant-and-bar', 'place-ois-place'],
+      ['place-hathim-indian-restaurant', 'place-sahai-bar'],
+      ['place-datta-bananaleaf-restaurant', 'place-mama-piang-guesthouse-and-restaurant'],
+    ],
+    cafes: [
+      ['place-paradise-restaurant-cafe-and-bar', 'place-kamphong-riverside-restaurant'],
+      ['place-ms-ning-restaurant-and-guesthouse', 'place-dondet-coffee-house-and-gift-shop'],
+    ],
+  };
+
+  const swaps = swapsByCategory[category] ?? [];
+  if (!swaps.length) return items;
+
   const byId = new Map(items.map((item) => [item.id, item]));
 
   return items.map((item) => {
