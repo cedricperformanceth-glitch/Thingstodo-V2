@@ -1,0 +1,40 @@
+{
+  "city-don-det": [
+    {
+      "id": "don-det-field-note-sunset-pirogue",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pirogue_running_on_the_Mekong_at_sunset_with_pink_clouds_in_Don_Det_Laos.jpg?width=1800",
+      "alt": "Pirogue running on the Mekong at sunset with pink clouds seen from Don Det in Si Phan Don",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pirogue_running_on_the_Mekong_at_sunset_with_pink_clouds_in_Don_Det_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "don-det-field-note-ricefields",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Laos_ricefields.JPG?width=1600",
+      "alt": "Rice fields on Don Det in southern Laos",
+      "sourceType": "public-domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laos_ricefields.JPG",
+      "sourceName": "Wikimedia Commons",
+      "author": "Gorgo",
+      "license": "Public domain",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "don-det-field-note-bridge-sunrise",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bridge_to_Don_Khon_seen_from_Don_Det_with_water_reflection_of_stringy_orange_clouds_at_sunrise_in_Laos.jpg?width=1600",
+      "alt": "Historic bridge from Don Det to Don Khon reflected in the Mekong at sunrise",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bridge_to_Don_Khon_seen_from_Don_Det_with_water_reflection_of_stringy_orange_clouds_at_sunrise_in_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    }
+  ]
+}
