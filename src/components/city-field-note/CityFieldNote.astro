@@ -9,7 +9,7 @@ const { city, country } = Astro.props;
 const view = cityFieldNoteView(city, country);
 const heroChapters = view.chapters.slice(0, 4);
 const categoryLinks = city.categories.map((category) => ({ label: category === 'things-to-do' ? 'Things to do' : category.split('-').map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(' '), href: categoryPath(city, category) }));
-const adAfter = new Map([[1, view.adSlots[0]], [3, view.adSlots[1]], [5, view.adSlots[2]]]);
+const adAfter = (index: number) => index === 1 ? view.adSlots[0] : index === 3 ? view.adSlots[1] : index === 5 ? view.adSlots[2] : undefined;
 ---
 
 <article class="city-note" aria-labelledby="city-note-title">
@@ -38,8 +38,9 @@ const adAfter = new Map([[1, view.adSlots[0]], [3, view.adSlots[1]], [5, view.ad
   </section>
 
   <div class="city-note__chapters">
-    {view.chapters.map((chapter, index) => (
-      <>
+    {view.chapters.map((chapter, index) => {
+      const adSlot = adAfter(index);
+      return <>
         <section class:list={['city-note__chapter', { 'city-note__chapter--reverse': index % 2 === 1 }, { 'city-note__chapter--solo': !chapter.facts && !chapter.note }]}>
           <div class="city-note__chapter-copy">
             <p class="city-note__section-label">{chapter.eyebrow}</p>
@@ -56,9 +57,9 @@ const adAfter = new Map([[1, view.adSlots[0]], [3, view.adSlots[1]], [5, view.ad
           {[1,2,3].map((number) => <figure><span class="city-note__mini-tape" aria-hidden="true"></span><div><small>PHOTO {String(number).padStart(2,'0')}</small><strong>Editorial image to add</strong></div><figcaption>{number === 1 ? 'Landscape / orientation' : number === 2 ? 'Daily life / movement' : 'Detail / atmosphere'}</figcaption></figure>)}
         </section>}
 
-        {adAfter.get(index) && <AdSlot slot={adAfter.get(index)!} />}
-      </>
-    ))}
+        {adSlot && <AdSlot slot={adSlot} />}
+      </>;
+    })}
   </div>
 
   <p class="city-note__warning">{view.warning}</p>
