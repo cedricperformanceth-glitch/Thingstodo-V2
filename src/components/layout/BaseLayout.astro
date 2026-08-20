@@ -10,9 +10,10 @@ interface Props {
   seo: SeoMetadata;
   breadcrumbs?: Array<{ name: string; path: string }>;
   structuredData?: Record<string, unknown>[];
+  ogType?: 'website' | 'article';
 }
 
-const { seo, breadcrumbs = [], structuredData = [] } = Astro.props;
+const { seo, breadcrumbs = [], structuredData = [], ogType = 'website' } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
 ---
 <!doctype html>
@@ -23,9 +24,15 @@ const meta = pageSeo(seo, breadcrumbs);
     <title>{meta.title}</title>
     <meta name="description" content={meta.description} />
     <link rel="canonical" href={meta.canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={meta.canonical} />
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
     {meta.image && <meta property="og:image" content={meta.image} />}
+    <meta name="twitter:card" content={meta.image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={meta.title} />
+    <meta name="twitter:description" content={meta.description} />
+    {meta.image && <meta name="twitter:image" content={meta.image} />}
     {!meta.indexable && <meta name="robots" content="noindex,nofollow" />}
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.breadcrumbs)} />
     {structuredData.map((item) => (
