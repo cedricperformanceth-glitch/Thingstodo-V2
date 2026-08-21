@@ -131,9 +131,11 @@ export function researchPlan(country, settlementType, _seed, categories = SETTLE
     subcategoryTargets[category] = Object.fromEntries(Object.entries(subcategories).map(([subcategory, range]) => {
       const key = `${country}/${settlementType}/${category}:${subcategory}`;
       const existing = existingSubcategoryTargets?.[category]?.[subcategory];
-      const value = existing !== undefined
-        ? validateTargetValue(existing, range, key)
-        : randomRangeValue(defaultTargetRange(range, key), key);
+      const value = existing === 0
+        ? 0
+        : existing !== undefined
+          ? validateTargetValue(existing, range, key)
+          : randomRangeValue(defaultTargetRange(range, key), key);
       return [subcategory, value];
     }));
   }
