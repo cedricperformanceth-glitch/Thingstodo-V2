@@ -1,11 +1,18 @@
 ---
 import type { Place } from '../../core/models/types';
+import cardMediaPresentationOverrides from '../../content/card-media-presentation-overrides.json';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import CardActions from './CardActions.astro';
 import './entry-card.css';
 interface Props { place: Place; showDestination?: boolean; }
 const { place, showDestination = false } = Astro.props;
 const image = place.image ?? place.media.card?.image;
+const imagePresentation = image
+  ? cardMediaPresentationOverrides[image.id as keyof typeof cardMediaPresentationOverrides]
+  : undefined;
+const imageStyle = imagePresentation
+  ? `--card-image-scale:${imagePresentation.scale ?? 1};--card-image-position:${imagePresentation.position ?? 'center'};`
+  : undefined;
 const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
   ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
   : '';
@@ -14,7 +21,7 @@ const titleize = (value: string) => value.split('-').map((part) => part ? `${par
 <article class="card atlas-entry-card">
   <div class:list={['card-media', { empty: !image }]}>
     {image ? (
-      <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" />
+      <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" style={imageStyle} />
     ) : (
       <span class="card-photo-placeholder" aria-label="Photo missing; manual photo needed">Photo to add</span>
     )}
