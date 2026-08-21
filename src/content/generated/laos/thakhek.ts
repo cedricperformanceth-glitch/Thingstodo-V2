@@ -348,7 +348,7 @@ const data = {
       },
       "shortDescription": "Phubeer Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "phubeer-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/phubeer-restaurant/phubeer-restaurant.webp", "alt": "Phubeer Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -504,7 +504,7 @@ const data = {
       },
       "shortDescription": "Thakhek’s Secret Bar is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "thakheks-secret-bar-card", "src": "/assets/cities/laos/thakhek/restaurants/thakheks-secret-bar/thakheks-secret-bar.webp", "alt": "Thakheks Secret Bar in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -608,7 +608,7 @@ const data = {
       },
       "shortDescription": "Orlasone-BBQ is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "orlasone-bbq-card", "src": "/assets/cities/laos/thakhek/restaurants/orlasone-bbq/orlasone-bbq.webp", "alt": "Orlasone Bbq in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -972,7 +972,7 @@ const data = {
       },
       "shortDescription": "Bonjour Thakhek is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "bonjour-thakhek-card", "src": "/assets/cities/laos/thakhek/restaurants/bonjour-thakhek/bonjour-thakhek.webp", "alt": "Bonjour Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1284,7 +1284,7 @@ const data = {
       },
       "shortDescription": "Thakhek View is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "thakhek-view-card", "src": "/assets/cities/laos/thakhek/restaurants/thakhek-view/thakhek-view.webp", "alt": "Thakhek View in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1492,7 +1492,7 @@ const data = {
       },
       "shortDescription": "Miss Tang Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "miss-tang-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/miss-tang-restaurant/miss-tang-restaurant.webp", "alt": "Miss Tang Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1908,7 +1908,7 @@ const data = {
       },
       "shortDescription": "Space Bar&Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "space-bar-and-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/space-bar-and-restaurant/space-bar-and-restaurant.webp", "alt": "Space Bar And Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -2792,7 +2792,7 @@ const data = {
       },
       "shortDescription": "Six Friends Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "six-friends-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/six-friends-restaurant/six-friends-restaurant.webp", "alt": "Six Friends Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
