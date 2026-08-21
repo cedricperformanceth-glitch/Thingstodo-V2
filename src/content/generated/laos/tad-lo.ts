@@ -141,11 +141,11 @@ const city = {
   id: 'city-tad-lo', slug: 'tad-lo', name: 'Tad Lo', country: 'laos', profile: 'compact', settlementType: 'village', coordinates: coords,
   description: 'A waterfall village in Salavan Province and a slow-travel base for the Bolaven Plateau, with village walks, coffee, Katu culture and guided nature experiences.',
   categories: ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services'],
-  categoryTargets: { 'things-to-do': 18, restaurants: 12, cafes: 8, accommodation: 8 },
+  categoryTargets: { 'things-to-do': 14, restaurants: 12, cafes: 8, accommodation: 8 },
   hero: { eyebrow: 'Salavan · Southern Laos', title: 'Tad Lo travel guide', subtitle: 'Waterfalls, village life, coffee country and a slower way into the Bolaven Plateau.', facts: [{label:'Updated',value:'August 2026'},{label:'Type',value:'Waterfall village'},{label:'Region',value:'Salavan Province'},{label:'Pace',value:'Slow travel base'}] },
   exploreBoard: { featuredThingIds: ['thing-tad-lo-waterfall','thing-vat-paa-forest-buddha-and-mystery-cave','thing-coffee-and-katu-culture-with-mr-hook'] },
   manualLocks: {
-    'categoryTargets.things-to-do': { value: 18, source: 'manual', locked: true },
+    'categoryTargets.things-to-do': { value: 14, source: 'manual', locked: true },
     'categoryTargets.accommodation': { value: 8, source: 'manual', locked: true },
     'categoryTargets.restaurants': { value: 12, source: 'manual', locked: true },
     'categoryTargets.cafes': { value: 8, source: 'manual', locked: true },
@@ -221,14 +221,10 @@ const things = [
   thing('Fandee Adventure Park','Forest aerial course with thirteen ziplines and suspended monkey bridges near Tad Lo.','Less than 3 hours','paid','Daytime'),
   thing('Coffee and Katu Culture with Mr Hook','Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.','Half day','paid','By arrangement','accept',{kicker:'COFFEE & KATU CULTURE',duration:'Half day',route:'Local guided experience'}),
   thing('Coffee from Tree to Cup with Mr Vieng','Friendly tree-to-cup coffee experience near Laongam covering growing, processing and preparation.','Less than 3 hours','paid','By arrangement'),
-  thing('Traditional Coffee Roasting with Mr M','Seasonal hands-on traditional coffee roasting workshop when the host is available.','Half day','paid','By arrangement','manual-review'),
   thing('Vat Paa Forest, Buddha and Mystery Cave','Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.','Less than 3 hours','free','Daytime','accept',{kicker:'FOREST & MYSTERY CAVE',duration:'Short outing',route:'From Tad Lo village'}),
   thing('Tad Lo Half-Day Guided Trek','Official locally guided short trek option for travellers who want forest and village paths beyond the immediate waterfalls.','Half day','paid','Morning'),
-  thing('Tad Soung Community Trek','Full-day community-based guided route linking forest, rural scenery, villages and the Tad Soung area.','Full day','paid','Morning'),
   thing('Tad Lo Two-Day Village Trek','Longer guided trekking format using Tad Lo as a base for remote village and forest exploration.','2 days','paid','Morning departure'),
   thing('Traditional Lao Massage in Tad Lo','Arrange a local traditional massage in the village after walking, riding or waterfall days.','About 1 hour','paid','By arrangement'),
-  thing('Sacred Forest Tad Lo Trees','Short nature stop focused on the mature forest and locally significant trees near Tad Lo.','Less than 2 hours','free','Daytime','manual-review'),
-  thing('Fandee Waterpark','Small water-play stop in the Fandee area for a relaxed afternoon near the village.','Less than 3 hours','paid','Daytime'),
   thing('Tad Lo Riverside & Village Walk','Unhurried self-guided walk through Tad Lo, linking village life, river edges and the waterfall landscape.','1–2 hours','free','Early morning or late afternoon'),
 ];
 
