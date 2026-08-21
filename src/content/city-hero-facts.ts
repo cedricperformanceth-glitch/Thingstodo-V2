@@ -7,7 +7,7 @@ export const cityHeroFactOverrides: Readonly<Record<string, readonly string[]>> 
   'laos/luang-prabang': ['August 2026', 'UNESCO old town', 'Tropical monsoon', 'Luang Prabang Province'],
   'laos/pakse': ['July 2026', 'Road-trip base', 'Tropical climate', 'Southern Laos'],
   'laos/tad-lo': ['July 2026', 'Walkable village base', 'Waterfalls & coffee', 'Salavan Province'],
-  'laos/thakhek': ['July 2026', 'Loop road base', 'Limestone & caves', 'Khammouane Province'],
+  'laos/thakhek': ['August 2026', 'Loop road base', 'Limestone & caves', 'Khammouane Province'],
   'laos/vang-vieng': ['August 2026', 'River & karst base', 'Tropical monsoon', 'Vientiane Province'],
   'laos/vientiane': ['August 2026', 'Capital city base', 'Tropical monsoon', 'Mekong riverfront'],
 };
