@@ -2,5 +2,8 @@
   "city-don-det": {
     "cafes": 9,
     "accommodation": 14
+  },
+  "city-laos-thakhek": {
+    "accommodation": 16
   }
 }
