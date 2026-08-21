@@ -1,13 +1,15 @@
-import type { City, Country, FieldCardHeroContent, FieldCardPracticalContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, MediaRecord, ThingToDo } from '../../core/models/types';
+import type { City, Country, FieldCardHeroContent, FieldCardPracticalContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, ThingToDo } from '../../core/models/types';
 import { editorialAdSlots } from '../../core/ads/slots';
 import depthEditorial from '../../content/field-card-depth-overrides.json';
-import faqEditorial from '../../content/field-card-faq-copy.json';
-import heroEditorial from '../../content/field-card-hero-copy.json';
-import mediaEditorial from '../../content/field-card-media-copy.json';
-import practicalEditorial from '../../content/field-card-practical-copy.json';
-import primaryStoryEditorial from '../../content/field-card-primary-story-copy.json';
-import quickReadEditorial from '../../content/field-card-quick-read-copy.json';
-import secondaryStoryEditorial from '../../content/field-card-secondary-story-copy.json';
+import {
+  getEditorialFaq,
+  getEditorialHero,
+  getEditorialMedia,
+  getEditorialPractical,
+  getEditorialPrimaryStory,
+  getEditorialQuickRead,
+  getEditorialSecondaryStory,
+} from './field-card-editorial';
 
 type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 type FieldCardDepthOverride = {
@@ -16,13 +18,6 @@ type FieldCardDepthOverride = {
 };
 
 const editorialDepthOverrides = depthEditorial as Record<string, FieldCardDepthOverride>;
-const editorialFaq = faqEditorial as Record<string, FieldCardFaqItem[]>;
-const editorialHeroes = heroEditorial as Record<string, FieldCardHeroContent>;
-const editorialMedia = mediaEditorial as Record<string, MediaRecord[]>;
-const editorialPracticalNotes = practicalEditorial as Record<string, FieldCardPracticalContent>;
-const editorialPrimaryStories = primaryStoryEditorial as Record<string, FieldCardPrimaryStoryContent>;
-const editorialQuickReads = quickReadEditorial as Record<string, FieldCardQuickReadContent>;
-const editorialSecondaryStories = secondaryStoryEditorial as Record<string, FieldCardSecondaryStoryContent | null>;
 
 const fallbackAliases = (thing: ThingToDo, city: City, country: Country) => {
   const tags = thing.spaCard?.handwrittenTags?.filter(Boolean) ?? [];
@@ -171,7 +166,7 @@ const completeFaq = (items?: FieldCardFaqItem[]) => {
 };
 
 const resolveFaq = (thing: ThingToDo): FieldCardFaqItem[] =>
-  completeFaq(editorialFaq[thing.id])
+  completeFaq(getEditorialFaq(thing.id))
   ?? completeFaq(thing.fieldCard.faq)
   ?? fallbackFaq(thing);
 
@@ -203,23 +198,23 @@ const fallbackQuickRead = (thing: ThingToDo, city: City, country: Country): Fiel
 
 export const fieldCardView = (thing: ThingToDo, city: City, country: Country) => {
   const depth = editorialDepthOverrides[thing.id];
-  const hero = editorialHeroes[thing.id] ?? thing.fieldCard.hero ?? fallbackHero(thing, city, country);
-  const quickRead = editorialQuickReads[thing.id] ?? thing.fieldCard.quickRead ?? fallbackQuickRead(thing, city, country);
+  const hero = getEditorialHero(thing.id) ?? thing.fieldCard.hero ?? fallbackHero(thing, city, country);
+  const quickRead = getEditorialQuickRead(thing.id) ?? thing.fieldCard.quickRead ?? fallbackQuickRead(thing, city, country);
   const generatedPrimaryStory = thing.fieldCard.primaryStory;
-  const primaryStory = editorialPrimaryStories[thing.id] ?? generatedPrimaryStory ?? fallbackPrimaryStory(thing, hero);
+  const primaryStory = getEditorialPrimaryStory(thing.id) ?? generatedPrimaryStory ?? fallbackPrimaryStory(thing, hero);
   const sections = thing.fieldCard.sections ?? [];
   const primaryLegacyOffset = generatedPrimaryStory ? 0 : 2;
   const generatedSecondaryStory = thing.fieldCard.secondaryStory;
-  const hasEditorialSecondaryStory = Object.prototype.hasOwnProperty.call(editorialSecondaryStories, thing.id);
-  const resolvedSecondaryStory = hasEditorialSecondaryStory
-    ? editorialSecondaryStories[thing.id]
+  const secondaryEditorial = getEditorialSecondaryStory(thing.id);
+  const resolvedSecondaryStory = secondaryEditorial.hasOverride
+    ? secondaryEditorial.value
     : generatedSecondaryStory ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
   const secondaryStory = depth?.secondaryStory === false ? null : resolvedSecondaryStory;
   const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 2);
-  const resolvedPracticalNotes = editorialPracticalNotes[thing.id] ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
+  const resolvedPracticalNotes = getEditorialPractical(thing.id) ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
   const practicalNotes = applyPracticalDepth(resolvedPracticalNotes, depth?.practicalItemLabels);
   const faq = resolveFaq(thing);
-  const gallery = editorialMedia[thing.id] ?? thing.media.fieldCard?.gallery ?? [];
+  const gallery = getEditorialMedia(thing.id) ?? thing.media.fieldCard?.gallery ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
   const secondaryImage = gallery[2];
