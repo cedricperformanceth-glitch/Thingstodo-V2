@@ -1,0 +1,146 @@
+{
+  "thing-fandee-adventure-park": {
+    "hero": {
+      "eyebrow": "FOREST ADVENTURE · TAD LO",
+      "aliases": [
+        "13 ziplines",
+        "10 monkey bridges",
+        "Walkable"
+      ],
+      "description": "Fandee Adventure Park is a compact guided aerial course at Fandee Island, combining thirteen ziplines and ten suspended monkey bridges in the forest within easy walking distance of Tad Lo.",
+      "steps": [
+        "Walk to Fandee Island",
+        "Get fitted with the safety equipment",
+        "Follow the coach through the aerial course",
+        "Complete the ziplines and suspended bridges"
+      ],
+      "rhythmNote": "Keep this one simple: it is a short guided adventure, not a full-day expedition. Follow the staff briefing and let the course set the pace.",
+      "photoNote": "Fandee Island · about 200 m by road from Tad Lo Tourism Office"
+    },
+    "quickRead": {
+      "time": {
+        "primary": "Less than 3 hours",
+        "secondary": "Moderate guided aerial course"
+      },
+      "route": {
+        "primary": "Walkable from Tad Lo",
+        "secondary": "About 200 m by road from Tad Lo Tourism Office"
+      },
+      "budget": {
+        "primary": "Paid",
+        "secondary": "Current price not published by Visit Tad Lo · confirm directly"
+      },
+      "bestFor": {
+        "primary": "Ziplines + suspended bridges",
+        "secondary": "13 ziplines · 10 monkey bridges"
+      }
+    },
+    "spa": {
+      "description": "Walk from Tad Lo to Fandee Island for a compact guided forest course with thirteen ziplines and ten monkey bridges, with safety equipment and coaching included.",
+      "handwrittenTags": [
+        "13 ziplines",
+        "10 monkey bridges",
+        "Guided course"
+      ],
+      "gettingThere": "About 200 m by road from Tad Lo Tourism Office; walkable and no personal transport is needed.",
+      "duration": "Less than 3 hours",
+      "costType": "paid",
+      "bestTime": "Daytime; confirm current opening and price directly and follow staff instructions on site"
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE COURSE",
+          "title": "Thirteen ziplines, ten suspended bridges",
+          "body": "The experience is straightforward: arrive at Fandee Island, get fitted with the provided safety equipment and follow a coach through a forest aerial course made up of thirteen ziplines and ten monkey bridges. Visit Tad Lo rates it moderate and lists staff instructions as required, so this is not an unguided playground. The attraction is the course itself — a compact dose of height and movement that fits easily into a Tad Lo day without needing a separate excursion."
+        }
+      ],
+      "note": {
+        "label": "SAFETY FIRST",
+        "text": "Equipment and coaching are included. Listen to the briefing, follow staff instructions and do not bypass the course rules."
+      }
+    },
+    "secondaryStory": null,
+    "practical": {
+      "items": [
+        {
+          "label": "Access",
+          "value": "Walkable · about 200 m from Tad Lo Tourism Office",
+          "detail": "Visit Tad Lo currently places the park roughly 200 metres by road from the Tourism Office at Fandee Island, so no motorbike is needed."
+        },
+        {
+          "label": "Format",
+          "value": "13 ziplines · 10 monkey bridges",
+          "detail": "The course is guided and rated moderate. Plan for less than three hours rather than treating it as a full-day activity."
+        },
+        {
+          "label": "Safety",
+          "value": "Equipment + coach included",
+          "detail": "Visit Tad Lo lists safety equipment and coaching as included and says staff instructions are required. Follow the briefing throughout the course."
+        },
+        {
+          "label": "Restriction & price",
+          "value": "Minimum height 1.50 m · price to confirm",
+          "detail": "The current local listing gives a minimum height of 1.50 metres. It does not publish a current activity price, so confirm the fee directly before going."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is included at Fandee Adventure Park?",
+        "answer": "Visit Tad Lo lists a guided aerial course with thirteen ziplines and ten monkey bridges, with safety equipment and a coach included."
+      },
+      {
+        "question": "How long does Fandee Adventure Park take?",
+        "answer": "The current local listing categorizes the activity as less than three hours and rates it moderate."
+      },
+      {
+        "question": "How far is Fandee Adventure Park from Tad Lo?",
+        "answer": "Visit Tad Lo places it about 200 metres by road from Tad Lo Tourism Office at Fandee Island. It is walkable without personal transport."
+      },
+      {
+        "question": "Is there a minimum height for Fandee Adventure Park?",
+        "answer": "Yes. The current Visit Tad Lo safety information lists a minimum height of 1.50 metres."
+      },
+      {
+        "question": "How much does Fandee Adventure Park cost?",
+        "answer": "Visit Tad Lo does not currently publish the activity price on the park page. Confirm the current fee directly with Fandee Island before going."
+      }
+    ],
+    "seo": {
+      "title": "Fandee Adventure Park Tad Lo | Ziplines & Monkey Bridges",
+      "description": "Plan Fandee Adventure Park in Tad Lo: 13 ziplines, 10 monkey bridges, included safety equipment and coaching, a 1.50 m minimum height and easy walking access.",
+      "image": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/activities/468ab176-594a-4db2-8c50-ae3972904b16-Zipline.jpg"
+    },
+    "sources": [
+      {
+        "sourceName": "Visit Tad Lo · Fandee Adventure Park",
+        "sourceUrl": "https://visit-tadlo.com/en/things-to-do/fandee-adventure-park",
+        "purpose": "current-local-course-access-duration-difficulty-equipment-coach-height-and-safety",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Visit Tad Lo · Fandee Island",
+        "sourceUrl": "https://visit-tadlo.com/en/stay-eat/fandee-island",
+        "purpose": "current-first-party-location-and-adventure-park-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      }
+    ],
+    "media": [
+      {
+        "id": "fandee-adventure-park-visit-tad-lo",
+        "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/activities/468ab176-594a-4db2-8c50-ae3972904b16-Zipline.jpg",
+        "alt": "Zipline at Fandee Adventure Park near Tad Lo, Laos",
+        "sourceType": "first-party-official",
+        "sourceUrl": "https://visit-tadlo.com/en/things-to-do/fandee-adventure-park",
+        "sourceName": "Visit Tad Lo",
+        "author": "Visit Tad Lo partner media",
+        "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+        "manual": true,
+        "locked": true
+      }
+    ]
+  }
+}
