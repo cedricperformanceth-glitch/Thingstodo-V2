@@ -48,7 +48,7 @@ const copy = json(copyPath);
 const media = json(mediaPath);
 const sources = json(sourcePath);
 const seo = json(seoPath);
-const completedEditorialCities = ['city-don-det', 'city-laos-thakhek'];
+const completedEditorialCities = ['city-don-det', 'city-laos-thakhek', 'city-tad-lo'];
 
 for (const id of completedEditorialCities) {
   const cityCopy = copy[id];
