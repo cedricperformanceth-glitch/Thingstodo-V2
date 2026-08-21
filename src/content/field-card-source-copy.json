@@ -184,5 +184,13 @@
     {"sourceName":"Wikimedia Commons · Ban Lao Ngam weaving 2014 (1)","sourceUrl":"https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_en2014_(1).jpg","purpose":"story-media-regional-weaving-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · Ban Lao Ngam weaving (4)","sourceUrl":"https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_(4).jpg","purpose":"secondary-media-regional-weaving-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
     {"sourceName":"Visit Tad Lo · Katu Weaving Workshop image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop","purpose":"hero-media-first-party-authorized","sourceType":"first-party-official","reviewedAt":"2026-08-21"}
+  ],
+  "thing-lao-cooking-class-with-nyay": [
+    {"sourceName":"Visit Tad Lo · Lao Cooking Class with Nyay","sourceUrl":"https://visit-tadlo.com/en/things-to-do/cooking-class-nyay","purpose":"current-booking-half-day-walkability-lunch-dinner-dietary-options-meal-included-and-allergy-guidance","reviewedAt":"2026-08-21"},
+    {"sourceName":"Fandee Island · Activities","sourceUrl":"https://www.fandee-island.com/activities","purpose":"current-Nyay-class-price-half-day-format-fresh-local-ingredients-and-technique-cross-check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Tourism Laos · Food & Flavours","sourceUrl":"https://www.tourismlaos.org/welcome/food-flavours/","purpose":"official-Lao-cuisine-sticky-rice-regional-variation-and-meal-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Visit Tad Lo · Lao Cooking Class with Nyay image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/cooking-class-nyay","purpose":"hero-media-first-party-authorized","sourceType":"first-party-official","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Lao sticky rice","sourceUrl":"https://commons.wikimedia.org/wiki/File:Lao_sticky_rice.jpg","purpose":"story-media-Lao-staple-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Lao green papaya salad","sourceUrl":"https://commons.wikimedia.org/wiki/File:Lao_green_papaya_salad.jpg","purpose":"secondary-media-Lao-meal-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
   ]
 }
