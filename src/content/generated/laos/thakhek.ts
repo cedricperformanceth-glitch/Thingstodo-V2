@@ -140,7 +140,7 @@ const data = {
       },
       "shortDescription": "Naga Hostel & Café is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "naga-hostel-and-cafe-card", "src": "/assets/cities/laos/thakhek/accommodation/naga-hostel-and-cafe/naga-hostel-and-cafe.webp", "alt": "Naga Hostel And Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -400,7 +400,7 @@ const data = {
       },
       "shortDescription": "Bami Thakhek Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "bami-thakhek-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/bami-thakhek-hostel/bami-thakhek-hostel.webp", "alt": "Bami Thakhek Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -556,7 +556,7 @@ const data = {
       },
       "shortDescription": "Nana Bungalows is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "nana-bungalows-card", "src": "/assets/cities/laos/thakhek/accommodation/nana-bungalows/nana-bungalows.webp", "alt": "Nana Bungalows in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -660,7 +660,7 @@ const data = {
       },
       "shortDescription": "Lao Home Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "lao-home-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/lao-home-hostel/lao-home-hostel.webp", "alt": "Lao Home Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -764,7 +764,7 @@ const data = {
       },
       "shortDescription": "Catty tourist house & restaurant is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "catty-tourist-house-and-restaurant-card", "src": "/assets/cities/laos/thakhek/accommodation/catty-tourist-house-and-restaurant/catty-tourist-house-and-restaurant.webp", "alt": "Catty Tourist House And Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -816,7 +816,7 @@ const data = {
       },
       "shortDescription": "Villa Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "villa-thakhek-card", "src": "/assets/cities/laos/thakhek/accommodation/villa-thakhek/villa-thakhek.webp", "alt": "Villa Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1076,7 +1076,7 @@ const data = {
       },
       "shortDescription": "Bamboo Hostel Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "bamboo-hostel-thakhek-card", "src": "/assets/cities/laos/thakhek/accommodation/bamboo-hostel-thakhek/bamboo-hostel-thakhek.webp", "alt": "Bamboo Hostel Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1180,7 +1180,7 @@ const data = {
       },
       "shortDescription": "STAY HOSTEL by M&M is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "stay-hostel-by-m-and-m-card", "src": "/assets/cities/laos/thakhek/accommodation/stay-hostel-by-m-and-m/stay-hostel-by-m-and-m.webp", "alt": "Stay Hostel By M And M in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1648,7 +1648,7 @@ const data = {
       },
       "shortDescription": "Song Lao Guesthouse is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "song-lao-guesthouse-card", "src": "/assets/cities/laos/thakhek/accommodation/song-lao-guesthouse/song-lao-guesthouse.webp", "alt": "Song Lao Guesthouse in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1700,7 +1700,7 @@ const data = {
       },
       "shortDescription": "Xoksaysub Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "xoksaysub-hotel-card", "src": "/assets/cities/laos/thakhek/accommodation/xoksaysub-hotel/xoksaysub-hotel.webp", "alt": "Xoksaysub Hotel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -2376,7 +2376,7 @@ const data = {
       },
       "shortDescription": "Nam Phou Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "nam-phou-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/nam-phou-hostel/nam-phou-hostel.webp", "alt": "Nam Phou Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -2532,7 +2532,7 @@ const data = {
       },
       "shortDescription": "Orlardee Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "orlardee-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/orlardee-hostel/orlardee-hostel.webp", "alt": "Orlardee Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -2584,7 +2584,7 @@ const data = {
       },
       "shortDescription": "Thakhek Travel Lodge is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "thakhek-travel-lodge-card", "src": "/assets/cities/laos/thakhek/accommodation/thakhek-travel-lodge/thakhek-travel-lodge.webp", "alt": "Thakhek Travel Lodge in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
