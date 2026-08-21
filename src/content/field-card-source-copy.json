@@ -90,5 +90,13 @@
     {"sourceName":"Gecko Routes · Don Det","sourceUrl":"https://www.geckoroutes.com/fr/laos/don-det/","purpose":"current-destination-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikimedia Commons · Blue stormy clouds at sunset in Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Blue_stormy_clouds_at_sunset_with_water_reflection_and_a_pirogue_moored_to_the_bank,_in_Don_Det,_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikimedia Commons · Silhouettes of green islands at sunset in Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Silhouettes_of_green_islands_at_sunset_with_colorful_sky_over_the_Mekong_in_Don_Det_Laos.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+  ],
+  "thing-tad-hang-waterfall": [
+    {"sourceName":"Visit Tad Lo · Tad Hang Waterfall","sourceUrl":"https://visit-tadlo.com/th/things-to-do/tad-hang-waterfall","purpose":"current-local-access-duration-cost-season-and-swimming-guidance","reviewedAt":"2026-08-21"},
+    {"sourceName":"Visit Tad Lo · Things to do","sourceUrl":"https://visit-tadlo.com/en/things-to-do","purpose":"current-local-distance-walkability-and-activity-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Salavanh Tourism · Natural tourist sites","sourceUrl":"https://salavanhtourismlaos.wordpress.com/tourist-attractions/","purpose":"waterfall-dimensions-Xe-Set-context-and-Tad-Lo-pairing","reviewedAt":"2026-08-21"},
+    {"sourceName":"KPL · Tad Loh-Tad Hang waterfall is getting popular","sourceUrl":"https://kpl.gov.la/en/detail.aspx?id=82469","purpose":"site-history-2023-development-project-and-physical-scale","reviewedAt":"2026-08-21"},
+    {"sourceName":"KPL · Tad Loh and Tad Hang Waterfalls to Reopen","sourceUrl":"https://kpl.gov.la/asean2024/En/detail.aspx?id=85147","purpose":"recent-reopening-improvements-location-and-swimming-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikivoyage · Tadlo","sourceUrl":"https://en.wikivoyage.org/wiki/Tadlo","purpose":"cross-check-Xe-Set-and-three-waterfall-geography","reviewedAt":"2026-08-21"}
   ]
 }
