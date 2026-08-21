@@ -12,7 +12,7 @@ const heroImage = view.media[0];
 const galleryImages = view.media.slice(1, 3);
 const chapterSevenImage = view.media[3];
 const categoryDetails: Record<string, string> = {
-  'things-to-do': 'Activities, rides & river days',
+  'things-to-do': 'Activities, routes & day trips',
   restaurants: 'Where to eat',
   cafes: 'Coffee, breakfast & slow stops',
   accommodation: 'Where to stay',
@@ -73,7 +73,7 @@ const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((c
     <p class="city-note__section-label">{view.closing.eyebrow}</p><h2>{view.closing.title}</h2><p>{view.closing.text}</p>
     <div class="city-note__next">
       <a class="city-note__next-featured" href={cityPath(city)}>
-        <span class="city-note__next-kicker">RETURN TO THE ISLAND</span>
+        <span class="city-note__next-kicker">DESTINATION OVERVIEW</span>
         <span class="city-note__next-featured-copy"><strong>Explore {city.name}</strong><small>Destination overview · Explore Board</small></span>
         <span class="city-note__next-arrow" aria-hidden="true">↗</span>
       </a>
