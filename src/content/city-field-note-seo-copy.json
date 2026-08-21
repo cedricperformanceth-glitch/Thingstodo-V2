@@ -8,5 +8,10 @@
     "title": "Thakhek travel field guide | Things To Do Atlas",
     "description": "A researched Thakhek field guide to the Mekong old town, Thakhek Loop, Route 12 cave country, scooter preparation, road conditions and practical planning.",
     "indexable": true
+  },
+  "city-tad-lo": {
+    "title": "Tad Lo travel field guide | Things To Do Atlas",
+    "description": "A researched Tad Lo field guide to the waterfalls, village life, Bolaven Plateau, coffee experiences, local culture, trekking and practical planning.",
+    "indexable": true
   }
 }
