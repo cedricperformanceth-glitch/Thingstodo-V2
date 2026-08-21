@@ -1,0 +1,119 @@
+{
+  "thing-tad-lo-treasure-hunt": {
+    "hero": {
+      "eyebrow": "SELF-GUIDED GAME · TAD LO",
+      "aliases": [
+        "Free",
+        "13 quests",
+        "On foot"
+      ],
+      "description": "Turn a short walk through Tad Lo into a phone-based treasure hunt: follow 13 clues through the village, waterfalls and paths, validate each discovery, and unlock a drink reward when you finish.",
+      "steps": [
+        "Open the game",
+        "Follow 13 clues",
+        "Validate each discovery",
+        "Unlock the reward"
+      ],
+      "rhythmNote": "The game itself is designed for roughly 15–30 minutes. Take longer if you want to wander between clues or stop around the village.",
+      "photoNote": "Tad Lo village · walkable · daylight recommended"
+    },
+    "quickRead": {
+      "time": {
+        "primary": "15–30 min game",
+        "secondary": "Take longer if you explore between clues"
+      },
+      "route": {
+        "primary": "On foot in Tad Lo",
+        "secondary": "Phone browser · no app download"
+      },
+      "budget": {
+        "primary": "Free",
+        "secondary": "13 quests · completion reward"
+      },
+      "bestFor": {
+        "primary": "Easy self-guided activity",
+        "secondary": "Families · couples · solo travellers"
+      }
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE GAME",
+          "title": "A village walk with 13 clues",
+          "body": "Open the Treasure Hunt in your phone browser and follow 13 clues around Tad Lo at your own pace. The route uses the village, paths, waterfalls and small local details as the game board, so the point is not speed but noticing places you might otherwise walk past. No app-store download or guide is required, and completing all 13 quests unlocks a drink reward from a participating partner, subject to availability."
+        }
+      ],
+      "note": {
+        "label": "KEEP IT LIGHT",
+        "text": "Free, self-guided and deliberately simple: open it on your phone, walk the clues and let the village provide the rest."
+      }
+    },
+    "secondaryStory": null,
+    "practical": {
+      "items": [
+        {
+          "label": "Start",
+          "value": "Open the Treasure Hunt in your phone browser",
+          "detail": "No app-store download is required. The official Visit Tad Lo game page launches the self-guided route directly on your phone."
+        },
+        {
+          "label": "Time",
+          "value": "About 15–30 minutes for the game itself",
+          "detail": "The activity catalogue groups it under less than three hours, but the dedicated game page gives 15–30 minutes. Allow longer if you stop between clues or combine it with a village walk."
+        },
+        {
+          "label": "Cost",
+          "value": "Free",
+          "detail": "Downloading and playing the 13 quests is free. Complete all 13 to receive a drink from a participating partner, with the exact option depending on availability."
+        },
+        {
+          "label": "Route",
+          "value": "Easy · walkable · daylight recommended",
+          "detail": "The game is self-guided and available year-round. Stay on public paths, respect private property and local life, and play in daylight."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the Tad Lo Treasure Hunt free?",
+        "answer": "Yes. Visit Tad Lo lists the full 13-quest experience as free to download and play."
+      },
+      {
+        "question": "How long does the Tad Lo Treasure Hunt take?",
+        "answer": "The dedicated game page gives about 15–30 minutes for the game itself. Take longer if you stop around the village or explore between clues."
+      },
+      {
+        "question": "Do I need to download an app?",
+        "answer": "No. Open the Treasure Hunt in your phone browser; no app-store download is required."
+      },
+      {
+        "question": "Do I need to book the Treasure Hunt?",
+        "answer": "No. It is a self-guided activity available year-round. Start it from your phone and play during daylight."
+      },
+      {
+        "question": "What happens after completing all 13 quests?",
+        "answer": "Visit Tad Lo says completing all 13 quests unlocks a drink from a participating partner. The available drink depends on what the partner has at the time."
+      }
+    ],
+    "seo": {
+      "title": "Tad Lo Treasure Hunt | Free Self-Guided Village Game",
+      "description": "Play Tad Lo’s free self-guided Treasure Hunt: 13 phone-based clues, a short walk through the village and a completion reward."
+    },
+    "sources": [
+      {
+        "sourceName": "Visit Tad Lo · Tad Lo Treasure Hunt",
+        "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-treasure-hunt",
+        "purpose": "first-party",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Visit Tad Lo · Treasure Hunt game",
+        "sourceUrl": "https://visit-tadlo.com/en/treasure-hunt",
+        "purpose": "first-party",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      }
+    ]
+  }
+}
