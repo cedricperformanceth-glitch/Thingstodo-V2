@@ -88,7 +88,7 @@ const data = {
       },
       "shortDescription": "Vie de France is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "vie-de-france-card", "src": "/assets/cities/laos/thakhek/cafes/vie-de-france/vie-de-france.webp", "alt": "Vie De France in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -244,7 +244,7 @@ const data = {
       },
       "shortDescription": "Kamkhong home cafe by noungning is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "kamkhong-home-cafe-by-noungning-card", "src": "/assets/cities/laos/thakhek/cafes/kamkhong-home-cafe-by-noungning/kamkhong-home-cafe-by-noungning.webp", "alt": "Kamkhong Home Cafe By Noungning in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -296,7 +296,7 @@ const data = {
       },
       "shortDescription": "DD Bistro & Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "dd-bistro-and-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/dd-bistro-and-cafe/dd-bistro-and-cafe.webp", "alt": "Dd Bistro And Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -452,7 +452,7 @@ const data = {
       },
       "shortDescription": "Bike & Bed combines a traveller base with a café-style stop in Thakhek and is kept in Coffee only, avoiding a duplicate accommodation card.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "bike-and-bed-hostel-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/bike-and-bed-hostel-cafe/bike-and-bed-hostel-cafe.webp", "alt": "Bike And Bed Hostel Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -868,7 +868,7 @@ const data = {
       },
       "shortDescription": "YO & KO café is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "yo-and-ko-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/yo-and-ko-cafe/yo-and-ko-cafe.webp", "alt": "Yo And Ko Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -920,7 +920,7 @@ const data = {
       },
       "shortDescription": "Vegetarian House Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "vegetarian-house-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/vegetarian-house-cafe/vegetarian-house-cafe.webp", "alt": "Vegetarian House Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1336,7 +1336,7 @@ const data = {
       },
       "shortDescription": "La Parisian Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "la-parisian-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/la-parisian-cafe/la-parisian-cafe.webp", "alt": "La Parisian Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1388,7 +1388,7 @@ const data = {
       },
       "shortDescription": "Candy cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "candy-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/candy-cafe/candy-cafe.webp", "alt": "Candy Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1440,7 +1440,7 @@ const data = {
       },
       "shortDescription": "Organic cafe' is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "organic-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/organic-cafe/organic-cafe.webp", "alt": "Organic Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1804,7 +1804,7 @@ const data = {
       },
       "shortDescription": "Soukjai Cafe remains a current public café listing in central Thakhek; its exact branding should be checked editorially if the business identity changes.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "soukjai-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/soukjai-cafe/soukjai-cafe.webp", "alt": "Soukjai Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -1960,7 +1960,7 @@ const data = {
       },
       "shortDescription": "ROK Coffee Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "rok-coffee-thakhek-card", "src": "/assets/cities/laos/thakhek/cafes/rok-coffee-thakhek/rok-coffee-thakhek.webp", "alt": "Rok Coffee Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -2012,7 +2012,7 @@ const data = {
       },
       "shortDescription": "Room Cafe Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "room-cafe-thakhek-card", "src": "/assets/cities/laos/thakhek/cafes/room-cafe-thakhek/room-cafe-thakhek.webp", "alt": "Room Cafe Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -3208,7 +3208,7 @@ const data = {
       },
       "shortDescription": "Geelot cha is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "geelot-cha-card", "src": "/assets/cities/laos/thakhek/cafes/geelot-cha/geelot-cha.webp", "alt": "Geelot Cha in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
@@ -3416,7 +3416,7 @@ const data = {
       },
       "shortDescription": "B96 Coffee and Tea is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "b96-coffee-and-tea-card", "src": "/assets/cities/laos/thakhek/cafes/b96-coffee-and-tea/b96-coffee-and-tea.webp", "alt": "B96 Coffee And Tea in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
           "gallery": []
         }
