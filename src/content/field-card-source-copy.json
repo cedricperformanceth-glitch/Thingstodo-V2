@@ -23,6 +23,12 @@
     {"sourceName":"Coordinotes · Thakhek Loop","sourceUrl":"https://coordinotes.be/thakhek-loop-laos/","purpose":"recent-price-boat-and-opening-hours-cross-check","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · Nang Aen cave","sourceUrl":"https://commons.wikimedia.org/wiki/File:10_Nang_Aen_cane_-_panoramio.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
   ],
+  "thing-tham-xiang-liap-cave": [
+    {"sourceName":"Khammouane Tourism · Xiang Liap Cave","sourceUrl":"https://www.khammouanetourism.org/en/places/Xiang-Liap-Cave","purpose":"current official location hours entry season difficulty facilities legend and safety","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Thakhek district","sourceUrl":"https://www.khammouanetourism.org/en/districts/thakhek","purpose":"current official destination status and Thakhek context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikivoyage · Thakhek","sourceUrl":"https://en.wikivoyage.org/wiki/Thakhek","purpose":"current Route 12 river cave and access cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Tham Xieng Liap","sourceUrl":"https://commons.wikimedia.org/wiki/File:05_Tham_Xieng_Liap_-_panoramio.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
   "thing-old-french-railway-bridge": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
