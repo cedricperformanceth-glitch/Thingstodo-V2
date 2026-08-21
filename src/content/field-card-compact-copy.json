@@ -159,7 +159,7 @@
         "Large Buddha",
         "Cave entrance"
       ],
-      "gettingThere": "From Tad Lo, motorbike is recommended; car or minivan are also listed. Follow current local directions because the latest Visit Tad Lo guide does not publish a fixed road distance and an older local map shows an unpaved final section.",
+      "gettingThere": "From Tad Lo, motorbike is recommended; car or minivan are also listed.",
       "duration": "1–2 hours · under 3 hours",
       "costType": "free",
       "bestTime": "Daylight, ideally morning; dry weather usually makes unpaved access simpler"
@@ -448,6 +448,183 @@
         "purpose": "current-cross-check-that-massage-is-also-available-through-local-accommodation-services",
         "sourceType": "first-party-official",
         "reviewedAt": "2026-08-21"
+      }
+    ]
+  },
+  "thing-tad-lo-riverside-village-walk": {
+    "hero": {
+      "eyebrow": "SELF-GUIDED WALK · TAD LO",
+      "aliases": [
+        "Free",
+        "1–2 hours",
+        "On foot"
+      ],
+      "description": "Walk Tad Lo without turning the village into a checklist: follow the river, drift between small lanes and everyday village edges, pause around the wooden footbridge when it is present, and let the waterfalls sit naturally inside the landscape rather than treating them as separate stops.",
+      "steps": [
+        "Start in Tad Lo village",
+        "Follow the river at an easy pace",
+        "Use public lanes and footpaths",
+        "Loop back through the village"
+      ],
+      "rhythmNote": "There is no official circuit to complete. The point is to notice the river, houses, gardens, bridges and everyday movement between the larger attractions.",
+      "photoNote": "Tad Lo river · village paths · wooden footbridge"
+    },
+    "quickRead": {
+      "time": {
+        "primary": "1–2 HOURS",
+        "secondary": "Longer if you stop for food, coffee or the waterfalls"
+      },
+      "route": {
+        "primary": "ON FOOT IN TAD LO",
+        "secondary": "Flexible self-guided loop · no formal marked circuit"
+      },
+      "budget": {
+        "primary": "FREE",
+        "secondary": "Food, drinks and other activities are optional extras"
+      },
+      "bestFor": {
+        "primary": "RIVER + VILLAGE LIFE",
+        "secondary": "Slow mornings · photography · no-motorbike days"
+      }
+    },
+    "spa": {
+      "description": "Take an unhurried self-guided walk through Tad Lo, following the river, village lanes and everyday riverside scenery without needing a motorbike or a fixed itinerary.",
+      "handwrittenTags": [
+        "Riverside walk",
+        "Village life",
+        "On foot"
+      ],
+      "gettingThere": "Start on foot from Tad Lo village centre and use the public lanes and paths around the river.",
+      "duration": "1–2 hours",
+      "costType": "free",
+      "bestTime": "Early morning or late afternoon · stay in daylight"
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE WALK",
+          "title": "Follow the river, not a checklist",
+          "body": "Visit Tad Lo explicitly presents the village as a place that works on foot: walk through the village, enjoy the river and connect nearby waterfalls, food and small activities without needing a motorbike. This Field Note turns that idea into a simple self-guided walk rather than pretending there is one official marked trail. Start in the centre, drift toward the river, use public lanes and footpaths, and let the wooden bridges, houses, gardens and daily village life set the pace. Tad Lo and Tad Hang can naturally extend the walk, but they do not have to become timed objectives."
+        }
+      ],
+      "note": {
+        "label": "KEEP IT LOOSE",
+        "text": "The best route is the one that still leaves time to stop. Stay on public paths, respect private homes and let the river decide the rhythm."
+      }
+    },
+    "secondaryStory": null,
+    "practical": {
+      "items": [
+        {
+          "label": "Start",
+          "value": "Tad Lo village centre · entirely on foot",
+          "detail": "Visit Tad Lo describes the village, river, nearby waterfalls, food and several activities as walkable without personal transport. There is no need to arrange a vehicle for this Field Note."
+        },
+        {
+          "label": "Time",
+          "value": "About 1–2 hours",
+          "detail": "That is enough for an easy village-and-river wander. Add more time if you stop at Tad Hang, Tad Lo Waterfall, a restaurant or a coffee spot."
+        },
+        {
+          "label": "Cost",
+          "value": "Free self-guided walk",
+          "detail": "Walking the public village lanes and river edge does not require an activity ticket. Food, drinks and any separate attraction or service remain optional."
+        },
+        {
+          "label": "Conditions",
+          "value": "Daylight · river level and rain matter",
+          "detail": "Use public paths and only use a footbridge if it is present, open and clearly safe on the day. Temporary river crossings can change with the season, and wet ground can become slippery after rain."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is there an official Tad Lo Riverside & Village Walk route?",
+        "answer": "No fixed official circuit is published. This Atlas Field Note is a flexible self-guided way to combine the village, river and public paths using the walkable character described by Visit Tad Lo."
+      },
+      {
+        "question": "How long should you allow for the Tad Lo village walk?",
+        "answer": "Around one to two hours works well for the walk itself. Give it longer if you add Tad Hang, Tad Lo Waterfall, food or coffee along the way."
+      },
+      {
+        "question": "Is the riverside village walk free?",
+        "answer": "Yes. The self-guided walk through public village lanes and along the river is free. Any food, drinks or separate paid activity you choose to add are extra."
+      },
+      {
+        "question": "What is the best time for the walk?",
+        "answer": "Early morning or late afternoon is the easiest rhythm: temperatures are usually more comfortable and the village light is softer. Keep the walk in daylight, especially if rain has made paths slippery."
+      },
+      {
+        "question": "Can you cross the wooden footbridge shown in Tad Lo photos?",
+        "answer": "Do not assume it is a permanent crossing. Wikimedia documents a temporary wooden footbridge on the Tad Lo river in 2019; only use a bridge if it is actually present, open and clearly safe when you visit."
+      }
+    ],
+    "seo": {
+      "title": "Tad Lo Riverside & Village Walk | Things To Do Atlas",
+      "description": "Take a free 1–2 hour self-guided walk through Tad Lo: river paths, village lanes, wooden footbridges, everyday local scenery and an easy no-motorbike rhythm.",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20of%20Tad%20Lo%20river%20from%20above%2C%20with%20temporary%20footbridge%20and%20goats%2C%20Laos.jpg?width=1600"
+    },
+    "sources": [
+      {
+        "sourceName": "Visit Tad Lo · Without a motorbike",
+        "sourceUrl": "https://visit-tadlo.com/en/tad-lo-without-motorbike",
+        "purpose": "current-walkable-village-river-waterfalls-and-no-motorbike-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Visit Tad Lo · Home",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "purpose": "current-village-waterfalls-slow-travel-and-one-day-walking-rhythm",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Visit Tad Lo · Things to do",
+        "sourceUrl": "https://visit-tadlo.com/en/things-to-do",
+        "purpose": "current-walkable-activities-and-village-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Wikimedia Commons · Tad Lo river footbridge and goats",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg",
+        "purpose": "hero-media-and-temporary-footbridge-context",
+        "sourceType": "wikimedia",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Wikimedia Commons · Tad Lo 01",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Lo_01.jpg",
+        "purpose": "story-media-and-exact-Tad-Lo-landscape-context",
+        "sourceType": "wikimedia",
+        "reviewedAt": "2026-08-21"
+      }
+    ],
+    "media": [
+      {
+        "id": "tad-lo-riverside-footbridge-basile-morin",
+        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20of%20Tad%20Lo%20river%20from%20above%2C%20with%20temporary%20footbridge%20and%20goats%2C%20Laos.jpg?width=1600",
+        "alt": "Tad Lo river with a temporary wooden footbridge and goats in Salavan Province, Laos",
+        "sourceType": "wikimedia",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg",
+        "sourceName": "Wikimedia Commons",
+        "author": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "manual": true,
+        "locked": true
+      },
+      {
+        "id": "tad-lo-village-landscape-christophe95",
+        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tad%20Lo%2001.jpg?width=1600",
+        "alt": "Tad Lo village landscape on the Bolaven Plateau in Salavan Province, Laos",
+        "sourceType": "wikimedia",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Lo_01.jpg",
+        "sourceName": "Wikimedia Commons",
+        "author": "Christophe95",
+        "license": "CC BY-SA 4.0",
+        "manual": true,
+        "locked": true
       }
     ]
   }
