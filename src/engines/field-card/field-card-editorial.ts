@@ -28,12 +28,14 @@ export type EditorialSpaCard = ThingToDoSpaCardContent & { description?: string 
 type CompactFieldCardEditorial = {
   faq?: FieldCardFaqItem[];
   hero?: FieldCardHeroContent;
+  media?: MediaRecord[];
   practical?: FieldCardPracticalContent;
   primaryStory?: FieldCardPrimaryStoryContent;
   quickRead?: FieldCardQuickReadContent;
   secondaryStory?: FieldCardSecondaryStoryContent | null;
   seo?: FieldCardSeoOverride;
   sources?: ResearchSource[];
+  spa?: EditorialSpaCard;
 };
 
 const compact = compactData as unknown as Record<string, CompactFieldCardEditorial>;
@@ -50,13 +52,13 @@ const spa = spaData as Record<string, EditorialSpaCard>;
 
 export const getEditorialFaq = (id: string) => compact[id]?.faq ?? faq[id];
 export const getEditorialHero = (id: string) => compact[id]?.hero ?? hero[id];
-export const getEditorialMedia = (id: string) => media[id];
+export const getEditorialMedia = (id: string) => compact[id]?.media ?? media[id];
 export const getEditorialPractical = (id: string) => compact[id]?.practical ?? practical[id];
 export const getEditorialPrimaryStory = (id: string) => compact[id]?.primaryStory ?? primaryStory[id];
 export const getEditorialQuickRead = (id: string) => compact[id]?.quickRead ?? quickRead[id];
 export const getEditorialSeo = (id: string) => compact[id]?.seo ?? seo[id];
 export const getEditorialSources = (id: string) => compact[id]?.sources ?? sources[id];
-export const getEditorialSpa = (id: string) => spa[id];
+export const getEditorialSpa = (id: string) => compact[id]?.spa ?? spa[id];
 
 export const getEditorialSecondaryStory = (id: string) => {
   const compactEntry = compact[id];
