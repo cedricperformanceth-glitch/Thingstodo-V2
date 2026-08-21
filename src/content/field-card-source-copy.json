@@ -8,6 +8,13 @@
     {"sourceName":"Wikimedia Commons · Kong Lor cave inlet","sourceUrl":"https://commons.wikimedia.org/wiki/File:20171120_Wlot_jaskini_Kong_Lor_w_Laosie_3663_DxO.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · Kong Lor Caves of Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Kong_Lor_Caves_of_Laos_(5422115490).jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
   ],
+  "thing-tham-nang-aen-cave": [
+    {"sourceName":"Tourism Laos · Khammouane Province / Tham Nang Aen","sourceUrl":"https://www.tourismlaos.org/central-provinces/khammouane-province/","purpose":"official-cave-scale-location-legend-and-visitor-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Nang Aen Cave","sourceUrl":"https://www.khammouanetourism.org/en/places?category=%E0%BA%97%E0%BA%B3%E0%BA%A1%E0%BA%B0%E0%BA%8A%E0%BA%B2%E0%BA%94","purpose":"current-official-destination-status-and-family-friendly-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Petit Futé 2026 · Tham Nang Aen","sourceUrl":"https://www.petitfute.co.uk/v52377-thakhek/c1173-visites-points-d-interet/c974-site-naturel/462093-tham-nang-aen.html","purpose":"current-hours-entry-and-facilities-cross-check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Coordinotes · Thakhek Loop","sourceUrl":"https://coordinotes.be/thakhek-loop-laos/","purpose":"recent-price-boat-and-opening-hours-cross-check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Nang Aen cave","sourceUrl":"https://commons.wikimedia.org/wiki/File:10_Nang_Aen_cane_-_panoramio.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
   "thing-old-french-railway-bridge": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
