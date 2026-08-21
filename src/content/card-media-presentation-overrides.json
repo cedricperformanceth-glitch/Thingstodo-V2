@@ -1,0 +1,10 @@
+{
+  "vie-de-france-card": {
+    "scale": 1.16,
+    "position": "50% 50%"
+  },
+  "dd-bistro-and-cafe-card": {
+    "scale": 1.2,
+    "position": "50% 50%"
+  }
+}
