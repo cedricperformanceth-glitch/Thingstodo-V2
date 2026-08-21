@@ -29,6 +29,14 @@
     {"sourceName":"Wikivoyage · Thakhek","sourceUrl":"https://en.wikivoyage.org/wiki/Thakhek","purpose":"current Route 12 river cave and access cross check","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · Tham Xieng Liap","sourceUrl":"https://commons.wikimedia.org/wiki/File:05_Tham_Xieng_Liap_-_panoramio.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
   ],
+  "thing-tham-chang-elephant-cave": [
+    {"sourceName":"Khammouane Tourism · Thakhek district","sourceUrl":"https://www.khammouanetourism.org/en/districts/thakhek","purpose":"current official attraction status and Thakhek context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official Cave Alley position and Loop context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Petit Futé 2026 · Elephant Cave","sourceUrl":"https://www.petitfute.com/v52377-thakhek/c1173-visites-points-d-interet/c974-site-naturel/462092-tham-pha-ban-tham-elephant-cave.html","purpose":"current price shrine golden Buddha elephant formation and viewpoint cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Lonely Planet · Tham Xang","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/tham-xang/1118861","purpose":"elephant formation location proximity to Thakhek and torch guidance","reviewedAt":"2026-08-21"},
+    {"sourceName":"Thailande et Asie · Tham Xang","sourceUrl":"https://thailande-et-asie.com/en/visiter-grottes-thakhek-laos","purpose":"recent local ritual access and wet season context cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Tham Pha Ban Tham","sourceUrl":"https://commons.wikimedia.org/wiki/File:02_Tham_Pha_Bahn_Tham_cave_-_panoramio.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
   "thing-old-french-railway-bridge": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
