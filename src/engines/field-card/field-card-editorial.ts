@@ -14,6 +14,7 @@ import compactAdditionsData from '../../content/field-card-compact-additions.jso
 import compactData from '../../content/field-card-compact-copy.json';
 import editorialOverridesData from '../../content/field-card-editorial-overrides.json';
 import thakhekEditorialData from '../../content/field-card-editorial-thakhek.json';
+import thakhekEditorialAdditionsData from '../../content/field-card-editorial-thakhek-additions.json';
 import faqData from '../../content/field-card-faq-copy.json';
 import heroData from '../../content/field-card-hero-copy.json';
 import mediaAdditionsData from '../../content/field-card-media-additions.json';
@@ -47,6 +48,7 @@ const compact = {
   ...(compactAdditionsData as unknown as Record<string, CompactFieldCardEditorial>),
   ...(editorialOverridesData as unknown as Record<string, CompactFieldCardEditorial>),
   ...(thakhekEditorialData as unknown as Record<string, CompactFieldCardEditorial>),
+  ...(thakhekEditorialAdditionsData as unknown as Record<string, CompactFieldCardEditorial>),
 };
 const faq = faqData as Record<string, FieldCardFaqItem[]>;
 const hero = heroData as Record<string, FieldCardHeroContent>;
