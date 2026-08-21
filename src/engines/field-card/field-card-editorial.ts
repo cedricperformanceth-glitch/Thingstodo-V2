@@ -26,6 +26,7 @@ import quickReadData from '../../content/field-card-quick-read-copy.json';
 import secondaryStoryData from '../../content/field-card-secondary-story-copy.json';
 import seoData from '../../content/field-card-seo-copy.json';
 import sourceData from '../../content/field-card-source-copy.json';
+import spaDescriptionData from '../../content/spa-thing-card-description-copy.json';
 import spaData from '../../content/spa-thing-card-copy.json';
 
 type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
@@ -62,6 +63,7 @@ const quickRead = quickReadData as Record<string, FieldCardQuickReadContent>;
 const secondaryStory = secondaryStoryData as Record<string, FieldCardSecondaryStoryContent | null>;
 const seo = seoData as Record<string, FieldCardSeoOverride>;
 const sources = sourceData as unknown as Record<string, ResearchSource[]>;
+const spaDescription = spaDescriptionData as Record<string, string>;
 const spa = spaData as Record<string, EditorialSpaCard>;
 
 export const getEditorialFaq = (id: string) => compact[id]?.faq ?? faq[id];
@@ -73,6 +75,7 @@ export const getEditorialQuickRead = (id: string) => compact[id]?.quickRead ?? q
 export const getEditorialSeo = (id: string) => compact[id]?.seo ?? seo[id];
 export const getEditorialSources = (id: string) => compact[id]?.sources ?? sources[id];
 export const getEditorialSpa = (id: string) => compact[id]?.spa ?? spa[id];
+export const getEditorialSpaDescription = (id: string) => spaDescription[id];
 
 export const getEditorialSecondaryStory = (id: string) => {
   const compactEntry = compact[id];
