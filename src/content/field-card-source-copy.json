@@ -1,4 +1,13 @@
 {
+  "thing-kong-lor-cave": [
+    {"sourceName":"Khammouane Tourism · Kong Lor Cave","sourceUrl":"https://www.khammouanetourism.org/en/places/Kong-lor-cave","purpose":"current-official-site-facts-pricing-season-and-facilities","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official-loop-route-duration-and-7.5km-cave-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Konglor Natane Cave · Community activities","sourceUrl":"https://www.konglor-natane-cave.com/activites/","purpose":"current-opening-hours-boat-pricing-equipment-and-natane-stop","reviewedAt":"2026-08-21"},
+    {"sourceName":"KARST · Konglor–Natane Cave","sourceUrl":"https://www.karst-laos.com/des-paysages-et-des-habitants/la-grotte-de-konglor-natane/","purpose":"community-management-geography-and-local-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Konglor cave Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Konglor_cave_laos.JPG","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Kong Lor cave inlet","sourceUrl":"https://commons.wikimedia.org/wiki/File:20171120_Wlot_jaskini_Kong_Lor_w_Laosie_3663_DxO.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Kong Lor Caves of Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Kong_Lor_Caves_of_Laos_(5422115490).jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
   "thing-old-french-railway-bridge": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
