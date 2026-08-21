@@ -130,5 +130,14 @@
     {"sourceName":"Wikimedia Commons · Salavan TadLo3 tango7174","sourceUrl":"https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
     {"sourceName":"Visit Tad Lo · Tad Lo Waterfall image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall","purpose":"story-media","sourceType":"first-party-official","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · View of Tad Lo river from above","sourceUrl":"https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
+  "thing-tad-soung-waterfall": [
+    {"sourceName":"Visit Tad Lo · Tad Soung Waterfall","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall","purpose":"current-local-access-trail-distance-parking-dam-flow-season-and-safety","reviewedAt":"2026-08-21"},
+    {"sourceName":"Visit Tad Lo · Waterfalls guide","sourceUrl":"https://visit-tadlo.com/en/tad-lo-waterfalls-guide","purpose":"current-local-half-day-rural-route-lower-upper-access-weather-and-safety-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Visit Tad Lo · Things to do","sourceUrl":"https://visit-tadlo.com/en/things-to-do","purpose":"current-local-distance-duration-mobility-and-difficulty-cross-check","reviewedAt":"2026-08-21"},
+    {"sourceName":"KPL · Waterfalls of the Bolaven Plateau","sourceUrl":"https://kpl.gov.la/detail.aspx?id=17265","purpose":"provincial-waterfall-context-panorama-and-seasonal-expectations","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Paddy field Bolaven Plateau","sourceUrl":"https://commons.wikimedia.org/wiki/File:Paddy_field_Bolaven_Plateau.jpg","purpose":"story-media-exact-approach-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Rice cultivation Bolaven Plateau","sourceUrl":"https://commons.wikimedia.org/wiki/File:Rice_cultivation_Bolaven_Plateau.jpg","purpose":"secondary-media-exact-approach-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Visit Tad Lo · Tad Soung Waterfall image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall","purpose":"hero-media","sourceType":"first-party-official","reviewedAt":"2026-08-21"}
   ]
 }
