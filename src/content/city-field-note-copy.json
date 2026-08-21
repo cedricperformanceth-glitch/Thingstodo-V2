@@ -259,5 +259,140 @@
       "title": "Now choose the road out of town",
       "text": "Use these notes as the context layer, then open the Thakhek activities, scooter rentals, restaurants, cafés and stays to build the actual Atlas."
     }
+  },
+  "city-tad-lo": {
+    "typeLabel": "Village field note",
+    "title": "Tad Lo",
+    "contextLine": "Salavan · Bolaven Plateau · Southern Laos",
+    "subtitle": "A walkable waterfall village where the Bolaven Plateau slows down into river paths, local workshops, coffee country and forest excursions.",
+    "intro": "Tad Lo works best when it stops being a waterfall pin on a Bolaven route. Tad Hang and Tad Lo sit inside the everyday scale of the village, while Tad Soung, coffee experiences, cultural workshops and guided trails open the landscape farther out. The useful idea is simple: sleep here, walk first, then add only the excursion that genuinely needs transport.",
+    "focusLabel": "Waterfall walks, village rhythm & Salavan excursions",
+    "regionLabel": "Salavan Province · Bolaven Plateau · Southern Laos",
+    "quickRead": [
+      {"label":"Chapters","value":"7 village notes","detail":"Waterfalls, movement, where to base yourself and how to keep the stay slow."},
+      {"label":"Use it for","value":"Turning a stop into a base","detail":"Read the village first, then decide which coffee, culture or nature outing deserves a day."},
+      {"label":"Scope","value":"Tad Hang · Tad Lo · wider Salavan","detail":"The immediate village is walkable; the wider plateau begins when you arrange transport."},
+      {"label":"Edition","value":"Researched · August 2026","detail":"Current context checked against national tourism and locally verified Tad Lo sources."}
+    ],
+    "chapters": [
+      {
+        "id": "orientation",
+        "eyebrow": "01 · READ THE PLACE",
+        "title": "Tad Lo is a village built around water, not a single waterfall",
+        "paragraphs": [
+          "Tad Lo sits in Salavan Province on the Bolaven Plateau, in a landscape where coffee growing, river valleys and waterfalls shape both travel and daily life. National tourism material treats Tad Lo as one of the province's best-known destinations, but the name is more useful when read as a small village base rather than one viewpoint.",
+          "Tad Hang is close to the village, Tad Lo Waterfall sits a little farther along the local river landscape, and Tad Soung opens a higher, more rural direction beyond the immediate centre. That sequence explains the place better than a waterfall checklist: the first two belong naturally to a slow walking day, while the third begins to pull you into the wider countryside."
+        ],
+        "facts": [
+          {"label":"Province","value":"Salavan · Southern Laos"},
+          {"label":"Landscape","value":"Bolaven Plateau · river · waterfalls"},
+          {"label":"Immediate falls","value":"Tad Hang + Tad Lo"},
+          {"label":"Wider direction","value":"Tad Soung, coffee country and Salavan excursions"}
+        ],
+        "note": {"label":"Atlas note","text":"Do not ask which waterfall is Tad Lo. Read the village and its falls as one small river landscape."}
+      },
+      {
+        "id": "rhythm",
+        "eyebrow": "02 · FIND THE RHYTHM",
+        "title": "One night sees the waterfalls; two or three nights reveal why the village works",
+        "paragraphs": [
+          "A single night is enough to walk to the nearby falls and understand the centre, which is why Tad Lo is often treated as a quick Bolaven stop. The problem is that arrival, sunset, dinner and departure can consume most of that visit before the village has had time to become more than scenery.",
+          "The local destination guide recommends a slower frame: two nights create room for one proper coffee, culture, workshop or nature outing; three nights let the village day, one major excursion and one local activity breathe without stacking them together. The point is not to manufacture a minimum stay. It is to protect the hours when nothing needs to be rushed."
+        ],
+        "facts": [
+          {"label":"One night","value":"Nearby waterfalls and a first village walk"},
+          {"label":"Two nights","value":"Add one focused local or regional experience"},
+          {"label":"Three nights","value":"Village + major outing + local activity"},
+          {"label":"Natural pace","value":"Walk first; organize the distant day second"}
+        ],
+        "note": {"label":"Field note","text":"If Tad Lo feels like a roadside waterfall stop, the schedule is probably still moving faster than the village."}
+      },
+      {
+        "id": "move",
+        "eyebrow": "03 · MOVE THROUGH IT",
+        "title": "The village is walkable; the Bolaven Plateau begins when the distances stretch",
+        "paragraphs": [
+          "Tourism Laos places Tad Lo on the Route 20 corridor between Pakse and Salavan. Local transport usually leaves travellers near the main Tad Lo junction rather than at every guesthouse door, so keep the final village connection separate from the longer road journey and confirm the current drop-off before travelling.",
+          "Once settled, a motorbike is not required for the core stay. Tad Hang, Tad Lo Waterfall, village food, the river and several workshops can be reached on foot. More distant experiences such as some coffee visits, forest sites and wider Salavan outings may need a guide, driver, shared transport or motorbike. That distinction matters: choose the experience first, then add transport only when distance actually requires it."
+        ],
+        "facts": [
+          {"label":"Main road","value":"Route 20 · Pakse–Salavan corridor"},
+          {"label":"Village scale","value":"Core waterfalls and services are walkable"},
+          {"label":"Local transport","value":"Confirm the current junction drop-off and final connection"},
+          {"label":"Distant outings","value":"Arrange guide, driver, shared transport or motorbike as needed"}
+        ],
+        "note": {"label":"Keep close","text":"Do not rent a motorbike just because you are on the Bolaven Plateau. Tad Lo itself makes sense on foot."}
+      },
+      {
+        "id": "stay",
+        "eyebrow": "04 · CHOOSE YOUR BASE",
+        "title": "Choose a bed by how easily it returns you to the village",
+        "paragraphs": [
+          "For a short stay, the strongest base is simple: somewhere that lets you walk to the village, food and the nearby waterfall paths without organizing a vehicle each time. Central guesthouses and riverside stays make spontaneous mornings and evenings easier because the landscape is already outside the door.",
+          "Stays farther from the centre can offer more garden, lake or quiet space, and that can be worth the trade-off when the accommodation itself is part of the experience. The useful question is therefore not which property ranks first. Ask whether you want to step straight into village life or retreat to a quieter edge and accept a slightly longer walk or occasional transfer."
+        ],
+        "facts": [
+          {"label":"Village centre","value":"Best for walking to food, services and local life"},
+          {"label":"Riverside","value":"Best when the water and waterfall rhythm matter most"},
+          {"label":"Quieter edges","value":"More space and atmosphere, with a longer connection back"},
+          {"label":"Planning rule","value":"Choose walkability before comparing room extras"}
+        ],
+        "note": {"label":"Village note","text":"In Tad Lo, the distance from your room to the first footpath can shape the stay more than another layer of facilities."}
+      },
+      {
+        "id": "conditions",
+        "eyebrow": "05 · READ THE CONDITIONS",
+        "title": "Water level changes the falls; rain changes the paths around them",
+        "paragraphs": [
+          "The waterfalls are not visually or physically identical through the year. Drier conditions can mean lower flow and easier access around calmer river edges, while the rainy season brings stronger water, greener scenery and more force in the channels. A swimming place that looked gentle in another month may not be a sensible place to enter today.",
+          "Rain also changes the ground beyond the river. Paths can become slippery, rural access can slow down and guided trek conditions can shift quickly. Use the Tourism Office for current trail information and ask locally before swimming or committing to a longer walk. The safest useful rule is to read the water and the path on the day, not the photo that convinced you to come."
+        ],
+        "facts": [
+          {"label":"Dry conditions","value":"Lower flow and generally easier access around calm areas"},
+          {"label":"Rainy conditions","value":"Stronger current, wetter paths and more dramatic falls"},
+          {"label":"Swimming","value":"Ask locally about the current safe area before entering"},
+          {"label":"Treks","value":"Confirm trail conditions and guide availability before leaving"}
+        ],
+        "note": {"label":"River rule","text":"The waterfall is the same place, not the same conditions. Let today's water decide how close you get."}
+      },
+      {
+        "id": "practical",
+        "eyebrow": "06 · PRACTICAL REALITY",
+        "title": "Tad Lo is easy to slow down in because the practical layer stays small",
+        "paragraphs": [
+          "The village has accommodation, food, local services and a Tourism Office, but it is still a small rural base rather than a city. Carry enough Lao kip for ordinary spending, save accommodation and transport details offline and avoid building a fixed onward connection around one unconfirmed local departure time.",
+          "The junction area is the practical backup for transport, market shopping, fuel and small repairs, while the Tourism Office is the better place for current trek and guide information. For serious medical needs or a complicated travel problem, plan on needing a larger centre. Tad Lo works best when the simple things are solved early enough that the rest of the stay can stay simple."
+        ],
+        "facts": [
+          {"label":"Cash","value":"Carry enough kip for village spending and local transport"},
+          {"label":"Offline backup","value":"Save your stay, route and onward details without relying on data"},
+          {"label":"Tourism Office","value":"Use it for guides, treks and current trail information"},
+          {"label":"Junction","value":"Transport, market, fuel and small repair services cluster there"}
+        ],
+        "note": {"label":"Practical","text":"Small village does not mean difficult village. It means confirming the few details that can still change your day."}
+      },
+      {
+        "id": "pace",
+        "eyebrow": "07 · BUILD THE STAY",
+        "title": "Build the stay around one walking day and one reason to go farther",
+        "paragraphs": [
+          "A balanced first day barely needs transport: settle in, walk the village, connect Tad Hang with Tad Lo Waterfall, eat locally and leave enough light for the river rather than squeezing in a distant attraction. That gives the place a centre before the wider plateau starts competing for attention.",
+          "On the next day, choose one strong direction: Tad Soung, a coffee experience, a respectful cultural workshop, a guided trek or another Salavan outing. A third day can hold the activity you deliberately did not stack into day two. When you finally leave, treat Tad Fan, Tad Yuang and the Paksong-side waterfalls as the next Bolaven chapter, not as things Tad Lo failed to contain."
+        ],
+        "facts": [
+          {"label":"Day one","value":"Village + Tad Hang + Tad Lo Waterfall"},
+          {"label":"Day two","value":"One focused coffee, culture, nature or trekking direction"},
+          {"label":"Extra day","value":"Add another local experience without compressing the first two"},
+          {"label":"Onward plateau","value":"Keep the Paksong waterfall cluster as a separate travel chapter"}
+        ],
+        "note": {"label":"Last note","text":"Stay long enough for Tad Lo to become the base, then let the next road become the next chapter."},
+        "photoSlot": true
+      }
+    ],
+    "closing": {
+      "eyebrow": "BACK TO TAD LO",
+      "title": "Now build the slow days",
+      "text": "Use these notes as the context layer, then open the Tad Lo waterfalls, local experiences, restaurants, cafés and stays to build the actual Atlas."
+    }
   }
 }
