@@ -211,5 +211,68 @@
       {"sourceName": "Atlas Obscura · Sandstone Buddha Sculptures", "sourceUrl": "https://www.atlasobscura.com/places/sandstone-buddha-sculptures", "purpose": "Khamkeuth-location-coordinate-carving-variety-offerings-and-unknown-age-origin-cross-check", "reviewedAt": "2026-08-21"},
       {"sourceName": "Laos Insider · Thakhek Loop", "sourceUrl": "https://laosinsider.com/laos-travel-guide/thakhek-loop/", "purpose": "Route-1E-roadside-access-and-traffic-safety-cross-check", "reviewedAt": "2026-08-21"}
     ]
+  },
+  "thing-tad-lo-half-day-guided-trek": {
+    "hero": {
+      "eyebrow": "GUIDED TREK · TAD LO",
+      "aliases": ["Half day", "Local guide", "Forest + village paths"],
+      "description": "A compact guided walk from Tad Lo into the surrounding rural landscape, using local knowledge to move beyond the waterfall circuit without committing to a full-day or multi-day trek.",
+      "steps": ["Arrange the trek locally", "Meet your guide in Tad Lo", "Walk the current village and forest route", "Return to Tad Lo after the half-day circuit"],
+      "rhythmNote": "Treat the route as flexible rather than fixed. The guide, weather and trail conditions should decide the exact walk on the day.",
+      "photoNote": "Tad Lo · Salavan Province · Bolaven Plateau"
+    },
+    "quickRead": {
+      "time": {"primary": "HALF DAY", "secondary": "Official short-trek format from Tad Lo"},
+      "route": {"primary": "LOCAL GUIDE", "secondary": "Route and difficulty confirmed before departure"},
+      "budget": {"primary": "PAID", "secondary": "Current price not publicly fixed · confirm locally"},
+      "bestFor": {"primary": "FOREST + VILLAGE WALK", "secondary": "A short guided step beyond the waterfalls"}
+    },
+    "spa": {
+      "description": "Arrange a half-day guided trek from Tad Lo for a short introduction to the surrounding village paths, rural scenery and forest without giving over a full day.",
+      "handwrittenTags": ["Half-day trek", "Local guide", "Forest + village"],
+      "gettingThere": "Start with the Tad Lo Tourism Office or another trusted local guide. Confirm the meeting point, route, difficulty and any transport before departure.",
+      "duration": "Half day",
+      "costType": "paid",
+      "bestTime": "Morning; confirm recent rain, trail conditions and guide availability locally"
+    },
+    "primaryStory": {
+      "chapters": [{
+        "label": "THE WALK",
+        "title": "A short way beyond the waterfall circuit",
+        "body": "Visit Tad Lo identifies the Tourism Office as the local starting point for official half-day, one-day and multi-day treks. The value of the short format is not a single named landmark but the change of pace: leave the easy waterfall circuit, walk with someone who knows the current paths and spend a few hours in the rural and forest landscape around Tad Lo. The exact route can change with guide availability, weather and trail conditions, so confirm the difficulty and what the walk includes before setting out rather than relying on an old fixed itinerary."
+      }],
+      "note": {"label": "ATLAS RHYTHM", "text": "Choose the half-day trek when you want local context and a proper walk, but still want the rest of the day free in Tad Lo."}
+    },
+    "secondaryStory": null,
+    "practical": {
+      "items": [
+        {"label": "Booking", "value": "Arrange locally · advance notice can help", "detail": "Visit Tad Lo says guides and treks can require advance notice. The Tourism Office is the clearest locally checked starting point for current guide availability and route advice."},
+        {"label": "Route", "value": "Confirm difficulty and trail conditions before leaving", "detail": "Half-day routes are offered locally, but the exact path should be chosen around current conditions and your fitness rather than treated as one permanently fixed circuit."},
+        {"label": "Bring", "value": "Closed shoes · water · sun + light rain protection", "detail": "Visit Tad Lo's current trek guidance recommends comfortable closed footwear, drinking water, sun protection and light rain protection."},
+        {"label": "Price", "value": "Confirm the current rate locally", "detail": "A reliable fixed public price is not currently published. Ask what the fee includes, especially guide service and any transport, before confirming the trek."}
+      ]
+    },
+    "faq": [
+      {"question": "Where do you arrange the Tad Lo Half-Day Guided Trek?", "answer": "The Tad Lo Tourism Office is the clearest locally checked starting point for official guided treks and current guide information. Ask there about the half-day option, difficulty and current trail conditions."},
+      {"question": "How long is the half-day trek?", "answer": "It is planned as a half-day activity. The exact walking time and route can vary, so confirm the departure time and expected return with the guide when arranging it."},
+      {"question": "Do you need a guide for this trek?", "answer": "Yes for this Atlas activity. Short walks around the village can be done independently, but Visit Tad Lo recommends a local guide for longer routes, forests, remote villages and less clearly marked trails."},
+      {"question": "What should you bring for the trek?", "answer": "Wear comfortable closed shoes and carry water, sun protection and light rain protection. Ask the guide if the current route needs anything extra after recent rain."},
+      {"question": "How much does the Tad Lo Half-Day Guided Trek cost?", "answer": "A reliable current fixed price is not publicly published in the locally checked sources. Confirm the current rate, route and what is included directly before booking."}
+    ],
+    "seo": {
+      "title": "Tad Lo Half-Day Guided Trek | Things To Do Atlas",
+      "description": "Plan a half-day guided trek from Tad Lo: where to arrange a guide, what to bring, how route conditions affect the walk and three reusable Bolaven Plateau photo references.",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paddy%20field%20Bolaven%20Plateau.jpg?width=1600"
+    },
+    "sources": [
+      {"sourceName": "Visit Tad Lo · Tad Lo Tourism Office", "sourceUrl": "https://visit-tadlo.com/en/stay-eat/tad-lo-tourism-office", "purpose": "current-local-official-half-day-trek-guide-availability-difficulty-equipment-and-trail-condition-guidance", "sourceType": "first-party-official", "reviewedAt": "2026-08-21"},
+      {"sourceName": "Visit Tad Lo · Practical guide", "sourceUrl": "https://visit-tadlo.com/en/practical-guide", "purpose": "current-booking-advance-notice-no-motorbike-and-trek-equipment-guidance", "sourceType": "first-party-official", "reviewedAt": "2026-08-21"},
+      {"sourceName": "Visit Tad Lo · Discover", "sourceUrl": "https://visit-tadlo.com/en", "purpose": "current-guided-treks-half-day-to-three-day-format-and-Tad-Lo-base-context", "sourceType": "first-party-official", "reviewedAt": "2026-08-21"}
+    ],
+    "media": [
+      {"id":"tad-lo-half-day-trek-paddy-field","src":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Paddy%20field%20Bolaven%20Plateau.jpg?width=1600","alt":"Paddy field on the Bolaven Plateau between Tad Lo and Tad Soung, southern Laos","sourceType":"wikimedia","sourceUrl":"https://commons.wikimedia.org/wiki/File:Paddy_field_Bolaven_Plateau.jpg","sourceName":"Wikimedia Commons","author":"Christophe95","license":"CC BY-SA 4.0","manual":true,"locked":true},
+      {"id":"tad-lo-half-day-trek-tad-lo-landscape","src":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tad%20Lo%2001.jpg?width=1600","alt":"Tad Lo landscape on the Bolaven Plateau in southern Laos","sourceType":"wikimedia","sourceUrl":"https://commons.wikimedia.org/wiki/File:Tad_Lo_01.jpg","sourceName":"Wikimedia Commons","author":"Christophe95","license":"CC BY-SA 4.0","manual":true,"locked":true},
+      {"id":"tad-lo-half-day-trek-bolaven-tad-lo","src":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Bolaven%20Plateau%20Tad%20Lo%20%2CLaos.jpg?width=1600","alt":"Rural Bolaven Plateau scenery at Tad Lo, Laos","sourceType":"wikimedia","sourceUrl":"https://commons.wikimedia.org/wiki/File:Bolaven_Plateau_Tad_Lo_,Laos.jpg","sourceName":"Wikimedia Commons","author":"Corto Maltese 1999","license":"CC BY 2.0","manual":true,"locked":true}
+    ]
   }
 }
