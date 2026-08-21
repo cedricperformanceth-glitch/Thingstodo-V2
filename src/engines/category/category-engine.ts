@@ -1,27 +1,20 @@
 import { places } from '../../content/registry/places';
 import { things } from '../../content/registry/things-to-do';
+import placeOrderSwapsData from '../../content/place-order-swaps.json';
 import placeStatusOverrides from '../../content/place-status-overrides.json';
 import type { CategorySlug, City, Place } from '../../core/models/types';
+
+type PlaceOrderSwaps = Record<string, Partial<Record<CategorySlug, Array<[string, string]>>>>;
+const placeOrderSwaps = placeOrderSwapsData as PlaceOrderSwaps;
 
 const belongsTo = (item:{country:string;city:string}, city:City) => item.country === city.country && item.city === city.slug;
 const isActivePlace = (item: Place) => placeStatusOverrides[item.id as keyof typeof placeStatusOverrides] !== 'closed';
 
 const swapPlacePositions = (items: Place[], city: City, category?: CategorySlug) => {
-  if (city.country !== 'laos' || city.slug !== 'don-det' || !category) return items;
+  if (!category) return items;
 
-  const swapsByCategory: Partial<Record<CategorySlug, Array<[string, string]>>> = {
-    restaurants: [
-      ['place-keas-backpackers-paradise-restaurant-and-bar', 'place-ois-place'],
-      ['place-hathim-indian-restaurant', 'place-sahai-bar'],
-      ['place-datta-bananaleaf-restaurant', 'place-mama-piang-guesthouse-and-restaurant'],
-    ],
-    cafes: [
-      ['place-paradise-restaurant-cafe-and-bar', 'place-kamphong-riverside-restaurant'],
-      ['place-ms-ning-restaurant-and-guesthouse', 'place-dondet-coffee-house-and-gift-shop'],
-    ],
-  };
-
-  const swaps = swapsByCategory[category] ?? [];
+  const cityKey = `${city.country}/${city.slug}`;
+  const swaps = placeOrderSwaps[cityKey]?.[category] ?? [];
   if (!swaps.length) return items;
 
   const byId = new Map(items.map((item) => [item.id, item]));
