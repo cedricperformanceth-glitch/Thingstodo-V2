@@ -66,6 +66,13 @@
     {"sourceName":"World Bank · Powering the Future","sourceUrl":"https://www.worldbank.org/en/results/2019/05/06/powering-the-future","purpose":"resettlement of 6300 people infrastructure and livelihood context","reviewedAt":"2026-08-21"},
     {"sourceName":"World Bank · Nam Theun 2 Project Overview","sourceUrl":"https://www.worldbank.org/en/country/lao/brief/nam-theun-2-project-overview-and-update","purpose":"reservoir fisheries resettlement and project context","reviewedAt":"2026-08-21"}
   ],
+  "thing-pha-inh-cave": [
+    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"current official Day 1 Cave Alley position and swimming context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Novo-Monde · Thakhek Loop","sourceUrl":"https://www.novo-monde.com/en/thakhek-loop-konglor-cave/","purpose":"recent cave pool reflections sacred-name and Route 12 context cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Otro Viaje en Mochila · Loop de Thakhek","sourceUrl":"https://www.otroviajeenlamochila.com/loop-de-thakhek/","purpose":"recent fee and cave access cross check under Pha Nya In name","reviewedAt":"2026-08-21"},
+    {"sourceName":"360nomad · Tham Pha Nya Inh Cave","sourceUrl":"https://360nomad.org/thakhek-loop-the-complete-guide/","purpose":"historical sacred-cave shrine pool and swimming-rule cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Phan Ya In cave","sourceUrl":"https://commons.wikimedia.org/wiki/File:06_Phan_Ya_In_cave_-_panoramio.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
   "thing-old-french-railway-bridge": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
