@@ -14,6 +14,7 @@ import compactAdditionsData from '../../content/field-card-compact-additions.jso
 import compactData from '../../content/field-card-compact-copy.json';
 import faqData from '../../content/field-card-faq-copy.json';
 import heroData from '../../content/field-card-hero-copy.json';
+import mediaAdditionsData from '../../content/field-card-media-additions.json';
 import mediaData from '../../content/field-card-media-copy.json';
 import practicalData from '../../content/field-card-practical-copy.json';
 import primaryStoryData from '../../content/field-card-primary-story-copy.json';
@@ -45,6 +46,7 @@ const compact = {
 };
 const faq = faqData as Record<string, FieldCardFaqItem[]>;
 const hero = heroData as Record<string, FieldCardHeroContent>;
+const mediaAdditions = mediaAdditionsData as Record<string, MediaRecord[]>;
 const media = mediaData as Record<string, MediaRecord[]>;
 const practical = practicalData as Record<string, FieldCardPracticalContent>;
 const primaryStory = primaryStoryData as Record<string, FieldCardPrimaryStoryContent>;
@@ -56,7 +58,7 @@ const spa = spaData as Record<string, EditorialSpaCard>;
 
 export const getEditorialFaq = (id: string) => compact[id]?.faq ?? faq[id];
 export const getEditorialHero = (id: string) => compact[id]?.hero ?? hero[id];
-export const getEditorialMedia = (id: string) => compact[id]?.media ?? media[id];
+export const getEditorialMedia = (id: string) => compact[id]?.media ?? mediaAdditions[id] ?? media[id];
 export const getEditorialPractical = (id: string) => compact[id]?.practical ?? practical[id];
 export const getEditorialPrimaryStory = (id: string) => compact[id]?.primaryStory ?? primaryStory[id];
 export const getEditorialQuickRead = (id: string) => compact[id]?.quickRead ?? quickRead[id];
