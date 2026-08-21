@@ -112,5 +112,15 @@
     {"sourceName":"KPL · Tad Loh-Tad Hang waterfall is getting popular","sourceUrl":"https://kpl.gov.la/en/detail.aspx?id=82469","purpose":"site-history-2023-development-project-and-physical-scale","reviewedAt":"2026-08-21"},
     {"sourceName":"KPL · Tad Loh and Tad Hang Waterfalls to Reopen","sourceUrl":"https://kpl.gov.la/asean2024/En/detail.aspx?id=85147","purpose":"recent-reopening-improvements-location-and-swimming-context","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikivoyage · Tadlo","sourceUrl":"https://en.wikivoyage.org/wiki/Tadlo","purpose":"cross-check-Xe-Set-and-three-waterfall-geography","reviewedAt":"2026-08-21"}
+  ],
+  "thing-tad-lo-waterfall": [
+    {"sourceName":"Visit Tad Lo · Tad Lo Waterfall","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall","purpose":"current-local-access-duration-cost-season-and-swimming-guidance","reviewedAt":"2026-08-21"},
+    {"sourceName":"Tourism Laos · Salavanh Province","sourceUrl":"https://www.tourismlaos.org/southern-provinces/salavan-province/","purpose":"official-provincial-waterfall-status-location-and-visitor-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Salavanh Tourism · Natural tourist sites","sourceUrl":"https://salavanhtourismlaos.wordpress.com/tourist-attractions/","purpose":"waterfall-form-Tad-Hang-pairing-and-Xe-Set-river-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"KPL · Tad Loh-Tad Hang waterfall is getting popular","sourceUrl":"https://kpl.gov.la/en/detail.aspx?id=82469","purpose":"recent-site-development-history-and-location-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"KPL · Tad Loh and Tad Hang Waterfalls to Reopen","sourceUrl":"https://kpl.gov.la/asean2024/En/detail.aspx?id=85147","purpose":"recent-reopening-improvements-and-current-site-evolution","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Salavan TadLo3 tango7174","sourceUrl":"https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Visit Tad Lo · Tad Lo Waterfall image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall","purpose":"story-media","sourceType":"first-party-official","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · View of Tad Lo river from above","sourceUrl":"https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
   ]
 }
