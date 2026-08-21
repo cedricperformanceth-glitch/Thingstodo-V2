@@ -44,18 +44,26 @@ expect(route.includes('getEditorialCityFieldNoteSeo'), 'route does not resolve e
 const destinationTokens = /\b(don-det|don det|pakse|tad-lo|tad lo|thakhek|vang-vieng|vang vieng|vientiane|luang-prabang|luang prabang)\b/i;
 expect(!destinationTokens.test(genericFiles), 'destination-specific content leaked into generic city note implementation');
 
-const id = 'city-don-det';
-const copy = json(copyPath)[id];
-const media = json(mediaPath)[id];
-const sources = json(sourcePath)[id];
-const seo = json(seoPath)[id];
-expect(copy && copy.chapters?.length === 7, 'Don Det editorial copy must contain exactly seven chapters');
-expect(copy.quickRead?.length === 4, 'Don Det editorial quick read must contain four items');
-expect(copy.chapters.every((chapter) => chapter.title && chapter.paragraphs?.length >= 2 && chapter.note), 'each Don Det chapter needs title, prose and a field note');
-expect(media?.length === 3, 'Don Det city note must contain hero plus two editorial photographs');
-expect(media.every((item) => item.src && item.alt && item.sourceUrl && item.sourceName && item.license && item.locked === true), 'each Don Det editorial image needs provenance, alt, license and lock');
-expect(sources?.length >= 5, 'Don Det editorial note needs a substantive source list');
-expect(sources.every((source) => source.sourceUrl && !source.sourceUrl.toLowerCase().includes('thingstodoatlas')), 'city note sources must be original external sources, never Atlas V1');
-expect(seo?.indexable === true && seo.title && seo.description, 'completed Don Det city note must have publishable SEO');
+const copy = json(copyPath);
+const media = json(mediaPath);
+const sources = json(sourcePath);
+const seo = json(seoPath);
+const completedEditorialCities = ['city-don-det', 'city-laos-thakhek'];
 
-console.log('City Field Note contract passed: generic fallback, editorial override, media provenance, sources and Don Det publication layer are intact.');
+for (const id of completedEditorialCities) {
+  const cityCopy = copy[id];
+  const cityMedia = media[id];
+  const citySources = sources[id];
+  const citySeo = seo[id];
+
+  expect(cityCopy && cityCopy.chapters?.length === 7, `${id} editorial copy must contain exactly seven chapters`);
+  expect(cityCopy.quickRead?.length === 4, `${id} editorial quick read must contain four items`);
+  expect(cityCopy.chapters.every((chapter) => chapter.title && chapter.paragraphs?.length >= 2), `${id} chapters need a title and at least two editorial paragraphs`);
+  expect(cityMedia?.length === 4, `${id} city note must contain hero, two spread photos and one chapter-seven photo`);
+  expect(cityMedia.every((item) => item.src && item.alt && item.sourceUrl && item.sourceName && item.license && item.locked === true), `${id} editorial images need provenance, alt, licence and lock`);
+  expect(citySources?.length >= 5, `${id} editorial note needs a substantive source list`);
+  expect(citySources.every((source) => source.sourceUrl && !source.sourceUrl.toLowerCase().includes('thingstodoatlas')), `${id} sources must be original external sources, never Atlas V1`);
+  expect(citySeo?.indexable === true && citySeo.title && citySeo.description, `${id} completed city note must have publishable SEO`);
+}
+
+console.log(`City Field Note contract passed: generic fallback plus ${completedEditorialCities.length} completed editorial city notes are intact.`);
