@@ -53,6 +53,12 @@
     {"sourceName":"Wikimedia Commons · Taa Falan Thakek","sourceUrl":"https://commons.wikimedia.org/wiki/File:Taa_Falan,Thakek,_Khamoune_Province,_Lao_(6971657929).jpg","purpose":"hero and story media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · Taa Falan second view","sourceUrl":"https://commons.wikimedia.org/wiki/File:Taa_Falan_(6973301765).jpg","purpose":"secondary media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
   ],
+  "thing-khoun-kong-leng": [
+    {"sourceName":"Khammouane Tourism · Khoun Kong Leng","sourceUrl":"https://www.khammouanetourism.org/en/places/Khoun-Kong-Leng","purpose":"current official access hours entry activities facilities karst spring legend and safety guidance","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Hinboun places","sourceUrl":"https://www.khammouanetourism.org/en/places?district=hinboun","purpose":"current official attraction status and district context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Lonely Planet · Khoun Kong Leng","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/khoun-kong-leng/1350211","purpose":"swimming restriction sacred source and older access context cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Travelfish · Khun Kong Leng Lake","sourceUrl":"https://www.travelfish.org/sight_profile/laos/southern_laos/khammuan/tha_khaek/3883","purpose":"spring landscape local use and historical access context cross check","reviewedAt":"2026-08-21"}
+  ],
   "thing-old-french-railway-bridge": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
