@@ -10,6 +10,7 @@ import type {
   ThingToDo,
   ThingToDoSpaCardContent,
 } from '../../core/models/types';
+import compactAdditionsData from '../../content/field-card-compact-additions.json';
 import compactData from '../../content/field-card-compact-copy.json';
 import faqData from '../../content/field-card-faq-copy.json';
 import heroData from '../../content/field-card-hero-copy.json';
@@ -38,7 +39,10 @@ type CompactFieldCardEditorial = {
   spa?: EditorialSpaCard;
 };
 
-const compact = compactData as unknown as Record<string, CompactFieldCardEditorial>;
+const compact = {
+  ...(compactData as unknown as Record<string, CompactFieldCardEditorial>),
+  ...(compactAdditionsData as unknown as Record<string, CompactFieldCardEditorial>),
+};
 const faq = faqData as Record<string, FieldCardFaqItem[]>;
 const hero = heroData as Record<string, FieldCardHeroContent>;
 const media = mediaData as Record<string, MediaRecord[]>;
