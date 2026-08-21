@@ -48,5 +48,55 @@
       "manual": true,
       "locked": true
     }
+  ],
+  "city-laos-thakhek": [
+    {
+      "id": "thakhek-field-note-mekong-riverfront",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mekong_Thakhek.jpg?width=1800",
+      "alt": "Street along the Mekong riverbank in Thakhek with Thailand visible across the river",
+      "sourceType": "public-domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mekong_Thakhek.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Phó Nháy",
+      "license": "Public domain",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "thakhek-field-note-old-town-houses",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/4.9.1.37.ThaAltstadt.jpg?width=1600",
+      "alt": "Old French colonial houses in the historic centre of Thakhek",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:4.9.1.37.ThaAltstadt.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Torbenbrinker",
+      "license": "CC BY-SA 3.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "thakhek-field-note-centre-square",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/04%20Thakhek%20centersquare%20-%20panoramio.jpg?width=1600",
+      "alt": "Central square in Thakhek close to the historic Mekong-side old town",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:04_Thakhek_centersquare_-_panoramio.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Adriaan Castermans",
+      "license": "CC BY-SA 3.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "thakhek-field-note-road-to-caves",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/01%20Thakhek%20route%2016%20to%20caves%20-%20panoramio.jpg?width=1600",
+      "alt": "Road east of Thakhek heading toward the limestone cave country of Khammouane",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:01_Thakhek_route_16_to_caves_-_panoramio.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Adriaan Castermans",
+      "license": "CC BY-SA 3.0",
+      "manual": true,
+      "locked": true
+    }
   ]
 }
