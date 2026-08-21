@@ -5205,9 +5205,9 @@ const data = {
       },
       "shortDescription": "Break up the Loop’s natural attractions with a cultural stop at the sandstone Buddha site, keeping the route from becoming a simple sequence of caves and swimming places.",
       "media": {
-        "card": {},
+        "card": { "image": { "id": "sandstone-buddhas-card", "src": "/assets/cities/laos/thakhek/things-to-do/sandstone-buddhas/sandstone-buddhas-card.webp", "alt": "Sandstone Buddha carving in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
         "fieldCard": {
-          "gallery": []
+          "gallery": [{ "id": "sandstone-buddhas-detail", "src": "/assets/cities/laos/thakhek/things-to-do/sandstone-buddhas/sandstone-buddhas-detail.webp", "alt": "Carved sandstone Buddha beside the Thakhek Loop road", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }]
         }
       },
       "spaCard": {
