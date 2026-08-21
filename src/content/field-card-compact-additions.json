@@ -142,5 +142,175 @@
         "locked": true
       }
     ]
+  },
+  "thing-dragon-cave": {
+    "hero": {
+      "eyebrow": "CAVE + VIEWPOINT · THAKHEK LOOP",
+      "aliases": [
+        "Tham Mangkone",
+        "Mangkone Cave",
+        "Dragon Cave"
+      ],
+      "description": "Dragon Cave is the Day 2 cave near Lak Sao where a low passage beside the underground water opens into a much larger limestone chamber, then a stair-and-rock route climbs toward a viewpoint above the karst.",
+      "steps": [
+        "Stop from Route 8 near Lak Sao",
+        "Crouch through the low entrance passage",
+        "Explore the larger chamber and formations",
+        "Climb toward the viewpoint if conditions are good"
+      ],
+      "rhythmNote": "Allow one to two hours for the cave and viewpoint together. The climb is part of what makes the stop worthwhile, but Day 2 still has a long road ahead, so leave enough daylight for the ride onward.",
+      "photoNote": "Route 8 near Lak Sao · Day 2 of the Thakhek Loop"
+    },
+    "quickRead": {
+      "time": {
+        "primary": "1–2 HOURS",
+        "secondary": "Cave walk + optional viewpoint climb"
+      },
+      "route": {
+        "primary": "ROUTE 8 · NEAR LAK SAO",
+        "secondary": "Easy roadside stop on the classic Day 2 stage"
+      },
+      "budget": {
+        "primary": "≈50K KIP",
+        "secondary": "Current 2026 traveller references · confirm at the gate"
+      },
+      "bestFor": {
+        "primary": "CAVE + KARST VIEWPOINT",
+        "secondary": "Low passage · large chamber · limestone panorama"
+      }
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE CONTRAST",
+          "title": "The cave gets bigger after making you crouch",
+          "body": "Dragon Cave works because it changes scale quickly. The visitor route starts through a low section where you may need to bend down and watch your footing around sand, rock and water. Then the ceiling releases and the cave opens into a much larger chamber filled with stalactites and stalagmites, with lighting picking out the formations. It is not the longest cave visit on the Loop, but the transition from compressed passage to open cavern gives it a stronger sense of discovery than its roadside access suggests."
+        },
+        {
+          "label": "THE VIEWPOINT",
+          "title": "Do not stop when the underground section seems finished",
+          "body": "Recent local and traveller guides consistently describe a second chapter beyond the main chamber: stairs, rocks and a steeper climb lead out toward a viewpoint over the surrounding limestone, rice fields and road. That upper view is what turns Dragon Cave from another short cave stop into a more complete Day 2 experience. Take the climb slowly, use the built route that is open on the day and skip exposed or slippery sections when rain has made the ground questionable."
+        }
+      ],
+      "note": {
+        "label": "ATLAS RHYTHM",
+        "text": "Do the cave and viewpoint as one visit. The underground contrast gives the stop character; the karst view gives it a finish."
+      }
+    },
+    "secondaryStory": {
+      "chapters": [
+        {
+          "label": "THE SHRINE",
+          "title": "The stop begins before the low passage",
+          "body": "Recent first-hand guides describe a small temple shrine in the forested grounds beside the cave entrance. Give it the same quiet respect you would any Buddhist space: keep voices down around worshippers, do not use religious objects as photo props and let the shrine remain part of the place rather than background decoration. The cave is the main attraction, but the religious setting adds a local layer that is easy to miss if you rush straight underground."
+        },
+        {
+          "label": "THE CONDITIONS",
+          "title": "Developed does not mean weather-proof",
+          "body": "Dragon Cave has visitor lighting, stairs and a defined route, but it still contains low ceilings, damp ground, sand, rock and water. Recent guides also warn that wet-season flooding can affect access or close the cave. After strong rain, ask at the entrance what is open before committing to the full route or viewpoint, and let the current site conditions overrule an old online description."
+        }
+      ],
+      "beforeYouLeave": {
+        "title": "Bring grip, light and enough daylight",
+        "body": "Wear shoes with grip and clothes that can cope with damp cave surfaces. A phone light can help, but a small headlamp is more useful through darker or low sections. Carry cash for the entrance and water for the climb. Most importantly, do not turn the viewpoint into a race against the afternoon: if the route is wet, closed or uncomfortable, the main chamber is still a complete cave visit.",
+        "note": {
+          "label": "BEFORE YOU GO",
+          "text": "Shoes with grip · small light · cash · water · check the route after heavy rain."
+        }
+      }
+    },
+    "practical": {
+      "items": [
+        {
+          "label": "Loop position",
+          "value": "Day 2 · Route 8 near Lak Sao",
+          "detail": "Khammouane Tourism includes Dragon Cave on the classic Thalang–Khoun Kham stage, and a current Thakhek operator places it on Route 8 near Lak Sao. It is a roadside Loop stop rather than a major detour."
+        },
+        {
+          "label": "Time needed",
+          "value": "About 1–2 hours",
+          "detail": "Allow enough time for the low entrance section, main chamber and the viewpoint route. The cave alone can be shorter; the climb is what makes a fuller visit."
+        },
+        {
+          "label": "Entrance",
+          "value": "About 50,000 KIP · confirm locally",
+          "detail": "A June 2026 first-hand Loop guide and several recent independent reports converge on 50,000 kip per person. The provincial tourism page does not currently publish a ticket price, so treat 50,000 kip as a planning reference and confirm the posted fee on arrival."
+        },
+        {
+          "label": "Opening hours",
+          "value": "Recent guide reference: 08:00–17:00",
+          "detail": "A recent Loop guide lists daily opening from 08:00 to 17:00. Because the official provincial page does not publish hours, avoid arriving close to closing and follow the current entrance sign or staff instructions."
+        },
+        {
+          "label": "Inside",
+          "value": "Low ceiling · damp ground · lit chamber",
+          "detail": "Expect to bend through part of the route before the cave opens into the larger chamber. Wear shoes with grip and carry a small light even though parts of the visitor route are illuminated."
+        },
+        {
+          "label": "Viewpoint",
+          "value": "Steeper climb after the cave",
+          "detail": "Stairs and rocky sections continue toward the upper viewpoint. Take your time, keep both hands free where needed and skip the climb if rain has made the route slippery or staff advise against it."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Where is Dragon Cave on the Thakhek Loop?",
+        "answer": "Dragon Cave, also called Tham Mangkone, sits on Route 8 near Lak Sao and is included on the classic Day 2 stage between Thalang and Khoun Kham."
+      },
+      {
+        "question": "How much does Dragon Cave cost?",
+        "answer": "Recent 2026 and other current traveller references consistently place the entrance around 50,000 kip per person. The provincial tourism page does not publish a current ticket price, so confirm the posted fee at the entrance."
+      },
+      {
+        "question": "How long do you need at Dragon Cave?",
+        "answer": "Allow about one to two hours for the cave and viewpoint together. The underground section can be visited more quickly, but the climb above the cave is an important part of the stop."
+      },
+      {
+        "question": "Is there a viewpoint at Dragon Cave?",
+        "answer": "Yes. Current local and traveller guides describe stairs and a rocky climb from the cave route to a viewpoint over the surrounding karst, fields and road. Skip the upper section when wet or locally closed."
+      },
+      {
+        "question": "What should you wear for Dragon Cave?",
+        "answer": "Wear shoes with grip and clothes that can handle damp cave surfaces. A small headlamp is useful for darker and low sections, and carry water if you plan to climb to the viewpoint."
+      }
+    ],
+    "seo": {
+      "title": "Dragon Cave (Tham Mangkone) | Thakhek Loop, Laos",
+      "description": "Plan Dragon Cave near Lak Sao on the Thakhek Loop: 50,000 kip planning price, low cave passage, limestone chamber, viewpoint climb and practical tips."
+    },
+    "sources": [
+      {
+        "sourceName": "Khammouane Tourism · Thakhek Loop",
+        "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+        "purpose": "current-official-Day-2-position-route-and-Dragon-Cave-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Thakhek Tours · Thakhek Loop Tour",
+        "sourceUrl": "https://thakhektours.com/thakhek-loop-tour",
+        "purpose": "current-local-operator-name-route-cave-format-lighting-and-viewpoint-cross-check",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "The Browne Town · Thakhek Loop Guide",
+        "sourceUrl": "https://thebrownetown.com/thakhek-loop-guide/",
+        "purpose": "June-2026-first-hand-price-small-temple-viewpoint-and-Day-2-cross-check",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Adventures of Jellie · Thakhek Loop Guide",
+        "sourceUrl": "https://www.adventuresofjellie.com/laos/thakhek-loop-guide",
+        "purpose": "visitor-route-low-passage-main-chamber-stairs-viewpoint-and-50k-price-cross-check",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Coordinotes · Thakhek Loop",
+        "sourceUrl": "https://coordinotes.be/thakhek-loop-laos/",
+        "purpose": "recent-opening-hours-fee-low-ceiling-secondary-exit-and-wet-season-closure-cross-check",
+        "reviewedAt": "2026-08-21"
+      }
+    ]
   }
 }
