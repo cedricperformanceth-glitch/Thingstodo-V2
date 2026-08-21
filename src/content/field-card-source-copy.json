@@ -1,4 +1,12 @@
 {
+  "thing-thakhek-loop": [
+    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"current-official-450km-route-daily-stages-rental-navigation-fuel-cash-and-safety","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Thakhek Loop Expedition","sourceUrl":"https://www.khammouanetourism.org/en/tours/thakhek-loop-adventure","purpose":"official-4-day-3-night-format-and-self-drive-or-guided-context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Home","sourceUrl":"https://www.khammouanetourism.org/en","purpose":"current-3-to-5-day-recommendation-and-Nov-Feb-travel-window","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · NR12 Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:NR12_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Thakhek route to caves 01","sourceUrl":"https://commons.wikimedia.org/wiki/File:01_Thakhek_route_16_to_caves_-_panoramio.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Thakhek route to caves 03","sourceUrl":"https://commons.wikimedia.org/wiki/File:03_Thakhek_route_16_to_caves_-_panoramio.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
   "thing-kong-lor-cave": [
     {"sourceName":"Khammouane Tourism · Kong Lor Cave","sourceUrl":"https://www.khammouanetourism.org/en/places/Kong-lor-cave","purpose":"current-official-site-facts-pricing-season-and-facilities","reviewedAt":"2026-08-21"},
     {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official-loop-route-duration-and-7.5km-cave-context","reviewedAt":"2026-08-21"},
