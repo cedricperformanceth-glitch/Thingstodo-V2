@@ -98,5 +98,55 @@
       "manual": true,
       "locked": true
     }
+  ],
+  "city-tad-lo": [
+    {
+      "id": "tad-lo-field-note-tad-hang-sunset",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tad_Hang_waterfalls_at_sunset%2C_Tad_Lo_village%2C_Bolaven_Plateau%2C_Laos.jpg?width=1800",
+      "alt": "Tad Hang waterfalls at sunset in Tad Lo village on the Bolaven Plateau",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Hang_waterfalls_at_sunset,_Tad_Lo_village,_Bolaven_Plateau,_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "tad-lo-field-note-village-landscape",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tad_Lo_02.jpg?width=1600",
+      "alt": "Village and river landscape in Tad Lo on the Bolaven Plateau",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Lo_02.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Christophe95",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "tad-lo-field-note-waterfall",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Salavan_TadLo3_tango7174.jpg?width=1600",
+      "alt": "Tad Lo Waterfalls in Salavan Province, Laos",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Tango7174",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "tad-lo-field-note-river-footbridge",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View_of_Tad_Lo_river_from_above%2C_with_temporary_footbridge_and_goats%2C_Laos.jpg?width=1600",
+      "alt": "Tad Lo river seen from above with a temporary wooden footbridge and goats on the rocks",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    }
   ]
 }
