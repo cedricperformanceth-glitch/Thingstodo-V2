@@ -42,5 +42,61 @@
       "note": "Exact-location media discovery and geographic cross-check.",
       "reviewedAt": "2026-08-20"
     }
+  ],
+  "city-laos-thakhek": [
+    {
+      "sourceName": "Khammouane Tourism · Thakhek District",
+      "sourceUrl": "https://www.khammouanetourism.org/en/districts/thakhek",
+      "note": "Official provincial overview for Thakhek's Mekong setting, colonial architecture and nearby tourism places.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "note": "Official current Loop reference for the 450 km route, four-day / three-night classic itinerary, Cave Alley, fuel, cash and road-safety guidance.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Travel & Transportation",
+      "sourceUrl": "https://www.khammouanetourism.org/en/transport",
+      "note": "Official transport context for Thakhek's road connections and the walkability of the historic centre.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · About Khammouane",
+      "sourceUrl": "https://www.khammouanetourism.org/en/about",
+      "note": "Provincial history and heritage context linking the old Thakhek port town, colonial architecture and Khammouane's wider limestone landscape.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Tourism Laos · Khammouane Province",
+      "sourceUrl": "https://www.tourismlaos.org/central-provinces/khammouane-province/",
+      "note": "National tourism reference for Old Thakhek Town, the fountain-square centre, the city's historic role and Route 12 cave context.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Thailand.go.th · Third Thai–Lao Friendship Bridge",
+      "sourceUrl": "https://www.thailand.go.th/issue-focus-detail/001_08_030?hl=en",
+      "note": "Government cross-border reference confirming the bridge connection between Nakhon Phanom and the Thakhek side of Khammouane.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Adventures of Jellie · Riding the Thakhek Loop",
+      "sourceUrl": "https://www.adventuresofjellie.com/laos/thakhek-loop-guide",
+      "note": "Independent traveller cross-check for practical road questions, side-road surfaces and truck traffic; wording is not copied.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "The road liss traveled · Thakhek Loop Pt. 1",
+      "sourceUrl": "https://www.adamliss.com/blog/2025/7/12/thakhek-loop-pt-1",
+      "note": "Recent 2025 field perspective used to cross-check the relationship between Thakhek town, Route 12 traffic and current rider concerns.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Thakhek category",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Thakhek",
+      "note": "Exact-location media discovery and licence verification for the Thakhek city note.",
+      "reviewedAt": "2026-08-21"
+    }
   ]
 }
