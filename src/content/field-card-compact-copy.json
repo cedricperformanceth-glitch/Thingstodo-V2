@@ -115,5 +115,204 @@
         "reviewedAt": "2026-08-21"
       }
     ]
+  },
+  "thing-vat-paa-forest-buddha-and-mystery-cave": {
+    "hero": {
+      "eyebrow": "FOREST TEMPLE · TAD LO",
+      "aliases": [
+        "Vat Paa",
+        "Wat Pa",
+        "Big Buddha Forest Temple"
+      ],
+      "description": "Vat Paa is a quiet forest stop outside Tad Lo where mature trees and a large Buddha set the mood; the cave entrance adds intrigue, but it is not an invitation to explore underground without proper local guidance.",
+      "steps": [
+        "Leave Tad Lo for the forest site",
+        "Follow the current local access",
+        "Walk beneath the mature trees and visit the Buddha",
+        "Stop at the cave entrance — do not enter unsupported"
+      ],
+      "rhythmNote": "Give the forest and Buddha most of the visit. The cave is the boundary of the self-guided outing, not a challenge to solve.",
+      "photoNote": "Near Tad Lo · Salavan Province · Bolaven Plateau"
+    },
+    "quickRead": {
+      "time": {
+        "primary": "1–2 HOURS",
+        "secondary": "Current local guide: less than 3 hours"
+      },
+      "route": {
+        "primary": "MOTORBIKE RECOMMENDED",
+        "secondary": "Car or minivan also possible · fixed road distance not currently published"
+      },
+      "budget": {
+        "primary": "FREE",
+        "secondary": "Current Visit Tad Lo listing · reconfirm local arrangements"
+      },
+      "bestFor": {
+        "primary": "FOREST + QUIET BUDDHIST STOP",
+        "secondary": "Mature trees · large Buddha · cave entrance"
+      }
+    },
+    "spa": {
+      "description": "Ride out from Tad Lo to Vat Paa, a quiet forest Buddhist site where mature trees and a large Buddha anchor the visit; observe the cave entrance, but do not explore underground unsupported.",
+      "handwrittenTags": [
+        "Forest temple",
+        "Large Buddha",
+        "Cave entrance"
+      ],
+      "gettingThere": "From Tad Lo, motorbike is recommended; car or minivan are also listed. Follow current local directions because the latest Visit Tad Lo guide does not publish a fixed road distance and an older local map shows an unpaved final section.",
+      "duration": "1–2 hours · under 3 hours",
+      "costType": "free",
+      "bestTime": "Daylight, ideally morning; dry weather usually makes unpaved access simpler"
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE FOREST",
+          "title": "The trees are the reason to slow down",
+          "body": "Vat Paa is repeatedly described through its forest before anything else. The current locally checked Tad Lo guide asks visitors to walk beneath mature trees, while older route material and independent Bolaven guides also single out the unusually large forest trees around the site. That is enough to explain the atmosphere without repeating the popular claim that some are 1,000 years old. Their exact age has not been established in the sources Atlas can verify, so the useful description is simpler: mature, impressive trees forming a shaded forest setting around the Buddha and cave area."
+        },
+        {
+          "label": "THE BUDDHA",
+          "title": "Read the place as a Buddhist site before a curiosity stop",
+          "body": "A large Buddha gives Vat Paa its second clear landmark and shifts the visit away from being only a nature walk. Current local and tour references treat the place as a forest Buddhist stop, so move quietly, give any worshippers or local visitors space and ask before photographing people. The value of the visit is the combination: forest, religious setting and the sense of reaching a place that feels removed from Tad Lo without needing a long expedition."
+        }
+      ],
+      "note": {
+        "label": "ATLAS NOTE",
+        "text": "Come for the forest and the Buddha. Treat the cave entrance as the natural end of the self-guided visit."
+      }
+    },
+    "secondaryStory": {
+      "chapters": [
+        {
+          "label": "THE ACCESS",
+          "title": "Use the current road, not an old kilometre promise",
+          "body": "The latest Visit Tad Lo listing recommends a motorbike and also allows for car or minivan access, but deliberately leaves the road distance unpublished. A November 2024 local Tad Lo route map placed Vat Paa on a short excursion with an unpaved final section. That older map is useful for understanding the character of the approach, not for promising a permanent distance or road condition. Follow the current local route, signs and advice on the day, especially after rain."
+        },
+        {
+          "label": "THE CAVE",
+          "title": "The mystery is not an invitation to go underground",
+          "body": "The cave entrance is part of what makes Vat Paa memorable, but the current locally checked guide is explicit: cave entry is not recommended without a competent local guide and suitable equipment. An unlit or unassessed cave can involve unstable ground, drops, wildlife, water or simply no safe route. Look from the entrance and leave the underground section alone unless a legitimate local guided arrangement exists and the guide has assessed the conditions."
+        }
+      ],
+      "beforeYouLeave": {
+        "title": "A quiet stop is enough",
+        "body": "Go in daylight, carry water and small cash, and wear closed shoes with grip for forest ground and any wet or uneven access. Dress and behave respectfully around the Buddha. After rain, ask about the final road before committing a scooter. Most importantly, do not turn an unverified tree-age story or an unsupported cave entry into the reason for the visit.",
+        "note": {
+          "label": "BOUNDARY TO KEEP",
+          "text": "Forest and Buddha: self-guided. Beyond the cave entrance: only with competent local guidance and suitable equipment."
+        }
+      }
+    },
+    "practical": {
+      "items": [
+        {
+          "label": "From Tad Lo",
+          "value": "Motorbike recommended · car or minivan possible",
+          "detail": "The current Visit Tad Lo guide lists these transport options but does not publish a fixed road distance. Use the live map or local directions rather than an old kilometre estimate."
+        },
+        {
+          "label": "Road",
+          "value": "Expect a possible unpaved final section",
+          "detail": "A public-domain Tad Lo route map from November 2024 marks Vat Paa with an unpaved final approach. Road surface and access can change, especially after rain, so confirm conditions locally."
+        },
+        {
+          "label": "Time needed",
+          "value": "1–2 hours · less than 3 hours",
+          "detail": "Visit Tad Lo categorizes the outing as less than three hours and easy. One to two hours is a comfortable planning window for the forest, Buddha and cave entrance without rushing."
+        },
+        {
+          "label": "Entrance",
+          "value": "Currently listed free",
+          "detail": "The current locally checked activity page lists Vat Paa as free. Carry small cash anyway and follow any updated local sign or site arrangement if something has changed."
+        },
+        {
+          "label": "Cave",
+          "value": "Do not enter unsupported",
+          "detail": "Visit Tad Lo specifically advises against entering an unlit or unassessed cave without a competent local guide and suitable equipment. The cave entrance is enough for the ordinary self-guided visit."
+        },
+        {
+          "label": "Tree-age claim",
+          "value": "Do not publish “1,000-year-old” as fact",
+          "detail": "That claim circulates in older route and travel material, but the current locally checked guide explicitly says the tree age needs evidence. Atlas describes the trees as mature and unusually large instead."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "How far is Vat Paa from Tad Lo?",
+        "answer": "The current Visit Tad Lo guide does not publish a fixed road distance and recommends using the mapped location. An older November 2024 local route map shows a short excursion from the Tad Lo network with an unpaved final section, but use current local directions rather than treating that old distance as permanent."
+      },
+      {
+        "question": "Is Vat Paa free to visit?",
+        "answer": "Yes, the current locally checked Visit Tad Lo listing marks the site as free. Carry small cash and follow any updated local sign or arrangement if access changes."
+      },
+      {
+        "question": "Can you enter the mystery cave at Vat Paa?",
+        "answer": "Not as an unsupported self-guided visit. Visit Tad Lo explicitly advises against entering an unlit or unassessed cave without a competent local guide and suitable equipment. Observe the entrance unless a legitimate guided arrangement is available."
+      },
+      {
+        "question": "How long do you need at Vat Paa?",
+        "answer": "The current local guide categorizes the visit as less than three hours and easy. Around one to two hours is a sensible planning window for the forest, large Buddha and cave entrance."
+      },
+      {
+        "question": "Are the trees at Vat Paa really 1,000 years old?",
+        "answer": "That age claim appears in older travel material, but the current locally checked Tad Lo guide specifically says tree-age claims need confirmation and should not be published as fact without evidence. Atlas therefore describes them as mature and unusually large trees."
+      }
+    ],
+    "seo": {
+      "title": "Vat Paa Forest Temple near Tad Lo, Laos | Things To Do Atlas",
+      "description": "Plan Vat Paa near Tad Lo: mature forest, large Buddha, current free access, motorbike approach, unpaved-road notes and why the mystery cave should not be entered unsupported.",
+      "image": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/a42fc69b-975d-4df1-9d73-ffbb805c06a7-Vat-Paa.jpg"
+    },
+    "sources": [
+      {
+        "sourceName": "Visit Tad Lo · Vat Paa Forest, Buddha and Mystery Cave",
+        "sourceUrl": "https://visit-tadlo.com/en/things-to-do/vat-paa-ancient-forest",
+        "purpose": "current-local-access-duration-cost-safety-tree-age-and-cave-guidance",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Visit Tad Lo · Things to do",
+        "sourceUrl": "https://visit-tadlo.com/en/things-to-do",
+        "purpose": "current-local-category-and-motorbike-recommended-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Pakse Info · Tad Lo loop map, November 2024",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_lo_loop_nov_2024.pdf",
+        "purpose": "public-domain-route-map-unpaved-final-access-and-historical-local-context",
+        "sourceType": "public-domain",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Bolaven Tours · Bolaven Plateau two-day tour",
+        "sourceUrl": "https://bolaventours.com/bolaven-plateau-tour-pakse",
+        "purpose": "current-operator-cross-check-for-vat-paa-as-a-forest-buddhist-stop",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Megaworld Asia · The Bolaven Loop",
+        "sourceUrl": "https://megaworldasia.com/project/the-bolaven-loop-laos/",
+        "purpose": "independent-cross-check-for-forest-large-buddha-and-dirt-road-character",
+        "reviewedAt": "2026-08-21"
+      }
+    ],
+    "media": [
+      {
+        "id": "vat-paa-forest-buddha-visit-tad-lo",
+        "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/a42fc69b-975d-4df1-9d73-ffbb805c06a7-Vat-Paa.jpg",
+        "alt": "Vat Paa forest and large Buddha near Tad Lo in Salavan Province, Laos",
+        "sourceType": "first-party-official",
+        "sourceUrl": "https://visit-tadlo.com/en/things-to-do/vat-paa-ancient-forest",
+        "sourceName": "Visit Tad Lo",
+        "author": "Visit Tad Lo partner media",
+        "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+        "manual": true,
+        "locked": true
+      }
+    ]
   }
 }
