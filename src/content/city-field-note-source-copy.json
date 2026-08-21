@@ -98,5 +98,61 @@
       "note": "Exact-location media discovery and licence verification for the Thakhek city note.",
       "reviewedAt": "2026-08-21"
     }
+  ],
+  "city-tad-lo": [
+    {
+      "sourceName": "Tourism Laos · Salavanh Province",
+      "sourceUrl": "https://www.tourismlaos.org/southern-provinces/salavan-province/",
+      "note": "National tourism context for Tad Lo, Route 20, Salavanh Province, coffee growing, village walks and the wider Bolaven Plateau setting.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Destination guide",
+      "sourceUrl": "https://visit-tadlo.com/en",
+      "note": "Locally built destination guide used for the village rhythm, realistic stay length, walkability and current locally checked context.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Things to do",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do",
+      "note": "Current local inventory separating walkable waterfalls and workshops from outings that need more time or transport.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Without a motorbike",
+      "sourceUrl": "https://visit-tadlo.com/en/tad-lo-without-motorbike",
+      "note": "Locally checked practical reference for using Tad Lo as a fixed walkable base and arranging transport only for more distant experiences.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Tourism Office",
+      "sourceUrl": "https://visit-tadlo.com/en/stay-eat/tad-lo-tourism-office",
+      "note": "Local reference for guided treks, current trail conditions, guide availability, equipment and changing practical information.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Itineraries",
+      "sourceUrl": "https://visit-tadlo.com/en/itineraries",
+      "note": "Current local planning reference for one- to four-day stays and keeping activity combinations realistic rather than overloaded.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · After Tad Lo",
+      "sourceUrl": "https://visit-tadlo.com/en/continue-bolaven",
+      "note": "Current onward-travel context separating the Tad Lo stay from the next Bolaven stages toward Pakse, the Paksong waterfalls or another overnight stop.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Coffee and Katou Culture with Mr Hook",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-hook-coffee-culture",
+      "note": "Locally checked context for a guided coffee, plants and Katou cultural experience and the need for respectful photography and host guidance.",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Tad Lo category",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Tad_Lo",
+      "note": "Exact-place media discovery and licence verification for the Tad Lo city field note.",
+      "reviewedAt": "2026-08-21"
+    }
   ]
 }
