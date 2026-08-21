@@ -44,6 +44,15 @@
     {"sourceName":"Wikivoyage · Thakhek","sourceUrl":"https://en.wikivoyage.org/wiki/Thakhek","purpose":"current walkway concrete steps clothing and photography cross check","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · Buddha cave Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Buddha_cave,_Laos.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
   ],
+  "thing-tha-falang": [
+    {"sourceName":"Khammouane Tourism · Thakhek district","sourceUrl":"https://www.khammouanetourism.org/en/districts/thakhek","purpose":"current official attraction status river swimming camping and Lao food context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Tourism places","sourceUrl":"https://www.khammouanetourism.org/en/places?category=%E0%BA%97%E0%BA%B3%E0%BA%A1%E0%BA%B0%E0%BA%8A%E0%BA%B2%E0%BA%94","purpose":"official Tha Fa Lang listing and current natural attraction context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official Cave Alley position and first day Loop context","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikivoyage · Thakhek","sourceUrl":"https://en.wikivoyage.org/wiki/Thakhek","purpose":"current Route 12 distance access track and dry season cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Thakhek Tours · Cave Alley","sourceUrl":"https://thakhektours.com/cave-alley-thakhek","purpose":"current local river swimming free access weekend use services and name history cross check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Taa Falan Thakek","sourceUrl":"https://commons.wikimedia.org/wiki/File:Taa_Falan,Thakek,_Khamoune_Province,_Lao_(6971657929).jpg","purpose":"hero and story media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Taa Falan second view","sourceUrl":"https://commons.wikimedia.org/wiki/File:Taa_Falan_(6973301765).jpg","purpose":"secondary media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+  ],
   "thing-old-french-railway-bridge": [
     {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
     {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
