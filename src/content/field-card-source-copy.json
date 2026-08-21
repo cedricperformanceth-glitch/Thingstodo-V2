@@ -168,5 +168,14 @@
     {"sourceName":"Wikimedia Commons · Paddy field Bolaven Plateau","sourceUrl":"https://commons.wikimedia.org/wiki/File:Paddy_field_Bolaven_Plateau.jpg","purpose":"story-media-exact-approach-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
     {"sourceName":"Wikimedia Commons · Rice cultivation Bolaven Plateau","sourceUrl":"https://commons.wikimedia.org/wiki/File:Rice_cultivation_Bolaven_Plateau.jpg","purpose":"secondary-media-exact-approach-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
     {"sourceName":"Visit Tad Lo · Tad Soung Waterfall image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall","purpose":"hero-media","sourceType":"first-party-official","reviewedAt":"2026-08-21"}
+  ],
+  "thing-katu-weaving-workshop": [
+    {"sourceName":"Visit Tad Lo · Katu Weaving Workshop","sourceUrl":"https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop","purpose":"current-booking-duration-walkability-season-physical-note-host-and-consent","reviewedAt":"2026-08-21"},
+    {"sourceName":"Traditional Arts and Ethnology Centre · Katu","sourceUrl":"https://www.taeclaos.org/featured_item/katu/","purpose":"Katu-cultural-context-foot-braced-backstrap-loom-beaded-textiles-and-Salavan-cooperatives","reviewedAt":"2026-08-21"},
+    {"sourceName":"Encyclopedia of Crafts in WCC-Asia Pacific · Weaving","sourceUrl":"https://encyclocraftsapr.com/weaving-2/","purpose":"weft-bead-placement-materials-and-southern-Laos-weaving-technique","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikipedia · Katu people","sourceUrl":"https://en.wikipedia.org/wiki/Katu_people","purpose":"terminology-and-geographic-cross-check","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Ban Lao Ngam weaving 2014 (1)","sourceUrl":"https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_en2014_(1).jpg","purpose":"story-media-regional-weaving-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Wikimedia Commons · Ban Lao Ngam weaving (4)","sourceUrl":"https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_(4).jpg","purpose":"secondary-media-regional-weaving-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
+    {"sourceName":"Visit Tad Lo · Katu Weaving Workshop image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop","purpose":"hero-media-first-party-authorized","sourceType":"first-party-official","reviewedAt":"2026-08-21"}
   ]
 }
