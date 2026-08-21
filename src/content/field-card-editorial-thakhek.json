@@ -1,0 +1,241 @@
+{
+  "thing-old-thakhek-mekong": {
+    "hero": {
+      "eyebrow": "OLD TOWN WALK · THAKHEK",
+      "aliases": [
+        "Old Thakhek",
+        "Mekong Riverfront",
+        "Historic centre"
+      ],
+      "description": "Old Thakhek is the part of the city that makes the Loop base feel like a destination in its own right: a compact Mekong-side centre of old shophouses, faded colonial-era façades, a broad central square and evening river life facing Thailand across the water.",
+      "steps": [
+        "Start around the fountain square near the Mekong",
+        "Walk the old streets one or two blocks inland",
+        "Loop back along the riverfront",
+        "Stay for the softer late-afternoon light"
+      ],
+      "rhythmNote": "Do this slowly and on foot. The point is not to collect individual buildings but to read how river trade, old shophouses, temples, cafés and everyday Thakhek still sit together in the same few blocks.",
+      "photoNote": "Historic centre · fountain square · Mekong riverfront"
+    },
+    "quickRead": {
+      "time": {
+        "primary": "1–3 HOURS",
+        "secondary": "Easy self-guided walk · longer with food or sunset"
+      },
+      "route": {
+        "primary": "CENTRAL THAKHEK · ON FOOT",
+        "secondary": "Fountain square · old streets · Mekong riverfront"
+      },
+      "budget": {
+        "primary": "FREE",
+        "secondary": "Public streets and riverfront · cafés and meals optional"
+      },
+      "bestFor": {
+        "primary": "OLD TOWN + MEKONG",
+        "secondary": "Architecture · local history · evening walk"
+      }
+    },
+    "spa": {
+      "description": "Walk central Thakhek from the old fountain square through the historic streets and back along the Mekong, reading the city through its riverfront, old shophouses and living architecture.",
+      "handwrittenTags": [
+        "Old town",
+        "Mekong walk",
+        "Easy evening"
+      ],
+      "gettingThere": "Start in central Thakhek around the historic fountain square near the Mekong. The old-town core is compact and best explored on foot.",
+      "duration": "1–3 hours",
+      "costType": "free",
+      "bestTime": "Late afternoon into early evening; daylight is best for reading the architecture, with the riverfront strongest around sunset"
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE RIVER",
+          "title": "Thakhek was a landing place before it was a Loop base",
+          "body": "The Mekong explains why the old centre is here. Tourism Laos traces the name Thakhek to the idea of a 'guest landing', a reminder of the town's long role as a river landing for outside traders. The colonial-era city then developed around that commercial position on the river. Walk the riverfront first and the geography becomes obvious: Thailand sits directly across the water, the old town is only a few blocks deep and the square opens toward the Mekong rather than turning away from it. The river is not scenery added to the town; it is the line that gave the town its orientation."
+        },
+        {
+          "label": "THE OLD TOWN",
+          "title": "The interesting part is concentrated into a handful of blocks",
+          "body": "Tourism Laos places the heart of Old Thakhek around the fountain square near the river and describes most of the older architecture within roughly five or six blocks in either direction. That compact scale is what makes the walk work. Move one or two streets inland instead of staying only on the promenade and the old shophouses become easier to read: narrow façades, upper-floor living spaces, arcades and patched surfaces sitting beside newer buildings, guesthouses and cafés. This is a living town centre, not a restored heritage set."
+        }
+      ],
+      "note": {
+        "label": "WALK IT AS A LOOP",
+        "text": "Start at the square, wander inland through the old blocks, then return along the Mekong instead of walking the riverfront both ways."
+      }
+    },
+    "secondaryStory": {
+      "chapters": [
+        {
+          "label": "THE BUILDINGS",
+          "title": "French influence is only part of the architectural story",
+          "body": "Khammouane Tourism now describes more than seventy classic architectural sites along the Mekong in Thakhek, while recent architectural research shows that the old centre is more layered than the label 'French colonial' suggests. Studies of the shophouses identify Western colonial influence mixed with local use and construction techniques associated with Vietnamese craftspeople, alongside later modern and vernacular buildings. That mixture is worth looking for. Some façades retain decorative stucco and older roof forms; others have been adapted repeatedly for shops, homes and services. The character comes from continuity and change happening at the same time."
+        },
+        {
+          "label": "THE MEMORY",
+          "title": "Do not reduce the riverfront to faded façades and sunset photographs",
+          "body": "Thakhek's twentieth-century history includes the violence of 21 March 1946, an event still formally commemorated in Khammouane and embedded in local memory. Current provincial tourism material lists the March 21st Memorial Hall among Thakhek's historical places, and recent scholarship traces memories of the battle into the old marketplace near the Mekong. You do not need to turn a short old-town walk into a history lecture, but the context matters: these streets carry trade, colonial rule, conflict and post-war memory as well as the photogenic architecture visitors notice first."
+        }
+      ],
+      "beforeYouLeave": {
+        "title": "Treat the old town as a neighbourhood, not an open-air museum",
+        "body": "The route uses ordinary streets where people live, work, park motorbikes, shop and worship. Photograph buildings freely from public space, but give residents privacy around doorways and homes, do not step into courtyards because a façade looks interesting and keep temple spaces quiet. Traffic is light enough for an easy walk in the centre, but streets are still active roads, so stay aware when stepping out for a photograph. Finish on the Mekong only if the riverfront route feels comfortable after dark; otherwise keep the walk in daylight.",
+        "note": {
+          "label": "OLD TOWN RULE",
+          "text": "Look closely without treating private homes as exhibits. Public streets give you more than enough to read the city."
+        }
+      }
+    },
+    "practical": {
+      "items": [
+        {
+          "label": "Start point",
+          "value": "Fountain square near the Mekong",
+          "detail": "Tourism Laos identifies the square near the river as the centre of Old Thakhek. It is the cleanest place to begin a self-guided loop through the historic streets."
+        },
+        {
+          "label": "Time needed",
+          "value": "About 1–3 hours",
+          "detail": "An hour works for a direct square-and-riverfront loop. Two to three hours gives you room to wander a few blocks inland, stop for a drink and finish by the Mekong without rushing."
+        },
+        {
+          "label": "Cost",
+          "value": "Free",
+          "detail": "The old-town streets, square and riverfront are public urban space. Budget only for optional coffee, food, tuk-tuk rides or any separate site you choose to enter."
+        },
+        {
+          "label": "How to move",
+          "value": "Walk · compact historic centre",
+          "detail": "Khammouane Tourism currently describes central Thakhek as compact and very walkable, especially the historic district along the Mekong. A vehicle adds little to the core old-town walk."
+        },
+        {
+          "label": "What to notice",
+          "value": "Shophouses · square · river orientation · adapted façades",
+          "detail": "Do not search for one perfect monument. The urban pattern is the attraction: old commercial façades, later alterations, narrow streets, the square and the way the centre stays oriented toward the Mekong."
+        },
+        {
+          "label": "Best rhythm",
+          "value": "Late afternoon · finish near sunset",
+          "detail": "Daylight is better for architectural detail, while the riverfront becomes more atmospheric later in the day. Start inland first and save the Mekong edge for the end of the walk."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Where should you start an Old Thakhek walking route?",
+        "answer": "Start around the fountain square close to the Mekong. Tourism Laos identifies this area as the centre of the old town, with much of the interesting architecture concentrated within a few blocks."
+      },
+      {
+        "question": "How long do you need for Old Thakhek and the Mekong Riverfront?",
+        "answer": "Allow around one to three hours. The core is compact, but the walk is better when you have enough time to leave the riverfront, wander the old streets and return to the Mekong without rushing."
+      },
+      {
+        "question": "Is Old Thakhek free to visit?",
+        "answer": "Yes. Walking the public old-town streets, central square and Mekong riverfront is free. Food, drinks, transport and any separate attraction are optional extras."
+      },
+      {
+        "question": "Are all the old buildings in Thakhek French colonial architecture?",
+        "answer": "No. French colonial influence is important, but recent architectural research describes a more mixed urban heritage, including Western forms combined with Vietnamese building techniques, later modern alterations and Lao vernacular architecture."
+      },
+      {
+        "question": "What is the best time to walk the Thakhek riverfront?",
+        "answer": "Late afternoon works best for combining the old streets with the Mekong. Walk the architecture while there is still good daylight, then finish on the riverfront as the light softens toward sunset."
+      }
+    ],
+    "seo": {
+      "title": "Old Thakhek & Mekong Riverfront | Walking Guide",
+      "description": "Walk Old Thakhek from the fountain square through historic shophouses to the Mekong riverfront: free route, architecture, local history, timing and three licensed Thakhek photos.",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ThaKhek%20%40Mekong-2010.jpg?width=1800"
+    },
+    "sources": [
+      {
+        "sourceName": "Tourism Laos · Khammouane Province · Old Thakhek Town",
+        "sourceUrl": "https://www.tourismlaos.org/central-provinces/khammouane-province/",
+        "purpose": "official-old-town-name-river-history-fountain-square-colonial-architecture-and-walking-loop-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Khammouane Tourism · Thakhek District",
+        "sourceUrl": "https://www.khammouanetourism.org/en/districts/thakhek",
+        "purpose": "current-official-riverside-city-and-French-Colonial-Old-Houses-attraction-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Khammouane Tourism · Travel & Transportation",
+        "sourceUrl": "https://www.khammouanetourism.org/en/transport",
+        "purpose": "current-official-central-Thakhek-walkability-historic-district-and-riverfront-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Khammouane Tourism · About Khammouane",
+        "sourceUrl": "https://www.khammouanetourism.org/en/about",
+        "purpose": "current-official-port-town-and-over-70-classic-architectural-sites-along-Mekong-context",
+        "sourceType": "first-party-official",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Souphanouvong University Journal · Identity of Colonial Architecture Preservation in Thakhek City Center",
+        "sourceUrl": "https://www.su-journal.com/index.php/su/article/view/646",
+        "purpose": "2024-academic-architectural-heritage-conservation-and-city-centre-context",
+        "sourceType": "academic",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Environment-Behaviour Research · Architectural Characteristics of Row Houses in Thakhek Old Town",
+        "sourceUrl": "https://so01.tci-thaijo.org/index.php/arch-kku/article/view/112662",
+        "purpose": "academic-shophouse-use-western-influence-Vietnamese-building-techniques-and-architectural-form-context",
+        "sourceType": "academic",
+        "reviewedAt": "2026-08-21"
+      },
+      {
+        "sourceName": "Memory Studies · The Battle of Thakhek, 21 March 1946",
+        "sourceUrl": "https://journals.sagepub.com/doi/10.1177/17506980231224764",
+        "purpose": "scholarly-March-1946-old-market-Mekong-memory-context",
+        "sourceType": "academic",
+        "reviewedAt": "2026-08-21"
+      }
+    ],
+    "media": [
+      {
+        "id": "old-thakhek-mekong-bacluong",
+        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ThaKhek%20%40Mekong-2010.jpg?width=1800",
+        "alt": "View of Thakhek from the Mekong River in Laos",
+        "sourceType": "wikimedia",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:ThaKhek_%40Mekong-2010.jpg",
+        "sourceName": "Wikimedia Commons",
+        "author": "BacLuong",
+        "license": "CC BY-SA 4.0",
+        "manual": true,
+        "locked": true
+      },
+      {
+        "id": "old-thakhek-colonial-houses-torbenbrinker",
+        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/4.9.1.32.FrzHsr2.jpg?width=1600",
+        "alt": "Old colonial-era houses in the historic centre of Thakhek, Laos",
+        "sourceType": "wikimedia",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:4.9.1.32.FrzHsr2.jpg",
+        "sourceName": "Wikimedia Commons",
+        "author": "Torbenbrinker",
+        "license": "CC BY-SA 3.0",
+        "manual": true,
+        "locked": true
+      },
+      {
+        "id": "old-thakhek-centre-square-castermans",
+        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/04%20Thakhek%20centersquare%20-%20panoramio.jpg?width=1600",
+        "alt": "Central square in the historic centre of Thakhek near the Mekong River",
+        "sourceType": "wikimedia",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:04_Thakhek_centersquare_-_panoramio.jpg",
+        "sourceName": "Wikimedia Commons",
+        "author": "Adriaan Castermans",
+        "license": "CC BY-SA 3.0",
+        "manual": true,
+        "locked": true
+      }
+    ]
+  }
+}
