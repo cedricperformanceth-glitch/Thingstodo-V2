@@ -30,6 +30,7 @@ import spaBestTimeData from '../../content/spa-thing-card-best-time-copy.json';
 import spaDescriptionData from '../../content/spa-thing-card-description-copy.json';
 import spaGettingThereData from '../../content/spa-thing-card-getting-there-copy.json';
 import spaData from '../../content/spa-thing-card-copy.json';
+import thingDisplayNameData from '../../content/thing-display-name-copy.json';
 
 type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 export type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
@@ -69,6 +70,7 @@ const spaBestTime = spaBestTimeData as Record<string, string>;
 const spaDescription = spaDescriptionData as Record<string, string>;
 const spaGettingThere = spaGettingThereData as Record<string, string>;
 const spa = spaData as Record<string, EditorialSpaCard>;
+const thingDisplayName = thingDisplayNameData as Record<string, string>;
 
 export const getEditorialFaq = (id: string) => compact[id]?.faq ?? faq[id];
 export const getEditorialHero = (id: string) => compact[id]?.hero ?? hero[id];
@@ -82,6 +84,7 @@ export const getEditorialSpa = (id: string) => compact[id]?.spa ?? spa[id];
 export const getEditorialSpaBestTime = (id: string) => spaBestTime[id];
 export const getEditorialSpaDescription = (id: string) => spaDescription[id];
 export const getEditorialSpaGettingThere = (id: string) => spaGettingThere[id];
+export const getEditorialThingName = (id: string) => thingDisplayName[id];
 
 export const getEditorialSecondaryStory = (id: string) => {
   const compactEntry = compact[id];
