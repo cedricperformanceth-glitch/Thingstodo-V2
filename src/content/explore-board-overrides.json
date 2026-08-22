@@ -1,0 +1,16 @@
+{
+  "city-laos-thakhek": {
+    "featuredThingIds": [
+      "thing-kong-lor-cave",
+      "thing-xe-bang-fai-cave",
+      "thing-hin-nam-no-national-park"
+    ],
+    "thingMetadata": {
+      "thing-hin-nam-no-national-park": {
+        "kicker": "HIN NAM NO",
+        "duration": "Full day or longer",
+        "route": "Remote Khammouane"
+      }
+    }
+  }
+}
