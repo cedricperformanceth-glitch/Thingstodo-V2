@@ -90,25 +90,31 @@ for (const filePath of cityFiles) {
     if (short) shortCount += 1;
     else standardCount += 1;
 
-    const faq = resolveFaq(thing).filter((item) => text(item?.question) && text(item?.answer));
-    const media = resolveMedia(thing).filter((item) => text(item?.src));
-    const sources = resolveSources(thing).filter((item) => text(item?.sourceName) && text(item?.sourceUrl));
+    const faq = resolveFaq(thing);
+    const media = resolveMedia(thing);
+    const sources = resolveSources(thing);
 
     if (!short && faq.length !== 5) {
-      failures.push(`${cityKey}/${thing.id}: standard Field Card requires exactly 5 valid FAQ items; found ${faq.length}`);
+      failures.push(`${cityKey}/${thing.id}: standard Field Card requires exactly 5 FAQ items; found ${faq.length}`);
+    }
+    for (const [index, item] of faq.entries()) {
+      if (!text(item?.question) || !text(item?.answer)) {
+        failures.push(`${cityKey}/${thing.id}: FAQ ${index + 1} requires a non-empty question and answer`);
+      }
     }
 
     if (!short && media.length !== 3) {
       failures.push(`${cityKey}/${thing.id}: standard Field Card requires exactly 3 media items; found ${media.length}`);
     }
-
-    if (!sources.length) {
-      failures.push(`${cityKey}/${thing.id}: Field Card requires at least one named editorial source with a URL`);
+    for (const [index, item] of media.entries()) {
+      if (!text(item?.src)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing src`);
+      if (!text(item?.sourceName)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing sourceName`);
+      if (!text(item?.license)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing license`);
     }
 
-    for (const [index, item] of media.entries()) {
-      if (!text(item.sourceName)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing sourceName`);
-      if (!text(item.license)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing license`);
+    const validSources = sources.filter((item) => text(item?.sourceName) && text(item?.sourceUrl));
+    if (!validSources.length) {
+      failures.push(`${cityKey}/${thing.id}: Field Card requires at least one named editorial source with a URL`);
     }
   }
 }
