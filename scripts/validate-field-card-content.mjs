@@ -94,8 +94,8 @@ for (const filePath of cityFiles) {
     const media = resolveMedia(thing);
     const sources = resolveSources(thing);
 
-    if (!short && faq.length !== 5) {
-      failures.push(`${cityKey}/${thing.id}: standard Field Card requires exactly 5 FAQ items; found ${faq.length}`);
+    if (faq.length !== 5) {
+      failures.push(`${cityKey}/${thing.id}: Field Card requires exactly 5 FAQ items; found ${faq.length}`);
     }
     for (const [index, item] of faq.entries()) {
       if (!text(item?.question) || !text(item?.answer)) {
@@ -103,8 +103,9 @@ for (const filePath of cityFiles) {
       }
     }
 
-    if (!short && media.length !== 3) {
-      failures.push(`${cityKey}/${thing.id}: standard Field Card requires exactly 3 media items; found ${media.length}`);
+    const expectedMediaCount = short ? 2 : 3;
+    if (media.length !== expectedMediaCount) {
+      failures.push(`${cityKey}/${thing.id}: ${short ? 'short' : 'standard'} Field Card requires exactly ${expectedMediaCount} media items; found ${media.length}`);
     }
     for (const [index, item] of media.entries()) {
       if (!text(item?.src)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing src`);
