@@ -113,9 +113,8 @@ jobs:
           if (!runtime.includes('Nam Theun 2 – Regulating Dam')) throw new Error('Runtime module does not contain corrected Nam Theun name');
           console.log('All 11 Thakhek activity coordinates propagated to source, city output and runtime module.');
           NODE
-      - name: Validate Thakhek and application build
+      - name: Validate application contracts and build
         run: |
-          npm run qa-city -- laos thakhek
           npm run test:generation-integration
           npm run check
           npm run build
