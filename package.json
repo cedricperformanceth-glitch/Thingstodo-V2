@@ -16,6 +16,7 @@
     "audit:don-det-editorial": "node scripts/don-det-editorial-audit.mjs",
     "architecture-check": "node scripts/architecture-check.mjs",
     "validate-content": "node scripts/validate-generated-data.mjs",
+    "validate:field-cards": "node scripts/validate-field-card-content.mjs",
     "test:manual-locks": "node scripts/manual-lock-tests.mjs",
     "test:favorites": "node scripts/favorites-store-tests.mjs",
     "test:favorites-scalability": "node scripts/favorites-scalability-tests.mjs",
@@ -41,7 +42,7 @@
     "test:city-publish-qa": "node scripts/city-publish-qa-tests.mjs",
     "verify:pipeline": "npm run test:spa-contract && npm run test:card-presentation && npm run test:field-card-hero && npm run test:field-card-quick-read && npm run test:field-card-story-block && npm run test:field-card-secondary-story && npm run test:field-card-practical && npm run test:field-card-faq && npm run test:city-field-note && npm run test:city-categories && npm run test:source-verification && npm run test:candidate-ranking && npm run test:spa-card-generation && npm run test:spa-card-editorial && npm run test:spa-card-media && npm run test:photo-discovery && npm run test:generation-integration && npm run test:city-publish-qa",
     "regenerate-registry": "node scripts/regenerate-content-registry.mjs",
-    "verify:city-template": "npm run architecture-check && npm run validate-content && npm run test:manual-locks && npm run test:favorites && npm run test:favorites-scalability && npm run test:trip && npm run test:city-media && npm run verify:pipeline && npm run check && npm run build"
+    "verify:city-template": "npm run architecture-check && npm run validate-content && npm run validate:field-cards && npm run test:manual-locks && npm run test:favorites && npm run test:favorites-scalability && npm run test:trip && npm run test:city-media && npm run verify:pipeline && npm run check && npm run build"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
