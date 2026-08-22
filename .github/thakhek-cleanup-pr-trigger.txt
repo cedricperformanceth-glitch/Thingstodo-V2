@@ -1,1 +1,1 @@
-Trigger the one-off definitive Thakhek cleanup workflow after removing the last retired-status dependency.
+Trigger definitive Thakhek cleanup after removing all known retired-status consumers.
