@@ -3,7 +3,7 @@
   "country": "laos",
   "city": "thakhek",
   "profile": "compact",
-  "generatedAt": "2026-08-12T10:02:56.389Z",
+  "generatedAt": "2026-08-22T11:19:31.140Z",
   "researchPlan": {
     "categoryTargetPolicies": {
       "things-to-do": {
@@ -4900,8 +4900,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.453456,
+        "longitude": 104.909194
       },
       "shortDescription": "Follow the Route 12 cave corridor to Xiang Liap, a limestone cave close enough to Thakhek for a short outing or an early stop on the Loop.",
       "media": {
@@ -4940,7 +4940,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham+Xiang+Liap+Cave+Thakhek+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.453456,104.909194",
       "isLandmark": false,
       "longDescription": "Follow the Route 12 cave corridor to Xiang Liap, a limestone cave close enough to Thakhek for a short outing or an early stop on the Loop.",
       "breadcrumbs": [
@@ -4965,8 +4965,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.43141,
+        "longitude": 104.86439
       },
       "shortDescription": "Stop at the sacred Elephant Cave near the beginning of Cave Alley, a compact cultural and limestone visit that fits naturally into the first section of the Thakhek Loop.",
       "media": {
@@ -5005,7 +5005,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Elephant+Cave+Thakhek+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/place/Elephant+Cave/data=!4m2!3m1!1s0x0:0x918e3dc81010bfad?sa=X&ved=1t:2428&ictx=111",
       "isLandmark": false,
       "longDescription": "Stop at the sacred Elephant Cave near the beginning of Cave Alley, a compact cultural and limestone visit that fits naturally into the first section of the Thakhek Loop.",
       "breadcrumbs": [
@@ -5030,8 +5030,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.4766036,
+        "longitude": 104.8516357
       },
       "shortDescription": "Visit a cave known for its Buddhist significance in Khammouane’s limestone country, combining a natural cave stop with a cultural site rather than treating it as a purely geological attraction.",
       "media": {
@@ -5070,7 +5070,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham+Pha+Buddha+Cave+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.4766036,104.8516357",
       "isLandmark": false,
       "longDescription": "Visit a cave known for its Buddhist significance in Khammouane’s limestone country, combining a natural cave stop with a cultural site rather than treating it as a purely geological attraction.",
       "breadcrumbs": [
@@ -5095,8 +5095,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.4684725,
+        "longitude": 104.912938
       },
       "shortDescription": "Pause along Cave Alley at Tha Falang, a clear-water river stop where swimming and limestone scenery break up the first Loop day between cave visits.",
       "media": {
@@ -5135,7 +5135,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tha+Falang+Thakhek+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.4684725,104.912938",
       "isLandmark": false,
       "longDescription": "Pause along Cave Alley at Tha Falang, a clear-water river stop where swimming and limestone scenery break up the first Loop day between cave visits.",
       "breadcrumbs": [
@@ -5160,8 +5160,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.643636,
+        "longitude": 104.8128345
       },
       "shortDescription": "Make a nature detour to Khoun Kong Leng, one of Khammouane’s clear-water landscape stops, best approached as a slower excursion beyond Thakhek’s town-and-cave rhythm.",
       "media": {
@@ -5200,7 +5200,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khoun+Kong+Leng+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.643636,104.8128345",
       "isLandmark": false,
       "longDescription": "Make a nature detour to Khoun Kong Leng, one of Khammouane’s clear-water landscape stops, best approached as a slower excursion beyond Thakhek’s town-and-cave rhythm.",
       "breadcrumbs": [
@@ -5220,13 +5220,13 @@
     {
       "id": "thing-thalang-nam-theun-reservoir",
       "slug": "thalang-nam-theun-reservoir",
-      "name": "Thalang & Nam Theun Reservoir",
+      "name": "Nam Theun 2 – Regulating Dam",
       "country": "laos",
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.6509161,
+        "longitude": 105.1698207
       },
       "shortDescription": "Cross the reservoir landscape around Thalang on the Loop, where flooded forest, open water and the overnight road stop create a very different chapter from Cave Alley.",
       "media": {
@@ -5265,7 +5265,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thalang+Nam+Theun+Reservoir+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.6509161,105.1698207",
       "isLandmark": false,
       "longDescription": "Cross the reservoir landscape around Thalang on the Loop, where flooded forest, open water and the overnight road stop create a very different chapter from Cave Alley.",
       "breadcrumbs": [
@@ -5290,8 +5290,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.46145,
+        "longitude": 104.91585
       },
       "shortDescription": "Add Pha Inh to the first Loop day as another limestone stop in Cave Alley, useful when you want a denser cave route before continuing toward Thalang.",
       "media": {
@@ -5330,7 +5330,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pha+Inh+Cave+Thakhek+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.46145,104.91585",
       "isLandmark": false,
       "longDescription": "Add Pha Inh to the first Loop day as another limestone stop in Cave Alley, useful when you want a denser cave route before continuing toward Thalang.",
       "breadcrumbs": [
@@ -5355,8 +5355,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 18.2738894,
+        "longitude": 104.7140206
       },
       "shortDescription": "Use the Loop’s cool springs as a water-and-rest stop between longer road sections, giving the second day a natural break from riding through the karst landscape.",
       "media": {
@@ -5395,7 +5395,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cool+Springs+Thakhek+Loop+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=18.2738894,104.7140206",
       "isLandmark": false,
       "longDescription": "Use the Loop’s cool springs as a water-and-rest stop between longer road sections, giving the second day a natural break from riding through the karst landscape.",
       "breadcrumbs": [
@@ -5420,8 +5420,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 18.221168,
+        "longitude": 104.8121902
       },
       "shortDescription": "Stop at Dragon Cave during the Loop’s eastern section, adding another distinct cave visit to the road between Thalang and the route toward Kong Lor.",
       "media": {
@@ -5460,7 +5460,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dragon+Cave+Thakhek+Loop+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=18.221168,104.8121902",
       "isLandmark": false,
       "longDescription": "Stop at Dragon Cave during the Loop’s eastern section, adding another distinct cave visit to the road between Thalang and the route toward Kong Lor.",
       "breadcrumbs": [
@@ -5485,8 +5485,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.990689,
+        "longitude": 105.046281
       },
       "shortDescription": "Break up the Loop’s natural attractions with a cultural stop at the sandstone Buddha site, keeping the route from becoming a simple sequence of caves and swimming places.",
       "media": {
@@ -5525,7 +5525,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sandstone+Buddhas+Thakhek+Loop+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.990689,105.046281",
       "isLandmark": false,
       "longDescription": "Break up the Loop’s natural attractions with a cultural stop at the sandstone Buddha site, keeping the route from becoming a simple sequence of caves and swimming places.",
       "breadcrumbs": [
@@ -5550,8 +5550,8 @@
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 18.1781789,
+        "longitude": 104.4842187
       },
       "shortDescription": "Take in the limestone landscape around Phou Pha Marn as the Loop turns back toward Thakhek, a viewpoint stop that puts the scale of Khammouane’s karst terrain into perspective.",
       "media": {
@@ -5590,7 +5590,7 @@
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Phou+Pha+Marn+Viewpoint+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=18.1781789,104.4842187",
       "isLandmark": false,
       "longDescription": "Take in the limestone landscape around Phou Pha Marn as the Loop turns back toward Thakhek, a viewpoint stop that puts the scale of Khammouane’s karst terrain into perspective.",
       "breadcrumbs": [
