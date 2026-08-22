@@ -24,7 +24,6 @@ const mediaCopy = loadJson('src/content/field-card-media-copy.json');
 const sourceCopy = loadJson('src/content/field-card-source-copy.json');
 const secondaryStoryCopy = loadJson('src/content/field-card-secondary-story-copy.json');
 const depthOverrides = loadJson('src/content/field-card-depth-overrides.json');
-const statusOverrides = loadJson('src/content/thing-status-overrides.json');
 
 const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value ?? {}, key);
 const text = (value) => String(value ?? '').trim();
@@ -61,7 +60,6 @@ for (const filePath of cityFiles) {
   const cityKey = `${draft.country}/${draft.city}`;
   const activeThings = (draft.things ?? []).filter((thing) =>
     thing.category === 'things-to-do'
-    && statusOverrides[thing.id] !== 'removed'
     && thing.verification?.decision !== 'reject'
   );
 
@@ -89,6 +87,18 @@ for (const filePath of cityFiles) {
     const short = isShortFieldCard(thing.id);
     if (short) shortCount += 1;
     else standardCount += 1;
+
+    if (depthOverrides[thing.id]?.secondaryStory === false) {
+      if (hasOwn(compact[thing.id], 'secondaryStory')) {
+        failures.push(`${cityKey}/${thing.id}: depth-short Field Card must not retain compact secondaryStory data`);
+      }
+      if (hasOwn(secondaryStoryCopy, thing.id)) {
+        failures.push(`${cityKey}/${thing.id}: depth-short Field Card must not retain legacy secondaryStory data`);
+      }
+      if (thing.fieldCard?.secondaryStory) {
+        failures.push(`${cityKey}/${thing.id}: depth-short Field Card must not retain generated secondaryStory data`);
+      }
+    }
 
     const faq = resolveFaq(thing);
     const media = resolveMedia(thing);
