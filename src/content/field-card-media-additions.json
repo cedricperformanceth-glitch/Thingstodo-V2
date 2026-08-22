@@ -12,5 +12,31 @@
       "manual": true,
       "locked": true
     }
+  ],
+  "thing-cool-springs-loop": [
+    {
+      "id": "cool-springs-khammouane-context-6828860206",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Khoun%20Kong%20Leng%20Lake%20%286828860206%29.jpg?width=1200",
+      "alt": "Turquoise karst water at Khoun Kong Leng in Khammouane Province, used as regional spring context for Cool Springs on the Thakhek Loop",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khoun_Kong_Leng_Lake_(6828860206).jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Aleksey Gnilenkov",
+      "license": "CC BY 2.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "cool-springs-khammouane-context-6974984671",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Khoun%20Kong%20Leng%20Lake%20%286974984671%29.jpg?width=1200",
+      "alt": "Clear blue-green karst water at Khoun Kong Leng in Khammouane Province, used as regional context for Cool Springs near the Thakhek Loop",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khoun_Kong_Leng_Lake_(6974984671).jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Aleksey Gnilenkov",
+      "license": "CC BY 2.0",
+      "manual": true,
+      "locked": true
+    }
   ]
 }
