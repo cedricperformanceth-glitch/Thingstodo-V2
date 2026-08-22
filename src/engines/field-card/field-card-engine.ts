@@ -208,11 +208,13 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const sections = thing.fieldCard.sections ?? [];
   const primaryLegacyOffset = generatedPrimaryStory ? 0 : 2;
   const generatedSecondaryStory = thing.fieldCard.secondaryStory;
-  const secondaryEditorial = getEditorialSecondaryStory(thing.id);
-  const resolvedSecondaryStory = secondaryEditorial.hasOverride
-    ? secondaryEditorial.value
-    : generatedSecondaryStory ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
-  const secondaryStory = depth?.secondaryStory === false ? null : resolvedSecondaryStory;
+  let secondaryStory: FieldCardSecondaryStoryContent | null | undefined = null;
+  if (depth?.secondaryStory !== false) {
+    const secondaryEditorial = getEditorialSecondaryStory(thing.id);
+    secondaryStory = secondaryEditorial.hasOverride
+      ? secondaryEditorial.value
+      : generatedSecondaryStory ?? fallbackSecondaryStory(thing, sections.slice(primaryLegacyOffset, primaryLegacyOffset + 2));
+  }
   const remainingSections = generatedSecondaryStory ? sections : sections.slice(primaryLegacyOffset + 2);
   const resolvedPracticalNotes = getEditorialPractical(thing.id) ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
   const practicalNotes = applyPracticalDepth(resolvedPracticalNotes, depth?.practicalItemLabels);
@@ -220,7 +222,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const gallery = getEditorialMedia(thing.id) ?? thing.media.fieldCard?.gallery ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
-  const secondaryImage = gallery[2];
+  const secondaryImage = secondaryStory ? gallery[2] : undefined;
 
   return {
     thing: displayThing,
