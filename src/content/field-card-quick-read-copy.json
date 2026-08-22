@@ -1,32 +1,524 @@
 {
-  "thing-thakhek-loop": {"time":{"primary":"4 DAYS","secondary":"classic itinerary · 3–5 days recommended"},"route":{"primary":"450 KM CIRCUIT","secondary":"Route 12 · Thalang · Kong Lor · Route 8/13 return"},"budget":{"primary":"100–200K KIP/DAY","secondary":"official motorbike-rental range · fuel, rooms and tickets extra"},"bestFor":{"primary":"THE ROAD TRIP","secondary":"karst roads · caves · swimming stops · Kong Lor"}},
-  "thing-xe-bang-fai-cave": {"time":{"primary":"FULL DAY","secondary":"minimum · often multi-day"},"route":{"primary":"ROUTE 12","secondary":"East of Thakhek"},"budget":{"primary":"≈50K KIP","secondary":"entry · boat extra"},"bestFor":{"primary":"REMOTE ADVENTURE","secondary":"guided cave travel"}},
-  "thing-kong-lor-cave": {"time":{"primary":"2–3 HOURS","secondary":"longer if you use the Natane stop"},"route":{"primary":"7.5 KM UNDERGROUND","secondary":"longtail boat through the Nam Hin Boun"},"budget":{"primary":"CHECK CURRENT TICKET","secondary":"current official-facing sources disagree"},"bestFor":{"primary":"THE CLASSIC LOOP CAVE","secondary":"dark river passage · local boat journey"}},
-  "thing-tham-nang-aen-cave": {"time":{"primary":"1–2 HOURS","secondary":"longer if you add the boat route"},"route":{"primary":"ROUTE 12","secondary":"about 18 km northeast of Thakhek"},"budget":{"primary":"≈40–50K KIP","secondary":"recent entry references · boat extra"},"bestFor":{"primary":"EASY CAVE STOP","secondary":"huge chambers · developed walkways · cool air"}},
-  "thing-tham-xiang-liap-cave": {"time":{"primary":"1 TO 2 HOURS","secondary":"allow longer if water or guided activities extend the visit"},"route":{"primary":"ROUTE 12","secondary":"about 14 km northeast of Thakhek"},"budget":{"primary":"10K KIP","secondary":"official foreigner entry · extras separate"},"bestFor":{"primary":"NATURAL RIVER CAVE","secondary":"tall entrance · flowing water · lighter infrastructure"}},
-  "thing-tham-chang-elephant-cave": {"time":{"primary":"30 TO 60 MINUTES","secondary":"a compact first cave stop"},"route":{"primary":"BAN THAM","secondary":"Route 12 cave corridor close to Thakhek"},"budget":{"primary":"ABOUT 10K KIP","secondary":"recent 2026 reference · confirm locally"},"bestFor":{"primary":"BUDDHIST SHRINE","secondary":"golden Buddha · elephant formation · plain views"}},
-  "thing-tham-pha-buddha-cave": {"time":{"primary":"1 TO 2 HOURS","secondary":"allow longer if the lower cave route is operating"},"route":{"primary":"ABOUT 14 KM","secondary":"Ban Na Khan Sarng from Thakhek"},"budget":{"primary":"20K KIP","secondary":"current 2026 reference for the two caves"},"bestFor":{"primary":"SACRED HISTORY","secondary":"229 bronze Buddha images · active shrine"}},
-  "thing-tha-falang": {"time":{"primary":"1 TO 2 HOURS","secondary":"easy to shorten or linger longer"},"route":{"primary":"ROUTE 12","secondary":"about 15 km east of Thakhek"},"budget":{"primary":"CURRENTLY FREE","secondary":"river access · food and local services extra"},"bestFor":{"primary":"SWIM AND RESET","secondary":"clear river · shade · break between caves"}},
-  "thing-khoun-kong-leng": {"time":{"primary":"1 TO 3 HOURS","secondary":"longer if you add current paid activities"},"route":{"primary":"ABOUT 50 KM","secondary":"Route 13 then Ban Nakhou access road"},"budget":{"primary":"FREE ENTRY","secondary":"current official listing · activities priced separately"},"bestFor":{"primary":"EMERALD KARST SPRING","secondary":"clear water · limestone · local legend"}},
-  "thing-thalang-nam-theun-reservoir": {"time":{"primary":"OVERNIGHT STOP","secondary":"end of the classic 105 km Day 1"},"route":{"primary":"NAKAI PLATEAU","secondary":"Thakhek to Thalang via Route 12"},"budget":{"primary":"STAY AND FOOD","secondary":"reservoir view itself needs no attraction ticket"},"bestFor":{"primary":"SUNSET AND LOOP RHYTHM","secondary":"open water · drowned trees · first night"}},
-  "thing-pha-inh-cave": {"time":{"primary":"45–90 MINUTES","secondary":"short Cave Alley stop"},"route":{"primary":"ROUTE 12","secondary":"Day 1 east of Thakhek"},"budget":{"primary":"CHECK LOCALLY","secondary":"recent published fee references conflict"},"bestFor":{"primary":"SACRED CAVE + LIGHT","secondary":"Buddhist shrine · limestone pool · natural opening"}},
-  "thing-cool-springs-loop": {"time":{"primary":"1–2 HOURS","secondary":"easy swim-and-rest stop on Day 2"},"route":{"primary":"BAN NAPAVAN","secondary":"short side track from Route 8 on the Thalang–Khoun Kham stage"},"budget":{"primary":"CHECK CURRENT FEE","secondary":"older published prices vary · carry small cash"},"bestFor":{"primary":"COLD KARST SWIM","secondary":"turquoise spring · forest shade · road-day reset"}},
-  "thing-old-french-railway-bridge": {"time":{"primary":"20–40 MIN","secondary":"longer if you follow the old railway"},"route":{"primary":"DON DET → DON KHON","secondary":"easy on foot or bicycle"},"budget":{"primary":"FREE CROSSING","secondary":"reported free in recent traveller updates"},"bestFor":{"primary":"HISTORY + ISLAND RIDE","secondary":"pair with Don Khon and Li Phi"}},
-  "thing-li-phi-somphamit-waterfalls": {"time":{"primary":"1–2 HOURS","secondary":"half day if paired with Don Khon"},"route":{"primary":"DON KHON","secondary":"about 2 km south of the old railway bridge"},"budget":{"primary":"≈30–35K KIP","secondary":"recent entry references · reconfirm locally"},"bestFor":{"primary":"MEKONG POWER","secondary":"waterfall viewpoints + bicycle day"}},
-  "thing-khone-phapheng-falls": {"time":{"primary":"1–2 HOURS","secondary":"allow longer for the mainland transfer"},"route":{"primary":"MAINLAND","secondary":"via Ban Nakasang from Don Det"},"budget":{"primary":"CHECK LOCALLY","secondary":"entry + island transfer can change"},"bestFor":{"primary":"MEKONG SCALE","secondary":"the essential Si Phan Don cataract"}},
-  "thing-don-som-island": {"time":{"primary":"HALF DAY","secondary":"full day if you settle into the island rhythm"},"route":{"primary":"LOCAL BOAT","secondary":"direct from Don Det · arrange the return"},"budget":{"primary":"BOAT ONLY","secondary":"no attraction ticket · confirm fare locally"},"bestFor":{"primary":"LOCAL ISLAND LIFE","secondary":"villages · rice fields · quiet Mekong"}},
-  "thing-khone-pa-soi-waterfall": {"time":{"primary":"2–3 HOURS","secondary":"half day from Don Det at an easy pace"},"route":{"primary":"EAST DON KHON","secondary":"rough bicycle tracks · bridge access can change"},"budget":{"primary":"USUALLY FREE","secondary":"recent guides report free access · verify locally"},"bestFor":{"primary":"QUIET WATERFALL RIDE","secondary":"backroads · rapids · railway-era traces"}},
-  "thing-xai-kong-nyai-beach": {"time":{"primary":"1–2 HOURS","secondary":"longer if you stay for food or sunset"},"route":{"primary":"SOUTH DON KHON","secondary":"easy to pair with Li Phi by bicycle"},"budget":{"primary":"FREE BEACH","secondary":"food and longtail boats extra"},"bestFor":{"primary":"SWIM + SLOW DOWN","secondary":"river beach · simple food · sunset"}},
-  "thing-si-phan-don-by-boat": {"time":{"primary":"2–3 HOURS","secondary":"sunset or longer private charter"},"route":{"primary":"FROM DON DET","secondary":"agree route + return before departure"},"budget":{"primary":"NEGOTIATE LOCALLY","secondary":"private pirogue price depends on route"},"bestFor":{"primary":"SEE THE ARCHIPELAGO","secondary":"islets · river life · golden hour"}},
-  "thing-4000-islands-kayaking": {"time":{"primary":"FULL DAY","secondary":"current tours leave in the morning and return late afternoon"},"route":{"primary":"GUIDED FROM DON DET","secondary":"route varies with river conditions and operator"},"budget":{"primary":"≈US$25–26","secondary":"current 2026 listings · confirm before booking"},"bestFor":{"primary":"ACTIVE MEKONG DAY","secondary":"paddling · island channels · moving water"}},
-  "thing-cycle-don-det-don-khon": {"time":{"primary":"HALF DAY","secondary":"full day if you add waterfalls, beach and long stops"},"route":{"primary":"DON DET → DON KHON","secondary":"about 3 km from central Don Det to the bridge"},"budget":{"primary":"CHEAP BIKE RENTAL","secondary":"current local guide quotes about US$1.50/day"},"bestFor":{"primary":"SLOW ISLAND EXPLORING","secondary":"river paths · rice fields · easy stops"}},
-  "thing-don-det-tubing": {"time":{"primary":"ABOUT 1 HOUR","secondary":"current and starting point decide the float"},"route":{"primary":"DON DET RIVER EDGE","secondary":"finish before the old railway bridge"},"budget":{"primary":"≈10–20K KIP","secondary":"recent references · confirm tube rental locally"},"bestFor":{"primary":"SLOW RIVER FLOAT","secondary":"minimal effort · maximum Mekong"}},
-  "thing-don-det-sunset": {"time":{"primary":"45–90 MIN","secondary":"arrive before sunset and stay through afterglow"},"route":{"primary":"WEST DON DET","secondary":"walk or bicycle to an open Mekong view"},"budget":{"primary":"FREE","secondary":"drink or food optional"},"bestFor":{"primary":"SLOW GOLDEN HOUR","secondary":"Mekong light · reflections · no itinerary"}},
-  "thing-tad-hang-waterfall": {"time":{"primary":"1–2 HOURS","secondary":"easy to shorten or linger longer"},"route":{"primary":"WALK FROM TAD LO","secondary":"about 700 m by road from the Tourism Office"},"budget":{"primary":"CURRENTLY FREE","secondary":"reconfirm if site arrangements change"},"bestFor":{"primary":"EASY FIRST WATERFALL","secondary":"river views · village walk · cautious swim"}},
-  "thing-tad-lo-waterfall": {"time":{"primary":"1–2 HOURS","secondary":"longer when paired with Tad Hang"},"route":{"primary":"WALKABLE FROM TAD LO","secondary":"about 1.1 km by road from the Tourism Office"},"budget":{"primary":"CURRENTLY FREE","secondary":"public access listed free · private-side charges can differ"},"bestFor":{"primary":"THE NAMESAKE FALL","secondary":"village walk · Xe Set · slow afternoon"}},
-  "thing-tad-soung-waterfall": {"time":{"primary":"HALF DAY","secondary":"allow time for lower and upper access"},"route":{"primary":"≈4 KM TO LOWER FALLS","secondary":"then 80–100 m trail ascent or road access to the top"},"budget":{"primary":"FREE WATERFALL","secondary":"motorbike parking normally about 10K KIP"},"bestFor":{"primary":"PANORAMA + RURAL HIKE","secondary":"fields · villages · high escarpment · seasonal flow"}},
-  "thing-katu-weaving-workshop": {"time":{"primary":"ABOUT 4 HOURS","secondary":"half-day hands-on workshop"},"route":{"primary":"WALKABLE","secondary":"confirm the exact host and meeting point when booking"},"budget":{"primary":"PAID · CONFIRM PRICE","secondary":"current Visit Tad Lo page does not publish a fixed rate"},"bestFor":{"primary":"HANDS-ON CRAFT","secondary":"backstrap loom · beaded textiles · patient technique"}},
-  "thing-lao-cooking-class-with-nyay": {"time":{"primary":"HALF DAY","secondary":"morning class for lunch or afternoon class for dinner"},"route":{"primary":"WALKABLE IN TAD LO","secondary":"confirm the exact meeting point when booking"},"budget":{"primary":"500K KIP","secondary":"current Fandee Island listing · reconfirm before booking"},"bestFor":{"primary":"COOK + SHARE A MEAL","secondary":"fresh local ingredients · Lao techniques · meal included"}},
-  "thing-coffee-and-katu-culture-with-mr-hook": {"time":{"primary":"ABOUT 3 HOURS","secondary":"keep a half day clear for the visit"},"route":{"primary":"≈15 KM FROM TAD LO","secondary":"Ban Kok Phoung Tai · road toward Thateng"},"budget":{"primary":"PAID · CONFIRM PRICE","secondary":"current Visit Tad Lo page does not publish a fixed rate"},"bestFor":{"primary":"COFFEE + CULTURAL EXCHANGE","secondary":"useful plants · questions · local perspective"}},
-  "thing-coffee-from-tree-to-cup-with-mr-vieng": {"time":{"primary":"ABOUT 90 MIN","secondary":"less than three hours including arrival and coffee time"},"route":{"primary":"≈30 KM FROM TAD LO","secondary":"near Laongam · motorbike recommended or car/minivan"},"budget":{"primary":"PAID · CONFIRM PRICE","secondary":"current Visit Tad Lo page does not publish a fixed rate"},"bestFor":{"primary":"COFFEE FROM FARM TO CUP","secondary":"trees · processing · preparation · farmer context"}}
+  "thing-thakhek-loop": {
+    "time": {
+      "primary": "4 DAYS",
+      "secondary": "classic itinerary · 3–5 days recommended"
+    },
+    "route": {
+      "primary": "450 KM CIRCUIT",
+      "secondary": "Route 12 · Thalang · Kong Lor · Route 8/13 return"
+    },
+    "budget": {
+      "primary": "100–200K KIP/DAY",
+      "secondary": "official motorbike-rental range · fuel, rooms and tickets extra"
+    },
+    "bestFor": {
+      "primary": "THE ROAD TRIP",
+      "secondary": "karst roads · caves · swimming stops · Kong Lor"
+    }
+  },
+  "thing-xe-bang-fai-cave": {
+    "time": {
+      "primary": "FULL DAY",
+      "secondary": "minimum · often multi-day"
+    },
+    "route": {
+      "primary": "ROUTE 12",
+      "secondary": "East of Thakhek"
+    },
+    "budget": {
+      "primary": "≈50K KIP",
+      "secondary": "entry · boat extra"
+    },
+    "bestFor": {
+      "primary": "REMOTE ADVENTURE",
+      "secondary": "guided cave travel"
+    }
+  },
+  "thing-kong-lor-cave": {
+    "time": {
+      "primary": "2–3 HOURS",
+      "secondary": "longer if you use the Natane stop"
+    },
+    "route": {
+      "primary": "7.5 KM UNDERGROUND",
+      "secondary": "longtail boat through the Nam Hin Boun"
+    },
+    "budget": {
+      "primary": "CHECK CURRENT TICKET",
+      "secondary": "current official-facing sources disagree"
+    },
+    "bestFor": {
+      "primary": "THE CLASSIC LOOP CAVE",
+      "secondary": "dark river passage · local boat journey"
+    }
+  },
+  "thing-tham-xiang-liap-cave": {
+    "time": {
+      "primary": "1 TO 2 HOURS",
+      "secondary": "allow longer if water or guided activities extend the visit"
+    },
+    "route": {
+      "primary": "ROUTE 12",
+      "secondary": "about 14 km northeast of Thakhek"
+    },
+    "budget": {
+      "primary": "10K KIP",
+      "secondary": "official foreigner entry · extras separate"
+    },
+    "bestFor": {
+      "primary": "NATURAL RIVER CAVE",
+      "secondary": "tall entrance · flowing water · lighter infrastructure"
+    }
+  },
+  "thing-tham-chang-elephant-cave": {
+    "time": {
+      "primary": "30 TO 60 MINUTES",
+      "secondary": "a compact first cave stop"
+    },
+    "route": {
+      "primary": "BAN THAM",
+      "secondary": "Route 12 cave corridor close to Thakhek"
+    },
+    "budget": {
+      "primary": "ABOUT 10K KIP",
+      "secondary": "recent 2026 reference · confirm locally"
+    },
+    "bestFor": {
+      "primary": "BUDDHIST SHRINE",
+      "secondary": "golden Buddha · elephant formation · plain views"
+    }
+  },
+  "thing-tham-pha-buddha-cave": {
+    "time": {
+      "primary": "1 TO 2 HOURS",
+      "secondary": "allow longer if the lower cave route is operating"
+    },
+    "route": {
+      "primary": "ABOUT 14 KM",
+      "secondary": "Ban Na Khan Sarng from Thakhek"
+    },
+    "budget": {
+      "primary": "20K KIP",
+      "secondary": "current 2026 reference for the two caves"
+    },
+    "bestFor": {
+      "primary": "SACRED HISTORY",
+      "secondary": "229 bronze Buddha images · active shrine"
+    }
+  },
+  "thing-tha-falang": {
+    "time": {
+      "primary": "1 TO 2 HOURS",
+      "secondary": "easy to shorten or linger longer"
+    },
+    "route": {
+      "primary": "ROUTE 12",
+      "secondary": "about 15 km east of Thakhek"
+    },
+    "budget": {
+      "primary": "CURRENTLY FREE",
+      "secondary": "river access · food and local services extra"
+    },
+    "bestFor": {
+      "primary": "SWIM AND RESET",
+      "secondary": "clear river · shade · break between caves"
+    }
+  },
+  "thing-khoun-kong-leng": {
+    "time": {
+      "primary": "1 TO 3 HOURS",
+      "secondary": "longer if you add current paid activities"
+    },
+    "route": {
+      "primary": "ABOUT 50 KM",
+      "secondary": "Route 13 then Ban Nakhou access road"
+    },
+    "budget": {
+      "primary": "FREE ENTRY",
+      "secondary": "current official listing · activities priced separately"
+    },
+    "bestFor": {
+      "primary": "EMERALD KARST SPRING",
+      "secondary": "clear water · limestone · local legend"
+    }
+  },
+  "thing-thalang-nam-theun-reservoir": {
+    "time": {
+      "primary": "OVERNIGHT STOP",
+      "secondary": "end of the classic 105 km Day 1"
+    },
+    "route": {
+      "primary": "NAKAI PLATEAU",
+      "secondary": "Thakhek to Thalang via Route 12"
+    },
+    "budget": {
+      "primary": "STAY AND FOOD",
+      "secondary": "reservoir view itself needs no attraction ticket"
+    },
+    "bestFor": {
+      "primary": "SUNSET AND LOOP RHYTHM",
+      "secondary": "open water · drowned trees · first night"
+    }
+  },
+  "thing-pha-inh-cave": {
+    "time": {
+      "primary": "45–90 MINUTES",
+      "secondary": "short Cave Alley stop"
+    },
+    "route": {
+      "primary": "ROUTE 12",
+      "secondary": "Day 1 east of Thakhek"
+    },
+    "budget": {
+      "primary": "CHECK LOCALLY",
+      "secondary": "recent published fee references conflict"
+    },
+    "bestFor": {
+      "primary": "SACRED CAVE + LIGHT",
+      "secondary": "Buddhist shrine · limestone pool · natural opening"
+    }
+  },
+  "thing-cool-springs-loop": {
+    "time": {
+      "primary": "1–2 HOURS",
+      "secondary": "easy swim-and-rest stop on Day 2"
+    },
+    "route": {
+      "primary": "BAN NAPAVAN",
+      "secondary": "short side track from Route 8 on the Thalang–Khoun Kham stage"
+    },
+    "budget": {
+      "primary": "CHECK CURRENT FEE",
+      "secondary": "older published prices vary · carry small cash"
+    },
+    "bestFor": {
+      "primary": "COLD KARST SWIM",
+      "secondary": "turquoise spring · forest shade · road-day reset"
+    }
+  },
+  "thing-old-french-railway-bridge": {
+    "time": {
+      "primary": "20–40 MIN",
+      "secondary": "longer if you follow the old railway"
+    },
+    "route": {
+      "primary": "DON DET → DON KHON",
+      "secondary": "easy on foot or bicycle"
+    },
+    "budget": {
+      "primary": "FREE CROSSING",
+      "secondary": "reported free in recent traveller updates"
+    },
+    "bestFor": {
+      "primary": "HISTORY + ISLAND RIDE",
+      "secondary": "pair with Don Khon and Li Phi"
+    }
+  },
+  "thing-li-phi-somphamit-waterfalls": {
+    "time": {
+      "primary": "1–2 HOURS",
+      "secondary": "half day if paired with Don Khon"
+    },
+    "route": {
+      "primary": "DON KHON",
+      "secondary": "about 2 km south of the old railway bridge"
+    },
+    "budget": {
+      "primary": "≈30–35K KIP",
+      "secondary": "recent entry references · reconfirm locally"
+    },
+    "bestFor": {
+      "primary": "MEKONG POWER",
+      "secondary": "waterfall viewpoints + bicycle day"
+    }
+  },
+  "thing-khone-phapheng-falls": {
+    "time": {
+      "primary": "1–2 HOURS",
+      "secondary": "allow longer for the mainland transfer"
+    },
+    "route": {
+      "primary": "MAINLAND",
+      "secondary": "via Ban Nakasang from Don Det"
+    },
+    "budget": {
+      "primary": "CHECK LOCALLY",
+      "secondary": "entry + island transfer can change"
+    },
+    "bestFor": {
+      "primary": "MEKONG SCALE",
+      "secondary": "the essential Si Phan Don cataract"
+    }
+  },
+  "thing-don-som-island": {
+    "time": {
+      "primary": "HALF DAY",
+      "secondary": "full day if you settle into the island rhythm"
+    },
+    "route": {
+      "primary": "LOCAL BOAT",
+      "secondary": "direct from Don Det · arrange the return"
+    },
+    "budget": {
+      "primary": "BOAT ONLY",
+      "secondary": "no attraction ticket · confirm fare locally"
+    },
+    "bestFor": {
+      "primary": "LOCAL ISLAND LIFE",
+      "secondary": "villages · rice fields · quiet Mekong"
+    }
+  },
+  "thing-khone-pa-soi-waterfall": {
+    "time": {
+      "primary": "2–3 HOURS",
+      "secondary": "half day from Don Det at an easy pace"
+    },
+    "route": {
+      "primary": "EAST DON KHON",
+      "secondary": "rough bicycle tracks · bridge access can change"
+    },
+    "budget": {
+      "primary": "USUALLY FREE",
+      "secondary": "recent guides report free access · verify locally"
+    },
+    "bestFor": {
+      "primary": "QUIET WATERFALL RIDE",
+      "secondary": "backroads · rapids · railway-era traces"
+    }
+  },
+  "thing-xai-kong-nyai-beach": {
+    "time": {
+      "primary": "1–2 HOURS",
+      "secondary": "longer if you stay for food or sunset"
+    },
+    "route": {
+      "primary": "SOUTH DON KHON",
+      "secondary": "easy to pair with Li Phi by bicycle"
+    },
+    "budget": {
+      "primary": "FREE BEACH",
+      "secondary": "food and longtail boats extra"
+    },
+    "bestFor": {
+      "primary": "SWIM + SLOW DOWN",
+      "secondary": "river beach · simple food · sunset"
+    }
+  },
+  "thing-si-phan-don-by-boat": {
+    "time": {
+      "primary": "2–3 HOURS",
+      "secondary": "sunset or longer private charter"
+    },
+    "route": {
+      "primary": "FROM DON DET",
+      "secondary": "agree route + return before departure"
+    },
+    "budget": {
+      "primary": "NEGOTIATE LOCALLY",
+      "secondary": "private pirogue price depends on route"
+    },
+    "bestFor": {
+      "primary": "SEE THE ARCHIPELAGO",
+      "secondary": "islets · river life · golden hour"
+    }
+  },
+  "thing-4000-islands-kayaking": {
+    "time": {
+      "primary": "FULL DAY",
+      "secondary": "current tours leave in the morning and return late afternoon"
+    },
+    "route": {
+      "primary": "GUIDED FROM DON DET",
+      "secondary": "route varies with river conditions and operator"
+    },
+    "budget": {
+      "primary": "≈US$25–26",
+      "secondary": "current 2026 listings · confirm before booking"
+    },
+    "bestFor": {
+      "primary": "ACTIVE MEKONG DAY",
+      "secondary": "paddling · island channels · moving water"
+    }
+  },
+  "thing-cycle-don-det-don-khon": {
+    "time": {
+      "primary": "HALF DAY",
+      "secondary": "full day if you add waterfalls, beach and long stops"
+    },
+    "route": {
+      "primary": "DON DET → DON KHON",
+      "secondary": "about 3 km from central Don Det to the bridge"
+    },
+    "budget": {
+      "primary": "CHEAP BIKE RENTAL",
+      "secondary": "current local guide quotes about US$1.50/day"
+    },
+    "bestFor": {
+      "primary": "SLOW ISLAND EXPLORING",
+      "secondary": "river paths · rice fields · easy stops"
+    }
+  },
+  "thing-don-det-tubing": {
+    "time": {
+      "primary": "ABOUT 1 HOUR",
+      "secondary": "current and starting point decide the float"
+    },
+    "route": {
+      "primary": "DON DET RIVER EDGE",
+      "secondary": "finish before the old railway bridge"
+    },
+    "budget": {
+      "primary": "≈10–20K KIP",
+      "secondary": "recent references · confirm tube rental locally"
+    },
+    "bestFor": {
+      "primary": "SLOW RIVER FLOAT",
+      "secondary": "minimal effort · maximum Mekong"
+    }
+  },
+  "thing-don-det-sunset": {
+    "time": {
+      "primary": "45–90 MIN",
+      "secondary": "arrive before sunset and stay through afterglow"
+    },
+    "route": {
+      "primary": "WEST DON DET",
+      "secondary": "walk or bicycle to an open Mekong view"
+    },
+    "budget": {
+      "primary": "FREE",
+      "secondary": "drink or food optional"
+    },
+    "bestFor": {
+      "primary": "SLOW GOLDEN HOUR",
+      "secondary": "Mekong light · reflections · no itinerary"
+    }
+  },
+  "thing-tad-hang-waterfall": {
+    "time": {
+      "primary": "1–2 HOURS",
+      "secondary": "easy to shorten or linger longer"
+    },
+    "route": {
+      "primary": "WALK FROM TAD LO",
+      "secondary": "about 700 m by road from the Tourism Office"
+    },
+    "budget": {
+      "primary": "CURRENTLY FREE",
+      "secondary": "reconfirm if site arrangements change"
+    },
+    "bestFor": {
+      "primary": "EASY FIRST WATERFALL",
+      "secondary": "river views · village walk · cautious swim"
+    }
+  },
+  "thing-tad-lo-waterfall": {
+    "time": {
+      "primary": "1–2 HOURS",
+      "secondary": "longer when paired with Tad Hang"
+    },
+    "route": {
+      "primary": "WALKABLE FROM TAD LO",
+      "secondary": "about 1.1 km by road from the Tourism Office"
+    },
+    "budget": {
+      "primary": "CURRENTLY FREE",
+      "secondary": "public access listed free · private-side charges can differ"
+    },
+    "bestFor": {
+      "primary": "THE NAMESAKE FALL",
+      "secondary": "village walk · Xe Set · slow afternoon"
+    }
+  },
+  "thing-tad-soung-waterfall": {
+    "time": {
+      "primary": "HALF DAY",
+      "secondary": "allow time for lower and upper access"
+    },
+    "route": {
+      "primary": "≈4 KM TO LOWER FALLS",
+      "secondary": "then 80–100 m trail ascent or road access to the top"
+    },
+    "budget": {
+      "primary": "FREE WATERFALL",
+      "secondary": "motorbike parking normally about 10K KIP"
+    },
+    "bestFor": {
+      "primary": "PANORAMA + RURAL HIKE",
+      "secondary": "fields · villages · high escarpment · seasonal flow"
+    }
+  },
+  "thing-katu-weaving-workshop": {
+    "time": {
+      "primary": "ABOUT 4 HOURS",
+      "secondary": "half-day hands-on workshop"
+    },
+    "route": {
+      "primary": "WALKABLE",
+      "secondary": "confirm the exact host and meeting point when booking"
+    },
+    "budget": {
+      "primary": "PAID · CONFIRM PRICE",
+      "secondary": "current Visit Tad Lo page does not publish a fixed rate"
+    },
+    "bestFor": {
+      "primary": "HANDS-ON CRAFT",
+      "secondary": "backstrap loom · beaded textiles · patient technique"
+    }
+  },
+  "thing-lao-cooking-class-with-nyay": {
+    "time": {
+      "primary": "HALF DAY",
+      "secondary": "morning class for lunch or afternoon class for dinner"
+    },
+    "route": {
+      "primary": "WALKABLE IN TAD LO",
+      "secondary": "confirm the exact meeting point when booking"
+    },
+    "budget": {
+      "primary": "500K KIP",
+      "secondary": "current Fandee Island listing · reconfirm before booking"
+    },
+    "bestFor": {
+      "primary": "COOK + SHARE A MEAL",
+      "secondary": "fresh local ingredients · Lao techniques · meal included"
+    }
+  },
+  "thing-coffee-and-katu-culture-with-mr-hook": {
+    "time": {
+      "primary": "ABOUT 3 HOURS",
+      "secondary": "keep a half day clear for the visit"
+    },
+    "route": {
+      "primary": "≈15 KM FROM TAD LO",
+      "secondary": "Ban Kok Phoung Tai · road toward Thateng"
+    },
+    "budget": {
+      "primary": "PAID · CONFIRM PRICE",
+      "secondary": "current Visit Tad Lo page does not publish a fixed rate"
+    },
+    "bestFor": {
+      "primary": "COFFEE + CULTURAL EXCHANGE",
+      "secondary": "useful plants · questions · local perspective"
+    }
+  },
+  "thing-coffee-from-tree-to-cup-with-mr-vieng": {
+    "time": {
+      "primary": "ABOUT 90 MIN",
+      "secondary": "less than three hours including arrival and coffee time"
+    },
+    "route": {
+      "primary": "≈30 KM FROM TAD LO",
+      "secondary": "near Laongam · motorbike recommended or car/minivan"
+    },
+    "budget": {
+      "primary": "PAID · CONFIRM PRICE",
+      "secondary": "current Visit Tad Lo page does not publish a fixed rate"
+    },
+    "bestFor": {
+      "primary": "COFFEE FROM FARM TO CUP",
+      "secondary": "trees · processing · preparation · farmer context"
+    }
+  }
 }

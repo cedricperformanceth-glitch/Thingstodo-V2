@@ -1,204 +1,952 @@
 {
   "thing-thakhek-loop": [
-    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"current-official-450km-route-daily-stages-rental-navigation-fuel-cash-and-safety","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Thakhek Loop Expedition","sourceUrl":"https://www.khammouanetourism.org/en/tours/thakhek-loop-adventure","purpose":"official-4-day-3-night-format-and-self-drive-or-guided-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Home","sourceUrl":"https://www.khammouanetourism.org/en","purpose":"current-3-to-5-day-recommendation-and-Nov-Feb-travel-window","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · NR12 Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:NR12_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Thakhek route to caves 01","sourceUrl":"https://commons.wikimedia.org/wiki/File:01_Thakhek_route_16_to_caves_-_panoramio.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Thakhek route to caves 03","sourceUrl":"https://commons.wikimedia.org/wiki/File:03_Thakhek_route_16_to_caves_-_panoramio.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "purpose": "current-official-450km-route-daily-stages-rental-navigation-fuel-cash-and-safety",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop Expedition",
+      "sourceUrl": "https://www.khammouanetourism.org/en/tours/thakhek-loop-adventure",
+      "purpose": "official-4-day-3-night-format-and-self-drive-or-guided-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Home",
+      "sourceUrl": "https://www.khammouanetourism.org/en",
+      "purpose": "current-3-to-5-day-recommendation-and-Nov-Feb-travel-window",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · NR12 Laos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NR12_Laos.jpg",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Thakhek route to caves 01",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:01_Thakhek_route_16_to_caves_-_panoramio.jpg",
+      "purpose": "story-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Thakhek route to caves 03",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:03_Thakhek_route_16_to_caves_-_panoramio.jpg",
+      "purpose": "secondary-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-kong-lor-cave": [
-    {"sourceName":"Khammouane Tourism · Kong Lor Cave","sourceUrl":"https://www.khammouanetourism.org/en/places/Kong-lor-cave","purpose":"current-official-site-facts-pricing-season-and-facilities","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official-loop-route-duration-and-7.5km-cave-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Konglor Natane Cave · Community activities","sourceUrl":"https://www.konglor-natane-cave.com/activites/","purpose":"current-opening-hours-boat-pricing-equipment-and-natane-stop","reviewedAt":"2026-08-21"},
-    {"sourceName":"KARST · Konglor–Natane Cave","sourceUrl":"https://www.karst-laos.com/des-paysages-et-des-habitants/la-grotte-de-konglor-natane/","purpose":"community-management-geography-and-local-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Konglor cave Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Konglor_cave_laos.JPG","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Kong Lor cave inlet","sourceUrl":"https://commons.wikimedia.org/wiki/File:20171120_Wlot_jaskini_Kong_Lor_w_Laosie_3663_DxO.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Kong Lor Caves of Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Kong_Lor_Caves_of_Laos_(5422115490).jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
-  ],
-  "thing-tham-nang-aen-cave": [
-    {"sourceName":"Tourism Laos · Khammouane Province / Tham Nang Aen","sourceUrl":"https://www.tourismlaos.org/central-provinces/khammouane-province/","purpose":"official-cave-scale-location-legend-and-visitor-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Nang Aen Cave","sourceUrl":"https://www.khammouanetourism.org/en/places?category=%E0%BA%97%E0%BA%B3%E0%BA%A1%E0%BA%B0%E0%BA%8A%E0%BA%B2%E0%BA%94","purpose":"current-official-destination-status-and-family-friendly-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Petit Futé 2026 · Tham Nang Aen","sourceUrl":"https://www.petitfute.co.uk/v52377-thakhek/c1173-visites-points-d-interet/c974-site-naturel/462093-tham-nang-aen.html","purpose":"current-hours-entry-and-facilities-cross-check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Coordinotes · Thakhek Loop","sourceUrl":"https://coordinotes.be/thakhek-loop-laos/","purpose":"recent-price-boat-and-opening-hours-cross-check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Nang Aen cave","sourceUrl":"https://commons.wikimedia.org/wiki/File:10_Nang_Aen_cane_-_panoramio.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Kong Lor Cave",
+      "sourceUrl": "https://www.khammouanetourism.org/en/places/Kong-lor-cave",
+      "purpose": "current-official-site-facts-pricing-season-and-facilities",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "purpose": "official-loop-route-duration-and-7.5km-cave-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Konglor Natane Cave · Community activities",
+      "sourceUrl": "https://www.konglor-natane-cave.com/activites/",
+      "purpose": "current-opening-hours-boat-pricing-equipment-and-natane-stop",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "KARST · Konglor–Natane Cave",
+      "sourceUrl": "https://www.karst-laos.com/des-paysages-et-des-habitants/la-grotte-de-konglor-natane/",
+      "purpose": "community-management-geography-and-local-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Konglor cave Laos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konglor_cave_laos.JPG",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Kong Lor cave inlet",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20171120_Wlot_jaskini_Kong_Lor_w_Laosie_3663_DxO.jpg",
+      "purpose": "story-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Kong Lor Caves of Laos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kong_Lor_Caves_of_Laos_(5422115490).jpg",
+      "purpose": "secondary-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-tham-xiang-liap-cave": [
-    {"sourceName":"Khammouane Tourism · Xiang Liap Cave","sourceUrl":"https://www.khammouanetourism.org/en/places/Xiang-Liap-Cave","purpose":"current official location hours entry season difficulty facilities legend and safety","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Thakhek district","sourceUrl":"https://www.khammouanetourism.org/en/districts/thakhek","purpose":"current official destination status and Thakhek context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikivoyage · Thakhek","sourceUrl":"https://en.wikivoyage.org/wiki/Thakhek","purpose":"current Route 12 river cave and access cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Tham Xieng Liap","sourceUrl":"https://commons.wikimedia.org/wiki/File:05_Tham_Xieng_Liap_-_panoramio.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Xiang Liap Cave",
+      "sourceUrl": "https://www.khammouanetourism.org/en/places/Xiang-Liap-Cave",
+      "purpose": "current official location hours entry season difficulty facilities legend and safety",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek district",
+      "sourceUrl": "https://www.khammouanetourism.org/en/districts/thakhek",
+      "purpose": "current official destination status and Thakhek context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikivoyage · Thakhek",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Thakhek",
+      "purpose": "current Route 12 river cave and access cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Tham Xieng Liap",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:05_Tham_Xieng_Liap_-_panoramio.jpg",
+      "purpose": "editorial media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-tham-chang-elephant-cave": [
-    {"sourceName":"Khammouane Tourism · Thakhek district","sourceUrl":"https://www.khammouanetourism.org/en/districts/thakhek","purpose":"current official attraction status and Thakhek context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official Cave Alley position and Loop context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Petit Futé 2026 · Elephant Cave","sourceUrl":"https://www.petitfute.com/v52377-thakhek/c1173-visites-points-d-interet/c974-site-naturel/462092-tham-pha-ban-tham-elephant-cave.html","purpose":"current price shrine golden Buddha elephant formation and viewpoint cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Lonely Planet · Tham Xang","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/tham-xang/1118861","purpose":"elephant formation location proximity to Thakhek and torch guidance","reviewedAt":"2026-08-21"},
-    {"sourceName":"Thailande et Asie · Tham Xang","sourceUrl":"https://thailande-et-asie.com/en/visiter-grottes-thakhek-laos","purpose":"recent local ritual access and wet season context cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Tham Pha Ban Tham","sourceUrl":"https://commons.wikimedia.org/wiki/File:02_Tham_Pha_Bahn_Tham_cave_-_panoramio.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Thakhek district",
+      "sourceUrl": "https://www.khammouanetourism.org/en/districts/thakhek",
+      "purpose": "current official attraction status and Thakhek context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "purpose": "official Cave Alley position and Loop context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Petit Futé 2026 · Elephant Cave",
+      "sourceUrl": "https://www.petitfute.com/v52377-thakhek/c1173-visites-points-d-interet/c974-site-naturel/462092-tham-pha-ban-tham-elephant-cave.html",
+      "purpose": "current price shrine golden Buddha elephant formation and viewpoint cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Lonely Planet · Tham Xang",
+      "sourceUrl": "https://www.lonelyplanet.com/points-of-interest/tham-xang/1118861",
+      "purpose": "elephant formation location proximity to Thakhek and torch guidance",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Thailande et Asie · Tham Xang",
+      "sourceUrl": "https://thailande-et-asie.com/en/visiter-grottes-thakhek-laos",
+      "purpose": "recent local ritual access and wet season context cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Tham Pha Ban Tham",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:02_Tham_Pha_Bahn_Tham_cave_-_panoramio.jpg",
+      "purpose": "editorial media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-tham-pha-buddha-cave": [
-    {"sourceName":"Khammouane Tourism · Thakhek district","sourceUrl":"https://www.khammouanetourism.org/en/districts/thakhek","purpose":"current official attraction status and Thakhek district context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Petit Futé 2026 · Tham Pa Fa Buddha Cave","sourceUrl":"https://www.petitfute.co.uk/v52377-thakhek/c1173-visites-points-d-interet/c974-site-naturel/462091-tham-pa-fa-buddha-cave.html","purpose":"current hours entrance two cave format dress rules lower cave and sanctuary facts","reviewedAt":"2026-08-21"},
-    {"sourceName":"Explo Laos · Tham Pha Fa","sourceUrl":"https://www.explo-laos.com/Grottes/Tham_Pha_Fa.html","purpose":"2004 discovery survey 229 statues photography rule and lower cave research context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikivoyage · Thakhek","sourceUrl":"https://en.wikivoyage.org/wiki/Thakhek","purpose":"current walkway concrete steps clothing and photography cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Buddha cave Laos","sourceUrl":"https://commons.wikimedia.org/wiki/File:Buddha_cave,_Laos.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Thakhek district",
+      "sourceUrl": "https://www.khammouanetourism.org/en/districts/thakhek",
+      "purpose": "current official attraction status and Thakhek district context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Petit Futé 2026 · Tham Pa Fa Buddha Cave",
+      "sourceUrl": "https://www.petitfute.co.uk/v52377-thakhek/c1173-visites-points-d-interet/c974-site-naturel/462091-tham-pa-fa-buddha-cave.html",
+      "purpose": "current hours entrance two cave format dress rules lower cave and sanctuary facts",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Explo Laos · Tham Pha Fa",
+      "sourceUrl": "https://www.explo-laos.com/Grottes/Tham_Pha_Fa.html",
+      "purpose": "2004 discovery survey 229 statues photography rule and lower cave research context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikivoyage · Thakhek",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Thakhek",
+      "purpose": "current walkway concrete steps clothing and photography cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Buddha cave Laos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Buddha_cave,_Laos.jpg",
+      "purpose": "editorial media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-tha-falang": [
-    {"sourceName":"Khammouane Tourism · Thakhek district","sourceUrl":"https://www.khammouanetourism.org/en/districts/thakhek","purpose":"current official attraction status river swimming camping and Lao food context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Tourism places","sourceUrl":"https://www.khammouanetourism.org/en/places?category=%E0%BA%97%E0%BA%B3%E0%BA%A1%E0%BA%B0%E0%BA%8A%E0%BA%B2%E0%BA%94","purpose":"official Tha Fa Lang listing and current natural attraction context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official Cave Alley position and first day Loop context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikivoyage · Thakhek","sourceUrl":"https://en.wikivoyage.org/wiki/Thakhek","purpose":"current Route 12 distance access track and dry season cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Thakhek Tours · Cave Alley","sourceUrl":"https://thakhektours.com/cave-alley-thakhek","purpose":"current local river swimming free access weekend use services and name history cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Taa Falan Thakek","sourceUrl":"https://commons.wikimedia.org/wiki/File:Taa_Falan,Thakek,_Khamoune_Province,_Lao_(6971657929).jpg","purpose":"hero and story media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Taa Falan second view","sourceUrl":"https://commons.wikimedia.org/wiki/File:Taa_Falan_(6973301765).jpg","purpose":"secondary media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Thakhek district",
+      "sourceUrl": "https://www.khammouanetourism.org/en/districts/thakhek",
+      "purpose": "current official attraction status river swimming camping and Lao food context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Tourism places",
+      "sourceUrl": "https://www.khammouanetourism.org/en/places?category=%E0%BA%97%E0%BA%B3%E0%BA%A1%E0%BA%B0%E0%BA%8A%E0%BA%B2%E0%BA%94",
+      "purpose": "official Tha Fa Lang listing and current natural attraction context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "purpose": "official Cave Alley position and first day Loop context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikivoyage · Thakhek",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Thakhek",
+      "purpose": "current Route 12 distance access track and dry season cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Thakhek Tours · Cave Alley",
+      "sourceUrl": "https://thakhektours.com/cave-alley-thakhek",
+      "purpose": "current local river swimming free access weekend use services and name history cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Taa Falan Thakek",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taa_Falan,Thakek,_Khamoune_Province,_Lao_(6971657929).jpg",
+      "purpose": "hero and story media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Taa Falan second view",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taa_Falan_(6973301765).jpg",
+      "purpose": "secondary media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-khoun-kong-leng": [
-    {"sourceName":"Khammouane Tourism · Khoun Kong Leng","sourceUrl":"https://www.khammouanetourism.org/en/places/Khoun-Kong-Leng","purpose":"current official access hours entry activities facilities karst spring legend and safety guidance","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Hinboun places","sourceUrl":"https://www.khammouanetourism.org/en/places?district=hinboun","purpose":"current official attraction status and district context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Lonely Planet · Khoun Kong Leng","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/khoun-kong-leng/1350211","purpose":"swimming restriction sacred source and older access context cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Travelfish · Khun Kong Leng Lake","sourceUrl":"https://www.travelfish.org/sight_profile/laos/southern_laos/khammuan/tha_khaek/3883","purpose":"spring landscape local use and historical access context cross check","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Khoun Kong Leng",
+      "sourceUrl": "https://www.khammouanetourism.org/en/places/Khoun-Kong-Leng",
+      "purpose": "current official access hours entry activities facilities karst spring legend and safety guidance",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Hinboun places",
+      "sourceUrl": "https://www.khammouanetourism.org/en/places?district=hinboun",
+      "purpose": "current official attraction status and district context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Lonely Planet · Khoun Kong Leng",
+      "sourceUrl": "https://www.lonelyplanet.com/points-of-interest/khoun-kong-leng/1350211",
+      "purpose": "swimming restriction sacred source and older access context cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Travelfish · Khun Kong Leng Lake",
+      "sourceUrl": "https://www.travelfish.org/sight_profile/laos/southern_laos/khammuan/tha_khaek/3883",
+      "purpose": "spring landscape local use and historical access context cross check",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-thalang-nam-theun-reservoir": [
-    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"official Day 1 distance Thalang overnight reservoir sunset and Day 2 route","reviewedAt":"2026-08-21"},
-    {"sourceName":"Phosy Thalang","sourceUrl":"https://phosythalanglaos.com/booking/","purpose":"current family run accommodation restaurant and reservoir activities","reviewedAt":"2026-08-21"},
-    {"sourceName":"Nam Theun 2 · History Timeline","sourceUrl":"https://www.namtheun2.com/project-background/history-timeline/","purpose":"dam completion reservoir project history and commercial operations","reviewedAt":"2026-08-21"},
-    {"sourceName":"World Bank · Powering the Future","sourceUrl":"https://www.worldbank.org/en/results/2019/05/06/powering-the-future","purpose":"resettlement of 6300 people infrastructure and livelihood context","reviewedAt":"2026-08-21"},
-    {"sourceName":"World Bank · Nam Theun 2 Project Overview","sourceUrl":"https://www.worldbank.org/en/country/lao/brief/nam-theun-2-project-overview-and-update","purpose":"reservoir fisheries resettlement and project context","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "purpose": "official Day 1 distance Thalang overnight reservoir sunset and Day 2 route",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Phosy Thalang",
+      "sourceUrl": "https://phosythalanglaos.com/booking/",
+      "purpose": "current family run accommodation restaurant and reservoir activities",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Nam Theun 2 · History Timeline",
+      "sourceUrl": "https://www.namtheun2.com/project-background/history-timeline/",
+      "purpose": "dam completion reservoir project history and commercial operations",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "World Bank · Powering the Future",
+      "sourceUrl": "https://www.worldbank.org/en/results/2019/05/06/powering-the-future",
+      "purpose": "resettlement of 6300 people infrastructure and livelihood context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "World Bank · Nam Theun 2 Project Overview",
+      "sourceUrl": "https://www.worldbank.org/en/country/lao/brief/nam-theun-2-project-overview-and-update",
+      "purpose": "reservoir fisheries resettlement and project context",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-pha-inh-cave": [
-    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"current official Day 1 Cave Alley position and swimming context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Novo-Monde · Thakhek Loop","sourceUrl":"https://www.novo-monde.com/en/thakhek-loop-konglor-cave/","purpose":"recent cave pool reflections sacred-name and Route 12 context cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Otro Viaje en Mochila · Loop de Thakhek","sourceUrl":"https://www.otroviajeenlamochila.com/loop-de-thakhek/","purpose":"recent fee and cave access cross check under Pha Nya In name","reviewedAt":"2026-08-21"},
-    {"sourceName":"360nomad · Tham Pha Nya Inh Cave","sourceUrl":"https://360nomad.org/thakhek-loop-the-complete-guide/","purpose":"historical sacred-cave shrine pool and swimming-rule cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Phan Ya In cave","sourceUrl":"https://commons.wikimedia.org/wiki/File:06_Phan_Ya_In_cave_-_panoramio.jpg","purpose":"editorial media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "purpose": "current official Day 1 Cave Alley position and swimming context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Novo-Monde · Thakhek Loop",
+      "sourceUrl": "https://www.novo-monde.com/en/thakhek-loop-konglor-cave/",
+      "purpose": "recent cave pool reflections sacred-name and Route 12 context cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Otro Viaje en Mochila · Loop de Thakhek",
+      "sourceUrl": "https://www.otroviajeenlamochila.com/loop-de-thakhek/",
+      "purpose": "recent fee and cave access cross check under Pha Nya In name",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "360nomad · Tham Pha Nya Inh Cave",
+      "sourceUrl": "https://360nomad.org/thakhek-loop-the-complete-guide/",
+      "purpose": "historical sacred-cave shrine pool and swimming-rule cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Phan Ya In cave",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:06_Phan_Ya_In_cave_-_panoramio.jpg",
+      "purpose": "editorial media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-cool-springs-loop": [
-    {"sourceName":"Khammouane Tourism · Thakhek Loop","sourceUrl":"https://www.khammouanetourism.org/en/thakhek-loop","purpose":"current official Day 2 distance stage position swimming and Cool Springs context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Khammouane Tourism · Thakhek Loop (Thai)","sourceUrl":"https://www.khammouanetourism.org/th/thakhek-loop","purpose":"current official Ban Napavan identification and Day 2 route context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Thakhek Tours · Thakhek Loop Tour","sourceUrl":"https://thakhektours.com/thakhek-loop-tour","purpose":"current local operator cross check for cold spring dirt track facilities and Loop context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Love Laos · Cool Spring","sourceUrl":"https://love-laos.com/cool-spring/","purpose":"spring landscape side-road access changing rooms and food context cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Novo-Monde · Thakhek Loop","sourceUrl":"https://www.novo-monde.com/en/thakhek-loop-konglor-cave/","purpose":"recent Cool Pool naming side-track crowd and water clarity cross check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Ecotourism Laos · Be in the Loop","sourceUrl":"https://www.ecotourismlaos.com/index_php/news/279-be-in-the-loop","purpose":"historical Vang Nam Yen Ban Napavan and Route 8 naming context","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "purpose": "current official Day 2 distance stage position swimming and Cool Springs context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop (Thai)",
+      "sourceUrl": "https://www.khammouanetourism.org/th/thakhek-loop",
+      "purpose": "current official Ban Napavan identification and Day 2 route context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Thakhek Tours · Thakhek Loop Tour",
+      "sourceUrl": "https://thakhektours.com/thakhek-loop-tour",
+      "purpose": "current local operator cross check for cold spring dirt track facilities and Loop context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Love Laos · Cool Spring",
+      "sourceUrl": "https://love-laos.com/cool-spring/",
+      "purpose": "spring landscape side-road access changing rooms and food context cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Novo-Monde · Thakhek Loop",
+      "sourceUrl": "https://www.novo-monde.com/en/thakhek-loop-konglor-cave/",
+      "purpose": "recent Cool Pool naming side-track crowd and water clarity cross check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Ecotourism Laos · Be in the Loop",
+      "sourceUrl": "https://www.ecotourismlaos.com/index_php/news/279-be-in-the-loop",
+      "purpose": "historical Vang Nam Yen Ban Napavan and Route 8 naming context",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-old-french-railway-bridge": [
-    {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-access-and-bridge-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"railway-remains-and-island-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Don Det–Don Khon Railway","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Don_Det%E2%80%93Don_Khon_Railway","purpose":"history-and-media-context","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Bridge to Don Khon seen from Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Bridge_to_Don_Khon_seen_from_Don_Det_with_water_reflection_of_stringy_orange_clouds_at_sunrise_in_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Si Phan Don bridge crossing, August 2024","sourceUrl":"https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "Wikivoyage · Don Det",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
+      "purpose": "current-access-and-bridge-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikivoyage · Don Khon",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Khon",
+      "purpose": "railway-remains-and-island-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Don Det–Don Khon Railway",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Don_Det%E2%80%93Don_Khon_Railway",
+      "purpose": "history-and-media-context",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Bridge to Don Khon seen from Don Det",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bridge_to_Don_Khon_seen_from_Don_Det_with_water_reflection_of_stringy_orange_clouds_at_sunrise_in_Laos.jpg",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Si Phan Don bridge crossing, August 2024",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Si_Phan_Don_-_bridge_from_Don_Det_to_Don_Khone_-_Aug_2024.jpg",
+      "purpose": "secondary-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-li-phi-somphamit-waterfalls": [
-    {"sourceName":"Tourism Lao · Si Phan Don","sourceUrl":"https://tourismlao.com/siphandon/","purpose":"waterfall-and-regional-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikivoyage · Si Phan Don","sourceUrl":"https://en.wikivoyage.org/wiki/Si_Phan_Don","purpose":"current-access-and-price-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Li Phi Falls at dusk","sourceUrl":"https://commons.wikimedia.org/wiki/File:Li_Phi_falls_at_dusk_with_yellow_sky_in_Don_Khon_Si_Phan_Don_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Li Phi Falls","sourceUrl":"https://commons.wikimedia.org/wiki/File:Li_Phi_Falls.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Li Phi sunset and fishing boat","sourceUrl":"https://commons.wikimedia.org/wiki/File:Li_Phi_falls_at_sunset_with_orange_sky_and_a_fishing_boat_in_Don_Khon_Si_Phan_Don_Laos.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "Tourism Lao · Si Phan Don",
+      "sourceUrl": "https://tourismlao.com/siphandon/",
+      "purpose": "waterfall-and-regional-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikivoyage · Si Phan Don",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don",
+      "purpose": "current-access-and-price-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Li Phi Falls at dusk",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Li_Phi_falls_at_dusk_with_yellow_sky_in_Don_Khon_Si_Phan_Don_Laos.jpg",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Li Phi Falls",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Li_Phi_Falls.jpg",
+      "purpose": "story-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Li Phi sunset and fishing boat",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Li_Phi_falls_at_sunset_with_orange_sky_and_a_fishing_boat_in_Don_Khon_Si_Phan_Don_Laos.jpg",
+      "purpose": "secondary-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-khone-phapheng-falls": [
-    {"sourceName":"Tourism Lao · Si Phan Don / Khone Phapheng","sourceUrl":"https://tourismlao.com/siphandon/","purpose":"waterfall-scale-and-visitor-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikivoyage · Si Phan Don","sourceUrl":"https://en.wikivoyage.org/wiki/Si_Phan_Don","purpose":"current-access-and-price-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Khone Phapheng Falls, Si Phan Don","sourceUrl":"https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Khone Phapheng Falls 3923","sourceUrl":"https://commons.wikimedia.org/wiki/File:20171122_Khone_Phapheng_Falls_3923_DxO.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Khone Phapheng Falls 3935","sourceUrl":"https://commons.wikimedia.org/wiki/File:20171122_Khone_Phapheng_Falls_3935_DxO.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "Tourism Lao · Si Phan Don / Khone Phapheng",
+      "sourceUrl": "https://tourismlao.com/siphandon/",
+      "purpose": "waterfall-scale-and-visitor-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikivoyage · Si Phan Don",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don",
+      "purpose": "current-access-and-price-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Khone Phapheng Falls, Si Phan Don",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Khone Phapheng Falls 3923",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20171122_Khone_Phapheng_Falls_3923_DxO.jpg",
+      "purpose": "story-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Khone Phapheng Falls 3935",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20171122_Khone_Phapheng_Falls_3935_DxO.jpg",
+      "purpose": "secondary-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-don-som-island": [
-    {"sourceName":"Don Som Riverside Guesthouse · 4000 Islands / Don Som","sourceUrl":"https://www.donsomlaos.com/4000-islands","purpose":"facts","reviewedAt":"2026-08-19"},
-    {"sourceName":"Don Som Riverside Guesthouse · About / local island context","sourceUrl":"https://www.donsomlaos.com/","purpose":"first-party","reviewedAt":"2026-08-19"},
-    {"sourceName":"Travelfish · Don Det ferry services","sourceUrl":"https://www.travelfish.org/transport/laos/southern_laos/champasak/don_dhet/all","purpose":"facts","reviewedAt":"2026-08-19"},
-    {"sourceName":"DonDet.net · Tours and boat trips","sourceUrl":"https://www.dondet.net/tours.html","purpose":"facts","reviewedAt":"2026-08-19"},
-    {"sourceName":"Wikimedia Commons · Don Som category","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Don_Som","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-19"}
+    {
+      "sourceName": "Don Som Riverside Guesthouse · 4000 Islands / Don Som",
+      "sourceUrl": "https://www.donsomlaos.com/4000-islands",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-19"
+    },
+    {
+      "sourceName": "Don Som Riverside Guesthouse · About / local island context",
+      "sourceUrl": "https://www.donsomlaos.com/",
+      "purpose": "first-party",
+      "reviewedAt": "2026-08-19"
+    },
+    {
+      "sourceName": "Travelfish · Don Det ferry services",
+      "sourceUrl": "https://www.travelfish.org/transport/laos/southern_laos/champasak/don_dhet/all",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-19"
+    },
+    {
+      "sourceName": "DonDet.net · Tours and boat trips",
+      "sourceUrl": "https://www.dondet.net/tours.html",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-19"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Don Som category",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Don_Som",
+      "purpose": "media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-19"
+    }
   ],
   "thing-khone-pa-soi-waterfall": [
-    {"sourceName":"Travelfish · Khone Pa Soi Waterfall","sourceUrl":"https://www.travelfish.org/sight_profile/laos/southern_laos/champasak/don_khon/3909","purpose":"facts","reviewedAt":"2026-08-20"},
-    {"sourceName":"Lonely Planet · Khon Pa Soi Falls","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/khon-pa-soi-falls/1430698","purpose":"facts","reviewedAt":"2026-08-20"},
-    {"sourceName":"Novo-Monde · Si Phan Don / Khon Pa Soy","sourceUrl":"https://www.novo-monde.com/en/4000-islands-laos-si-phan-don/","purpose":"facts","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Khone Pa Soi Falls","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Khone_Pa_Soi_Falls","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "Travelfish · Khone Pa Soi Waterfall",
+      "sourceUrl": "https://www.travelfish.org/sight_profile/laos/southern_laos/champasak/don_khon/3909",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Lonely Planet · Khon Pa Soi Falls",
+      "sourceUrl": "https://www.lonelyplanet.com/points-of-interest/khon-pa-soi-falls/1430698",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Novo-Monde · Si Phan Don / Khon Pa Soy",
+      "sourceUrl": "https://www.novo-monde.com/en/4000-islands-laos-si-phan-don/",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Khone Pa Soi Falls",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Khone_Pa_Soi_Falls",
+      "purpose": "media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-xai-kong-nyai-beach": [
-    {"sourceName":"Lonely Planet · Xai Kong Nyai Beach","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/xai-kong-nyai-beach/1548151","purpose":"facts","reviewedAt":"2026-08-20"},
-    {"sourceName":"Lonely Planet · Tat Somphamit","sourceUrl":"https://www.lonelyplanet.com/points-of-interest/tat-somphamit/1407998","purpose":"route-and-swimming-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Tourism Lao · Si Phan Don / Xai Kong Nyai Beach","sourceUrl":"https://tourismlao.com/siphandon/","purpose":"facts","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Main beach of Don Khon","sourceUrl":"https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "Lonely Planet · Xai Kong Nyai Beach",
+      "sourceUrl": "https://www.lonelyplanet.com/points-of-interest/xai-kong-nyai-beach/1548151",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Lonely Planet · Tat Somphamit",
+      "sourceUrl": "https://www.lonelyplanet.com/points-of-interest/tat-somphamit/1407998",
+      "purpose": "route-and-swimming-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Tourism Lao · Si Phan Don / Xai Kong Nyai Beach",
+      "sourceUrl": "https://tourismlao.com/siphandon/",
+      "purpose": "facts",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Main beach of Don Khon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_beach_of_Don_Khon_in_Laos.jpg",
+      "purpose": "media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-si-phan-don-by-boat": [
-    {"sourceName":"DonDet.net · Tours and boat trips","sourceUrl":"https://www.dondet.net/tours.html","purpose":"current-local-boat-logistics","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikivoyage · Si Phan Don","sourceUrl":"https://en.wikivoyage.org/wiki/Si_Phan_Don","purpose":"boat-tour-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Rough Guides · Si Phan Don","sourceUrl":"https://www.roughguides.com/laos/far-south/si-phan-don/","purpose":"regional-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Si Phan Don","sourceUrl":"https://commons.wikimedia.org/wiki/Category:Si_Phan_Don","purpose":"media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Pirogue near Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Pirogue_and_tiny_wooded_island_reflecting_in_the_water.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "DonDet.net · Tours and boat trips",
+      "sourceUrl": "https://www.dondet.net/tours.html",
+      "purpose": "current-local-boat-logistics",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikivoyage · Si Phan Don",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Si_Phan_Don",
+      "purpose": "boat-tour-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Rough Guides · Si Phan Don",
+      "sourceUrl": "https://www.roughguides.com/laos/far-south/si-phan-don/",
+      "purpose": "regional-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Si Phan Don",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Si_Phan_Don",
+      "purpose": "media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Pirogue near Don Det",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pirogue_and_tiny_wooded_island_reflecting_in_the_water.jpg",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-4000-islands-kayaking": [
-    {"sourceName":"DonDet.net · Cycling and kayaking","sourceUrl":"https://www.dondet.net/cycling.html","purpose":"current-local-tour-format-price-and-safety","reviewedAt":"2026-08-20"},
-    {"sourceName":"Don Det Laos · Activities / kayaking","sourceUrl":"https://don-det-laos.com/activities","purpose":"tour-format-equipment-and-safety","reviewedAt":"2026-08-20"},
-    {"sourceName":"Southeast Asia Backpacker · Kayaking the 4000 Islands","sourceUrl":"https://southeastasiabackpacker.com/bookings/kayak-4000-islands-laos/","purpose":"current-price-and-schedule-cross-check","reviewedAt":"2026-08-20"},
-    {"sourceName":"Miss Travel The World · Kayaking the 4000 Islands","sourceUrl":"https://misstraveltheworld.com/4000-islands-by-kayak/","purpose":"recent-experience-cross-check","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "DonDet.net · Cycling and kayaking",
+      "sourceUrl": "https://www.dondet.net/cycling.html",
+      "purpose": "current-local-tour-format-price-and-safety",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Don Det Laos · Activities / kayaking",
+      "sourceUrl": "https://don-det-laos.com/activities",
+      "purpose": "tour-format-equipment-and-safety",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Southeast Asia Backpacker · Kayaking the 4000 Islands",
+      "sourceUrl": "https://southeastasiabackpacker.com/bookings/kayak-4000-islands-laos/",
+      "purpose": "current-price-and-schedule-cross-check",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Miss Travel The World · Kayaking the 4000 Islands",
+      "sourceUrl": "https://misstraveltheworld.com/4000-islands-by-kayak/",
+      "purpose": "recent-experience-cross-check",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-cycle-don-det-don-khon": [
-    {"sourceName":"DonDet.net · Cycling and kayaking","sourceUrl":"https://www.dondet.net/cycling.html","purpose":"current-local-bike-rental-route-distances-and-night-riding","reviewedAt":"2026-08-20"},
-    {"sourceName":"Travelfish · Don Det getting around","sourceUrl":"https://www.travelfish.org/transport/laos/southern_laos/champasak/don_dhet/all","purpose":"bike-condition-and-road-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"route-and-bicycle-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikivoyage · Don Khon","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Khon","purpose":"current-bridge-and-bike-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Pexels · Cyclist Riding on a Road Among Palm Trees","sourceUrl":"https://www.pexels.com/photo/cyclist-riding-on-a-road-among-palm-trees-22803811/","purpose":"hero-media","reviewedAt":"2026-08-20"},
-    {"sourceName":"Pexels · Woman Biking On A Narrow Road","sourceUrl":"https://www.pexels.com/photo/woman-biking-on-a-narrow-road-6127063/","purpose":"story-media","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "DonDet.net · Cycling and kayaking",
+      "sourceUrl": "https://www.dondet.net/cycling.html",
+      "purpose": "current-local-bike-rental-route-distances-and-night-riding",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Travelfish · Don Det getting around",
+      "sourceUrl": "https://www.travelfish.org/transport/laos/southern_laos/champasak/don_dhet/all",
+      "purpose": "bike-condition-and-road-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikivoyage · Don Det",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
+      "purpose": "route-and-bicycle-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikivoyage · Don Khon",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Khon",
+      "purpose": "current-bridge-and-bike-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Pexels · Cyclist Riding on a Road Among Palm Trees",
+      "sourceUrl": "https://www.pexels.com/photo/cyclist-riding-on-a-road-among-palm-trees-22803811/",
+      "purpose": "hero-media",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Pexels · Woman Biking On A Narrow Road",
+      "sourceUrl": "https://www.pexels.com/photo/woman-biking-on-a-narrow-road-6127063/",
+      "purpose": "story-media",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-don-det-tubing": [
-    {"sourceName":"Don Det Laos · Activities / Tubing","sourceUrl":"https://don-det-laos.com/activities","purpose":"current-local-route-price-and-safety","reviewedAt":"2026-08-20"},
-    {"sourceName":"BABA Guesthouse · Don Det health and river warnings","sourceUrl":"https://www.dondet.net/health.html","purpose":"current-local-river-safety","reviewedAt":"2026-08-20"},
-    {"sourceName":"Rough Guides · Don Khon and Don Det","sourceUrl":"https://www.roughguides.com/laos/far-south/don-khon-don-det/","purpose":"tubing-start-and-current-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Sawa Discovery · Don Det 2026","sourceUrl":"https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao","purpose":"2026-price-route-cross-check","reviewedAt":"2026-08-20"},
-    {"sourceName":"Pexels · Group of People Having Fun tubing","sourceUrl":"https://www.pexels.com/photo/group-of-people-having-fun-1305095/","purpose":"activity-illustration","reviewedAt":"2026-08-20"},
-    {"sourceName":"Pexels · Aerial shot of people relaxing in tubes on a serene river","sourceUrl":"https://www.pexels.com/photo/aerial-view-of-a-lake-27033648/","purpose":"hero-media-activity-illustration","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "Don Det Laos · Activities / Tubing",
+      "sourceUrl": "https://don-det-laos.com/activities",
+      "purpose": "current-local-route-price-and-safety",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "BABA Guesthouse · Don Det health and river warnings",
+      "sourceUrl": "https://www.dondet.net/health.html",
+      "purpose": "current-local-river-safety",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Rough Guides · Don Khon and Don Det",
+      "sourceUrl": "https://www.roughguides.com/laos/far-south/don-khon-don-det/",
+      "purpose": "tubing-start-and-current-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Sawa Discovery · Don Det 2026",
+      "sourceUrl": "https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao",
+      "purpose": "2026-price-route-cross-check",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Pexels · Group of People Having Fun tubing",
+      "sourceUrl": "https://www.pexels.com/photo/group-of-people-having-fun-1305095/",
+      "purpose": "activity-illustration",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Pexels · Aerial shot of people relaxing in tubes on a serene river",
+      "sourceUrl": "https://www.pexels.com/photo/aerial-view-of-a-lake-27033648/",
+      "purpose": "hero-media-activity-illustration",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-don-det-sunset": [
-    {"sourceName":"Wikivoyage · Don Det","sourceUrl":"https://en.wikivoyage.org/wiki/Don_Det","purpose":"current-west-side-and-sunset-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Sawa Discovery · Don Det 2026","sourceUrl":"https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao","purpose":"current-sunset-side-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Gecko Routes · Don Det","sourceUrl":"https://www.geckoroutes.com/fr/laos/don-det/","purpose":"current-destination-context","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Blue stormy clouds at sunset in Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Blue_stormy_clouds_at_sunset_with_water_reflection_and_a_pirogue_moored_to_the_bank,_in_Don_Det,_Laos.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"},
-    {"sourceName":"Wikimedia Commons · Silhouettes of green islands at sunset in Don Det","sourceUrl":"https://commons.wikimedia.org/wiki/File:Silhouettes_of_green_islands_at_sunset_with_colorful_sky_over_the_Mekong_in_Don_Det_Laos.jpg","purpose":"story-media","sourceType":"wikimedia","reviewedAt":"2026-08-20"}
+    {
+      "sourceName": "Wikivoyage · Don Det",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
+      "purpose": "current-west-side-and-sunset-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Sawa Discovery · Don Det 2026",
+      "sourceUrl": "https://www.voyagelaos.com/guide-thailande/destination/don-det?from_circuit=touche-lao",
+      "purpose": "current-sunset-side-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Gecko Routes · Don Det",
+      "sourceUrl": "https://www.geckoroutes.com/fr/laos/don-det/",
+      "purpose": "current-destination-context",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Blue stormy clouds at sunset in Don Det",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_stormy_clouds_at_sunset_with_water_reflection_and_a_pirogue_moored_to_the_bank,_in_Don_Det,_Laos.jpg",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Silhouettes of green islands at sunset in Don Det",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silhouettes_of_green_islands_at_sunset_with_colorful_sky_over_the_Mekong_in_Don_Det_Laos.jpg",
+      "purpose": "story-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-20"
+    }
   ],
   "thing-tad-hang-waterfall": [
-    {"sourceName":"Visit Tad Lo · Tad Hang Waterfall","sourceUrl":"https://visit-tadlo.com/th/things-to-do/tad-hang-waterfall","purpose":"current-local-access-duration-cost-season-and-swimming-guidance","reviewedAt":"2026-08-21"},
-    {"sourceName":"Visit Tad Lo · Things to do","sourceUrl":"https://visit-tadlo.com/en/things-to-do","purpose":"current-local-distance-walkability-and-activity-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Salavanh Tourism · Natural tourist sites","sourceUrl":"https://salavanhtourismlaos.wordpress.com/tourist-attractions/","purpose":"waterfall-dimensions-Xe-Set-context-and-Tad-Lo-pairing","reviewedAt":"2026-08-21"},
-    {"sourceName":"KPL · Tad Loh-Tad Hang waterfall is getting popular","sourceUrl":"https://kpl.gov.la/en/detail.aspx?id=82469","purpose":"site-history-2023-development-project-and-physical-scale","reviewedAt":"2026-08-21"},
-    {"sourceName":"KPL · Tad Loh and Tad Hang Waterfalls to Reopen","sourceUrl":"https://kpl.gov.la/asean2024/En/detail.aspx?id=85147","purpose":"recent-reopening-improvements-location-and-swimming-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikivoyage · Tadlo","sourceUrl":"https://en.wikivoyage.org/wiki/Tadlo","purpose":"cross-check-Xe-Set-and-three-waterfall-geography","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Visit Tad Lo · Tad Hang Waterfall",
+      "sourceUrl": "https://visit-tadlo.com/th/things-to-do/tad-hang-waterfall",
+      "purpose": "current-local-access-duration-cost-season-and-swimming-guidance",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Things to do",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do",
+      "purpose": "current-local-distance-walkability-and-activity-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Salavanh Tourism · Natural tourist sites",
+      "sourceUrl": "https://salavanhtourismlaos.wordpress.com/tourist-attractions/",
+      "purpose": "waterfall-dimensions-Xe-Set-context-and-Tad-Lo-pairing",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "KPL · Tad Loh-Tad Hang waterfall is getting popular",
+      "sourceUrl": "https://kpl.gov.la/en/detail.aspx?id=82469",
+      "purpose": "site-history-2023-development-project-and-physical-scale",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "KPL · Tad Loh and Tad Hang Waterfalls to Reopen",
+      "sourceUrl": "https://kpl.gov.la/asean2024/En/detail.aspx?id=85147",
+      "purpose": "recent-reopening-improvements-location-and-swimming-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikivoyage · Tadlo",
+      "sourceUrl": "https://en.wikivoyage.org/wiki/Tadlo",
+      "purpose": "cross-check-Xe-Set-and-three-waterfall-geography",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-tad-lo-waterfall": [
-    {"sourceName":"Visit Tad Lo · Tad Lo Waterfall","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall","purpose":"current-local-access-duration-cost-season-and-swimming-guidance","reviewedAt":"2026-08-21"},
-    {"sourceName":"Tourism Laos · Salavanh Province","sourceUrl":"https://www.tourismlaos.org/southern-provinces/salavan-province/","purpose":"official-provincial-waterfall-status-location-and-visitor-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Salavanh Tourism · Natural tourist sites","sourceUrl":"https://salavanhtourismlaos.wordpress.com/tourist-attractions/","purpose":"waterfall-form-Tad-Hang-pairing-and-Xe-Set-river-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"KPL · Tad Loh-Tad Hang waterfall is getting popular","sourceUrl":"https://kpl.gov.la/en/detail.aspx?id=82469","purpose":"recent-site-development-history-and-location-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"KPL · Tad Loh and Tad Hang Waterfalls to Reopen","sourceUrl":"https://kpl.gov.la/asean2024/En/detail.aspx?id=85147","purpose":"recent-reopening-improvements-and-current-site-evolution","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Salavan TadLo3 tango7174","sourceUrl":"https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg","purpose":"hero-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Visit Tad Lo · Tad Lo Waterfall image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall","purpose":"story-media","sourceType":"first-party-official","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · View of Tad Lo river from above","sourceUrl":"https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg","purpose":"secondary-media","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Visit Tad Lo · Tad Lo Waterfall",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall",
+      "purpose": "current-local-access-duration-cost-season-and-swimming-guidance",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Tourism Laos · Salavanh Province",
+      "sourceUrl": "https://www.tourismlaos.org/southern-provinces/salavan-province/",
+      "purpose": "official-provincial-waterfall-status-location-and-visitor-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Salavanh Tourism · Natural tourist sites",
+      "sourceUrl": "https://salavanhtourismlaos.wordpress.com/tourist-attractions/",
+      "purpose": "waterfall-form-Tad-Hang-pairing-and-Xe-Set-river-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "KPL · Tad Loh-Tad Hang waterfall is getting popular",
+      "sourceUrl": "https://kpl.gov.la/en/detail.aspx?id=82469",
+      "purpose": "recent-site-development-history-and-location-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "KPL · Tad Loh and Tad Hang Waterfalls to Reopen",
+      "sourceUrl": "https://kpl.gov.la/asean2024/En/detail.aspx?id=85147",
+      "purpose": "recent-reopening-improvements-and-current-site-evolution",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Salavan TadLo3 tango7174",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg",
+      "purpose": "hero-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Tad Lo Waterfall image",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall",
+      "purpose": "story-media",
+      "sourceType": "first-party-official",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · View of Tad Lo river from above",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg",
+      "purpose": "secondary-media",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-tad-soung-waterfall": [
-    {"sourceName":"Visit Tad Lo · Tad Soung Waterfall","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall","purpose":"current-local-access-trail-distance-parking-dam-flow-season-and-safety","reviewedAt":"2026-08-21"},
-    {"sourceName":"Visit Tad Lo · Waterfalls guide","sourceUrl":"https://visit-tadlo.com/en/tad-lo-waterfalls-guide","purpose":"current-local-half-day-rural-route-lower-upper-access-weather-and-safety-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Visit Tad Lo · Things to do","sourceUrl":"https://visit-tadlo.com/en/things-to-do","purpose":"current-local-distance-duration-mobility-and-difficulty-cross-check","reviewedAt":"2026-08-21"},
-    {"sourceName":"KPL · Waterfalls of the Bolaven Plateau","sourceUrl":"https://kpl.gov.la/detail.aspx?id=17265","purpose":"provincial-waterfall-context-panorama-and-seasonal-expectations","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Paddy field Bolaven Plateau","sourceUrl":"https://commons.wikimedia.org/wiki/File:Paddy_field_Bolaven_Plateau.jpg","purpose":"story-media-exact-approach-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Rice cultivation Bolaven Plateau","sourceUrl":"https://commons.wikimedia.org/wiki/File:Rice_cultivation_Bolaven_Plateau.jpg","purpose":"secondary-media-exact-approach-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Visit Tad Lo · Tad Soung Waterfall image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall","purpose":"hero-media","sourceType":"first-party-official","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Visit Tad Lo · Tad Soung Waterfall",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall",
+      "purpose": "current-local-access-trail-distance-parking-dam-flow-season-and-safety",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Waterfalls guide",
+      "sourceUrl": "https://visit-tadlo.com/en/tad-lo-waterfalls-guide",
+      "purpose": "current-local-half-day-rural-route-lower-upper-access-weather-and-safety-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Things to do",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do",
+      "purpose": "current-local-distance-duration-mobility-and-difficulty-cross-check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "KPL · Waterfalls of the Bolaven Plateau",
+      "sourceUrl": "https://kpl.gov.la/detail.aspx?id=17265",
+      "purpose": "provincial-waterfall-context-panorama-and-seasonal-expectations",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Paddy field Bolaven Plateau",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paddy_field_Bolaven_Plateau.jpg",
+      "purpose": "story-media-exact-approach-context",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Rice cultivation Bolaven Plateau",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rice_cultivation_Bolaven_Plateau.jpg",
+      "purpose": "secondary-media-exact-approach-context",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Tad Soung Waterfall image",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall",
+      "purpose": "hero-media",
+      "sourceType": "first-party-official",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-katu-weaving-workshop": [
-    {"sourceName":"Visit Tad Lo · Katu Weaving Workshop","sourceUrl":"https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop","purpose":"current-booking-duration-walkability-season-physical-note-host-and-consent","reviewedAt":"2026-08-21"},
-    {"sourceName":"Traditional Arts and Ethnology Centre · Katu","sourceUrl":"https://www.taeclaos.org/featured_item/katu/","purpose":"Katu-cultural-context-foot-braced-backstrap-loom-beaded-textiles-and-Salavan-cooperatives","reviewedAt":"2026-08-21"},
-    {"sourceName":"Encyclopedia of Crafts in WCC-Asia Pacific · Weaving","sourceUrl":"https://encyclocraftsapr.com/weaving-2/","purpose":"weft-bead-placement-materials-and-southern-Laos-weaving-technique","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikipedia · Katu people","sourceUrl":"https://en.wikipedia.org/wiki/Katu_people","purpose":"terminology-and-geographic-cross-check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Ban Lao Ngam weaving 2014 (1)","sourceUrl":"https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_en2014_(1).jpg","purpose":"story-media-regional-weaving-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Ban Lao Ngam weaving (4)","sourceUrl":"https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_(4).jpg","purpose":"secondary-media-regional-weaving-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Visit Tad Lo · Katu Weaving Workshop image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop","purpose":"hero-media-first-party-authorized","sourceType":"first-party-official","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Visit Tad Lo · Katu Weaving Workshop",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop",
+      "purpose": "current-booking-duration-walkability-season-physical-note-host-and-consent",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Traditional Arts and Ethnology Centre · Katu",
+      "sourceUrl": "https://www.taeclaos.org/featured_item/katu/",
+      "purpose": "Katu-cultural-context-foot-braced-backstrap-loom-beaded-textiles-and-Salavan-cooperatives",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Encyclopedia of Crafts in WCC-Asia Pacific · Weaving",
+      "sourceUrl": "https://encyclocraftsapr.com/weaving-2/",
+      "purpose": "weft-bead-placement-materials-and-southern-Laos-weaving-technique",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikipedia · Katu people",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Katu_people",
+      "purpose": "terminology-and-geographic-cross-check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Ban Lao Ngam weaving 2014 (1)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_en2014_(1).jpg",
+      "purpose": "story-media-regional-weaving-context",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Ban Lao Ngam weaving (4)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laos_Plateau_des_Bolovens_weaving_in_Ban_Lao_Ngam_(4).jpg",
+      "purpose": "secondary-media-regional-weaving-context",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Katu Weaving Workshop image",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop",
+      "purpose": "hero-media-first-party-authorized",
+      "sourceType": "first-party-official",
+      "reviewedAt": "2026-08-21"
+    }
   ],
   "thing-lao-cooking-class-with-nyay": [
-    {"sourceName":"Visit Tad Lo · Lao Cooking Class with Nyay","sourceUrl":"https://visit-tadlo.com/en/things-to-do/cooking-class-nyay","purpose":"current-booking-half-day-walkability-lunch-dinner-dietary-options-meal-included-and-allergy-guidance","reviewedAt":"2026-08-21"},
-    {"sourceName":"Fandee Island · Activities","sourceUrl":"https://www.fandee-island.com/activities","purpose":"current-Nyay-class-price-half-day-format-fresh-local-ingredients-and-technique-cross-check","reviewedAt":"2026-08-21"},
-    {"sourceName":"Tourism Laos · Food & Flavours","sourceUrl":"https://www.tourismlaos.org/welcome/food-flavours/","purpose":"official-Lao-cuisine-sticky-rice-regional-variation-and-meal-context","reviewedAt":"2026-08-21"},
-    {"sourceName":"Visit Tad Lo · Lao Cooking Class with Nyay image","sourceUrl":"https://visit-tadlo.com/en/things-to-do/cooking-class-nyay","purpose":"hero-media-first-party-authorized","sourceType":"first-party-official","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Lao sticky rice","sourceUrl":"https://commons.wikimedia.org/wiki/File:Lao_sticky_rice.jpg","purpose":"story-media-Lao-staple-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"},
-    {"sourceName":"Wikimedia Commons · Lao green papaya salad","sourceUrl":"https://commons.wikimedia.org/wiki/File:Lao_green_papaya_salad.jpg","purpose":"secondary-media-Lao-meal-context","sourceType":"wikimedia","reviewedAt":"2026-08-21"}
+    {
+      "sourceName": "Visit Tad Lo · Lao Cooking Class with Nyay",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/cooking-class-nyay",
+      "purpose": "current-booking-half-day-walkability-lunch-dinner-dietary-options-meal-included-and-allergy-guidance",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Fandee Island · Activities",
+      "sourceUrl": "https://www.fandee-island.com/activities",
+      "purpose": "current-Nyay-class-price-half-day-format-fresh-local-ingredients-and-technique-cross-check",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Tourism Laos · Food & Flavours",
+      "sourceUrl": "https://www.tourismlaos.org/welcome/food-flavours/",
+      "purpose": "official-Lao-cuisine-sticky-rice-regional-variation-and-meal-context",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Visit Tad Lo · Lao Cooking Class with Nyay image",
+      "sourceUrl": "https://visit-tadlo.com/en/things-to-do/cooking-class-nyay",
+      "purpose": "hero-media-first-party-authorized",
+      "sourceType": "first-party-official",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Lao sticky rice",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lao_sticky_rice.jpg",
+      "purpose": "story-media-Lao-staple-context",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    },
+    {
+      "sourceName": "Wikimedia Commons · Lao green papaya salad",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lao_green_papaya_salad.jpg",
+      "purpose": "secondary-media-Lao-meal-context",
+      "sourceType": "wikimedia",
+      "reviewedAt": "2026-08-21"
+    }
   ]
 }

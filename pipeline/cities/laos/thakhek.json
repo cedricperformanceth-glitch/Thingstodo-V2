@@ -3,7 +3,7 @@
   "country": "laos",
   "city": "thakhek",
   "profile": "compact",
-  "generatedAt": "2026-08-22T11:19:31.140Z",
+  "generatedAt": "2026-08-22T11:35:58.219Z",
   "researchPlan": {
     "categoryTargetPolicies": {
       "things-to-do": {
@@ -342,7 +342,7 @@
       "featuredThingIds": [
         "thing-kong-lor-cave",
         "thing-xe-bang-fai-cave",
-        "thing-tham-nang-aen-cave"
+        "thing-hin-nam-no-national-park"
       ]
     },
     "manualLocks": {
@@ -4802,94 +4802,6 @@
           }
         ],
         "notes": "The road is part of the expedition. Confirm the river before leaving."
-      }
-    },
-    {
-      "id": "thing-tham-nang-aen-cave",
-      "slug": "tham-nang-aen-cave",
-      "name": "Tham Nang Aen Cave",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "things-to-do",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Explore a large developed cave close to Thakhek, with illuminated limestone chambers and built walkways, plus a deeper river-and-boat option when local conditions and operation allow.",
-      "media": {
-        "card": {
-          "image": {
-            "id": "tham-nang-aen-primary",
-            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/10%20Nang%20Aen%20cane%20-%20panoramio.jpg?width=1800",
-            "alt": "Illuminated limestone formations inside Tham Nang Aen Cave near Thakhek",
-            "sourceType": "manual",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:10_Nang_Aen_cane_-_panoramio.jpg",
-            "sourceName": "Wikimedia Commons",
-            "author": "Adriaan Castermans",
-            "license": "CC BY-SA 3.0",
-            "manual": true,
-            "locked": true
-          }
-        },
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Show cave",
-          "Route 12",
-          "Cool chambers"
-        ],
-        "gettingThere": "Route 12 · about 18 km from Thakhek",
-        "duration": "1–2 hours",
-        "costType": "paid",
-        "bestTime": "Morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current official Khammouane Tourism attraction and verified V1 seed.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Khammouane Tourism",
-          "sourceUrl": "https://www.khammouanetourism.org/en",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Wikimedia Commons",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:10_Nang_Aen_cane_-_panoramio.jpg",
-          "purpose": "media"
-        }
-      ],
-      "manualLocks": {},
-      "googleMapsUrl": "https://maps.app.goo.gl/UbvyD3oxhyWVjLyC6",
-      "isLandmark": true,
-      "longDescription": "Explore a large developed cave close to Thakhek, with illuminated limestone chambers and built walkways, plus a deeper river-and-boat option when local conditions and operation allow.",
-      "breadcrumbs": [
-        "laos",
-        "thakhek",
-        "things-to-do"
-      ],
-      "exploreBoard": {
-        "kicker": "SHOW CAVE · ROUTE 12 · CLOSE TO TOWN",
-        "duration": "1–2 hours",
-        "route": "About 18 km from Thakhek"
-      },
-      "fieldCard": {
-        "template": "compact",
-        "whyGo": "",
-        "practical": "",
-        "access": "",
-        "faq": [],
-        "sections": []
       }
     },
     {

@@ -1,32 +1,943 @@
 {
-  "thing-thakhek-loop": {"items":[{"label":"Classic format","value":"450 km · 4 days / 3 nights","detail":"Khammouane Tourism currently presents four days and three nights as the classic itinerary and three to five days as the broader recommended window. Four days is the best baseline if you want the major stops without turning each day into a long transfer."},{"label":"Daily rhythm","value":"105 km → 145 km → 85 km → 150 km","detail":"The official classic stages are Thakhek–Thalang, Thalang–Khoun Kham, the Kong Lor day, then Khoun Kham–Thakhek. Distances are planning references rather than targets; road, weather and stop time should decide the real pace."},{"label":"Motorbike","value":"Semi-auto 110cc or manual recommended","detail":"The current official guide recommends these simple bike types and quotes roughly 100,000–200,000 kip per rental day. Check brakes, tyres, lights and rental terms before leaving; price and bike availability can change by shop and season."},{"label":"Navigation","value":"Download an offline map before Day 1","detail":"Mobile signal is weak in parts of the route. Khammouane Tourism recommends Maps.me or offline Google Maps; save the route and key overnight stops while you still have a reliable connection in Thakhek."},{"label":"Fuel & cash","value":"Fill early · carry enough cash","detail":"The official guide warns that some fuel stops can be 50–80 km apart and advises filling whenever you have the opportunity. It also recommends withdrawing cash before leaving Thakhek rather than depending on ATMs during the circuit."},{"label":"Road safety","value":"Helmet on · finish riding before dark","detail":"Mountain roads, rain and changing surface conditions make daylight useful. Ride slowly on bends, carry rain gear and personal medicine, keep luggage light and do not plan a night-riding finish just to squeeze in another stop."}]},
-  "thing-xe-bang-fai-cave": {"items":[{"label":"Route from Thakhek","value":"Remote approach via Route 12 and Boualapha","detail":"Leave Thakhek eastbound on Route 12, then continue through the Boualapha area and local village roads toward the cave approach. Road conditions can change with weather and season, so keep the route offline, leave enough daylight and reconfirm the latest access locally before departure."},{"label":"Best season","value":"Dry season is the safer window","detail":"Access is usually easier when roads are drier and river levels are lower. Hin Nam No advises against entering the river cave from June to October, when stronger flows can make the visit unsafe."},{"label":"What to wear","value":"Wet-ready clothes · shoes with grip","detail":"Expect wet rock and changing ground conditions around a remote river-cave visit. Quick-dry clothing and grippy footwear make sense here, with a light extra layer for the cooler end of the day."},{"label":"Entrance & boat","value":"Entrance fee + local boat","detail":"Recent traveller reports have placed entry around 50,000 kip, motorbike parking around 10,000 kip and a small local boat around 150,000 kip. Use those numbers as a planning reference only and reconfirm them on arrival."},{"label":"Time needed","value":"Full day minimum · overnight works better","detail":"The cave boat trip itself is roughly ninety minutes, but the remote journey from Thakhek turns the visit into a full-day expedition. Staying around Ban Nong Ping removes the pressure of forcing the return journey immediately after the cave."},{"label":"Road & cave difficulty","value":"Conditions matter more than fitness","detail":"The cave is visited with a local guide, but the overall trip still involves a long remote approach, river travel and slippery ground. When the road or river conditions look wrong, this is not an outing to force."}]},
-  "thing-kong-lor-cave": {"items":[{"label":"Opening hours","value":"Daily 08:00–16:00 · last boat 16:00","detail":"The Konglor–Natane community site currently lists daily operation from 08:00 to 16:00, with the last boat at 16:00. Heavy rain can still trigger exceptional closure, so treat the hours as normal operation rather than a guarantee."},{"label":"Boat & ticket","value":"Current prices conflict · confirm at the gate","detail":"The community operator currently lists 450,000 kip for one person in a boat, 500,000 kip for two and 750,000 kip for three, with a separate 500,000-kip individual ticket also shown. Khammouane Tourism separately lists a 250,000-kip foreigner entry pass. Because these current official-facing sources are not aligned, confirm the complete boat-inclusive price before paying."},{"label":"Time needed","value":"2–3 hours minimum","detail":"The boat crossing, illuminated walking section and return fit roughly into this window. The community operator allows up to a two-hour pause on the Natane side, so a slower visit can take considerably longer."},{"label":"What is provided","value":"Life jacket · headlamp · flip-flops","detail":"The community site says these are supplied at the entrance. Wear the life jacket on the boat and bring quick-dry clothes plus footwear you are comfortable getting wet even if you use the provided sandals."},{"label":"Best season","value":"November–April is the easier window","detail":"Khammouane Tourism recommends the dry season, when water levels are generally safer. The cave can close after strong rain in the wet season, so check local conditions before riding out."},{"label":"Natane side","value":"Pause, information and optional bicycle","detail":"After emerging on the Natane side, the community operator says visitors may pause for up to two hours. A tourist information point, craft area and bicycle rental are available for those who want to see more of the valley before returning through the cave."}]},
-  "thing-tham-nang-aen-cave": {"items":[{"label":"From Thakhek","value":"About 18 km northeast via Route 12","detail":"Official Lao tourism information places Nang Aen on Route 12, about 18 km from Thakhek. Turn onto the signed access road for the final short approach to the visitor area."},{"label":"Opening hours","value":"Daily 08:00–17:00","detail":"Multiple current 2026 references list these hours. Arrive well before closing if you want time for both the walking chambers and any boat extension operating that day."},{"label":"Entrance","value":"Recent references: about 30K–50K KIP","detail":"Current published prices do not fully agree: Petit Futé 2026 lists 30,000 kip, a recent Loop guide lists 40,000 kip and an August 2026 visitor report lists 50,000 kip. Confirm the posted rate at the entrance rather than relying on one online figure."},{"label":"Boat extension","value":"Optional · recent reports about 100K–150K KIP","detail":"The cave can be visited on foot without a boat. Recent sources quote different boat prices and availability can depend on water level, so ask what route is operating and what the extra ticket includes before paying."},{"label":"Time needed","value":"1–2 hours for the walking visit","detail":"That is enough for the developed chambers at a comfortable pace. Add more time if you take the boat or visit during a busy weekend period."},{"label":"Walking conditions","value":"Many stairs · damp cave surfaces","detail":"The cave is developed with cement paths, steps and railings, but it is not a flat stroll. Wear shoes with grip, watch low or uneven sections and take care on wet steps."}]},
-  "thing-tham-xiang-liap-cave": {"items":[{"label":"From Thakhek","value":"About 14 km northeast via Route 12","detail":"Khammouane Tourism places Xiang Liap near Xiang Liap village, about 14 kilometres northeast of Thakhek along Route 12. It is close enough for a short outing or an early cave stop on a Route 12 day."},{"label":"Opening hours","value":"Daily 08:00 to 17:00","detail":"The current official attraction page lists operation from 08:00 to 17:00. Arrive with enough daylight to assess the water and avoid entering late in the day."},{"label":"Entrance","value":"10,000 KIP per foreign visitor","detail":"Khammouane Tourism currently lists a 10,000 kip entry pass for foreign adults. Other activities and services at the site can cost extra, so confirm any additional price at the counter before paying."},{"label":"Difficulty","value":"Moderate","detail":"The official site rates Xiang Liap as moderate. The cave involves natural ground, darkness and water, so the real difficulty changes with season and recent rain more than with distance alone."},{"label":"Best season","value":"November to April","detail":"The official guide describes the dry season as the easiest period, with clearer water that is generally shallower. From May to October the landscape is greener but water levels can rise."},{"label":"What to bring","value":"Headlamp · waterproof shoes · clothes that dry quickly","detail":"These are the items specifically recommended by Khammouane Tourism. Protect your phone from water, carry cash and wear a life jacket if a boat activity is operating."}]},
-  "thing-tham-chang-elephant-cave": {"items":[{"label":"From Thakhek","value":"Route 12 toward Ban Tham","detail":"Elephant Cave is one of the closest cave stops to Thakhek. Follow Route 12 east, then use the local access toward Ban Tham. Published distance references vary, so follow current signs and local directions for the final approach rather than relying on one old kilometre marker."},{"label":"Time needed","value":"30 to 60 minutes","detail":"The cave is compact. Half an hour is enough for the shrine, elephant formation and view, while a slower visit gives more room to sit quietly and look across the surrounding plain."},{"label":"Entrance","value":"Recent references about 10,000 KIP","detail":"Petit Futé 2026 and several recent Loop guides give 10,000 kip as a useful current reference. Older sources list 5,000 kip, so confirm the amount locally and carry small cash."},{"label":"What to see","value":"Golden Buddha · elephant formation · cave shrine","detail":"The elephant shaped feature is found in a small passage behind the golden Buddha. The site is primarily a Buddhist shrine, so the religious setting matters more than the size of the cave."},{"label":"Bring","value":"Small light · respectful clothing · cash","detail":"A torch or headlamp helps with the passage behind the Buddha. Dress as you would for a Buddhist shrine and keep enough cash for the entrance or any current local arrangement."},{"label":"After rain","value":"Check the Ban Tham approach locally","detail":"Older and recent route accounts describe local access that can be affected by water and wet season conditions. If the approach is flooded, damaged or locally discouraged, do not force the crossing."}]},
-  "thing-tham-pha-buddha-cave": {"items":[{"label":"Location","value":"Ban Na Khang Xang area","detail":"The cave lies outside Thakhek near Ban Na Khang Xang. Follow current local signs for Buddha Cave and use the developed walkway and concrete steps for the final approach to the upper sanctuary."},{"label":"Opening hours","value":"Daily 08:00 to 17:00","detail":"Petit Futé 2026 currently lists daily opening from 08:00 to 17:00. Arrive well before closing if you want time for both the upper sanctuary and the lower cave."},{"label":"Entrance","value":"About 20,000 KIP for both caves","detail":"Petit Futé 2026 currently lists 20,000 kip for access to the two caves. Treat that as a current planning reference and confirm the posted amount on arrival."},{"label":"Upper sanctuary","value":"229 bronze Buddha statues · no photography","detail":"The upper cave contains the collection discovered in 2004 and remains an active sacred place. Photography is prohibited inside, so keep the phone or camera away and give worshippers space."},{"label":"Dress","value":"Cover shoulders and knees","detail":"This is a Buddhist sanctuary rather than a normal cave attraction. Dress modestly. Women may be asked to wear a traditional Lao skirt, and sarongs can be available locally when needed."},{"label":"Lower cave","value":"Lake cave · bring a headlamp","detail":"The lower cave extends for roughly 500 metres around Nong Pa Fa lake. Ask whether the local canoe route is operating, bring a headlamp and use footwear suitable for damp cave surfaces."}]},
-  "thing-tha-falang": {"items":[{"label":"From Thakhek","value":"About 15 km east on Route 12","detail":"Current Thakhek guidance places Tha Falang roughly fifteen kilometres east of town. The final approach leaves Route 12 for a short sandy or dirt track toward the Nam Don riverbank, so follow current local signs and slow down on the last section."},{"label":"Time needed","value":"1 to 2 hours","detail":"An hour is enough for a swim and rest. Stay longer if the water is suitable, you stop for food or you are deliberately using Tha Falang as the slow break in a Cave Alley day."},{"label":"Cost","value":"River access currently reported free","detail":"A current local operator describes entrance as free. Food, drinks and any resort or hut service are separate, and local arrangements can change, so carry small cash and follow the current setup on arrival."},{"label":"Swimming","value":"Condition dependent","detail":"Tha Falang is a known swimming place, but rainfall and river level change the current. Enter gradually, stay close to the bank and skip swimming when recent rain, visible flow or local advice makes the water questionable."},{"label":"Best time","value":"Dry season · weekdays for quieter banks","detail":"The drier months generally make the final track and river access easier. Weekends can be lively with local visitors, so a weekday suits travellers looking for a calmer stop."},{"label":"Bring","value":"Swimwear · towel · water · secure valuables","detail":"Keep your phone, wallet and motorbike key secure while you are in the river. After rain, take extra care on the access track and avoid blind jumps into water whose depth you cannot clearly read."}]},
-  "thing-khoun-kong-leng": {"items":[{"label":"From Thakhek","value":"About 50 km by Route 13 and local road","detail":"Khammouane Tourism currently directs visitors about 30 kilometres north from Thakhek on Route 13, then about 20 kilometres along a paved road from the Ban Nakhou junction to the site."},{"label":"Opening hours","value":"Daily 08:00 to 17:00","detail":"The current official attraction page lists operation from 08:00 to 17:00. Allow enough daylight for the drive back rather than arriving close to closing."},{"label":"Entrance","value":"Currently free","detail":"Khammouane Tourism currently lists free entry for Lao and foreign visitors. Optional activities such as kayaking, the viewpoint, ATV rides and other adventure services are charged separately and prices can change seasonally."},{"label":"Swimming","value":"Follow the designated local area","detail":"Do not assume the main spring pool is open for unrestricted swimming. Long standing visitor guidance asks people to check locally and use the permitted downstream area rather than entering the sacred source itself."},{"label":"Facilities","value":"Parking · restaurant · toilets · camping · viewpoint","detail":"The official site now lists a developed visitor base with these facilities as well as boat and adventure services. This is no longer an undeveloped roadside lagoon, so follow the current site layout and rules."},{"label":"What to bring","value":"Quick dry clothes · water · small cash","detail":"The official site recommends quick dry clothing. Carry cash for optional activities, use a life jacket whenever a boat or kayak operator requires one and respect any local rule around the source water."}]},
-  "thing-thalang-nam-theun-reservoir": {"items":[{"label":"Loop position","value":"End of Day 1 · about 105 km from Thakhek","detail":"Khammouane Tourism places Thalang at the end of the classic first stage after Cave Alley and the climb onto the Nakai Plateau. Plan to reach the village before sunset rather than treating it as a late transit stop."},{"label":"Best moment","value":"Sunset over the reservoir","detail":"The official Loop guide highlights the submerged dead trees around Thalang at sunset. Leave enough light to stop, look across the water and settle into your accommodation before dark."},{"label":"Overnight","value":"Guesthouses and homestays in Thalang","detail":"The provincial tourism site describes Thalang as the popular first night stop. Phosy Thalang offers family run accommodation and food, while other established Loop stays operate in the village. Confirm availability in busier periods."},{"label":"Cost","value":"No separate landscape ticket","detail":"The road and reservoir views are part of the Loop landscape. Accommodation, meals and any guided reservoir activity are separate paid services, so carry cash and confirm prices directly."},{"label":"Day 2","value":"About 145 km toward Khoun Kham","detail":"The next official stage is longer than Day 1 and passes forest, Cool Springs, Dragon Cave and other stops. Start in the morning with fuel, water and enough daylight for the full ride."},{"label":"Context","value":"Nam Theun 2 hydropower reservoir","detail":"The reservoir began forming in 2008 and commercial hydropower operation started in 2010. The water landscape involved major environmental and social change, including the relocation of roughly 6,300 people on the Nakai Plateau."}]},
-  "thing-pha-inh-cave": {"items":[{"label":"Loop position","value":"Day 1 · Route 12 Cave Alley","detail":"Khammouane Tourism currently includes Pha Inh on the classic Thakhek–Thalang first stage, alongside Elephant Cave and Nang Aen. Treat it as a short cave stop rather than a destination that needs half a day."},{"label":"Time needed","value":"45–90 minutes","detail":"That is enough for the stairs, shrine, cave interior and pool viewpoint at an unhurried pace. Leave more time only if the current local setup allows water access and you choose to stay longer."},{"label":"Entrance","value":"Confirm the current fee on arrival","detail":"Reliable published information is inconsistent. Older accounts describe free access, while a more recent Loop report gives 40,000 kip under the Pha Nya In name. Do not publish or plan around one fixed amount; carry small cash and follow the current posted rate."},{"label":"Swimming","value":"Check the current local rule first","detail":"The official Loop page currently promotes swimming at Pha Inh, while older sacred-cave guidance explicitly prohibited it. Because the cave contains a Buddhist shrine and local rules can change, read the signs and ask before entering the water."},{"label":"What to bring","value":"Shoes with grip · small light · respectful clothing","detail":"The approach and cave floor can be damp or uneven. A torch helps away from the natural openings, and modest clothing is appropriate around the Buddhist shrine."}]},
-  "thing-cool-springs-loop": {"items":[{"label":"Loop position","value":"Day 2 · Thalang → Khoun Kham","detail":"Khammouane Tourism places Cool Springs on the classic 145 km second stage, before Dragon Cave and the final run to Khoun Kham. The official riding estimate is 4–6 hours before stops."},{"label":"Location","value":"Ban Napavan · off Route 8","detail":"The current official Thai Loop guide identifies Cool Springs at Ban Napavan. Older route guides place the turn east of Ban Phontan / near Ban Napavan, followed by a local side track toward the limestone."},{"label":"Time needed","value":"1–2 hours","detail":"Allow enough time for the approach, a swim and a proper rest. Keep the stop shorter if you still want Dragon Cave and a daylight arrival in Khoun Kham."},{"label":"Entrance","value":"Confirm the current fee","detail":"Published price references are old and inconsistent, commonly 10,000–20,000 kip. Carry small cash and use the current posted or locally quoted rate rather than relying on an old online number."},{"label":"Swimming","value":"Cold spring water · enter gradually","detail":"Khammouane Tourism currently promotes Cool Springs for swimming. Treat it as natural water rather than a controlled pool: enter gradually, check depth before jumping and follow any current local rules."},{"label":"After rain","value":"Check the side track before committing","detail":"The final unpaved approach can become muddy after rain. Slow down, follow current signs and local advice, and do not force the track if conditions have deteriorated."}]},
-  "thing-old-french-railway-bridge": {"items":[{"label":"Where","value":"Between Don Det and Don Khon","detail":"The historic railway bridge links the southern end of Don Det with Ban Khon on Don Khon. It is an easy continuation of an island walk or bicycle ride."},{"label":"Best way to visit","value":"Walk or bicycle","detail":"The bridge itself needs little time, but a bicycle makes it easy to continue along the old railway route and combine the crossing with the main sights of Don Khon."},{"label":"Time needed","value":"20–40 min for the bridge · half day with Don Khon","detail":"Allow time to stop on both sides and look at the structure rather than simply crossing. Add several hours if you continue toward the locomotive, old railway alignment and Li Phi / Somphamit Falls."},{"label":"Cost","value":"Bridge crossing recently reported free","detail":"A February 2024 Wikivoyage update reported the bridge itself as free to cross. Older and other guide references mention access charges connected with Don Khon or waterfall visits, so check locally if a ticket system is operating when you arrive."},{"label":"History","value":"Part of a roughly 7 km colonial portage railway","detail":"The railway opened in 1893 on Don Khon and was later extended to Don Det. It moved vessels, freight and passengers around the Mekong rapids and falls that prevented continuous river navigation."},{"label":"Good light","value":"Early morning or late afternoon","detail":"The crossing is exposed and the tropical midday heat can be strong. Softer light also works better for the arches, river reflections and views between the islands."}]},
-  "thing-li-phi-somphamit-waterfalls": {"items":[{"label":"Where","value":"Don Khon · about 2 km south of the railway bridge","detail":"From Don Det, cross the old railway bridge onto Don Khon and continue south toward the signed Li Phi / Somphamit waterfall area. It is an easy bicycle continuation from the bridge."},{"label":"Time needed","value":"1–2 hours","detail":"That is enough for the main paths and viewpoints without rushing. Allow a half day if you combine the falls with the railway bridge, locomotive and a slower ride around Don Khon."},{"label":"Entrance","value":"Recent references: about 30,000–35,000 kip","detail":"A June 2026 Wikivoyage update lists 30,000 kip, while Petit Futé 2026 lists 35,000 kip. Treat that range as a planning reference and confirm the current ticket at the entrance."},{"label":"Optional extras","value":"Some attractions may cost separately","detail":"Recent guide information mentions an additional paid suspension-bridge experience at the site. Do not assume it is included in the standard waterfall entry; check the current options and price before paying."},{"label":"Best time","value":"Morning or late afternoon","detail":"The cooler hours are more comfortable for the bicycle ride and give better light across the rock and white water. The look of the falls changes substantially with Mekong water levels."},{"label":"Safety","value":"View the rapids · do not challenge them","detail":"The currents are powerful and the rocks can be slippery. Stay on established paths and viewpoints around the main falls and respect local barriers or instructions."}]},
-  "thing-khone-phapheng-falls": {"items":[{"label":"Where","value":"Mainland east of Don Khon · near the Cambodian border","detail":"Khone Phapheng is not on Don Det or Don Khon. Official Lao tourism information places it about 13 km from the Cambodian border and roughly 6 km south of Don Det as the crow flies, on the mainland side of the Mekong system."},{"label":"From Don Det","value":"Boat to Ban Nakasang + road transfer","detail":"For an island-based visit, return by boat to Ban Nakasang and continue by tuk-tuk, minivan or arranged road transport to the waterfall visitor area. Agree the return plan and total transport price before leaving."},{"label":"Time needed","value":"1–2 hours at the falls","detail":"The visitor area itself does not need a full day, but the boat and road transfers from Don Det add time. Leave enough margin that you are not rushing the return boat or onward transport."},{"label":"Entrance","value":"Confirm the current ticket on arrival","detail":"Online price references are inconsistent and can become outdated quickly. Wikivoyage currently lists 30,000 kip for Khone Phapheng, but use that only as a rough reference and check the posted local rate."},{"label":"Scale","value":"Up to 21 m high · rapids across about 9.7 km","detail":"Official Lao tourism information describes an average discharge close to 11,000 cubic metres per second. The attraction is the breadth and power of the cataract system rather than one tall vertical drop."},{"label":"Safety","value":"Stay with the developed viewpoints","detail":"The Mekong here is exceptionally powerful. Keep to established visitor paths and platforms, respect barriers and do not scramble toward exposed rock or fast water for a closer photograph."}]},
-  "thing-don-som-island": {"items":[{"label":"Where","value":"North of Don Det in Si Phan Don","detail":"Don Som is a long inhabited Mekong island between Don Det to the south and Don Khong to the north. A local island source describes it as roughly 13 km long, up to 3 km wide, with 12 villages."},{"label":"From Don Det","value":"Direct local boat","detail":"Ask at the Don Det pier for a boat to Don Som. Published traveller guidance has quoted simple per-person fares, but boat prices and availability are informal enough that you should confirm the fare and return arrangement before departure."},{"label":"Time needed","value":"Half day minimum","detail":"A half day gives you time to cross, walk or ride through part of the island and return without rushing. A full day makes more sense if you want to explore farther, eat locally or spend time around the villages and river."},{"label":"What to expect","value":"Villages, rice fields, fishing and very little tourism","detail":"Most residents are farmers or fishers. There are small shops and simple food options, but no market and much less visitor infrastructure than on Don Det or Don Khon."},{"label":"Best time","value":"Early morning or late afternoon","detail":"The cooler hours suit walking or cycling and are when island life is most active around homes, fields and river crossings. Midday can be hot and exposed."},{"label":"Respect","value":"Treat the island as a home, not an attraction","detail":"Stay on obvious public routes, ask before taking close portraits, dress respectfully around villages and temples, and do not enter homes, fields or private compounds without invitation."}]},
-  "thing-khone-pa-soi-waterfall": {"items":[{"label":"Where","value":"Eastern Don Khon · Si Phan Don","detail":"Khone Pa Soi is on the quieter eastern side of Don Khon. From Don Det, cross the old railway bridge first, then continue by bicycle or on foot along Don Khon's rougher tracks toward the waterfall area."},{"label":"Route","value":"Best by bicycle · expect rough tracks","detail":"Older detailed route notes describe an unpaved cross-island approach of roughly two kilometres from the bridge area, with an alternative eastern-coast route that can be narrow, sandy or muddy. Conditions change quickly after rain."},{"label":"Time needed","value":"2–3 hours · half day is more relaxed","detail":"The waterfall itself is compact, but the bicycle approach is part of the outing. Allow extra time for wrong turns, poor track conditions and stopping along quieter eastern Don Khon."},{"label":"Entrance","value":"Recent guides generally report free access","detail":"Several recent travel sources describe Khone Pa Soi as free, but older references conflict. Do not build the visit around a fixed price; carry cash and follow whatever current local arrangement is posted."},{"label":"Bridge status","value":"Verify locally before crossing","detail":"The suspension bridge has repeatedly been reported damaged or closed in past years, while newer guides describe it in use again. Inspect the current condition and obey any closure or local instruction. Never cross a visibly damaged or blocked bridge."},{"label":"Water safety","value":"Treat the rapids as dangerous","detail":"The current can be extremely strong and hidden rocks make informal swimming risky. Even if low water exposes calmer-looking pools, do not enter fast channels and do not scramble onto wet rock for a photograph."}]},
-  "thing-xai-kong-nyai-beach": {"items":[{"label":"Where","value":"Southern Don Khon · downstream from Li Phi","detail":"Xai Kong Nyai is a sandy Mekong bank on Don Khon. It fits naturally into a bicycle day from Don Det and is commonly paired with Li Phi / Somphamit, which lies roughly a kilometre upriver from the beach area."},{"label":"From Don Det","value":"Cross the railway bridge, then continue by bicycle","detail":"Ride south from Don Det across the old railway bridge onto Don Khon and continue toward the southern and western side of the island. A bicycle is the easiest way to combine the beach with other Don Khon stops."},{"label":"Time needed","value":"1–2 hours · longer for a slow lunch or sunset","detail":"There is no checklist here. Allow enough time to cool down, eat or drink and watch the river. If the conditions are good for swimming, the stop can easily stretch into the later afternoon."},{"label":"Entrance","value":"Beach access is generally described as free","detail":"Travel guides describe Xai Kong Nyai as a free beach stop. Food, drinks and any longtail-boat trip are separate. Local arrangements can change, so follow any current signs or instructions on arrival."},{"label":"Swimming","value":"Stay close to shore · currents can change","detail":"The beach is widely described as one of the better swimming options on Don Khon, including year-round in some guides, but the Mekong can run fast away from the bank. Read the current, follow local advice and do not swim out into moving channels."},{"label":"Facilities","value":"Simple food and longtail boats","detail":"Several guides describe a few basic restaurants or food-and-drink stops at the beach, plus local longtail boats. Treat boat prices and equipment as informal: agree the route, fare and safety setup before leaving shore."}]},
-  "thing-si-phan-don-by-boat": {"items":[{"label":"Where to arrange","value":"Don Det pier or a local boat operator","detail":"Current Don Det information says private pirogue trips can be arranged directly on the island. For a simple charter, ask at the pier or use a locally recommended boatman and agree the plan before departure."},{"label":"Time needed","value":"2–3 hours works well","detail":"A short private circuit is enough to get away from Don Det, pass smaller islands and return through late light. Longer trips are possible, but distance, current and destination change the practical timing."},{"label":"Price","value":"Negotiate the whole charter before leaving","detail":"Published prices vary by route and boat. Current local information describes destination and departure time as negotiable, so confirm the total fare for the boat, not just a vague per-person estimate, and clarify whether stops or waiting time are included."},{"label":"Best time","value":"Late afternoon into sunset","detail":"The heat softens and the low light works particularly well across the islands and river reflections. Sunset charters are currently offered from Don Det; arrange the return so you are not improvising navigation after dark."},{"label":"What to bring","value":"Sun protection · water · dry protection for electronics","detail":"A narrow pirogue offers little shade and spray is possible. Keep phone, camera and documents protected, bring drinking water and use sunscreen even when the breeze makes the heat feel mild."},{"label":"Safety","value":"Ask for a life jacket and follow the boatman on conditions","detail":"Routes and currents change with Mekong water levels. Ask what flotation equipment is available, keep weight balanced in a small boat and accept a route change or cancellation if the boatman considers the weather or river unsuitable."}]},
-  "thing-4000-islands-kayaking": {"items":[{"label":"Format","value":"Guided full-day tour from Don Det","detail":"Current local listings describe morning departure and a return in the late afternoon. Book ahead and confirm the exact meeting point and day's itinerary with the operator."},{"label":"Current price reference","value":"About US$25–26","detail":"Two current 2026 listings sit around this range. Treat it as a planning reference only; confirm the final price and inclusions when booking."},{"label":"Included","value":"Kayak · paddle · life jacket · guide","detail":"Current Don Det operator information also lists meals and waterfall admission in its standard package, but inclusions can change between operators."},{"label":"Safety","value":"Guided route · no casual solo paddling","detail":"Some channels have strong current and current local operator guidance does not offer unguided free-paddling on the tour route. Follow the briefing and keep the life jacket on."}]},
-  "thing-cycle-don-det-don-khon": {"items":[{"label":"Bike rental","value":"Easy to find on Don Det","detail":"Current local Don Det information quotes about US$1.50 per day for a basic bicycle. Prices can vary by shop; choose the bike by condition rather than by appearance."},{"label":"Before leaving","value":"Check brakes · tyres · chain · saddle","detail":"Most rental bikes are simple single-speeds. Test the brakes, spin both wheels, listen for a rough chain and ask to adjust the saddle before riding away."},{"label":"Route","value":"Don Det → railway bridge → Don Khon","detail":"Current local guidance puts central Don Det to the bridge at about 3 km. From there Li Phi is roughly another 1.5–2 km, with longer tracks continuing across Don Khon."},{"label":"Best time","value":"Morning or late afternoon","detail":"The terrain is mostly flat, but midday heat makes an easy ride feel harder. Avoid returning after dark: rural paths and the southern island sections are poorly lit."}]},
-  "thing-don-det-tubing": {"items":[{"label":"Rental","value":"About 10–20K KIP","detail":"Current and recent Don Det references put basic tube rental around this range. Guesthouses and small shops may use different prices, so confirm the current rate and return arrangement before taking the tube."},{"label":"Start","value":"Confirm today's entry point locally","detail":"The north-end beach near the boat pier is a commonly described starting point. Some operators can arrange a longer upstream start by longtail boat, but the recommended route depends on current and water level."},{"label":"Exit","value":"Leave the river before the old railway bridge","detail":"Do not drift beyond the Don Det–Don Khon bridge. Local safety guidance warns of dangerous rapids downstream toward Li Phi. Decide your exit before entering the water, not while you are already approaching the bridge."},{"label":"Safety","value":"Stay sober · read the current · skip bad conditions","detail":"Alcohol and moving water are a poor combination, and local Don Det guidance specifically links severe river accidents with drinking. Ask whether a life jacket is available, keep valuables dry and do not tube when local advice or the visible current says conditions are unsuitable."}]},
-  "thing-don-det-sunset": {"items":[{"label":"Where","value":"West / sunset side of Don Det","detail":"The western bank faces the evening light across the Mekong. There is no single required viewpoint: choose an open riverside section, terrace or deck with a clear western horizon."},{"label":"When to arrive","value":"30–45 minutes before sunset","detail":"Arriving early gives time to choose a view before the light changes quickly. Stay beyond sunset for the reflected colour and afterglow rather than leaving as soon as the sun drops."},{"label":"How to get there","value":"Walk or bicycle","detail":"Don Det is compact and flat. From the village or your accommodation, use the island paths to reach the west bank; a bicycle only matters if you are coming from farther south."},{"label":"Cost","value":"Free · food and drinks optional","detail":"Watching the sunset itself costs nothing. A riverside bar or restaurant is convenient, but the activity does not require buying anything if you prefer a quiet public stretch of riverbank."}]},
-  "thing-tad-hang-waterfall": {"items":[{"label":"From Tad Lo","value":"About 700 m by road from the Tourism Office","detail":"Visit Tad Lo currently places Tad Hang roughly 700 metres by road from the Tourism Office. It is one of the easiest local activities to do without a motorbike and fits naturally into a village walk."},{"label":"Time needed","value":"1–2 hours is plenty for an unhurried stop","detail":"The waterfall itself is close to the village, so most travellers do not need a half day. Allow longer only if you combine it with Tad Lo Waterfall, stop for food nearby or spend time beside the river."},{"label":"Entrance","value":"Currently listed free · reconfirm locally","detail":"The current locally maintained Tad Lo guide lists Tad Hang as free. KPL has also reported an ongoing multi-phase redevelopment of the Tad Loh–Tad Hang tourism site, so entrance arrangements can evolve; follow the current signs or local information when you arrive."},{"label":"Swimming","value":"Possible only when the day’s water conditions are suitable","detail":"Local guidance treats swimming as condition-dependent rather than permanently safe. Lower dry-season flow can make some edges calmer, while rain can strengthen currents quickly. Ask locally and stay out when the river looks fast or recent rain has changed it."},{"label":"Best time","value":"Morning or late afternoon","detail":"The walk is short enough to fit the cooler ends of the day, when the riverbank is also more comfortable for sitting. Seasonal water level matters more than chasing a single ideal hour."},{"label":"Nearby","value":"Tad Lo Waterfall is roughly 500 m upstream","detail":"Older Salavan tourism material links Tad Hang to Tad Lo by riverside paths and places Tad Lo about 500 metres upstream. Combining the two lower falls is the most natural way to turn Tad Hang into a longer village outing."}]},
-  "thing-tad-lo-waterfall": {"items":[{"label":"From Tad Lo","value":"About 1.1 km by road from the Tourism Office","detail":"Visit Tad Lo currently places the namesake waterfall about 1.1 kilometres by road from the Tourism Office. It is close enough to reach on foot through the village without turning the visit into a transport outing."},{"label":"Time needed","value":"1–2 hours · longer with Tad Hang","detail":"The waterfall works as a short standalone walk, but the better plan is to connect it with Tad Hang and leave enough room to stop beside the river rather than timing each fall separately."},{"label":"Entrance","value":"Public access currently listed free","detail":"The current local guide lists public access as free and notes that a private-side access or restaurant-linked charge, if operating, should be treated separately. Follow current signs and reconfirm any charge before assuming it is part of the waterfall entry."},{"label":"Swimming","value":"Condition-dependent · ask after rain","detail":"Dry-season flow can leave calmer areas, while wet-season rain makes the Xe Set stronger and faster. Treat swimming as optional and follow current local advice rather than relying on a permanent online label of safe or unsafe."},{"label":"Best time","value":"Morning or late afternoon","detail":"The cooler ends of the day suit the village walk and give more comfortable light around the river. Water level and recent rain matter more than a fixed ideal hour."},{"label":"Pairing","value":"Tad Hang lies roughly 500 m downstream","detail":"Older provincial tourism material places Tad Lo about 500 metres upstream from Tad Hang, and current local guidance still presents both as walkable village activities. Combine the two instead of arranging separate transfers."}]},
-  "thing-tad-soung-waterfall": {"items":[{"label":"Lower access","value":"About 4 km by road from Tad Lo Tourism Office","detail":"Current locally checked guidance places the lower falls roughly four kilometres from the Tourism Office. The route is walkable, though a motorbike makes the half-day outing easier in heat or rain."},{"label":"Upper access","value":"Renovated trail or roughly 4 km farther by road","detail":"From the lower falls, the current trail climbs to the upper section with around 80–100 metres of ascent. Travellers who do not want the climb can continue approximately four kilometres farther by road to the upper access."},{"label":"Time & difficulty","value":"Half day · moderate","detail":"Allow enough time for the rural approach, lower viewpoint and upper panorama without rushing. Reasonable fitness is useful on the climb, and wet-season trail conditions can make the outing harder."},{"label":"Cost","value":"Waterfall free · motorbike parking normally about 10K KIP","detail":"Visit Tad Lo currently lists the waterfall itself as free. Motorbike parking is normally around 10,000 kip; in quiet periods local arrangements can be informal, so carry small cash."},{"label":"Season & flow","value":"Dam-controlled · highly variable","detail":"An upstream dam controls the flow. The dry season can leave little or no visible waterfall while preserving the panorama; rainy conditions can produce much stronger water but also rougher lower access and trail conditions."},{"label":"Safety","value":"High escarpment · wet trail · no edge shortcuts","detail":"Use caution around the upper cliff and on the climb. Wear shoes with grip, check conditions after rain and do not move toward exposed edges or strong water just to improve the view or photograph."}]},
-  "thing-katu-weaving-workshop": {"items":[{"label":"Booking","value":"Required · confirm the host before going","detail":"Visit Tad Lo currently marks the workshop as booking required. Confirm the host, exact meeting point, contact, current price, what is included and the host’s photo preferences when you arrange it."},{"label":"Time needed","value":"About 4 hours · half day","detail":"The current local description gives roughly four hours for learning posture, weaving technique and the time behind handmade textiles. Leave the half day clear rather than squeezing it between waterfall stops."},{"label":"Access","value":"Walkable from Tad Lo","detail":"No private transport is normally needed. The catalogue lists the workshop as walkable, but the exact meeting point depends on the host arrangement, so get that detail when booking."},{"label":"Physical comfort","value":"Seated posture can be demanding","detail":"A foot-braced backstrap loom uses the weaver’s body to hold tension. Visit Tad Lo warns that the sitting posture and flexibility required may be uncomfortable; mention mobility or back issues before booking so the host can advise what is realistic."},{"label":"Availability","value":"Seasonal · lower availability possible in low season","detail":"The workshop is not a guaranteed walk-in attraction. Availability depends on the host and season, which is another reason to arrange it before building the rest of the day around it."},{"label":"Etiquette","value":"Ask before photographing people","detail":"Treat the session as time with a host, not as a staged photo opportunity. Ask before close portraits, let the host decide which steps guests try and do not assume a finished textile or souvenir is included unless that has been confirmed."}]},
-  "thing-lao-cooking-class-with-nyay": {"items":[{"label":"Booking","value":"Required in advance","detail":"Visit Tad Lo currently lists the class as booking required and says advance organisation is necessary. Confirm the date, exact start time, meeting point and number of participants before building the meal into your day."},{"label":"Class timing","value":"Morning for lunch · afternoon for dinner","detail":"Current local guidance offers the workshop in two rhythms: cook in the morning and eat lunch, or start in the afternoon and finish with dinner. Confirm the exact duration when booking."},{"label":"Current price","value":"500,000 KIP per person · reconfirm","detail":"Fandee Island currently lists Nyay Cooking Class at 500,000 kip per person. Visit Tad Lo separately asks travellers to confirm the current price, so use 500,000 kip as a planning reference rather than an immutable tariff."},{"label":"Meal","value":"Included","detail":"The food you prepare becomes the meal at the end of the session. Ask how many dishes are planned before booking if the menu size matters to you."},{"label":"Dietary options","value":"Vegetarian or non-vegetarian · confirm first","detail":"Visit Tad Lo currently says both can be arranged. Disclose allergies, intolerances and dietary restrictions before the class rather than when ingredients are already being prepared."},{"label":"Getting there","value":"Walkable in Tad Lo","detail":"The activity is currently classified as walkable without personal transport. The road distance is not published, so confirm the exact host location or meeting point when you book."}]},
-  "thing-coffee-and-katu-culture-with-mr-hook": {"items":[{"label":"Booking","value":"Recommended · confirm before leaving Tad Lo","detail":"Visit Tad Lo currently marks booking as recommended and availability as something to check locally. Confirm the meeting point, current contact, departure time and whether Mr Hook is personally hosting before riding out."},{"label":"From Tad Lo","value":"About 15 km by road to Ban Kok Phoung Tai","detail":"The current local guide places the experience roughly 15 km from Tad Lo Tourism Office. A motorbike is recommended; car or minivan access is also listed."},{"label":"Time needed","value":"Roughly 3 hours · keep a half day clear","detail":"The current Visit Tad Lo page gives about three hours. Do not stack another fixed-time activity immediately after it; the conversation is the part most likely to make the visit run long."},{"label":"Current price","value":"Paid · confirm directly","detail":"A November 2024 Bolaven route map listed 70,000 kip for a three-hour tour, while a 2025 traveller report quoted 80,000 kip. The current local page does not publish a fixed fee, so use old figures only as context and confirm today's price."},{"label":"Format","value":"Coffee + useful plants + cultural conversation","detail":"This is not an official trek. Expect an easy guided walk and discussion rather than a long hike or a standardized coffee-production class. Plant uses described during the visit are local knowledge shared by the host, not medical advice."},{"label":"Respect","value":"Ask before photographing people or sacred objects","detail":"Follow the host’s guidance and avoid treating village life as staged content. What Mr Hook shares is a local perspective, not a universal rulebook for every Katu community."}]},
-  "thing-coffee-from-tree-to-cup-with-mr-vieng": {"items":[{"label":"From Tad Lo","value":"About 30 km by road near Laongam","detail":"Visit Tad Lo currently places Mr Vieng’s coffee experience roughly 30 kilometres by road from Tad Lo Tourism Office. A motorbike is recommended; car or minivan access is also listed."},{"label":"Time needed","value":"About 90 minutes","detail":"The current local page describes approximately ninety minutes following coffee from the tree through processing and preparation. Keep a little extra time for the ride and an unhurried final cup."},{"label":"Booking & times","value":"Confirm before leaving Tad Lo","detail":"Visit Tad Lo asks travellers to confirm current visit times, contact, public name and booking method. Do not ride out assuming an old timetable is still operating."},{"label":"Current price","value":"Paid · confirm directly","detail":"The current Visit Tad Lo page does not publish a fixed price. Older traveller reports show much lower historical rates, so treat those only as history and confirm today’s amount directly."},{"label":"Format","value":"Tree → processing → preparation","detail":"Expect an easy farm-based coffee lesson rather than a strenuous hike. English is listed as useful, and the value is understanding the stages between coffee fruit and the cup."},{"label":"Season","value":"What you see varies with the coffee cycle","detail":"Tourism Laos notes that Bolaven coffee harvest generally runs around October to February. Treat that as regional context only and confirm what is actually happening at Mr Vieng’s farm on your date."}]}
+  "thing-thakhek-loop": {
+    "items": [
+      {
+        "label": "Classic format",
+        "value": "450 km · 4 days / 3 nights",
+        "detail": "Khammouane Tourism currently presents four days and three nights as the classic itinerary and three to five days as the broader recommended window. Four days is the best baseline if you want the major stops without turning each day into a long transfer."
+      },
+      {
+        "label": "Daily rhythm",
+        "value": "105 km → 145 km → 85 km → 150 km",
+        "detail": "The official classic stages are Thakhek–Thalang, Thalang–Khoun Kham, the Kong Lor day, then Khoun Kham–Thakhek. Distances are planning references rather than targets; road, weather and stop time should decide the real pace."
+      },
+      {
+        "label": "Motorbike",
+        "value": "Semi-auto 110cc or manual recommended",
+        "detail": "The current official guide recommends these simple bike types and quotes roughly 100,000–200,000 kip per rental day. Check brakes, tyres, lights and rental terms before leaving; price and bike availability can change by shop and season."
+      },
+      {
+        "label": "Navigation",
+        "value": "Download an offline map before Day 1",
+        "detail": "Mobile signal is weak in parts of the route. Khammouane Tourism recommends Maps.me or offline Google Maps; save the route and key overnight stops while you still have a reliable connection in Thakhek."
+      },
+      {
+        "label": "Fuel & cash",
+        "value": "Fill early · carry enough cash",
+        "detail": "The official guide warns that some fuel stops can be 50–80 km apart and advises filling whenever you have the opportunity. It also recommends withdrawing cash before leaving Thakhek rather than depending on ATMs during the circuit."
+      },
+      {
+        "label": "Road safety",
+        "value": "Helmet on · finish riding before dark",
+        "detail": "Mountain roads, rain and changing surface conditions make daylight useful. Ride slowly on bends, carry rain gear and personal medicine, keep luggage light and do not plan a night-riding finish just to squeeze in another stop."
+      }
+    ]
+  },
+  "thing-xe-bang-fai-cave": {
+    "items": [
+      {
+        "label": "Route from Thakhek",
+        "value": "Remote approach via Route 12 and Boualapha",
+        "detail": "Leave Thakhek eastbound on Route 12, then continue through the Boualapha area and local village roads toward the cave approach. Road conditions can change with weather and season, so keep the route offline, leave enough daylight and reconfirm the latest access locally before departure."
+      },
+      {
+        "label": "Best season",
+        "value": "Dry season is the safer window",
+        "detail": "Access is usually easier when roads are drier and river levels are lower. Hin Nam No advises against entering the river cave from June to October, when stronger flows can make the visit unsafe."
+      },
+      {
+        "label": "What to wear",
+        "value": "Wet-ready clothes · shoes with grip",
+        "detail": "Expect wet rock and changing ground conditions around a remote river-cave visit. Quick-dry clothing and grippy footwear make sense here, with a light extra layer for the cooler end of the day."
+      },
+      {
+        "label": "Entrance & boat",
+        "value": "Entrance fee + local boat",
+        "detail": "Recent traveller reports have placed entry around 50,000 kip, motorbike parking around 10,000 kip and a small local boat around 150,000 kip. Use those numbers as a planning reference only and reconfirm them on arrival."
+      },
+      {
+        "label": "Time needed",
+        "value": "Full day minimum · overnight works better",
+        "detail": "The cave boat trip itself is roughly ninety minutes, but the remote journey from Thakhek turns the visit into a full-day expedition. Staying around Ban Nong Ping removes the pressure of forcing the return journey immediately after the cave."
+      },
+      {
+        "label": "Road & cave difficulty",
+        "value": "Conditions matter more than fitness",
+        "detail": "The cave is visited with a local guide, but the overall trip still involves a long remote approach, river travel and slippery ground. When the road or river conditions look wrong, this is not an outing to force."
+      }
+    ]
+  },
+  "thing-kong-lor-cave": {
+    "items": [
+      {
+        "label": "Opening hours",
+        "value": "Daily 08:00–16:00 · last boat 16:00",
+        "detail": "The Konglor–Natane community site currently lists daily operation from 08:00 to 16:00, with the last boat at 16:00. Heavy rain can still trigger exceptional closure, so treat the hours as normal operation rather than a guarantee."
+      },
+      {
+        "label": "Boat & ticket",
+        "value": "Current prices conflict · confirm at the gate",
+        "detail": "The community operator currently lists 450,000 kip for one person in a boat, 500,000 kip for two and 750,000 kip for three, with a separate 500,000-kip individual ticket also shown. Khammouane Tourism separately lists a 250,000-kip foreigner entry pass. Because these current official-facing sources are not aligned, confirm the complete boat-inclusive price before paying."
+      },
+      {
+        "label": "Time needed",
+        "value": "2–3 hours minimum",
+        "detail": "The boat crossing, illuminated walking section and return fit roughly into this window. The community operator allows up to a two-hour pause on the Natane side, so a slower visit can take considerably longer."
+      },
+      {
+        "label": "What is provided",
+        "value": "Life jacket · headlamp · flip-flops",
+        "detail": "The community site says these are supplied at the entrance. Wear the life jacket on the boat and bring quick-dry clothes plus footwear you are comfortable getting wet even if you use the provided sandals."
+      },
+      {
+        "label": "Best season",
+        "value": "November–April is the easier window",
+        "detail": "Khammouane Tourism recommends the dry season, when water levels are generally safer. The cave can close after strong rain in the wet season, so check local conditions before riding out."
+      },
+      {
+        "label": "Natane side",
+        "value": "Pause, information and optional bicycle",
+        "detail": "After emerging on the Natane side, the community operator says visitors may pause for up to two hours. A tourist information point, craft area and bicycle rental are available for those who want to see more of the valley before returning through the cave."
+      }
+    ]
+  },
+  "thing-tham-xiang-liap-cave": {
+    "items": [
+      {
+        "label": "From Thakhek",
+        "value": "About 14 km northeast via Route 12",
+        "detail": "Khammouane Tourism places Xiang Liap near Xiang Liap village, about 14 kilometres northeast of Thakhek along Route 12. It is close enough for a short outing or an early cave stop on a Route 12 day."
+      },
+      {
+        "label": "Opening hours",
+        "value": "Daily 08:00 to 17:00",
+        "detail": "The current official attraction page lists operation from 08:00 to 17:00. Arrive with enough daylight to assess the water and avoid entering late in the day."
+      },
+      {
+        "label": "Entrance",
+        "value": "10,000 KIP per foreign visitor",
+        "detail": "Khammouane Tourism currently lists a 10,000 kip entry pass for foreign adults. Other activities and services at the site can cost extra, so confirm any additional price at the counter before paying."
+      },
+      {
+        "label": "Difficulty",
+        "value": "Moderate",
+        "detail": "The official site rates Xiang Liap as moderate. The cave involves natural ground, darkness and water, so the real difficulty changes with season and recent rain more than with distance alone."
+      },
+      {
+        "label": "Best season",
+        "value": "November to April",
+        "detail": "The official guide describes the dry season as the easiest period, with clearer water that is generally shallower. From May to October the landscape is greener but water levels can rise."
+      },
+      {
+        "label": "What to bring",
+        "value": "Headlamp · waterproof shoes · clothes that dry quickly",
+        "detail": "These are the items specifically recommended by Khammouane Tourism. Protect your phone from water, carry cash and wear a life jacket if a boat activity is operating."
+      }
+    ]
+  },
+  "thing-tham-chang-elephant-cave": {
+    "items": [
+      {
+        "label": "From Thakhek",
+        "value": "Route 12 toward Ban Tham",
+        "detail": "Elephant Cave is one of the closest cave stops to Thakhek. Follow Route 12 east, then use the local access toward Ban Tham. Published distance references vary, so follow current signs and local directions for the final approach rather than relying on one old kilometre marker."
+      },
+      {
+        "label": "Time needed",
+        "value": "30 to 60 minutes",
+        "detail": "The cave is compact. Half an hour is enough for the shrine, elephant formation and view, while a slower visit gives more room to sit quietly and look across the surrounding plain."
+      },
+      {
+        "label": "Entrance",
+        "value": "Recent references about 10,000 KIP",
+        "detail": "Petit Futé 2026 and several recent Loop guides give 10,000 kip as a useful current reference. Older sources list 5,000 kip, so confirm the amount locally and carry small cash."
+      },
+      {
+        "label": "What to see",
+        "value": "Golden Buddha · elephant formation · cave shrine",
+        "detail": "The elephant shaped feature is found in a small passage behind the golden Buddha. The site is primarily a Buddhist shrine, so the religious setting matters more than the size of the cave."
+      },
+      {
+        "label": "Bring",
+        "value": "Small light · respectful clothing · cash",
+        "detail": "A torch or headlamp helps with the passage behind the Buddha. Dress as you would for a Buddhist shrine and keep enough cash for the entrance or any current local arrangement."
+      },
+      {
+        "label": "After rain",
+        "value": "Check the Ban Tham approach locally",
+        "detail": "Older and recent route accounts describe local access that can be affected by water and wet season conditions. If the approach is flooded, damaged or locally discouraged, do not force the crossing."
+      }
+    ]
+  },
+  "thing-tham-pha-buddha-cave": {
+    "items": [
+      {
+        "label": "Location",
+        "value": "Ban Na Khang Xang area",
+        "detail": "The cave lies outside Thakhek near Ban Na Khang Xang. Follow current local signs for Buddha Cave and use the developed walkway and concrete steps for the final approach to the upper sanctuary."
+      },
+      {
+        "label": "Opening hours",
+        "value": "Daily 08:00 to 17:00",
+        "detail": "Petit Futé 2026 currently lists daily opening from 08:00 to 17:00. Arrive well before closing if you want time for both the upper sanctuary and the lower cave."
+      },
+      {
+        "label": "Entrance",
+        "value": "About 20,000 KIP for both caves",
+        "detail": "Petit Futé 2026 currently lists 20,000 kip for access to the two caves. Treat that as a current planning reference and confirm the posted amount on arrival."
+      },
+      {
+        "label": "Upper sanctuary",
+        "value": "229 bronze Buddha statues · no photography",
+        "detail": "The upper cave contains the collection discovered in 2004 and remains an active sacred place. Photography is prohibited inside, so keep the phone or camera away and give worshippers space."
+      },
+      {
+        "label": "Dress",
+        "value": "Cover shoulders and knees",
+        "detail": "This is a Buddhist sanctuary rather than a normal cave attraction. Dress modestly. Women may be asked to wear a traditional Lao skirt, and sarongs can be available locally when needed."
+      },
+      {
+        "label": "Lower cave",
+        "value": "Lake cave · bring a headlamp",
+        "detail": "The lower cave extends for roughly 500 metres around Nong Pa Fa lake. Ask whether the local canoe route is operating, bring a headlamp and use footwear suitable for damp cave surfaces."
+      }
+    ]
+  },
+  "thing-tha-falang": {
+    "items": [
+      {
+        "label": "From Thakhek",
+        "value": "About 15 km east on Route 12",
+        "detail": "Current Thakhek guidance places Tha Falang roughly fifteen kilometres east of town. The final approach leaves Route 12 for a short sandy or dirt track toward the Nam Don riverbank, so follow current local signs and slow down on the last section."
+      },
+      {
+        "label": "Time needed",
+        "value": "1 to 2 hours",
+        "detail": "An hour is enough for a swim and rest. Stay longer if the water is suitable, you stop for food or you are deliberately using Tha Falang as the slow break in a Cave Alley day."
+      },
+      {
+        "label": "Cost",
+        "value": "River access currently reported free",
+        "detail": "A current local operator describes entrance as free. Food, drinks and any resort or hut service are separate, and local arrangements can change, so carry small cash and follow the current setup on arrival."
+      },
+      {
+        "label": "Swimming",
+        "value": "Condition dependent",
+        "detail": "Tha Falang is a known swimming place, but rainfall and river level change the current. Enter gradually, stay close to the bank and skip swimming when recent rain, visible flow or local advice makes the water questionable."
+      },
+      {
+        "label": "Best time",
+        "value": "Dry season · weekdays for quieter banks",
+        "detail": "The drier months generally make the final track and river access easier. Weekends can be lively with local visitors, so a weekday suits travellers looking for a calmer stop."
+      },
+      {
+        "label": "Bring",
+        "value": "Swimwear · towel · water · secure valuables",
+        "detail": "Keep your phone, wallet and motorbike key secure while you are in the river. After rain, take extra care on the access track and avoid blind jumps into water whose depth you cannot clearly read."
+      }
+    ]
+  },
+  "thing-khoun-kong-leng": {
+    "items": [
+      {
+        "label": "From Thakhek",
+        "value": "About 50 km by Route 13 and local road",
+        "detail": "Khammouane Tourism currently directs visitors about 30 kilometres north from Thakhek on Route 13, then about 20 kilometres along a paved road from the Ban Nakhou junction to the site."
+      },
+      {
+        "label": "Opening hours",
+        "value": "Daily 08:00 to 17:00",
+        "detail": "The current official attraction page lists operation from 08:00 to 17:00. Allow enough daylight for the drive back rather than arriving close to closing."
+      },
+      {
+        "label": "Entrance",
+        "value": "Currently free",
+        "detail": "Khammouane Tourism currently lists free entry for Lao and foreign visitors. Optional activities such as kayaking, the viewpoint, ATV rides and other adventure services are charged separately and prices can change seasonally."
+      },
+      {
+        "label": "Swimming",
+        "value": "Follow the designated local area",
+        "detail": "Do not assume the main spring pool is open for unrestricted swimming. Long standing visitor guidance asks people to check locally and use the permitted downstream area rather than entering the sacred source itself."
+      },
+      {
+        "label": "Facilities",
+        "value": "Parking · restaurant · toilets · camping · viewpoint",
+        "detail": "The official site now lists a developed visitor base with these facilities as well as boat and adventure services. This is no longer an undeveloped roadside lagoon, so follow the current site layout and rules."
+      },
+      {
+        "label": "What to bring",
+        "value": "Quick dry clothes · water · small cash",
+        "detail": "The official site recommends quick dry clothing. Carry cash for optional activities, use a life jacket whenever a boat or kayak operator requires one and respect any local rule around the source water."
+      }
+    ]
+  },
+  "thing-thalang-nam-theun-reservoir": {
+    "items": [
+      {
+        "label": "Loop position",
+        "value": "End of Day 1 · about 105 km from Thakhek",
+        "detail": "Khammouane Tourism places Thalang at the end of the classic first stage after Cave Alley and the climb onto the Nakai Plateau. Plan to reach the village before sunset rather than treating it as a late transit stop."
+      },
+      {
+        "label": "Best moment",
+        "value": "Sunset over the reservoir",
+        "detail": "The official Loop guide highlights the submerged dead trees around Thalang at sunset. Leave enough light to stop, look across the water and settle into your accommodation before dark."
+      },
+      {
+        "label": "Overnight",
+        "value": "Guesthouses and homestays in Thalang",
+        "detail": "The provincial tourism site describes Thalang as the popular first night stop. Phosy Thalang offers family run accommodation and food, while other established Loop stays operate in the village. Confirm availability in busier periods."
+      },
+      {
+        "label": "Cost",
+        "value": "No separate landscape ticket",
+        "detail": "The road and reservoir views are part of the Loop landscape. Accommodation, meals and any guided reservoir activity are separate paid services, so carry cash and confirm prices directly."
+      },
+      {
+        "label": "Day 2",
+        "value": "About 145 km toward Khoun Kham",
+        "detail": "The next official stage is longer than Day 1 and passes forest, Cool Springs, Dragon Cave and other stops. Start in the morning with fuel, water and enough daylight for the full ride."
+      },
+      {
+        "label": "Context",
+        "value": "Nam Theun 2 hydropower reservoir",
+        "detail": "The reservoir began forming in 2008 and commercial hydropower operation started in 2010. The water landscape involved major environmental and social change, including the relocation of roughly 6,300 people on the Nakai Plateau."
+      }
+    ]
+  },
+  "thing-pha-inh-cave": {
+    "items": [
+      {
+        "label": "Loop position",
+        "value": "Day 1 · Route 12 Cave Alley",
+        "detail": "Khammouane Tourism currently includes Pha Inh on the classic Thakhek–Thalang first stage, alongside Elephant Cave and Nang Aen. Treat it as a short cave stop rather than a destination that needs half a day."
+      },
+      {
+        "label": "Time needed",
+        "value": "45–90 minutes",
+        "detail": "That is enough for the stairs, shrine, cave interior and pool viewpoint at an unhurried pace. Leave more time only if the current local setup allows water access and you choose to stay longer."
+      },
+      {
+        "label": "Entrance",
+        "value": "Confirm the current fee on arrival",
+        "detail": "Reliable published information is inconsistent. Older accounts describe free access, while a more recent Loop report gives 40,000 kip under the Pha Nya In name. Do not publish or plan around one fixed amount; carry small cash and follow the current posted rate."
+      },
+      {
+        "label": "Swimming",
+        "value": "Check the current local rule first",
+        "detail": "The official Loop page currently promotes swimming at Pha Inh, while older sacred-cave guidance explicitly prohibited it. Because the cave contains a Buddhist shrine and local rules can change, read the signs and ask before entering the water."
+      },
+      {
+        "label": "What to bring",
+        "value": "Shoes with grip · small light · respectful clothing",
+        "detail": "The approach and cave floor can be damp or uneven. A torch helps away from the natural openings, and modest clothing is appropriate around the Buddhist shrine."
+      }
+    ]
+  },
+  "thing-cool-springs-loop": {
+    "items": [
+      {
+        "label": "Loop position",
+        "value": "Day 2 · Thalang → Khoun Kham",
+        "detail": "Khammouane Tourism places Cool Springs on the classic 145 km second stage, before Dragon Cave and the final run to Khoun Kham. The official riding estimate is 4–6 hours before stops."
+      },
+      {
+        "label": "Location",
+        "value": "Ban Napavan · off Route 8",
+        "detail": "The current official Thai Loop guide identifies Cool Springs at Ban Napavan. Older route guides place the turn east of Ban Phontan / near Ban Napavan, followed by a local side track toward the limestone."
+      },
+      {
+        "label": "Time needed",
+        "value": "1–2 hours",
+        "detail": "Allow enough time for the approach, a swim and a proper rest. Keep the stop shorter if you still want Dragon Cave and a daylight arrival in Khoun Kham."
+      },
+      {
+        "label": "Entrance",
+        "value": "Confirm the current fee",
+        "detail": "Published price references are old and inconsistent, commonly 10,000–20,000 kip. Carry small cash and use the current posted or locally quoted rate rather than relying on an old online number."
+      },
+      {
+        "label": "Swimming",
+        "value": "Cold spring water · enter gradually",
+        "detail": "Khammouane Tourism currently promotes Cool Springs for swimming. Treat it as natural water rather than a controlled pool: enter gradually, check depth before jumping and follow any current local rules."
+      },
+      {
+        "label": "After rain",
+        "value": "Check the side track before committing",
+        "detail": "The final unpaved approach can become muddy after rain. Slow down, follow current signs and local advice, and do not force the track if conditions have deteriorated."
+      }
+    ]
+  },
+  "thing-old-french-railway-bridge": {
+    "items": [
+      {
+        "label": "Where",
+        "value": "Between Don Det and Don Khon",
+        "detail": "The historic railway bridge links the southern end of Don Det with Ban Khon on Don Khon. It is an easy continuation of an island walk or bicycle ride."
+      },
+      {
+        "label": "Best way to visit",
+        "value": "Walk or bicycle",
+        "detail": "The bridge itself needs little time, but a bicycle makes it easy to continue along the old railway route and combine the crossing with the main sights of Don Khon."
+      },
+      {
+        "label": "Time needed",
+        "value": "20–40 min for the bridge · half day with Don Khon",
+        "detail": "Allow time to stop on both sides and look at the structure rather than simply crossing. Add several hours if you continue toward the locomotive, old railway alignment and Li Phi / Somphamit Falls."
+      },
+      {
+        "label": "Cost",
+        "value": "Bridge crossing recently reported free",
+        "detail": "A February 2024 Wikivoyage update reported the bridge itself as free to cross. Older and other guide references mention access charges connected with Don Khon or waterfall visits, so check locally if a ticket system is operating when you arrive."
+      },
+      {
+        "label": "History",
+        "value": "Part of a roughly 7 km colonial portage railway",
+        "detail": "The railway opened in 1893 on Don Khon and was later extended to Don Det. It moved vessels, freight and passengers around the Mekong rapids and falls that prevented continuous river navigation."
+      },
+      {
+        "label": "Good light",
+        "value": "Early morning or late afternoon",
+        "detail": "The crossing is exposed and the tropical midday heat can be strong. Softer light also works better for the arches, river reflections and views between the islands."
+      }
+    ]
+  },
+  "thing-li-phi-somphamit-waterfalls": {
+    "items": [
+      {
+        "label": "Where",
+        "value": "Don Khon · about 2 km south of the railway bridge",
+        "detail": "From Don Det, cross the old railway bridge onto Don Khon and continue south toward the signed Li Phi / Somphamit waterfall area. It is an easy bicycle continuation from the bridge."
+      },
+      {
+        "label": "Time needed",
+        "value": "1–2 hours",
+        "detail": "That is enough for the main paths and viewpoints without rushing. Allow a half day if you combine the falls with the railway bridge, locomotive and a slower ride around Don Khon."
+      },
+      {
+        "label": "Entrance",
+        "value": "Recent references: about 30,000–35,000 kip",
+        "detail": "A June 2026 Wikivoyage update lists 30,000 kip, while Petit Futé 2026 lists 35,000 kip. Treat that range as a planning reference and confirm the current ticket at the entrance."
+      },
+      {
+        "label": "Optional extras",
+        "value": "Some attractions may cost separately",
+        "detail": "Recent guide information mentions an additional paid suspension-bridge experience at the site. Do not assume it is included in the standard waterfall entry; check the current options and price before paying."
+      },
+      {
+        "label": "Best time",
+        "value": "Morning or late afternoon",
+        "detail": "The cooler hours are more comfortable for the bicycle ride and give better light across the rock and white water. The look of the falls changes substantially with Mekong water levels."
+      },
+      {
+        "label": "Safety",
+        "value": "View the rapids · do not challenge them",
+        "detail": "The currents are powerful and the rocks can be slippery. Stay on established paths and viewpoints around the main falls and respect local barriers or instructions."
+      }
+    ]
+  },
+  "thing-khone-phapheng-falls": {
+    "items": [
+      {
+        "label": "Where",
+        "value": "Mainland east of Don Khon · near the Cambodian border",
+        "detail": "Khone Phapheng is not on Don Det or Don Khon. Official Lao tourism information places it about 13 km from the Cambodian border and roughly 6 km south of Don Det as the crow flies, on the mainland side of the Mekong system."
+      },
+      {
+        "label": "From Don Det",
+        "value": "Boat to Ban Nakasang + road transfer",
+        "detail": "For an island-based visit, return by boat to Ban Nakasang and continue by tuk-tuk, minivan or arranged road transport to the waterfall visitor area. Agree the return plan and total transport price before leaving."
+      },
+      {
+        "label": "Time needed",
+        "value": "1–2 hours at the falls",
+        "detail": "The visitor area itself does not need a full day, but the boat and road transfers from Don Det add time. Leave enough margin that you are not rushing the return boat or onward transport."
+      },
+      {
+        "label": "Entrance",
+        "value": "Confirm the current ticket on arrival",
+        "detail": "Online price references are inconsistent and can become outdated quickly. Wikivoyage currently lists 30,000 kip for Khone Phapheng, but use that only as a rough reference and check the posted local rate."
+      },
+      {
+        "label": "Scale",
+        "value": "Up to 21 m high · rapids across about 9.7 km",
+        "detail": "Official Lao tourism information describes an average discharge close to 11,000 cubic metres per second. The attraction is the breadth and power of the cataract system rather than one tall vertical drop."
+      },
+      {
+        "label": "Safety",
+        "value": "Stay with the developed viewpoints",
+        "detail": "The Mekong here is exceptionally powerful. Keep to established visitor paths and platforms, respect barriers and do not scramble toward exposed rock or fast water for a closer photograph."
+      }
+    ]
+  },
+  "thing-don-som-island": {
+    "items": [
+      {
+        "label": "Where",
+        "value": "North of Don Det in Si Phan Don",
+        "detail": "Don Som is a long inhabited Mekong island between Don Det to the south and Don Khong to the north. A local island source describes it as roughly 13 km long, up to 3 km wide, with 12 villages."
+      },
+      {
+        "label": "From Don Det",
+        "value": "Direct local boat",
+        "detail": "Ask at the Don Det pier for a boat to Don Som. Published traveller guidance has quoted simple per-person fares, but boat prices and availability are informal enough that you should confirm the fare and return arrangement before departure."
+      },
+      {
+        "label": "Time needed",
+        "value": "Half day minimum",
+        "detail": "A half day gives you time to cross, walk or ride through part of the island and return without rushing. A full day makes more sense if you want to explore farther, eat locally or spend time around the villages and river."
+      },
+      {
+        "label": "What to expect",
+        "value": "Villages, rice fields, fishing and very little tourism",
+        "detail": "Most residents are farmers or fishers. There are small shops and simple food options, but no market and much less visitor infrastructure than on Don Det or Don Khon."
+      },
+      {
+        "label": "Best time",
+        "value": "Early morning or late afternoon",
+        "detail": "The cooler hours suit walking or cycling and are when island life is most active around homes, fields and river crossings. Midday can be hot and exposed."
+      },
+      {
+        "label": "Respect",
+        "value": "Treat the island as a home, not an attraction",
+        "detail": "Stay on obvious public routes, ask before taking close portraits, dress respectfully around villages and temples, and do not enter homes, fields or private compounds without invitation."
+      }
+    ]
+  },
+  "thing-khone-pa-soi-waterfall": {
+    "items": [
+      {
+        "label": "Where",
+        "value": "Eastern Don Khon · Si Phan Don",
+        "detail": "Khone Pa Soi is on the quieter eastern side of Don Khon. From Don Det, cross the old railway bridge first, then continue by bicycle or on foot along Don Khon's rougher tracks toward the waterfall area."
+      },
+      {
+        "label": "Route",
+        "value": "Best by bicycle · expect rough tracks",
+        "detail": "Older detailed route notes describe an unpaved cross-island approach of roughly two kilometres from the bridge area, with an alternative eastern-coast route that can be narrow, sandy or muddy. Conditions change quickly after rain."
+      },
+      {
+        "label": "Time needed",
+        "value": "2–3 hours · half day is more relaxed",
+        "detail": "The waterfall itself is compact, but the bicycle approach is part of the outing. Allow extra time for wrong turns, poor track conditions and stopping along quieter eastern Don Khon."
+      },
+      {
+        "label": "Entrance",
+        "value": "Recent guides generally report free access",
+        "detail": "Several recent travel sources describe Khone Pa Soi as free, but older references conflict. Do not build the visit around a fixed price; carry cash and follow whatever current local arrangement is posted."
+      },
+      {
+        "label": "Bridge status",
+        "value": "Verify locally before crossing",
+        "detail": "The suspension bridge has repeatedly been reported damaged or closed in past years, while newer guides describe it in use again. Inspect the current condition and obey any closure or local instruction. Never cross a visibly damaged or blocked bridge."
+      },
+      {
+        "label": "Water safety",
+        "value": "Treat the rapids as dangerous",
+        "detail": "The current can be extremely strong and hidden rocks make informal swimming risky. Even if low water exposes calmer-looking pools, do not enter fast channels and do not scramble onto wet rock for a photograph."
+      }
+    ]
+  },
+  "thing-xai-kong-nyai-beach": {
+    "items": [
+      {
+        "label": "Where",
+        "value": "Southern Don Khon · downstream from Li Phi",
+        "detail": "Xai Kong Nyai is a sandy Mekong bank on Don Khon. It fits naturally into a bicycle day from Don Det and is commonly paired with Li Phi / Somphamit, which lies roughly a kilometre upriver from the beach area."
+      },
+      {
+        "label": "From Don Det",
+        "value": "Cross the railway bridge, then continue by bicycle",
+        "detail": "Ride south from Don Det across the old railway bridge onto Don Khon and continue toward the southern and western side of the island. A bicycle is the easiest way to combine the beach with other Don Khon stops."
+      },
+      {
+        "label": "Time needed",
+        "value": "1–2 hours · longer for a slow lunch or sunset",
+        "detail": "There is no checklist here. Allow enough time to cool down, eat or drink and watch the river. If the conditions are good for swimming, the stop can easily stretch into the later afternoon."
+      },
+      {
+        "label": "Entrance",
+        "value": "Beach access is generally described as free",
+        "detail": "Travel guides describe Xai Kong Nyai as a free beach stop. Food, drinks and any longtail-boat trip are separate. Local arrangements can change, so follow any current signs or instructions on arrival."
+      },
+      {
+        "label": "Swimming",
+        "value": "Stay close to shore · currents can change",
+        "detail": "The beach is widely described as one of the better swimming options on Don Khon, including year-round in some guides, but the Mekong can run fast away from the bank. Read the current, follow local advice and do not swim out into moving channels."
+      },
+      {
+        "label": "Facilities",
+        "value": "Simple food and longtail boats",
+        "detail": "Several guides describe a few basic restaurants or food-and-drink stops at the beach, plus local longtail boats. Treat boat prices and equipment as informal: agree the route, fare and safety setup before leaving shore."
+      }
+    ]
+  },
+  "thing-si-phan-don-by-boat": {
+    "items": [
+      {
+        "label": "Where to arrange",
+        "value": "Don Det pier or a local boat operator",
+        "detail": "Current Don Det information says private pirogue trips can be arranged directly on the island. For a simple charter, ask at the pier or use a locally recommended boatman and agree the plan before departure."
+      },
+      {
+        "label": "Time needed",
+        "value": "2–3 hours works well",
+        "detail": "A short private circuit is enough to get away from Don Det, pass smaller islands and return through late light. Longer trips are possible, but distance, current and destination change the practical timing."
+      },
+      {
+        "label": "Price",
+        "value": "Negotiate the whole charter before leaving",
+        "detail": "Published prices vary by route and boat. Current local information describes destination and departure time as negotiable, so confirm the total fare for the boat, not just a vague per-person estimate, and clarify whether stops or waiting time are included."
+      },
+      {
+        "label": "Best time",
+        "value": "Late afternoon into sunset",
+        "detail": "The heat softens and the low light works particularly well across the islands and river reflections. Sunset charters are currently offered from Don Det; arrange the return so you are not improvising navigation after dark."
+      },
+      {
+        "label": "What to bring",
+        "value": "Sun protection · water · dry protection for electronics",
+        "detail": "A narrow pirogue offers little shade and spray is possible. Keep phone, camera and documents protected, bring drinking water and use sunscreen even when the breeze makes the heat feel mild."
+      },
+      {
+        "label": "Safety",
+        "value": "Ask for a life jacket and follow the boatman on conditions",
+        "detail": "Routes and currents change with Mekong water levels. Ask what flotation equipment is available, keep weight balanced in a small boat and accept a route change or cancellation if the boatman considers the weather or river unsuitable."
+      }
+    ]
+  },
+  "thing-4000-islands-kayaking": {
+    "items": [
+      {
+        "label": "Format",
+        "value": "Guided full-day tour from Don Det",
+        "detail": "Current local listings describe morning departure and a return in the late afternoon. Book ahead and confirm the exact meeting point and day's itinerary with the operator."
+      },
+      {
+        "label": "Current price reference",
+        "value": "About US$25–26",
+        "detail": "Two current 2026 listings sit around this range. Treat it as a planning reference only; confirm the final price and inclusions when booking."
+      },
+      {
+        "label": "Included",
+        "value": "Kayak · paddle · life jacket · guide",
+        "detail": "Current Don Det operator information also lists meals and waterfall admission in its standard package, but inclusions can change between operators."
+      },
+      {
+        "label": "Safety",
+        "value": "Guided route · no casual solo paddling",
+        "detail": "Some channels have strong current and current local operator guidance does not offer unguided free-paddling on the tour route. Follow the briefing and keep the life jacket on."
+      }
+    ]
+  },
+  "thing-cycle-don-det-don-khon": {
+    "items": [
+      {
+        "label": "Bike rental",
+        "value": "Easy to find on Don Det",
+        "detail": "Current local Don Det information quotes about US$1.50 per day for a basic bicycle. Prices can vary by shop; choose the bike by condition rather than by appearance."
+      },
+      {
+        "label": "Before leaving",
+        "value": "Check brakes · tyres · chain · saddle",
+        "detail": "Most rental bikes are simple single-speeds. Test the brakes, spin both wheels, listen for a rough chain and ask to adjust the saddle before riding away."
+      },
+      {
+        "label": "Route",
+        "value": "Don Det → railway bridge → Don Khon",
+        "detail": "Current local guidance puts central Don Det to the bridge at about 3 km. From there Li Phi is roughly another 1.5–2 km, with longer tracks continuing across Don Khon."
+      },
+      {
+        "label": "Best time",
+        "value": "Morning or late afternoon",
+        "detail": "The terrain is mostly flat, but midday heat makes an easy ride feel harder. Avoid returning after dark: rural paths and the southern island sections are poorly lit."
+      }
+    ]
+  },
+  "thing-don-det-tubing": {
+    "items": [
+      {
+        "label": "Rental",
+        "value": "About 10–20K KIP",
+        "detail": "Current and recent Don Det references put basic tube rental around this range. Guesthouses and small shops may use different prices, so confirm the current rate and return arrangement before taking the tube."
+      },
+      {
+        "label": "Start",
+        "value": "Confirm today's entry point locally",
+        "detail": "The north-end beach near the boat pier is a commonly described starting point. Some operators can arrange a longer upstream start by longtail boat, but the recommended route depends on current and water level."
+      },
+      {
+        "label": "Exit",
+        "value": "Leave the river before the old railway bridge",
+        "detail": "Do not drift beyond the Don Det–Don Khon bridge. Local safety guidance warns of dangerous rapids downstream toward Li Phi. Decide your exit before entering the water, not while you are already approaching the bridge."
+      },
+      {
+        "label": "Safety",
+        "value": "Stay sober · read the current · skip bad conditions",
+        "detail": "Alcohol and moving water are a poor combination, and local Don Det guidance specifically links severe river accidents with drinking. Ask whether a life jacket is available, keep valuables dry and do not tube when local advice or the visible current says conditions are unsuitable."
+      }
+    ]
+  },
+  "thing-don-det-sunset": {
+    "items": [
+      {
+        "label": "Where",
+        "value": "West / sunset side of Don Det",
+        "detail": "The western bank faces the evening light across the Mekong. There is no single required viewpoint: choose an open riverside section, terrace or deck with a clear western horizon."
+      },
+      {
+        "label": "When to arrive",
+        "value": "30–45 minutes before sunset",
+        "detail": "Arriving early gives time to choose a view before the light changes quickly. Stay beyond sunset for the reflected colour and afterglow rather than leaving as soon as the sun drops."
+      },
+      {
+        "label": "How to get there",
+        "value": "Walk or bicycle",
+        "detail": "Don Det is compact and flat. From the village or your accommodation, use the island paths to reach the west bank; a bicycle only matters if you are coming from farther south."
+      },
+      {
+        "label": "Cost",
+        "value": "Free · food and drinks optional",
+        "detail": "Watching the sunset itself costs nothing. A riverside bar or restaurant is convenient, but the activity does not require buying anything if you prefer a quiet public stretch of riverbank."
+      }
+    ]
+  },
+  "thing-tad-hang-waterfall": {
+    "items": [
+      {
+        "label": "From Tad Lo",
+        "value": "About 700 m by road from the Tourism Office",
+        "detail": "Visit Tad Lo currently places Tad Hang roughly 700 metres by road from the Tourism Office. It is one of the easiest local activities to do without a motorbike and fits naturally into a village walk."
+      },
+      {
+        "label": "Time needed",
+        "value": "1–2 hours is plenty for an unhurried stop",
+        "detail": "The waterfall itself is close to the village, so most travellers do not need a half day. Allow longer only if you combine it with Tad Lo Waterfall, stop for food nearby or spend time beside the river."
+      },
+      {
+        "label": "Entrance",
+        "value": "Currently listed free · reconfirm locally",
+        "detail": "The current locally maintained Tad Lo guide lists Tad Hang as free. KPL has also reported an ongoing multi-phase redevelopment of the Tad Loh–Tad Hang tourism site, so entrance arrangements can evolve; follow the current signs or local information when you arrive."
+      },
+      {
+        "label": "Swimming",
+        "value": "Possible only when the day’s water conditions are suitable",
+        "detail": "Local guidance treats swimming as condition-dependent rather than permanently safe. Lower dry-season flow can make some edges calmer, while rain can strengthen currents quickly. Ask locally and stay out when the river looks fast or recent rain has changed it."
+      },
+      {
+        "label": "Best time",
+        "value": "Morning or late afternoon",
+        "detail": "The walk is short enough to fit the cooler ends of the day, when the riverbank is also more comfortable for sitting. Seasonal water level matters more than chasing a single ideal hour."
+      },
+      {
+        "label": "Nearby",
+        "value": "Tad Lo Waterfall is roughly 500 m upstream",
+        "detail": "Older Salavan tourism material links Tad Hang to Tad Lo by riverside paths and places Tad Lo about 500 metres upstream. Combining the two lower falls is the most natural way to turn Tad Hang into a longer village outing."
+      }
+    ]
+  },
+  "thing-tad-lo-waterfall": {
+    "items": [
+      {
+        "label": "From Tad Lo",
+        "value": "About 1.1 km by road from the Tourism Office",
+        "detail": "Visit Tad Lo currently places the namesake waterfall about 1.1 kilometres by road from the Tourism Office. It is close enough to reach on foot through the village without turning the visit into a transport outing."
+      },
+      {
+        "label": "Time needed",
+        "value": "1–2 hours · longer with Tad Hang",
+        "detail": "The waterfall works as a short standalone walk, but the better plan is to connect it with Tad Hang and leave enough room to stop beside the river rather than timing each fall separately."
+      },
+      {
+        "label": "Entrance",
+        "value": "Public access currently listed free",
+        "detail": "The current local guide lists public access as free and notes that a private-side access or restaurant-linked charge, if operating, should be treated separately. Follow current signs and reconfirm any charge before assuming it is part of the waterfall entry."
+      },
+      {
+        "label": "Swimming",
+        "value": "Condition-dependent · ask after rain",
+        "detail": "Dry-season flow can leave calmer areas, while wet-season rain makes the Xe Set stronger and faster. Treat swimming as optional and follow current local advice rather than relying on a permanent online label of safe or unsafe."
+      },
+      {
+        "label": "Best time",
+        "value": "Morning or late afternoon",
+        "detail": "The cooler ends of the day suit the village walk and give more comfortable light around the river. Water level and recent rain matter more than a fixed ideal hour."
+      },
+      {
+        "label": "Pairing",
+        "value": "Tad Hang lies roughly 500 m downstream",
+        "detail": "Older provincial tourism material places Tad Lo about 500 metres upstream from Tad Hang, and current local guidance still presents both as walkable village activities. Combine the two instead of arranging separate transfers."
+      }
+    ]
+  },
+  "thing-tad-soung-waterfall": {
+    "items": [
+      {
+        "label": "Lower access",
+        "value": "About 4 km by road from Tad Lo Tourism Office",
+        "detail": "Current locally checked guidance places the lower falls roughly four kilometres from the Tourism Office. The route is walkable, though a motorbike makes the half-day outing easier in heat or rain."
+      },
+      {
+        "label": "Upper access",
+        "value": "Renovated trail or roughly 4 km farther by road",
+        "detail": "From the lower falls, the current trail climbs to the upper section with around 80–100 metres of ascent. Travellers who do not want the climb can continue approximately four kilometres farther by road to the upper access."
+      },
+      {
+        "label": "Time & difficulty",
+        "value": "Half day · moderate",
+        "detail": "Allow enough time for the rural approach, lower viewpoint and upper panorama without rushing. Reasonable fitness is useful on the climb, and wet-season trail conditions can make the outing harder."
+      },
+      {
+        "label": "Cost",
+        "value": "Waterfall free · motorbike parking normally about 10K KIP",
+        "detail": "Visit Tad Lo currently lists the waterfall itself as free. Motorbike parking is normally around 10,000 kip; in quiet periods local arrangements can be informal, so carry small cash."
+      },
+      {
+        "label": "Season & flow",
+        "value": "Dam-controlled · highly variable",
+        "detail": "An upstream dam controls the flow. The dry season can leave little or no visible waterfall while preserving the panorama; rainy conditions can produce much stronger water but also rougher lower access and trail conditions."
+      },
+      {
+        "label": "Safety",
+        "value": "High escarpment · wet trail · no edge shortcuts",
+        "detail": "Use caution around the upper cliff and on the climb. Wear shoes with grip, check conditions after rain and do not move toward exposed edges or strong water just to improve the view or photograph."
+      }
+    ]
+  },
+  "thing-katu-weaving-workshop": {
+    "items": [
+      {
+        "label": "Booking",
+        "value": "Required · confirm the host before going",
+        "detail": "Visit Tad Lo currently marks the workshop as booking required. Confirm the host, exact meeting point, contact, current price, what is included and the host’s photo preferences when you arrange it."
+      },
+      {
+        "label": "Time needed",
+        "value": "About 4 hours · half day",
+        "detail": "The current local description gives roughly four hours for learning posture, weaving technique and the time behind handmade textiles. Leave the half day clear rather than squeezing it between waterfall stops."
+      },
+      {
+        "label": "Access",
+        "value": "Walkable from Tad Lo",
+        "detail": "No private transport is normally needed. The catalogue lists the workshop as walkable, but the exact meeting point depends on the host arrangement, so get that detail when booking."
+      },
+      {
+        "label": "Physical comfort",
+        "value": "Seated posture can be demanding",
+        "detail": "A foot-braced backstrap loom uses the weaver’s body to hold tension. Visit Tad Lo warns that the sitting posture and flexibility required may be uncomfortable; mention mobility or back issues before booking so the host can advise what is realistic."
+      },
+      {
+        "label": "Availability",
+        "value": "Seasonal · lower availability possible in low season",
+        "detail": "The workshop is not a guaranteed walk-in attraction. Availability depends on the host and season, which is another reason to arrange it before building the rest of the day around it."
+      },
+      {
+        "label": "Etiquette",
+        "value": "Ask before photographing people",
+        "detail": "Treat the session as time with a host, not as a staged photo opportunity. Ask before close portraits, let the host decide which steps guests try and do not assume a finished textile or souvenir is included unless that has been confirmed."
+      }
+    ]
+  },
+  "thing-lao-cooking-class-with-nyay": {
+    "items": [
+      {
+        "label": "Booking",
+        "value": "Required in advance",
+        "detail": "Visit Tad Lo currently lists the class as booking required and says advance organisation is necessary. Confirm the date, exact start time, meeting point and number of participants before building the meal into your day."
+      },
+      {
+        "label": "Class timing",
+        "value": "Morning for lunch · afternoon for dinner",
+        "detail": "Current local guidance offers the workshop in two rhythms: cook in the morning and eat lunch, or start in the afternoon and finish with dinner. Confirm the exact duration when booking."
+      },
+      {
+        "label": "Current price",
+        "value": "500,000 KIP per person · reconfirm",
+        "detail": "Fandee Island currently lists Nyay Cooking Class at 500,000 kip per person. Visit Tad Lo separately asks travellers to confirm the current price, so use 500,000 kip as a planning reference rather than an immutable tariff."
+      },
+      {
+        "label": "Meal",
+        "value": "Included",
+        "detail": "The food you prepare becomes the meal at the end of the session. Ask how many dishes are planned before booking if the menu size matters to you."
+      },
+      {
+        "label": "Dietary options",
+        "value": "Vegetarian or non-vegetarian · confirm first",
+        "detail": "Visit Tad Lo currently says both can be arranged. Disclose allergies, intolerances and dietary restrictions before the class rather than when ingredients are already being prepared."
+      },
+      {
+        "label": "Getting there",
+        "value": "Walkable in Tad Lo",
+        "detail": "The activity is currently classified as walkable without personal transport. The road distance is not published, so confirm the exact host location or meeting point when you book."
+      }
+    ]
+  },
+  "thing-coffee-and-katu-culture-with-mr-hook": {
+    "items": [
+      {
+        "label": "Booking",
+        "value": "Recommended · confirm before leaving Tad Lo",
+        "detail": "Visit Tad Lo currently marks booking as recommended and availability as something to check locally. Confirm the meeting point, current contact, departure time and whether Mr Hook is personally hosting before riding out."
+      },
+      {
+        "label": "From Tad Lo",
+        "value": "About 15 km by road to Ban Kok Phoung Tai",
+        "detail": "The current local guide places the experience roughly 15 km from Tad Lo Tourism Office. A motorbike is recommended; car or minivan access is also listed."
+      },
+      {
+        "label": "Time needed",
+        "value": "Roughly 3 hours · keep a half day clear",
+        "detail": "The current Visit Tad Lo page gives about three hours. Do not stack another fixed-time activity immediately after it; the conversation is the part most likely to make the visit run long."
+      },
+      {
+        "label": "Current price",
+        "value": "Paid · confirm directly",
+        "detail": "A November 2024 Bolaven route map listed 70,000 kip for a three-hour tour, while a 2025 traveller report quoted 80,000 kip. The current local page does not publish a fixed fee, so use old figures only as context and confirm today's price."
+      },
+      {
+        "label": "Format",
+        "value": "Coffee + useful plants + cultural conversation",
+        "detail": "This is not an official trek. Expect an easy guided walk and discussion rather than a long hike or a standardized coffee-production class. Plant uses described during the visit are local knowledge shared by the host, not medical advice."
+      },
+      {
+        "label": "Respect",
+        "value": "Ask before photographing people or sacred objects",
+        "detail": "Follow the host’s guidance and avoid treating village life as staged content. What Mr Hook shares is a local perspective, not a universal rulebook for every Katu community."
+      }
+    ]
+  },
+  "thing-coffee-from-tree-to-cup-with-mr-vieng": {
+    "items": [
+      {
+        "label": "From Tad Lo",
+        "value": "About 30 km by road near Laongam",
+        "detail": "Visit Tad Lo currently places Mr Vieng’s coffee experience roughly 30 kilometres by road from Tad Lo Tourism Office. A motorbike is recommended; car or minivan access is also listed."
+      },
+      {
+        "label": "Time needed",
+        "value": "About 90 minutes",
+        "detail": "The current local page describes approximately ninety minutes following coffee from the tree through processing and preparation. Keep a little extra time for the ride and an unhurried final cup."
+      },
+      {
+        "label": "Booking & times",
+        "value": "Confirm before leaving Tad Lo",
+        "detail": "Visit Tad Lo asks travellers to confirm current visit times, contact, public name and booking method. Do not ride out assuming an old timetable is still operating."
+      },
+      {
+        "label": "Current price",
+        "value": "Paid · confirm directly",
+        "detail": "The current Visit Tad Lo page does not publish a fixed price. Older traveller reports show much lower historical rates, so treat those only as history and confirm today’s amount directly."
+      },
+      {
+        "label": "Format",
+        "value": "Tree → processing → preparation",
+        "detail": "Expect an easy farm-based coffee lesson rather than a strenuous hike. English is listed as useful, and the value is understanding the stages between coffee fruit and the cup."
+      },
+      {
+        "label": "Season",
+        "value": "What you see varies with the coffee cycle",
+        "detail": "Tourism Laos notes that Bolaven coffee harvest generally runs around October to February. Treat that as regional context only and confirm what is actually happening at Mr Vieng’s farm on your date."
+      }
+    ]
+  }
 }

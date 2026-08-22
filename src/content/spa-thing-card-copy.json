@@ -1,31 +1,338 @@
 {
-  "thing-thakhek-loop": {"description":"Ride Khammouane’s classic 450 km circuit from Thakhek through Cave Alley, the Nakai Plateau, Thalang, the karst corridor and Kong Lor before returning to the Mekong.","handwrittenTags":["450 km loop","Karst roads","4-day classic"],"gettingThere":"Start and finish in Thakhek; most travellers rent a motorbike in town","duration":"4 days classic · 3–5 days recommended","costType":"paid","bestTime":"Cool dry season; start each riding day early and avoid riding after dark"},
-  "thing-kong-lor-cave": {"description":"Take a local longtail boat through Kong Lor’s roughly 7.5 km underground river, crossing the limestone mountain to the Natane side before returning through the darkness.","handwrittenTags":["River cave","Boat crossing","Loop highlight"],"gettingThere":"Classic Thakhek Loop stop via Khoun Kham / Kong Lor village","duration":"2–3 hours","costType":"paid","bestTime":"Early morning in the drier season; confirm river conditions"},
-  "thing-tham-nang-aen-cave": {"description":"Walk through Nang Aen’s huge developed limestone chambers just off Route 12, with cool cave air, stairways, coloured lighting and an optional underground-river boat extension.","handwrittenTags":["Show cave","Route 12","Easy from town"],"gettingThere":"About 18 km northeast of Thakhek via Route 12, then the signed access road","duration":"1–2 hours","costType":"paid","bestTime":"Morning for fewer visitors; especially useful as a cool stop in hot weather"},
-  "thing-tham-xiang-liap-cave": {"description":"Follow Route 12 to Xiang Liap, a natural river cave near Thakhek where a huge entrance, flowing water and changing seasonal depth shape the visit.","handwrittenTags":["River cave","Route 12","Natural interior"],"gettingThere":"About 14 km northeast of Thakhek via Route 12 near Xiang Liap village","duration":"1 to 2 hours","costType":"paid","bestTime":"Dry season for clearer, shallower water; check conditions after rain"},
-  "thing-tham-chang-elephant-cave": {"description":"Stop at Elephant Cave near Ban Tham for a compact Buddhist shrine visit centred on the golden Buddha, the revered elephant shaped formation and the open view across the plain.","handwrittenTags":["Cave shrine","Elephant rock","Close to town"],"gettingThere":"Follow Route 12 east from Thakhek, then use the local access toward Ban Tham","duration":"30 to 60 minutes","costType":"paid","bestTime":"Morning or late afternoon; check local access after heavy rain"},
-  "thing-tham-pha-buddha-cave": {"description":"Visit Tham Pa Fa near Thakhek for a sacred cave sanctuary holding 229 bronze Buddha images, rediscovered in 2004 and still approached as an active place of worship.","handwrittenTags":["Sacred cave","229 Buddhas","Cultural stop"],"gettingThere":"About 14 km from Thakhek at Ban Na Khan Sarng","duration":"1 to 2 hours","costType":"paid","bestTime":"Morning; dress for the shrine and arrive well before the 17:00 closing time"},
-  "thing-tha-falang": {"description":"Stop beside the Nam Don at Tha Falang for a simple river break between Cave Alley stops, with clear water, shaded banks and swimming when current conditions are suitable.","handwrittenTags":["River swim","Cave Alley pause","Nam Don"],"gettingThere":"About 15 km east of Thakhek on Route 12, then a short local track toward the river","duration":"1 to 2 hours","costType":"free","bestTime":"Dry season for simpler access; quieter on weekdays; check the river after rain"},
-  "thing-khoun-kong-leng": {"description":"Follow Route 13 north from Thakhek to Khoun Kong Leng, an emerald karst spring near Ban Nakhou where underground water, limestone and local legend define the visit.","handwrittenTags":["Karst spring","Emerald water","Hinboun"],"gettingThere":"About 50 km from Thakhek via Route 13 and the paved Ban Nakhou access road","duration":"1 to 3 hours","costType":"free","bestTime":"Morning in the dry season; check current swimming and water activity rules on arrival"},
-  "thing-thalang-nam-theun-reservoir": {"description":"End the first Loop day in Thalang, where the Nakai Plateau road meets the Nam Theun 2 reservoir and sunset falls across open water and drowned tree trunks.","handwrittenTags":["Loop overnight","Reservoir sunset","Nakai Plateau"],"gettingThere":"Classic Day 1 from Thakhek via Route 12, about 105 km before the overnight stop in Thalang","duration":"Overnight stop","costType":"paid","bestTime":"Arrive before sunset and leave early for the 145 km Day 2 ride"},
-  "thing-pha-inh-cave": {"description":"Make a short Route 12 stop at Pha Inh, a sacred limestone cave where a Buddhist shrine and a naturally lit underground pool create a quieter contrast to the larger Cave Alley sites.","handwrittenTags":["Sacred cave","Natural pool","Cave Alley"],"gettingThere":"Route 12 east of Thakhek; short side-road approach on the classic Day 1 corridor","duration":"45–90 minutes","costType":"paid","bestTime":"Morning to midday for stronger natural cave light; follow current local water rules"},
-  "thing-cool-springs-loop": {"description":"Break up the second Loop day at Cool Springs near Ban Napavan, where cold turquoise spring water sits below limestone and forest after the long ride from Thalang.","handwrittenTags":["Cold spring","Ban Napavan","Day 2 reset"],"gettingThere":"On the Thalang–Khoun Kham stage, turn off Route 8 near Ban Napavan and follow the local side track to the pool","duration":"1–2 hours","costType":"paid","bestTime":"Late morning or early afternoon for a cooling swim; avoid letting the stop push the ride toward darkness"},
-  "thing-old-french-railway-bridge": {"description":"Cross from Don Det to Don Khon on the historic railway bridge, then follow traces of the former Mekong portage line by bicycle or on foot.","handwrittenTags":["Historic crossing","Railway story","Bike friendly"],"gettingThere":"Cross from south Don Det to Don Khon","duration":"1–2 hours","costType":"free","bestTime":"Early morning or late afternoon"},
-  "thing-li-phi-somphamit-waterfalls": {"description":"Ride across Don Khon to Li Phi / Tad Somphamit, where the Mekong breaks into powerful rocky channels and broad white-water rapids.","handwrittenTags":["Mekong rapids","Don Khon ride","Late light"],"gettingThere":"About 2 km from the railway bridge on Don Khon","duration":"1–2 hours","costType":"paid","bestTime":"Morning comfort or late-afternoon light"},
-  "thing-khone-phapheng-falls": {"description":"Leave the islands for the immense Khone Phapheng cataract, combining the Don Det boat crossing with a mainland road transfer to the Mekong viewpoints.","handwrittenTags":["Huge cataract","Mainland trip","Mekong scale"],"gettingThere":"Boat to Ban Nakasang, then road transfer","duration":"Half day","costType":"paid","bestTime":"Morning or later afternoon"},
-  "thing-don-som-island": {"description":"Take a local boat north from Don Det to a much quieter Mekong island of villages, rice fields and fishing, with far less tourism infrastructure than Don Det.","handwrittenTags":["Village life","Rice fields","Quiet island"],"gettingThere":"Direct local boat from Don Det; arrange the return","duration":"Half day","costType":"paid","bestTime":"Early morning or late afternoon"},
-  "thing-khone-pa-soi-waterfall": {"description":"Ride Don Khon's rough eastern tracks to a quieter Mekong waterfall, where the backroad approach, suspension bridge and old timber-route traces are part of the experience.","handwrittenTags":["Backroad ride","Quiet falls","Bridge check"],"gettingThere":"Cross to Don Khon, then follow the eastern tracks by bicycle","duration":"2–3 hours","costType":"free","bestTime":"Morning or late afternoon; drier tracks help"},
-  "thing-xai-kong-nyai-beach": {"description":"Finish a Don Khon ride at a sandy Mekong bank for a cautious swim, simple food and an unhurried break downstream from Li Phi.","handwrittenTags":["River swim","Slow stop","Don Khon"],"gettingThere":"Cross to Don Khon and continue south by bicycle; easy to pair with Li Phi","duration":"1–2 hours","costType":"free","bestTime":"Late afternoon for cooler air and softer light"},
-  "thing-si-phan-don-by-boat": {"description":"Leave Don Det in a local pirogue and read Si Phan Don from the water: tiny islands, fishing boats, river crossings and a return through golden-hour Mekong light.","handwrittenTags":["Pirogue","Island channels","Sunset light"],"gettingThere":"Arrange a private boat at Don Det pier or with a local operator","duration":"2–3 hours","costType":"paid","bestTime":"Late afternoon into sunset"},
-  "thing-4000-islands-kayaking": {"description":"Spend a full day paddling the Mekong channels around Si Phan Don on a guided Don Det tour, with moving water and stops built into the route.","handwrittenTags":["Guided kayak","Full day","Mekong current"],"gettingThere":"Book with a Don Det kayak operator; meeting point depends on operator","duration":"Full day","costType":"paid","bestTime":"Morning departure; follow current river conditions"},
-  "thing-cycle-don-det-don-khon": {"description":"Rent a simple bicycle on Don Det, follow quiet river and rice-field paths, cross the old railway bridge and keep riding onto Don Khon at your own pace.","handwrittenTags":["Island bicycle","Slow exploring","Don Khon"],"gettingThere":"Rent in central Don Det, then ride south to the railway bridge","duration":"Half day","costType":"paid","bestTime":"Early morning or late afternoon"},
-  "thing-don-det-tubing": {"description":"Rent an inner tube on Don Det and drift with the Mekong for a simple, low-effort river experience, making the old railway bridge your hard exit point.","handwrittenTags":["Mekong float","Slow hour","Bridge exit"],"gettingThere":"Rent locally on Don Det and confirm the day's entry and exit points","duration":"1–2 hours","costType":"paid","bestTime":"Only when current and local advice are suitable"},
-  "thing-don-det-sunset": {"description":"Walk or cycle to Don Det's west bank before dusk and let the Mekong, small islands and reflected evening light do the rest.","handwrittenTags":["West bank","Golden hour","Mekong sunset"],"gettingThere":"Walk or bicycle to the west / sunset side of Don Det","duration":"45–90 minutes","costType":"free","bestTime":"Arrive 30–45 minutes before sunset"},
-  "thing-tad-hang-waterfall": {"description":"Walk from Tad Lo to Tad Hang, a broad tiered Xe Set cascade beside the village, then decide between a riverside pause and a cautious swim according to the day’s water conditions.","handwrittenTags":["Village waterfall","Xe Set","Easy walk"],"gettingThere":"About 700 m by road from Tad Lo Tourism Office; easy on foot","duration":"1–2 hours","costType":"free","bestTime":"Morning or late afternoon; check swimming conditions after rain"},
-  "thing-tad-lo-waterfall": {"description":"Walk upstream through Tad Lo to the village’s namesake waterfall, a broad Xe Set cascade framed by trees and river paths, then pair it with Tad Hang rather than treating the two falls as separate excursions.","handwrittenTags":["Namesake waterfall","Xe Set","Village walk"],"gettingThere":"About 1.1 km by road from Tad Lo Tourism Office; walkable through the village","duration":"1–2 hours","costType":"free","bestTime":"Morning or late afternoon; check river conditions after rain"},
-  "thing-tad-soung-waterfall": {"description":"Follow the rural road from Tad Lo through fields and villages to Tad Soung, then choose the lower-to-upper trail or the longer road approach for a high escarpment and wide valley panorama.","handwrittenTags":["High escarpment","Rural half-day","Wide panorama"],"gettingThere":"About 4 km by road to the lower falls; climb the renovated trail or continue roughly 4 km farther by road to the upper access","duration":"Half day","costType":"free","bestTime":"Morning; wet season for stronger flow, dry season still worthwhile for the panorama"},
-  "thing-katu-weaving-workshop": {"description":"Spend a half day learning Katu weaving with a local host, from the body tension of a foot-braced backstrap loom to the patience behind woven bead patterns.","handwrittenTags":["Backstrap loom","Beaded textiles","Hands-on workshop"],"gettingThere":"Walkable from Tad Lo; confirm the exact host and meeting point when booking","duration":"About 4 hours","costType":"paid","bestTime":"By arrangement; book ahead, with lower availability possible in low season"},
-  "thing-lao-cooking-class-with-nyay": {"description":"Cook a Lao meal with Nyay in a relaxed half-day workshop, using fresh local ingredients before sitting down to eat the dishes you prepared together.","handwrittenTags":["Lao cooking","Meal included","Local workshop"],"gettingThere":"Walkable in Tad Lo; confirm the exact meeting point when booking","duration":"Half day","costType":"paid","bestTime":"Morning class for lunch or afternoon class for dinner; book ahead"},
-  "thing-coffee-and-katu-culture-with-mr-hook": {"description":"Ride about 15 km from Tad Lo to Ban Kok Phoung Tai for a roughly three-hour guided visit with Mr Hook combining coffee, useful plants and a direct conversation about Katu culture and change.","handwrittenTags":["Coffee & plants","Katu perspectives","Ask questions"],"gettingThere":"About 15 km by road from Tad Lo Tourism Office to Ban Kok Phoung Tai; motorbike recommended, car or minivan possible","duration":"About 3 hours · half day","costType":"paid","bestTime":"By arrangement; confirm current departure time, price and availability before going"},
-  "thing-coffee-from-tree-to-cup-with-mr-vieng": {"description":"Ride out toward Laongam for a compact coffee-farm visit with Mr Vieng, following the crop from trees and ripe cherries through processing and preparation before finishing with coffee grown on the farm.","handwrittenTags":["Tree to cup","Coffee farm","Bolaven stop"],"gettingThere":"About 30 km by road from Tad Lo Tourism Office near Laongam; motorbike recommended, car or minivan possible","duration":"About 90 minutes","costType":"paid","bestTime":"By arrangement; confirm current visit time, price and booking method before leaving Tad Lo"}
+  "thing-thakhek-loop": {
+    "description": "Ride Khammouane’s classic 450 km circuit from Thakhek through Cave Alley, the Nakai Plateau, Thalang, the karst corridor and Kong Lor before returning to the Mekong.",
+    "handwrittenTags": [
+      "450 km loop",
+      "Karst roads",
+      "4-day classic"
+    ],
+    "gettingThere": "Start and finish in Thakhek; most travellers rent a motorbike in town",
+    "duration": "4 days classic · 3–5 days recommended",
+    "costType": "paid",
+    "bestTime": "Cool dry season; start each riding day early and avoid riding after dark"
+  },
+  "thing-kong-lor-cave": {
+    "description": "Take a local longtail boat through Kong Lor’s roughly 7.5 km underground river, crossing the limestone mountain to the Natane side before returning through the darkness.",
+    "handwrittenTags": [
+      "River cave",
+      "Boat crossing",
+      "Loop highlight"
+    ],
+    "gettingThere": "Classic Thakhek Loop stop via Khoun Kham / Kong Lor village",
+    "duration": "2–3 hours",
+    "costType": "paid",
+    "bestTime": "Early morning in the drier season; confirm river conditions"
+  },
+  "thing-tham-xiang-liap-cave": {
+    "description": "Follow Route 12 to Xiang Liap, a natural river cave near Thakhek where a huge entrance, flowing water and changing seasonal depth shape the visit.",
+    "handwrittenTags": [
+      "River cave",
+      "Route 12",
+      "Natural interior"
+    ],
+    "gettingThere": "About 14 km northeast of Thakhek via Route 12 near Xiang Liap village",
+    "duration": "1 to 2 hours",
+    "costType": "paid",
+    "bestTime": "Dry season for clearer, shallower water; check conditions after rain"
+  },
+  "thing-tham-chang-elephant-cave": {
+    "description": "Stop at Elephant Cave near Ban Tham for a compact Buddhist shrine visit centred on the golden Buddha, the revered elephant shaped formation and the open view across the plain.",
+    "handwrittenTags": [
+      "Cave shrine",
+      "Elephant rock",
+      "Close to town"
+    ],
+    "gettingThere": "Follow Route 12 east from Thakhek, then use the local access toward Ban Tham",
+    "duration": "30 to 60 minutes",
+    "costType": "paid",
+    "bestTime": "Morning or late afternoon; check local access after heavy rain"
+  },
+  "thing-tham-pha-buddha-cave": {
+    "description": "Visit Tham Pa Fa near Thakhek for a sacred cave sanctuary holding 229 bronze Buddha images, rediscovered in 2004 and still approached as an active place of worship.",
+    "handwrittenTags": [
+      "Sacred cave",
+      "229 Buddhas",
+      "Cultural stop"
+    ],
+    "gettingThere": "About 14 km from Thakhek at Ban Na Khan Sarng",
+    "duration": "1 to 2 hours",
+    "costType": "paid",
+    "bestTime": "Morning; dress for the shrine and arrive well before the 17:00 closing time"
+  },
+  "thing-tha-falang": {
+    "description": "Stop beside the Nam Don at Tha Falang for a simple river break between Cave Alley stops, with clear water, shaded banks and swimming when current conditions are suitable.",
+    "handwrittenTags": [
+      "River swim",
+      "Cave Alley pause",
+      "Nam Don"
+    ],
+    "gettingThere": "About 15 km east of Thakhek on Route 12, then a short local track toward the river",
+    "duration": "1 to 2 hours",
+    "costType": "free",
+    "bestTime": "Dry season for simpler access; quieter on weekdays; check the river after rain"
+  },
+  "thing-khoun-kong-leng": {
+    "description": "Follow Route 13 north from Thakhek to Khoun Kong Leng, an emerald karst spring near Ban Nakhou where underground water, limestone and local legend define the visit.",
+    "handwrittenTags": [
+      "Karst spring",
+      "Emerald water",
+      "Hinboun"
+    ],
+    "gettingThere": "About 50 km from Thakhek via Route 13 and the paved Ban Nakhou access road",
+    "duration": "1 to 3 hours",
+    "costType": "free",
+    "bestTime": "Morning in the dry season; check current swimming and water activity rules on arrival"
+  },
+  "thing-thalang-nam-theun-reservoir": {
+    "description": "End the first Loop day in Thalang, where the Nakai Plateau road meets the Nam Theun 2 reservoir and sunset falls across open water and drowned tree trunks.",
+    "handwrittenTags": [
+      "Loop overnight",
+      "Reservoir sunset",
+      "Nakai Plateau"
+    ],
+    "gettingThere": "Classic Day 1 from Thakhek via Route 12, about 105 km before the overnight stop in Thalang",
+    "duration": "Overnight stop",
+    "costType": "paid",
+    "bestTime": "Arrive before sunset and leave early for the 145 km Day 2 ride"
+  },
+  "thing-pha-inh-cave": {
+    "description": "Make a short Route 12 stop at Pha Inh, a sacred limestone cave where a Buddhist shrine and a naturally lit underground pool create a quieter contrast to the larger Cave Alley sites.",
+    "handwrittenTags": [
+      "Sacred cave",
+      "Natural pool",
+      "Cave Alley"
+    ],
+    "gettingThere": "Route 12 east of Thakhek; short side-road approach on the classic Day 1 corridor",
+    "duration": "45–90 minutes",
+    "costType": "paid",
+    "bestTime": "Morning to midday for stronger natural cave light; follow current local water rules"
+  },
+  "thing-cool-springs-loop": {
+    "description": "Break up the second Loop day at Cool Springs near Ban Napavan, where cold turquoise spring water sits below limestone and forest after the long ride from Thalang.",
+    "handwrittenTags": [
+      "Cold spring",
+      "Ban Napavan",
+      "Day 2 reset"
+    ],
+    "gettingThere": "On the Thalang–Khoun Kham stage, turn off Route 8 near Ban Napavan and follow the local side track to the pool",
+    "duration": "1–2 hours",
+    "costType": "paid",
+    "bestTime": "Late morning or early afternoon for a cooling swim; avoid letting the stop push the ride toward darkness"
+  },
+  "thing-old-french-railway-bridge": {
+    "description": "Cross from Don Det to Don Khon on the historic railway bridge, then follow traces of the former Mekong portage line by bicycle or on foot.",
+    "handwrittenTags": [
+      "Historic crossing",
+      "Railway story",
+      "Bike friendly"
+    ],
+    "gettingThere": "Cross from south Don Det to Don Khon",
+    "duration": "1–2 hours",
+    "costType": "free",
+    "bestTime": "Early morning or late afternoon"
+  },
+  "thing-li-phi-somphamit-waterfalls": {
+    "description": "Ride across Don Khon to Li Phi / Tad Somphamit, where the Mekong breaks into powerful rocky channels and broad white-water rapids.",
+    "handwrittenTags": [
+      "Mekong rapids",
+      "Don Khon ride",
+      "Late light"
+    ],
+    "gettingThere": "About 2 km from the railway bridge on Don Khon",
+    "duration": "1–2 hours",
+    "costType": "paid",
+    "bestTime": "Morning comfort or late-afternoon light"
+  },
+  "thing-khone-phapheng-falls": {
+    "description": "Leave the islands for the immense Khone Phapheng cataract, combining the Don Det boat crossing with a mainland road transfer to the Mekong viewpoints.",
+    "handwrittenTags": [
+      "Huge cataract",
+      "Mainland trip",
+      "Mekong scale"
+    ],
+    "gettingThere": "Boat to Ban Nakasang, then road transfer",
+    "duration": "Half day",
+    "costType": "paid",
+    "bestTime": "Morning or later afternoon"
+  },
+  "thing-don-som-island": {
+    "description": "Take a local boat north from Don Det to a much quieter Mekong island of villages, rice fields and fishing, with far less tourism infrastructure than Don Det.",
+    "handwrittenTags": [
+      "Village life",
+      "Rice fields",
+      "Quiet island"
+    ],
+    "gettingThere": "Direct local boat from Don Det; arrange the return",
+    "duration": "Half day",
+    "costType": "paid",
+    "bestTime": "Early morning or late afternoon"
+  },
+  "thing-khone-pa-soi-waterfall": {
+    "description": "Ride Don Khon's rough eastern tracks to a quieter Mekong waterfall, where the backroad approach, suspension bridge and old timber-route traces are part of the experience.",
+    "handwrittenTags": [
+      "Backroad ride",
+      "Quiet falls",
+      "Bridge check"
+    ],
+    "gettingThere": "Cross to Don Khon, then follow the eastern tracks by bicycle",
+    "duration": "2–3 hours",
+    "costType": "free",
+    "bestTime": "Morning or late afternoon; drier tracks help"
+  },
+  "thing-xai-kong-nyai-beach": {
+    "description": "Finish a Don Khon ride at a sandy Mekong bank for a cautious swim, simple food and an unhurried break downstream from Li Phi.",
+    "handwrittenTags": [
+      "River swim",
+      "Slow stop",
+      "Don Khon"
+    ],
+    "gettingThere": "Cross to Don Khon and continue south by bicycle; easy to pair with Li Phi",
+    "duration": "1–2 hours",
+    "costType": "free",
+    "bestTime": "Late afternoon for cooler air and softer light"
+  },
+  "thing-si-phan-don-by-boat": {
+    "description": "Leave Don Det in a local pirogue and read Si Phan Don from the water: tiny islands, fishing boats, river crossings and a return through golden-hour Mekong light.",
+    "handwrittenTags": [
+      "Pirogue",
+      "Island channels",
+      "Sunset light"
+    ],
+    "gettingThere": "Arrange a private boat at Don Det pier or with a local operator",
+    "duration": "2–3 hours",
+    "costType": "paid",
+    "bestTime": "Late afternoon into sunset"
+  },
+  "thing-4000-islands-kayaking": {
+    "description": "Spend a full day paddling the Mekong channels around Si Phan Don on a guided Don Det tour, with moving water and stops built into the route.",
+    "handwrittenTags": [
+      "Guided kayak",
+      "Full day",
+      "Mekong current"
+    ],
+    "gettingThere": "Book with a Don Det kayak operator; meeting point depends on operator",
+    "duration": "Full day",
+    "costType": "paid",
+    "bestTime": "Morning departure; follow current river conditions"
+  },
+  "thing-cycle-don-det-don-khon": {
+    "description": "Rent a simple bicycle on Don Det, follow quiet river and rice-field paths, cross the old railway bridge and keep riding onto Don Khon at your own pace.",
+    "handwrittenTags": [
+      "Island bicycle",
+      "Slow exploring",
+      "Don Khon"
+    ],
+    "gettingThere": "Rent in central Don Det, then ride south to the railway bridge",
+    "duration": "Half day",
+    "costType": "paid",
+    "bestTime": "Early morning or late afternoon"
+  },
+  "thing-don-det-tubing": {
+    "description": "Rent an inner tube on Don Det and drift with the Mekong for a simple, low-effort river experience, making the old railway bridge your hard exit point.",
+    "handwrittenTags": [
+      "Mekong float",
+      "Slow hour",
+      "Bridge exit"
+    ],
+    "gettingThere": "Rent locally on Don Det and confirm the day's entry and exit points",
+    "duration": "1–2 hours",
+    "costType": "paid",
+    "bestTime": "Only when current and local advice are suitable"
+  },
+  "thing-don-det-sunset": {
+    "description": "Walk or cycle to Don Det's west bank before dusk and let the Mekong, small islands and reflected evening light do the rest.",
+    "handwrittenTags": [
+      "West bank",
+      "Golden hour",
+      "Mekong sunset"
+    ],
+    "gettingThere": "Walk or bicycle to the west / sunset side of Don Det",
+    "duration": "45–90 minutes",
+    "costType": "free",
+    "bestTime": "Arrive 30–45 minutes before sunset"
+  },
+  "thing-tad-hang-waterfall": {
+    "description": "Walk from Tad Lo to Tad Hang, a broad tiered Xe Set cascade beside the village, then decide between a riverside pause and a cautious swim according to the day’s water conditions.",
+    "handwrittenTags": [
+      "Village waterfall",
+      "Xe Set",
+      "Easy walk"
+    ],
+    "gettingThere": "About 700 m by road from Tad Lo Tourism Office; easy on foot",
+    "duration": "1–2 hours",
+    "costType": "free",
+    "bestTime": "Morning or late afternoon; check swimming conditions after rain"
+  },
+  "thing-tad-lo-waterfall": {
+    "description": "Walk upstream through Tad Lo to the village’s namesake waterfall, a broad Xe Set cascade framed by trees and river paths, then pair it with Tad Hang rather than treating the two falls as separate excursions.",
+    "handwrittenTags": [
+      "Namesake waterfall",
+      "Xe Set",
+      "Village walk"
+    ],
+    "gettingThere": "About 1.1 km by road from Tad Lo Tourism Office; walkable through the village",
+    "duration": "1–2 hours",
+    "costType": "free",
+    "bestTime": "Morning or late afternoon; check river conditions after rain"
+  },
+  "thing-tad-soung-waterfall": {
+    "description": "Follow the rural road from Tad Lo through fields and villages to Tad Soung, then choose the lower-to-upper trail or the longer road approach for a high escarpment and wide valley panorama.",
+    "handwrittenTags": [
+      "High escarpment",
+      "Rural half-day",
+      "Wide panorama"
+    ],
+    "gettingThere": "About 4 km by road to the lower falls; climb the renovated trail or continue roughly 4 km farther by road to the upper access",
+    "duration": "Half day",
+    "costType": "free",
+    "bestTime": "Morning; wet season for stronger flow, dry season still worthwhile for the panorama"
+  },
+  "thing-katu-weaving-workshop": {
+    "description": "Spend a half day learning Katu weaving with a local host, from the body tension of a foot-braced backstrap loom to the patience behind woven bead patterns.",
+    "handwrittenTags": [
+      "Backstrap loom",
+      "Beaded textiles",
+      "Hands-on workshop"
+    ],
+    "gettingThere": "Walkable from Tad Lo; confirm the exact host and meeting point when booking",
+    "duration": "About 4 hours",
+    "costType": "paid",
+    "bestTime": "By arrangement; book ahead, with lower availability possible in low season"
+  },
+  "thing-lao-cooking-class-with-nyay": {
+    "description": "Cook a Lao meal with Nyay in a relaxed half-day workshop, using fresh local ingredients before sitting down to eat the dishes you prepared together.",
+    "handwrittenTags": [
+      "Lao cooking",
+      "Meal included",
+      "Local workshop"
+    ],
+    "gettingThere": "Walkable in Tad Lo; confirm the exact meeting point when booking",
+    "duration": "Half day",
+    "costType": "paid",
+    "bestTime": "Morning class for lunch or afternoon class for dinner; book ahead"
+  },
+  "thing-coffee-and-katu-culture-with-mr-hook": {
+    "description": "Ride about 15 km from Tad Lo to Ban Kok Phoung Tai for a roughly three-hour guided visit with Mr Hook combining coffee, useful plants and a direct conversation about Katu culture and change.",
+    "handwrittenTags": [
+      "Coffee & plants",
+      "Katu perspectives",
+      "Ask questions"
+    ],
+    "gettingThere": "About 15 km by road from Tad Lo Tourism Office to Ban Kok Phoung Tai; motorbike recommended, car or minivan possible",
+    "duration": "About 3 hours · half day",
+    "costType": "paid",
+    "bestTime": "By arrangement; confirm current departure time, price and availability before going"
+  },
+  "thing-coffee-from-tree-to-cup-with-mr-vieng": {
+    "description": "Ride out toward Laongam for a compact coffee-farm visit with Mr Vieng, following the crop from trees and ripe cherries through processing and preparation before finishing with coffee grown on the farm.",
+    "handwrittenTags": [
+      "Tree to cup",
+      "Coffee farm",
+      "Bolaven stop"
+    ],
+    "gettingThere": "About 30 km by road from Tad Lo Tourism Office near Laongam; motorbike recommended, car or minivan possible",
+    "duration": "About 90 minutes",
+    "costType": "paid",
+    "bestTime": "By arrangement; confirm current visit time, price and booking method before leaving Tad Lo"
+  }
 }

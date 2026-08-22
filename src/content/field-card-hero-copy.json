@@ -1,32 +1,499 @@
 {
-  "thing-thakhek-loop": {"eyebrow":"ROAD NOTE · KHAMMOUANE","aliases":["The Loop","Thakhek Motorbike Loop","Khammouane Loop"],"description":"The Thakhek Loop is Khammouane as a road journey: roughly 450 kilometres linking Cave Alley, the Nakai Plateau, Thalang, the karst corridor and Kong Lor before returning to the Mekong.","steps":["Leave Thakhek through Cave Alley","Climb to Thalang and the reservoir","Cross the karst corridor toward Kong Lor","Return via Route 8 and Route 13"],"rhythmNote":"Four days is the clean classic plan. Three days works only by compressing stops; five days gives the road, caves and swimming places more room.","photoNote":"450 km circuit from Thakhek · Khammouane Province"},
-  "thing-xe-bang-fai-cave": {"eyebrow":"EXPEDITION NOTE · KHAMMOUANE","aliases":["Hin Nam No","Khammouane","Remote river cave"],"description":"Xe Bang Fai is the remote end of the cave spectrum: distance, local coordination and river conditions matter as much as the underground chamber itself.","steps":["The long road from Thakhek","What the expedition costs","Day trip or overnight?","Let the river and season decide"],"rhythmNote":"The road is part of the expedition. Confirm the river before leaving.","photoNote":"East of Thakhek via Route 12"},
-  "thing-kong-lor-cave": {"eyebrow":"RIVER CAVE NOTE · KHAMMOUANE","aliases":["Tham Kong Lo","Konglor–Natane","Nam Hin Boun river cave"],"description":"Kong Lor is the Thakhek Loop’s defining cave journey: a longtail boat disappears into a limestone mountain, follows the underground Nam Hin Boun through darkness, and emerges near Natane on the far side.","steps":["Enter the mountain by boat","Cross roughly 7.5 km underground","Step out for the lit formations","Emerge into the Natane valley"],"rhythmNote":"Go early, accept that the river controls the visit, and leave enough time to enjoy the Natane side instead of treating the cave as a race through darkness.","photoNote":"Hinboun District · west of Thakhek on the classic Loop"},
-  "thing-tham-nang-aen-cave": {"eyebrow":"SHOW CAVE NOTE · THAKHEK","aliases":["Tham Nang Aen","Tham Nang Ene","Nang Aen Cave"],"description":"Tham Nang Aen is the accessible, theatrical cave of the Route 12 corridor: enormous limestone chambers, cool air, built walkways, coloured lighting and an optional underground-river boat trip less than twenty kilometres from Thakhek.","steps":["Leave Thakhek on Route 12","Walk the developed upper chambers","Read the cave beyond the coloured lights","Add the boat only if conditions allow"],"rhythmNote":"Come for scale rather than wilderness. Nang Aen is deliberately developed, and the contrast between monumental limestone and show-cave infrastructure is part of the experience.","photoNote":"Route 12 · about 18 km northeast of Thakhek"},
-  "thing-tham-xiang-liap-cave": {"eyebrow":"RIVER CAVE NOTE · THAKHEK","aliases":["Tham Xieng Liap","Xieng Liap Cave","Xiang Liap Cave"],"description":"Xiang Liap is a river cave about 14 kilometres northeast of Thakhek, where a tall limestone entrance, flowing water and a more natural interior make the visit feel very different from nearby Nang Aen.","steps":["Leave Thakhek on Route 12","Follow the river into the cave","Let the water level decide how far you explore","Finish with the entrance and village landscape"],"rhythmNote":"Go in the dry season for the simplest visit. In wetter months, higher water can change the route and make the cave a more serious outing.","photoNote":"About 14 km northeast of Thakhek · Route 12"},
-  "thing-tham-chang-elephant-cave": {"eyebrow":"SHRINE NOTE · THAKHEK","aliases":["Tham Xang","Elephant Cave","Tham Pha Ban Tham"],"description":"Elephant Cave is a compact Buddhist shrine near Ban Tham, where the reason to stop is not the size of the cavern but the golden Buddha, the revered elephant shaped formation and the view back across the surrounding plain.","steps":["Leave Thakhek on Route 12","Continue toward Ban Tham","Climb into the cave shrine","Look behind the Buddha for the elephant formation"],"rhythmNote":"Give it half an hour rather than expecting a major cave expedition. Read it as a sacred local stop at the beginning of the Route 12 cave corridor.","photoNote":"Near Ban Tham · one of the closest cave stops to Thakhek"},
-  "thing-tham-pha-buddha-cave": {"eyebrow":"SACRED CAVE NOTE · THAKHEK","aliases":["Tham Pa Fa","Tham Nong Pa Fa","Buddha Cave"],"description":"Buddha Cave is a sacred upper sanctuary near Thakhek containing 229 bronze Buddha images, rediscovered in 2004 and still treated as an active place of worship rather than a museum collection.","steps":["Leave Thakhek for Ban Na Khan Sarng","Climb to the upper sanctuary","Read the collection without a camera","Ask whether the lower cave route is operating"],"rhythmNote":"Slow down before entering. Photography is forbidden inside the upper cave, and the strongest part of the visit is experiencing the sanctuary without turning the statues into a photo checklist.","photoNote":"Ban Na Khan Sarng · about 14 km from Thakhek"},
-  "thing-tha-falang": {"eyebrow":"RIVER STOP · THAKHEK","aliases":["Tha Falang","Tha Fa Lang","Wang Sikharm"],"description":"Tha Falang is the river pause inside Cave Alley: a clear stretch of the Nam Don where shade, swimming and a slower hour break up the sequence of limestone caves east of Thakhek.","steps":["Leave Thakhek on Route 12","Turn toward the Nam Don riverbank","Read the water before swimming","Stay long enough for the road day to slow down"],"rhythmNote":"Do not turn Tha Falang into another checkpoint. It works best as the place where you stop riding, cool down and let the river interrupt the cave itinerary.","photoNote":"Nam Don River · about 15 km east of Thakhek"},
-  "thing-khoun-kong-leng": {"eyebrow":"SPRING NOTE · KHAMMOUANE","aliases":["Khoun Kong Leng","Kong Leng Lake","Evening Gong Lake"],"description":"Khoun Kong Leng is an emerald karst spring in Hinboun, where underground water emerges below limestone mountains and creates one of the clearest and most distinctive water landscapes around Thakhek.","steps":["Leave Thakhek north on Route 13","Follow the Ban Nakhou road to the spring","Read the lake before choosing any activity","Use only the swimming area that local staff permit"],"rhythmNote":"Come for the spring before the activities. The colour, clarity and limestone setting are the reason the site matters, while every water activity should follow the current local rules.","photoNote":"Ban Nakhou · Hinboun District · about 50 km from Thakhek"},
-  "thing-thalang-nam-theun-reservoir": {"eyebrow":"RESERVOIR NOTE · NAKAI","aliases":["Thalang","Nam Theun 2 Reservoir","Nakai Reservoir"],"description":"Thalang is the first night landscape of the Thakhek Loop, where the road reaches the Nakai Plateau and the Nam Theun 2 reservoir opens around drowned tree trunks, wide water and evening light.","steps":["Climb from Cave Alley to the Nakai Plateau","Pass the Nam Theun 2 dam landscape","Reach Thalang before sunset","Stay overnight before the long Day 2 ride"],"rhythmNote":"Treat Thalang as the end of Day 1 rather than another stop to squeeze in. Arrive with light left, look across the reservoir and let the overnight pause reset the Loop.","photoNote":"Thalang Village · Nakai Plateau · Day 1 of the Thakhek Loop"},
-  "thing-pha-inh-cave": {"eyebrow":"SACRED POOL CAVE · ROUTE 12","aliases":["Tham Pha Inh","Tham Pha Nya Inh","Phan Ya In Cave","Sa Pha In Cave"],"description":"Pha Inh is a compact sacred cave on the first day of the Thakhek Loop, where a Buddhist shrine overlooks an underground pool lit through natural openings in the limestone.","steps":["Leave Thakhek on Route 12","Take the short side-road approach","Climb to the cave shrine","Look down toward the naturally lit pool"],"rhythmNote":"Keep this one short. Pha Inh works as a quiet contrast between bigger Cave Alley stops, and current local rules should decide whether entering the water is allowed.","photoNote":"Cave Alley · east of Thakhek · Day 1 of the Loop"},
-  "thing-cool-springs-loop": {"eyebrow":"COLD SPRING · THAKHEK LOOP","aliases":["Cool Springs","Cool Pool","Cool Pond","Vang Nam Yen"],"description":"Cool Springs is the Day 2 reset on the Thakhek Loop: a clear turquoise spring near Ban Napavan, tucked below limestone and forest after the long ride out of Thalang.","steps":["Ride west from Thalang toward the karst corridor","Turn off Route 8 near Ban Napavan","Follow the side track across the open fields","Swim, cool down and leave before the road day gets late"],"rhythmNote":"This stop works because it interrupts the ride. Give the cold water an hour, then get back on the road while there is still comfortable daylight for Dragon Cave and Khoun Kham.","photoNote":"Ban Napavan · Day 2 of the Thakhek Loop"},
-  "thing-old-french-railway-bridge": {"eyebrow":"FIELD NOTE · SI PHAN DON","aliases":["Don Det–Don Khon bridge","Old French railway bridge","Historic railway crossing"],"description":"The bridge between Don Det and Don Khon is more than a convenient island crossing. It is the most visible surviving piece of a railway built to bypass the Mekong rapids that stopped boats moving through Si Phan Don.","steps":["Why a railway appeared on two Mekong islands","Cross the bridge slowly","Follow the old railway onto Don Khon","Make it part of a bicycle day"],"rhythmNote":"Do not treat the bridge as a checkpoint. Cross it slowly, look downriver, then keep following the railway story onto Don Khon.","photoNote":"Between Don Det and Don Khon · Si Phan Don"},
-  "thing-li-phi-somphamit-waterfalls": {"eyebrow":"WATER NOTE · DON KHON","aliases":["Li Phi Falls","Tad Somphamit","Som Pha Mit"],"description":"Li Phi is not about a single vertical drop. The Mekong fractures across rock shelves and channels here, turning the western edge of Don Khon into a long, violent field of white water.","steps":["Ride south from the old railway bridge","Understand why the water matters more than the height","Walk the viewpoints without rushing","Let the season change the experience"],"rhythmNote":"Give the falls time. The power is in the width, the channels and the changing river, not in chasing one perfect viewpoint.","photoNote":"Don Khon · Si Phan Don · Southern Laos"},
-  "thing-khone-phapheng-falls": {"eyebrow":"MEKONG NOTE · SI PHAN DON","aliases":["Khone Phapheng","Khone Falls","Mekong cataract"],"description":"Khone Phapheng is where the scale of the Mekong becomes physical. Instead of one neat drop, the river breaks across a vast fault line into channels, rock and white water powerful enough to make this stretch unnavigable.","steps":["Leave the islands for the mainland","Read the falls as a whole river system","Walk beyond the first viewpoint","Understand why the railway had to exist"],"rhythmNote":"Keep the Hero exactly as it is. At the falls, do the same thing: stand back first and take in the width before chasing details in the water.","photoNote":"Mainland east of Don Khon · near the Cambodian border"},
-  "thing-don-som-island": {"eyebrow":"ISLAND NOTE · SI PHAN DON","aliases":["Don Som","Quiet Mekong island","Rural Si Phan Don"],"description":"Don Som is the quieter counterpoint to Don Det: a long inhabited Mekong island where farming, fishing and village life still shape the day more than tourism does.","steps":["Cross by local boat","Move slowly through the villages","Read the island through farming and river life","Return before the crossing becomes awkward"],"rhythmNote":"Don Som is not a checklist island. Go for the change of pace, leave space for ordinary village life, and avoid turning people into attractions.","photoNote":"North of Don Det · Si Phan Don"},
-  "thing-khone-pa-soi-waterfall": {"eyebrow":"BACKROAD WATER NOTE · DON KHON","aliases":["Khon Pa Soi Falls","Khone Pa Soy","Tad Khone Pa Soi"],"description":"Khone Pa Soi is the rougher, quieter waterfall ride on Don Khon: a smaller Mekong cascade reached by eastern island tracks, with the old suspension-bridge approach and traces of the colonial-era timber route adding as much character as the falls themselves.","steps":["Cross from Don Det onto Don Khon","Take the rougher eastern tracks","Check the bridge before committing","Read the old Teak Way beside the rapids"],"rhythmNote":"This one is about the route as much as the waterfall. Do not force a damaged or closed bridge: the Mekong and the access conditions decide how far the visit goes.","photoNote":"Eastern Don Khon · Si Phan Don"},
-  "thing-xai-kong-nyai-beach": {"eyebrow":"RIVER BEACH NOTE · DON KHON","aliases":["Hat Xai Kong Nyai","Kong Nyai Beach","Khongyai Beach","Tha Sanam","Bo Hu Beach"],"description":"Xai Kong Nyai is the slow stop after Don Khon's waterfalls: a sandy Mekong bank where the point is to cool down, eat something simple, watch the longtail boats and give the island afternoon room to breathe.","steps":["Cross onto Don Khon","Continue south beyond the waterfall routes","Swim only where the shore and current look safe","Stay for the softer late-afternoon light"],"rhythmNote":"Treat this as a river beach, not a swimming pool. Stay close to shore, read the current first and let a quiet hour here be enough.","photoNote":"Southern Don Khon · Si Phan Don"},
-  "thing-si-phan-don-by-boat": {"eyebrow":"RIVER NOTE · SI PHAN DON","aliases":["4000 Islands boat trip","Don Det pirogue tour","Mekong island cruise"],"description":"A boat trip is the simplest way to understand why Si Phan Don feels larger than Don Det and Don Khon. Leave the bank in a local pirogue and the Mekong becomes a maze of inhabited islands, tiny wooded islets, sandbanks, fishing water and channels that change with the season.","steps":["Charter the boat before you leave","Let the route follow the river","Look for island life rather than landmarks","Come back through golden hour"],"rhythmNote":"Do not over-program the boat. Agree the essentials, then leave enough room for the river, the light and the boatman to shape the route.","photoNote":"From Don Det · Si Phan Don · Southern Laos"},
-  "thing-4000-islands-kayaking": {"eyebrow":"PADDLE NOTE · SI PHAN DON","aliases":["4,000 Islands kayaking","Don Det kayak tour","Mekong kayaking"],"description":"A guided full-day paddle from Don Det through the channels of Si Phan Don, mixing easy sections with moving water and stops away from the kayak.","steps":["Book a guided tour","Get the safety briefing","Paddle the island channels","Let the guide choose the safe line"],"rhythmNote":"This is not the place to improvise a solo river route. The Mekong changes with water level, so follow the guide and wear the life jacket.","photoNote":"From Don Det · Si Phan Don · Southern Laos"},
-  "thing-cycle-don-det-don-khon": {"eyebrow":"ISLAND RIDE · SI PHAN DON","aliases":["Don Det cycling","Don Khon bicycle ride","4,000 Islands by bike"],"description":"Rent a simple bicycle on Don Det and use it as slow transport rather than a sporting challenge: river paths, rice fields, the old railway bridge and Don Khon all sit within an easy island day.","steps":["Choose a bike that actually works","Ride Don Det's river paths","Cross the railway bridge","Keep going only while the light is good"],"rhythmNote":"The bicycle is the point because it keeps the islands small, quiet and open-ended. Stop often; there is no reason to race the loop.","photoNote":"Don Det + Don Khon · Si Phan Don"},
-  "thing-don-det-tubing": {"eyebrow":"RIVER FLOAT · DON DET","aliases":["Don Det tubing","Mekong tubing","Si Phan Don river float"],"description":"Tubing on Don Det is the island at its laziest: rent an inner tube, enter a suitable Mekong channel and let the current carry most of the journey while Don Det slides past at water level.","steps":["Rent a tube locally","Confirm today's safe route","Enter on the Don Det side","Get out well before the rapids"],"rhythmNote":"The appeal is doing almost nothing. The important part is knowing where to enter, where to leave the river and when conditions make tubing a bad idea.","photoNote":"Don Det · Mekong · Si Phan Don"},
-  "thing-don-det-sunset": {"eyebrow":"GOLDEN HOUR · DON DET","aliases":["Don Det sunset","Sunset side","Mekong sunset"],"description":"Sunset on Don Det is not a destination to conquer. Walk or cycle to the island's western riverbank, find an open view across the Mekong and let the last hour of light become the activity.","steps":["Move to the west side","Arrive before the sun drops","Choose an open river view","Stay through the afterglow"],"rhythmNote":"Do less. Arrive early enough to stop moving, then stay after the sun disappears — the colour often lasts longer than the obvious sunset moment.","photoNote":"West Don Det · Mekong · Si Phan Don"},
-  "thing-tad-hang-waterfall": {"eyebrow":"WATERFALL NOTE · TAD LO","aliases":["Tad Hang","Tat Hang","Xe Set waterfall"],"description":"Tad Hang is the easiest first waterfall from Tad Lo: a broad tiered cascade on the Xe Set River, close enough to reach on foot and woven into the village’s everyday riverside life.","steps":["Walk out from Tad Lo","Start at the bridge and broad cascade","Follow the Xe Set upstream","Let the water level decide the swim"],"rhythmNote":"Use Tad Hang as the easy introduction to the river. Look first, read the current, then decide whether the day is for swimming or simply sitting beside the falls.","photoNote":"About 700 m by road from Tad Lo Tourism Office"},
-  "thing-tad-lo-waterfall": {"eyebrow":"VILLAGE WATERFALL · TAD LO","aliases":["Tad Lo","Tad Lor","Tad Loh"],"description":"Tad Lo is the village’s namesake fall and Salavanh’s signature waterfall: a broad, green-framed Xe Set cascade that works best as part of a slow riverside walk with Tad Hang.","steps":["Walk upstream through the village","Find the broad semi-horseshoe cascade","Pair the fall with Tad Hang","Let current conditions decide the swim"],"rhythmNote":"Do not turn the namesake waterfall into a standalone transfer. Walk it with Tad Hang and let the river paths connect the two.","photoNote":"About 1.1 km by road from Tad Lo Tourism Office"},
-  "thing-tad-soung-waterfall": {"eyebrow":"WATERFALL HIKE · TAD LO","aliases":["Tad Soung","Tad Suong","Tad Sung"],"description":"Tad Soung is the half-day waterfall excursion beyond the village: a rural approach through fields and settlements leads to a high Xe Set escarpment, a lower viewpoint and a broad panorama from above.","steps":["Follow the rural road from Tad Lo","Reach the lower falls","Climb the renovated trail or continue by road","Read the panorama even when the flow is low"],"rhythmNote":"Come for the landscape as much as the water. The upstream dam and season can change the waterfall dramatically, but the high escarpment and valley view remain the reason to give Tad Soung a half day.","photoNote":"About 4 km by road from Tad Lo Tourism Office to the lower access"},
-  "thing-katu-weaving-workshop": {"eyebrow":"CRAFT WORKSHOP · TAD LO","aliases":["Katu weaving","Katu backstrap weaving","Beaded textile workshop"],"description":"Spend about four hours with a local weaver learning how Katu textiles are built on a foot-braced backstrap loom, where body tension, thread control and bead placement turn a simple setup into dense patterned cloth.","steps":["Meet the host and read the loom","Understand posture and body tension","Try the weaving rhythm","Look closely at bead placement"],"rhythmNote":"This is not a souvenir stop. Book ahead, expect to sit and concentrate, and let the host set the pace for how much you observe or try.","photoNote":"Walkable from Tad Lo · about four hours · booking required"},
-  "thing-lao-cooking-class-with-nyay": {"eyebrow":"COOKING WORKSHOP · TAD LO","aliases":["Nyay Cooking Class","Lao Cooking Class","Tad Lo cooking workshop"],"description":"Spend half a day cooking with Nyay in Tad Lo, using fresh local ingredients to prepare a Lao meal and then eating what you have made together.","steps":["Book the class ahead","Choose lunch or dinner timing","Cook the meal with Nyay","Sit down and share what you made"],"rhythmNote":"Do not arrive expecting one fixed menu. Confirm the dishes, vegetarian or non-vegetarian option, allergies and current price when you book, then let the ingredients and host shape the session.","photoNote":"Walkable in Tad Lo · half day · morning for lunch or afternoon for dinner"},
-  "thing-coffee-and-katu-culture-with-mr-hook": {"eyebrow":"COFFEE & CULTURE · BOLAVEN","aliases":["Mr Hook coffee tour","Ban Kok Phoung Tai","Katu / Katou cultural visit"],"description":"Spend roughly three hours with Mr Hook in Ban Kok Phoung Tai, walking through coffee and useful plants while the visit opens into a long conversation about Katu life, beliefs and change on the Bolaven Plateau.","steps":["Ride from Tad Lo toward Ban Kok Phoung Tai","Start with coffee and useful plants","Let questions shape the cultural conversation","Ask before photographing people or sacred objects"],"rhythmNote":"This works best as a conversation, not a spectacle. Give Mr Hook time, ask questions, and treat what he shares as one host’s perspective rather than a complete definition of every Katu community.","photoNote":"Ban Kok Phoung Tai · about 15 km by road from Tad Lo"},
-  "thing-coffee-from-tree-to-cup-with-mr-vieng": {"eyebrow":"COFFEE FARM · BOLAVEN","aliases":["Mr Vieng Coffee","Mr Vieng Coffee Homestay","Tree-to-cup coffee tour"],"description":"About thirty kilometres from Tad Lo, Mr Vieng turns a coffee stop into a compact lesson in the whole chain: walk among coffee trees, see how cherries are selected and processed, then finish with coffee prepared from beans grown on the farm.","steps":["Ride toward Laongam on the Bolaven route","Walk through the coffee trees","Follow cherries through processing","Finish with a farm-grown coffee"],"rhythmNote":"Allow around ninety minutes and do not build the stop around an old timetable or price. Current Visit Tad Lo information asks travellers to confirm visit times, price and booking method before setting out.","photoNote":"Near Laongam · ≈30 km by road from Tad Lo Tourism Office · around 90 minutes"}
+  "thing-thakhek-loop": {
+    "eyebrow": "ROAD NOTE · KHAMMOUANE",
+    "aliases": [
+      "The Loop",
+      "Thakhek Motorbike Loop",
+      "Khammouane Loop"
+    ],
+    "description": "The Thakhek Loop is Khammouane as a road journey: roughly 450 kilometres linking Cave Alley, the Nakai Plateau, Thalang, the karst corridor and Kong Lor before returning to the Mekong.",
+    "steps": [
+      "Leave Thakhek through Cave Alley",
+      "Climb to Thalang and the reservoir",
+      "Cross the karst corridor toward Kong Lor",
+      "Return via Route 8 and Route 13"
+    ],
+    "rhythmNote": "Four days is the clean classic plan. Three days works only by compressing stops; five days gives the road, caves and swimming places more room.",
+    "photoNote": "450 km circuit from Thakhek · Khammouane Province"
+  },
+  "thing-xe-bang-fai-cave": {
+    "eyebrow": "EXPEDITION NOTE · KHAMMOUANE",
+    "aliases": [
+      "Hin Nam No",
+      "Khammouane",
+      "Remote river cave"
+    ],
+    "description": "Xe Bang Fai is the remote end of the cave spectrum: distance, local coordination and river conditions matter as much as the underground chamber itself.",
+    "steps": [
+      "The long road from Thakhek",
+      "What the expedition costs",
+      "Day trip or overnight?",
+      "Let the river and season decide"
+    ],
+    "rhythmNote": "The road is part of the expedition. Confirm the river before leaving.",
+    "photoNote": "East of Thakhek via Route 12"
+  },
+  "thing-kong-lor-cave": {
+    "eyebrow": "RIVER CAVE NOTE · KHAMMOUANE",
+    "aliases": [
+      "Tham Kong Lo",
+      "Konglor–Natane",
+      "Nam Hin Boun river cave"
+    ],
+    "description": "Kong Lor is the Thakhek Loop’s defining cave journey: a longtail boat disappears into a limestone mountain, follows the underground Nam Hin Boun through darkness, and emerges near Natane on the far side.",
+    "steps": [
+      "Enter the mountain by boat",
+      "Cross roughly 7.5 km underground",
+      "Step out for the lit formations",
+      "Emerge into the Natane valley"
+    ],
+    "rhythmNote": "Go early, accept that the river controls the visit, and leave enough time to enjoy the Natane side instead of treating the cave as a race through darkness.",
+    "photoNote": "Hinboun District · west of Thakhek on the classic Loop"
+  },
+  "thing-tham-xiang-liap-cave": {
+    "eyebrow": "RIVER CAVE NOTE · THAKHEK",
+    "aliases": [
+      "Tham Xieng Liap",
+      "Xieng Liap Cave",
+      "Xiang Liap Cave"
+    ],
+    "description": "Xiang Liap is a river cave about 14 kilometres northeast of Thakhek, where a tall limestone entrance, flowing water and a more natural interior make the visit feel very different from nearby Nang Aen.",
+    "steps": [
+      "Leave Thakhek on Route 12",
+      "Follow the river into the cave",
+      "Let the water level decide how far you explore",
+      "Finish with the entrance and village landscape"
+    ],
+    "rhythmNote": "Go in the dry season for the simplest visit. In wetter months, higher water can change the route and make the cave a more serious outing.",
+    "photoNote": "About 14 km northeast of Thakhek · Route 12"
+  },
+  "thing-tham-chang-elephant-cave": {
+    "eyebrow": "SHRINE NOTE · THAKHEK",
+    "aliases": [
+      "Tham Xang",
+      "Elephant Cave",
+      "Tham Pha Ban Tham"
+    ],
+    "description": "Elephant Cave is a compact Buddhist shrine near Ban Tham, where the reason to stop is not the size of the cavern but the golden Buddha, the revered elephant shaped formation and the view back across the surrounding plain.",
+    "steps": [
+      "Leave Thakhek on Route 12",
+      "Continue toward Ban Tham",
+      "Climb into the cave shrine",
+      "Look behind the Buddha for the elephant formation"
+    ],
+    "rhythmNote": "Give it half an hour rather than expecting a major cave expedition. Read it as a sacred local stop at the beginning of the Route 12 cave corridor.",
+    "photoNote": "Near Ban Tham · one of the closest cave stops to Thakhek"
+  },
+  "thing-tham-pha-buddha-cave": {
+    "eyebrow": "SACRED CAVE NOTE · THAKHEK",
+    "aliases": [
+      "Tham Pa Fa",
+      "Tham Nong Pa Fa",
+      "Buddha Cave"
+    ],
+    "description": "Buddha Cave is a sacred upper sanctuary near Thakhek containing 229 bronze Buddha images, rediscovered in 2004 and still treated as an active place of worship rather than a museum collection.",
+    "steps": [
+      "Leave Thakhek for Ban Na Khan Sarng",
+      "Climb to the upper sanctuary",
+      "Read the collection without a camera",
+      "Ask whether the lower cave route is operating"
+    ],
+    "rhythmNote": "Slow down before entering. Photography is forbidden inside the upper cave, and the strongest part of the visit is experiencing the sanctuary without turning the statues into a photo checklist.",
+    "photoNote": "Ban Na Khan Sarng · about 14 km from Thakhek"
+  },
+  "thing-tha-falang": {
+    "eyebrow": "RIVER STOP · THAKHEK",
+    "aliases": [
+      "Tha Falang",
+      "Tha Fa Lang",
+      "Wang Sikharm"
+    ],
+    "description": "Tha Falang is the river pause inside Cave Alley: a clear stretch of the Nam Don where shade, swimming and a slower hour break up the sequence of limestone caves east of Thakhek.",
+    "steps": [
+      "Leave Thakhek on Route 12",
+      "Turn toward the Nam Don riverbank",
+      "Read the water before swimming",
+      "Stay long enough for the road day to slow down"
+    ],
+    "rhythmNote": "Do not turn Tha Falang into another checkpoint. It works best as the place where you stop riding, cool down and let the river interrupt the cave itinerary.",
+    "photoNote": "Nam Don River · about 15 km east of Thakhek"
+  },
+  "thing-khoun-kong-leng": {
+    "eyebrow": "SPRING NOTE · KHAMMOUANE",
+    "aliases": [
+      "Khoun Kong Leng",
+      "Kong Leng Lake",
+      "Evening Gong Lake"
+    ],
+    "description": "Khoun Kong Leng is an emerald karst spring in Hinboun, where underground water emerges below limestone mountains and creates one of the clearest and most distinctive water landscapes around Thakhek.",
+    "steps": [
+      "Leave Thakhek north on Route 13",
+      "Follow the Ban Nakhou road to the spring",
+      "Read the lake before choosing any activity",
+      "Use only the swimming area that local staff permit"
+    ],
+    "rhythmNote": "Come for the spring before the activities. The colour, clarity and limestone setting are the reason the site matters, while every water activity should follow the current local rules.",
+    "photoNote": "Ban Nakhou · Hinboun District · about 50 km from Thakhek"
+  },
+  "thing-thalang-nam-theun-reservoir": {
+    "eyebrow": "RESERVOIR NOTE · NAKAI",
+    "aliases": [
+      "Thalang",
+      "Nam Theun 2 Reservoir",
+      "Nakai Reservoir"
+    ],
+    "description": "Thalang is the first night landscape of the Thakhek Loop, where the road reaches the Nakai Plateau and the Nam Theun 2 reservoir opens around drowned tree trunks, wide water and evening light.",
+    "steps": [
+      "Climb from Cave Alley to the Nakai Plateau",
+      "Pass the Nam Theun 2 dam landscape",
+      "Reach Thalang before sunset",
+      "Stay overnight before the long Day 2 ride"
+    ],
+    "rhythmNote": "Treat Thalang as the end of Day 1 rather than another stop to squeeze in. Arrive with light left, look across the reservoir and let the overnight pause reset the Loop.",
+    "photoNote": "Thalang Village · Nakai Plateau · Day 1 of the Thakhek Loop"
+  },
+  "thing-pha-inh-cave": {
+    "eyebrow": "SACRED POOL CAVE · ROUTE 12",
+    "aliases": [
+      "Tham Pha Inh",
+      "Tham Pha Nya Inh",
+      "Phan Ya In Cave",
+      "Sa Pha In Cave"
+    ],
+    "description": "Pha Inh is a compact sacred cave on the first day of the Thakhek Loop, where a Buddhist shrine overlooks an underground pool lit through natural openings in the limestone.",
+    "steps": [
+      "Leave Thakhek on Route 12",
+      "Take the short side-road approach",
+      "Climb to the cave shrine",
+      "Look down toward the naturally lit pool"
+    ],
+    "rhythmNote": "Keep this one short. Pha Inh works as a quiet contrast between bigger Cave Alley stops, and current local rules should decide whether entering the water is allowed.",
+    "photoNote": "Cave Alley · east of Thakhek · Day 1 of the Loop"
+  },
+  "thing-cool-springs-loop": {
+    "eyebrow": "COLD SPRING · THAKHEK LOOP",
+    "aliases": [
+      "Cool Springs",
+      "Cool Pool",
+      "Cool Pond",
+      "Vang Nam Yen"
+    ],
+    "description": "Cool Springs is the Day 2 reset on the Thakhek Loop: a clear turquoise spring near Ban Napavan, tucked below limestone and forest after the long ride out of Thalang.",
+    "steps": [
+      "Ride west from Thalang toward the karst corridor",
+      "Turn off Route 8 near Ban Napavan",
+      "Follow the side track across the open fields",
+      "Swim, cool down and leave before the road day gets late"
+    ],
+    "rhythmNote": "This stop works because it interrupts the ride. Give the cold water an hour, then get back on the road while there is still comfortable daylight for Dragon Cave and Khoun Kham.",
+    "photoNote": "Ban Napavan · Day 2 of the Thakhek Loop"
+  },
+  "thing-old-french-railway-bridge": {
+    "eyebrow": "FIELD NOTE · SI PHAN DON",
+    "aliases": [
+      "Don Det–Don Khon bridge",
+      "Old French railway bridge",
+      "Historic railway crossing"
+    ],
+    "description": "The bridge between Don Det and Don Khon is more than a convenient island crossing. It is the most visible surviving piece of a railway built to bypass the Mekong rapids that stopped boats moving through Si Phan Don.",
+    "steps": [
+      "Why a railway appeared on two Mekong islands",
+      "Cross the bridge slowly",
+      "Follow the old railway onto Don Khon",
+      "Make it part of a bicycle day"
+    ],
+    "rhythmNote": "Do not treat the bridge as a checkpoint. Cross it slowly, look downriver, then keep following the railway story onto Don Khon.",
+    "photoNote": "Between Don Det and Don Khon · Si Phan Don"
+  },
+  "thing-li-phi-somphamit-waterfalls": {
+    "eyebrow": "WATER NOTE · DON KHON",
+    "aliases": [
+      "Li Phi Falls",
+      "Tad Somphamit",
+      "Som Pha Mit"
+    ],
+    "description": "Li Phi is not about a single vertical drop. The Mekong fractures across rock shelves and channels here, turning the western edge of Don Khon into a long, violent field of white water.",
+    "steps": [
+      "Ride south from the old railway bridge",
+      "Understand why the water matters more than the height",
+      "Walk the viewpoints without rushing",
+      "Let the season change the experience"
+    ],
+    "rhythmNote": "Give the falls time. The power is in the width, the channels and the changing river, not in chasing one perfect viewpoint.",
+    "photoNote": "Don Khon · Si Phan Don · Southern Laos"
+  },
+  "thing-khone-phapheng-falls": {
+    "eyebrow": "MEKONG NOTE · SI PHAN DON",
+    "aliases": [
+      "Khone Phapheng",
+      "Khone Falls",
+      "Mekong cataract"
+    ],
+    "description": "Khone Phapheng is where the scale of the Mekong becomes physical. Instead of one neat drop, the river breaks across a vast fault line into channels, rock and white water powerful enough to make this stretch unnavigable.",
+    "steps": [
+      "Leave the islands for the mainland",
+      "Read the falls as a whole river system",
+      "Walk beyond the first viewpoint",
+      "Understand why the railway had to exist"
+    ],
+    "rhythmNote": "Keep the Hero exactly as it is. At the falls, do the same thing: stand back first and take in the width before chasing details in the water.",
+    "photoNote": "Mainland east of Don Khon · near the Cambodian border"
+  },
+  "thing-don-som-island": {
+    "eyebrow": "ISLAND NOTE · SI PHAN DON",
+    "aliases": [
+      "Don Som",
+      "Quiet Mekong island",
+      "Rural Si Phan Don"
+    ],
+    "description": "Don Som is the quieter counterpoint to Don Det: a long inhabited Mekong island where farming, fishing and village life still shape the day more than tourism does.",
+    "steps": [
+      "Cross by local boat",
+      "Move slowly through the villages",
+      "Read the island through farming and river life",
+      "Return before the crossing becomes awkward"
+    ],
+    "rhythmNote": "Don Som is not a checklist island. Go for the change of pace, leave space for ordinary village life, and avoid turning people into attractions.",
+    "photoNote": "North of Don Det · Si Phan Don"
+  },
+  "thing-khone-pa-soi-waterfall": {
+    "eyebrow": "BACKROAD WATER NOTE · DON KHON",
+    "aliases": [
+      "Khon Pa Soi Falls",
+      "Khone Pa Soy",
+      "Tad Khone Pa Soi"
+    ],
+    "description": "Khone Pa Soi is the rougher, quieter waterfall ride on Don Khon: a smaller Mekong cascade reached by eastern island tracks, with the old suspension-bridge approach and traces of the colonial-era timber route adding as much character as the falls themselves.",
+    "steps": [
+      "Cross from Don Det onto Don Khon",
+      "Take the rougher eastern tracks",
+      "Check the bridge before committing",
+      "Read the old Teak Way beside the rapids"
+    ],
+    "rhythmNote": "This one is about the route as much as the waterfall. Do not force a damaged or closed bridge: the Mekong and the access conditions decide how far the visit goes.",
+    "photoNote": "Eastern Don Khon · Si Phan Don"
+  },
+  "thing-xai-kong-nyai-beach": {
+    "eyebrow": "RIVER BEACH NOTE · DON KHON",
+    "aliases": [
+      "Hat Xai Kong Nyai",
+      "Kong Nyai Beach",
+      "Khongyai Beach",
+      "Tha Sanam",
+      "Bo Hu Beach"
+    ],
+    "description": "Xai Kong Nyai is the slow stop after Don Khon's waterfalls: a sandy Mekong bank where the point is to cool down, eat something simple, watch the longtail boats and give the island afternoon room to breathe.",
+    "steps": [
+      "Cross onto Don Khon",
+      "Continue south beyond the waterfall routes",
+      "Swim only where the shore and current look safe",
+      "Stay for the softer late-afternoon light"
+    ],
+    "rhythmNote": "Treat this as a river beach, not a swimming pool. Stay close to shore, read the current first and let a quiet hour here be enough.",
+    "photoNote": "Southern Don Khon · Si Phan Don"
+  },
+  "thing-si-phan-don-by-boat": {
+    "eyebrow": "RIVER NOTE · SI PHAN DON",
+    "aliases": [
+      "4000 Islands boat trip",
+      "Don Det pirogue tour",
+      "Mekong island cruise"
+    ],
+    "description": "A boat trip is the simplest way to understand why Si Phan Don feels larger than Don Det and Don Khon. Leave the bank in a local pirogue and the Mekong becomes a maze of inhabited islands, tiny wooded islets, sandbanks, fishing water and channels that change with the season.",
+    "steps": [
+      "Charter the boat before you leave",
+      "Let the route follow the river",
+      "Look for island life rather than landmarks",
+      "Come back through golden hour"
+    ],
+    "rhythmNote": "Do not over-program the boat. Agree the essentials, then leave enough room for the river, the light and the boatman to shape the route.",
+    "photoNote": "From Don Det · Si Phan Don · Southern Laos"
+  },
+  "thing-4000-islands-kayaking": {
+    "eyebrow": "PADDLE NOTE · SI PHAN DON",
+    "aliases": [
+      "4,000 Islands kayaking",
+      "Don Det kayak tour",
+      "Mekong kayaking"
+    ],
+    "description": "A guided full-day paddle from Don Det through the channels of Si Phan Don, mixing easy sections with moving water and stops away from the kayak.",
+    "steps": [
+      "Book a guided tour",
+      "Get the safety briefing",
+      "Paddle the island channels",
+      "Let the guide choose the safe line"
+    ],
+    "rhythmNote": "This is not the place to improvise a solo river route. The Mekong changes with water level, so follow the guide and wear the life jacket.",
+    "photoNote": "From Don Det · Si Phan Don · Southern Laos"
+  },
+  "thing-cycle-don-det-don-khon": {
+    "eyebrow": "ISLAND RIDE · SI PHAN DON",
+    "aliases": [
+      "Don Det cycling",
+      "Don Khon bicycle ride",
+      "4,000 Islands by bike"
+    ],
+    "description": "Rent a simple bicycle on Don Det and use it as slow transport rather than a sporting challenge: river paths, rice fields, the old railway bridge and Don Khon all sit within an easy island day.",
+    "steps": [
+      "Choose a bike that actually works",
+      "Ride Don Det's river paths",
+      "Cross the railway bridge",
+      "Keep going only while the light is good"
+    ],
+    "rhythmNote": "The bicycle is the point because it keeps the islands small, quiet and open-ended. Stop often; there is no reason to race the loop.",
+    "photoNote": "Don Det + Don Khon · Si Phan Don"
+  },
+  "thing-don-det-tubing": {
+    "eyebrow": "RIVER FLOAT · DON DET",
+    "aliases": [
+      "Don Det tubing",
+      "Mekong tubing",
+      "Si Phan Don river float"
+    ],
+    "description": "Tubing on Don Det is the island at its laziest: rent an inner tube, enter a suitable Mekong channel and let the current carry most of the journey while Don Det slides past at water level.",
+    "steps": [
+      "Rent a tube locally",
+      "Confirm today's safe route",
+      "Enter on the Don Det side",
+      "Get out well before the rapids"
+    ],
+    "rhythmNote": "The appeal is doing almost nothing. The important part is knowing where to enter, where to leave the river and when conditions make tubing a bad idea.",
+    "photoNote": "Don Det · Mekong · Si Phan Don"
+  },
+  "thing-don-det-sunset": {
+    "eyebrow": "GOLDEN HOUR · DON DET",
+    "aliases": [
+      "Don Det sunset",
+      "Sunset side",
+      "Mekong sunset"
+    ],
+    "description": "Sunset on Don Det is not a destination to conquer. Walk or cycle to the island's western riverbank, find an open view across the Mekong and let the last hour of light become the activity.",
+    "steps": [
+      "Move to the west side",
+      "Arrive before the sun drops",
+      "Choose an open river view",
+      "Stay through the afterglow"
+    ],
+    "rhythmNote": "Do less. Arrive early enough to stop moving, then stay after the sun disappears — the colour often lasts longer than the obvious sunset moment.",
+    "photoNote": "West Don Det · Mekong · Si Phan Don"
+  },
+  "thing-tad-hang-waterfall": {
+    "eyebrow": "WATERFALL NOTE · TAD LO",
+    "aliases": [
+      "Tad Hang",
+      "Tat Hang",
+      "Xe Set waterfall"
+    ],
+    "description": "Tad Hang is the easiest first waterfall from Tad Lo: a broad tiered cascade on the Xe Set River, close enough to reach on foot and woven into the village’s everyday riverside life.",
+    "steps": [
+      "Walk out from Tad Lo",
+      "Start at the bridge and broad cascade",
+      "Follow the Xe Set upstream",
+      "Let the water level decide the swim"
+    ],
+    "rhythmNote": "Use Tad Hang as the easy introduction to the river. Look first, read the current, then decide whether the day is for swimming or simply sitting beside the falls.",
+    "photoNote": "About 700 m by road from Tad Lo Tourism Office"
+  },
+  "thing-tad-lo-waterfall": {
+    "eyebrow": "VILLAGE WATERFALL · TAD LO",
+    "aliases": [
+      "Tad Lo",
+      "Tad Lor",
+      "Tad Loh"
+    ],
+    "description": "Tad Lo is the village’s namesake fall and Salavanh’s signature waterfall: a broad, green-framed Xe Set cascade that works best as part of a slow riverside walk with Tad Hang.",
+    "steps": [
+      "Walk upstream through the village",
+      "Find the broad semi-horseshoe cascade",
+      "Pair the fall with Tad Hang",
+      "Let current conditions decide the swim"
+    ],
+    "rhythmNote": "Do not turn the namesake waterfall into a standalone transfer. Walk it with Tad Hang and let the river paths connect the two.",
+    "photoNote": "About 1.1 km by road from Tad Lo Tourism Office"
+  },
+  "thing-tad-soung-waterfall": {
+    "eyebrow": "WATERFALL HIKE · TAD LO",
+    "aliases": [
+      "Tad Soung",
+      "Tad Suong",
+      "Tad Sung"
+    ],
+    "description": "Tad Soung is the half-day waterfall excursion beyond the village: a rural approach through fields and settlements leads to a high Xe Set escarpment, a lower viewpoint and a broad panorama from above.",
+    "steps": [
+      "Follow the rural road from Tad Lo",
+      "Reach the lower falls",
+      "Climb the renovated trail or continue by road",
+      "Read the panorama even when the flow is low"
+    ],
+    "rhythmNote": "Come for the landscape as much as the water. The upstream dam and season can change the waterfall dramatically, but the high escarpment and valley view remain the reason to give Tad Soung a half day.",
+    "photoNote": "About 4 km by road from Tad Lo Tourism Office to the lower access"
+  },
+  "thing-katu-weaving-workshop": {
+    "eyebrow": "CRAFT WORKSHOP · TAD LO",
+    "aliases": [
+      "Katu weaving",
+      "Katu backstrap weaving",
+      "Beaded textile workshop"
+    ],
+    "description": "Spend about four hours with a local weaver learning how Katu textiles are built on a foot-braced backstrap loom, where body tension, thread control and bead placement turn a simple setup into dense patterned cloth.",
+    "steps": [
+      "Meet the host and read the loom",
+      "Understand posture and body tension",
+      "Try the weaving rhythm",
+      "Look closely at bead placement"
+    ],
+    "rhythmNote": "This is not a souvenir stop. Book ahead, expect to sit and concentrate, and let the host set the pace for how much you observe or try.",
+    "photoNote": "Walkable from Tad Lo · about four hours · booking required"
+  },
+  "thing-lao-cooking-class-with-nyay": {
+    "eyebrow": "COOKING WORKSHOP · TAD LO",
+    "aliases": [
+      "Nyay Cooking Class",
+      "Lao Cooking Class",
+      "Tad Lo cooking workshop"
+    ],
+    "description": "Spend half a day cooking with Nyay in Tad Lo, using fresh local ingredients to prepare a Lao meal and then eating what you have made together.",
+    "steps": [
+      "Book the class ahead",
+      "Choose lunch or dinner timing",
+      "Cook the meal with Nyay",
+      "Sit down and share what you made"
+    ],
+    "rhythmNote": "Do not arrive expecting one fixed menu. Confirm the dishes, vegetarian or non-vegetarian option, allergies and current price when you book, then let the ingredients and host shape the session.",
+    "photoNote": "Walkable in Tad Lo · half day · morning for lunch or afternoon for dinner"
+  },
+  "thing-coffee-and-katu-culture-with-mr-hook": {
+    "eyebrow": "COFFEE & CULTURE · BOLAVEN",
+    "aliases": [
+      "Mr Hook coffee tour",
+      "Ban Kok Phoung Tai",
+      "Katu / Katou cultural visit"
+    ],
+    "description": "Spend roughly three hours with Mr Hook in Ban Kok Phoung Tai, walking through coffee and useful plants while the visit opens into a long conversation about Katu life, beliefs and change on the Bolaven Plateau.",
+    "steps": [
+      "Ride from Tad Lo toward Ban Kok Phoung Tai",
+      "Start with coffee and useful plants",
+      "Let questions shape the cultural conversation",
+      "Ask before photographing people or sacred objects"
+    ],
+    "rhythmNote": "This works best as a conversation, not a spectacle. Give Mr Hook time, ask questions, and treat what he shares as one host’s perspective rather than a complete definition of every Katu community.",
+    "photoNote": "Ban Kok Phoung Tai · about 15 km by road from Tad Lo"
+  },
+  "thing-coffee-from-tree-to-cup-with-mr-vieng": {
+    "eyebrow": "COFFEE FARM · BOLAVEN",
+    "aliases": [
+      "Mr Vieng Coffee",
+      "Mr Vieng Coffee Homestay",
+      "Tree-to-cup coffee tour"
+    ],
+    "description": "About thirty kilometres from Tad Lo, Mr Vieng turns a coffee stop into a compact lesson in the whole chain: walk among coffee trees, see how cherries are selected and processed, then finish with coffee prepared from beans grown on the farm.",
+    "steps": [
+      "Ride toward Laongam on the Bolaven route",
+      "Walk through the coffee trees",
+      "Follow cherries through processing",
+      "Finish with a farm-grown coffee"
+    ],
+    "rhythmNote": "Allow around ninety minutes and do not build the stop around an old timetable or price. Current Visit Tad Lo information asks travellers to confirm visit times, price and booking method before setting out.",
+    "photoNote": "Near Laongam · ≈30 km by road from Tad Lo Tourism Office · around 90 minutes"
+  }
 }

@@ -27,18 +27,6 @@
       "locked": true
     },
     {
-      "id": "cool-springs-khammouane-context-6974984671",
-      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Khoun%20Kong%20Leng%20Lake%20%286974984671%29.jpg?width=1200",
-      "alt": "Clear blue-green karst water at Khoun Kong Leng in Khammouane Province, used as regional context for Cool Springs near the Thakhek Loop",
-      "sourceType": "wikimedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khoun_Kong_Leng_Lake_(6974984671).jpg",
-      "sourceName": "Wikimedia Commons",
-      "author": "Aleksey Gnilenkov",
-      "license": "CC BY 2.0",
-      "manual": true,
-      "locked": true
-    },
-    {
       "id": "cool-springs-loop-photo-3",
       "src": "/assets/cities/laos/thakhek/things-to-do/cool-springs-loop/cool-springs-loop-photo-3.webp",
       "alt": "Illustration of the turquoise Cool Springs pool near Thakhek",
@@ -50,8 +38,35 @@
     }
   ],
   "thing-dragon-cave": [
-    {"id":"dragon-cave-photo-1","src":"/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-1.webp","alt":"Entrance at Dragon Cave on the Thakhek Loop","sourceType":"manual","sourceName":"User-supplied photo","license":"User-supplied","manual":true,"locked":true},
-    {"id":"dragon-cave-photo-2","src":"/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-2.webp","alt":"Inside Dragon Cave in Thakhek","sourceType":"manual","sourceName":"User-supplied photo","license":"User-supplied","manual":true,"locked":true},
-    {"id":"dragon-cave-photo-3","src":"/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-3.webp","alt":"Illustration of limestone formations inside Dragon Cave","sourceType":"manual","sourceName":"User-supplied drawing","license":"User-supplied","manual":true,"locked":true}
+    {
+      "id": "dragon-cave-photo-1",
+      "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-1.webp",
+      "alt": "Entrance at Dragon Cave on the Thakhek Loop",
+      "sourceType": "manual",
+      "sourceName": "User-supplied photo",
+      "license": "User-supplied",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "dragon-cave-photo-2",
+      "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-2.webp",
+      "alt": "Inside Dragon Cave in Thakhek",
+      "sourceType": "manual",
+      "sourceName": "User-supplied photo",
+      "license": "User-supplied",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "dragon-cave-photo-3",
+      "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-3.webp",
+      "alt": "Illustration of limestone formations inside Dragon Cave",
+      "sourceType": "manual",
+      "sourceName": "User-supplied drawing",
+      "license": "User-supplied",
+      "manual": true,
+      "locked": true
+    }
   ]
 }
