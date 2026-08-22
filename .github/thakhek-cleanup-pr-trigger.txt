@@ -1,1 +1,1 @@
-Trigger definitive Thakhek cleanup after removing all known retired-status consumers.
+Trigger definitive Thakhek cleanup after fixing generated city registry discovery.
