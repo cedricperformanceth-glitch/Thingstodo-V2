@@ -3,6 +3,8 @@ name: Regenerate Thakhek coordinates once
 on:
   push:
     branches: [master]
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
@@ -13,7 +15,7 @@ concurrency:
 
 jobs:
   regenerate:
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && (github.event_name == 'push' || github.event.issue.title == 'Run Thakhek coordinate regeneration')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
