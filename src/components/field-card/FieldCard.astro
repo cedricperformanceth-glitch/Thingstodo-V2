@@ -1,6 +1,7 @@
 ---
 import type { City, Country, ThingToDo } from '../../core/models/types';
 import { fieldCardView } from '../../engines/field-card/field-card-engine';
+import { getEditorialThingName } from '../../engines/field-card/field-card-editorial';
 import { fieldCardRelatedActivities } from '../../engines/field-card/related-activities-engine';
 import AdSlot from '../shared/AdSlot.astro';
 import FieldCardHero from './FieldCardHero.astro';
@@ -21,6 +22,8 @@ interface Props {
 }
 
 const { thing, city, country } = Astro.props;
+const displayName = getEditorialThingName(thing.id) ?? thing.name;
+const displayThing = displayName === thing.name ? thing : { ...thing, name: displayName };
 const view = fieldCardView(thing, city, country);
 const relatedActivities = fieldCardRelatedActivities(city, thing);
 const renderedPhotos = [view.heroImage, view.storyImage, view.secondaryStory ? view.secondaryImage : undefined].flatMap((image) => image ? [image] : []);
@@ -28,20 +31,20 @@ const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.ima
 ---
 
 <article class={`field-card field-card--${view.template}`}>
-  <FieldCardHero {thing} {city} {country} hero={view.hero} image={view.heroImage} />
-  <FieldCardQuickRead {thing} {country} quickRead={view.quickRead} />
-  <FieldCardStoryBlock {thing} story={view.primaryStory} image={view.storyImage} />
-  {view.secondaryStory && <FieldCardSecondaryStory {thing} story={view.secondaryStory} image={view.secondaryImage} />}
+  <FieldCardHero thing={displayThing} {city} {country} hero={view.hero} image={view.heroImage} />
+  <FieldCardQuickRead thing={displayThing} {country} quickRead={view.quickRead} />
+  <FieldCardStoryBlock thing={displayThing} story={view.primaryStory} image={view.storyImage} />
+  {view.secondaryStory && <FieldCardSecondaryStory thing={displayThing} story={view.secondaryStory} image={view.secondaryImage} />}
   {view.adSlots[0] && <AdSlot slot={view.adSlots[0]} />}
-  {view.secondaryStory && <FieldCardBeforeYouLeave {thing} content={view.secondaryStory.beforeYouLeave} />}
+  {view.secondaryStory && <FieldCardBeforeYouLeave thing={displayThing} content={view.secondaryStory.beforeYouLeave} />}
 
   <div class="field-card__body">
     {view.remainingSections.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
-    <FieldCardFaq {thing} items={view.faq} />
-    <FieldCardPracticalNotes {thing} content={view.practicalNotes} />
-    <FieldCardAtlasCta {thing} />
+    <FieldCardFaq thing={displayThing} items={view.faq} />
+    <FieldCardPracticalNotes thing={displayThing} content={view.practicalNotes} />
+    <FieldCardAtlasCta thing={displayThing} />
     <FieldCardRelatedActivities {city} items={relatedActivities} />
-    <FieldCardMethodSources {thing} additionalPhotos={[...renderedPhotos, ...relatedPhotos]} />
+    <FieldCardMethodSources thing={displayThing} additionalPhotos={[...renderedPhotos, ...relatedPhotos]} />
   </div>
 </article>
 
