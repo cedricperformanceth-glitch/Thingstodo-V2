@@ -3,6 +3,7 @@ import type { City, ThingToDo } from '../../core/models/types';
 import { getEditorialMedia } from '../field-card/field-card-editorial';
 import { getExploreBoardCopy } from './explore-board-copy';
 import thingStatusOverrides from '../../content/thing-status-overrides.json';
+import exploreBoardOverrides from '../../content/explore-board-overrides.json';
 
 export const EXPLORE_BOARD_LANDMARK_COUNT = 3;
 
@@ -11,6 +12,13 @@ export interface ExploreBoardEntry {
   kicker: string;
   duration: string;
   route: string;
+}
+
+type ExploreBoardMetadata = Omit<ExploreBoardEntry, 'thing'>;
+
+interface ExploreBoardOverride {
+  featuredThingIds: string[];
+  thingMetadata?: Record<string, ExploreBoardMetadata>;
 }
 
 const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
@@ -28,8 +36,12 @@ const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
 
 const isRemovedThingId = (id: string) => thingStatusOverrides[id as keyof typeof thingStatusOverrides] === 'removed';
 
+const getExploreBoardOverride = (cityId: string): ExploreBoardOverride | undefined =>
+  (exploreBoardOverrides as Record<string, ExploreBoardOverride>)[cityId];
+
 export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intro: string; note: string } {
-  const configuredIds = city.exploreBoard.featuredThingIds ?? [];
+  const override = getExploreBoardOverride(city.id);
+  const configuredIds = override?.featuredThingIds ?? city.exploreBoard.featuredThingIds ?? [];
   if (configuredIds.length !== EXPLORE_BOARD_LANDMARK_COUNT) {
     throw new Error(`Explore Board requires exactly ${EXPLORE_BOARD_LANDMARK_COUNT} configured landmarks: ${city.country}/${city.slug}; received ${configuredIds.length}`);
   }
@@ -44,15 +56,20 @@ export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intr
   const things = ids.map((id) => {
     const sourceThing = allThings.find((candidate) => candidate.id === id);
     if (!sourceThing) throw new Error(`Explore Board references missing ThingToDo '${id}': ${city.country}/${city.slug}`);
-    if (!sourceThing.isLandmark) throw new Error(`Explore Board entry must be a landmark ThingToDo '${id}': ${city.country}/${city.slug}`);
-    if (!sourceThing.exploreBoard) throw new Error(`Explore Board metadata is missing for '${id}': ${city.country}/${city.slug}`);
+
+    const overriddenMetadata = override?.thingMetadata?.[id];
+    const metadata = overriddenMetadata ?? sourceThing.exploreBoard;
+    if (!sourceThing.isLandmark && !overriddenMetadata) {
+      throw new Error(`Explore Board entry must be a landmark ThingToDo '${id}': ${city.country}/${city.slug}`);
+    }
+    if (!metadata) throw new Error(`Explore Board metadata is missing for '${id}': ${city.country}/${city.slug}`);
 
     const thing = withEditorialHeroAsCardImage(sourceThing);
     return {
       thing,
-      kicker: sourceThing.exploreBoard.kicker,
-      duration: sourceThing.exploreBoard.duration,
-      route: sourceThing.exploreBoard.route,
+      kicker: metadata.kicker,
+      duration: metadata.duration,
+      route: metadata.route,
     };
   });
 
