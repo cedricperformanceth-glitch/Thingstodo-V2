@@ -1,0 +1,77 @@
+name: Prune retired Nang Aen editorial once
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prune-nang-aen-editorial-once
+  cancel-in-progress: false
+
+jobs:
+  prune:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Remove retired Nang Aen editorial keys
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+
+          const removedId = 'thing-tham-nang-aen-cave';
+          const contentDir = 'src/content';
+          const changed = [];
+
+          for (const name of fs.readdirSync(contentDir)) {
+            if (!name.endsWith('.json') || name === 'thing-status-overrides.json') continue;
+            const file = path.join(contentDir, name);
+            const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+            if (Array.isArray(parsed) || !parsed || typeof parsed !== 'object') continue;
+            if (!Object.prototype.hasOwnProperty.call(parsed, removedId)) continue;
+            delete parsed[removedId];
+            fs.writeFileSync(file, `${JSON.stringify(parsed, null, 2)}\n`);
+            changed.push(file);
+          }
+
+          console.log(`Pruned ${removedId} from ${changed.length} editorial file(s).`);
+          for (const file of changed) console.log(`- ${file}`);
+          NODE
+      - name: Verify editorial purge
+        shell: bash
+        run: |
+          matches=$(grep -R --line-number --fixed-string 'thing-tham-nang-aen-cave' src/content --include='*.json' --exclude='thing-status-overrides.json' || true)
+          if [ -n "$matches" ]; then
+            echo "$matches"
+            exit 1
+          fi
+      - name: Validate application
+        run: |
+          npm run test:generation-integration
+          npm run check
+          npm run build
+      - name: Commit editorial cleanup
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/*.json
+          if git diff --cached --quiet; then
+            echo "No retired Nang Aen editorial data remained."
+            exit 0
+          fi
+          git commit -m "fix: prune retired Nang Aen editorial data"
+          git push origin HEAD:master
