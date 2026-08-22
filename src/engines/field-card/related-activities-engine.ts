@@ -1,7 +1,7 @@
 import type { City, MediaRecord, ThingToDo } from '../../core/models/types';
 import { thingPath } from '../../core/routing/paths';
 import { getThings } from '../category/category-engine';
-import { getEditorialMedia } from './field-card-editorial';
+import { getEditorialMedia, getEditorialThingName } from './field-card-editorial';
 
 export interface FieldCardRelatedActivity {
   id: string;
@@ -45,7 +45,7 @@ export const fieldCardRelatedActivities = (city: City, currentThing: ThingToDo):
     .filter((thing) => thing.id !== currentThing.id)
     .map((thing) => ({
       id: thing.id,
-      name: thing.name,
+      name: getEditorialThingName(thing.id) ?? thing.name,
       path: thingPath(city, thing),
       eyebrow: activityEyebrow(thing),
       description: compactDescription(thing.shortDescription),
