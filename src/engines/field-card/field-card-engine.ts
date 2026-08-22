@@ -9,6 +9,7 @@ import {
   getEditorialPrimaryStory,
   getEditorialQuickRead,
   getEditorialSecondaryStory,
+  getEditorialThingName,
 } from './field-card-editorial';
 
 type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
@@ -197,6 +198,8 @@ const fallbackQuickRead = (thing: ThingToDo, city: City, country: Country): Fiel
 };
 
 export const fieldCardView = (thing: ThingToDo, city: City, country: Country) => {
+  const displayName = getEditorialThingName(thing.id);
+  const displayThing = displayName && displayName !== thing.name ? { ...thing, name: displayName } : thing;
   const depth = editorialDepthOverrides[thing.id];
   const hero = getEditorialHero(thing.id) ?? thing.fieldCard.hero ?? fallbackHero(thing, city, country);
   const quickRead = getEditorialQuickRead(thing.id) ?? thing.fieldCard.quickRead ?? fallbackQuickRead(thing, city, country);
@@ -220,7 +223,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const secondaryImage = gallery[2];
 
   return {
-    thing,
+    thing: displayThing,
     hero,
     quickRead,
     primaryStory,
