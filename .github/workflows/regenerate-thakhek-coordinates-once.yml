@@ -69,9 +69,53 @@ jobs:
           NODE
       - name: Regenerate Thakhek outputs
         run: npm run generate-city -- laos thakhek --skip-photo-discovery
-      - name: Validate generated content
+      - name: Verify exact Thakhek coordinate propagation
+        shell: bash
         run: |
-          npm run validate-content
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const expected = {
+            'thing-tham-xiang-liap-cave': [17.453456, 104.909194],
+            'thing-tham-chang-elephant-cave': [17.43141, 104.86439],
+            'thing-tham-pha-buddha-cave': [17.4766036, 104.8516357],
+            'thing-tha-falang': [17.4684725, 104.912938],
+            'thing-khoun-kong-leng': [17.643636, 104.8128345],
+            'thing-thalang-nam-theun-reservoir': [17.6509161, 105.1698207],
+            'thing-pha-inh-cave': [17.46145, 104.91585],
+            'thing-cool-springs-loop': [18.2738894, 104.7140206],
+            'thing-dragon-cave': [18.221168, 104.8121902],
+            'thing-sandstone-buddhas': [17.990689, 105.046281],
+            'thing-phou-pha-marn-viewpoint': [18.1781789, 104.4842187]
+          };
+
+          for (const file of ['pipeline/sources/laos/thakhek.json', 'pipeline/cities/laos/thakhek.json']) {
+            const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+            const things = new Map(data.things.map((thing) => [thing.id, thing]));
+            for (const [id, [latitude, longitude]] of Object.entries(expected)) {
+              const thing = things.get(id);
+              if (!thing) throw new Error(`${file}: missing ${id}`);
+              if (thing.coordinates?.latitude !== latitude || thing.coordinates?.longitude !== longitude) {
+                throw new Error(`${file}: wrong coordinates for ${id}: ${JSON.stringify(thing.coordinates)}`);
+              }
+            }
+            if (things.get('thing-thalang-nam-theun-reservoir')?.name !== 'Nam Theun 2 – Regulating Dam') {
+              throw new Error(`${file}: Nam Theun display name was not propagated`);
+            }
+          }
+
+          const runtime = fs.readFileSync('src/content/generated/laos/thakhek.ts', 'utf8');
+          for (const [id, [latitude, longitude]] of Object.entries(expected)) {
+            if (!runtime.includes(`\"id\": \"${id}\"`) || !runtime.includes(`\"latitude\": ${latitude}`) || !runtime.includes(`\"longitude\": ${longitude}`)) {
+              throw new Error(`Runtime module does not contain expected generated data for ${id}`);
+            }
+          }
+          if (!runtime.includes('Nam Theun 2 – Regulating Dam')) throw new Error('Runtime module does not contain corrected Nam Theun name');
+          console.log('All 11 Thakhek activity coordinates propagated to source, city output and runtime module.');
+          NODE
+      - name: Validate Thakhek and application build
+        run: |
+          npm run qa-city -- laos thakhek
           npm run test:generation-integration
           npm run check
           npm run build
