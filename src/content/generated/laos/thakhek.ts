@@ -88,7 +88,7 @@ const data = {
       },
       "shortDescription": "Vie de France is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "vie-de-france-card", "src": "/assets/cities/laos/thakhek/cafes/vie-de-france/vie-de-france.webp", "alt": "Vie De France in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -140,7 +140,7 @@ const data = {
       },
       "shortDescription": "Naga Hostel & Café is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "naga-hostel-and-cafe-card", "src": "/assets/cities/laos/thakhek/accommodation/naga-hostel-and-cafe/naga-hostel-and-cafe.webp", "alt": "Naga Hostel And Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -244,7 +244,7 @@ const data = {
       },
       "shortDescription": "Kamkhong home cafe by noungning is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "kamkhong-home-cafe-by-noungning-card", "src": "/assets/cities/laos/thakhek/cafes/kamkhong-home-cafe-by-noungning/kamkhong-home-cafe-by-noungning.webp", "alt": "Kamkhong Home Cafe By Noungning in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -296,7 +296,7 @@ const data = {
       },
       "shortDescription": "DD Bistro & Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "dd-bistro-and-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/dd-bistro-and-cafe/dd-bistro-and-cafe.webp", "alt": "Dd Bistro And Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -348,7 +348,7 @@ const data = {
       },
       "shortDescription": "Phubeer Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "phubeer-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/phubeer-restaurant/phubeer-restaurant.webp", "alt": "Phubeer Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -400,7 +400,7 @@ const data = {
       },
       "shortDescription": "Bami Thakhek Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "bami-thakhek-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/bami-thakhek-hostel/bami-thakhek-hostel.webp", "alt": "Bami Thakhek Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -452,7 +452,7 @@ const data = {
       },
       "shortDescription": "Bike & Bed combines a traveller base with a café-style stop in Thakhek and is kept in Coffee only, avoiding a duplicate accommodation card.",
       "media": {
-        "card": { "image": { "id": "bike-and-bed-hostel-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/bike-and-bed-hostel-cafe/bike-and-bed-hostel-cafe.webp", "alt": "Bike And Bed Hostel Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -504,7 +504,7 @@ const data = {
       },
       "shortDescription": "Thakhek’s Secret Bar is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "thakheks-secret-bar-card", "src": "/assets/cities/laos/thakhek/restaurants/thakheks-secret-bar/thakheks-secret-bar.webp", "alt": "Thakheks Secret Bar in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -556,7 +556,7 @@ const data = {
       },
       "shortDescription": "Nana Bungalows is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "nana-bungalows-card", "src": "/assets/cities/laos/thakhek/accommodation/nana-bungalows/nana-bungalows.webp", "alt": "Nana Bungalows in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -608,7 +608,7 @@ const data = {
       },
       "shortDescription": "Orlasone-BBQ is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "orlasone-bbq-card", "src": "/assets/cities/laos/thakhek/restaurants/orlasone-bbq/orlasone-bbq.webp", "alt": "Orlasone Bbq in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -660,7 +660,7 @@ const data = {
       },
       "shortDescription": "Lao Home Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "lao-home-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/lao-home-hostel/lao-home-hostel.webp", "alt": "Lao Home Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -764,7 +764,7 @@ const data = {
       },
       "shortDescription": "Catty tourist house & restaurant is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "catty-tourist-house-and-restaurant-card", "src": "/assets/cities/laos/thakhek/accommodation/catty-tourist-house-and-restaurant/catty-tourist-house-and-restaurant.webp", "alt": "Catty Tourist House And Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -816,7 +816,7 @@ const data = {
       },
       "shortDescription": "Villa Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "villa-thakhek-card", "src": "/assets/cities/laos/thakhek/accommodation/villa-thakhek/villa-thakhek.webp", "alt": "Villa Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -868,7 +868,7 @@ const data = {
       },
       "shortDescription": "YO & KO café is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "yo-and-ko-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/yo-and-ko-cafe/yo-and-ko-cafe.webp", "alt": "Yo And Ko Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -920,7 +920,7 @@ const data = {
       },
       "shortDescription": "Vegetarian House Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "vegetarian-house-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/vegetarian-house-cafe/vegetarian-house-cafe.webp", "alt": "Vegetarian House Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -972,7 +972,7 @@ const data = {
       },
       "shortDescription": "Bonjour Thakhek is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "bonjour-thakhek-card", "src": "/assets/cities/laos/thakhek/restaurants/bonjour-thakhek/bonjour-thakhek.webp", "alt": "Bonjour Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1076,7 +1076,7 @@ const data = {
       },
       "shortDescription": "Bamboo Hostel Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "bamboo-hostel-thakhek-card", "src": "/assets/cities/laos/thakhek/accommodation/bamboo-hostel-thakhek/bamboo-hostel-thakhek.webp", "alt": "Bamboo Hostel Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1180,7 +1180,7 @@ const data = {
       },
       "shortDescription": "STAY HOSTEL by M&M is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "stay-hostel-by-m-and-m-card", "src": "/assets/cities/laos/thakhek/accommodation/stay-hostel-by-m-and-m/stay-hostel-by-m-and-m.webp", "alt": "Stay Hostel By M And M in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1284,7 +1284,7 @@ const data = {
       },
       "shortDescription": "Thakhek View is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "thakhek-view-card", "src": "/assets/cities/laos/thakhek/restaurants/thakhek-view/thakhek-view.webp", "alt": "Thakhek View in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1336,7 +1336,7 @@ const data = {
       },
       "shortDescription": "La Parisian Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "la-parisian-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/la-parisian-cafe/la-parisian-cafe.webp", "alt": "La Parisian Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1388,7 +1388,7 @@ const data = {
       },
       "shortDescription": "Candy cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "candy-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/candy-cafe/candy-cafe.webp", "alt": "Candy Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1440,7 +1440,7 @@ const data = {
       },
       "shortDescription": "Organic cafe' is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "organic-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/organic-cafe/organic-cafe.webp", "alt": "Organic Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1492,7 +1492,7 @@ const data = {
       },
       "shortDescription": "Miss Tang Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "miss-tang-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/miss-tang-restaurant/miss-tang-restaurant.webp", "alt": "Miss Tang Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1648,7 +1648,7 @@ const data = {
       },
       "shortDescription": "Song Lao Guesthouse is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "song-lao-guesthouse-card", "src": "/assets/cities/laos/thakhek/accommodation/song-lao-guesthouse/song-lao-guesthouse.webp", "alt": "Song Lao Guesthouse in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1700,7 +1700,7 @@ const data = {
       },
       "shortDescription": "Xoksaysub Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "xoksaysub-hotel-card", "src": "/assets/cities/laos/thakhek/accommodation/xoksaysub-hotel/xoksaysub-hotel.webp", "alt": "Xoksaysub Hotel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1804,7 +1804,7 @@ const data = {
       },
       "shortDescription": "Soukjai Cafe remains a current public café listing in central Thakhek; its exact branding should be checked editorially if the business identity changes.",
       "media": {
-        "card": { "image": { "id": "soukjai-cafe-card", "src": "/assets/cities/laos/thakhek/cafes/soukjai-cafe/soukjai-cafe.webp", "alt": "Soukjai Cafe in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1908,7 +1908,7 @@ const data = {
       },
       "shortDescription": "Space Bar&Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "space-bar-and-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/space-bar-and-restaurant/space-bar-and-restaurant.webp", "alt": "Space Bar And Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1960,7 +1960,7 @@ const data = {
       },
       "shortDescription": "ROK Coffee Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "rok-coffee-thakhek-card", "src": "/assets/cities/laos/thakhek/cafes/rok-coffee-thakhek/rok-coffee-thakhek.webp", "alt": "Rok Coffee Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2012,7 +2012,7 @@ const data = {
       },
       "shortDescription": "Room Cafe Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "room-cafe-thakhek-card", "src": "/assets/cities/laos/thakhek/cafes/room-cafe-thakhek/room-cafe-thakhek.webp", "alt": "Room Cafe Thakhek in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2376,7 +2376,7 @@ const data = {
       },
       "shortDescription": "Nam Phou Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "nam-phou-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/nam-phou-hostel/nam-phou-hostel.webp", "alt": "Nam Phou Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2532,7 +2532,7 @@ const data = {
       },
       "shortDescription": "Orlardee Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "orlardee-hostel-card", "src": "/assets/cities/laos/thakhek/accommodation/orlardee-hostel/orlardee-hostel.webp", "alt": "Orlardee Hostel in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2584,7 +2584,7 @@ const data = {
       },
       "shortDescription": "Thakhek Travel Lodge is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": { "image": { "id": "thakhek-travel-lodge-card", "src": "/assets/cities/laos/thakhek/accommodation/thakhek-travel-lodge/thakhek-travel-lodge.webp", "alt": "Thakhek Travel Lodge in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2792,7 +2792,7 @@ const data = {
       },
       "shortDescription": "Six Friends Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": { "image": { "id": "six-friends-restaurant-card", "src": "/assets/cities/laos/thakhek/restaurants/six-friends-restaurant/six-friends-restaurant.webp", "alt": "Six Friends Restaurant in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -3208,7 +3208,7 @@ const data = {
       },
       "shortDescription": "Geelot cha is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "geelot-cha-card", "src": "/assets/cities/laos/thakhek/cafes/geelot-cha/geelot-cha.webp", "alt": "Geelot Cha in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -3416,7 +3416,7 @@ const data = {
       },
       "shortDescription": "B96 Coffee and Tea is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": { "image": { "id": "b96-coffee-and-tea-card", "src": "/assets/cities/laos/thakhek/cafes/b96-coffee-and-tea/b96-coffee-and-tea.webp", "alt": "B96 Coffee And Tea in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -4615,8 +4615,8 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.453456,
+        "longitude": 104.909194
       },
       "shortDescription": "Follow the Route 12 cave corridor to Xiang Liap, a limestone cave close enough to Thakhek for a short outing or an early stop on the Loop.",
       "media": {
@@ -4655,7 +4655,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham+Xiang+Liap+Cave+Thakhek+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.453456,104.909194",
       "isLandmark": false,
       "longDescription": "Follow the Route 12 cave corridor to Xiang Liap, a limestone cave close enough to Thakhek for a short outing or an early stop on the Loop.",
       "breadcrumbs": [
@@ -4680,8 +4680,8 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.43141,
+        "longitude": 104.86439
       },
       "shortDescription": "Stop at the sacred Elephant Cave near the beginning of Cave Alley, a compact cultural and limestone visit that fits naturally into the first section of the Thakhek Loop.",
       "media": {
@@ -4720,7 +4720,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Elephant+Cave+Thakhek+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/place/Elephant+Cave/data=!4m2!3m1!1s0x0:0x918e3dc81010bfad?sa=X&ved=1t:2428&ictx=111",
       "isLandmark": false,
       "longDescription": "Stop at the sacred Elephant Cave near the beginning of Cave Alley, a compact cultural and limestone visit that fits naturally into the first section of the Thakhek Loop.",
       "breadcrumbs": [
@@ -4745,8 +4745,8 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.4766036,
+        "longitude": 104.8516357
       },
       "shortDescription": "Visit a cave known for its Buddhist significance in Khammouane’s limestone country, combining a natural cave stop with a cultural site rather than treating it as a purely geological attraction.",
       "media": {
@@ -4785,7 +4785,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham+Pha+Buddha+Cave+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.4766036,104.8516357",
       "isLandmark": false,
       "longDescription": "Visit a cave known for its Buddhist significance in Khammouane’s limestone country, combining a natural cave stop with a cultural site rather than treating it as a purely geological attraction.",
       "breadcrumbs": [
@@ -4810,8 +4810,8 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.4684725,
+        "longitude": 104.912938
       },
       "shortDescription": "Pause along Cave Alley at Tha Falang, a clear-water river stop where swimming and limestone scenery break up the first Loop day between cave visits.",
       "media": {
@@ -4850,7 +4850,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tha+Falang+Thakhek+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.4684725,104.912938",
       "isLandmark": false,
       "longDescription": "Pause along Cave Alley at Tha Falang, a clear-water river stop where swimming and limestone scenery break up the first Loop day between cave visits.",
       "breadcrumbs": [
@@ -4875,8 +4875,8 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.643636,
+        "longitude": 104.8128345
       },
       "shortDescription": "Make a nature detour to Khoun Kong Leng, one of Khammouane’s clear-water landscape stops, best approached as a slower excursion beyond Thakhek’s town-and-cave rhythm.",
       "media": {
@@ -4915,7 +4915,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khoun+Kong+Leng+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.643636,104.8128345",
       "isLandmark": false,
       "longDescription": "Make a nature detour to Khoun Kong Leng, one of Khammouane’s clear-water landscape stops, best approached as a slower excursion beyond Thakhek’s town-and-cave rhythm.",
       "breadcrumbs": [
@@ -4935,13 +4935,13 @@ const data = {
     {
       "id": "thing-thalang-nam-theun-reservoir",
       "slug": "thalang-nam-theun-reservoir",
-      "name": "Thalang & Nam Theun Reservoir",
+      "name": "Nam Theun 2 – Regulating Dam",
       "country": "laos",
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.6509161,
+        "longitude": 105.1698207
       },
       "shortDescription": "Cross the reservoir landscape around Thalang on the Loop, where flooded forest, open water and the overnight road stop create a very different chapter from Cave Alley.",
       "media": {
@@ -4980,7 +4980,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thalang+Nam+Theun+Reservoir+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.6509161,105.1698207",
       "isLandmark": false,
       "longDescription": "Cross the reservoir landscape around Thalang on the Loop, where flooded forest, open water and the overnight road stop create a very different chapter from Cave Alley.",
       "breadcrumbs": [
@@ -5005,8 +5005,8 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.46145,
+        "longitude": 104.91585
       },
       "shortDescription": "Add Pha Inh to the first Loop day as another limestone stop in Cave Alley, useful when you want a denser cave route before continuing toward Thalang.",
       "media": {
@@ -5045,7 +5045,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pha+Inh+Cave+Thakhek+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.46145,104.91585",
       "isLandmark": false,
       "longDescription": "Add Pha Inh to the first Loop day as another limestone stop in Cave Alley, useful when you want a denser cave route before continuing toward Thalang.",
       "breadcrumbs": [
@@ -5070,14 +5070,14 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 18.2738894,
+        "longitude": 104.7140206
       },
       "shortDescription": "Use the Loop’s cool springs as a water-and-rest stop between longer road sections, giving the second day a natural break from riding through the karst landscape.",
       "media": {
         "card": {},
         "fieldCard": {
-          "gallery": [{ "id": "cool-springs-loop-photo-3", "src": "/assets/cities/laos/thakhek/things-to-do/cool-springs-loop/cool-springs-loop-photo-3.webp", "alt": "Illustration of the turquoise Cool Springs pool near Thakhek", "sourceType": "manual", "sourceName": "User-supplied drawing", "license": "User-supplied", "manual": true, "locked": true }]
+          "gallery": []
         }
       },
       "spaCard": {
@@ -5110,7 +5110,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cool+Springs+Thakhek+Loop+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=18.2738894,104.7140206",
       "isLandmark": false,
       "longDescription": "Use the Loop’s cool springs as a water-and-rest stop between longer road sections, giving the second day a natural break from riding through the karst landscape.",
       "breadcrumbs": [
@@ -5135,14 +5135,14 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 18.221168,
+        "longitude": 104.8121902
       },
       "shortDescription": "Stop at Dragon Cave during the Loop’s eastern section, adding another distinct cave visit to the road between Thalang and the route toward Kong Lor.",
       "media": {
         "card": {},
         "fieldCard": {
-          "gallery": [{ "id": "dragon-cave-photo-1", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-1.webp", "alt": "Entrance at Dragon Cave on the Thakhek Loop", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "dragon-cave-photo-2", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-2.webp", "alt": "Inside Dragon Cave in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "dragon-cave-photo-3", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-3.webp", "alt": "Illustration of limestone formations inside Dragon Cave", "sourceType": "manual", "sourceName": "User-supplied drawing", "license": "User-supplied", "manual": true, "locked": true }]
+          "gallery": []
         }
       },
       "spaCard": {
@@ -5155,8 +5155,8 @@ const data = {
         "duration": "1–2 hours",
         "costType": "paid",
         "bestTime": "Morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -5175,7 +5175,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dragon+Cave+Thakhek+Loop+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=18.221168,104.8121902",
       "isLandmark": false,
       "longDescription": "Stop at Dragon Cave during the Loop’s eastern section, adding another distinct cave visit to the road between Thalang and the route toward Kong Lor.",
       "breadcrumbs": [
@@ -5200,14 +5200,14 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 17.990689,
+        "longitude": 105.046281
       },
       "shortDescription": "Break up the Loop’s natural attractions with a cultural stop at the sandstone Buddha site, keeping the route from becoming a simple sequence of caves and swimming places.",
       "media": {
-        "card": { "image": { "id": "sandstone-buddhas-card", "src": "/assets/cities/laos/thakhek/things-to-do/sandstone-buddhas/sandstone-buddhas-card.webp", "alt": "Sandstone Buddha carving in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true } },
+        "card": {},
         "fieldCard": {
-          "gallery": [{ "id": "sandstone-buddhas-card", "src": "/assets/cities/laos/thakhek/things-to-do/sandstone-buddhas/sandstone-buddhas-card.webp", "alt": "Sandstone Buddha carving in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "sandstone-buddhas-detail", "src": "/assets/cities/laos/thakhek/things-to-do/sandstone-buddhas/sandstone-buddhas-detail.webp", "alt": "Carved sandstone Buddha beside the Thakhek Loop road", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "sandstone-buddhas-drawing", "src": "/assets/cities/laos/thakhek/things-to-do/sandstone-buddhas/sandstone-buddhas-drawing.webp", "alt": "Illustration of the Sandstone Buddhas site in Thakhek", "sourceType": "manual", "sourceName": "User-supplied drawing", "license": "User-supplied", "manual": true, "locked": true }]
+          "gallery": []
         }
       },
       "spaCard": {
@@ -5240,7 +5240,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sandstone+Buddhas+Thakhek+Loop+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=17.990689,105.046281",
       "isLandmark": false,
       "longDescription": "Break up the Loop’s natural attractions with a cultural stop at the sandstone Buddha site, keeping the route from becoming a simple sequence of caves and swimming places.",
       "breadcrumbs": [
@@ -5265,8 +5265,8 @@ const data = {
       "city": "thakhek",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
+        "latitude": 18.1781789,
+        "longitude": 104.4842187
       },
       "shortDescription": "Take in the limestone landscape around Phou Pha Marn as the Loop turns back toward Thakhek, a viewpoint stop that puts the scale of Khammouane’s karst terrain into perspective.",
       "media": {
@@ -5305,7 +5305,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Phou+Pha+Marn+Viewpoint+Khammouane+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=18.1781789,104.4842187",
       "isLandmark": false,
       "longDescription": "Take in the limestone landscape around Phou Pha Marn as the Loop turns back toward Thakhek, a viewpoint stop that puts the scale of Khammouane’s karst terrain into perspective.",
       "breadcrumbs": [
