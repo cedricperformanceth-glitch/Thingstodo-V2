@@ -1,12 +1,14 @@
 ---
 import type { City, ThingToDo } from '../../core/models/types';
-import { getEditorialMedia, getEditorialSpa, getEditorialSpaBestTime, getEditorialSpaDescription, getEditorialSpaGettingThere } from '../../engines/field-card/field-card-editorial';
+import { getEditorialMedia, getEditorialSpa, getEditorialSpaBestTime, getEditorialSpaDescription, getEditorialSpaGettingThere, getEditorialThingName } from '../../engines/field-card/field-card-editorial';
 import { thingPath } from '../../core/routing/paths';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import CardActions from './CardActions.astro';
 import './entry-card.css';
 interface Props { city: City; thing: ThingToDo; showDestination?: boolean; }
 const { city, thing, showDestination = false } = Astro.props;
+const displayName = getEditorialThingName(thing.id) ?? thing.name;
+const displayThing = displayName === thing.name ? thing : { ...thing, name: displayName };
 const editorialSpa = getEditorialSpa(thing.id);
 const spaCardBase = editorialSpa ?? thing.spaCard;
 const conciseGettingThere = getEditorialSpaGettingThere(thing.id);
@@ -41,11 +43,11 @@ const costLabel = spaCard?.costType === 'free' ? 'Free' : spaCard?.costType === 
     {photoCredit && image?.sourceUrl && (
       <a class="card-photo-credit" href={image.sourceUrl} target="_blank" rel="noreferrer">Photo: {photoCredit}</a>
     )}
-    <FavoriteHeart entity={thing} cardImage={image} shortDescription={description} spaCard={spaCard} />
+    <FavoriteHeart entity={displayThing} cardImage={image} shortDescription={description} spaCard={spaCard} />
   </div>
 
   <div class="card-preview">
-    <h3>{thing.name}</h3>
+    <h3>{displayName}</h3>
     {showDestination && <p class="destination">{titleize(thing.city)}, {titleize(thing.country)}</p>}
     <p class="card-description">{description}</p>
     {spaCard && (
@@ -61,5 +63,5 @@ const costLabel = spaCard?.costType === 'free' ? 'Free' : spaCard?.costType === 
     )}
   </div>
 
-  <CardActions entity={thing} fieldHref={thingPath(city, thing)} />
+  <CardActions entity={displayThing} fieldHref={thingPath(city, thing)} />
 </article>
