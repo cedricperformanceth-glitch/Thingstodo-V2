@@ -1,0 +1,87 @@
+name: Regenerate Thakhek coordinates once
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regenerate-thakhek-coordinates-once
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Update canonical Thakhek locations
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const file = 'pipeline/sources/laos/thakhek.json';
+          const source = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const byId = new Map(source.things.map((thing) => [thing.id, thing]));
+
+          const locations = {
+            'thing-tham-xiang-liap-cave': [17.453456, 104.909194],
+            'thing-tham-chang-elephant-cave': [17.43141, 104.86439],
+            'thing-tham-pha-buddha-cave': [17.4766036, 104.8516357],
+            'thing-tha-falang': [17.4684725, 104.912938],
+            'thing-khoun-kong-leng': [17.643636, 104.8128345],
+            'thing-thalang-nam-theun-reservoir': [17.6509161, 105.1698207],
+            'thing-pha-inh-cave': [17.46145, 104.91585],
+            'thing-cool-springs-loop': [18.2738894, 104.7140206],
+            'thing-dragon-cave': [18.221168, 104.8121902],
+            'thing-sandstone-buddhas': [17.990689, 105.046281],
+            'thing-phou-pha-marn-viewpoint': [18.1781789, 104.4842187]
+          };
+
+          for (const [id, [latitude, longitude]] of Object.entries(locations)) {
+            const thing = byId.get(id);
+            if (!thing) throw new Error(`Missing Thakhek thing: ${id}`);
+            thing.coordinates = { latitude, longitude };
+            thing.googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+          }
+
+          const elephant = byId.get('thing-tham-chang-elephant-cave');
+          elephant.googleMapsUrl = 'https://www.google.com/maps/place/Elephant+Cave/data=!4m2!3m1!1s0x0:0x918e3dc81010bfad?sa=X&ved=1t:2428&ictx=111';
+
+          const namTheun = byId.get('thing-thalang-nam-theun-reservoir');
+          namTheun.name = 'Nam Theun 2 – Regulating Dam';
+          namTheun.googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=17.6509161,105.1698207';
+
+          fs.writeFileSync(file, `${JSON.stringify(source, null, 2)}\n`);
+          NODE
+      - name: Regenerate Thakhek outputs
+        run: npm run generate-city -- laos thakhek --skip-photo-discovery
+      - name: Validate generated content
+        run: |
+          npm run validate-content
+          npm run test:generation-integration
+          npm run check
+          npm run build
+      - name: Commit regenerated source and outputs
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pipeline/sources/laos/thakhek.json pipeline/cities/laos/thakhek.json src/content/generated/laos/thakhek.ts src/content/generated/index.ts
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "fix: correct Thakhek activity coordinates"
+          git push origin HEAD:master
