@@ -2,7 +2,6 @@ import { getThings } from '../category/category-engine';
 import type { City, ThingToDo } from '../../core/models/types';
 import { getEditorialMedia } from '../field-card/field-card-editorial';
 import { getExploreBoardCopy } from './explore-board-copy';
-import thingStatusOverrides from '../../content/thing-status-overrides.json';
 import exploreBoardOverrides from '../../content/explore-board-overrides.json';
 
 export const EXPLORE_BOARD_LANDMARK_COUNT = 3;
@@ -34,8 +33,6 @@ const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
   };
 };
 
-const isRemovedThingId = (id: string) => thingStatusOverrides[id as keyof typeof thingStatusOverrides] === 'removed';
-
 const getExploreBoardOverride = (cityId: string): ExploreBoardOverride | undefined =>
   (exploreBoardOverrides as Record<string, ExploreBoardOverride>)[cityId];
 
@@ -49,11 +46,8 @@ export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intr
     throw new Error(`Explore Board landmark IDs must be unique: ${city.country}/${city.slug}`);
   }
 
-  // A deliberately removed Thing may remain in generated source history, but it must not
-  // survive into any public surface. Other missing IDs still fail loudly below.
-  const ids = configuredIds.filter((id) => !isRemovedThingId(id));
   const allThings = getThings(city);
-  const things = ids.map((id) => {
+  const things = configuredIds.map((id) => {
     const sourceThing = allThings.find((candidate) => candidate.id === id);
     if (!sourceThing) throw new Error(`Explore Board references missing ThingToDo '${id}': ${city.country}/${city.slug}`);
 
