@@ -5142,7 +5142,7 @@ const data = {
       "media": {
         "card": {},
         "fieldCard": {
-          "gallery": []
+          "gallery": [{ "id": "dragon-cave-photo-1", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-1.webp", "alt": "Entrance at Dragon Cave on the Thakhek Loop", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "dragon-cave-photo-2", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-2.webp", "alt": "Inside Dragon Cave in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }]
         }
       },
       "spaCard": {
@@ -5155,8 +5155,8 @@ const data = {
         "duration": "1–2 hours",
         "costType": "paid",
         "bestTime": "Morning",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
