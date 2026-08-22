@@ -2,6 +2,7 @@ import { getThings } from '../category/category-engine';
 import type { City, ThingToDo } from '../../core/models/types';
 import { getEditorialMedia } from '../field-card/field-card-editorial';
 import { getExploreBoardCopy } from './explore-board-copy';
+import thingStatusOverrides from '../../content/thing-status-overrides.json';
 
 export const EXPLORE_BOARD_LANDMARK_COUNT = 3;
 
@@ -25,15 +26,20 @@ const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
   };
 };
 
+const isRemovedThingId = (id: string) => thingStatusOverrides[id as keyof typeof thingStatusOverrides] === 'removed';
+
 export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intro: string; note: string } {
-  const ids = city.exploreBoard.featuredThingIds ?? [];
-  if (ids.length !== EXPLORE_BOARD_LANDMARK_COUNT) {
-    throw new Error(`Explore Board requires exactly ${EXPLORE_BOARD_LANDMARK_COUNT} landmarks: ${city.country}/${city.slug}; received ${ids.length}`);
+  const configuredIds = city.exploreBoard.featuredThingIds ?? [];
+  if (configuredIds.length !== EXPLORE_BOARD_LANDMARK_COUNT) {
+    throw new Error(`Explore Board requires exactly ${EXPLORE_BOARD_LANDMARK_COUNT} configured landmarks: ${city.country}/${city.slug}; received ${configuredIds.length}`);
   }
-  if (new Set(ids).size !== ids.length) {
+  if (new Set(configuredIds).size !== configuredIds.length) {
     throw new Error(`Explore Board landmark IDs must be unique: ${city.country}/${city.slug}`);
   }
 
+  // A deliberately removed Thing may remain in generated source history, but it must not
+  // survive into any public surface. Other missing IDs still fail loudly below.
+  const ids = configuredIds.filter((id) => !isRemovedThingId(id));
   const allThings = getThings(city);
   const things = ids.map((id) => {
     const sourceThing = allThings.find((candidate) => candidate.id === id);
