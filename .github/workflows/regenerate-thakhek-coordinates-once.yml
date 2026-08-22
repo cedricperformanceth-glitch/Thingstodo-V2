@@ -1,39 +1,27 @@
 name: Regenerate Thakhek coordinates once
 
 on:
-  push:
+  pull_request:
     branches: [master]
-  issues:
-    types: [opened]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
-  group: regenerate-thakhek-coordinates-once
+  group: regenerate-thakhek-coordinates-once-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
 jobs:
   regenerate:
-    if: github.actor != 'github-actions[bot]' && (github.event_name == 'push' || github.event.issue.title == 'Run Thakhek coordinate regeneration')
+    if: github.actor != 'github-actions[bot]' && github.head_ref == 'fix/thakhek-coordinate-pass'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Signal issue-triggered start
-        if: github.event_name == 'issues'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: 'Thakhek coordinate regeneration started.'
-            })
       - uses: actions/checkout@v4
         with:
-          ref: master
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -93,9 +81,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pipeline/sources/laos/thakhek.json pipeline/cities/laos/thakhek.json src/content/generated/laos/thakhek.ts src/content/generated/index.ts
+          git rm -f .github/thakhek-coordinate-trigger.txt || true
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
             exit 0
           fi
           git commit -m "fix: correct Thakhek activity coordinates"
-          git push origin HEAD:master
+          git push origin HEAD:${{ github.head_ref }}
