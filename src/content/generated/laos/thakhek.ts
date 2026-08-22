@@ -5077,7 +5077,7 @@ const data = {
       "media": {
         "card": {},
         "fieldCard": {
-          "gallery": []
+          "gallery": [{ "id": "cool-springs-loop-photo-3", "src": "/assets/cities/laos/thakhek/things-to-do/cool-springs-loop/cool-springs-loop-photo-3.webp", "alt": "Illustration of the turquoise Cool Springs pool near Thakhek", "sourceType": "manual", "sourceName": "User-supplied drawing", "license": "User-supplied", "manual": true, "locked": true }]
         }
       },
       "spaCard": {
@@ -5142,7 +5142,7 @@ const data = {
       "media": {
         "card": {},
         "fieldCard": {
-          "gallery": [{ "id": "dragon-cave-photo-1", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-1.webp", "alt": "Entrance at Dragon Cave on the Thakhek Loop", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "dragon-cave-photo-2", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-2.webp", "alt": "Inside Dragon Cave in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }]
+          "gallery": [{ "id": "dragon-cave-photo-1", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-1.webp", "alt": "Entrance at Dragon Cave on the Thakhek Loop", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "dragon-cave-photo-2", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-2.webp", "alt": "Inside Dragon Cave in Thakhek", "sourceType": "manual", "sourceName": "User-supplied photo", "license": "User-supplied", "manual": true, "locked": true }, { "id": "dragon-cave-photo-3", "src": "/assets/cities/laos/thakhek/things-to-do/dragon-cave/dragon-cave-photo-3.webp", "alt": "Illustration of limestone formations inside Dragon Cave", "sourceType": "manual", "sourceName": "User-supplied drawing", "license": "User-supplied", "manual": true, "locked": true }]
         }
       },
       "spaCard": {
