@@ -206,7 +206,6 @@ const countries = getCountries();
       document.querySelectorAll('input[name="settlement"]').forEach((input) => input.addEventListener('change', updatePreview));
       cityName?.addEventListener('input', updatePreview);
       country?.addEventListener('change', updatePreview);
-      thingsTarget?.addEventListener('input', updatePreview);
       document.querySelector('#copy-command')?.addEventListener('click', copyCommand);
       document.querySelector('#prepare-city')?.addEventListener('click', copyCommand);
       updatePreview();
