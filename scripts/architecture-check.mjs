@@ -39,4 +39,18 @@ if (editorialBoundaryFailures.length) {
   throw new Error(`Presentation must use editorial resolvers, not raw editorial JSON: ${editorialBoundaryFailures.join(', ')}`);
 }
 
+const sharedFiles = [
+  'src/components/shared/MakeYourOwnAtlas.astro',
+  'src/components/city-field-note/CityFieldNote.astro',
+  'src/components/field-card/FieldCardPracticalNotes.astro',
+  'scripts/lib/verification-engine.mjs',
+];
+const destinationLiteral = /(?:href="\/laos"|continue exploring laos|--laos-|country\s*=\s*['"]laos['"])/i;
+const destinationLiteralFailures = sharedFiles
+  .filter((file) => destinationLiteral.test(fs.readFileSync(path.join(root, file), 'utf8')));
+
+if (destinationLiteralFailures.length) {
+  throw new Error(`Shared implementation must not contain destination-specific defaults or presentation: ${destinationLiteralFailures.join(', ')}`);
+}
+
 console.log('Architecture check passed: reusable code avoids direct destination payload imports and presentation is detached from raw editorial files.');

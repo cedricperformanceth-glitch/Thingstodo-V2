@@ -28,7 +28,7 @@ function uniqueSignals(signals) {
   });
 }
 
-export function evaluateExistence(signals, country = 'laos', now = new Date()) {
+export function evaluateExistence(signals, country, now = new Date()) {
   const plan = sourceVerificationPlan(country);
   if (!plan) return { status: 'manual-review', reason: 'no-country-verification-contract' };
   const rules = plan.existenceVerification;
@@ -66,7 +66,7 @@ export function evaluateExistence(signals, country = 'laos', now = new Date()) {
   return { status: 'unknown', reason: 'insufficient-existence-evidence' };
 }
 
-export function evaluateCandidateAcceptance({ kind = 'business', signals = [] }, country = 'laos', now = new Date()) {
+export function evaluateCandidateAcceptance({ kind = 'business', signals = [] }, country, now = new Date()) {
   const plan = sourceVerificationPlan(country);
   if (!plan) return { decision: 'manual-review', reason: 'no-country-verification-contract' };
 
