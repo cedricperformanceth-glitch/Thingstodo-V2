@@ -22,13 +22,6 @@ const data = {
       "markets",
       "practical-services"
     ],
-    "categoryTargets": {
-      "things-to-do": 18,
-      "restaurants": 24,
-      "cafes": 25,
-      "accommodation": 21,
-      "scooter-rental": 5
-    },
     "hero": {
       "eyebrow": "Khammouane · Central Laos",
       "title": "Thakhek travel guide",
@@ -59,13 +52,7 @@ const data = {
         "thing-hin-nam-no-national-park"
       ]
     },
-    "manualLocks": {
-      "categoryTargets.things-to-do": {
-        "value": 18,
-        "source": "manual",
-        "locked": true
-      }
-    },
+    "manualLocks": {},
     "seo": {
       "title": "Thakhek travel guide | Things To Do Atlas",
       "description": "Independent Thakhek travel guide for the town, caves and Thakhek Loop.",

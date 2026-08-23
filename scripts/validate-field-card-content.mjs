@@ -38,7 +38,7 @@ for (const filePath of cityFiles) {
   const activeThings = (draft.things ?? []).filter((thing) => thing.category === 'things-to-do' && thing.verification?.decision !== 'reject-closed');
 
   const coordinateGroups = new Map();
-  for (const thing of activeThings) {
+  for (const thing of activeThings.filter((item) => item.locationScope !== 'area')) {
     const latitude = thing.coordinates?.latitude;
     const longitude = thing.coordinates?.longitude;
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
@@ -49,6 +49,10 @@ for (const filePath of cityFiles) {
     const ids = coordinateGroups.get(key) ?? [];
     ids.push(thing.id);
     coordinateGroups.set(key, ids);
+  }
+
+  for (const thing of activeThings.filter((item) => item.locationScope === 'area')) {
+    if (!text(thing.googleMapsUrl)) failures.push(`${cityKey}/${thing.id}: area activity requires a Google Maps search or area link`);
   }
   for (const [coordinate, ids] of coordinateGroups) {
     if (ids.length >= 3) failures.push(`${cityKey}: probable placeholder coordinates ${coordinate} shared by ${ids.length} activities (${ids.join(', ')})`);
@@ -65,8 +69,7 @@ for (const filePath of cityFiles) {
     if (faq.length !== 5) failures.push(`${cityKey}/${thing.id}: Field Card requires exactly 5 FAQ items; found ${faq.length}`);
     for (const [index, item] of faq.entries()) if (!text(item?.question) || !text(item?.answer)) failures.push(`${cityKey}/${thing.id}: FAQ ${index + 1} requires a non-empty question and answer`);
 
-    const expectedMediaCount = short ? 2 : 3;
-    if (media.length !== expectedMediaCount) failures.push(`${cityKey}/${thing.id}: ${short ? 'short' : 'standard'} Field Card requires exactly ${expectedMediaCount} media items; found ${media.length}`);
+    if (media.length < 1 || media.length > 5) failures.push(`${cityKey}/${thing.id}: Field Card media must contain between 1 and 5 items; found ${media.length}`);
     for (const [index, item] of media.entries()) {
       if (!text(item?.src)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing src`);
       if (!text(item?.sourceName)) failures.push(`${cityKey}/${thing.id}: media ${index + 1} is missing sourceName`);

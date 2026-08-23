@@ -26,7 +26,8 @@ const displayName = getEditorialThingName(thing.id) ?? thing.name;
 const displayThing = displayName === thing.name ? thing : { ...thing, name: displayName };
 const view = fieldCardView(thing, city, country);
 const relatedActivities = fieldCardRelatedActivities(city, thing);
-const renderedPhotos = [view.heroImage, view.storyImage, view.secondaryStory ? view.secondaryImage : undefined].flatMap((image) => image ? [image] : []);
+const renderedPhotos = view.gallery;
+const additionalGallery = view.gallery.slice(3);
 const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.image] : []);
 ---
 
@@ -42,6 +43,16 @@ const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.ima
     {view.remainingSections.map((section,index) => <><section><h2>{section.title}</h2><p>{section.body}</p></section>{view.adSlots[index+1] && <AdSlot slot={view.adSlots[index+1]} />}</>)}
     <FieldCardFaq thing={displayThing} items={view.faq} />
     <FieldCardPracticalNotes thing={displayThing} content={view.practicalNotes} />
+    {additionalGallery.length > 0 && (
+      <section class="field-card__gallery" aria-label={`${displayThing.name} additional field photographs`}>
+        {additionalGallery.map((image) => (
+          <figure>
+            <img src={image.src} alt={image.alt} width="1100" height="900" loading="lazy" decoding="async" />
+            {(image.author || image.sourceName || image.license) && <figcaption>{image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a> : <span>{image.author || image.sourceName || 'Photo source'}</span>}{image.license && <> · {image.license}</>}</figcaption>}
+          </figure>
+        ))}
+      </section>
+    )}
     <FieldCardAtlasCta thing={displayThing} />
     <FieldCardRelatedActivities {city} items={relatedActivities} />
     <FieldCardMethodSources thing={displayThing} additionalPhotos={[...renderedPhotos, ...relatedPhotos]} />
@@ -68,6 +79,16 @@ const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.ima
     font-family: var(--field-card-editorial);
     font-weight: 400;
   }
+
+  .field-card__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .field-card__gallery figure { margin: 0; }
+  .field-card__gallery img { display: block; width: 100%; aspect-ratio: 11 / 9; object-fit: cover; }
+  .field-card__gallery figcaption { margin-top: .45rem; font-size: .72rem; }
 </style>
 
 <style is:global>

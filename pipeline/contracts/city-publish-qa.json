@@ -12,7 +12,6 @@
     "entity-identity-and-destination",
     "entity-kind-and-category",
     "coordinates",
-    "category-targets",
     "unique-entity-identities",
     "allowed-category-membership",
     "spa-card-contract",
@@ -22,11 +21,6 @@
     "generation-transient-fields",
     "explore-board-integrity"
   ],
-  "targetRules": {
-    "things-to-do": "exact-editorial-target",
-    "automatic-target-categories": "at-least-target",
-    "categories-without-target": "no-count-block"
-  },
   "verification": {
     "publishableAutomaticEntityDecision": "accept",
     "missingVerificationDecision": "block",

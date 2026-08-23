@@ -49,7 +49,7 @@ for (const candidate of [...(input.places ?? []), ...(input.things ?? [])]) {
 
 const editorialPlaces = (input.places ?? []).map((candidate) => prepareCandidate(candidate, 'place', country));
 const editorialThings = (input.things ?? []).map((candidate) => prepareCandidate(candidate, 'thing-to-do', country));
-const selectedEditorialPlaces = selectPlaceCandidates(editorialPlaces, draft);
+const selectedEditorialPlaces = rankPlaceCandidates(editorialPlaces, { cityCoordinates: draft.cityData?.coordinates });
 const mediaContext = { cityName: draft.cityData.name, country: draft.country };
 const places = [];
 for (const candidate of selectedEditorialPlaces) places.push(normalizePlace(await prepareMediaWithDiscovery(candidate, mediaContext, 'place'), draft));
@@ -57,7 +57,7 @@ const things = [];
 for (const candidate of editorialThings) things.push(normalizeThing(await prepareMediaWithDiscovery(candidate, mediaContext, 'thing-to-do'), draft));
 for (const candidate of places) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'place');
 for (const candidate of things) if (candidate.spaCard) assertValidSpaCardCandidate(candidate, 'thing-to-do');
-console.log(`Selected Place cards: ${summarizePlaceSelection(places, draft.cityData.categoryTargets)}`);
+console.log(`Selected Place cards: ${summarizePlaceSelection(places)}`);
 console.log(`Explore Board: ${(draft.cityData.exploreBoard?.featuredThingIds ?? []).join(', ') || 'awaiting manual landmark selection'}`);
 
 const assembled = assembleDraft(draft, input.city ?? {}, places, things);
@@ -82,48 +82,10 @@ fs.writeFileSync(path.join(root, 'src', 'content', 'generated', country, `${city
 await import('./regenerate-content-registry.mjs');
 console.log(`Generated static versioned content for ${country}/${city}${publishCheck ? ' with publication QA passed' : ''}.`);
 
-function isManualEntity(entity) {
-  return String(entity?.sourceMetadata?.sourceName ?? '').trim().toLowerCase() === 'manual';
-}
-
-function selectPlaceCandidates(candidates, baseDraft) {
-  const targets = baseDraft.cityData?.categoryTargets ?? {};
-  const existingManual = (baseDraft.places ?? []).filter(isManualEntity);
-  const manualIds = new Set(existingManual.map((place) => place.id));
-  const manualCounts = {};
-  for (const place of existingManual) manualCounts[place.category] = (manualCounts[place.category] ?? 0) + 1;
-
-  const rankedCandidates = rankPlaceCandidates(candidates, { cityCoordinates: baseDraft.cityData?.coordinates });
-  const selectedCounts = {};
-  const selected = [];
-  for (const candidate of rankedCandidates) {
-    if (manualIds.has(candidate.id)) continue;
-    const target = targets[candidate.category];
-    if (!Number.isInteger(target)) {
-      selected.push(candidate);
-      continue;
-    }
-    const allowance = Math.max(0, target - (manualCounts[candidate.category] ?? 0));
-    const used = selectedCounts[candidate.category] ?? 0;
-    if (used >= allowance) continue;
-    selectedCounts[candidate.category] = used + 1;
-    selected.push(candidate);
-  }
-
-  for (const [category, target] of Object.entries(targets)) {
-    if (category === 'things-to-do' || !Number.isInteger(target)) continue;
-    const available = (manualCounts[category] ?? 0) + (selectedCounts[category] ?? 0);
-    if (available < target) {
-      throw new Error(`Insufficient qualified candidates for ${category}: target ${target}, available ${available}. Research more candidates instead of lowering the generated target.`);
-    }
-  }
-  return selected;
-}
-
-function summarizePlaceSelection(places, targets) {
+function summarizePlaceSelection(places) {
   const counts = {};
   for (const place of places) counts[place.category] = (counts[place.category] ?? 0) + 1;
-  return Object.entries(counts).map(([category, count]) => `${category}=${count}${Number.isInteger(targets?.[category]) ? `/${targets[category]}` : ''}`).join(' · ');
+  return Object.entries(counts).map(([category, count]) => `${category}=${count}`).join(' · ');
 }
 
 function prepareCandidate(candidate, kind, candidateCountry) {
@@ -278,7 +240,6 @@ function assembleDraft(baseDraft, inputCity, nextPlaces, nextThings) {
   const cityInput = structuredClone(inputCity ?? {});
   if (cityInput?.hero?.media) delete cityInput.hero.media;
   delete cityInput.categories;
-  delete cityInput.categoryTargets;
   delete cityInput.settlementType;
   mergeGenerated(next.cityData, cityInput);
   syncGenerationContract(next);

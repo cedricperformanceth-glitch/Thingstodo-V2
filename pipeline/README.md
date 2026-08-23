@@ -20,25 +20,11 @@ Default city SPA order: Things to do → Restaurants → Coffee → Guest Houses
 
 `My Favorites` is appended by the SPA engine for every settlement and is not part of `City.categories` or the generated category count.
 
-## Category targets
+## Category selection
 
-`City.categoryTargets` stores only explicit administrator/editor quotas for enabled categories. The pipeline never
-generates, rerolls, range-checks, or rejects those values; it preserves the selected non-negative integer.
-- the selected value is manually locked and survives subsequent generation refreshes.
-
-Village automatic targets:
-- Restaurants: 10–15, including a nested Bar research target of 3–5. Bar is not a standalone category.
-- Coffee: 10–15.
-- Guest Houses: 12–19.
-
-City automatic targets:
-- Restaurants: 19–25.
-- Coffee: 19–25.
-- Guest Houses: 19–25.
-- Rental Scooter: 5–12.
-
-There is deliberately no global numeric target for Gym & Fitness, Market & Shopping,
-or Essential Information. Their search limits and inclusion rules are defined separately in the selection contract.
+`City.categories` is the administrator/editor's explicit decision about which categories appear in a destination.
+The pipeline ranks qualified candidates but does not impose or validate a numeric publication quota. The editor decides
+when each category has enough useful entries.
 
 For Essential Information in Laos, research always attempts to identify a hospital, a tourism office,
 and the official immigration office used for immigration/visa-extension matters. These are search priorities,

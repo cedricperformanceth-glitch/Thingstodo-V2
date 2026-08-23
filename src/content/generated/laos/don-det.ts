@@ -20,12 +20,6 @@ const data = {
       "accommodation",
       "practical-services"
     ],
-    "categoryTargets": {
-      "things-to-do": 11,
-      "restaurants": 12,
-      "cafes": 9,
-      "accommodation": 14
-    },
     "hero": {
       "eyebrow": "Si Phan Don · Southern Laos",
       "title": "Don Det travel guide",
@@ -56,13 +50,7 @@ const data = {
         "thing-khone-phapheng-falls"
       ]
     },
-    "manualLocks": {
-      "categoryTargets.things-to-do": {
-        "value": 11,
-        "source": "manual",
-        "locked": true
-      }
-    },
+    "manualLocks": {},
     "seo": {
       "title": "Don Det travel guide | Things To Do Atlas",
       "description": "Independent Don Det travel guide.",
@@ -2597,13 +2585,13 @@ const data = {
     {
       "id": "thing-don-som-island",
       "slug": "don-som",
-      "name": "Don Som",
+      "name": "Si Phan Don",
       "country": "laos",
       "city": "don-det",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
+        "latitude": 14.0985123,
+        "longitude": 105.8701892
       },
       "shortDescription": "Cross by local boat to Don Som, a quieter farming island where village roads, fields and ordinary Mekong life replace Don Det’s traveller strip.",
       "media": {
@@ -2645,7 +2633,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Som+Si+Phan+Don+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/place/Si+Phan+Don/@14.0985123,105.8701892,11z/data=!3m1!4b1!4m6!3m5!1s0x31130b42147481d7:0x5cffb89bd2435e3b!8m2!3d14.0985123!4d105.8701892!16zL20vMGR3ODQz?entry=ttu",
       "isLandmark": false,
       "longDescription": "Cross by local boat to Don Som, a quieter farming island where village roads, fields and ordinary Mekong life replace Don Det’s traveller strip.",
       "breadcrumbs": [
@@ -2660,7 +2648,8 @@ const data = {
         "access": "",
         "faq": [],
         "sections": []
-      }
+      },
+      "locationScope": "area"
     },
     {
       "id": "thing-khone-pa-soi-waterfall",
@@ -2738,8 +2727,8 @@ const data = {
       "city": "don-det",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
+        "latitude": 13.9444244,
+        "longitude": 105.9181612
       },
       "shortDescription": "Continue beyond Somphamit to Xai Kong Nyai, a sandy Don Khon riverbank for simple food, a slow rest and cautious swimming close to shore.",
       "media": {
@@ -2794,7 +2783,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xai+Kong+Nyai+Beach+Don+Khon+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/place/Cong+Nyai+Beach/@13.9444244,105.9155863,17z/data=!3m1!4b1!4m6!3m5!1s0x31130f7eb7db1403:0xfc7f1fbb124096e!8m2!3d13.9444244!4d105.9181612!16s%2Fg%2F1hc78lszr?entry=ttu",
       "isLandmark": false,
       "longDescription": "Continue beyond Somphamit to Xai Kong Nyai, a sandy Don Khon riverbank for simple food, a slow rest and cautious swimming close to shore.",
       "breadcrumbs": [
@@ -2819,8 +2808,8 @@ const data = {
       "city": "don-det",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
+        "latitude": 13.9635492,
+        "longitude": 105.9218181
       },
       "shortDescription": "Charter a local long-tail boat from Don Det and follow the Mekong beyond the main islands through working channels, village banks and quieter Si Phan Don scenery.",
       "media": {
@@ -2862,7 +2851,7 @@ const data = {
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don+Det+boat+pier+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/place/Mr.+Sin+Wonderful+Boat+%26+Fishing+Tour:+Don+Khone+-+Don+Det/@13.9602322,105.9058919,14.5z/data=!4m10!1m2!2m1!1sSi+Phan+Don+by+Boat!3m6!1s0x31130f8f01fd8867:0x9f5df2c38c71c6c6!8m2!3d13.9635492!4d105.9218181!15sChNTaSBQaGFuIERvbiBieSBCb2F0kgELdG91cl9hZ2VuY3ngAQA!16s%2Fg%2F11yy_l8lpv?entry=ttu",
       "isLandmark": false,
       "longDescription": "Charter a local long-tail boat from Don Det and follow the Mekong beyond the main islands through working channels, village banks and quieter Si Phan Don scenery.",
       "breadcrumbs": [
@@ -2945,7 +2934,8 @@ const data = {
         "access": "",
         "faq": [],
         "sections": []
-      }
+      },
+      "locationScope": "area"
     },
     {
       "id": "thing-cycle-don-det-don-khon",
@@ -3013,7 +3003,8 @@ const data = {
         "access": "",
         "faq": [],
         "sections": []
-      }
+      },
+      "locationScope": "area"
     },
     {
       "id": "thing-don-det-tubing",
@@ -3081,7 +3072,8 @@ const data = {
         "access": "",
         "faq": [],
         "sections": []
-      }
+      },
+      "locationScope": "area"
     },
     {
       "id": "thing-don-det-sunset",

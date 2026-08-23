@@ -4,18 +4,6 @@
   "city": "tad-lo",
   "profile": "compact",
   "researchPlan": {
-    "categoryTargetPolicies": {
-      "things-to-do": {
-        "min": 5,
-        "max": 25,
-        "selectionMode": "editorial"
-      }
-    },
-    "subcategoryTargets": {
-      "restaurants": {
-        "bar": 0
-      }
-    },
     "searchPriorities": {
       "practical-services": [
         "tourism-office",
@@ -44,12 +32,6 @@
       "accommodation",
       "practical-services"
     ],
-    "categoryTargets": {
-      "things-to-do": 14,
-      "restaurants": 12,
-      "cafes": 8,
-      "accommodation": 8
-    },
     "hero": {
       "eyebrow": "Salavan · Southern Laos",
       "title": "Tad Lo travel guide",
@@ -76,28 +58,7 @@
     "exploreBoard": {
       "featuredThingIds": []
     },
-    "manualLocks": {
-      "categoryTargets.things-to-do": {
-        "value": 14,
-        "source": "manual",
-        "locked": true
-      },
-      "categoryTargets.accommodation": {
-        "value": 8,
-        "source": "manual",
-        "locked": true
-      },
-      "categoryTargets.restaurants": {
-        "value": 12,
-        "source": "manual",
-        "locked": true
-      },
-      "categoryTargets.cafes": {
-        "value": 8,
-        "source": "manual",
-        "locked": true
-      }
-    },
+    "manualLocks": {},
     "seo": {
       "title": "Tad Lo travel guide | Things To Do Atlas",
       "description": "Independent Tad Lo guide for waterfalls, village life, coffee, stays and practical travel in Salavan Province.",

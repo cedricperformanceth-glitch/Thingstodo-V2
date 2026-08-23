@@ -221,6 +221,7 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
     secondaryStory,
     practicalNotes,
     faq,
+    gallery,
     heroImage,
     storyImage,
     secondaryImage,

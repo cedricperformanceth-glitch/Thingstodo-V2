@@ -18,15 +18,9 @@ const EMPTY_RULE = Object.freeze({ searchPriorities: {} });
 
 export function slugify(value) { return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
-export function categoryTargets(_country, _settlementType, _seed, categories = [], _overrides = {}, existing = {}) {
-  return Object.fromEntries(Object.entries(existing).filter(([category, value]) => categories.includes(category) && Number.isInteger(value) && value >= 0));
-}
-
 export function researchPlan(country, settlementType, _seed, categories = SETTLEMENT_CATEGORIES[settlementType] ?? [], existingPlan = {}) {
   const searchPriorities = Object.fromEntries(Object.entries(existingPlan?.searchPriorities ?? EMPTY_RULE.searchPriorities).filter(([category]) => categories.includes(category)).map(([category, priorities]) => [category, [...priorities]]));
   return {
-    categoryTargetPolicies: {},
-    subcategoryTargets: {},
     searchPriorities,
     selection: selectionPlan(country, categories),
     verification: sourceVerificationRules[country] ? structuredClone(sourceVerificationRules[country]) : null,
@@ -40,20 +34,6 @@ export function isManualLocked(record, fieldPath) {
     const lock = getManualLock(record, paths.slice(0, index + 1).join('.'));
     return lock?.source === 'manual' && lock?.locked === true;
   });
-}
-
-export function lockedCategoryTargetOverrides(cityData) {
-  return Object.fromEntries(Object.entries(cityData?.categoryTargets ?? {}).filter(([category]) => isManualLocked(cityData, `categoryTargets.${category}`)));
-}
-
-export function setEditorialCategoryTarget(draft, category, value) {
-  if (!Number.isInteger(value) || value < 0) throw new Error(`Category target must be a non-negative integer; received ${value}`);
-  if (!draft?.cityData?.categories?.includes(category)) throw new Error(`Category '${category}' is not enabled for ${draft?.country ?? draft?.cityData?.country ?? 'this country'}/${draft?.city ?? draft?.cityData?.slug ?? 'city'}.`);
-  draft.cityData.categoryTargets ??= {};
-  draft.cityData.manualLocks ??= {};
-  draft.cityData.categoryTargets[category] = value;
-  delete draft.cityData.manualLocks[`categoryTargets.${category}`];
-  return value;
 }
 
 export function validateCityCategories(categories, settlementType, key = 'city') {
@@ -77,10 +57,8 @@ export function syncGenerationContract(draft) {
     settlementType,
     `${draft.country}/${draft.city}`,
   );
-  const existingTargets = structuredClone(draft.cityData?.categoryTargets ?? {});
   const existingPlan = structuredClone(draft.researchPlan ?? {});
   draft.cityData.categories = categories;
-  draft.cityData.categoryTargets = categoryTargets(draft.country, settlementType, '', categories, {}, existingTargets);
   draft.researchPlan = researchPlan(draft.country, settlementType, '', categories, existingPlan);
   return draft;
 }
@@ -89,11 +67,10 @@ export function emptyDraft(country, city, profile, settlementType) {
   const categories = SETTLEMENT_CATEGORIES[settlementType];
   if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
   const name = city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
-  const targets = {};
   const plan = researchPlan(country, settlementType, '', categories);
   return { schemaVersion: 1, country, city, profile, researchPlan: plan, cityData: {
     id: `city-${country}-${city}`, slug: city, name, country, profile, settlementType, coordinates: { latitude: 0, longitude: 0 }, description: '',
-    categories: [...categories], categoryTargets: targets,
+    categories: [...categories],
     hero: { eyebrow: country, title: name, subtitle: '', facts: [] },
     exploreBoard: { featuredThingIds: [] },
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },

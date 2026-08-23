@@ -3,7 +3,7 @@
 The strict TypeScript contracts live in `src/core/models/types.ts`.
 
 - A `Country` owns identity, chapter, media, map and SEO.
-- A `City` references its country and declares presentation profile, enabled categories, category targets, Hero, Explore Board and SEO.
+- A `City` references its country and declares presentation profile, enabled categories, Hero, Explore Board and SEO.
 - A `Place` is a practical address. It has Maps and trip actions, not an editorial detail page.
 - A `ThingToDo` is the single activity/attraction/landmark family. It can render in category listings, Explore Board, Favorites, Trip and its Field Card page.
 
@@ -19,7 +19,7 @@ City Field Notes keep their destination editorial data in the `city-field-note-*
 
 `src/components/field-card/FieldCardHero.astro` owns the universal layout. `FieldCardHeroContent` carries only variable editorial copy: eyebrow, exactly three aliases, description, exactly four axis steps, rhythm note and photo note. The exact activity title comes from `ThingToDo.name`.
 
-Hero media resolves from the Field Card gallery, then the card image, then a visible placeholder. Editorial Hero copy does not carry image URLs.
+Hero media resolves from the Field Card gallery, then the card image, then a visible placeholder. Editorial Hero copy does not carry image URLs. A Field Card gallery may contain one to five reviewed images: the generic layout preserves the first three editorial slots and renders any fourth or fifth image in its additional field-photo gallery.
 
 Generated `ThingToDo.fieldCard.hero` remains a valid base for future city generation. Reviewed content, when present, comes from the canonical Field Card editorial entry for that activity.
 

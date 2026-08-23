@@ -1,12 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { emptyDraft, setEditorialCategoryTarget, slugify, tsModule } from './lib/city-pipeline.mjs';
+import { emptyDraft, slugify, tsModule } from './lib/city-pipeline.mjs';
 
 const [countryInput, cityInput, ...flags] = process.argv.slice(2);
 const profile = flags.includes('--profile') ? flags[flags.indexOf('--profile') + 1] : 'compact';
 const settlementType = flags.includes('--settlement') ? flags[flags.indexOf('--settlement') + 1] : undefined;
-const thingsTargetRaw = flags.includes('--things-target') ? flags[flags.indexOf('--things-target') + 1] : undefined;
-const thingsTarget = thingsTargetRaw === undefined ? undefined : Number(thingsTargetRaw);
 const dryRun = flags.includes('--dry-run');
 
 if (
@@ -14,9 +12,8 @@ if (
   || !cityInput
   || !['compact', 'standard', 'large'].includes(profile)
   || !['village', 'city'].includes(settlementType ?? '')
-  || (thingsTarget !== undefined && !Number.isInteger(thingsTarget))
 ) {
-  throw new Error('Usage: npm run create-city -- <country> <city> --settlement village|city [--profile compact|standard|large] [--things-target non-negative-integer] [--dry-run]');
+  throw new Error('Usage: npm run create-city -- <country> <city> --settlement village|city [--profile compact|standard|large] [--dry-run]');
 }
 
 const country = slugify(countryInput);
@@ -36,11 +33,10 @@ if (fs.existsSync(draftFile) || fs.existsSync(moduleFile)) {
 }
 
 const draft = emptyDraft(country, city, profile, settlementType);
-if (thingsTarget !== undefined) setEditorialCategoryTarget(draft, 'things-to-do', thingsTarget);
 // New destinations are working drafts until editorial/publication QA explicitly promotes them.
 draft.cityData.seo.indexable = false;
 
-console.log(`${dryRun ? '[dry-run] Would create' : 'Creating'} ${country}/${city} (${profile}, ${settlementType})${thingsTarget !== undefined ? ` with ${thingsTarget} Things to do` : ''} with a persisted country generation plan.`);
+console.log(`${dryRun ? '[dry-run] Would create' : 'Creating'} ${country}/${city} (${profile}, ${settlementType}) with a persisted country generation plan.`);
 
 if (!dryRun) {
   fs.mkdirSync(path.dirname(draftFile), { recursive: true });

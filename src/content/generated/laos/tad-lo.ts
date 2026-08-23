@@ -141,14 +141,9 @@ const city: City = {
   id: 'city-tad-lo', slug: 'tad-lo', name: 'Tad Lo', country: 'laos', profile: 'compact', settlementType: 'village', coordinates: coords,
   description: 'A waterfall village in Salavan Province and a slow-travel base for the Bolaven Plateau, with village walks, coffee, Katu culture and guided nature experiences.',
   categories: ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services'],
-  categoryTargets: { 'things-to-do': 14, restaurants: 12, cafes: 8, accommodation: 8 },
   hero: { eyebrow: 'Salavan · Southern Laos', title: 'Tad Lo travel guide', subtitle: 'Waterfalls, village life, coffee country and a slower way into the Bolaven Plateau.', facts: [{label:'Updated',value:'August 2026'},{label:'Type',value:'Waterfall village'},{label:'Region',value:'Salavan Province'},{label:'Pace',value:'Slow travel base'}] },
   exploreBoard: { featuredThingIds: ['thing-tad-lo-waterfall','thing-vat-paa-forest-buddha-and-mystery-cave','thing-coffee-and-katu-culture-with-mr-hook'] },
   manualLocks: {
-    'categoryTargets.things-to-do': { value: 14, source: 'manual', locked: true },
-    'categoryTargets.accommodation': { value: 8, source: 'manual', locked: true },
-    'categoryTargets.restaurants': { value: 12, source: 'manual', locked: true },
-    'categoryTargets.cafes': { value: 8, source: 'manual', locked: true },
   },
   seo: { title: 'Tad Lo travel guide | Things To Do Atlas', description: 'Independent Tad Lo guide for waterfalls, village life, coffee, stays and practical travel in Salavan Province.', canonicalPath: '/laos/tad-lo', indexable: false },
 };

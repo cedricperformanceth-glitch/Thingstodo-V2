@@ -93,18 +93,6 @@ const countries = getCountries();
               <section class="form-section">
                 <div class="section-number">02</div>
                 <div class="section-content">
-                  <div class="section-heading"><h3>Things to do</h3><p>You decide the size of the activity inventory. Atlas will research and build the shortlist later.</p></div>
-                  <label class="field field--short">
-                    <span>Number of activities</span>
-                    <div class="number-input"><input name="thingsTarget" id="things-target" type="number" min="0" value="10" required /><small>Admin-selected</small></div>
-                  </label>
-                  <p class="field-hint">The Explore Board stays empty on purpose. You will choose its three featured activities after the activity inventory exists.</p>
-                </div>
-              </section>
-
-              <section class="form-section">
-                <div class="section-number">03</div>
-                <div class="section-content">
                   <div class="section-heading"><h3>Hero artwork</h3><p>Place the three files in GitHub using these canonical paths. Atlas already knows how to read them.</p></div>
                   <div class="asset-list">
                     <div class="asset-row"><span class="asset-row__type">STAMP</span><code id="asset-stamp">/assets/cities/laos/place/hero/stamps/place-hero-stamp.webp</code></div>
@@ -116,12 +104,12 @@ const countries = getCountries();
               </section>
 
               <section class="form-section form-section--last">
-                <div class="section-number">04</div>
+                <div class="section-number">03</div>
                 <div class="section-content">
                   <div class="section-heading"><h3>Generation handoff</h3><p>The admin is still static, so this first version prepares the exact pipeline command instead of exposing a GitHub token in the browser.</p></div>
                   <div class="command-card">
                     <div class="command-card__top"><span>READY COMMAND</span><button type="button" id="copy-command">Copy</button></div>
-                    <code id="create-command">npm run create-city -- laos place --settlement village --profile compact --things-target 10</code>
+                    <code id="create-command">npm run create-city -- laos place --settlement village --profile compact</code>
                   </div>
                   <div class="generation-summary">
                     <div><small>Profile</small><strong>compact · automatic</strong></div>
@@ -147,7 +135,6 @@ const countries = getCountries();
       const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-admin-panel]'));
       const cityName = document.querySelector<HTMLInputElement>('#city-name');
       const country = document.querySelector<HTMLSelectElement>('#city-country');
-      const thingsTarget = document.querySelector<HTMLInputElement>('#things-target');
       const command = document.querySelector<HTMLElement>('#create-command');
       const stamp = document.querySelector<HTMLElement>('#asset-stamp');
       const drawing = document.querySelector<HTMLElement>('#asset-drawing');
@@ -162,12 +149,11 @@ const countries = getCountries();
         const countrySlug = country?.value || 'laos';
         const slug = slugify(cityName?.value || '') || 'place';
         const settlement = settlementValue();
-        const target = Math.min(25, Math.max(5, Number(thingsTarget?.value || 10)));
         const base = `/assets/cities/${countrySlug}/${slug}/hero`;
         if (stamp) stamp.textContent = `${base}/stamps/${slug}-hero-stamp.webp`;
         if (drawing) drawing.textContent = `${base}/drawings/${slug}-hero-drawing.webp`;
         if (photo) photo.textContent = `${base}/photos/${slug}-hero-photo.webp`;
-        if (command) command.textContent = `npm run create-city -- ${countrySlug} ${slug} --settlement ${settlement} --profile compact --things-target ${target}`;
+        if (command) command.textContent = `npm run create-city -- ${countrySlug} ${slug} --settlement ${settlement} --profile compact`;
         if (categorySummary) categorySummary.textContent = settlement === 'city'
           ? 'Things to do · Restaurants · Coffee · Guest Houses · Rental Scooter · Gym & Fitness · Market & Shopping · Essential Information'
           : 'Things to do · Restaurants · Coffee · Guest Houses · Essential Information';

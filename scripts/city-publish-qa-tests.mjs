@@ -79,7 +79,6 @@ function draft() {
       coordinates: { latitude: 14, longitude: 105 },
       description: '',
       categories: ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services'],
-      categoryTargets: { 'things-to-do': 5, restaurants: 1 },
       hero: { eyebrow: 'laos', title: 'Test Village', subtitle: '', facts: [] },
       exploreBoard: { featuredThingIds: ['activity-1', 'activity-2', 'activity-3'] },
       manualLocks: {},
@@ -96,15 +95,10 @@ assert.equal(valid.errors.length, 0);
 assert.equal(valid.warnings.length, 3);
 assert.equal(valid.warnings.every((entry) => entry.code === 'missing-spa-photo'), true);
 
-const underfilled = draft();
-underfilled.things.pop();
-const underfilledReport = evaluateCityPublication(underfilled);
-assert.equal(underfilledReport.status, 'blocked');
-assert.ok(underfilledReport.errors.some((entry) => entry.code === 'things-target-mismatch'));
-
-const categoryOverflow = draft();
-categoryOverflow.places.push(place('restaurant-two'));
-assert.ok(evaluateCityPublication(categoryOverflow).errors.some((entry) => entry.code === 'category-target-mismatch'));
+const variedCounts = draft();
+variedCounts.things.pop();
+variedCounts.places.push(place('restaurant-two'));
+assert.equal(evaluateCityPublication(variedCounts).errors.some((entry) => entry.code.includes('target')), false);
 
 const twoLandmarks = draft();
 twoLandmarks.cityData.exploreBoard.featuredThingIds.pop();

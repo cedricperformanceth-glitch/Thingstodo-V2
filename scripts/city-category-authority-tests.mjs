@@ -11,14 +11,13 @@ assert.deepEqual(
   ['things-to-do', 'cafes', 'practical-services'],
   'Generation must preserve the explicit City.categories decision.',
 );
-assert.deepEqual(Object.keys(draft.cityData.categoryTargets), []);
 assert.equal(draft.researchPlan.selection.categories.restaurants, undefined);
 assert.ok(draft.researchPlan.selection.categories['things-to-do']);
 assert.ok(draft.researchPlan.selection.categories.cafes);
 assert.ok(draft.researchPlan.selection.categories['practical-services']);
 
 const zeroBarPlan = researchPlan('laos', 'village', 'laos/zero-bars', ['things-to-do', 'restaurants']);
-assert.deepEqual(zeroBarPlan.subcategoryTargets, {});
+assert.ok(zeroBarPlan.selection);
 
 assert.throws(
   () => validateCityCategories(['things-to-do', 'gyms'], 'village', 'laos/test'),
@@ -33,21 +32,16 @@ assert.throws(
   /must be unique/,
 );
 
-const qaDraft = structuredClone(draft);
-qaDraft.city = 'editor-categories';
-qaDraft.cityData.categoryTargets['things-to-do'] = 5;
-qaDraft.things = [];
-qaDraft.places = [];
-const qa = evaluateCityPublication(qaDraft);
+const qa = evaluateCityPublication(draft);
 assert.equal(
   qa.errors.some((entry) => entry.code === 'city-category-contract'),
   false,
   'Publication QA must accept an explicit subset/order of settlement-allowed City.categories.',
 );
 assert.equal(
-  qa.errors.some((entry) => entry.code === 'things-target-mismatch'),
-  true,
-  'Other publication checks must continue to run normally.',
+  qa.errors.some((entry) => entry.code.includes('target')),
+  false,
+  'Publication QA must not impose a category count target.',
 );
 
 console.log('City.categories authority tests passed.');
