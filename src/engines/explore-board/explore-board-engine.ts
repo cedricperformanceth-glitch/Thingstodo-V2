@@ -14,6 +14,15 @@ export interface ExploreBoardEntry {
 
 type ExploreBoardMetadata = Omit<ExploreBoardEntry, 'thing'>;
 
+const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
+  const heroImage = getEditorialMedia(thing.id)?.[0];
+  if (!heroImage) return thing;
+
+  return {
+    ...thing,
+    media: { ...thing.media, card: { image: heroImage } },
+  };
+};
 
 export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intro: string; note: string } {
   const configuredIds = city.exploreBoard.featuredThingIds ?? [];

@@ -16,7 +16,7 @@ if (
   || !['village', 'city'].includes(settlementType ?? '')
   || (thingsTarget !== undefined && !Number.isInteger(thingsTarget))
 ) {
-  throw new Error('Usage: npm run create-city -- <country> <city> --settlement village|city [--profile compact|standard|large] [--things-target 5..25] [--dry-run]');
+  throw new Error('Usage: npm run create-city -- <country> <city> --settlement village|city [--profile compact|standard|large] [--things-target non-negative-integer] [--dry-run]');
 }
 
 const country = slugify(countryInput);

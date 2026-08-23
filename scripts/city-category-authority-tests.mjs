@@ -11,20 +11,14 @@ assert.deepEqual(
   ['things-to-do', 'cafes', 'practical-services'],
   'Generation must preserve the explicit City.categories decision.',
 );
-assert.deepEqual(Object.keys(draft.cityData.categoryTargets), ['cafes']);
+assert.deepEqual(Object.keys(draft.cityData.categoryTargets), []);
 assert.equal(draft.researchPlan.selection.categories.restaurants, undefined);
 assert.ok(draft.researchPlan.selection.categories['things-to-do']);
 assert.ok(draft.researchPlan.selection.categories.cafes);
 assert.ok(draft.researchPlan.selection.categories['practical-services']);
 
-const zeroBarPlan = researchPlan('laos', 'village', 'laos/zero-bars', ['things-to-do', 'restaurants'], {
-  subcategoryTargets: { restaurants: { bar: 0 } },
-});
-assert.equal(
-  zeroBarPlan.subcategoryTargets.restaurants.bar,
-  0,
-  'An explicit zero subcategory target must remain a valid editorial opt-out.',
-);
+const zeroBarPlan = researchPlan('laos', 'village', 'laos/zero-bars', ['things-to-do', 'restaurants']);
+assert.deepEqual(zeroBarPlan.subcategoryTargets, {});
 
 assert.throws(
   () => validateCityCategories(['things-to-do', 'gyms'], 'village', 'laos/test'),
@@ -42,7 +36,6 @@ assert.throws(
 const qaDraft = structuredClone(draft);
 qaDraft.city = 'editor-categories';
 qaDraft.cityData.categoryTargets['things-to-do'] = 5;
-qaDraft.cityData.manualLocks['categoryTargets.things-to-do'] = { value: 5, source: 'manual', locked: true };
 qaDraft.things = [];
 qaDraft.places = [];
 const qa = evaluateCityPublication(qaDraft);

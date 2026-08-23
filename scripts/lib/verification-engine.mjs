@@ -1,4 +1,7 @@
-import { sourceVerificationPlan } from './source-verification.mjs';
+import { readFileSync } from 'node:fs';
+
+const sourceVerificationRules = JSON.parse(readFileSync(new URL('../../pipeline/contracts/source-verification.json', import.meta.url), 'utf8'));
+const sourceVerificationPlan = (country) => sourceVerificationRules[country] ? structuredClone(sourceVerificationRules[country]) : null;
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 

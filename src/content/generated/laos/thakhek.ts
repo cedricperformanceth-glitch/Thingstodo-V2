@@ -24,10 +24,10 @@ const data = {
       "practical-services"
     ],
     "categoryTargets": {
-      "things-to-do": 17,
-      "restaurants": 8,
-      "cafes": 14,
-      "accommodation": 13,
+      "things-to-do": 18,
+      "restaurants": 24,
+      "cafes": 25,
+      "accommodation": 21,
       "scooter-rental": 5
     },
     "hero": {
@@ -62,7 +62,7 @@ const data = {
     },
     "manualLocks": {
       "categoryTargets.things-to-do": {
-        "value": 17,
+        "value": 18,
         "source": "manual",
         "locked": true
       }
@@ -3474,7 +3474,7 @@ const data = {
       ],
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hin+Nam+No+National+Park+Laos",
-      "isLandmark": false,
+      "isLandmark": true,
       "longDescription": "Go beyond the classic Loop into Hin Nam No’s exceptional karst landscape, where community-guided cave, river and nature experiences reach one of Laos’s most important protected areas.",
       "breadcrumbs": [
         "laos",

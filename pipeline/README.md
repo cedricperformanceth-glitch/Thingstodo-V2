@@ -20,19 +20,10 @@ Default city SPA order: Things to do → Restaurants → Coffee → Guest Houses
 
 `My Favorites` is appended by the SPA engine for every settlement and is not part of `City.categories` or the generated category count.
 
-## Laos content targets
+## Category targets
 
-The versioned generation contract lives in `pipeline/contracts/content-targets.json`. Automatic numeric values use
-`random-once`: a value is drawn from the configured range when a city is first prepared, then persisted in the city draft.
-Normal regeneration keeps that value. `--reroll-targets` deliberately redraws only automatic targets and leaves manually
-locked editorial targets untouched.
-Only categories enabled in `City.categories` receive a target or research plan.
-
-Things to do is different from the automatic address categories:
-- the admin/editor chooses the exact number for each settlement;
-- hard minimum: 5 activities;
-- hard maximum: 25 activities;
-- until the admin selects a value, the pipeline stores the policy but does not invent a target;
+`City.categoryTargets` stores only explicit administrator/editor quotas for enabled categories. The pipeline never
+generates, rerolls, range-checks, or rejects those values; it preserves the selected non-negative integer.
 - the selected value is manually locked and survives subsequent generation refreshes.
 
 Village automatic targets:

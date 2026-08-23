@@ -137,7 +137,7 @@ const media = (slug?: string) => {
   return { card: image ? { image } : {}, fieldCard: { gallery: image ? [image] : [] } };
 };
 
-const city = {
+const city: City = {
   id: 'city-tad-lo', slug: 'tad-lo', name: 'Tad Lo', country: 'laos', profile: 'compact', settlementType: 'village', coordinates: coords,
   description: 'A waterfall village in Salavan Province and a slow-travel base for the Bolaven Plateau, with village walks, coffee, Katu culture and guided nature experiences.',
   categories: ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services'],

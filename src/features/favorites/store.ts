@@ -52,7 +52,9 @@ export const favoriteSnapshot = (entity: AtlasEntity, overrides: FavoriteSnapsho
   const rawImage = 'image' in entity ? entity.image ?? entity.media.card?.image : entity.media.card?.image;
   const image = overrides.cardImage ?? rawImage;
   const spaCard = overrides.spaCard ?? entity.spaCard;
-  const activitySpa = spaCard && 'gettingThere' in spaCard ? spaCard : undefined;
+  const activitySpa = spaCard && 'gettingThere' in spaCard
+    ? spaCard as typeof spaCard & { gettingThere?: string; duration?: string; costType?: 'free' | 'paid'; bestTime?: string }
+    : undefined;
 
   return {
     type: isThing ? 'thing' : 'place',

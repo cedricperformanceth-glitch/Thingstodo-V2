@@ -41,8 +41,6 @@
     "categories": {
       "things-to-do": {
         "targetControlledByAdmin": true,
-        "hardMin": 5,
-        "hardMax": 25,
         "useExistingAtlasDatabaseAsPrioritySeed": true,
         "locationScope": "destination-linked-without-fixed-radius",
         "selectionGoal": "distinct-visitor-relevant-experiences",
