@@ -4,14 +4,7 @@
   "city": "tad-lo",
   "profile": "compact",
   "researchPlan": {
-    "searchPriorities": {
-      "practical-services": [
-        "tourism-office",
-        "health",
-        "transport",
-        "money"
-      ]
-    },
+    "searchPriorities": {},
     "selection": {
       "searchArea": {
         "scope": "settlement-first",
@@ -300,7 +293,11 @@
       ]
     },
     "exploreBoard": {
-      "featuredThingIds": []
+      "featuredThingIds": [
+        "thing-tad-lo-waterfall",
+        "thing-vat-paa-forest-buddha-and-mystery-cave",
+        "thing-coffee-and-katu-culture-with-mr-hook"
+      ]
     },
     "manualLocks": {},
     "seo": {
@@ -310,6 +307,2789 @@
       "indexable": false
     }
   },
-  "places": [],
-  "things": []
+  "places": [
+    {
+      "id": "place-bolaven-garden",
+      "slug": "bolaven-garden",
+      "name": "Bolaven Garden",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Leafy riverside bungalows and tents with an on-site restaurant and garden setting.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bolaven%20Garden%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-fandee-island",
+      "slug": "fandee-island",
+      "name": "Fandee Island",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Treehouses, lake houses and unusual stays beside a lake within walking distance of Tad Lo.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fandee%20Island%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mama-pap",
+      "slug": "mama-pap",
+      "name": "Mama Pap",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Very simple family homestay in the village centre and a classic budget Tad Lo base.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Pap%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-samaki-guest-house",
+      "slug": "samaki-guest-house",
+      "name": "Samaki Guest House",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Sociable local guesthouse and homestay with bungalows, dorm beds and food on site.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Samaki%20Guest%20House%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-lodge",
+      "slug": "tad-lo-lodge",
+      "name": "Tad Lo Lodge",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Established riverside lodge in the waterfall area with private rooms and dining.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Lodge%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tina-restaurant-homestay",
+      "slug": "tina-restaurant-homestay",
+      "name": "Tina Restaurant & Homestay",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Small local homestay combined with a village restaurant.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tina%20Restaurant%20%26%20Homestay%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-sompy-guesthouse",
+      "slug": "sompy-guesthouse",
+      "name": "Sompy Guesthouse",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Simple Tad Lo guesthouse retained from current accommodation directories.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sompy%20Guesthouse%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-sipasert-guesthouse-restaurant",
+      "slug": "sipasert-guesthouse-restaurant",
+      "name": "Sipasert Guesthouse & Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Guesthouse and restaurant with a riverside outlook, retained from current Tad Lo directories.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Stay",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sipasert%20Guesthouse%20%26%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-bolaven-garden-restaurant",
+      "slug": "bolaven-garden-restaurant",
+      "name": "Bolaven Garden Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Local, Thai and Asian food in a riverside garden setting.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bolaven%20Garden%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-fandee-island-restaurant",
+      "slug": "fandee-island-restaurant",
+      "name": "Fandee Island Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Lakeside restaurant serving Lao, Asian and Western dishes.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fandee%20Island%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mama-pap-restaurant",
+      "slug": "mama-pap-restaurant",
+      "name": "Mama Pap Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Simple family cooking attached to Mama Pap homestay.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Pap%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-samaki-guest-house-restaurant",
+      "slug": "samaki-guest-house-restaurant",
+      "name": "Samaki Guest House Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Guesthouse restaurant serving travellers and overnight guests.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Samaki%20Guest%20House%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-hang-restaurant",
+      "slug": "tad-hang-restaurant",
+      "name": "Tad Hang Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Riverside meal stop facing the Tad Hang waterfall area.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Hang%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-lodge-restaurant",
+      "slug": "tad-lo-lodge-restaurant",
+      "name": "Tad Lo Lodge Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Restaurant attached to Tad Lo Lodge near the waterfall.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Lodge%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tim-restaurant-massage",
+      "slug": "tim-restaurant-massage",
+      "name": "Tim Restaurant & Massage",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Village restaurant where traditional Lao massage can also be arranged.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tim%20Restaurant%20%26%20Massage%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tina-restaurant",
+      "slug": "tina-restaurant",
+      "name": "Tina Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Small local restaurant in Tad Lo centre.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tina%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-sipasert-restaurant",
+      "slug": "sipasert-restaurant",
+      "name": "Sipasert Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Restaurant attached to Sipasert Guesthouse with a river outlook.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sipasert%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-palamei-family-restaurant",
+      "slug": "palamei-family-restaurant",
+      "name": "Palamei Family Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Family-style meals associated with the long-running Palamei guesthouse.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Palamei%20Family%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-fandee-waterpark-restaurant",
+      "slug": "fandee-waterpark-restaurant",
+      "name": "Fandee Waterpark Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Food stop attached to the Fandee Waterpark and adventure area.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fandee%20Waterpark%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-pakeo-local-restaurant",
+      "slug": "pakeo-local-restaurant",
+      "name": "Pakeo Local Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Small local food option retained for manual verification during the Tad Lo editorial pass.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pakeo%20Local%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-fandee-island-coffee",
+      "slug": "fandee-island-coffee",
+      "name": "Fandee Island Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Coffee and breakfast stop at Fandee Island beside the lake.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fandee%20Island%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-bolaven-garden-coffee",
+      "slug": "bolaven-garden-coffee",
+      "name": "Bolaven Garden Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Coffee stop inside Bolaven Garden’s restaurant and garden setting.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bolaven%20Garden%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mama-pap-coffee",
+      "slug": "mama-pap-coffee",
+      "name": "Mama Pap Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Simple village coffee stop at Mama Pap.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Pap%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-samaki-coffee",
+      "slug": "samaki-coffee",
+      "name": "Samaki Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Coffee available at Samaki Guest House’s shared food area.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Samaki%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-lodge-coffee",
+      "slug": "tad-lo-lodge-coffee",
+      "name": "Tad Lo Lodge Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Coffee stop at Tad Lo Lodge in the waterfall area.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Lodge%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mr-hook-coffee-experience",
+      "slug": "mr-hook-coffee-experience",
+      "name": "Mr Hook Coffee Experience",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Coffee tasting and cultural stop around Mr Hook’s Katu experience.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Hook%20Coffee%20Experience%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mr-vieng-coffee",
+      "slug": "mr-vieng-coffee",
+      "name": "Mr Vieng Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Tree-to-cup coffee stop near Laongam, useful as a Tad Lo excursion.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Vieng%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mr-m-traditional-coffee",
+      "slug": "mr-m-traditional-coffee",
+      "name": "Mr M Traditional Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Seasonal traditional coffee roasting stop; availability requires confirmation.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20M%20Traditional%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-tourism-office",
+      "slug": "tad-lo-tourism-office",
+      "name": "Tad Lo Tourism Office",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Local reference point for official guided treks, guides and current destination information.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Useful",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Tourism%20Office%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-market-bus-junction",
+      "slug": "tad-lo-market-bus-junction",
+      "name": "Tad Lo Market & Bus Junction",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Useful arrival point for local transport, basic shopping and the final connection into the village.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Useful",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Market%20%26%20Bus%20Junction%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-local-clinic",
+      "slug": "tad-lo-local-clinic",
+      "name": "Tad Lo Local Clinic",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Local care reference; confirm opening and capability before relying on it.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Useful",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Local%20Clinic%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-24-hour-dispensary",
+      "slug": "tad-lo-24-hour-dispensary",
+      "name": "Tad Lo 24-hour Dispensary",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Medicine and basic health reference reported in the locally checked practical guide.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Useful",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%2024-hour%20Dispensary%20Tad%20Lo%20Laos"
+    }
+  ],
+  "things": [
+    {
+      "id": "thing-tad-hang-waterfall",
+      "slug": "tad-hang-waterfall",
+      "name": "Tad Hang Waterfall",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Easy riverside waterfall close to the village, combining broad rocks, water and everyday local life.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-tad-hang-waterfall-basile-morin",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tad_Hang_waterfalls%2C_Tad_Lo_village%2C_Bolaven_Plateau%2C_Laos.jpg",
+            "alt": "Tad Hang waterfalls in Tad Lo village, Bolaven Plateau, Laos",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Hang_waterfalls,_Tad_Lo_village,_Bolaven_Plateau,_Laos.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Basile Morin",
+            "license": "CC BY-SA 4.0",
+            "manual": false,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-tad-hang-waterfall-basile-morin",
+              "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tad_Hang_waterfalls%2C_Tad_Lo_village%2C_Bolaven_Plateau%2C_Laos.jpg",
+              "alt": "Tad Hang waterfalls in Tad Lo village, Bolaven Plateau, Laos",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Hang_waterfalls,_Tad_Lo_village,_Bolaven_Plateau,_Laos.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Basile Morin",
+              "license": "CC BY-SA 4.0",
+              "manual": false,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Less than 3 hours",
+        "costType": "free",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Hang%20Waterfall%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Easy riverside waterfall close to the village, combining broad rocks, water and everyday local life.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Tad Hang Waterfall"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Easy riverside waterfall close to the village, combining broad rocks, water and everyday local life.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-tad-lo-waterfall",
+      "slug": "tad-lo-waterfall",
+      "name": "Tad Lo Waterfall",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Graceful waterfall woven into the village landscape and an easy slow-travel outing from Tad Lo.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-tad-lo-waterfall-tango7174",
+            "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Salavan_TadLo3_tango7174.jpg",
+            "alt": "Tad Lo Waterfalls in Salavan Province, Laos",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Tango7174",
+            "license": "CC BY-SA 4.0",
+            "manual": false,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-tad-lo-waterfall-tango7174",
+              "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Salavan_TadLo3_tango7174.jpg",
+              "alt": "Tad Lo Waterfalls in Salavan Province, Laos",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Tango7174",
+              "license": "CC BY-SA 4.0",
+              "manual": false,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Less than 3 hours",
+        "costType": "free",
+        "bestTime": "Morning or late afternoon"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Waterfall%20Tad%20Lo%20Laos",
+      "isLandmark": true,
+      "longDescription": "Graceful waterfall woven into the village landscape and an easy slow-travel outing from Tad Lo.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Tad Lo Waterfall"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Graceful waterfall woven into the village landscape and an easy slow-travel outing from Tad Lo.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      },
+      "exploreBoard": {
+        "kicker": "THE VILLAGE WATERFALL",
+        "duration": "Easy outing",
+        "route": "From Tad Lo village"
+      }
+    },
+    {
+      "id": "thing-tad-soung-waterfall",
+      "slug": "tad-soung-waterfall",
+      "name": "Tad Soung Waterfall",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Higher rural waterfall reached through fields and villages, with wide views over the surrounding landscape.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-tad-soung-waterfall-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/d2dd7a55-61e0-4a59-a544-1699a803fe6c-Tad-Soung-from-downjpg.jpg",
+            "alt": "Tad Soung Waterfall seen from the lower access near Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-tad-soung-waterfall-visit-tad-lo",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/d2dd7a55-61e0-4a59-a544-1699a803fe6c-Tad-Soung-from-downjpg.jpg",
+              "alt": "Tad Soung Waterfall seen from the lower access near Tad Lo, Laos",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-soung-waterfall",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Half day",
+        "costType": "free",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Soung%20Waterfall%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Higher rural waterfall reached through fields and villages, with wide views over the surrounding landscape.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Tad Soung Waterfall"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Higher rural waterfall reached through fields and villages, with wide views over the surrounding landscape.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-katu-weaving-workshop",
+      "slug": "katu-weaving-workshop",
+      "name": "Katu Weaving Workshop",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Hands-on introduction to Katu weaving, textile technique and the patience behind local craft.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-katu-weaving-workshop-visit-tad-lo",
+            "src": "https://visit-tadlo.com/site-media/cloudflare/activities/91bb4b97-122a-46df-8622-c0f8560243d4-Weaving-960.webp",
+            "alt": "Katu weaving workshop near Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-katu-weaving-workshop-visit-tad-lo",
+              "src": "https://visit-tadlo.com/site-media/cloudflare/activities/91bb4b97-122a-46df-8622-c0f8560243d4-Weaving-960.webp",
+              "alt": "Katu weaving workshop near Tad Lo, Laos",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Half day",
+        "costType": "paid",
+        "bestTime": "By arrangement"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Katu%20Weaving%20Workshop%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Hands-on introduction to Katu weaving, textile technique and the patience behind local craft.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Katu Weaving Workshop"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Hands-on introduction to Katu weaving, textile technique and the patience behind local craft.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-lao-cooking-class-with-nyay",
+      "slug": "lao-cooking-class-with-nyay",
+      "name": "Lao Cooking Class with Nyay",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Prepare, understand and share a Lao meal in a relaxed local cooking workshop.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-lao-cooking-class-nyay-visit-tad-lo",
+            "src": "https://visit-tadlo.com/site-media/cloudflare/activities/dad1856b-86a9-470f-8eaa-3aab5e7461bf-Niay-Cooking-Class-960.webp",
+            "alt": "Lao cooking class with Nyay in Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/cooking-class-nyay",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-lao-cooking-class-nyay-visit-tad-lo",
+              "src": "https://visit-tadlo.com/site-media/cloudflare/activities/dad1856b-86a9-470f-8eaa-3aab5e7461bf-Niay-Cooking-Class-960.webp",
+              "alt": "Lao cooking class with Nyay in Tad Lo, Laos",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/cooking-class-nyay",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Half day",
+        "costType": "paid",
+        "bestTime": "By arrangement"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Lao%20Cooking%20Class%20with%20Nyay%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Prepare, understand and share a Lao meal in a relaxed local cooking workshop.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Lao Cooking Class with Nyay"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Prepare, understand and share a Lao meal in a relaxed local cooking workshop.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-tad-lo-treasure-hunt",
+      "slug": "tad-lo-treasure-hunt",
+      "name": "Tad Lo Treasure Hunt",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Free self-guided village game using phone-based clues to notice details most visitors walk past.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-tad-lo-treasure-hunt-visit-tad-lo",
+            "src": "https://visit-tadlo.com/site-media/cloudflare/general/4dbbdaa8-cc91-49cf-bfb9-8627db6912da-Treasure-Hunt-960.webp",
+            "alt": "Tad Lo Treasure Hunt self-guided village activity",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-treasure-hunt",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-tad-lo-treasure-hunt-visit-tad-lo",
+              "src": "https://visit-tadlo.com/site-media/cloudflare/general/4dbbdaa8-cc91-49cf-bfb9-8627db6912da-Treasure-Hunt-960.webp",
+              "alt": "Tad Lo Treasure Hunt self-guided village activity",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-treasure-hunt",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Less than 1 hour",
+        "costType": "free",
+        "bestTime": "Daytime"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Treasure%20Hunt%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Free self-guided village game using phone-based clues to notice details most visitors walk past.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Tad Lo Treasure Hunt"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Free self-guided village game using phone-based clues to notice details most visitors walk past.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-fandee-adventure-park",
+      "slug": "fandee-adventure-park",
+      "name": "Fandee Adventure Park",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Forest aerial course with thirteen ziplines and suspended monkey bridges near Tad Lo.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-fandee-adventure-park-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/activities/468ab176-594a-4db2-8c50-ae3972904b16-Zipline.jpg",
+            "alt": "Zipline at Fandee Adventure Park near Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/fandee-adventure-park",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-fandee-adventure-park-visit-tad-lo",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/activities/468ab176-594a-4db2-8c50-ae3972904b16-Zipline.jpg",
+              "alt": "Zipline at Fandee Adventure Park near Tad Lo, Laos",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/fandee-adventure-park",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Less than 3 hours",
+        "costType": "paid",
+        "bestTime": "Daytime"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fandee%20Adventure%20Park%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Forest aerial course with thirteen ziplines and suspended monkey bridges near Tad Lo.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Fandee Adventure Park"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Forest aerial course with thirteen ziplines and suspended monkey bridges near Tad Lo.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-coffee-and-katu-culture-with-mr-hook",
+      "slug": "coffee-and-katu-culture-with-mr-hook",
+      "name": "Coffee and Katu Culture with Mr Hook",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-mr-hook-coffee-katu-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/070e07c0-0d12-4fad-817b-e46165c61887-Mr-Hook.jpg",
+            "alt": "Coffee and Katu culture experience with Mr Hook near Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-hook-coffee-culture",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-mr-hook-coffee-katu-visit-tad-lo",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/070e07c0-0d12-4fad-817b-e46165c61887-Mr-Hook.jpg",
+              "alt": "Coffee and Katu culture experience with Mr Hook near Tad Lo, Laos",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-hook-coffee-culture",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Half day",
+        "costType": "paid",
+        "bestTime": "By arrangement"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20and%20Katu%20Culture%20with%20Mr%20Hook%20Tad%20Lo%20Laos",
+      "isLandmark": true,
+      "longDescription": "Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Coffee and Katu Culture with Mr Hook"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      },
+      "exploreBoard": {
+        "kicker": "COFFEE & KATU CULTURE",
+        "duration": "Half day",
+        "route": "Local guided experience"
+      }
+    },
+    {
+      "id": "thing-coffee-from-tree-to-cup-with-mr-vieng",
+      "slug": "coffee-from-tree-to-cup-with-mr-vieng",
+      "name": "Coffee from Tree to Cup with Mr Vieng",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Friendly tree-to-cup coffee experience near Laongam covering growing, processing and preparation.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-mr-vieng-coffee-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/c0632601-bb76-41a3-947e-2e47a3a7c88f-Mr-Vieng.jpg",
+            "alt": "Coffee from tree to cup experience with Mr Vieng near Laongam, Laos",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-vieng-coffee-experience",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-mr-vieng-coffee-visit-tad-lo",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/c0632601-bb76-41a3-947e-2e47a3a7c88f-Mr-Vieng.jpg",
+              "alt": "Coffee from tree to cup experience with Mr Vieng near Laongam, Laos",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-vieng-coffee-experience",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Less than 3 hours",
+        "costType": "paid",
+        "bestTime": "By arrangement"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20from%20Tree%20to%20Cup%20with%20Mr%20Vieng%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Friendly tree-to-cup coffee experience near Laongam covering growing, processing and preparation.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Coffee from Tree to Cup with Mr Vieng"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Friendly tree-to-cup coffee experience near Laongam covering growing, processing and preparation.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-vat-paa-forest-buddha-and-mystery-cave",
+      "slug": "vat-paa-forest-buddha-and-mystery-cave",
+      "name": "Vat Paa Forest, Buddha and Mystery Cave",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "media-vat-paa-forest-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/a42fc69b-975d-4df1-9d73-ffbb805c06a7-Vat-Paa.jpg",
+            "alt": "Vat Paa forest, Buddha and cave area near Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/vat-paa-ancient-forest",
+            "sourceName": "Visit Tad Lo",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+            "manual": true,
+            "locked": true
+          }
+        },
+        "fieldCard": {
+          "gallery": [
+            {
+              "id": "media-vat-paa-forest-visit-tad-lo",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/a42fc69b-975d-4df1-9d73-ffbb805c06a7-Vat-Paa.jpg",
+              "alt": "Vat Paa forest, Buddha and cave area near Tad Lo, Laos",
+              "sourceType": "first-party-official",
+              "sourceUrl": "https://visit-tadlo.com/en/things-to-do/vat-paa-ancient-forest",
+              "sourceName": "Visit Tad Lo",
+              "author": "Visit Tad Lo partner media",
+              "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+              "manual": true,
+              "locked": true
+            }
+          ]
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Less than 3 hours",
+        "costType": "free",
+        "bestTime": "Daytime"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vat%20Paa%20Forest%2C%20Buddha%20and%20Mystery%20Cave%20Tad%20Lo%20Laos",
+      "isLandmark": true,
+      "longDescription": "Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Vat Paa Forest, Buddha and Mystery Cave"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      },
+      "exploreBoard": {
+        "kicker": "FOREST & MYSTERY CAVE",
+        "duration": "Short outing",
+        "route": "From Tad Lo village"
+      }
+    },
+    {
+      "id": "thing-tad-lo-half-day-guided-trek",
+      "slug": "tad-lo-half-day-guided-trek",
+      "name": "Tad Lo Half-Day Guided Trek",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Official locally guided short trek option for travellers who want forest and village paths beyond the immediate waterfalls.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "Half day",
+        "costType": "paid",
+        "bestTime": "Morning"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Half-Day%20Guided%20Trek%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Official locally guided short trek option for travellers who want forest and village paths beyond the immediate waterfalls.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Tad Lo Half-Day Guided Trek"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Official locally guided short trek option for travellers who want forest and village paths beyond the immediate waterfalls.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-tad-lo-two-day-village-trek",
+      "slug": "tad-lo-two-day-village-trek",
+      "name": "Tad Lo Two-Day Village Trek",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Longer guided trekking format using Tad Lo as a base for remote village and forest exploration.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "2 days",
+        "costType": "paid",
+        "bestTime": "Morning departure"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Two-Day%20Village%20Trek%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Longer guided trekking format using Tad Lo as a base for remote village and forest exploration.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Tad Lo Two-Day Village Trek"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Longer guided trekking format using Tad Lo as a base for remote village and forest exploration.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-traditional-lao-massage-in-tad-lo",
+      "slug": "traditional-lao-massage-in-tad-lo",
+      "name": "Traditional Lao Massage in Tad Lo",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Arrange a local traditional massage in the village after walking, riding or waterfall days.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "About 1 hour",
+        "costType": "paid",
+        "bestTime": "By arrangement"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Traditional%20Lao%20Massage%20in%20Tad%20Lo%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Arrange a local traditional massage in the village after walking, riding or waterfall days.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Traditional Lao Massage in Tad Lo"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Arrange a local traditional massage in the village after walking, riding or waterfall days.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    },
+    {
+      "id": "thing-tad-lo-riverside-village-walk",
+      "slug": "tad-lo-riverside-village-walk",
+      "name": "Tad Lo Riverside & Village Walk",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Unhurried self-guided walk through Tad Lo, linking village life, river edges and the waterfall landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Tad Lo",
+          "Local experience",
+          "Field note"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true,
+        "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
+        "duration": "1–2 hours",
+        "costType": "free",
+        "bestTime": "Early morning or late afternoon"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Riverside%20%26%20Village%20Walk%20Tad%20Lo%20Laos",
+      "isLandmark": false,
+      "longDescription": "Unhurried self-guided walk through Tad Lo, linking village life, river edges and the waterfall landscape.",
+      "breadcrumbs": [
+        "Laos",
+        "Tad Lo",
+        "Things to do",
+        "Tad Lo Riverside & Village Walk"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "Unhurried self-guided walk through Tad Lo, linking village life, river edges and the waterfall landscape.",
+        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
+        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
+        "faq": []
+      }
+    }
+  ]
 }

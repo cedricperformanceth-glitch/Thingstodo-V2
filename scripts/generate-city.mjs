@@ -163,6 +163,10 @@ function entityMedia(candidate) {
   return media;
 }
 
+function isManualEntity(entity) {
+  return String(entity?.sourceMetadata?.sourceName ?? '').trim().toLowerCase() === 'manual';
+}
+
 function base(candidate, baseDraft, category) {
   const name = candidate.name;
   const coordinates = candidate.coordinates ?? baseDraft.cityData.coordinates;

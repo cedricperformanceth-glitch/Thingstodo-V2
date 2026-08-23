@@ -10,7 +10,11 @@ const clean = (value) => String(value ?? '').trim();
 const normalizedIdentity = (value) => clean(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const imageOf = (entity) => entity?.image ?? entity?.media?.card?.image ?? null;
 const isAutomaticEntity = (entity) => clean(entity?.sourceMetadata?.sourceName).toLowerCase() !== 'manual';
-const normalizedLicense = (value) => clean(value).toLowerCase().replace(/_/g, '-').replace(/\s+/g, '-');
+const normalizedLicense = (value) => clean(value)
+  .toLowerCase()
+  .replace(/_/g, '-')
+  .replace(/\s+/g, '-')
+  .replace(/-(?:\d+(?:\.\d+)*)$/, '');
 const attributionRequired = (license) => ['cc-by', 'cc-by-sa'].includes(normalizedLicense(license));
 
 function issue(severity, code, message, entity = null) {
