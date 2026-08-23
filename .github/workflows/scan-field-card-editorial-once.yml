@@ -1,0 +1,61 @@
+name: Scan Field Card editorial constraints
+
+on:
+  push:
+    branches: [cleanup-admin-targets]
+    paths:
+      - '.github/workflows/scan-field-card-editorial-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: cleanup-admin-targets
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Scan all consolidated editorial entries
+        run: |
+          node --input-type=module <<'NODE' > editorial-validation.log
+          import fs from 'node:fs';
+          import { validateFieldCardHero } from './scripts/lib/field-card-hero.mjs';
+          import { validateFieldCardQuickRead } from './scripts/lib/field-card-quick-read.mjs';
+          import { validateFieldCardPrimaryStory } from './scripts/lib/field-card-primary-story.mjs';
+          import { validateFieldCardSecondaryStory } from './scripts/lib/field-card-secondary-story.mjs';
+          import { validateFieldCardPractical } from './scripts/lib/field-card-practical.mjs';
+          const data = JSON.parse(fs.readFileSync('src/content/field-card-editorial.json', 'utf8'));
+          const validators = [
+            ['hero', validateFieldCardHero],
+            ['quickRead', validateFieldCardQuickRead],
+            ['primaryStory', validateFieldCardPrimaryStory],
+            ['secondaryStory', validateFieldCardSecondaryStory],
+            ['practical', validateFieldCardPractical],
+          ];
+          let count = 0;
+          for (const [id, entry] of Object.entries(data)) {
+            for (const [key, validate] of validators) {
+              const value = entry?.[key];
+              if (value == null) continue;
+              const result = validate(value);
+              if (!result.valid) {
+                count += 1;
+                console.log(`${id} :: ${key} :: ${result.errors.join(' | ')}`);
+              }
+            }
+          }
+          if (!count) console.log('ALL_VALID');
+          NODE
+      - name: Persist report and remove scanner
+        run: |
+          rm .github/workflows/scan-field-card-editorial-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Record consolidated editorial validation scan"
+          git push origin HEAD:cleanup-admin-targets
