@@ -1,6 +1,0 @@
----
-import type { City } from '../../core/models/types';
-interface Props { city: City; }
-const { city } = Astro.props;
----
-<aside aria-label={`${city.name} map placeholder`}><strong>Map</strong><p>{city.coordinates.latitude}, {city.coordinates.longitude}</p></aside>
