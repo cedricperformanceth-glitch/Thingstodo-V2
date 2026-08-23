@@ -1,0 +1,33 @@
+
+> thingstodoatlas-v2@0.1.0 verify:city-template
+> npm run architecture-check && npm run validate-content && npm run validate:field-cards && npm run test:manual-locks && npm run test:favorites && npm run test:favorites-scalability && npm run test:trip && npm run test:city-media && npm run verify:pipeline && npm run check && npm run build
+
+
+> thingstodoatlas-v2@0.1.0 architecture-check
+> node scripts/architecture-check.mjs
+
+Architecture check passed: reusable code avoids direct destination payload imports and presentation is detached from raw editorial files.
+
+> thingstodoatlas-v2@0.1.0 validate-content
+> node scripts/validate-generated-data.mjs
+
+Generated Atlas data validation passed.
+
+> thingstodoatlas-v2@0.1.0 validate:field-cards
+> node scripts/validate-field-card-content.mjs
+
+file:///home/runner/work/Thingstodo-V2/Thingstodo-V2/scripts/validate-field-card-content.mjs:80
+if (failures.length) throw new Error(`Field Card content validation failed:\n${failures.map((failure) => `- ${failure}`).join('\n')}`);
+                           ^
+
+Error: Field Card content validation failed:
+- laos/don-det: probable placeholder coordinates 13.970900,105.921500 shared by 6 activities (thing-don-som-island, thing-xai-kong-nyai-beach, thing-si-phan-don-by-boat, thing-4000-islands-kayaking, thing-cycle-don-det-don-khon, thing-don-det-tubing)
+- laos/don-det/thing-4000-islands-kayaking: short Field Card requires exactly 2 media items; found 3
+- laos/don-det/thing-cycle-don-det-don-khon: short Field Card requires exactly 2 media items; found 3
+- laos/don-det/thing-don-det-sunset: short Field Card requires exactly 2 media items; found 3
+    at file:///home/runner/work/Thingstodo-V2/Thingstodo-V2/scripts/validate-field-card-content.mjs:80:28
+    at ModuleJob.run (node:internal/modules/esm/module_job:325:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:606:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v20.20.2
