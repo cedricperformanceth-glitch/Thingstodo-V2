@@ -65,7 +65,7 @@ const countries = getCountries();
                     </label>
                     <label class="field">
                       <span>City or village name</span>
-                      <input name="cityName" id="city-name" type="text" autocomplete="off" placeholder="Pakse" required />
+                      <input name="cityName" id="city-name" type="text" autocomplete="off" placeholder="Destination name" required />
                     </label>
                   </div>
 
@@ -95,9 +95,9 @@ const countries = getCountries();
                 <div class="section-content">
                   <div class="section-heading"><h3>Hero artwork</h3><p>Place the three files in GitHub using these canonical paths. Atlas already knows how to read them.</p></div>
                   <div class="asset-list">
-                    <div class="asset-row"><span class="asset-row__type">STAMP</span><code id="asset-stamp">/assets/cities/laos/place/hero/stamps/place-hero-stamp.webp</code></div>
-                    <div class="asset-row"><span class="asset-row__type">DRAWING</span><code id="asset-drawing">/assets/cities/laos/place/hero/drawings/place-hero-drawing.webp</code></div>
-                    <div class="asset-row"><span class="asset-row__type">PHOTO</span><code id="asset-photo">/assets/cities/laos/place/hero/photos/place-hero-photo.webp</code></div>
+                    <div class="asset-row"><span class="asset-row__type">STAMP</span><code id="asset-stamp">/assets/cities/&lt;country&gt;/&lt;destination&gt;/hero/stamps/&lt;destination&gt;-hero-stamp.webp</code></div>
+                    <div class="asset-row"><span class="asset-row__type">DRAWING</span><code id="asset-drawing">/assets/cities/&lt;country&gt;/&lt;destination&gt;/hero/drawings/&lt;destination&gt;-hero-drawing.webp</code></div>
+                    <div class="asset-row"><span class="asset-row__type">PHOTO</span><code id="asset-photo">/assets/cities/&lt;country&gt;/&lt;destination&gt;/hero/photos/&lt;destination&gt;-hero-photo.webp</code></div>
                   </div>
                   <p class="field-hint">No upload system: the files stay in the repository and the admin only follows the asset convention.</p>
                 </div>
@@ -109,7 +109,7 @@ const countries = getCountries();
                   <div class="section-heading"><h3>Generation handoff</h3><p>The admin is still static, so this first version prepares the exact pipeline command instead of exposing a GitHub token in the browser.</p></div>
                   <div class="command-card">
                     <div class="command-card__top"><span>READY COMMAND</span><button type="button" id="copy-command">Copy</button></div>
-                    <code id="create-command">npm run create-city -- laos place --settlement village --profile compact</code>
+                    <code id="create-command">npm run create-city -- &lt;country&gt; &lt;destination&gt; --settlement village --profile compact</code>
                   </div>
                   <div class="generation-summary">
                     <div><small>Profile</small><strong>compact · automatic</strong></div>
@@ -146,8 +146,8 @@ const countries = getCountries();
       const settlementValue = () => document.querySelector<HTMLInputElement>('input[name="settlement"]:checked')?.value ?? 'village';
 
       const updatePreview = () => {
-        const countrySlug = country?.value || 'laos';
-        const slug = slugify(cityName?.value || '') || 'place';
+        const countrySlug = country?.value || 'country';
+        const slug = slugify(cityName?.value || '') || 'destination';
         const settlement = settlementValue();
         const base = `/assets/cities/${countrySlug}/${slug}/hero`;
         if (stamp) stamp.textContent = `${base}/stamps/${slug}-hero-stamp.webp`;

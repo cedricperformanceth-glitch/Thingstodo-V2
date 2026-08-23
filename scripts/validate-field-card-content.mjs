@@ -2,6 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
+const includeNonIndexed = process.argv.includes('--include-non-indexed');
+const cityFlag = process.argv.indexOf('--city');
+const requestedCity = cityFlag >= 0 ? process.argv[cityFlag + 1] : undefined;
+if (cityFlag >= 0 && !requestedCity) throw new Error('Usage: --city <country/city-slug>');
 const loadJson = (relativePath, fallback = {}) => {
   const filePath = path.join(root, relativePath);
   if (!fs.existsSync(filePath)) return fallback;
@@ -30,11 +34,14 @@ collectJson(path.join(root, 'pipeline', 'cities'));
 const failures = [];
 let standardCount = 0;
 let shortCount = 0;
+let matchedRequestedCity = false;
 
 for (const filePath of cityFiles) {
   const draft = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  if (draft.cityData?.seo?.indexable === false) continue;
   const cityKey = `${draft.country}/${draft.city}`;
+  if (requestedCity && requestedCity !== cityKey) continue;
+  if (requestedCity) matchedRequestedCity = true;
+  if (!requestedCity && !includeNonIndexed && draft.cityData?.seo?.indexable === false) continue;
   const activeThings = (draft.things ?? []).filter((thing) => thing.category === 'things-to-do' && thing.verification?.decision !== 'reject-closed');
 
   const coordinateGroups = new Map();
@@ -80,5 +87,7 @@ for (const filePath of cityFiles) {
   }
 }
 
+if (requestedCity && !matchedRequestedCity) throw new Error(`No city draft found for ${requestedCity}.`);
 if (failures.length) throw new Error(`Field Card content validation failed:\n${failures.map((failure) => `- ${failure}`).join('\n')}`);
-console.log(`Field Card content validation passed: ${standardCount} standard, ${shortCount} short.`);
+const scope = requestedCity ? ` for ${requestedCity}` : includeNonIndexed ? ' (including non-indexed cities)' : '';
+console.log(`Field Card content validation passed: ${standardCount} standard, ${shortCount} short${scope}.`);

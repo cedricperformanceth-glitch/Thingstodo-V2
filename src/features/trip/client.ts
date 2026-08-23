@@ -6,6 +6,7 @@ import {
   clearTrip,
   readTripStore,
   removeFromTrip,
+  tripKey,
   type TripEntry,
 } from './store';
 
@@ -54,11 +55,11 @@ const parseEntity = (button: HTMLButtonElement): AtlasEntity | null => {
 };
 
 const syncTripButtons = () => {
-  const savedIds = new Set(readTripStore().entries.map((entry) => entry.id));
+  const savedKeys = new Set(readTripStore().entries.map((entry) => tripKey(entry)));
   document.querySelectorAll<HTMLButtonElement>('[data-trip]').forEach((button) => {
     const entity = parseEntity(button);
     if (!entity) return;
-    const saved = savedIds.has(entity.id);
+    const saved = savedKeys.has(tripKey(entity));
     button.textContent = saved ? 'Added to My Atlas' : 'Add to My Atlas';
     button.disabled = saved;
     button.setAttribute('aria-pressed', String(saved));
@@ -80,7 +81,7 @@ const createEmptyState = () => {
 const createEntry = (entry: TripEntry, index: number) => {
   const details = document.createElement('details');
   details.className = 'my-atlas-note';
-  details.dataset.myAtlasEntry = entry.id;
+  details.dataset.myAtlasEntry = tripKey(entry);
 
   const summary = document.createElement('summary');
   const number = document.createElement('span');
@@ -123,7 +124,10 @@ const createEntry = (entry: TripEntry, index: number) => {
   open.textContent = 'Open card →';
   const remove = document.createElement('button');
   remove.type = 'button';
-  remove.dataset.myAtlasRemove = entry.id;
+  remove.dataset.myAtlasRemove = tripKey(entry);
+  remove.dataset.myAtlasId = entry.id;
+  remove.dataset.myAtlasCountry = entry.country;
+  remove.dataset.myAtlasCity = entry.city;
   remove.textContent = 'Remove';
   actions.append(open, remove);
   body.append(actions);
@@ -200,9 +204,13 @@ document.addEventListener('click', (event) => {
   }
 
   const removeButton = target.closest<HTMLButtonElement>('[data-my-atlas-remove]');
-  if (removeButton?.dataset.myAtlasRemove) {
+  if (removeButton?.dataset.myAtlasId && removeButton.dataset.myAtlasCountry && removeButton.dataset.myAtlasCity) {
     event.preventDefault();
-    removeFromTrip(removeButton.dataset.myAtlasRemove);
+    removeFromTrip({
+      id: removeButton.dataset.myAtlasId,
+      country: removeButton.dataset.myAtlasCountry,
+      city: removeButton.dataset.myAtlasCity,
+    });
     return;
   }
 

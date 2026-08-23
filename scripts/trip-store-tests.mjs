@@ -35,6 +35,7 @@ const {
   clearTrip,
   readTripStore,
   removeFromTrip,
+  tripKey,
 } = await import(pathToFileURL(tempModule).href);
 
 assert.deepEqual(readTripStore(), { entries: [] }, 'empty storage produces an empty Atlas');
@@ -73,9 +74,13 @@ store = readTripStore();
 assert.equal(store.entries.length, 2);
 assert.equal(store.entries[1].kind, 'thing-to-do');
 
-removeFromTrip(place.id);
+const sameIdElsewhere = { ...place, country: 'thailand', city: 'chiang-mai', name: 'River Cafe Chiang Mai' };
+addToTrip(sameIdElsewhere, '/thailand/chiang-mai/cafes');
+assert.equal(readTripStore().entries.length, 3, 'the same entity ID is valid in another destination');
+
+removeFromTrip(place);
 store = readTripStore();
-assert.deepEqual(store.entries.map((entry) => entry.id), [thing.id]);
+assert.deepEqual(store.entries.map((entry) => tripKey(entry)), [tripKey(thing), tripKey(sameIdElsewhere)]);
 
 values.set(MY_ATLAS_STORAGE_KEY, '{broken json');
 assert.deepEqual(readTripStore(), { entries: [] }, 'corrupted storage never reaches the UI');
@@ -85,7 +90,7 @@ assert.equal(readTripStore().entries.length, 1, 'invalid saved entries are disca
 
 clearTrip();
 assert.deepEqual(readTripStore(), { entries: [] });
-assert.equal(events.filter((event) => event.type === MY_ATLAS_EVENT).length, 4, 'writes emit one Atlas change event each');
+assert.equal(events.filter((event) => event.type === MY_ATLAS_EVENT).length, 5, 'writes emit one Atlas change event each');
 
 fs.rmSync(tempDir, { recursive: true, force: true });
 console.log('My Atlas store tests passed.');

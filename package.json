@@ -14,6 +14,7 @@
     "architecture-check": "node scripts/architecture-check.mjs",
     "validate-content": "node scripts/validate-generated-data.mjs",
     "validate:field-cards": "node scripts/validate-field-card-content.mjs",
+    "validate:field-cards:all": "node scripts/validate-field-card-content.mjs --include-non-indexed",
     "test:manual-locks": "node scripts/manual-lock-tests.mjs",
     "test:favorites": "node scripts/favorites-store-tests.mjs",
     "test:favorites-scalability": "node scripts/favorites-scalability-tests.mjs",

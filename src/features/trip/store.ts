@@ -20,6 +20,8 @@ export interface TripStore {
   entries: TripEntry[];
 }
 
+export const tripKey = (entry: Pick<TripEntry, 'id' | 'country' | 'city'>) => `${entry.country}:${entry.city}:${entry.id}`;
+
 const emptyStore = (): TripStore => ({ entries: [] });
 
 const isBrowser = () => typeof window !== 'undefined' && typeof localStorage !== 'undefined';
@@ -66,7 +68,7 @@ const entityKind = (entity: AtlasEntity): TripEntry['kind'] =>
 
 export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
   const store = readTripStore();
-  if (store.entries.some((entry) => entry.id === entity.id)) return store;
+  if (store.entries.some((entry) => tripKey(entry) === tripKey(entity))) return store;
 
   store.entries.push({
     id: entity.id,
@@ -84,9 +86,9 @@ export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
   return store;
 };
 
-export const removeFromTrip = (id: string) => {
+export const removeFromTrip = (entry: Pick<TripEntry, 'id' | 'country' | 'city'>) => {
   const store = readTripStore();
-  store.entries = store.entries.filter((entry) => entry.id !== id);
+  store.entries = store.entries.filter((candidate) => tripKey(candidate) !== tripKey(entry));
   writeTripStore(store);
   return store;
 };

@@ -48,6 +48,20 @@ To inspect an already generated city without changing it:
 npm run qa-city -- laos <city-slug>
 ```
 
+Before promoting a `noindex` city, also run the Field Card gate across draft cities:
+
+```bash
+npm run validate:field-cards:all
+```
+
+The default `validate:field-cards` command protects currently indexable cities only. The `:all` command is the explicit promotion check and includes non-indexed cities, so incomplete editorial media or metadata is surfaced before SEO status changes.
+
+To validate one promotion candidate without mixing it with other drafts:
+
+```bash
+npm run validate:field-cards -- --city <country/city-slug>
+```
+
 Use `--json` for a machine-readable report.
 
 ## QA statuses
