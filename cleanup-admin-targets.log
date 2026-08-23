@@ -55,86 +55,28 @@ SPA settlement, admin category counts, selection, and source verification contra
 > thingstodoatlas-v2@0.1.0 test:card-presentation
 > node scripts/card-presentation-contract-tests.mjs
 
+Permanent SPA card presentation contract tests passed.
+
+> thingstodoatlas-v2@0.1.0 test:field-card-hero
+> node scripts/field-card-hero-tests.mjs
+
 node:internal/modules/run_main:123
     triggerUncaughtException(
     ^
 
-AssertionError [ERR_ASSERTION]: Things to do handwritten notes must render whenever the SPA card has them
-    at file:///home/runner/work/Thingstodo-V2/Thingstodo-V2/scripts/card-presentation-contract-tests.mjs:14:8
+AssertionError [ERR_ASSERTION]: thing-4000-islands-kayaking: rhythmNote must be at most 22 words
+
+false !== true
+
+    at file:///home/runner/work/Thingstodo-V2/Thingstodo-V2/scripts/field-card-hero-tests.mjs:13:10
     at ModuleJob.run (node:internal/modules/esm/module_job:325:25)
     at async ModuleLoader.import (node:internal/modules/esm/loader:606:24)
     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
   generatedMessage: false,
   code: 'ERR_ASSERTION',
-  actual: '---\n' +
-    "import type { City, ThingToDo } from '../../core/models/types';\n" +
-    "import { getEditorialMedia, getEditorialSpa, getEditorialSpaBestTime, getEditorialSpaDescription, getEditorialSpaGettingThere, getEditorialThingName } from '../../engines/field-card/field-card-editorial';\n" +
-    "import { thingPath } from '../../core/routing/paths';\n" +
-    "import FavoriteHeart from '../shared/FavoriteHeart.astro';\n" +
-    "import CardActions from './CardActions.astro';\n" +
-    "import './entry-card.css';\n" +
-    'interface Props { city: City; thing: ThingToDo; showDestination?: boolean; }\n' +
-    'const { city, thing, showDestination = false } = Astro.props;\n' +
-    'const displayName = getEditorialThingName(thing.id) ?? thing.name;\n' +
-    'const displayThing = displayName === thing.name ? thing : { ...thing, name: displayName };\n' +
-    'const editorialSpa = getEditorialSpa(thing.id);\n' +
-    'const spaCardBase = editorialSpa ?? thing.spaCard;\n' +
-    'const conciseGettingThere = getEditorialSpaGettingThere(thing.id);\n' +
-    'const conciseBestTime = getEditorialSpaBestTime(thing.id);\n' +
-    'const spaCard = spaCardBase\n' +
-    '  ? {\n' +
-    '      ...spaCardBase,\n' +
-    '      ...(conciseGettingThere ? { gettingThere: conciseGettingThere } : {}),\n' +
-    '      ...(conciseBestTime ? { bestTime: conciseBestTime } : {}),\n' +
-    '    }\n' +
-    '  : spaCardBase;\n' +
-    'const description = getEditorialSpaDescription(thing.id) ?? editorialSpa?.description ?? thing.shortDescription;\n' +
-    'const image = getEditorialMedia(thing.id)?.[0] ?? thing.media.card?.image;\n' +
-    'const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)\n' +
-    "  ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')\n" +
-    "  : '';\n" +
-    "const titleize = (value: string) => value.split('-').map((part) => part ? `${part.charAt(0).toUpperCase()}${part.slice(1)}` : '').join(' ');\n" +
-    "const costLabel = spaCard?.costType === 'free' ? 'Free' : spaCard?.costType === 'paid' ? 'Paid' : '';\n" +
-    '---\n' +
-    '<article class="card atlas-entry-card">\n' +
-    "  <div class:list={['card-media', { empty: !image }]}>\n" +
-    '    {image ? (\n' +
-    '      <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" />\n' +
-    '    ) : (\n' +
-    '      <span class="card-photo-placeholder" aria-label="Photo missing; manual photo needed">Photo to add</span>\n' +
-    '    )}\n' +
-    '    {spaCard?.handwrittenTags && (\n' +
-    '      <div class="card-handwritten" aria-label="Quick notes">\n' +
-    '        {spaCard.handwrittenTags.map((tag) => <span>{tag}</span>)}\n' +
-    '      </div>\n' +
-    '    )}\n' +
-    '    {photoCredit && image?.sourceUrl && (\n' +
-    '      <a class="card-photo-credit" href={image.sourceUrl} target="_blank" rel="noreferrer">Photo: {photoCredit}</a>\n' +
-    '    )}\n' +
-    '    <FavoriteHeart entity={displayThing} cardImage={image} shortDescription={description} spaCard={spaCard} />\n' +
-    '  </div>\n' +
-    '\n' +
-    '  <div class="card-preview">\n' +
-    '    <h3>{displayName}</h3>\n' +
-    '    {showDestination && <p class="destination">{titleize(thing.city)}, {titleize(thing.country)}</p>}\n' +
-    '    <p class="card-description">{description}</p>\n' +
-    '    {spaCard && (\n' +
-    '      <dl class="card-activity-meta">\n' +
-    '        <div><dt>Getting there</dt><dd>{spaCard.gettingThere}</dd></div>\n' +
-    '        <div><dt>Duration</dt><dd>{spaCard.duration}</dd></div>\n' +
-    '        <div><dt>Cost</dt><dd>{costLabel}</dd></div>\n' +
-    '        <div><dt>Best time</dt><dd>{spaCard.bestTime}</dd></div>\n' +
-    '      </dl>\n' +
-    '    )}\n' +
-    '    {spaCard?.openingHours && (\n' +
-    '      <p class="card-practical-line"><span>Hours</span>{spaCard.openingHours}</p>\n' +
-    '    )}\n' +
-    '  </div>\n' +
-    '\n' +
-    '  <CardActions entity={displayThing} fieldHref={thingPath(city, thing)} />\n' +
-    '</article>\n',
-  expected: /\{thing\.spaCard\?\.handwrittenTags\s*&&/,
-  operator: 'match'
+  actual: false,
+  expected: true,
+  operator: 'strictEqual'
 }
 
 Node.js v20.20.2
