@@ -12,8 +12,6 @@ export interface ExploreBoardEntry {
   route: string;
 }
 
-type ExploreBoardMetadata = Omit<ExploreBoardEntry, 'thing'>;
-
 const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
   const heroImage = getEditorialMedia(thing.id)?.[0];
   if (!heroImage) return thing;

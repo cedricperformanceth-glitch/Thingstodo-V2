@@ -51,9 +51,6 @@
       },
       "categories": {
         "things-to-do": {
-          "targetControlledByAdmin": true,
-          "hardMin": 5,
-          "hardMax": 25,
           "useExistingAtlasDatabaseAsPrioritySeed": true,
           "locationScope": "destination-linked-without-fixed-radius",
           "selectionGoal": "distinct-visitor-relevant-experiences",
@@ -99,7 +96,6 @@
           "automaticSubcategoryFilters": false
         },
         "markets": {
-          "minimum": 0,
           "venueTypes": [
             "market",
             "night-market"
@@ -107,7 +103,6 @@
           "automaticSubcategoryFilters": false
         },
         "practical-services": {
-          "minimum": 0,
           "searchTypes": [
             "hospital",
             "tourism-office",
@@ -128,8 +123,7 @@
       "discoveryBudget": {
         "initialQueriesPerCategory": 4,
         "maxQueriesPerCategory": 12,
-        "candidatePoolMultiplier": 1.5,
-        "stopWhenQualifiedTargetReached": true
+        "candidatePoolMultiplier": 1.5
       },
       "sourceClasses": {
         "authoritative": [

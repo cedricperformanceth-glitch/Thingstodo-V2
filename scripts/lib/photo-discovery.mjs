@@ -89,7 +89,6 @@ function dedupePhotos(photos) {
 export async function discoverWikimediaCommonsPhotos(candidate, context = {}, fetchImpl = globalThis.fetch, options = {}) {
   if (typeof fetchImpl !== 'function' || !clean(candidate?.name)) return [];
   const limit = Math.max(1, Math.min(50, Number(options.maxResults) || PLACE_REUSABLE_LIMIT));
-  const query = [candidate.name, context?.cityName, context?.countryName ?? context?.country].filter(Boolean).join(' ');
   const params = new URLSearchParams({
     action: 'query',
     format: 'json',

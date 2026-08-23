@@ -40,7 +40,6 @@
     },
     "categories": {
       "things-to-do": {
-        "targetControlledByAdmin": true,
         "useExistingAtlasDatabaseAsPrioritySeed": true,
         "locationScope": "destination-linked-without-fixed-radius",
         "selectionGoal": "distinct-visitor-relevant-experiences",
@@ -72,20 +71,13 @@
         "automaticSubcategoryFilters": false
       },
       "gyms": {
-        "minimum": 0,
-        "groups": {
-          "fitness-and-weights": { "max": 5 },
-          "muay-thai": { "ideal": 2, "max": 3 }
-        },
         "automaticSubcategoryFilters": false
       },
       "markets": {
-        "minimum": 0,
         "venueTypes": ["market", "night-market"],
         "automaticSubcategoryFilters": false
       },
       "practical-services": {
-        "minimum": 0,
         "searchTypes": ["hospital", "tourism-office", "immigration-office"],
         "officialOnly": ["immigration-office"],
         "exclude": ["visa-agency", "travel-agency"],

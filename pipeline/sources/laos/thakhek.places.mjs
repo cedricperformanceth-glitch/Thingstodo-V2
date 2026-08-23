@@ -124,7 +124,7 @@ export const places = [
   place('Orlardee Hostel', 'accommodation', { source: 'hostelworld', rating: 9.1, scale: 10, reviews: 1 }),
   place('Nam Phou Hostel', 'accommodation', { source: 'hostelworld', rating: 10, scale: 10, reviews: 4 }),
 
-  // Rental Scooter — exact generated target is five.
+  // Rental Scooter candidates remain editorially selectable; no category quota is imposed.
 
   // Markets are un-targeted: keep the distinct current addresses found.
   place('Center Point Thakhek', 'markets', { rating: 4.1, reviews: 343 }),

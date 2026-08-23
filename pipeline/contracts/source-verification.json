@@ -3,8 +3,7 @@
     "discoveryBudget": {
       "initialQueriesPerCategory": 4,
       "maxQueriesPerCategory": 12,
-      "candidatePoolMultiplier": 1.5,
-      "stopWhenQualifiedTargetReached": true
+      "candidatePoolMultiplier": 1.5
     },
     "sourceClasses": {
       "authoritative": [

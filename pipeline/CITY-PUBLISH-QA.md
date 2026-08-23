@@ -4,7 +4,7 @@ This is the final gate for the current SPA-card generation pipeline. It does **n
 
 ## Final workflow
 
-1. Structure and content volumes define the settlement SPA and category targets. `City.categories` is the explicit editorial source of truth for the categories enabled in that city; the settlement type defines what is allowed.
+1. `City.categories` is the explicit editorial source of truth for the categories enabled in that city; the settlement type defines what is allowed. The editor decides when each category has enough useful content.
 2. Selection rules define what qualifies for each category, including Things to do.
 3. Source verification decides whether candidates are current and trustworthy enough to use.
 4. The SPA-card contract defines the data required on every visible card.
@@ -66,8 +66,6 @@ The city must not be treated as publication-ready. Blocking problems include:
 
 - the city/settlement SPA contract is inconsistent;
 - `City.categories` is missing, duplicated, contains a category not allowed for the settlement, or omits Things to do;
-- the exact admin-selected Things to do target is missing or not met exactly;
-- an automatically targeted practical category is below its target;
 - duplicate IDs, slugs or normalized names;
 - a card is in a category not enabled by `City.categories`;
 - required SPA-card data is missing or invalid;
@@ -79,11 +77,7 @@ The city must not be treated as publication-ready. Blocking problems include:
 
 ## Count policy
 
-`Things to do` is special: the admin/editor chooses an exact target between the configured hard limits, and the final published automatic set must match that exact target.
-
-For practical categories that are enabled in `City.categories` and have an automatic target, the final city must contain **at least** that target. Manual editorial additions are allowed above it.
-
-Categories without automatic numeric targets do not receive an artificial minimum at publication QA.
+Publication QA validates category membership, identifiers, source provenance and card completeness. It does not impose numeric category quotas: the admin/editor decides when a category is sufficiently useful for publication.
 
 ## Source verification handoff
 

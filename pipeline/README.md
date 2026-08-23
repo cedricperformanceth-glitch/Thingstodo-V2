@@ -52,7 +52,7 @@ General selection style:
 ### Automatic Place ranking
 
 `pipeline/contracts/candidate-ranking.json` and `scripts/lib/candidate-ranking.mjs` rank verified practical Place candidates
-before the category target is filled. Ranking is source-neutral: no booking, map or travel platform receives a built-in
+before editorial selection. Ranking is source-neutral: no booking, map or travel platform receives a built-in
 vendor bonus.
 
 The ranking can use a very small set of normalized `rankingSignals` supplied by the research stage:
@@ -91,7 +91,7 @@ Restaurants / Coffee / Rental Scooter:
 Guest Houses / accommodation:
 - suitable guesthouses, hostels, small hotels and budget hotels are valid candidates;
 - there is no hard minimum nightly price;
-- the main target price band is USD 10–30 per night;
+- the preferred price band is USD 10–30 per night;
 - USD 50 per night is the automatic hard ceiling;
 - at most three selected stays may sit in the upper part of the range.
 
@@ -120,8 +120,8 @@ Essential Information:
 Research is adaptive rather than trying to scan a fixed huge number of sites:
 - start with four discovery queries per category;
 - expand when necessary, up to twelve queries per category;
-- aim for a candidate pool around 1.5× the final target;
-- stop once enough qualified candidates have been found and verified.
+- keep a focused candidate pool rather than scanning indiscriminately;
+- stop when further research is unlikely to add a distinct, useful verified option.
 
 ### Candidate identity and repeated mentions
 

@@ -98,7 +98,7 @@ export const places = [
   record('Little Eden Restaurant', 'cafes', 'A hotel restaurant overlooking the river, useful for breakfast or coffee when you want a more settled table near northern Don Det.', ['Hotel cafe', 'River view', 'Breakfast'], 'tripadvisor'),
   record('Smiling Cafe 2', 'cafes', 'A small café-style stop in the Don Det village area, kept as a simple coffee break rather than a destination meal.', ['Cafe stop', 'Village', 'Coffee break'], 'worldplaces'),
 
-  // Guest Houses — 19 candidates so every random target in the 12–19 contract can be fulfilled.
+  // Guest Houses — a varied research pool for later editorial selection.
   record('DODAND Studio & Sunset Riverside Guesthouse', 'accommodation', 'Sunset-side riverside studios with private outdoor space, suited to travellers wanting a quieter stay directly beside the Mekong.', ['Sunset side', 'Riverfront', 'Quiet stay'], 'booking'),
   record('DONDET Vixay Sunset And River View', 'accommodation', 'Riverside rooms and bungalows with broad sunset views, offering an easy island base with food and drinks available on site.', ['Sunset view', 'Riverside', 'Island base'], 'booking'),
   record('Thiptavanh guesthouse', 'accommodation', 'A small sunrise-side guesthouse with river-facing balconies and simple rooms, positioned away from the busiest northern part of Don Det.', ['Sunrise side', 'River balcony', 'Quiet rooms'], 'booking', { address: '20 Sunrise blv, Don Det, Laos' }),
