@@ -26,96 +26,142 @@ Manual lock merge tests passed.
 > thingstodoatlas-v2@0.1.0 test:favorites
 > node scripts/favorites-store-tests.mjs
 
+Favorites store tests passed.
+
+> thingstodoatlas-v2@0.1.0 test:favorites-scalability
+> node scripts/favorites-scalability-tests.mjs
+
 node:internal/modules/run_main:123
     triggerUncaughtException(
     ^
 
-AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-+ actual - expected
-
-  {
-    address: undefined,
-+   bestTime: undefined,
-+   cardImage: {
-+     alt: 'Walk image',
-+     author: undefined,
-+     license: undefined,
-+     sourceName: undefined,
-+     sourceUrl: undefined,
-+     src: '/walk.jpg'
-+   },
-+   category: 'things-to-do',
-+   city: 'same-city',
-+   costType: undefined,
-+   country: 'laos',
-+   countryAccent: undefined,
-+   duration: undefined,
-+   fieldCardPath: '/laos/same-city/things-to-do/walk',
-+   gettingThere: undefined,
-+   googleMapsUrl: 'https://maps.example/walk',
-+   handwrittenTags: undefined,
-+   id: 'thing-1',
-+   name: 'Walk',
-+   openingHours: undefined,
--   cardImage: {
--     alt: 'Walk image',
--     src: '/walk.jpg'
--   },
--   city: 'same-city',
--   country: 'laos',
--   fieldCardPath: '/laos/same-city/things-to-do/walk',
--   googleMapsUrl: 'https://maps.example/walk',
--   id: 'thing-1',
--   name: 'Walk',
-    shortDescription: 'Walk description',
-    slug: 'walk',
-    type: 'thing'
-  }
-    at file:///home/runner/work/Thingstodo-V2/Thingstodo-V2/scripts/favorites-store-tests.mjs:36:8 {
-  generatedMessage: true,
+AssertionError [ERR_ASSERTION]: Favorites renderer reads only saved snapshots.
+    at file:///home/runner/work/Thingstodo-V2/Thingstodo-V2/scripts/favorites-scalability-tests.mjs:8:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:325:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:606:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
   code: 'ERR_ASSERTION',
-  actual: {
-    type: 'thing',
-    id: 'thing-1',
-    slug: 'walk',
-    name: 'Walk',
-    country: 'laos',
-    city: 'same-city',
-    category: 'things-to-do',
-    shortDescription: 'Walk description',
-    cardImage: {
-      src: '/walk.jpg',
-      alt: 'Walk image',
-      sourceUrl: undefined,
-      sourceName: undefined,
-      author: undefined,
-      license: undefined
-    },
-    googleMapsUrl: 'https://maps.example/walk',
-    fieldCardPath: '/laos/same-city/things-to-do/walk',
-    address: undefined,
-    handwrittenTags: undefined,
-    openingHours: undefined,
-    gettingThere: undefined,
-    duration: undefined,
-    costType: undefined,
-    bestTime: undefined,
-    countryAccent: undefined
-  },
-  expected: {
-    type: 'thing',
-    id: 'thing-1',
-    slug: 'walk',
-    name: 'Walk',
-    country: 'laos',
-    city: 'same-city',
-    shortDescription: 'Walk description',
-    cardImage: { src: '/walk.jpg', alt: 'Walk image' },
-    googleMapsUrl: 'https://maps.example/walk',
-    fieldCardPath: '/laos/same-city/things-to-do/walk',
-    address: undefined
-  },
-  operator: 'deepStrictEqual'
+  actual: "import { favoriteKey, favoritesStore, type FavoriteSnapshot } from './store';\n" +
+    '\n' +
+    `const escapeHtml = (value = '') => value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character] ?? character);\n` +
+    "const titleize = (value: string) => value.split('-').map((part) => part ? `${part.charAt(0).toUpperCase()}${part.slice(1)}` : '').join(' ');\n" +
+    'const heart = (item: FavoriteSnapshot) => `<button class="favorite-heart" type="button" data-favorite data-entity-key="${favoriteKey(item)}" data-entity-name="${escapeHtml(item.name)}" data-entity=\'${escapeHtml(JSON.stringify(item))}\' aria-label="Remove ${escapeHtml(item.name)} from My Favorites" aria-pressed="true"><span aria-hidden="true">♥</span></button>`;\n' +
+    '\n' +
+    'const photoCredit = (item: FavoriteSnapshot) => {\n' +
+    '  const image = item.cardImage;\n' +
+    "  if (!image?.sourceUrl || !(image.author || image.sourceName || image.license)) return '';\n" +
+    "  const label = [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ');\n" +
+    '  return `<a class="card-photo-credit" href="${escapeHtml(image.sourceUrl)}" target="_blank" rel="noreferrer">Photo: ${escapeHtml(label)}</a>`;\n' +
+    '};\n' +
+    '\n' +
+    'const quickNotes = (item: FavoriteSnapshot) => item.handwrittenTags?.length\n' +
+    '  ? `<div class="card-handwritten" aria-label="Quick notes">${item.handwrittenTags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join(\'\')}</div>`\n' +
+    "  : '';\n" +
+    '\n' +
+    'const activityMeta = (item: FavoriteSnapshot) => {\n' +
+    "  if (item.type !== 'thing' || !(item.gettingThere || item.duration || item.costType || item.bestTime)) return '';\n" +
+    "  const cost = item.costType === 'free' ? 'Free' : item.costType === 'paid' ? 'Paid' : '';\n" +
+    '  return `<dl class="card-activity-meta"><div><dt>Getting there</dt><dd>${escapeHtml(item.gettingThere ?? \'\')}</dd></div><div><dt>Duration</dt><dd>${escapeHtml(item.duration ?? \'\')}</dd></div><div><dt>Cost</dt><dd>${escapeHtml(cost)}</dd></div><div><dt>Best time</dt><dd>${escapeHtml(item.bestTime ?? \'\')}</dd></div></dl>`;\n' +
+    '};\n' +
+    '\n' +
+    'const tripEntity = (item: FavoriteSnapshot) => ({\n' +
+    '  id: item.id,\n' +
+    '  slug: item.slug,\n' +
+    '  name: item.name,\n' +
+    '  country: item.country,\n' +
+    '  city: item.city,\n' +
+    '  category: item.category,\n' +
+    '  shortDescription: item.shortDescription,\n' +
+    "  ...(item.type === 'thing' ? { isLandmark: false } : {}),\n" +
+    '});\n' +
+    '\n' +
+    'const actions = (item: FavoriteSnapshot) => `<div class="card-actions" style="--card-field-color:${escapeHtml(item.countryAccent ?? \'#b7473b\')}">${item.googleMapsUrl ? `<a class="card-action card-action--map" href="${escapeHtml(item.googleMapsUrl)}" target="_blank" rel="noreferrer">Open Google Maps</a>` : \'\'}${item.type === \'thing\' && item.fieldCardPath ? `<a class="card-action card-action--field" href="${escapeHtml(item.fieldCardPath)}">Open the Field Card</a>` : \'\'}<button type="button" data-trip data-entity=\'${escapeHtml(JSON.stringify(tripEntity(item)))}\'>Add to My Atlas</button></div>`;\n' +
+    '\n' +
+    'const favoriteCard = (item: FavoriteSnapshot) => {\n' +
+    '  const media = item.cardImage\n' +
+    '    ? `<img src="${escapeHtml(item.cardImage.src)}" alt="${escapeHtml(item.cardImage.alt)}" loading="lazy" width="640" height="400">`\n' +
+    `    : '<span class="card-photo-placeholder" aria-label="Photo missing; manual photo needed">Photo to add</span>';\n` +
+    '  const openingHours = item.openingHours ? `<p class="card-practical-line"><span>Hours</span>${escapeHtml(item.openingHours)}</p>` : \'\';\n' +
+    '  return `<article class="card atlas-entry-card favorite-card"><div class="card-media${item.cardImage ? \'\' : \' empty\'}">${media}${quickNotes(item)}${photoCredit(item)}${heart(item)}</div><div class="card-preview"><h3>${escapeHtml(item.name)}</h3><p class="destination">${escapeHtml(titleize(item.city))}, ${escapeHtml(titleize(item.country))}</p><p class="card-description">${escapeHtml(item.shortDescription)}</p>${activityMeta(item)}${openingHours}</div>${actions(item)}</article>`;\n' +
+    '};\n' +
+    '\n' +
+    'const groupByCountry = (saved: FavoriteSnapshot[]) => {\n' +
+    '  const groups = new Map<string, FavoriteSnapshot[]>();\n' +
+    '  saved.forEach((item) => groups.set(item.country, [...(groups.get(item.country) ?? []), item]));\n' +
+    '  return groups;\n' +
+    '};\n' +
+    '\n' +
+    'const fillCountry = (details: HTMLDetailsElement, items: FavoriteSnapshot[]) => {\n' +
+    "  const cards = details.querySelector<HTMLElement>('[data-favorite-country-cards]');\n" +
+    "  if (!cards || cards.dataset.rendered === 'true') return;\n" +
+    "  cards.dataset.rendered = 'true';\n" +
+    "  cards.innerHTML = items.map(favoriteCard).join('');\n" +
+    '};\n' +
+    '\n' +
+    'const renderPanel = (panel: HTMLElement, saved: FavoriteSnapshot[]) => {\n' +
+    '  const groups = groupByCountry(saved);\n' +
+    "  const currentOpen = panel.querySelector<HTMLDetailsElement>('.favorites-country[open]')?.dataset.favoriteCountry;\n" +
+    '  const currentCountry = panel.dataset.favoritesCurrentCountry;\n' +
+    '  const countries = [...groups.keys()];\n' +
+    '  const initiallyOpen = currentOpen && groups.has(currentOpen) ? currentOpen : currentCountry && groups.has(currentCountry) ? currentCountry : countries[0];\n' +
+    '\n' +
+    '  panel.innerHTML = countries.map((country) => {\n' +
+    '    const items = groups.get(country) ?? [];\n' +
+    '    return `<details class="favorites-country" data-favorite-country="${escapeHtml(country)}"${country === initiallyOpen ? \' open\' : \'\'}><summary><strong>${escapeHtml(titleize(country))}</strong><small>${items.length} ${items.length === 1 ? \'saved place\' : \'saved places\'}</small></summary><div class="favorites-country__cards" data-favorite-country-cards></div></details>`;\n' +
+    "  }).join('');\n" +
+    '\n' +
+    "  panel.querySelectorAll<HTMLDetailsElement>('.favorites-country').forEach((details) => {\n" +
+    "    const country = details.dataset.favoriteCountry ?? '';\n" +
+    '    const items = groups.get(country) ?? [];\n' +
+    '    if (details.open) fillCountry(details, items);\n' +
+    "    details.addEventListener('toggle', () => {\n" +
+    '      if (!details.open) return;\n' +
+    "      panel.querySelectorAll<HTMLDetailsElement>('.favorites-country').forEach((other) => { if (other !== details) other.open = false; });\n" +
+    '      fillCountry(details, items);\n' +
+    '    });\n' +
+    '  });\n' +
+    '};\n' +
+    '\n' +
+    'const currentPageSnapshots = () => {\n' +
+    '  const snapshots: FavoriteSnapshot[] = [];\n' +
+    "  document.querySelectorAll<HTMLButtonElement>('[data-favorite][data-entity]').forEach((button) => {\n" +
+    '    try {\n' +
+    "      const item = JSON.parse(button.dataset.entity ?? 'null') as FavoriteSnapshot | null;\n" +
+    '      if (item?.id && item.city && item.country && item.name) snapshots.push(item);\n' +
+    '    } catch {\n' +
+    '      // Ignore invalid legacy button data; the persisted favorite remains untouched.\n' +
+    '    }\n' +
+    '  });\n' +
+    '  return snapshots;\n' +
+    '};\n' +
+    '\n' +
+    'const render = () => {\n' +
+    '  const saved = favoritesStore.refresh(currentPageSnapshots());\n' +
+    '  const keys = new Set(saved.map(favoriteKey));\n' +
+    "  document.querySelectorAll<HTMLButtonElement>('[data-favorite]').forEach((heartControl) => {\n" +
+    "    const active = keys.has(heartControl.dataset.entityKey ?? '');\n" +
+    "    heartControl.setAttribute('aria-pressed', String(active));\n" +
+    "    heartControl.setAttribute('aria-label', `${active ? 'Remove' : 'Add'} ${heartControl.dataset.entityName ?? 'item'} ${active ? 'from' : 'to'} My Favorites`);\n" +
+    `    const icon = heartControl.querySelector('[aria-hidden="true"]');\n` +
+    "    if (icon) icon.textContent = active ? '♥' : '♡';\n" +
+    '  });\n' +
+    "  document.querySelectorAll<HTMLElement>('[data-favorites-panel]').forEach((panel) => renderPanel(panel, saved));\n" +
+    "  document.querySelectorAll<HTMLElement>('[data-favorites-empty]').forEach((empty) => { empty.hidden = saved.length > 0; });\n" +
+    "  document.querySelectorAll<HTMLElement>('[data-favorites-count]').forEach((count) => { count.textContent = `${saved.length} ${saved.length === 1 ? 'saved place' : 'saved places'}`; });\n" +
+    '};\n' +
+    '\n' +
+    "document.addEventListener('click', (event) => {\n" +
+    "  const heartControl = (event.target as Element).closest<HTMLButtonElement>('[data-favorite]');\n" +
+    '  if (!heartControl) return;\n' +
+    "  favoritesStore.toggle(JSON.parse(heartControl.dataset.entity ?? '{}'));\n" +
+    '  render();\n' +
+    '});\n' +
+    "window.addEventListener('storage', (event) => { if (event.key === 'things-to-do-atlas:favorites') render(); });\n" +
+    "document.addEventListener('astro:page-load', render);\n" +
+    'render();\n',
+  expected: /favoritesStore\.all\(\)/,
+  operator: 'match'
 }
 
 Node.js v20.20.2
