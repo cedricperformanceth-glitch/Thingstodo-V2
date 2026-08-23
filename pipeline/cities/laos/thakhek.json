@@ -372,7 +372,18 @@
       },
       "shortDescription": "Soukjai Cafe remains a current public café listing in central Thakhek; its exact branding should be checked editorially if the business identity changes.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "soukjai-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/soukjai-cafe/soukjai-cafe.webp",
+            "alt": "Soukjai Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -422,7 +433,18 @@
       },
       "shortDescription": "Naga Hostel & Café is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "naga-hostel-and-cafe-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/naga-hostel-and-cafe/naga-hostel-and-cafe.webp",
+            "alt": "Naga Hostel And Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -472,7 +494,18 @@
       },
       "shortDescription": "Kamkhong home cafe by noungning is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "kamkhong-home-cafe-by-noungning-card",
+            "src": "/assets/cities/laos/thakhek/cafes/kamkhong-home-cafe-by-noungning/kamkhong-home-cafe-by-noungning.webp",
+            "alt": "Kamkhong Home Cafe By Noungning in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -522,7 +555,18 @@
       },
       "shortDescription": "DD Bistro & Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "dd-bistro-and-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/dd-bistro-and-cafe/dd-bistro-and-cafe.webp",
+            "alt": "Dd Bistro And Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -572,7 +616,18 @@
       },
       "shortDescription": "Phubeer Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "phubeer-restaurant-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/phubeer-restaurant/phubeer-restaurant.webp",
+            "alt": "Phubeer Restaurant in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -622,7 +677,18 @@
       },
       "shortDescription": "Bami Thakhek Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "bami-thakhek-hostel-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/bami-thakhek-hostel/bami-thakhek-hostel.webp",
+            "alt": "Bami Thakhek Hostel in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -672,7 +738,18 @@
       },
       "shortDescription": "Bike & Bed combines a traveller base with a café-style stop in Thakhek and is kept in Coffee only, avoiding a duplicate accommodation card.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "bike-and-bed-hostel-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/bike-and-bed-hostel-cafe/bike-and-bed-hostel-cafe.webp",
+            "alt": "Bike And Bed Hostel Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -722,7 +799,18 @@
       },
       "shortDescription": "Thakhek’s Secret Bar is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "thakheks-secret-bar-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/thakheks-secret-bar/thakheks-secret-bar.webp",
+            "alt": "Thakheks Secret Bar in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -772,7 +860,18 @@
       },
       "shortDescription": "Nana Bungalows is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "nana-bungalows-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/nana-bungalows/nana-bungalows.webp",
+            "alt": "Nana Bungalows in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -822,7 +921,18 @@
       },
       "shortDescription": "Orlasone-BBQ is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "orlasone-bbq-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/orlasone-bbq/orlasone-bbq.webp",
+            "alt": "Orlasone Bbq in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -872,7 +982,18 @@
       },
       "shortDescription": "Lao Home Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "lao-home-hostel-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/lao-home-hostel/lao-home-hostel.webp",
+            "alt": "Lao Home Hostel in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -922,7 +1043,18 @@
       },
       "shortDescription": "Catty tourist house & restaurant is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "catty-tourist-house-and-restaurant-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/catty-tourist-house-and-restaurant/catty-tourist-house-and-restaurant.webp",
+            "alt": "Catty Tourist House And Restaurant in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -972,7 +1104,18 @@
       },
       "shortDescription": "Villa Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "villa-thakhek-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/villa-thakhek/villa-thakhek.webp",
+            "alt": "Villa Thakhek in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1022,7 +1165,18 @@
       },
       "shortDescription": "YO & KO café is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "yo-and-ko-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/yo-and-ko-cafe/yo-and-ko-cafe.webp",
+            "alt": "Yo And Ko Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1072,7 +1226,18 @@
       },
       "shortDescription": "Vegetarian House Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "vegetarian-house-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/vegetarian-house-cafe/vegetarian-house-cafe.webp",
+            "alt": "Vegetarian House Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1122,7 +1287,18 @@
       },
       "shortDescription": "Bonjour Thakhek is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "bonjour-thakhek-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/bonjour-thakhek/bonjour-thakhek.webp",
+            "alt": "Bonjour Thakhek in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1172,7 +1348,18 @@
       },
       "shortDescription": "Bamboo Hostel Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "bamboo-hostel-thakhek-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/bamboo-hostel-thakhek/bamboo-hostel-thakhek.webp",
+            "alt": "Bamboo Hostel Thakhek in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1222,7 +1409,18 @@
       },
       "shortDescription": "STAY HOSTEL by M&M is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "stay-hostel-by-m-and-m-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/stay-hostel-by-m-and-m/stay-hostel-by-m-and-m.webp",
+            "alt": "Stay Hostel By M And M in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1272,7 +1470,18 @@
       },
       "shortDescription": "Thakhek View is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "thakhek-view-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/thakhek-view/thakhek-view.webp",
+            "alt": "Thakhek View in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1322,7 +1531,18 @@
       },
       "shortDescription": "La Parisian Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "la-parisian-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/la-parisian-cafe/la-parisian-cafe.webp",
+            "alt": "La Parisian Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1372,7 +1592,18 @@
       },
       "shortDescription": "Candy cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "candy-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/candy-cafe/candy-cafe.webp",
+            "alt": "Candy Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1422,7 +1653,18 @@
       },
       "shortDescription": "Organic cafe' is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "organic-cafe-card",
+            "src": "/assets/cities/laos/thakhek/cafes/organic-cafe/organic-cafe.webp",
+            "alt": "Organic Cafe in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1472,7 +1714,18 @@
       },
       "shortDescription": "Miss Tang Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "miss-tang-restaurant-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/miss-tang-restaurant/miss-tang-restaurant.webp",
+            "alt": "Miss Tang Restaurant in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1522,7 +1775,18 @@
       },
       "shortDescription": "Song Lao Guesthouse is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "song-lao-guesthouse-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/song-lao-guesthouse/song-lao-guesthouse.webp",
+            "alt": "Song Lao Guesthouse in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1572,7 +1836,18 @@
       },
       "shortDescription": "Xoksaysub Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "xoksaysub-hotel-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/xoksaysub-hotel/xoksaysub-hotel.webp",
+            "alt": "Xoksaysub Hotel in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1622,7 +1897,18 @@
       },
       "shortDescription": "Vie de France is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "vie-de-france-card",
+            "src": "/assets/cities/laos/thakhek/cafes/vie-de-france/vie-de-france.webp",
+            "alt": "Vie De France in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1722,7 +2008,18 @@
       },
       "shortDescription": "Space Bar&Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "space-bar-and-restaurant-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/space-bar-and-restaurant/space-bar-and-restaurant.webp",
+            "alt": "Space Bar And Restaurant in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1772,7 +2069,18 @@
       },
       "shortDescription": "ROK Coffee Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "rok-coffee-thakhek-card",
+            "src": "/assets/cities/laos/thakhek/cafes/rok-coffee-thakhek/rok-coffee-thakhek.webp",
+            "alt": "Rok Coffee Thakhek in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1822,7 +2130,18 @@
       },
       "shortDescription": "Room Cafe Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "room-cafe-thakhek-card",
+            "src": "/assets/cities/laos/thakhek/cafes/room-cafe-thakhek/room-cafe-thakhek.webp",
+            "alt": "Room Cafe Thakhek in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -1972,7 +2291,18 @@
       },
       "shortDescription": "Nam Phou Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "nam-phou-hostel-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/nam-phou-hostel/nam-phou-hostel.webp",
+            "alt": "Nam Phou Hostel in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2022,7 +2352,18 @@
       },
       "shortDescription": "Orlardee Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "orlardee-hostel-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/orlardee-hostel/orlardee-hostel.webp",
+            "alt": "Orlardee Hostel in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2072,7 +2413,18 @@
       },
       "shortDescription": "Thakhek Travel Lodge is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "thakhek-travel-lodge-card",
+            "src": "/assets/cities/laos/thakhek/accommodation/thakhek-travel-lodge/thakhek-travel-lodge.webp",
+            "alt": "Thakhek Travel Lodge in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2122,7 +2474,18 @@
       },
       "shortDescription": "Six Friends Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "six-friends-restaurant-card",
+            "src": "/assets/cities/laos/thakhek/restaurants/six-friends-restaurant/six-friends-restaurant.webp",
+            "alt": "Six Friends Restaurant in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2172,7 +2535,18 @@
       },
       "shortDescription": "Geelot cha is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "geelot-cha-card",
+            "src": "/assets/cities/laos/thakhek/cafes/geelot-cha/geelot-cha.webp",
+            "alt": "Geelot Cha in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2222,7 +2596,18 @@
       },
       "shortDescription": "B96 Coffee and Tea is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "b96-coffee-and-tea-card",
+            "src": "/assets/cities/laos/thakhek/cafes/b96-coffee-and-tea/b96-coffee-and-tea.webp",
+            "alt": "B96 Coffee And Tea in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
