@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import { evaluateCityPublication } from './lib/city-publish-qa.mjs';
 
-const sourceMetadata = { sourceName: 'Atlas research pipeline', reviewedAt: '2026-08-12T00:00:00.000Z' };
+const sourceMetadata = { sourceName: 'Atlas research pipeline' };
 const researchSources = [{ sourceName: 'Official source', sourceUrl: 'https://example.org', purpose: 'facts' }];
-const verification = { decision: 'accept', reason: 'verified-current-business-or-operator', checkedAt: '2026-08-12T00:00:00.000Z' };
+const verification = { decision: 'accept', reason: 'verified-current-business-or-operator' };
 const missingPhoto = { photoStatus: 'missing', photoRequiresManualFill: true };
 
 function place(id, category = 'restaurants') {
@@ -68,7 +68,6 @@ function draft() {
   return {
     country: 'laos',
     city: 'test-village',
-    generatedAt: '2026-08-12T00:00:00.000Z',
     cityData: {
       id: 'city-laos-test-village',
       slug: 'test-village',
@@ -96,15 +95,10 @@ assert.equal(valid.errors.length, 0);
 assert.equal(valid.warnings.length, 3);
 assert.equal(valid.warnings.every((entry) => entry.code === 'missing-spa-photo'), true);
 
-const underfilled = draft();
-underfilled.things.pop();
-const underfilledReport = evaluateCityPublication(underfilled);
-assert.equal(underfilledReport.status, 'blocked');
-assert.ok(underfilledReport.errors.some((entry) => entry.code === 'things-target-mismatch'));
-
-const categoryOverflow = draft();
-categoryOverflow.places.push(place('restaurant-two'));
-assert.ok(evaluateCityPublication(categoryOverflow).errors.some((entry) => entry.code === 'category-target-mismatch'));
+const arbitraryAdminCounts = draft();
+arbitraryAdminCounts.cityData.categoryTargets = { 'things-to-do': 999, restaurants: 0, cafes: 3 };
+const arbitraryAdminCountReport = evaluateCityPublication(arbitraryAdminCounts);
+assert.equal(arbitraryAdminCountReport.errors.some((entry) => /target/.test(entry.code)), false);
 
 const twoLandmarks = draft();
 twoLandmarks.cityData.exploreBoard.featuredThingIds.pop();

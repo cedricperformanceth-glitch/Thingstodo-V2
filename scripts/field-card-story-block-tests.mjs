@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateFieldCardPrimaryStory } from './lib/field-card-primary-story.mjs';
 
-const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-primary-story-copy.json', import.meta.url), 'utf8'));
+const allEditorial = JSON.parse(readFileSync(new URL('../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
+const editorial = Object.fromEntries(Object.entries(allEditorial).flatMap(([id, value]) => value?.primaryStory ? [[id, value.primaryStory]] : []));
 const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-primary-story.json', import.meta.url), 'utf8'));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardStoryBlock.astro', import.meta.url), 'utf8');
 const fieldCard = readFileSync(new URL('../src/components/field-card/FieldCard.astro', import.meta.url), 'utf8');
@@ -55,7 +56,7 @@ assert.match(hero, /linear-gradient\(var\(--field-card-sheet-wash\), var\(--fiel
 assert.doesNotMatch([fieldCard, hero, component].join('\n'), /#f4f0e7|#fffdf8/, 'Field Card components must not duplicate shared page/sheet hex values');
 assert.equal((hero.match(/\.field-card-hero__axis\s*\{/g) ?? []).length, 2, 'Hero axis should have one base rule and one mobile override only');
 assert.doesNotMatch(hero, /\.field-card-hero__axis\s*\{\s*overflow:\s*hidden;/, 'Hero mobile axis must not retain the obsolete overflow override');
-assert.match(engine, /primaryStoryEditorial/, 'View engine must support editorial primary-story overrides');
+assert.match(engine, /getEditorialPrimaryStory\(thing\.id\)/, 'View engine must support canonical editorial primary-story content');
 assert.match(engine, /thing\.fieldCard\.primaryStory/, 'View engine must support generated primary-story content');
 assert.match(engine, /storyImage = gallery\[1\]/, 'Story block must request a distinct secondary Field Card image');
 assert.doesNotMatch(engine, /fieldCard\.whyGo/, 'Field Card rendering fallbacks must not depend on the removed Why Go presentation concept');

@@ -37,7 +37,6 @@ for (const filePath of cityFiles) {
   const cityKey = `${draft.country}/${draft.city}`;
   const activeThings = (draft.things ?? []).filter((thing) => thing.category === 'things-to-do' && thing.verification?.decision !== 'reject-closed');
 
-  const coordinateGroups = new Map();
   for (const thing of activeThings) {
     const latitude = thing.coordinates?.latitude;
     const longitude = thing.coordinates?.longitude;

@@ -40,29 +40,9 @@ function checkDuplicateValues(items, keyFn, label, issues) {
   }
 }
 
-function checkTargets(draft, entities, issues) {
-  const targets = draft?.cityData?.categoryTargets ?? {};
+function countEntities(draft, entities) {
   const counts = Object.fromEntries((draft?.cityData?.categories ?? []).map((category) => [category, 0]));
   for (const entity of entities) counts[entity.category] = (counts[entity.category] ?? 0) + 1;
-
-  const thingsTarget = targets['things-to-do'];
-  if (!Number.isInteger(thingsTarget)) {
-    issues.push(issue('error', 'missing-things-target', 'Things to do requires the exact admin/editor target before publication.'));
-  } else if ((counts['things-to-do'] ?? 0) !== thingsTarget) {
-    issues.push(issue('error', 'things-target-mismatch', `Things to do must contain exactly ${thingsTarget} published activities; found ${counts['things-to-do'] ?? 0}.`));
-  }
-
-  for (const [category, target] of Object.entries(targets)) {
-    if (category === 'things-to-do' || !Number.isInteger(target)) continue;
-    if (!(draft?.cityData?.categories ?? []).includes(category)) {
-      issues.push(issue('error', 'target-for-disabled-category', `Category target '${category}' exists but the category is not enabled in City.categories.`));
-      continue;
-    }
-    const actual = counts[category] ?? 0;
-    if (actual !== target) {
-      issues.push(issue('error', 'category-target-mismatch', `${category} must contain exactly its generated target of ${target}; found ${actual}.`));
-    }
-  }
   return counts;
 }
 
@@ -200,7 +180,7 @@ export function evaluateCityPublication(draft) {
   for (const place of places) checkEntity(place, 'place', draft, allowedCategories, issues);
   for (const thing of things) checkEntity(thing, 'thing-to-do', draft, allowedCategories, issues);
 
-  const counts = checkTargets(draft, entities, issues);
+  const counts = countEntities(draft, entities);
   checkExploreBoard(draft, things, issues);
 
   const finalIssues = uniqueIssues(issues);

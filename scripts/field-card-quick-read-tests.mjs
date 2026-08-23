@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateFieldCardQuickRead } from './lib/field-card-quick-read.mjs';
 
-const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-quick-read-copy.json', import.meta.url), 'utf8'));
+const allEditorial = JSON.parse(readFileSync(new URL('../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
+const editorial = Object.fromEntries(Object.entries(allEditorial).flatMap(([id, value]) => value?.quickRead ? [[id, value.quickRead]] : []));
 const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-quick-read.json', import.meta.url), 'utf8'));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardQuickRead.astro', import.meta.url), 'utf8');
 const fieldCard = readFileSync(new URL('../src/components/field-card/FieldCard.astro', import.meta.url), 'utf8');
@@ -42,7 +43,7 @@ assert.match(fieldCard, /<FieldCardQuickRead \{thing\} \{country\}/, 'Quick Read
 assert.doesNotMatch(fieldCard, /FavoriteHeart|TripButton|field-card__utility|Open Google Maps/, 'Field Cards must not render the removed utility action strip');
 assert.doesNotMatch(fieldCard, /fieldCard\.whyGo|>Why go</i, 'Field Cards must never render the removed Why go block');
 assert.match(engine, /fieldCard\.quickRead/, 'Generated Quick Read content must be supported by the view engine');
-assert.match(engine, /quickReadEditorial/, 'Manual editorial Quick Read overrides must be supported');
+assert.match(engine, /getEditorialQuickRead\(thing\.id\)/, 'Canonical editorial Quick Read content must be supported');
 assert.match(engine, /fallbackQuickRead/, 'Activities without authored Quick Read copy must retain a deterministic fallback');
 assert.match(generator, /candidate\.fieldCardQuickRead/, 'City generation must accept authored Field Card Quick Read copy');
 assert.match(generator, /assertValidFieldCardQuickRead/, 'Authored Quick Read copy must be validated before generation');

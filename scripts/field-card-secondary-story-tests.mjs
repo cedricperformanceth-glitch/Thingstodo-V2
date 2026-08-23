@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateFieldCardSecondaryStory } from './lib/field-card-secondary-story.mjs';
 
-const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-secondary-story-copy.json', import.meta.url), 'utf8'));
+const allEditorial = JSON.parse(readFileSync(new URL('../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
+const editorial = Object.fromEntries(Object.entries(allEditorial).flatMap(([id, value]) => Object.prototype.hasOwnProperty.call(value ?? {}, 'secondaryStory') && value.secondaryStory ? [[id, value.secondaryStory]] : []));
 const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-secondary-story.json', import.meta.url), 'utf8'));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardSecondaryStory.astro', import.meta.url), 'utf8');
 const beforeYouLeaveComponent = readFileSync(new URL('../src/components/field-card/FieldCardBeforeYouLeave.astro', import.meta.url), 'utf8');
@@ -70,7 +71,7 @@ assert.match(beforeYouLeaveComponent, /field-card-before-you-leave__note p[\s\S]
 
 assert.match(fieldCard, /<FieldCardStoryBlock[\s\S]*?<FieldCardSecondaryStory/, 'Secondary story must render directly after the Primary Story block');
 assert.match(fieldCard, /<FieldCardSecondaryStory[\s\S]*?adSlots\[0\][\s\S]*?<FieldCardBeforeYouLeave/, 'Advertising must remain after the secondary story and before Before You Leave');
-assert.match(engine, /secondaryStoryEditorial/, 'View engine must support editorial secondary-story overrides');
+assert.match(engine, /getEditorialSecondaryStory\(thing\.id\)/, 'View engine must support canonical editorial secondary-story content');
 assert.match(engine, /thing\.fieldCard\.secondaryStory/, 'View engine must support generated secondary-story content');
 assert.match(engine, /fallbackSecondaryStory/, 'Legacy activities must retain a deterministic secondary-story fallback');
 assert.match(engine, /gallery\[2\]/, 'Secondary story photo must use the third Field Card gallery slot');

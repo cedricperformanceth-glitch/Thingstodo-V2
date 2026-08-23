@@ -4,21 +4,6 @@
   "city": "thakhek",
   "profile": "compact",
   "researchPlan": {
-    "categoryTargetPolicies": {
-      "things-to-do": {
-        "min": 5,
-        "max": 25,
-        "selectionMode": "editorial"
-      }
-    },
-    "subcategoryTargets": {},
-    "searchPriorities": {
-      "practical-services": [
-        "hospital",
-        "tourism-office",
-        "immigration-office"
-      ]
-    },
     "selection": {
       "searchArea": {
         "scope": "settlement-first",
@@ -59,9 +44,6 @@
       },
       "categories": {
         "things-to-do": {
-          "targetControlledByAdmin": true,
-          "hardMin": 5,
-          "hardMax": 25,
           "useExistingAtlasDatabaseAsPrioritySeed": true,
           "locationScope": "destination-linked-without-fixed-radius",
           "selectionGoal": "distinct-visitor-relevant-experiences",
@@ -107,7 +89,6 @@
           "automaticSubcategoryFilters": false
         },
         "markets": {
-          "minimum": 0,
           "venueTypes": [
             "market",
             "night-market"
@@ -115,7 +96,6 @@
           "automaticSubcategoryFilters": false
         },
         "practical-services": {
-          "minimum": 0,
           "searchTypes": [
             "hospital",
             "tourism-office",
@@ -308,10 +288,10 @@
       "practical-services"
     ],
     "categoryTargets": {
-      "things-to-do": 17,
-      "restaurants": 8,
-      "cafes": 14,
-      "accommodation": 13,
+      "things-to-do": 18,
+      "restaurants": 24,
+      "cafes": 25,
+      "accommodation": 21,
       "scooter-rental": 5
     },
     "hero": {
@@ -344,13 +324,7 @@
         "thing-hin-nam-no-national-park"
       ]
     },
-    "manualLocks": {
-      "categoryTargets.things-to-do": {
-        "value": 17,
-        "source": "manual",
-        "locked": true
-      }
-    },
+    "manualLocks": {},
     "seo": {
       "title": "Thakhek travel guide | Things To Do Atlas",
       "description": "Independent Thakhek travel guide for the town, caves and Thakhek Loop.",
@@ -3758,7 +3732,7 @@
       ],
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hin+Nam+No+National+Park+Laos",
-      "isLandmark": false,
+      "isLandmark": true,
       "longDescription": "Go beyond the classic Loop into Hin Nam No’s exceptional karst landscape, where community-guided cave, river and nature experiences reach one of Laos’s most important protected areas.",
       "breadcrumbs": [
         "laos",

@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateFieldCardHero } from './lib/field-card-hero.mjs';
 
-const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-hero-copy.json', import.meta.url), 'utf8'));
+const allEditorial = JSON.parse(readFileSync(new URL('../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
+const editorial = Object.fromEntries(Object.entries(allEditorial).flatMap(([id, value]) => value?.hero ? [[id, value.hero]] : []));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardHero.astro', import.meta.url), 'utf8');
 const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
 const generator = readFileSync(new URL('./generate-city.mjs', import.meta.url), 'utf8');
@@ -36,7 +37,7 @@ assert.match(component, /READ THE VISIT/, 'Universal Hero must retain the visit-
 assert.match(component, /FIELD NOTE/, 'Universal Hero must retain the field-note stamp');
 assert.match(component, /Photo to add/, 'Universal Hero must preserve a visible missing-photo state');
 assert.match(engine, /fieldCard\.hero/, 'Generated Field Card Hero content must be supported by the view engine');
-assert.match(engine, /heroEditorial/, 'Manual editorial Hero overrides must be supported');
+assert.match(engine, /getEditorialHero\(thing\.id\)/, 'Canonical editorial Hero content must be supported');
 assert.match(generator, /candidate\.fieldCardHero/, 'City generation must accept authored Field Card Hero copy');
 assert.match(generator, /assertValidFieldCardHero/, 'Authored Hero copy must be validated before generation');
 assert.match(generator, /fieldCard:\s*\{[\s\S]*?\n\s*hero,/, 'Validated Hero copy must be persisted into fieldCard.hero');

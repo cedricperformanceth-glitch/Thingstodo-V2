@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { chooseFieldCardTemplate, mergeGenerated, rerollAutomaticCategoryTargets, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
+import { chooseFieldCardTemplate, mergeGenerated, syncGenerationContract, tsModule, validateSource, slugify } from './lib/city-pipeline.mjs';
 import { assertValidSpaCardCandidate } from './lib/spa-card-generation.mjs';
 import { materializeSpaCardEditorial } from './lib/spa-card-editorial.mjs';
 import { applySpaCardPhotoSelection, validateAutomaticPhotoCandidate } from './lib/spa-card-media.mjs';
@@ -19,10 +19,8 @@ const [country, city, ...flags] = process.argv.slice(2);
 const dryRun = flags.includes('--dry-run');
 const fromCity = flags.includes('--from-city');
 const publishCheck = flags.includes('--publish-check');
-const rerollTargets = flags.includes('--reroll-targets');
 const skipPhotoDiscovery = flags.includes('--skip-photo-discovery') || process.env.ATLAS_OFFLINE === '1';
-if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check] [--reroll-targets] [--skip-photo-discovery]');
-if (fromCity && rerollTargets) throw new Error('--reroll-targets requires versioned research sources; it cannot be combined with --from-city.');
+if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check] [--skip-photo-discovery]');
 
 const root = process.cwd();
 const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`);
@@ -32,8 +30,7 @@ if (!fs.existsSync(draftFile)) throw new Error(`No structural draft for ${countr
 if (!fromCity && !fs.existsSync(sourceFile)) throw new Error(`No versioned research inputs at ${path.relative(root, sourceFile)}.`);
 
 const draft = JSON.parse(fs.readFileSync(draftFile, 'utf8'));
-if (rerollTargets) rerollAutomaticCategoryTargets(draft);
-else syncGenerationContract(draft);
+syncGenerationContract(draft);
 const input = fromCity
   ? { places: draft.places, things: draft.things, city: draft.cityData }
   : JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
@@ -113,13 +110,6 @@ function selectPlaceCandidates(candidates, baseDraft) {
     selected.push(candidate);
   }
 
-  for (const [category, target] of Object.entries(targets)) {
-    if (category === 'things-to-do' || !Number.isInteger(target)) continue;
-    const available = (manualCounts[category] ?? 0) + (selectedCounts[category] ?? 0);
-    if (available < target) {
-      throw new Error(`Insufficient qualified candidates for ${category}: target ${target}, available ${available}. Research more candidates instead of lowering the generated target.`);
-    }
-  }
   return selected;
 }
 

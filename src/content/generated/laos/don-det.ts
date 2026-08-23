@@ -23,8 +23,8 @@ const data = {
     "categoryTargets": {
       "things-to-do": 11,
       "restaurants": 12,
-      "cafes": 9,
-      "accommodation": 14
+      "cafes": 11,
+      "accommodation": 16
     },
     "hero": {
       "eyebrow": "Si Phan Don · Southern Laos",
@@ -56,13 +56,7 @@ const data = {
         "thing-khone-phapheng-falls"
       ]
     },
-    "manualLocks": {
-      "categoryTargets.things-to-do": {
-        "value": 11,
-        "source": "manual",
-        "locked": true
-      }
-    },
+    "manualLocks": {},
     "seo": {
       "title": "Don Det travel guide | Things To Do Atlas",
       "description": "Independent Don Det travel guide.",
@@ -85,18 +79,7 @@ const data = {
       },
       "shortDescription": "A long-running Don Det restaurant for an unhurried island meal, with Lao and European dishes served on the quieter sunrise side.",
       "media": {
-        "card": {
-          "image": {
-            "id": "mama-leuah-restaurant-card",
-            "src": "/assets/cities/laos/don-det/restaurants/mama-leuah-restaurant/mama-leuah-restaurant.webp",
-            "alt": "Mama Leuah Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -107,8 +90,8 @@ const data = {
           "Island classic",
           "Slow meal"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -146,18 +129,7 @@ const data = {
       },
       "shortDescription": "A lively riverside restaurant and bar near the ferry landing, useful for food, drinks and an easy first or last evening.",
       "media": {
-        "card": {
-          "image": {
-            "id": "the-4000-island-bar-card",
-            "src": "/assets/cities/laos/don-det/restaurants/the-4000-island-bar/the-4000-island-bar.webp",
-            "alt": "The 4000 Island Bar on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -168,8 +140,8 @@ const data = {
           "Food drinks",
           "Late evening"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -207,18 +179,7 @@ const data = {
       },
       "shortDescription": "A relaxed western-side restaurant and bar where casual food and river views make an easy stop before the Don Det sunset.",
       "media": {
-        "card": {
-          "image": {
-            "id": "ois-place-card",
-            "src": "/assets/cities/laos/don-det/restaurants/ois-place/ois-place.webp",
-            "alt": "Oi's Place on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -229,8 +190,8 @@ const data = {
           "River view",
           "Relaxed meal"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -268,18 +229,7 @@ const data = {
       },
       "shortDescription": "A riverside restaurant where the Mekong setting is part of the meal, better for a slower lunch or dinner than a quick stop.",
       "media": {
-        "card": {
-          "image": {
-            "id": "the-boathouse-card",
-            "src": "/assets/cities/laos/don-det/restaurants/the-boathouse/the-boathouse.webp",
-            "alt": "The Boathouse restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -290,8 +240,8 @@ const data = {
           "Slow lunch",
           "Mekong view"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -329,18 +279,7 @@ const data = {
       },
       "shortDescription": "A sunrise-side guesthouse restaurant for a calmer home-style meal, away from the louder bar-focused addresses around northern Don Det.",
       "media": {
-        "card": {
-          "image": {
-            "id": "mama-piang-guesthouse-and-restaurant-card",
-            "src": "/assets/cities/laos/don-det/restaurants/mama-piang-guesthouse-and-restaurant/mama-piang-guesthouse-and-restaurant.webp",
-            "alt": "Mama Piang Guesthouse and Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -351,8 +290,8 @@ const data = {
           "Sunrise side",
           "Quiet meal"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -390,18 +329,7 @@ const data = {
       },
       "shortDescription": "A casual Don Det restaurant-bar with coffee, cocktails and meals, flexible enough for breakfast, dinner or an evening drink.",
       "media": {
-        "card": {
-          "image": {
-            "id": "sahai-bar-card",
-            "src": "/assets/cities/laos/don-det/restaurants/sahai-bar/sahai-bar.webp",
-            "alt": "Sahai Bar on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -412,8 +340,8 @@ const data = {
           "All day",
           "Casual bar"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -451,18 +379,7 @@ const data = {
       },
       "shortDescription": "A social Don Det restaurant and bar with breakfast, casual meals and drinks, suited to travellers who enjoy a busier backpacker atmosphere.",
       "media": {
-        "card": {
-          "image": {
-            "id": "keas-backpackers-paradise-restaurant-and-bar-card",
-            "src": "/assets/cities/laos/don-det/restaurants/keas-backpackers-paradise-restaurant-and-bar/keas-backpackers-paradise-restaurant-and-bar.webp",
-            "alt": "Kea's Backpackers Paradise Restaurant and Bar on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -473,8 +390,8 @@ const data = {
           "Breakfast",
           "Evening drinks"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -512,18 +429,7 @@ const data = {
       },
       "shortDescription": "A laid-back restaurant and bar for simple island food and drinks, suited to an uncomplicated meal with friends on Don Det.",
       "media": {
-        "card": {
-          "image": {
-            "id": "banana-restaurant-and-bar-card",
-            "src": "/assets/cities/laos/don-det/restaurants/banana-restaurant-and-bar/banana-restaurant-and-bar.webp",
-            "alt": "Banana Restaurant and Bar on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -534,8 +440,8 @@ const data = {
           "Drinks",
           "Easy stop"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -573,18 +479,7 @@ const data = {
       },
       "shortDescription": "A casual Don Det food stop for wraps and Lao dishes, useful when you want a quicker meal between island activities.",
       "media": {
-        "card": {
-          "image": {
-            "id": "wrap-and-roll-card",
-            "src": "/assets/cities/laos/don-det/restaurants/wrap-and-roll/wrap-and-roll.webp",
-            "alt": "Wrap and Roll on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -595,8 +490,8 @@ const data = {
           "Lao food",
           "Easy lunch"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -634,18 +529,7 @@ const data = {
       },
       "shortDescription": "An Indian and Asian restaurant on the sunset side, giving Don Det a useful change from the island’s usual Lao-Western menus.",
       "media": {
-        "card": {
-          "image": {
-            "id": "datta-bananaleaf-restaurant-card",
-            "src": "/assets/cities/laos/don-det/restaurants/datta-bananaleaf-restaurant/datta-bananaleaf-restaurant.webp",
-            "alt": "Datta Bananaleaf Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -656,8 +540,8 @@ const data = {
           "Sunset side",
           "Dinner"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -695,18 +579,7 @@ const data = {
       },
       "shortDescription": "A simple local restaurant toward Don Khon, serving breakfast and everyday meals for travellers exploring the southern end of the islands.",
       "media": {
-        "card": {
-          "image": {
-            "id": "restaurant-naly-card",
-            "src": "/assets/cities/laos/don-det/restaurants/restaurant-naly/restaurant-naly.webp",
-            "alt": "Restaurant Naly on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -717,8 +590,8 @@ const data = {
           "South route",
           "All day"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -756,18 +629,7 @@ const data = {
       },
       "shortDescription": "A straightforward Indian restaurant on Don Det’s sunset side, useful when curry, dosa or a vegetarian-friendly meal is the priority.",
       "media": {
-        "card": {
-          "image": {
-            "id": "hathim-indian-restaurant-card",
-            "src": "/assets/cities/laos/don-det/restaurants/hathim-indian-restaurant/hathim-indian-restaurant.webp",
-            "alt": "Hathim Indian Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -778,8 +640,8 @@ const data = {
           "Curry stop",
           "Vegetarian"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -817,18 +679,7 @@ const data = {
       },
       "shortDescription": "A riverfront café-restaurant on the sunrise side with coffee, breakfast and healthy dishes for a longer daytime pause beside the Mekong.",
       "media": {
-        "card": {
-          "image": {
-            "id": "crazy-gecko-card",
-            "src": "/assets/cities/laos/don-det/restaurants/crazy-gecko/crazy-gecko.webp",
-            "alt": "Crazy Gecko cafe on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -839,8 +690,8 @@ const data = {
           "Breakfast",
           "Healthy food"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -878,18 +729,7 @@ const data = {
       },
       "shortDescription": "A practical sunrise-side stop for breakfast, coffee and generous casual meals, about a short walk from Don Det’s ferry area.",
       "media": {
-        "card": {
-          "image": {
-            "id": "street-view-restaurant-card",
-            "src": "/assets/cities/laos/don-det/cafes/street-view-restaurant/street-view-restaurant.webp",
-            "alt": "Street View Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -939,18 +779,7 @@ const data = {
       },
       "shortDescription": "A small guesthouse restaurant that works well for breakfast, coffee or an easy daytime meal without leaving the quieter island rhythm.",
       "media": {
-        "card": {
-          "image": {
-            "id": "mama-tanon-guest-house-and-restaurant-card",
-            "src": "/assets/cities/laos/don-det/cafes/mama-tanon-guest-house-and-restaurant/mama-tanon-guest-house-and-restaurant.webp",
-            "alt": "Mama Tanon Guest House and Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1000,18 +829,7 @@ const data = {
       },
       "shortDescription": "A genuine coffee shop and small gift stop with Wi-Fi and power outlets, especially useful for a work break on Don Det.",
       "media": {
-        "card": {
-          "image": {
-            "id": "dondet-coffee-house-and-gift-shop-card",
-            "src": "/assets/cities/laos/don-det/cafes/dondet-coffee-house-and-gift-shop/dondet-coffee-house-and-gift-shop.webp",
-            "alt": "Dondet Coffee House and Gift Shop on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1066,18 +884,7 @@ const data = {
       },
       "shortDescription": "A current Don Det coffee-and-restaurant stop with a clear coffee focus, suitable for a daytime drink or an uncomplicated meal.",
       "media": {
-        "card": {
-          "image": {
-            "id": "allnew-coffee-and-restaurant-card",
-            "src": "/assets/cities/laos/don-det/cafes/allnew-coffee-and-restaurant/allnew-coffee-and-restaurant.webp",
-            "alt": "AllNew Coffee and Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1127,18 +934,7 @@ const data = {
       },
       "shortDescription": "An all-day café-bar near northern Don Det with coffee, breakfast and meals, convenient when you want one flexible stop.",
       "media": {
-        "card": {
-          "image": {
-            "id": "paradise-restaurant-cafe-and-bar-card",
-            "src": "/assets/cities/laos/don-det/cafes/paradise-restaurant-cafe-and-bar/paradise-restaurant-cafe-and-bar.webp",
-            "alt": "Paradise Restaurant Cafe and Bar on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1188,18 +984,7 @@ const data = {
       },
       "shortDescription": "An early-opening Don Det restaurant offering coffee, breakfast and brunch, useful when you want food before starting a full island day.",
       "media": {
-        "card": {
-          "image": {
-            "id": "jimmee-restaurant-card",
-            "src": "/assets/cities/laos/don-det/cafes/jimmee-restaurant/jimmee-restaurant.webp",
-            "alt": "Jimmee Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1249,18 +1034,7 @@ const data = {
       },
       "shortDescription": "A central guesthouse restaurant serving breakfast and brunch, convenient for coffee and a simple meal close to Don Det’s main village.",
       "media": {
-        "card": {
-          "image": {
-            "id": "ms-ning-restaurant-and-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/cafes/ms-ning-restaurant-and-guesthouse/ms-ning-restaurant-and-guesthouse.webp",
-            "alt": "Ms Ning Restaurant and Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1310,18 +1084,7 @@ const data = {
       },
       "shortDescription": "A riverside all-day restaurant known for coffee and breakfast as well as meals, useful for an early start near the water.",
       "media": {
-        "card": {
-          "image": {
-            "id": "kamphong-riverside-restaurant-card",
-            "src": "/assets/cities/laos/don-det/cafes/kamphong-riverside-restaurant/kamphong-riverside-restaurant.webp",
-            "alt": "Kamphong Riverside Restaurant on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1371,18 +1134,7 @@ const data = {
       },
       "shortDescription": "Sunset-side riverside studios with private outdoor space, suited to travellers wanting a quieter stay directly beside the Mekong.",
       "media": {
-        "card": {
-          "image": {
-            "id": "dodand-studio-and-sunset-riverside-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/dodand-studio-and-sunset-riverside-guesthouse/dodand-studio-and-sunset-riverside-guesthouse.webp",
-            "alt": "Dodand Studio And Sunset Riverside Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1432,18 +1184,7 @@ const data = {
       },
       "shortDescription": "Riverside rooms and bungalows with broad sunset views, offering an easy island base with food and drinks available on site.",
       "media": {
-        "card": {
-          "image": {
-            "id": "dondet-vixay-sunset-and-river-view-card",
-            "src": "/assets/cities/laos/don-det/accommodation/dondet-vixay-sunset-and-river-view/dondet-vixay-sunset-and-river-view.webp",
-            "alt": "Dondet Vixay Sunset And River View on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1493,18 +1234,7 @@ const data = {
       },
       "shortDescription": "A small sunrise-side guesthouse with river-facing balconies and simple rooms, positioned away from the busiest northern part of Don Det.",
       "media": {
-        "card": {
-          "image": {
-            "id": "thiptavanh-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/thiptavanh-guesthouse/thiptavanh-guesthouse.webp",
-            "alt": "Thiptavanh Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1554,18 +1284,7 @@ const data = {
       },
       "shortDescription": "A sunset-side bungalow stay with garden space, close enough to restaurants and bars while still offering a quieter place to sleep.",
       "media": {
-        "card": {
-          "image": {
-            "id": "moon-by-night-card",
-            "src": "/assets/cities/laos/don-det/accommodation/moon-by-night/moon-by-night.webp",
-            "alt": "Moon By Night on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1615,18 +1334,7 @@ const data = {
       },
       "shortDescription": "A more polished hotel option near the northern arrival area, useful for travellers wanting a conventional room and easy village access.",
       "media": {
-        "card": {
-          "image": {
-            "id": "don-det-hotel-card",
-            "src": "/assets/cities/laos/don-det/accommodation/don-det-hotel/don-det-hotel.webp",
-            "alt": "Don Det Hotel on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1676,18 +1384,7 @@ const data = {
       },
       "shortDescription": "A well-kept guesthouse near the village centre with private rooms and balconies, convenient for the ferry, restaurants and island paths.",
       "media": {
-        "card": {
-          "image": {
-            "id": "baba-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/baba-guesthouse/baba-guesthouse.webp",
-            "alt": "Baba Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1737,18 +1434,7 @@ const data = {
       },
       "shortDescription": "Sunrise-side bungalows with a garden and restaurant, suited to travellers cycling between Don Det, the bridge and Don Khon.",
       "media": {
-        "card": {
-          "image": {
-            "id": "boonmy-bungalows-and-restaurant-don-det-4000-islands-card",
-            "src": "/assets/cities/laos/don-det/accommodation/boonmy-bungalows-and-restaurant-don-det-4000-islands/boonmy-bungalows-and-restaurant-don-det-4000-islands.webp",
-            "alt": "Boonmy Bungalows And Restaurant Don Det 4000 Islands on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1798,18 +1484,7 @@ const data = {
       },
       "shortDescription": "A sunset-side guesthouse with river-facing verandas, useful for a quieter stay slightly removed from the busiest part of the village.",
       "media": {
-        "card": {
-          "image": {
-            "id": "namknong-view-card",
-            "src": "/assets/cities/laos/don-det/accommodation/namknong-view/namknong-view.webp",
-            "alt": "Namknong View on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1859,18 +1534,7 @@ const data = {
       },
       "shortDescription": "Simple garden rooms close to the main village, practical for travellers who want privacy while staying within walking distance of services.",
       "media": {
-        "card": {
-          "image": {
-            "id": "dondet-garden-guest-house-card",
-            "src": "/assets/cities/laos/don-det/accommodation/dondet-garden-guest-house/dondet-garden-guest-house.webp",
-            "alt": "Dondet Garden Guest House on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1920,18 +1584,7 @@ const data = {
       },
       "shortDescription": "A small guesthouse on the southern island route, useful as a quieter base closer to the bridge and Don Khon.",
       "media": {
-        "card": {
-          "image": {
-            "id": "rivergarden-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/rivergarden-guesthouse/rivergarden-guesthouse.webp",
-            "alt": "Rivergarden Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -1981,18 +1634,7 @@ const data = {
       },
       "shortDescription": "A straightforward sunset-side guesthouse, useful for budget travellers who want simple lodging near the main Don Det village area.",
       "media": {
-        "card": {
-          "image": {
-            "id": "green-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/green-guesthouse/green-guesthouse.webp",
-            "alt": "Green Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2042,18 +1684,7 @@ const data = {
       },
       "shortDescription": "A budget-friendly guesthouse near northern Don Det, convenient for the ferry, restaurants and the first section of the island paths.",
       "media": {
-        "card": {
-          "image": {
-            "id": "yommalay-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/yommalay-guesthouse/yommalay-guesthouse.webp",
-            "alt": "Yommalay Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2103,18 +1734,7 @@ const data = {
       },
       "shortDescription": "A guesthouse farther down the sunrise path toward the old bridge, suited to travellers who prefer the quieter southern side.",
       "media": {
-        "card": {
-          "image": {
-            "id": "tawan-daeng-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/tawan-daeng-guesthouse/tawan-daeng-guesthouse.webp",
-            "alt": "Tawan Daeng Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2164,18 +1784,7 @@ const data = {
       },
       "shortDescription": "A small sunset-side homestay-style guesthouse, useful for travellers seeking simple lodging away from the main arrival strip.",
       "media": {
-        "card": {
-          "image": {
-            "id": "noupad-sunset-guesthouse-card",
-            "src": "/assets/cities/laos/don-det/accommodation/noupad-sunset-guesthouse/noupad-sunset-guesthouse.webp",
-            "alt": "Noupad Sunset Guesthouse on Don Det",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2225,18 +1834,7 @@ const data = {
       },
       "shortDescription": "The main Don Det boat connection for Nakasang, useful to save before arrival, departure and onward bus or minivan connections.",
       "media": {
-        "card": {
-          "image": {
-            "id": "don-det-ferry-card",
-            "src": "/assets/cities/laos/don-det/practical-services/don-det-ferry/don-det-ferry.webp",
-            "alt": "Motorbike crossing on the Don Det ferry",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }
@@ -2286,18 +1884,7 @@ const data = {
       },
       "shortDescription": "A public local health centre on Don Khon for basic primary care and first assessment, not a substitute for a fully equipped hospital.",
       "media": {
-        "card": {
-          "image": {
-            "id": "khon-health-center-khonnua-card",
-            "src": "/assets/cities/laos/don-det/practical-services/khon-health-center-khonnua/khon-health-center-khonnua.webp",
-            "alt": "Khon Health Center building in Khonnua",
-            "sourceType": "manual",
-            "sourceName": "User-supplied photo",
-            "license": "User-supplied",
-            "manual": true,
-            "locked": true
-          }
-        },
+        "card": {},
         "fieldCard": {
           "gallery": []
         }

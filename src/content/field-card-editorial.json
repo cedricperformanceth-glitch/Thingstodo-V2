@@ -63,18 +63,6 @@
         "license": "CC BY-SA 4.0",
         "manual": true,
         "locked": true
-      },
-      {
-        "id": "4000-islands-kayaking-don-det-rowers",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rowers%20on%20a%20long%20racing%20pirogue%20training%20for%20a%20competition%20at%20golden%20hour%20in%20Don%20Det%20Laos.jpg?width=1600",
-        "alt": "Don Det rowers training on a long racing pirogue on the Mekong, used as local paddling context for kayaking",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rowers_on_a_long_racing_pirogue_training_for_a_competition_at_golden_hour_in_Don_Det_Laos.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Basile Morin",
-        "license": "CC BY-SA 4.0",
-        "manual": true,
-        "locked": true
       }
     ],
     "practical": {
@@ -725,18 +713,6 @@
         "license": "CC BY-SA 4.0",
         "manual": true,
         "locked": true
-      },
-      {
-        "id": "cycle-don-det-paddy-field-path",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Path%20and%20trees%20in%20green%20paddy%20fields%2C%20at%20golden%20hour%2C%20in%20Don%20Det%2C%20Laos.jpg?width=1600",
-        "alt": "Path through green paddy fields on Don Det, used as exact local route context for cycling",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Path_and_trees_in_green_paddy_fields,_at_golden_hour,_in_Don_Det,_Laos.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Basile Morin",
-        "license": "CC BY-SA 4.0",
-        "manual": true,
-        "locked": true
       }
     ],
     "practical": {
@@ -909,18 +885,6 @@
         "alt": "Silhouettes of green islands beneath a colorful sunset over the Mekong at Don Det",
         "sourceType": "wikimedia",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silhouettes_of_green_islands_at_sunset_with_colorful_sky_over_the_Mekong_in_Don_Det_Laos.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Basile Morin",
-        "license": "CC BY-SA 4.0",
-        "manual": true,
-        "locked": true
-      },
-      {
-        "id": "don-det-sunset-island-pink-yellow-clouds-basile-morin",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Silhouette%20of%20an%20island%20at%20sunset%20with%20blue%20sky%20pink%20and%20yellow%20clouds%20in%20Don%20Det%20Si%20Phan%20Don%20Laos.jpg?width=1600",
-        "alt": "Island silhouette beneath pink and yellow sunset clouds at Don Det in Si Phan Don",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silhouette_of_an_island_at_sunset_with_blue_sky_pink_and_yellow_clouds_in_Don_Det_Si_Phan_Don_Laos.jpg",
         "sourceName": "Wikimedia Commons",
         "author": "Basile Morin",
         "license": "CC BY-SA 4.0",
@@ -5199,18 +5163,6 @@
         "license": "CC BY-SA 4.0",
         "manual": true,
         "locked": true
-      },
-      {
-        "id": "tad-lo-half-day-trek-bolaven-tad-lo",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bolaven%20Plateau%20Tad%20Lo%20%2CLaos.jpg?width=1600",
-        "alt": "Rural Bolaven Plateau scenery at Tad Lo, Laos",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bolaven_Plateau_Tad_Lo_,Laos.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Corto Maltese 1999",
-        "license": "CC BY 2.0",
-        "manual": true,
-        "locked": true
       }
     ],
     "practical": {
@@ -5656,18 +5608,6 @@
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paddy_field_Bolaven_Plateau.jpg",
         "sourceName": "Wikimedia Commons",
         "author": "Christophe95",
-        "license": "CC BY-SA 4.0",
-        "manual": true,
-        "locked": true
-      },
-      {
-        "id": "tad-lo-two-day-trek-footbridge",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20of%20Tad%20Lo%20river%20from%20above%2C%20with%20temporary%20footbridge%20and%20goats%2C%20Laos.jpg?width=1600",
-        "alt": "Temporary wooden footbridge across the Tad Lo river with goats on the rocks, Bolaven Plateau, Laos",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Basile Morin",
         "license": "CC BY-SA 4.0",
         "manual": true,
         "locked": true

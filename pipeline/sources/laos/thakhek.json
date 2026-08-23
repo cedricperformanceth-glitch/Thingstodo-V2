@@ -714,7 +714,7 @@
       "id": "thing-hin-nam-no-national-park",
       "slug": "hin-nam-no-national-park",
       "name": "Hin Nam No National Park",
-      "isLandmark": false,
+      "isLandmark": true,
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hin+Nam+No+National+Park+Laos",
       "shortDescription": "Go beyond the classic Loop into Hin Nam No’s exceptional karst landscape, where community-guided cave, river and nature experiences reach one of Laos’s most important protected areas.",
       "spaCard": {

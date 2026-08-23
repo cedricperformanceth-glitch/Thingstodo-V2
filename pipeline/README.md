@@ -7,7 +7,7 @@ static, versioned content and never researches businesses, maps, or media for a 
 module and a versioned pipeline container. `--settlement` is mandatory and accepts only
 `village` or `city`; it selects the universal SPA category allowance and seeds the initial
 city category list. The profile remains a separate density/search-scope hint and does not
-override the country content ranges.
+choose or validate category counts.
 
 `City.categories` is the explicit editorial source of truth for the categories enabled in a city and their order.
 The admin/editor owns that decision. Generation validates the list against the settlement allowance and preserves it;
@@ -20,39 +20,19 @@ Default city SPA order: Things to do → Restaurants → Coffee → Guest Houses
 
 `My Favorites` is appended by the SPA engine for every settlement and is not part of `City.categories` or the generated category count.
 
-## Laos content targets
+## Admin-controlled category counts
 
-The versioned generation contract lives in `pipeline/contracts/content-targets.json`. Automatic numeric values use
-`random-once`: a value is drawn from the configured range when a city is first prepared, then persisted in the city draft.
-Normal regeneration keeps that value. `--reroll-targets` deliberately redraws only automatic targets and leaves manually
-locked editorial targets untouched.
-Only categories enabled in `City.categories` receive a target or research plan.
+`City.categoryTargets` contains only counts explicitly chosen by the admin/editor for that destination.
+There are no country-level numeric ranges, no random target generation, no reroll step and no publication failure
+when the final number of verified records differs from an admin count.
 
-Things to do is different from the automatic address categories:
-- the admin/editor chooses the exact number for each settlement;
-- hard minimum: 5 activities;
-- hard maximum: 25 activities;
-- until the admin selects a value, the pipeline stores the policy but does not invent a target;
-- the selected value is manually locked and survives subsequent generation refreshes.
+A city can be created with repeated explicit parameters such as:
 
-Village automatic targets:
-- Restaurants: 10–15, including a nested Bar research target of 3–5. Bar is not a standalone category.
-- Coffee: 10–15.
-- Guest Houses: 12–19.
+`npm run create-city -- laos city-slug --settlement city --target things-to-do=18 --target restaurants=12 --target cafes=8`
 
-City automatic targets:
-- Restaurants: 19–25.
-- Coffee: 19–25.
-- Guest Houses: 19–25.
-- Rental Scooter: 5–12.
-
-There is deliberately no global numeric target for Gym & Fitness, Market & Shopping,
-or Essential Information. Their search limits and inclusion rules are defined separately in the selection contract.
-
-For Essential Information in Laos, research always attempts to identify a hospital, a tourism office,
-and the official immigration office used for immigration/visa-extension matters. These are search priorities,
-not guaranteed records: if a valid local option does not exist or cannot be verified, generation does not invent one.
-Visa agencies and travel agencies are not substitutes for the immigration office.
+Generation may use an admin count as a shortlist cap when one is present. If fewer qualified candidates are available,
+it keeps the verified candidates instead of lowering a hidden target or blocking the build. Counts can be changed directly
+in the city data by the admin/editor.
 
 ## Laos selection rules
 
@@ -75,7 +55,7 @@ General selection style:
 ### Automatic Place ranking
 
 `pipeline/contracts/candidate-ranking.json` and `scripts/lib/candidate-ranking.mjs` rank verified practical Place candidates
-before the category target is filled. Ranking is source-neutral: no booking, map or travel platform receives a built-in
+before an optional admin count cap is applied. Ranking is source-neutral: no booking, map or travel platform receives a built-in
 vendor bonus.
 
 The ranking can use a very small set of normalized `rankingSignals` supplied by the research stage:
@@ -143,7 +123,7 @@ Essential Information:
 Research is adaptive rather than trying to scan a fixed huge number of sites:
 - start with four discovery queries per category;
 - expand when necessary, up to twelve queries per category;
-- aim for a candidate pool around 1.5× the final target;
+- when an admin count is supplied, aim for a candidate pool around 1.5× that requested count;
 - stop once enough qualified candidates have been found and verified.
 
 ### Candidate identity and repeated mentions
@@ -220,9 +200,8 @@ small current rating snapshot as a ranking signal, but does not ingest review te
 reviews, photos, and editorial wording from competing guide or booking platforms are not republished. TripAdvisor candidate
 discovery remains restricted to name-only use outside the small normalized reputation signal.
 
-`npm run generate-city -- laos city-slug --dry-run` validates the source container and shows the current persisted generation
-plan and ranked output without writing Atlas content. Without `--dry-run`, it fills only unlocked gaps and re-syncs the
-configured city/category generation contract before writing. Older draft containers without a persisted `researchPlan` are
-migrated automatically on their next non-dry-run refresh. It never overwrites fields listed in `manualLocks` with
+`npm run generate-city -- laos city-slug --dry-run` validates the source container and shows the current research
+plan and ranked output without writing Atlas content. Without `--dry-run`, it fills only unlocked gaps and preserves the
+admin-selected city categories and counts. Older draft containers without the current `researchPlan` are refreshed on their next non-dry-run generation. It never overwrites fields listed in `manualLocks` with
 `source: manual` and `locked: true`. Locks live on the relevant city/entity record as `manualLocks["nested.field"]`; a lock
 on a parent path protects its children. Pipeline-draft root locks are not supported.

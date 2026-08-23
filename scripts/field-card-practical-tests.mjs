@@ -45,7 +45,7 @@ assert.match(fieldCard, /FieldCardPracticalNotes/, 'Field Card must render the u
 assert.doesNotMatch(fieldCard, /<h2>Practical information<\/h2>/, 'Field Card must remove the old raw practical paragraph');
 assert.doesNotMatch(fieldCard, /<h2>How to get there<\/h2>/, 'Field Card must remove the old raw access paragraph');
 assert.doesNotMatch(fieldCard, /<h2>Useful notes<\/h2>/, 'Field Card must remove the old raw notes paragraph');
-assert.match(engine, /field-card-practical-copy\.json/, 'Field Card engine must expose a reviewed practical editorial layer');
+assert.match(engine, /getEditorialPractical\(thing\.id\)/, 'Field Card engine must expose canonical practical editorial content');
 assert.match(engine, /thing\.fieldCard\.practicalNotes/, 'Field Card engine must accept generated practical content');
 assert.match(engine, /costType === 'paid'/, 'Compatibility fallback may expose cost only for paid activities');
 assert.doesNotMatch(engine, /costType === 'free'[^\n]*items\.push/, 'Compatibility fallback must not manufacture a cost note for free activities');

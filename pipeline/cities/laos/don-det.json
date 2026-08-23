@@ -4,25 +4,6 @@
   "city": "don-det",
   "profile": "compact",
   "researchPlan": {
-    "categoryTargetPolicies": {
-      "things-to-do": {
-        "min": 5,
-        "max": 25,
-        "selectionMode": "editorial"
-      }
-    },
-    "subcategoryTargets": {
-      "restaurants": {
-        "bar": 3
-      }
-    },
-    "searchPriorities": {
-      "practical-services": [
-        "hospital",
-        "tourism-office",
-        "immigration-office"
-      ]
-    },
     "selection": {
       "searchArea": {
         "scope": "settlement-first",
@@ -61,9 +42,6 @@
       },
       "categories": {
         "things-to-do": {
-          "targetControlledByAdmin": true,
-          "hardMin": 5,
-          "hardMax": 25,
           "useExistingAtlasDatabaseAsPrioritySeed": true,
           "locationScope": "destination-linked-without-fixed-radius",
           "selectionGoal": "distinct-visitor-relevant-experiences",
@@ -102,7 +80,6 @@
           "automaticSubcategoryFilters": false
         },
         "practical-services": {
-          "minimum": 0,
           "searchTypes": [
             "hospital",
             "tourism-office",
@@ -139,11 +116,12 @@
           "wikitravel"
         ],
         "open-media": [
-          "wikimedia-commons",
-          "explicitly-licensed-public-media"
+          "wikimedia-commons"
         ],
         "supporting": [
           "travel-platform",
+          "booking-platform",
+          "map-platform",
           "reputable-travel-editorial",
           "local-news",
           "first-party-social-network",
@@ -163,6 +141,28 @@
         "preferRecentMentions": true,
         "preferAuthoritativeSources": true,
         "existingAtlasDatabaseIsSeedNotProof": true
+      },
+      "reputationRanking": {
+        "purpose": "ranking-signal-only",
+        "sourceNeutral": true,
+        "examples": [
+          "booking-platform-rating",
+          "travel-platform-rating",
+          "map-platform-rating",
+          "local-directory-rating",
+          "other-public-rating-source"
+        ],
+        "maxIndependentSnapshotsUsedPerCandidate": 3,
+        "storeReviewText": false,
+        "storeReviewBodies": false,
+        "bulkReviewCollection": false,
+        "normalizeDifferentRatingScales": true,
+        "useReviewCountWithDiminishingWeight": true,
+        "preferRecentSnapshots": true,
+        "missingRatingsNeverRejectCandidate": true,
+        "firstPartySocialActivityIsSmallPositiveSignalOnly": true,
+        "missingSocialPresenceNeverRejectCandidate": true,
+        "editorialReviewRemainsFinalAuthority": true
       },
       "acceptance": {
         "businessOrOperator": {
@@ -220,6 +220,7 @@
           "honorAttributionAndShareAlikeWhenRequired": true
         },
         "media": {
+          "automaticDiscoverySource": "wikimedia-commons",
           "requirePerAssetLicenseCheck": true,
           "allowedWhenCompliant": [
             "public-domain",
@@ -240,11 +241,11 @@
           "storeAuthorLicenseSourceAndAttribution": true
         },
         "domainSpecific": {
-          "wikimedia-commons": "check-each-file-license",
+          "wikimedia-commons": "only-automatic-photo-search-source-check-each-file-license",
           "wikipedia": "research-and-facts-by-default-do-not-copy-prose",
           "wikivoyage": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
           "wikitravel": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
-          "unesco": "authoritative-research-source-but-reuse-only-when-the-specific-item-license-permits-it"
+          "unesco": "authoritative-research-source-but-not-an-automatic-photo-source"
         }
       }
     }
@@ -270,8 +271,8 @@
     "categoryTargets": {
       "things-to-do": 11,
       "restaurants": 12,
-      "cafes": 9,
-      "accommodation": 14
+      "cafes": 11,
+      "accommodation": 16
     },
     "hero": {
       "eyebrow": "Si Phan Don · Southern Laos",
@@ -303,13 +304,7 @@
         "thing-khone-phapheng-falls"
       ]
     },
-    "manualLocks": {
-      "categoryTargets.things-to-do": {
-        "value": 11,
-        "source": "manual",
-        "locked": true
-      }
-    },
+    "manualLocks": {},
     "seo": {
       "title": "Don Det travel guide | Things To Do Atlas",
       "description": "Independent Don Det travel guide.",
