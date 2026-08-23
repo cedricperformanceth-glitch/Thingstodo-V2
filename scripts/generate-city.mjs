@@ -71,11 +71,6 @@ if (publishCheck) {
   if (publicationReport.status === 'blocked') {
     throw new Error(`Publication QA blocked ${country}/${city}. Fix the reported errors before publication.`);
   }
-  assembled.publicationQa = {
-    status: publicationReport.status,
-    checkedAt: new Date().toISOString(),
-    warnings: publicationReport.warnings,
-  };
 }
 
 if (dryRun) {
@@ -150,7 +145,7 @@ function prepareVerification(candidate, kind, candidateCountry) {
     throw new Error(`Source verification for ${candidate?.name ?? 'unnamed candidate'} returned ${decision.decision}: ${decision.reason}`);
   }
   const next = structuredClone(candidate);
-  next.verification = { ...decision, checkedAt: new Date().toISOString() };
+  next.verification = { ...decision };
   delete next.verificationSignals;
   delete next.verificationKind;
   return next;
@@ -224,7 +219,7 @@ function base(candidate, baseDraft, category) {
     media: entityMedia(candidate),
     spaCard: candidate.spaCard ? structuredClone(candidate.spaCard) : undefined,
     verification: candidate.verification ? structuredClone(candidate.verification) : undefined,
-    sourceMetadata: candidate.sourceMetadata ?? { sourceName: 'Atlas research pipeline', reviewedAt: new Date().toISOString() },
+    sourceMetadata: candidate.sourceMetadata ?? { sourceName: 'Atlas research pipeline' },
     researchSources: generatedSources(candidate),
     manualLocks: candidate.manualLocks ?? {},
   };
@@ -314,7 +309,6 @@ function assembleDraft(baseDraft, inputCity, nextPlaces, nextThings) {
     delete entity.isMySelection;
     delete entity.selectionRank;
   }
-  next.generatedAt = new Date().toISOString();
   return next;
 }
 

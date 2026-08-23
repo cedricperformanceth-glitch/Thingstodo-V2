@@ -9,7 +9,6 @@ export interface CityFieldNoteSource {
   sourceName: string;
   sourceUrl: string;
   note: string;
-  reviewedAt: string;
 }
 
 export interface CityFieldNoteSeoOverride {

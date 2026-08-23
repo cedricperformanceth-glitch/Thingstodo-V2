@@ -28,7 +28,7 @@ export interface FieldCardContent { template: 'compact' | 'deep'; hero?: FieldCa
 // Generated JSON is inferred as string[], so the model keeps the serializable shape here.
 export interface SpaCardContent { handwrittenTags: string[]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; }
 export interface ThingToDoSpaCardContent extends SpaCardContent { gettingThere: string; duration: string; costType: 'free' | 'paid'; bestTime: string; }
-export interface VerificationMetadata { decision: 'accept' | 'manual-review' | 'reject-closed'; reason: string; checkedAt?: string; }
+export interface VerificationMetadata { decision: 'accept' | 'manual-review' | 'reject-closed'; reason: string; }
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
 export interface ManualLocks { [field: string]: ManualField<unknown> | undefined; }
 export interface Country { id: string; slug: string; name: string; chapter: string; accentColor: string; media: CountryMediaManifest; map: { center: Coordinates; zoom: number }; seo: SeoMetadata; }
@@ -36,9 +36,8 @@ export interface ExploreBoardConfig { featuredThingIds: string[]; }
 export interface ExploreBoardCardContent { kicker: string; duration: string; route: string; }
 export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; }
 export interface City { id: string; slug: string; name: string; country: string; profile: CityProfile; settlementType: SettlementType; coordinates: Coordinates; description: string; categories: CategorySlug[]; categoryTargets: Partial<Record<CategorySlug, number>>; hero: CityHero; exploreBoard: ExploreBoardConfig; manualLocks: ManualLocks; seo: SeoMetadata; }
-export interface SourceMetadata { sourceName: string; sourceUrl?: string; reviewedAt?: string; }
+export interface SourceMetadata { sourceName: string; sourceUrl?: string; }
 export interface ResearchSource extends SourceMetadata { purpose: 'candidate-discovery' | 'facts' | 'location' | 'media' | 'first-party'; sourceType?: SourceType; }
-export interface GeneratedMetadata { generatedAt: string; generator: string; researchSources: ResearchSource[]; }
 export interface BaseEntity { id: string; slug: string; name: string; country: string; city: string; category: CategorySlug; coordinates: Coordinates; shortDescription: string; media: EntityMediaManifest; spaCard?: SpaCardContent; verification?: VerificationMetadata; sourceMetadata: SourceMetadata; manualLocks: ManualLocks; }
 export interface Place extends BaseEntity { address: string; googleMapsUrl: string; image?: MediaRecord; spaCard?: SpaCardContent; }
 export interface ThingToDo extends BaseEntity { googleMapsUrl: string; isLandmark: boolean; longDescription: string; breadcrumbs: string[]; spaCard?: ThingToDoSpaCardContent; fieldCard: FieldCardContent; exploreBoard?: ExploreBoardCardContent; }

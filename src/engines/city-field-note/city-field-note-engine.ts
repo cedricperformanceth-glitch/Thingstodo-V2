@@ -1,6 +1,5 @@
 import type { City, Country } from '../../core/models/types';
 import { editorialAdSlots } from '../../core/ads/slots';
-import { generatedCityFieldNoteMedia } from '../../content/generated/city-field-note-media';
 import {
   getEditorialCityFieldNote,
   getEditorialCityFieldNoteMedia,
@@ -72,8 +71,7 @@ const generatedContent = (city: City, country: Country): CityFieldNoteContent =>
 
 export const cityFieldNoteView = (city: City, country: Country) => {
   const content = getEditorialCityFieldNote(city.id) ?? generatedContent(city, country);
-  const editorialMedia = getEditorialCityFieldNoteMedia(city.id);
-  const media = editorialMedia.length > 0 ? editorialMedia : (generatedCityFieldNoteMedia[city.id] ?? []);
+  const media = getEditorialCityFieldNoteMedia(city.id);
   return {
     ...content,
     media,

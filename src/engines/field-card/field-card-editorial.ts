@@ -1,48 +1,27 @@
-import {
-  compact,
-  faq,
-  hero,
-  media,
-  mediaAdditions,
-  practical,
-  primaryStory,
-  quickRead,
-  secondaryStory,
-  seo,
-  sources,
-  spa,
-  spaBestTime,
-  spaDescription,
-  spaGettingThere,
-  thingDisplayName,
-} from '../../content/field-card-editorial-data';
+import { fieldCardEditorial } from '../../content/field-card-editorial-data';
 
-export type {
-  EditorialSpaCard,
-  FieldCardSeoOverride,
-} from '../../content/field-card-editorial-data';
+export type { EditorialSpaCard, FieldCardSeoOverride } from '../../content/field-card-editorial-data';
 
-export const getEditorialFaq = (id: string) => compact[id]?.faq ?? faq[id];
-export const getEditorialHero = (id: string) => compact[id]?.hero ?? hero[id];
-export const getEditorialMedia = (id: string) => compact[id]?.media ?? mediaAdditions[id] ?? media[id];
-export const getEditorialPractical = (id: string) => compact[id]?.practical ?? practical[id];
-export const getEditorialPrimaryStory = (id: string) => compact[id]?.primaryStory ?? primaryStory[id];
-export const getEditorialQuickRead = (id: string) => compact[id]?.quickRead ?? quickRead[id];
-export const getEditorialSeo = (id: string) => compact[id]?.seo ?? seo[id];
-export const getEditorialSources = (id: string) => compact[id]?.sources ?? sources[id];
-export const getEditorialSpa = (id: string) => compact[id]?.spa ?? spa[id];
-export const getEditorialSpaBestTime = (id: string) => spaBestTime[id];
-export const getEditorialSpaDescription = (id: string) => spaDescription[id];
-export const getEditorialSpaGettingThere = (id: string) => spaGettingThere[id];
-export const getEditorialThingName = (id: string) => thingDisplayName[id];
+const entry = (id: string) => fieldCardEditorial[id];
+export const getEditorialFaq = (id: string) => entry(id)?.faq;
+export const getEditorialHero = (id: string) => entry(id)?.hero;
+export const getEditorialMedia = (id: string) => entry(id)?.media;
+export const getEditorialPractical = (id: string) => entry(id)?.practical;
+export const getEditorialPrimaryStory = (id: string) => entry(id)?.primaryStory;
+export const getEditorialQuickRead = (id: string) => entry(id)?.quickRead;
+export const getEditorialSeo = (id: string) => entry(id)?.seo;
+export const getEditorialSources = (id: string) => entry(id)?.sources;
+export const getEditorialSpa = (id: string) => entry(id)?.spa;
+export const getEditorialSpaBestTime = (id: string) => entry(id)?.spaBestTime;
+export const getEditorialSpaDescription = (id: string) => entry(id)?.spaDescription;
+export const getEditorialSpaGettingThere = (id: string) => entry(id)?.spaGettingThere;
+export const getEditorialThingName = (id: string) => entry(id)?.displayName;
+export const getEditorialPracticalItemLabels = (id: string) => entry(id)?.practicalItemLabels;
 
 export const getEditorialSecondaryStory = (id: string) => {
-  const compactEntry = compact[id];
-  if (compactEntry && Object.prototype.hasOwnProperty.call(compactEntry, 'secondaryStory')) {
-    return { hasOverride: true, value: compactEntry.secondaryStory };
-  }
+  const current = entry(id);
   return {
-    hasOverride: Object.prototype.hasOwnProperty.call(secondaryStory, id),
-    value: secondaryStory[id],
+    hasOverride: Boolean(current && Object.prototype.hasOwnProperty.call(current, 'secondaryStory')),
+    value: current?.secondaryStory,
   };
 };

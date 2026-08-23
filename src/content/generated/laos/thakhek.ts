@@ -24,10 +24,10 @@ const data = {
       "practical-services"
     ],
     "categoryTargets": {
-      "things-to-do": 18,
-      "restaurants": 24,
-      "cafes": 25,
-      "accommodation": 21,
+      "things-to-do": 17,
+      "restaurants": 8,
+      "cafes": 14,
+      "accommodation": 13,
       "scooter-rental": 5
     },
     "hero": {
@@ -62,7 +62,7 @@ const data = {
     },
     "manualLocks": {
       "categoryTargets.things-to-do": {
-        "value": 18,
+        "value": 17,
         "source": "manual",
         "locked": true
       }
@@ -76,9 +76,9 @@ const data = {
   },
   "places": [
     {
-      "id": "place-vie-de-france",
-      "slug": "vie-de-france",
-      "name": "Vie de France",
+      "id": "place-soukjai-cafe",
+      "slug": "soukjai-cafe",
+      "name": "Soukjai Cafe",
       "country": "laos",
       "city": "thakhek",
       "category": "cafes",
@@ -86,7 +86,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Vie de France is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "Soukjai Cafe remains a current public café listing in central Thakhek; its exact branding should be checked editorially if the business identity changes.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -104,12 +104,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -125,7 +123,7 @@ const data = {
       ],
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vie%20de%20France%20Thakhek%20Laos"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Soukjai%20Cafe%20Thakhek%20Laos"
     },
     {
       "id": "place-naga-hostel-and-cafe",
@@ -156,12 +154,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -178,58 +174,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Naga%20Hostel%20%26%20Caf%C3%A9%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-thakhek-mai-guesthouse-and-restaurant",
-      "slug": "thakhek-mai-guesthouse-and-restaurant",
-      "name": "ThaKhek Mai Guesthouse and Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "ThaKhek Mai Guesthouse and Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ThaKhek%20Mai%20Guesthouse%20and%20Restaurant%20Thakhek%20Laos"
     },
     {
       "id": "place-kamkhong-home-cafe-by-noungning",
@@ -260,12 +204,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -312,12 +254,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -364,12 +304,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -416,12 +354,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -468,12 +404,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -520,12 +454,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -572,12 +504,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -624,12 +554,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -676,12 +604,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -698,58 +624,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Lao%20Home%20Hostel%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-banh-my-ngon",
-      "slug": "banh-my-ngon",
-      "name": "Bánh Mỳ Ngon",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Bánh Mỳ Ngon is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B%C3%A1nh%20M%E1%BB%B3%20Ngon%20Thakhek%20Laos"
     },
     {
       "id": "place-catty-tourist-house-and-restaurant",
@@ -780,12 +654,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -832,12 +704,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -884,12 +754,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -936,12 +804,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -988,12 +854,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1010,58 +874,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonjour%20Thakhek%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-gun-eng-restaurant",
-      "slug": "gun-eng-restaurant",
-      "name": "Gun Eng Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Gun Eng Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gun%20Eng%20Restaurant%20Thakhek%20Laos"
     },
     {
       "id": "place-bamboo-hostel-thakhek",
@@ -1092,12 +904,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1114,58 +924,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bamboo%20Hostel%20Thakhek%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-jiddaporn-restaurant",
-      "slug": "jiddaporn-restaurant",
-      "name": "Jiddaporn Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Jiddaporn Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jiddaporn%20Restaurant%20Thakhek%20Laos"
     },
     {
       "id": "place-stay-hostel-by-m-and-m",
@@ -1196,12 +954,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1218,58 +974,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=STAY%20HOSTEL%20by%20M%26M%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-kyoto-japanese-restaurant",
-      "slug": "kyoto-japanese-restaurant",
-      "name": "Kyoto Japanese Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Kyoto Japanese Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto%20Japanese%20Restaurant%20Thakhek%20Laos"
     },
     {
       "id": "place-thakhek-view",
@@ -1300,12 +1004,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1352,12 +1054,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1404,12 +1104,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1456,12 +1154,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1508,12 +1204,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1530,110 +1224,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Miss%20Tang%20Restaurant%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-sai-tek-banh-cuon",
-      "slug": "sai-tek-banh-cuon",
-      "name": "Sai Tek Bánh Cuốn",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Sai Tek Bánh Cuốn is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sai%20Tek%20B%C3%A1nh%20Cu%E1%BB%91n%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-cafe-amazon-apka",
-      "slug": "cafe-amazon-apka",
-      "name": "Café Amazon.aPKa",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Café Amazon.aPKa is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Amazon.aPKa%20Thakhek%20Laos"
     },
     {
       "id": "place-song-lao-guesthouse",
@@ -1664,12 +1254,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1716,12 +1304,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1740,61 +1326,9 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xoksaysub%20Hotel%20Thakhek%20Laos"
     },
     {
-      "id": "place-nongpa-lak-xee-restaurant",
-      "slug": "nongpa-lak-xee-restaurant",
-      "name": "Nongpa Lak Xee Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Nongpa Lak Xee Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nongpa%20Lak%20Xee%20Restaurant%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-soukjai-cafe",
-      "slug": "soukjai-cafe",
-      "name": "Soukjai Cafe",
+      "id": "place-vie-de-france",
+      "slug": "vie-de-france",
+      "name": "Vie de France",
       "country": "laos",
       "city": "thakhek",
       "category": "cafes",
@@ -1802,7 +1336,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Soukjai Cafe remains a current public café listing in central Thakhek; its exact branding should be checked editorially if the business identity changes.",
+      "shortDescription": "Vie de France is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -1820,12 +1354,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1841,7 +1373,7 @@ const data = {
       ],
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Soukjai%20Cafe%20Thakhek%20Laos"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vie%20de%20France%20Thakhek%20Laos"
     },
     {
       "id": "place-talad-lak3-thakek",
@@ -1872,12 +1404,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1924,12 +1454,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -1976,12 +1504,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2028,12 +1554,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2080,12 +1604,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2102,58 +1624,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Center%20Point%20Thakhek%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-riveria-hotel",
-      "slug": "riveria-hotel",
-      "name": "Riveria Hotel",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Riveria Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Riveria%20Hotel%20Thakhek%20Laos"
     },
     {
       "id": "place-petmany-thakhek-market",
@@ -2184,12 +1654,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2206,162 +1674,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Petmany%20Thakhek%20Market%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-sunset-restaurant",
-      "slug": "sunset-restaurant",
-      "name": "Sunset Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Sunset Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sunset%20Restaurant%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-sunset-coconut-farm-and-cafe",
-      "slug": "sunset-coconut-farm-and-cafe",
-      "name": "Sunset coconut farm & cafe",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Sunset coconut farm & cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sunset%20coconut%20farm%20%26%20cafe%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-dongsay-hotel",
-      "slug": "dongsay-hotel",
-      "name": "Dongsay Hotel",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Dongsay Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dongsay%20Hotel%20Thakhek%20Laos"
     },
     {
       "id": "place-nam-phou-hostel",
@@ -2392,12 +1704,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2414,110 +1724,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nam%20Phou%20Hostel%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-fips-inn",
-      "slug": "fips-inn",
-      "name": "Fip's Inn",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Fip's Inn is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Hostelworld current Thakhek listings",
-          "sourceUrl": "https://www.hostelworld.com/hotels/asia/laos/thakhek/",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fip's%20Inn%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-vannida-hotel-and-resort",
-      "slug": "vannida-hotel-and-resort",
-      "name": "Vannida Hotel and Resort",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Vannida Hotel and Resort is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vannida%20Hotel%20and%20Resort%20Thakhek%20Laos"
     },
     {
       "id": "place-orlardee-hostel",
@@ -2548,12 +1754,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2600,12 +1804,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2622,162 +1824,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thakhek%20Travel%20Lodge%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-smile-restaurant",
-      "slug": "smile-restaurant",
-      "name": "Smile Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Smile Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Smile%20Restaurant%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-sinouk-coffee",
-      "slug": "sinouk-coffee",
-      "name": "Sinouk Coffee",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Sinouk Coffee is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sinouk%20Coffee%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-shong-fang-khong-restaurant",
-      "slug": "shong-fang-khong-restaurant",
-      "name": "Shong Fang Khong Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Shong Fang Khong Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Shong%20Fang%20Khong%20Restaurant%20Thakhek%20Laos"
     },
     {
       "id": "place-six-friends-restaurant",
@@ -2808,12 +1854,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -2830,370 +1874,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Six%20Friends%20Restaurant%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-inthira-thakhek-restaurant",
-      "slug": "inthira-thakhek-restaurant",
-      "name": "Inthira Thakhek Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Inthira Thakhek Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Inthira%20Thakhek%20Restaurant%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-jinlong-hotpot-buffet",
-      "slug": "jinlong-hotpot-buffet",
-      "name": "JinLong Hotpot Buffet",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "JinLong Hotpot Buffet is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=JinLong%20Hotpot%20Buffet%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-restaurant-lee-lee",
-      "slug": "restaurant-lee-lee",
-      "name": "Restaurant Lee Lee",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Restaurant Lee Lee is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Restaurant%20Lee%20Lee%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-patalai",
-      "slug": "patalai",
-      "name": "Patalai",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Patalai is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Patalai%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-sabaidee-thakhek-restaurant",
-      "slug": "sabaidee-thakhek-restaurant",
-      "name": "Sabaidee Thakhek Restaurant",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Sabaidee Thakhek Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sabaidee%20Thakhek%20Restaurant%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-mama-lao",
-      "slug": "mama-lao",
-      "name": "Mama Lao",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Mama Lao is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Town meal",
-          "Thakhek",
-          "Lunch dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Lao%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-q-kafe",
-      "slug": "q-kafe",
-      "name": "Q kafé",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Q kafé is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Q%20kaf%C3%A9%20Thakhek%20Laos"
     },
     {
       "id": "place-geelot-cha",
@@ -3224,12 +1904,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -3246,162 +1924,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Geelot%20cha%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-le-bleu-cafe",
-      "slug": "le-bleu-cafe",
-      "name": "Le Bleu Café",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Le Bleu Café is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Bleu%20Caf%C3%A9%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-vimala-cafe",
-      "slug": "vimala-cafe",
-      "name": "Vimala Cafe",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Vimala Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vimala%20Cafe%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-login-cafe-thakhaek",
-      "slug": "login-cafe-thakhaek",
-      "name": "Login Cafe Thakhaek",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Login Cafe Thakhaek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Login%20Cafe%20Thakhaek%20Thakhek%20Laos"
     },
     {
       "id": "place-b96-coffee-and-tea",
@@ -3432,12 +1954,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -3454,422 +1974,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=B96%20Coffee%20and%20Tea%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-mixue-ice-cream-and-tea-thakhek",
-      "slug": "mixue-ice-cream-and-tea-thakhek",
-      "name": "Mixue Ice Cream & Tea Thakhek",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Mixue Ice Cream & Tea Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mixue%20Ice%20Cream%20%26%20Tea%20Thakhek%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-riveria-hotel-coffee-shop",
-      "slug": "riveria-hotel-coffee-shop",
-      "name": "Riveria Hotel Coffee Shop",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Riveria Hotel Coffee Shop is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Riveria%20Hotel%20Coffee%20Shop%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-aplus-coffee-slow-bar",
-      "slug": "aplus-coffee-slow-bar",
-      "name": "A’plus coffee slow bar",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "A’plus coffee slow bar is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=A%E2%80%99plus%20coffee%20slow%20bar%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-thakhek-kammouan-sunset-restaurant-and-coffee",
-      "slug": "thakhek-kammouan-sunset-restaurant-and-coffee",
-      "name": "Thakhek kammouan sunset restaurant and coffee",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Thakhek kammouan sunset restaurant and coffee is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Thakhek",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Restaurant Guru current Thakhek index",
-          "sourceUrl": "https://restaurantguru.com/Thakhek",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thakhek%20kammouan%20sunset%20restaurant%20and%20coffee%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-le-bouton-dor-boutique-hotel",
-      "slug": "le-bouton-dor-boutique-hotel",
-      "name": "Le Bouton D'or Boutique Hotel",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Le Bouton D'or Boutique Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Bouton%20D'or%20Boutique%20Hotel%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-lao-style-guesthouse",
-      "slug": "lao-style-guesthouse",
-      "name": "Lao Style Guesthouse",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Lao Style Guesthouse is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Lao%20Style%20Guesthouse%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-phonethep-hotel",
-      "slug": "phonethep-hotel",
-      "name": "Phonethep Hotel",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Phonethep Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Phonethep%20Hotel%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-southida",
-      "slug": "southida",
-      "name": "Southida",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Southida is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop base",
-          "Thakhek",
-          "Overnight"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Southida%20Thakhek%20Laos"
     },
     {
       "id": "place-mixay-thakhek-motor-rental",
@@ -3900,12 +2004,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -3952,12 +2054,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -4004,12 +2104,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -4056,12 +2154,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -4108,12 +2204,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -4160,12 +2254,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -4212,12 +2304,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current public listing cross-checked for the Thakhek research pool."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
         {
@@ -4270,12 +2360,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current official Khammouane Tourism route.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current official Khammouane Tourism route."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4384,12 +2472,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current official Khammouane Tourism attraction.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current official Khammouane Tourism attraction."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4459,12 +2545,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Confirmed by UNESCO and Tourism Laos as a major Hin Nam No river cave.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Confirmed by UNESCO and Tourism Laos as a major Hin Nam No river cave."
       },
       "sourceMetadata": {
-        "sourceName": "UNESCO World Heritage Centre",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "UNESCO World Heritage Centre"
       },
       "researchSources": [
         {
@@ -4552,12 +2636,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current official Khammouane Tourism attraction.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current official Khammouane Tourism attraction."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4617,12 +2699,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Included in the current official Thakhek Loop itinerary.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Included in the current official Thakhek Loop itinerary."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4682,12 +2762,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current official Khammouane Tourism attraction.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current official Khammouane Tourism attraction."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4747,12 +2825,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current official Khammouane Tourism attraction.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current official Khammouane Tourism attraction."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4812,12 +2888,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current official Khammouane Tourism attraction.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current official Khammouane Tourism attraction."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4877,12 +2951,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Thalang and Nam Theun are part of the current official Loop itinerary.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Thalang and Nam Theun are part of the current official Loop itinerary."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -4942,12 +3014,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Included in the current official Thakhek Loop itinerary.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Included in the current official Thakhek Loop itinerary."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -5007,12 +3077,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Included in the current official Thakhek Loop itinerary.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Included in the current official Thakhek Loop itinerary."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -5072,12 +3140,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Included in the current official Thakhek Loop itinerary.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Included in the current official Thakhek Loop itinerary."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -5137,12 +3203,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Included in the current official Thakhek Loop itinerary.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Included in the current official Thakhek Loop itinerary."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -5202,12 +3266,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Included in the current official Thakhek Loop itinerary.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Included in the current official Thakhek Loop itinerary."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -5267,12 +3329,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Old Thakhek is a current official Khammouane Tourism attraction.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Old Thakhek is a current official Khammouane Tourism attraction."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -5332,12 +3392,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Featured as a major cultural heritage site by official Khammouane Tourism.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Featured as a major cultural heritage site by official Khammouane Tourism."
       },
       "sourceMetadata": {
-        "sourceName": "Khammouane Tourism",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Khammouane Tourism"
       },
       "researchSources": [
         {
@@ -5397,12 +3455,10 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Current UNESCO World Heritage property and official tourism destination.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Current UNESCO World Heritage property and official tourism destination."
       },
       "sourceMetadata": {
-        "sourceName": "UNESCO World Heritage Centre",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "UNESCO World Heritage Centre"
       },
       "researchSources": [
         {
@@ -5432,6 +3488,11 @@ const data = {
         "access": "",
         "faq": [],
         "sections": []
+      },
+      "exploreBoard": {
+        "kicker": "HIN NAM NO",
+        "duration": "Full day or longer",
+        "route": "Remote Khammouane"
       }
     }
   ]

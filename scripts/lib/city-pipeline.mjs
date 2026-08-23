@@ -1,10 +1,10 @@
 import crypto from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { selectionPlan } from './content-selection.mjs';
-import { sourceVerificationPlan } from './source-verification.mjs';
 
 const spaCategoryOrder = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
 const contentTargetRules = JSON.parse(readFileSync(new URL('../../pipeline/contracts/content-targets.json', import.meta.url), 'utf8'));
+const sourceVerificationRules = JSON.parse(readFileSync(new URL('../../pipeline/contracts/source-verification.json', import.meta.url), 'utf8'));
 
 export const CATEGORY_LABELS = {
   'things-to-do': 'Things to do', restaurants: 'Restaurants', cafes: 'Coffee', accommodation: 'Guest Houses',
@@ -145,7 +145,7 @@ export function researchPlan(country, settlementType, _seed, categories = SETTLE
     subcategoryTargets,
     searchPriorities,
     selection: selectionPlan(country, categories),
-    verification: sourceVerificationPlan(country),
+    verification: sourceVerificationRules[country] ? structuredClone(sourceVerificationRules[country]) : null,
   };
 }
 
@@ -220,7 +220,7 @@ export function emptyDraft(country, city, profile, settlementType) {
   const seed = `${country}/${city}`;
   const targets = categoryTargets(country, settlementType, seed, categories);
   const plan = researchPlan(country, settlementType, seed, categories);
-  return { schemaVersion: 1, country, city, profile, generatedAt: null, researchPlan: plan, cityData: {
+  return { schemaVersion: 1, country, city, profile, researchPlan: plan, cityData: {
     id: `city-${country}-${city}`, slug: city, name, country, profile, settlementType, coordinates: { latitude: 0, longitude: 0 }, description: '',
     categories: [...categories], categoryTargets: targets,
     hero: { eyebrow: country, title: name, subtitle: '', facts: [] },

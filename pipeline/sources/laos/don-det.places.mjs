@@ -58,7 +58,7 @@ function record(name, category, shortDescription, handwrittenTags, profile = 'at
       current: true,
       strength: source.signalStrength,
     })),
-    sourceMetadata: { sourceName: 'Atlas V2 verified research', reviewedAt: '2026-08-12' },
+    sourceMetadata: { sourceName: 'Atlas V2 verified research' },
     manualLocks: {},
     sources: sources.map(({ signalStrength, ...source }) => source),
   };

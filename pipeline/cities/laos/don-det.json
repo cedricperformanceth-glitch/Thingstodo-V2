@@ -3,7 +3,6 @@
   "country": "laos",
   "city": "don-det",
   "profile": "compact",
-  "generatedAt": "2026-08-12T04:28:12.335Z",
   "researchPlan": {
     "categoryTargetPolicies": {
       "things-to-do": {
@@ -271,8 +270,8 @@
     "categoryTargets": {
       "things-to-do": 11,
       "restaurants": 12,
-      "cafes": 11,
-      "accommodation": 16
+      "cafes": 9,
+      "accommodation": 14
     },
     "hero": {
       "eyebrow": "Si Phan Don · Southern Laos",
@@ -349,12 +348,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.318Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -401,12 +398,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.318Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -423,214 +418,6 @@
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%204000%20Island%20Bar%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-keas-backpackers-paradise-restaurant-and-bar",
-      "slug": "keas-backpackers-paradise-restaurant-and-bar",
-      "name": "Kea's Backpackers Paradise Restaurant & Bar",
-      "country": "laos",
-      "city": "don-det",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A social Don Det restaurant and bar with breakfast, casual meals and drinks, suited to travellers who enjoy a busier backpacker atmosphere.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Social stop",
-          "Breakfast",
-          "Evening drinks"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Tripadvisor",
-          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kea's%20Backpackers%20Paradise%20Restaurant%20%26%20Bar%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-the-boathouse",
-      "slug": "the-boathouse",
-      "name": "The Boathouse",
-      "country": "laos",
-      "city": "don-det",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A riverside restaurant where the Mekong setting is part of the meal, better for a slower lunch or dinner than a quick stop.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Riverside",
-          "Slow lunch",
-          "Mekong view"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Tripadvisor",
-          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Boathouse%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-datta-bananaleaf-restaurant",
-      "slug": "datta-bananaleaf-restaurant",
-      "name": "Datta Bananaleaf Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "An Indian and Asian restaurant on the sunset side, giving Don Det a useful change from the island’s usual Lao-Western menus.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Indian food",
-          "Sunset side",
-          "Dinner"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Tripadvisor",
-          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Datta%20Bananaleaf%20Restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-hathim-indian-restaurant",
-      "slug": "hathim-indian-restaurant",
-      "name": "Hathim Indian Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A straightforward Indian restaurant on Don Det’s sunset side, useful when curry, dosa or a vegetarian-friendly meal is the priority.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Indian food",
-          "Curry stop",
-          "Vegetarian"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Tripadvisor",
-          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hathim%20Indian%20Restaurant%20Don%20Det%20Laos"
     },
     {
       "id": "place-ois-place",
@@ -661,12 +448,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -683,6 +468,206 @@
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Oi's%20Place%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-the-boathouse",
+      "slug": "the-boathouse",
+      "name": "The Boathouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A riverside restaurant where the Mekong setting is part of the meal, better for a slower lunch or dinner than a quick stop.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Riverside",
+          "Slow lunch",
+          "Mekong view"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Boathouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-mama-piang-guesthouse-and-restaurant",
+      "slug": "mama-piang-guesthouse-and-restaurant",
+      "name": "Mama Piang Guesthouse & Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A sunrise-side guesthouse restaurant for a calmer home-style meal, away from the louder bar-focused addresses around northern Don Det.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Guesthouse kitchen",
+          "Sunrise side",
+          "Quiet meal"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Piang%20Guesthouse%20%26%20Restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-sahai-bar",
+      "slug": "sahai-bar",
+      "name": "Sahai Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A casual Don Det restaurant-bar with coffee, cocktails and meals, flexible enough for breakfast, dinner or an evening drink.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee drinks",
+          "All day",
+          "Casual bar"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sahai%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-keas-backpackers-paradise-restaurant-and-bar",
+      "slug": "keas-backpackers-paradise-restaurant-and-bar",
+      "name": "Kea's Backpackers Paradise Restaurant & Bar",
+      "country": "laos",
+      "city": "don-det",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A social Don Det restaurant and bar with breakfast, casual meals and drinks, suited to travellers who enjoy a busier backpacker atmosphere.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Social stop",
+          "Breakfast",
+          "Evening drinks"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kea's%20Backpackers%20Paradise%20Restaurant%20%26%20Bar%20Don%20Det%20Laos"
     },
     {
       "id": "place-banana-restaurant-and-bar",
@@ -713,12 +698,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -765,12 +748,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -789,9 +770,9 @@
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wrap%20and%20Roll%20Don%20Det%20Laos"
     },
     {
-      "id": "place-mama-piang-guesthouse-and-restaurant",
-      "slug": "mama-piang-guesthouse-and-restaurant",
-      "name": "Mama Piang Guesthouse & Restaurant",
+      "id": "place-datta-bananaleaf-restaurant",
+      "slug": "datta-bananaleaf-restaurant",
+      "name": "Datta Bananaleaf Restaurant",
       "country": "laos",
       "city": "don-det",
       "category": "restaurants",
@@ -799,7 +780,7 @@
         "latitude": 13.9709,
         "longitude": 105.9215
       },
-      "shortDescription": "A sunrise-side guesthouse restaurant for a calmer home-style meal, away from the louder bar-focused addresses around northern Don Det.",
+      "shortDescription": "An Indian and Asian restaurant on the sunset side, giving Don Det a useful change from the island’s usual Lao-Western menus.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -808,21 +789,19 @@
       },
       "spaCard": {
         "handwrittenTags": [
-          "Guesthouse kitchen",
-          "Sunrise side",
-          "Quiet meal"
+          "Indian food",
+          "Sunset side",
+          "Dinner"
         ],
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -838,7 +817,7 @@
       ],
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Piang%20Guesthouse%20%26%20Restaurant%20Don%20Det%20Laos"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Datta%20Bananaleaf%20Restaurant%20Don%20Det%20Laos"
     },
     {
       "id": "place-restaurant-naly",
@@ -869,12 +848,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.319Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -893,9 +870,9 @@
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Restaurant%20Naly%20Don%20Det%20Laos"
     },
     {
-      "id": "place-sahai-bar",
-      "slug": "sahai-bar",
-      "name": "Sahai Bar",
+      "id": "place-hathim-indian-restaurant",
+      "slug": "hathim-indian-restaurant",
+      "name": "Hathim Indian Restaurant",
       "country": "laos",
       "city": "don-det",
       "category": "restaurants",
@@ -903,7 +880,7 @@
         "latitude": 13.9709,
         "longitude": 105.9215
       },
-      "shortDescription": "A casual Don Det restaurant-bar with coffee, cocktails and meals, flexible enough for breakfast, dinner or an evening drink.",
+      "shortDescription": "A straightforward Indian restaurant on Don Det’s sunset side, useful when curry, dosa or a vegetarian-friendly meal is the priority.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -912,27 +889,25 @@
       },
       "spaCard": {
         "handwrittenTags": [
-          "Coffee drinks",
-          "All day",
-          "Casual bar"
+          "Indian food",
+          "Curry stop",
+          "Vegetarian"
         ],
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.320Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -942,7 +917,7 @@
       ],
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sahai%20Bar%20Don%20Det%20Laos"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hathim%20Indian%20Restaurant%20Don%20Det%20Laos"
     },
     {
       "id": "place-crazy-gecko",
@@ -973,12 +948,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.320Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1025,12 +998,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.320Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1077,12 +1048,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1099,318 +1068,6 @@
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Tanon%20Guest%20House%20%26%20Restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-bamboo-cafe-and-korean-restaurant",
-      "slug": "bamboo-cafe-and-korean-restaurant",
-      "name": "Bamboo Cafe & Korean Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A dedicated café on sunset street combining proper coffee and fresh drinks with brunch and Korean food, unusual by Don Det standards.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Proper coffee",
-          "Korean food",
-          "Sunset street"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Tripadvisor",
-          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bamboo%20Cafe%20%26%20Korean%20Restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-ms-ning-restaurant-and-guesthouse",
-      "slug": "ms-ning-restaurant-and-guesthouse",
-      "name": "Ms Ning Restaurant and Guesthouse",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A central guesthouse restaurant serving breakfast and brunch, convenient for coffee and a simple meal close to Don Det’s main village.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Central",
-          "Breakfast",
-          "Easy coffee"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Tripadvisor",
-          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ms%20Ning%20Restaurant%20and%20Guesthouse%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-allnew-coffee-and-restaurant",
-      "slug": "allnew-coffee-and-restaurant",
-      "name": "AllNew coffee & restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A current Don Det coffee-and-restaurant stop with a clear coffee focus, suitable for a daytime drink or an uncomplicated meal.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Great coffee",
-          "Daytime",
-          "Casual meal"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=AllNew%20coffee%20%26%20restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-kamphong-riverside-restaurant",
-      "slug": "kamphong-riverside-restaurant",
-      "name": "Kamphong Riverside Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A riverside all-day restaurant known for coffee and breakfast as well as meals, useful for an early start near the water.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Great coffee",
-          "Breakfast",
-          "Riverside"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kamphong%20Riverside%20Restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-jimmee-restaurant",
-      "slug": "jimmee-restaurant",
-      "name": "Jimmee restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "An early-opening Don Det restaurant offering coffee, breakfast and brunch, useful when you want food before starting a full island day.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Early opening",
-          "Coffee",
-          "Breakfast"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Current public listing",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Khorn%2BNeua/all",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jimmee%20restaurant%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-noupad-restaurant",
-      "slug": "noupad-restaurant",
-      "name": "Noupad Restaurant",
-      "country": "laos",
-      "city": "don-det",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A small all-day stop toward Don Khon with coffee and brunch, handy before or after cycling the southern island routes.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee",
-          "Brunch",
-          "South route"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Current public listing",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Khorn%2BNeua/all",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Noupad%20Restaurant%20Don%20Det%20Laos"
     },
     {
       "id": "place-dondet-coffee-house-and-gift-shop",
@@ -1441,12 +1098,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.321Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1468,6 +1123,56 @@
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dondet%20Coffee%20House%20%26%20Gift-shop%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-allnew-coffee-and-restaurant",
+      "slug": "allnew-coffee-and-restaurant",
+      "name": "AllNew coffee & restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A current Don Det coffee-and-restaurant stop with a clear coffee focus, suitable for a daytime drink or an uncomplicated meal.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Great coffee",
+          "Daytime",
+          "Casual meal"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=AllNew%20coffee%20%26%20restaurant%20Don%20Det%20Laos"
     },
     {
       "id": "place-paradise-restaurant-cafe-and-bar",
@@ -1498,12 +1203,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1520,6 +1223,156 @@
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paradise%20Restaurant%20Cafe%20%26%20Bar%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-jimmee-restaurant",
+      "slug": "jimmee-restaurant",
+      "name": "Jimmee restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "An early-opening Don Det restaurant offering coffee, breakfast and brunch, useful when you want food before starting a full island day.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Early opening",
+          "Coffee",
+          "Breakfast"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Current public listing",
+          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Khorn%2BNeua/all",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jimmee%20restaurant%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-ms-ning-restaurant-and-guesthouse",
+      "slug": "ms-ning-restaurant-and-guesthouse",
+      "name": "Ms Ning Restaurant and Guesthouse",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A central guesthouse restaurant serving breakfast and brunch, convenient for coffee and a simple meal close to Don Det’s main village.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Central",
+          "Breakfast",
+          "Easy coffee"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Tripadvisor",
+          "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
+          "purpose": "candidate-discovery"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ms%20Ning%20Restaurant%20and%20Guesthouse%20Don%20Det%20Laos"
+    },
+    {
+      "id": "place-kamphong-riverside-restaurant",
+      "slug": "kamphong-riverside-restaurant",
+      "name": "Kamphong Riverside Restaurant",
+      "country": "laos",
+      "city": "don-det",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 13.9709,
+        "longitude": 105.9215
+      },
+      "shortDescription": "A riverside all-day restaurant known for coffee and breakfast as well as meals, useful for an early start near the water.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Great coffee",
+          "Breakfast",
+          "Riverside"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "verified-current-business-or-operator"
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Atlas V1 verified seed",
+          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
+          "purpose": "facts"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "location"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Don Det, Khong District, Champasak Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kamphong%20Riverside%20Restaurant%20Don%20Det%20Laos"
     },
     {
       "id": "place-dodand-studio-and-sunset-riverside-guesthouse",
@@ -1550,12 +1403,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1602,12 +1453,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1654,12 +1503,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1706,12 +1553,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1758,12 +1603,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1810,12 +1653,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1862,12 +1703,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.322Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1914,12 +1753,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -1966,12 +1803,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2018,12 +1853,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2040,58 +1873,6 @@
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Rivergarden%20Guesthouse%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-don-det-mr-b-riverside-budget-guesthouse",
-      "slug": "don-det-mr-b-riverside-budget-guesthouse",
-      "name": "Don Det Mr.B Riverside Budget Guesthouse",
-      "country": "laos",
-      "city": "don-det",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A budget riverside guesthouse for travellers prioritising a simple private stay and easy access to the Don Det island paths.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Budget stay",
-          "Riverside",
-          "Simple rooms"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Booking.com",
-          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don%20Det%20Mr.B%20Riverside%20Budget%20Guesthouse%20Don%20Det%20Laos"
     },
     {
       "id": "place-green-guesthouse",
@@ -2122,12 +1903,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2174,12 +1953,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2226,12 +2003,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2278,12 +2053,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2300,58 +2073,6 @@
       "manualLocks": {},
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Noupad%20sunset%20Guesthouse%20Don%20Det%20Laos"
-    },
-    {
-      "id": "place-champa-resort",
-      "slug": "champa-resort",
-      "name": "Champa resort",
-      "country": "laos",
-      "city": "don-det",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 13.9709,
-        "longitude": 105.9215
-      },
-      "shortDescription": "A current Don Det stay with a garden setting, useful as another simple island base beyond the better-known northern guesthouses.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Garden stay",
-          "Don Det",
-          "Simple base"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Booking.com",
-          "sourceUrl": "https://www.booking.com/city/la/ban-dondet.html",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Don Det, Khong District, Champasak Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Champa%20resort%20Don%20Det%20Laos"
     },
     {
       "id": "place-don-det-ferry",
@@ -2382,12 +2103,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.323Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2434,12 +2153,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "verified-current-business-or-operator",
-        "checkedAt": "2026-08-12T04:28:12.324Z"
+        "reason": "verified-current-business-or-operator"
       },
       "sourceMetadata": {
-        "sourceName": "Atlas V2 verified research",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
         {
@@ -2505,12 +2222,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -2593,12 +2308,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -2681,12 +2394,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -2756,12 +2467,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -2826,12 +2535,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -2909,12 +2616,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -2979,12 +2684,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -3049,12 +2752,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -3119,12 +2820,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -3189,12 +2888,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -3272,12 +2969,10 @@
       },
       "verification": {
         "decision": "accept",
-        "reason": "Accepted by the verified Don Det activity pilot.",
-        "checkedAt": "2026-08-12T00:00:00.000Z"
+        "reason": "Accepted by the verified Don Det activity pilot."
       },
       "sourceMetadata": {
-        "sourceName": "Atlas Don Det activity pilot",
-        "reviewedAt": "2026-08-12"
+        "sourceName": "Atlas Don Det activity pilot"
       },
       "researchSources": [
         {
@@ -3309,293 +3004,5 @@
         "sections": []
       }
     }
-  ],
-  "publicationQa": {
-    "status": "ready-with-warnings",
-    "checkedAt": "2026-08-12T04:28:12.338Z",
-    "warnings": [
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "mama-leuah-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "the-4000-island-bar"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "keas-backpackers-paradise-restaurant-and-bar"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "the-boathouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "datta-bananaleaf-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "hathim-indian-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "ois-place"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "banana-restaurant-and-bar"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "wrap-and-roll"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "mama-piang-guesthouse-and-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "restaurant-naly"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "sahai-bar"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "crazy-gecko"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "street-view-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "mama-tanon-guest-house-and-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "bamboo-cafe-and-korean-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "ms-ning-restaurant-and-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "allnew-coffee-and-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "kamphong-riverside-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "jimmee-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "noupad-restaurant"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "dondet-coffee-house-and-gift-shop"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "paradise-restaurant-cafe-and-bar"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "dodand-studio-and-sunset-riverside-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "dondet-vixay-sunset-and-river-view"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "thiptavanh-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "moon-by-night"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "don-det-hotel"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "baba-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "boonmy-bungalows-and-restaurant-don-det-4000-islands"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "namknong-view"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "dondet-garden-guest-house"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "rivergarden-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "don-det-mr-b-riverside-budget-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "green-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "yommalay-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "tawan-daeng-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "noupad-sunset-guesthouse"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "champa-resort"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "don-det-ferry"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "khon-health-center-khonnua"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "don-som"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "khone-pa-soi-waterfall"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "si-phan-don-by-boat"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "4000-islands-kayaking"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "cycle-don-det-don-khon"
-      },
-      {
-        "severity": "warning",
-        "code": "missing-spa-photo",
-        "message": "No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.",
-        "entity": "tubing-on-don-det"
-      }
-    ]
-  }
+  ]
 }
