@@ -5,7 +5,8 @@ const panel = fs.readFileSync('src/components/spa/FavoritesPanel.astro', 'utf8')
 const client = fs.readFileSync('src/features/favorites/client.ts', 'utf8');
 assert.doesNotMatch(panel, /content\/registry\/(places|things-to-do)|\.map\(/, 'FavoritesPanel must not pre-render Atlas registries.');
 assert.match(panel, /data-favorites-panel/, 'FavoritesPanel exposes an empty client-rendered container.');
-assert.match(client, /favoritesStore\.all\(\)/, 'Favorites renderer reads only saved snapshots.');
+assert.match(client, /favoritesStore\.refresh\(currentPageSnapshots\(\)\)/, 'Favorites renderer refreshes saved snapshots only from entities already present on the current page.');
+assert.doesNotMatch(client, /content\/registry\/(places|things-to-do)/, 'Favorites client must not import full Atlas registries.');
 assert.match(client, /groupByCountry/, 'Favorites renderer groups saved snapshots by country.');
 assert.match(client, /data-favorite-country-cards/, 'Country accordions expose lazy card containers.');
 assert.match(client, /if \(!cards \|\| cards\.dataset\.rendered === 'true'\) return;/, 'Closed country groups must not rebuild their cards.');
