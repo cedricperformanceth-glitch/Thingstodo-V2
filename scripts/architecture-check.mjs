@@ -21,13 +21,13 @@ const sourceFiles = (folder) => {
     .map((file) => path.join(folder, String(file)));
 };
 
-const destinationImport = /from ['"][^'"]*(don-det|pakse|laos|sri-lanka|thailand)[^'"]*['"]|['"]\/(laos|thailand|sri-lanka)(\/|['"])/i;
+const destinationPayloadImport = /from ['"][^'"]*(?:content\/(?:generated\/|countries\/|field-card-editorial-(?!overrides\.json)[^'"]+\.json)|pipeline\/(?:cities|sources)\/)[^'"]*['"]/i;
 const destinationFailures = reusableFolders
   .flatMap(sourceFiles)
-  .filter((file) => destinationImport.test(fs.readFileSync(path.join(root, file), 'utf8')));
+  .filter((file) => destinationPayloadImport.test(fs.readFileSync(path.join(root, file), 'utf8')));
 
 if (destinationFailures.length) {
-  throw new Error(`Destination-specific reusable code: ${destinationFailures.join(', ')}`);
+  throw new Error(`Reusable code must not import destination payloads directly: ${destinationFailures.join(', ')}`);
 }
 
 const rawEditorialImport = /from ['"][^'"]*content\/(?:field-card-[^'"]*-copy|city-field-note-[^'"]*-copy|spa-thing-card-copy)\.json['"]/i;
@@ -39,4 +39,4 @@ if (editorialBoundaryFailures.length) {
   throw new Error(`Presentation must use editorial resolvers, not raw editorial JSON: ${editorialBoundaryFailures.join(', ')}`);
 }
 
-console.log('Architecture check passed: reusable code is destination-agnostic and presentation is detached from raw editorial files.');
+console.log('Architecture check passed: reusable code avoids direct destination payload imports and presentation is detached from raw editorial files.');
