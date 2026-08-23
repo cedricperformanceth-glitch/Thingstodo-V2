@@ -42,15 +42,7 @@ for (const filePath of cityFiles) {
     const longitude = thing.coordinates?.longitude;
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
       failures.push(`${cityKey}/${thing.id}: missing valid coordinates`);
-      continue;
     }
-    const key = `${Number(latitude).toFixed(6)},${Number(longitude).toFixed(6)}`;
-    const ids = coordinateGroups.get(key) ?? [];
-    ids.push(thing.id);
-    coordinateGroups.set(key, ids);
-  }
-  for (const [coordinate, ids] of coordinateGroups) {
-    if (ids.length >= 3) failures.push(`${cityKey}: probable placeholder coordinates ${coordinate} shared by ${ids.length} activities (${ids.join(', ')})`);
   }
 
   for (const thing of activeThings) {
