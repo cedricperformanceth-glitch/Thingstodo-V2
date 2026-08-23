@@ -14,8 +14,14 @@ const fieldCardPhotos = [gallery[0] ?? thing.media.card?.image, gallery[1], gall
 
 const generatedSources = (thing as ThingToDo & { researchSources?: ResearchSource[] }).researchSources ?? [];
 const sourceCandidates = getEditorialSources(thing.id) ?? generatedSources;
-const isAtlasInternalSource = (source: ResearchSource) => /thingstodoatlas|atlas v1/i.test(`${source.sourceName ?? ''} ${source.sourceUrl ?? ''}`);
-const publishableSources = sourceCandidates.filter((source) => !isAtlasInternalSource(source));
+const isRepositorySource = (source: ResearchSource) => {
+  try {
+    return new URL(source.sourceUrl ?? '').hostname.toLowerCase() === 'github.com';
+  } catch {
+    return false;
+  }
+};
+const publishableSources = sourceCandidates.filter((source) => !isRepositorySource(source));
 const sources = publishableSources.filter((source, index, list) => {
   const key = source.sourceUrl || source.sourceName;
   return list.findIndex((candidate) => (candidate.sourceUrl || candidate.sourceName) === key) === index;

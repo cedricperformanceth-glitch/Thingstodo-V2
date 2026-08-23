@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-faq.json', import.meta.url), 'utf8'));
-const editorialFaq = JSON.parse(readFileSync(new URL('../src/content/field-card-faq-copy.json', import.meta.url), 'utf8'));
+const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
+const editorialFaq = Object.fromEntries(Object.entries(editorial).filter(([, entry]) => entry.faq).map(([id, entry]) => [id, entry.faq]));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardFaq.astro', import.meta.url), 'utf8');
 const fieldCard = readFileSync(new URL('../src/components/field-card/FieldCard.astro', import.meta.url), 'utf8');
 const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
@@ -25,10 +26,10 @@ assert.match(component, /<details/, 'FAQ must use accessible expandable question
 assert.match(component, /field-card-faq__index/, 'FAQ must use the faded index treatment');
 assert.doesNotMatch(component, /background:\s*var\(--field-card-sheet\)/, 'FAQ must remain on the page background rather than a white sheet');
 
-assert.match(engine, /field-card-faq-copy\.json/, 'Field Card engine must expose a reviewed FAQ editorial layer');
+assert.match(engine, /getEditorialFaq/, 'Field Card engine must read reviewed FAQs from the canonical editorial registry');
 assert.match(engine, /const fallbackFaq/, 'Field Card engine must provide a generic FAQ fallback');
 assert.equal((engine.match(/question:\s*'/g) ?? []).length, 5, 'Generic fallback must define exactly five questions');
-assert.match(engine, /completeFaq\(editorialFaq\[thing\.id\]\)/, 'Reviewed FAQ copy must take precedence over generated FAQ content');
+assert.match(engine, /completeFaq\(getEditorialFaq\(thing\.id\)\)/, 'Reviewed FAQ copy must take precedence over generated FAQ content');
 assert.match(engine, /completeFaq\(thing\.fieldCard\.faq\)/, 'A complete generated five-question FAQ must replace the fallback');
 assert.match(engine, /const faq = resolveFaq\(thing\)/, 'Field Card view must always resolve FAQ content');
 

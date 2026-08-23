@@ -2332,11 +2332,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -2381,11 +2376,6 @@ const data = {
         "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -2432,11 +2422,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -2481,11 +2466,6 @@ const data = {
         "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -2532,11 +2512,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -2581,11 +2556,6 @@ const data = {
         "sourceName": "Atlas V2 Thakhek verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 Thakhek research seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "candidate-discovery"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",

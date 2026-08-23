@@ -14,10 +14,6 @@ const sourceProfiles = {
     sourceName: 'Hostelworld current Thakhek listings',
     sourceUrl: 'https://www.hostelworld.com/hotels/asia/laos/thakhek/',
   },
-  atlasV1: {
-    sourceName: 'Atlas V1 Thakhek research seed',
-    sourceUrl: 'https://github.com/cedricperformanceth-glitch/thingstodoatlas',
-  },
   official: {
     sourceName: 'Khammouane Tourism',
     sourceUrl: 'https://www.khammouanetourism.org/en',
@@ -90,8 +86,6 @@ export const places = [
   place('Thakhek View', 'restaurants', { source: 'restaurantGuru', rating: 4.7, reviews: 24 }),
   place('Miss Tang Restaurant', 'restaurants', { source: 'restaurantGuru', rating: 4.5, reviews: 30 }),
   place('Six Friends Restaurant', 'restaurants', { source: 'restaurantGuru', rating: 2.4, reviews: 248 }),
-  place('Savanna', 'restaurants', { source: 'atlasV1' }),
-  place('Zor Champa Restaurant', 'restaurants', { source: 'atlasV1' }),
   place('Khammouane Seafood', 'restaurants', { source: 'restaurantGuru' }),
   place('Muay Seafood & Restaurant', 'restaurants', { source: 'restaurantGuru' }),
   place('Kampan Seafood Restaurant & Grill', 'restaurants', { source: 'restaurantGuru' }),
@@ -109,7 +103,6 @@ export const places = [
   place('Candy cafe', 'cafes', { source: 'restaurantGuru', rating: 4.8, reviews: 19 }),
   place('Room Cafe Thakhek', 'cafes', { rating: 4.2, reviews: 70 }),
   place('Vegetarian House Cafe', 'cafes', { rating: 4.8, reviews: 35 }),
-  place('B96 Coffee and Tea', 'cafes', { source: 'atlasV1' }),
   place('Kamkhong home cafe by noungning', 'cafes', { rating: 4.9, reviews: 82 }),
   place('ROK Coffee Thakhek', 'cafes', { rating: 4.5, reviews: 22 }),
   place('Soukjai Cafe', 'cafes', { rating: 4.3, reviews: 45, description: 'Soukjai Cafe remains a current public café listing in central Thakhek; its exact branding should be checked editorially if the business identity changes.' }),
@@ -127,19 +120,11 @@ export const places = [
   place('Song Lao Guesthouse', 'accommodation', { rating: 4.2, reviews: 139 }),
   place('Xoksaysub Hotel', 'accommodation', { rating: 4.2, reviews: 137 }),
   place('Catty tourist house & restaurant', 'accommodation', { rating: 4.9, reviews: 31 }),
-  place('Domea Thakhek - Urban Glamping', 'accommodation', { source: 'atlasV1' }),
   place('Thakhek Travel Lodge', 'accommodation', { rating: 3.6, reviews: 242 }),
-  place('Chandala Hotel', 'accommodation', { source: 'atlasV1' }),
-  place('Le Khammouane Villa', 'accommodation', { source: 'atlasV1' }),
   place('Orlardee Hostel', 'accommodation', { source: 'hostelworld', rating: 9.1, scale: 10, reviews: 1 }),
   place('Nam Phou Hostel', 'accommodation', { source: 'hostelworld', rating: 10, scale: 10, reviews: 4 }),
 
   // Rental Scooter — exact generated target is five.
-  place('Mixay Thakhek Motor Rental', 'scooter-rental', { source: 'atlasV1' }),
-  place('PokemonGo Motorbike Rental', 'scooter-rental', { source: 'atlasV1' }),
-  place('Wang Wang Motor Rental', 'scooter-rental', { source: 'atlasV1' }),
-  place('Mad Monkey Motorcycle', 'scooter-rental', { source: 'atlasV1' }),
-  place("KU'S Motorbike Rental", 'scooter-rental', { source: 'atlasV1' }),
 
   // Markets are un-targeted: keep the distinct current addresses found.
   place('Center Point Thakhek', 'markets', { rating: 4.1, reviews: 343 }),

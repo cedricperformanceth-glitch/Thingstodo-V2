@@ -581,11 +581,6 @@
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -830,11 +825,6 @@
         "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -1136,11 +1126,6 @@
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -1185,11 +1170,6 @@
         "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -1335,11 +1315,6 @@
         "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -2086,11 +2061,6 @@
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -2205,11 +2175,6 @@
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Wikivoyage",
           "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
           "purpose": "facts"
@@ -2294,11 +2259,6 @@
           "sourceName": "Tourism Laos",
           "sourceUrl": "https://www.tourismlaos.org/",
           "purpose": "facts"
-        },
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
         }
       ],
       "manualLocks": {},
@@ -2379,11 +2339,6 @@
         {
           "sourceName": "Tourism Laos",
           "sourceUrl": "https://www.tourismlaos.org/",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
           "purpose": "facts"
         }
       ],
@@ -2519,11 +2474,6 @@
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Lonely Planet",
           "sourceUrl": "https://www.lonelyplanet.com/",
           "purpose": "facts"
@@ -2600,11 +2550,6 @@
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Lonely Planet",
           "sourceUrl": "https://www.lonelyplanet.com/",
           "purpose": "facts"
@@ -2670,11 +2615,6 @@
         {
           "sourceName": "DonDet.net",
           "sourceUrl": "https://www.dondet.net/",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
           "purpose": "facts"
         }
       ],

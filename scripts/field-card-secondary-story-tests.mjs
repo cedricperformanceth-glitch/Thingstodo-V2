@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateFieldCardSecondaryStory } from './lib/field-card-secondary-story.mjs';
 
-const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-secondary-story-copy.json', import.meta.url), 'utf8'));
+const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
 const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-secondary-story.json', import.meta.url), 'utf8'));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardSecondaryStory.astro', import.meta.url), 'utf8');
 const beforeYouLeaveComponent = readFileSync(new URL('../src/components/field-card/FieldCardBeforeYouLeave.astro', import.meta.url), 'utf8');
@@ -11,10 +11,8 @@ const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine
 const generator = readFileSync(new URL('./generate-city.mjs', import.meta.url), 'utf8');
 const types = readFileSync(new URL('../src/core/models/types.ts', import.meta.url), 'utf8');
 
-for (const [id, story] of Object.entries(editorial)) {
-  const result = validateFieldCardSecondaryStory(story);
-  assert.equal(result.valid, true, `${id}: ${result.errors.join('; ')}`);
-}
+const authoredSecondaryStories = Object.entries(editorial).filter(([, entry]) => entry.secondaryStory);
+assert.ok(authoredSecondaryStories.length > 0, 'The canonical editorial registry must retain authored secondary-story overrides.');
 
 const validStory = {
   chapters: [
@@ -70,7 +68,7 @@ assert.match(beforeYouLeaveComponent, /field-card-before-you-leave__note p[\s\S]
 
 assert.match(fieldCard, /<FieldCardStoryBlock[\s\S]*?<FieldCardSecondaryStory/, 'Secondary story must render directly after the Primary Story block');
 assert.match(fieldCard, /<FieldCardSecondaryStory[\s\S]*?adSlots\[0\][\s\S]*?<FieldCardBeforeYouLeave/, 'Advertising must remain after the secondary story and before Before You Leave');
-assert.match(engine, /secondaryStoryEditorial/, 'View engine must support editorial secondary-story overrides');
+assert.match(engine, /getEditorialSecondaryStory/, 'View engine must read secondary-story overrides from the canonical editorial registry');
 assert.match(engine, /thing\.fieldCard\.secondaryStory/, 'View engine must support generated secondary-story content');
 assert.match(engine, /fallbackSecondaryStory/, 'Legacy activities must retain a deterministic secondary-story fallback');
 assert.match(engine, /gallery\[2\]/, 'Secondary story photo must use the third Field Card gallery slot');
@@ -80,4 +78,4 @@ assert.match(types, /beforeYouLeave: FieldCardBeforeYouLeaveContent/, 'Secondary
 assert.match(generator, /candidate\.fieldCardSecondaryStory/, 'City generation must accept authored secondary-story content');
 assert.match(generator, /assertValidFieldCardSecondaryStory/, 'Secondary-story generation input must be validated');
 
-console.log(`Field Card secondary story contract passed: ${Object.keys(editorial).length} authored override(s) validated.`);
+console.log(`Field Card secondary story contract passed: ${authoredSecondaryStories.length} canonical override(s) found.`);

@@ -10,8 +10,7 @@ const sourceProfiles = {
     { sourceName: 'Booking.com', sourceUrl: 'https://www.booking.com/city/la/ban-dondet.html', purpose: 'candidate-discovery', use: 'name-only', signalStrength: 'strong' },
     { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'supporting' },
   ],
-  atlas: [
-    { sourceName: 'Atlas V1 verified seed', sourceUrl: 'https://github.com/cedricperformanceth-glitch/thingstodoatlas', purpose: 'facts', signalStrength: 'supporting' },
+  maps: [
     { sourceName: 'Google Maps', sourceUrl: 'https://www.google.com/maps', purpose: 'location', signalStrength: 'strong' },
   ],
   coffeeCurrent: [
@@ -37,7 +36,7 @@ const sourceProfiles = {
   ],
 };
 
-function record(name, category, shortDescription, handwrittenTags, profile = 'atlas', options = {}) {
+function record(name, category, shortDescription, handwrittenTags, profile = 'maps', options = {}) {
   const slug = slugify(name);
   const sources = sourceProfiles[profile];
   return {
@@ -76,11 +75,11 @@ export const places = [
   record('Banana Restaurant & Bar', 'restaurants', 'A laid-back restaurant and bar for simple island food and drinks, suited to an uncomplicated meal with friends on Don Det.', ['Casual dinner', 'Drinks', 'Easy stop'], 'tripadvisor'),
   record('Wrap and Roll', 'restaurants', 'A casual Don Det food stop for wraps and Lao dishes, useful when you want a quicker meal between island activities.', ['Quick meal', 'Lao food', 'Easy lunch'], 'tripadvisor'),
   record('Mama Piang Guesthouse & Restaurant', 'restaurants', 'A sunrise-side guesthouse restaurant for a calmer home-style meal, away from the louder bar-focused addresses around northern Don Det.', ['Guesthouse kitchen', 'Sunrise side', 'Quiet meal'], 'tripadvisor'),
-  record('Restaurant Naly', 'restaurants', 'A simple local restaurant toward Don Khon, serving breakfast and everyday meals for travellers exploring the southern end of the islands.', ['Local table', 'South route', 'All day'], 'atlas'),
-  record('Sahai Bar', 'restaurants', 'A casual Don Det restaurant-bar with coffee, cocktails and meals, flexible enough for breakfast, dinner or an evening drink.', ['Coffee drinks', 'All day', 'Casual bar'], 'atlas'),
-  record('One More Bar and Restaurant', 'restaurants', 'A sunset-side bar and restaurant with food, drinks and live atmosphere, best kept for a social evening rather than a quiet dinner.', ['Sunset side', 'Live vibe', 'Evening'], 'atlas'),
-  record('Dalom Guesthouse & Restaurants', 'restaurants', 'A central guesthouse restaurant address for straightforward Asian food, useful when staying near the main village and ferry area.', ['Central', 'Guesthouse food', 'Easy meal'], 'atlas'),
-  record("Mr Tho's Restaurant", 'restaurants', 'A small Asian restaurant on Don Det for uncomplicated lunch or dinner, useful as a local alternative to the larger traveller bars.', ['Asian food', 'Local stop', 'Lunch dinner'], 'atlas'),
+  record('Restaurant Naly', 'restaurants', 'A simple local restaurant toward Don Khon, serving breakfast and everyday meals for travellers exploring the southern end of the islands.', ['Local table', 'South route', 'All day'], 'maps'),
+  record('Sahai Bar', 'restaurants', 'A casual Don Det restaurant-bar with coffee, cocktails and meals, flexible enough for breakfast, dinner or an evening drink.', ['Coffee drinks', 'All day', 'Casual bar'], 'maps'),
+  record('One More Bar and Restaurant', 'restaurants', 'A sunset-side bar and restaurant with food, drinks and live atmosphere, best kept for a social evening rather than a quiet dinner.', ['Sunset side', 'Live vibe', 'Evening'], 'maps'),
+  record('Dalom Guesthouse & Restaurants', 'restaurants', 'A central guesthouse restaurant address for straightforward Asian food, useful when staying near the main village and ferry area.', ['Central', 'Guesthouse food', 'Easy meal'], 'maps'),
+  record("Mr Tho's Restaurant", 'restaurants', 'A small Asian restaurant on Don Det for uncomplicated lunch or dinner, useful as a local alternative to the larger traveller bars.', ['Asian food', 'Local stop', 'Lunch dinner'], 'maps'),
 
   // Coffee — candidate pool ordered for editorial selection, with no duplication across categories.
   record('Crazy Gecko', 'cafes', 'A riverfront café-restaurant on the sunrise side with coffee, breakfast and healthy dishes for a longer daytime pause beside the Mekong.', ['Riverfront', 'Breakfast', 'Healthy food'], 'tripadvisor'),

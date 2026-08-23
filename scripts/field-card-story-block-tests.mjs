@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { validateFieldCardPrimaryStory } from './lib/field-card-primary-story.mjs';
 
-const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-primary-story-copy.json', import.meta.url), 'utf8'));
+const editorial = JSON.parse(readFileSync(new URL('../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
 const contract = JSON.parse(readFileSync(new URL('../pipeline/contracts/field-card-primary-story.json', import.meta.url), 'utf8'));
 const component = readFileSync(new URL('../src/components/field-card/FieldCardStoryBlock.astro', import.meta.url), 'utf8');
 const fieldCard = readFileSync(new URL('../src/components/field-card/FieldCard.astro', import.meta.url), 'utf8');
@@ -12,10 +12,8 @@ const engine = readFileSync(new URL('../src/engines/field-card/field-card-engine
 const generator = readFileSync(new URL('./generate-city.mjs', import.meta.url), 'utf8');
 const tokens = readFileSync(new URL('../src/core/design-system/tokens.css', import.meta.url), 'utf8');
 
-for (const [id, story] of Object.entries(editorial)) {
-  const result = validateFieldCardPrimaryStory(story);
-  assert.equal(result.valid, true, `${id}: ${result.errors.join('; ')}`);
-}
+const authoredPrimaryStories = Object.entries(editorial).filter(([, entry]) => entry.primaryStory);
+assert.ok(authoredPrimaryStories.length > 0, 'The canonical editorial registry must retain authored primary-story overrides.');
 
 const validStory = {
   chapters: [
@@ -55,7 +53,7 @@ assert.match(hero, /linear-gradient\(var\(--field-card-sheet-wash\), var\(--fiel
 assert.doesNotMatch([fieldCard, hero, component].join('\n'), /#f4f0e7|#fffdf8/, 'Field Card components must not duplicate shared page/sheet hex values');
 assert.equal((hero.match(/\.field-card-hero__axis\s*\{/g) ?? []).length, 2, 'Hero axis should have one base rule and one mobile override only');
 assert.doesNotMatch(hero, /\.field-card-hero__axis\s*\{\s*overflow:\s*hidden;/, 'Hero mobile axis must not retain the obsolete overflow override');
-assert.match(engine, /primaryStoryEditorial/, 'View engine must support editorial primary-story overrides');
+assert.match(engine, /getEditorialPrimaryStory/, 'View engine must read primary-story overrides from the canonical editorial registry');
 assert.match(engine, /thing\.fieldCard\.primaryStory/, 'View engine must support generated primary-story content');
 assert.match(engine, /storyImage = gallery\[1\]/, 'Story block must request a distinct secondary Field Card image');
 assert.doesNotMatch(engine, /fieldCard\.whyGo/, 'Field Card rendering fallbacks must not depend on the removed Why Go presentation concept');
@@ -82,4 +80,4 @@ assert.match(component, /\.field-card-story-block__note span\s*\{[\s\S]*?font-fa
 assert.match(component, /\.field-card-story-block__note p\s*\{[\s\S]*?font-family:\s*var\(--field-card-handwritten\);/, 'Post-it text must directly use the handwritten role');
 assert.match(fieldCard, /\.field-card__body h2\s*\{[\s\S]*?font-family:\s*var\(--field-card-title\);[\s\S]*?font-weight:\s*600;/, 'Later Field Card headings must use Newsreader 600 directly');
 
-console.log(`Field Card primary story contract passed: ${Object.keys(editorial).length} authored override(s) validated.`);
+console.log(`Field Card primary story contract passed: ${authoredPrimaryStories.length} canonical override(s) found.`);

@@ -2,10 +2,21 @@ import fs from 'node:fs'; import path from 'node:path';
 import { researchPlan, validateCityCategories } from './lib/city-pipeline.mjs';
 const root=process.cwd(), dir=path.join(root,'pipeline','cities'); const drafts=fs.existsSync(dir)?fs.readdirSync(dir,{recursive:true}).filter(x=>String(x).endsWith('.json')).map(x=>JSON.parse(fs.readFileSync(path.join(dir,x),'utf8'))):[];
 const fail=[]; const legacyPlans=[]; const unique=(items,key,label)=>{const seen=new Set(); for(const item of items){const value=key(item); if(seen.has(value)) fail.push(`Duplicate ${label}: ${value}`); seen.add(value);}};
+const containsRepositorySource=(value)=>{
+  if(Array.isArray(value)) return value.some(containsRepositorySource);
+  if(!value || typeof value !== 'object') return false;
+  return Object.entries(value).some(([key, current]) => {
+    if(key === 'sourceUrl' && typeof current === 'string') {
+      try { return new URL(current).hostname.toLowerCase() === 'github.com'; } catch { return false; }
+    }
+    return containsRepositorySource(current);
+  });
+};
 unique(drafts,x=>x.cityData.id,'city ID'); unique(drafts,x=>`${x.country}/${x.city}`,'city route'); unique(drafts.flatMap(x=>x.places),x=>x.id,'Place ID'); unique(drafts.flatMap(x=>x.things),x=>x.id,'ThingToDo ID'); unique(drafts.flatMap(x=>x.places),x=>`${x.country}/${x.city}/${x.slug}`,'Place route slug'); unique(drafts.flatMap(x=>x.things),x=>`${x.country}/${x.city}/${x.slug}`,'ThingToDo route slug');
 for (const draft of drafts) {
   const cityKey=`${draft.country}/${draft.city}`;
   const isDraft=draft.cityData?.seo?.indexable === false;
+  if (containsRepositorySource(draft)) fail.push(`Repository URL is not an admissible public source: ${cityKey}`);
   if ('media' in draft.cityData) fail.push(`Duplicate City media manifest: ${cityKey}`);
   if (draft.cityData.hero?.media) fail.push(`City Hero visual media must come from the asset resolver: ${cityKey}`);
 

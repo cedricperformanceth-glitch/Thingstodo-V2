@@ -412,11 +412,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -716,11 +711,6 @@ const data = {
         "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -1088,11 +1078,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -1148,11 +1133,6 @@ const data = {
         "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -1331,11 +1311,6 @@ const data = {
         "sourceName": "Atlas V2 verified research"
       },
       "researchSources": [
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
         {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
@@ -2247,11 +2222,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Google Maps",
           "sourceUrl": "https://www.google.com/maps",
           "purpose": "location"
@@ -2377,11 +2347,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Wikivoyage",
           "sourceUrl": "https://en.wikivoyage.org/wiki/Don_Det",
           "purpose": "facts"
@@ -2466,11 +2431,6 @@ const data = {
           "sourceName": "Tourism Laos",
           "sourceUrl": "https://www.tourismlaos.org/",
           "purpose": "facts"
-        },
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
         }
       ],
       "manualLocks": {},
@@ -2551,11 +2511,6 @@ const data = {
         {
           "sourceName": "Tourism Laos",
           "sourceUrl": "https://www.tourismlaos.org/",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
           "purpose": "facts"
         }
       ],
@@ -2691,11 +2646,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Lonely Planet",
           "sourceUrl": "https://www.lonelyplanet.com/",
           "purpose": "facts"
@@ -2772,11 +2722,6 @@ const data = {
       },
       "researchSources": [
         {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
-          "purpose": "facts"
-        },
-        {
           "sourceName": "Lonely Planet",
           "sourceUrl": "https://www.lonelyplanet.com/",
           "purpose": "facts"
@@ -2842,11 +2787,6 @@ const data = {
         {
           "sourceName": "DonDet.net",
           "sourceUrl": "https://www.dondet.net/",
-          "purpose": "facts"
-        },
-        {
-          "sourceName": "Atlas V1 verified seed",
-          "sourceUrl": "https://github.com/cedricperformanceth-glitch/thingstodoatlas",
           "purpose": "facts"
         }
       ],

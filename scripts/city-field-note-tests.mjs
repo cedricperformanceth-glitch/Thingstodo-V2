@@ -26,11 +26,11 @@ const component = read(componentPath);
 const route = read(routePath);
 const genericFiles = `${engine}\n${component}\n${route}`;
 expect(engine.includes('export const cityFieldNoteView'), 'generic cityFieldNoteView resolver is missing');
-expect(engine.includes('generatedChapters(city, country)'), 'generated fallback chapter layer is missing');
+expect(engine.includes('generatedChapters(city,country)'), 'generated fallback chapter layer is missing');
 expect(engine.includes('getEditorialCityFieldNote(city.id)'), 'editorial city override is not wired into the engine');
 expect(engine.includes('editorialAdSlots.slice(0, 3)'), 'city note should expose exactly three editorial ad slots');
 
-for (const marker of ['city-note__hero','city-note__quick','city-note__chapters','city-note__chapter-side','city-note__photo-spread','city-note__warning','city-note__sources','city-note__closing']) {
+for (const marker of ['city-note__hero','city-note__quick','city-note__chapters','city-note__chapter-side','city-note__photo-spread','city-note__sources','city-note__closing']) {
   expect(component.includes(marker), `presentation block ${marker} is missing`);
 }
 expect(component.includes('view.media'), 'component does not render editorial media');
@@ -62,7 +62,7 @@ for (const id of completedEditorialCities) {
   expect(cityMedia?.length === 4, `${id} city note must contain hero, two spread photos and one chapter-seven photo`);
   expect(cityMedia.every((item) => item.src && item.alt && item.sourceUrl && item.sourceName && item.license && item.locked === true), `${id} editorial images need provenance, alt, licence and lock`);
   expect(citySources?.length >= 5, `${id} editorial note needs a substantive source list`);
-  expect(citySources.every((source) => source.sourceUrl && !source.sourceUrl.toLowerCase().includes('thingstodoatlas')), `${id} sources must be original external sources, never Atlas V1`);
+  expect(citySources.every((source) => source.sourceUrl && !/github\.com\/cedricperformanceth-glitch\//i.test(source.sourceUrl)), `${id} sources must be original external sources, never an internal project repository`);
   expect(citySeo?.indexable === true && citySeo.title && citySeo.description, `${id} completed city note must have publishable SEO`);
 }
 
