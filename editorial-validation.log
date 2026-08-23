@@ -1,0 +1,103 @@
+thing-4000-islands-kayaking :: primaryStory :: Primary story note text exceeds 18 words.
+thing-coffee-and-katu-culture-with-mr-hook :: hero :: aliases 3 must be at most 4 words | rhythmNote must be at most 22 words
+thing-coffee-and-katu-culture-with-mr-hook :: primaryStory :: Primary story note text exceeds 18 words.
+thing-coffee-from-tree-to-cup-with-mr-vieng :: hero :: rhythmNote must be at most 22 words | photoNote must be at most 14 words
+thing-coffee-from-tree-to-cup-with-mr-vieng :: primaryStory :: Primary story note text exceeds 18 words.
+thing-coffee-from-tree-to-cup-with-mr-vieng :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-cool-springs-loop :: hero :: aliases must contain exactly 3 items | steps 4 must be at most 10 words | rhythmNote must be at most 22 words
+thing-cool-springs-loop :: primaryStory :: Primary story note text exceeds 18 words.
+thing-cycle-don-det-don-khon :: hero :: rhythmNote must be at most 22 words
+thing-cycle-don-det-don-khon :: primaryStory :: Primary story note text exceeds 18 words.
+thing-don-det-sunset :: hero :: rhythmNote must be at most 22 words
+thing-don-det-sunset :: primaryStory :: Primary story note text exceeds 18 words.
+thing-don-det-tubing :: hero :: aliases 3 must be at most 4 words | rhythmNote must be at most 22 words
+thing-don-det-tubing :: primaryStory :: Primary story note text exceeds 18 words.
+thing-don-det-tubing :: practical :: items[3].detail must be at most 42 words
+thing-don-som-island :: hero :: rhythmNote must be at most 22 words
+thing-don-som-island :: primaryStory :: Primary story note text exceeds 18 words.
+thing-don-som-island :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-dragon-cave :: hero :: rhythmNote must be at most 22 words
+thing-dragon-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-dragon-cave :: practical :: items[2].detail must be at most 42 words
+thing-fandee-adventure-park :: hero :: rhythmNote must be at most 22 words
+thing-fandee-adventure-park :: primaryStory :: Primary story must contain exactly two chapters. | Primary story note text exceeds 18 words.
+thing-hin-nam-no-national-park :: hero :: steps 4 must be at most 10 words | rhythmNote must be at most 22 words
+thing-hin-nam-no-national-park :: quickRead :: time.secondary must be at most 12 words
+thing-katu-weaving-workshop :: hero :: rhythmNote must be at most 22 words
+thing-katu-weaving-workshop :: primaryStory :: Primary story note text exceeds 18 words.
+thing-katu-weaving-workshop :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-khone-pa-soi-waterfall :: hero :: rhythmNote must be at most 22 words
+thing-khone-pa-soi-waterfall :: primaryStory :: Primary story note text exceeds 18 words.
+thing-khone-pa-soi-waterfall :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-khone-phapheng-falls :: hero :: rhythmNote must be at most 22 words
+thing-khone-phapheng-falls :: primaryStory :: Primary story note text exceeds 18 words.
+thing-khone-phapheng-falls :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-khone-phapheng-falls :: practical :: items[0].detail must be at most 42 words
+thing-khoun-kong-leng :: hero :: rhythmNote must be at most 22 words
+thing-khoun-kong-leng :: secondaryStory :: Secondary story beforeYouLeave note label exceeds 4 words.
+thing-kong-lor-cave :: hero :: aliases 3 must be at most 4 words | rhythmNote must be at most 22 words
+thing-kong-lor-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-kong-lor-cave :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-kong-lor-cave :: practical :: items[1].detail must be at most 42 words | items[5].detail must be at most 42 words
+thing-lao-cooking-class-with-nyay :: hero :: rhythmNote must be at most 22 words | photoNote must be at most 14 words
+thing-lao-cooking-class-with-nyay :: primaryStory :: Primary story note label exceeds 4 words. | Primary story note text exceeds 18 words.
+thing-li-phi-somphamit-waterfalls :: primaryStory :: Primary story note label exceeds 4 words. | Primary story note text exceeds 18 words.
+thing-li-phi-somphamit-waterfalls :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-old-french-railway-bridge :: primaryStory :: Primary story note label exceeds 4 words. | Primary story note text exceeds 18 words.
+thing-old-french-railway-bridge :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-old-thakhek-mekong :: hero :: rhythmNote must be at most 22 words
+thing-old-thakhek-mekong :: primaryStory :: Primary story note label exceeds 4 words. | Primary story note text exceeds 18 words.
+thing-old-thakhek-mekong :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-pha-inh-cave :: hero :: aliases must contain exactly 3 items | rhythmNote must be at most 22 words
+thing-pha-inh-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-pha-inh-cave :: practical :: items[2].detail must be at most 42 words
+thing-phou-pha-marn-viewpoint :: hero :: aliases 2 must be at most 4 words | rhythmNote must be at most 22 words
+thing-phou-pha-marn-viewpoint :: primaryStory :: Primary story note text exceeds 18 words.
+thing-sandstone-buddhas :: hero :: rhythmNote must be at most 22 words
+thing-sandstone-buddhas :: primaryStory :: Primary story note text exceeds 18 words.
+thing-si-phan-don-by-boat :: hero :: rhythmNote must be at most 22 words
+thing-si-phan-don-by-boat :: primaryStory :: Primary story note text exceeds 18 words.
+thing-si-phan-don-by-boat :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-sikhottabong-stupa :: hero :: rhythmNote must be at most 22 words
+thing-sikhottabong-stupa :: primaryStory :: Primary story note text exceeds 18 words.
+thing-sikhottabong-stupa :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-tad-hang-waterfall :: hero :: rhythmNote must be at most 22 words
+thing-tad-lo-half-day-guided-trek :: primaryStory :: Primary story must contain exactly two chapters. | Primary story note text exceeds 18 words.
+thing-tad-lo-riverside-village-walk :: hero :: rhythmNote must be at most 22 words
+thing-tad-lo-riverside-village-walk :: primaryStory :: Primary story must contain exactly two chapters. | Primary story note text exceeds 18 words.
+thing-tad-lo-treasure-hunt :: hero :: rhythmNote must be at most 22 words
+thing-tad-lo-treasure-hunt :: primaryStory :: Primary story must contain exactly two chapters. | Primary story note text exceeds 18 words.
+thing-tad-lo-two-day-village-trek :: hero :: aliases 1 must be at most 4 words | steps must contain exactly 4 items | rhythmNote must be at most 22 words
+thing-tad-lo-two-day-village-trek :: primaryStory :: Primary story must contain exactly two chapters.
+thing-tad-lo-waterfall :: hero :: rhythmNote must be at most 22 words
+thing-tad-soung-waterfall :: hero :: rhythmNote must be at most 22 words
+thing-tad-soung-waterfall :: primaryStory :: Primary story note label exceeds 4 words. | Primary story note text exceeds 18 words.
+thing-tad-soung-waterfall :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-tha-falang :: hero :: rhythmNote must be at most 22 words
+thing-tha-falang :: primaryStory :: Primary story note label exceeds 4 words. | Primary story note text exceeds 18 words.
+thing-thakhek-loop :: hero :: rhythmNote must be at most 22 words
+thing-thakhek-loop :: primaryStory :: Primary story note text exceeds 18 words.
+thing-thakhek-loop :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-thakhek-loop :: practical :: items[0].detail must be at most 42 words
+thing-thalang-nam-theun-reservoir :: hero :: rhythmNote must be at most 22 words
+thing-thalang-nam-theun-reservoir :: primaryStory :: Primary story note text exceeds 18 words.
+thing-thalang-nam-theun-reservoir :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-tham-chang-elephant-cave :: hero :: rhythmNote must be at most 22 words
+thing-tham-chang-elephant-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-tham-chang-elephant-cave :: practical :: items[0].detail must be at most 42 words
+thing-tham-pha-buddha-cave :: hero :: rhythmNote must be at most 22 words
+thing-tham-pha-buddha-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-tham-pha-buddha-cave :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-tham-xiang-liap-cave :: hero :: rhythmNote must be at most 22 words
+thing-tham-xiang-liap-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-tham-xiang-liap-cave :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-traditional-lao-massage-in-tad-lo :: primaryStory :: Primary story must contain exactly two chapters. | Primary story note text exceeds 18 words.
+thing-vat-paa-forest-buddha-and-mystery-cave :: hero :: rhythmNote must be at most 22 words
+thing-vat-paa-forest-buddha-and-mystery-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-xai-kong-nyai-beach :: hero :: aliases must contain exactly 3 items | rhythmNote must be at most 22 words
+thing-xai-kong-nyai-beach :: primaryStory :: Primary story note text exceeds 18 words.
+thing-xai-kong-nyai-beach :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-xai-kong-nyai-beach :: practical :: items[4].detail must be at most 42 words
+thing-xe-bang-fai-cave :: primaryStory :: Primary story note text exceeds 18 words.
+thing-xe-bang-fai-cave :: secondaryStory :: Secondary story beforeYouLeave note text exceeds 18 words.
+thing-xe-bang-fai-cave :: practical :: items[0].detail must be at most 42 words
