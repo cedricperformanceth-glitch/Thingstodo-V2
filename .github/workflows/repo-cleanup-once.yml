@@ -5,8 +5,7 @@ on:
     branches: [master]
     paths:
       - '.github/workflows/repo-cleanup-once.yml'
-      - 'scripts/prepare-canonical-validator-once.mjs'
-      - 'scripts/repo-cleanup-finalize-once.mjs'
+      - 'scripts/prepare-cleanup-runner-once.mjs'
 
 permissions:
   contents: write
@@ -32,19 +31,16 @@ jobs:
       - name: Prepare canonical validator
         run: node scripts/prepare-canonical-validator-once.mjs
 
+      - name: Prepare one-time cleanup runner
+        run: node scripts/prepare-cleanup-runner-once.mjs
+
       - name: Consolidate repository
         run: node scripts/repo-cleanup-once.mjs
 
       - name: Remove dead short-card payloads
         run: node scripts/repo-cleanup-finalize-once.mjs
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Verify cleaned repository
-        run: npm run verify:city-template
-
-      - name: Commit cleaned state
+      - name: Commit canonical cleaned state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -52,3 +48,9 @@ jobs:
           git diff --cached --quiet && { echo "Cleanup produced no changes"; exit 1; }
           git commit -m "Consolidate canonical Atlas content"
           git push origin HEAD:master
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify cleaned repository
+        run: npm run verify:city-template
