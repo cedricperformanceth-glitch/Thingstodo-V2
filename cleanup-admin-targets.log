@@ -64,7 +64,7 @@ node:internal/modules/run_main:123
     triggerUncaughtException(
     ^
 
-AssertionError [ERR_ASSERTION]: thing-4000-islands-kayaking: rhythmNote must be at most 22 words
+AssertionError [ERR_ASSERTION]: thing-coffee-and-katu-culture-with-mr-hook: aliases 3 must be at most 4 words; rhythmNote must be at most 22 words
 
 false !== true
 
