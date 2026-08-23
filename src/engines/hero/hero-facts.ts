@@ -1,5 +1,5 @@
 import type { City, HeroFact } from '../../core/models/types';
-import { cityHeroFactOverrides } from '../../content/city-hero-facts';
+import { cityHeroEditorial } from '../../content/city-hero-editorial';
 
 export type CityHeroFactIcon = 'calendar' | 'road' | 'climate' | 'location';
 export interface CityHeroDisplayFact { icon: CityHeroFactIcon; text: string; }
@@ -36,13 +36,7 @@ const generatedFacts = (city: City): string[] => {
   return values;
 };
 
-/**
- * Four fixed semantic slots keep one visual language everywhere.
- * Laos retains its validated V1 copy; future cities are populated from
- * City.hero.facts without destination-specific component logic.
- */
 export const getCityHeroFacts = (city: City): CityHeroDisplayFact[] => {
-  const key = `${city.country}/${city.slug}`;
-  const values = cityHeroFactOverrides[key] ?? generatedFacts(city);
+  const values = cityHeroEditorial[`${city.country}/${city.slug}`]?.facts ?? generatedFacts(city);
   return slots.map(({ icon }, index) => ({ icon, text: values[index] ?? '' }));
 };

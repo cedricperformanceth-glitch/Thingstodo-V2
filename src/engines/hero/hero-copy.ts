@@ -1,5 +1,5 @@
 import type { City } from '../../core/models/types';
-import { cityHeroCopyOverrides } from '../../content/city-hero-copy';
+import { cityHeroEditorial } from '../../content/city-hero-editorial';
 
 const wrapLines = (value: string, maxChars = 66, maxLines = 3) => {
   const words = value.trim().split(/\s+/).filter(Boolean);
@@ -17,7 +17,6 @@ const wrapLines = (value: string, maxChars = 66, maxLines = 3) => {
 
     lines.push(current);
     current = word;
-
     if (lines.length === maxLines - 1) break;
   }
 
@@ -46,16 +45,9 @@ const generatedMessageLines = (city: City) => {
   return wrapLines(source);
 };
 
-/**
- * Hero editorial copy is destination content, not layout configuration.
- * Existing Laos copy is preserved exactly; every unlisted future destination
- * receives deterministic copy from its own City data with no destination branch.
- */
 export const getCityHeroCopy = (city: City) => {
-  const key = `${city.country}/${city.slug}`;
-  const override = cityHeroCopyOverrides[key];
-
-  return override ?? {
+  const editorial = cityHeroEditorial[`${city.country}/${city.slug}`]?.copy;
+  return editorial ?? {
     drawingCaption: generatedDrawingCaption(city),
     messageLines: generatedMessageLines(city),
   };

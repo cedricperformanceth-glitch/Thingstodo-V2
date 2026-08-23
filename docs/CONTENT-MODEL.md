@@ -1,79 +1,68 @@
 # Content model
 
-The strict TypeScript contracts are in `src/core/models/types.ts`.
+The strict TypeScript contracts live in `src/core/models/types.ts`.
 
-- A `Country` owns identity, chapter, city references, media, map and SEO.
-- A `City` references its country and declares a presentation profile, enabled categories, hero, Explore Board, media and SEO.
+- A `Country` owns identity, chapter, media, map and SEO.
+- A `City` references its country and declares presentation profile, enabled categories, category targets, Hero, Explore Board and SEO.
 - A `Place` is a practical address. It has Maps and trip actions, not an editorial detail page.
-- A `ThingToDo` is the single source for activities and landmarks. It can render in a category, Explore Board, Favorites, Trip and its editorial page.
+- A `ThingToDo` is the single activity/attraction/landmark family. It can render in category listings, Explore Board, Favorites, Trip and its Field Card page.
+
+## Editorial sources of truth
+
+Generated city/entity records hold the structural and generated base content. Reviewed Field Card editorial content is consolidated in `src/content/field-card-editorial.json` and exposed through `src/content/field-card-editorial-data.ts` plus the generic Field Card editorial resolver. There is no runtime stack of additions, overrides or destination-specific fallback files.
+
+City Hero destination copy, display facts and optional partners are consolidated in `src/content/city-hero-editorial.ts`. Shared Hero engines provide deterministic fallbacks and presentation logic only.
+
+City Field Notes keep their destination editorial data in the `city-field-note-*-copy.json` files and expose it through `city-field-note-editorial.ts`; presentation components do not import those JSON files directly.
 
 ## Field Card Hero
 
-The Field Card Hero separates presentation from editorial authorship.
+`src/components/field-card/FieldCardHero.astro` owns the universal layout. `FieldCardHeroContent` carries only variable editorial copy: eyebrow, exactly three aliases, description, exactly four axis steps, rhythm note and photo note. The exact activity title comes from `ThingToDo.name`.
 
-- `src/components/field-card/FieldCardHero.astro` owns the universal paper, borders, tape, photo mount, four-node visit axis, handwritten-note placement, stamp and responsive layout.
-- The exact activity title always comes from `ThingToDo.name` and is never duplicated inside Hero editorial copy.
-- Hero media is resolved from the Field Card gallery first, then the card image, then a visible `Photo to add` placeholder. Editorial Hero copy never carries image URLs.
-- `FieldCardHeroContent` carries only variable editorial copy: eyebrow, exactly three aliases, description, exactly four axis steps, rhythm note and photo note.
-- Generated `ThingToDo.fieldCard.hero` is supported for future city generation. The generator is a transport layer: authored Hero copy is validated and copied; destination-specific prose is not invented by runtime code.
-- `src/content/field-card-hero-copy.json` is the universal manual editorial override layer. It is where Atlas can deliberately personalize a generated Hero after review without introducing activity-specific branches in components.
-- Activities without authored Hero copy still render the same universal Hero through a deterministic fallback based only on existing `ThingToDo` data. That fallback keeps pages functional while editorial personalization is completed progressively.
+Hero media resolves from the Field Card gallery, then the card image, then a visible placeholder. Editorial Hero copy does not carry image URLs.
+
+Generated `ThingToDo.fieldCard.hero` remains a valid base for future city generation. Reviewed content, when present, comes from the canonical Field Card editorial entry for that activity.
 
 The executable Hero rules live in `pipeline/contracts/field-card-hero.json` and are verified in CI.
 
 ## Field Card Quick Read
 
-The Quick Read is the universal magazine-index block directly below the Hero.
+`FieldCardQuickReadContent` carries two editorial lines for each fixed slot: TIME, ROUTE, BUDGET and BEST FOR. Labels, numbering and order belong to presentation. Generated Quick Read data remains valid; reviewed content comes from the same canonical Field Card editorial entry.
 
-- `src/components/field-card/FieldCardQuickRead.astro` owns the section heading, invisible 2×2 editorial grid, ghost `01–04` indexes, fixed `TIME / ROUTE / BUDGET / BEST FOR` labels, typography, asymmetry and mobile stack.
-- The four modules are deliberately not UI cards: the reusable component does not add module backgrounds, borders, shadows or border radii.
-- `FieldCardQuickReadContent` carries only two editorial lines per slot: `primary` and `secondary`. Labels, numbering and slot order belong to presentation and cannot be overridden by activity data.
-- Generated `ThingToDo.fieldCard.quickRead` is supported for future city generation through an authored `fieldCardQuickRead` source block. The generator validates and transports the copy; it does not invent destination-specific Quick Read prose.
-- `src/content/field-card-quick-read-copy.json` is the manual editorial override layer for reviewed activities.
-- Activities without authored Quick Read copy still render the same universal block through a deterministic fallback using existing duration, best-time, route, cost type and SPA handwritten tags.
+The executable Quick Read rules live in `pipeline/contracts/field-card-quick-read.json`.
 
-The executable Quick Read rules live in `pipeline/contracts/field-card-quick-read.json` and are verified in CI.
+## Field Card stories
 
-## Field Card Primary Story
+The Primary Story is the universal first editorial chapter block. It contains exactly two chapters plus one concise note. The two subjects are activity-specific editorial choices supported by verified information.
 
-The Primary Story is the first universal editorial chapter block after Quick Read. Its composition is fixed; its subjects are not.
+The Secondary Story contains chapters `03` and `04`, followed by the separate Before You Leave block. A short Field Card explicitly stores `secondaryStory: null` in its canonical editorial entry; it does not retain unused secondary-story payloads elsewhere.
 
-- `src/components/field-card/FieldCardStoryBlock.astro` always owns the same light sheet, top/bottom dividers, two chapter positions on the left, one secondary photo position on the right and one fixed-position post-it.
-- Every Primary Story contains exactly two chapters. Their titles and bodies are activity-specific editorial decisions. Chapter one is not inherently an access chapter and chapter two is not inherently a price chapter.
-- Atlas chooses the two strongest distinct angles supported by verified information. A difficult journey may justify an access chapter; an easy or free visit should not be forced into route or price copy when another subject is more useful.
-- The post-it is always present, but both its label and text are variable. It may carry a route note, price, clothing advice, timing, etiquette, weather, equipment, safety or another concise field note that complements the chapters.
-- The block requests `thing.media.fieldCard.gallery[1]`. Missing qualified media renders `Photo to add`; the runtime does not recycle an unrelated image simply to fill the slot.
-- Future generation can supply `fieldCardPrimaryStory: { chapters: [{ title, body }, { title, body }], note: { label, text } }`. It is validated and persisted into `ThingToDo.fieldCard.primaryStory`. When this explicit block is supplied, `candidate.sections` is reserved for later Field Card chapters.
-- `src/content/field-card-primary-story-copy.json` is the reviewed editorial override layer. Legacy activities without explicit Primary Story data receive a deterministic compatibility fallback so the universal block remains present while editorial personalization is completed.
+Generated Primary/Secondary Story data is supported for future generation. Reviewed story content uses the same canonical Field Card editorial entry rather than separate per-section files.
 
-The executable Primary Story rules live in `pipeline/contracts/field-card-primary-story.json` and are verified in CI.
+The executable story rules live in:
+- `pipeline/contracts/field-card-primary-story.json`
+- `pipeline/contracts/field-card-secondary-story.json`
 
-## Field Card Secondary Story
+## Field Card practical notes and FAQ
 
-The Secondary Story is the universal chapter-three-and-four sequence after the Primary Story, followed by a separate universal Before You Leave block.
+Practical notes, FAQ, media, SEO, sources, SPA presentation copy, display-name editorial changes and any short-card practical label selection all belong to the activity's canonical Field Card editorial entry when manually reviewed. Runtime resolvers fall back to generated `ThingToDo` data only where appropriate.
 
-- `src/components/field-card/FieldCardSecondaryStory.astro` owns one light sheet with the third Field Card photo on the left and exactly two editorial chapter positions on the right. Their structural indexes are `03` and `04`.
-- The two chapter subjects are deliberately undefined. TIME, CONDITIONS, etiquette, equipment, seasonality, context or another verified subject are editorial choices, never runtime semantics.
-- The chapter block has no post-it. Its photo is resolved only from `thing.media.fieldCard.gallery[2]`; missing qualified media renders `Photo to add` instead of recycling another image.
-- `src/components/field-card/FieldCardBeforeYouLeave.astro` follows as a separate light sheet with one editorial text and one fixed-position post-it. `FIELD NOTE · BEFORE YOU LEAVE` belongs to presentation; its title, body, post-it label and post-it text are activity-specific editorial data.
-- Atlas chooses the two strongest distinct next angles after the Primary Story, then one final Before You Leave angle that adds perspective rather than acting as a fifth numbered chapter. The post-it should stay concise and practical.
-- Future generation supplies the whole sequence through `fieldCardSecondaryStory: { chapters: [{ label, title, body }, { label, title, body }], beforeYouLeave: { title, body, note: { label, text } } }`. It remains valid only alongside `fieldCardPrimaryStory`, is validated before persistence into `ThingToDo.fieldCard.secondaryStory`, and leaves `candidate.sections` only for chapters after `04`.
-- `src/content/field-card-secondary-story-copy.json` is the reviewed editorial override layer. Legacy activities without explicit Secondary Story data receive a deterministic compatibility fallback from the next two available Field Card sections plus existing practical editorial data.
-- Advertising remains outside the editorial data contract. The first existing Field Card ad slot stays after the 03/04 sheet and before Before You Leave.
-
-The executable Secondary Story rules live in `pipeline/contracts/field-card-secondary-story.json` and are verified in CI.
+FAQ publication rules require exactly five useful non-empty questions and answers for an indexable activity. Media cardinality and source requirements are enforced by validation scripts.
 
 ## Field Card typography
 
-Field Cards use semantic typography roles rather than component-specific font choices.
-
+Field Cards use semantic typography roles rather than component-specific font choices:
 - Titles: `Newsreader 600`.
 - Editorial narrative, selected introductions and photo captions: `Newsreader 400`.
 - Practical information, itinerary, route, price, metadata and labels: `Manrope 400`.
 - Field notes, handwritten annotations and post-it text: `Caveat` through the handwritten role.
 
-The font roles are defined once in `src/core/design-system/tokens.css`. Each Field Card component consumes those roles directly in its own scoped CSS; there is no global typography override stylesheet layered on top of component styles.
+The font roles are defined once in `src/core/design-system/tokens.css`. Components consume those roles directly in scoped CSS.
 
-Every media group is explicit, and every media record carries provenance. Never claim a social-media image is public domain.
+## Media, sources and locks
 
-Manual locks have one canonical form on the record they protect: `manualLocks["nested.field"] = { value, source: "manual", locked: true }`. This applies equally to `City`, `Place`, and `ThingToDo`; parent locks protect all nested fields beneath them. Pipeline drafts do not have a separate root-level lock map.
+Every media record carries provenance. Publicly accessible does not mean reusable; licensing must be explicit and commercially compatible with the intended use.
+
+Manual locks have one canonical form on the record they protect: `manualLocks["nested.field"] = { value, source: "manual", locked: true }`. A parent lock protects all nested fields beneath it. Pipeline drafts do not have a separate root-level lock map.
+
+`VerificationMetadata` stores the current decision and reason. Source records store useful provenance. Audit timestamps are not persisted merely to record that a generation or editorial pass happened; time-sensitive evidence may still carry an observation date where freshness is functionally required by verification/ranking rules.
