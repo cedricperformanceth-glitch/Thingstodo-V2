@@ -363,8 +363,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -450,8 +449,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -537,8 +535,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -624,8 +621,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -711,8 +707,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -879,8 +874,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -966,8 +960,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -1053,8 +1046,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -1140,8 +1132,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -1308,8 +1299,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -1395,8 +1385,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -1482,8 +1471,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -1569,8 +1557,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -1995,8 +1982,7 @@
         {
           "sourceName": "Tripadvisor",
           "sourceUrl": "https://www.tripadvisor.com/Restaurants-g1082249-Don_Det_Champasak_Province.html",
-          "purpose": "candidate-discovery",
-          "use": "name-only"
+          "purpose": "candidate-discovery"
         },
         {
           "sourceName": "Google Maps",
@@ -3528,8 +3514,8 @@
         "duration": "Half-day",
         "costType": "free",
         "bestTime": "Early morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -3609,8 +3595,8 @@
         "duration": "1.5–3 hours",
         "costType": "paid",
         "bestTime": "Early morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -3690,8 +3676,8 @@
         "duration": "Half-day",
         "costType": "paid",
         "bestTime": "Morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -3903,8 +3889,8 @@
         "duration": "1–3 hours",
         "costType": "free",
         "bestTime": "Afternoon",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -4249,8 +4235,8 @@
         "duration": "1–2 hours",
         "costType": "free",
         "bestTime": "Sunset",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",

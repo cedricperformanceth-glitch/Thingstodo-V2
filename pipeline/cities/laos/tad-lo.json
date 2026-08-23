@@ -1142,55 +1142,6 @@
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sipasert%20Restaurant%20Tad%20Lo%20Laos"
     },
     {
-      "id": "place-palamei-family-restaurant",
-      "slug": "palamei-family-restaurant",
-      "name": "Palamei Family Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Family-style meals associated with the long-running Palamei guesthouse.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Palamei%20Family%20Restaurant%20Tad%20Lo%20Laos"
-    },
-    {
       "id": "place-fandee-waterpark-restaurant",
       "slug": "fandee-waterpark-restaurant",
       "name": "Fandee Waterpark Restaurant",
@@ -1238,55 +1189,6 @@
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fandee%20Waterpark%20Restaurant%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-pakeo-local-restaurant",
-      "slug": "pakeo-local-restaurant",
-      "name": "Pakeo Local Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Small local food option retained for manual verification during the Tad Lo editorial pass.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pakeo%20Local%20Restaurant%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-fandee-island-coffee",
@@ -1385,6 +1287,300 @@
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bolaven%20Garden%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mr-hook-coffee-experience",
+      "slug": "mr-hook-coffee-experience",
+      "name": "Mr Hook Coffee Experience",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Coffee tasting and cultural stop around Mr Hook’s Katu experience.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Hook%20Coffee%20Experience%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-mr-vieng-coffee",
+      "slug": "mr-vieng-coffee",
+      "name": "Mr Vieng Coffee",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Tree-to-cup coffee stop near Laongam, useful as a Tad Lo excursion.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Vieng%20Coffee%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-tourism-office",
+      "slug": "tad-lo-tourism-office",
+      "name": "Tad Lo Tourism Office",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Local reference point for official guided treks, guides and current destination information.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Useful",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Tourism%20Office%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-tad-lo-market-bus-junction",
+      "slug": "tad-lo-market-bus-junction",
+      "name": "Tad Lo Market & Bus Junction",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "practical-services",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Useful arrival point for local transport, basic shopping and the final connection into the village.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Useful",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Market%20%26%20Bus%20Junction%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-palamei-family-restaurant",
+      "slug": "palamei-family-restaurant",
+      "name": "Palamei Family Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Family-style meals associated with the long-running Palamei guesthouse.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Palamei%20Family%20Restaurant%20Tad%20Lo%20Laos"
+    },
+    {
+      "id": "place-pakeo-local-restaurant",
+      "slug": "pakeo-local-restaurant",
+      "name": "Pakeo Local Restaurant",
+      "country": "laos",
+      "city": "tad-lo",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 15.53441,
+        "longitude": 106.27473
+      },
+      "shortDescription": "Small local food option retained for manual verification during the Tad Lo editorial pass.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local food",
+          "Tad Lo",
+          "Local"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "manual-review",
+        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
+        "checkedAt": "2026-08-19T00:00:00.000Z"
+      },
+      "sourceMetadata": {
+        "sourceName": "Visit Tad Lo partner research",
+        "sourceUrl": "https://visit-tadlo.com/en",
+        "reviewedAt": "2026-08-19"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Tad Lo",
+          "sourceUrl": "https://visit-tadlo.com/en",
+          "purpose": "first-party",
+          "sourceType": "first-party-official"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Tad Lo, Salavan Province, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pakeo%20Local%20Restaurant%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-mama-pap-coffee",
@@ -1534,104 +1730,6 @@
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Lodge%20Coffee%20Tad%20Lo%20Laos"
     },
     {
-      "id": "place-mr-hook-coffee-experience",
-      "slug": "mr-hook-coffee-experience",
-      "name": "Mr Hook Coffee Experience",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Coffee tasting and cultural stop around Mr Hook’s Katu experience.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Hook%20Coffee%20Experience%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-mr-vieng-coffee",
-      "slug": "mr-vieng-coffee",
-      "name": "Mr Vieng Coffee",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Tree-to-cup coffee stop near Laongam, useful as a Tad Lo excursion.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Vieng%20Coffee%20Tad%20Lo%20Laos"
-    },
-    {
       "id": "place-mr-m-traditional-coffee",
       "slug": "mr-m-traditional-coffee",
       "name": "Mr M Traditional Coffee",
@@ -1679,104 +1777,6 @@
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20M%20Traditional%20Coffee%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tad-lo-tourism-office",
-      "slug": "tad-lo-tourism-office",
-      "name": "Tad Lo Tourism Office",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "practical-services",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Local reference point for official guided treks, guides and current destination information.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Useful",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Tourism%20Office%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tad-lo-market-bus-junction",
-      "slug": "tad-lo-market-bus-junction",
-      "name": "Tad Lo Market & Bus Junction",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "practical-services",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Useful arrival point for local transport, basic shopping and the final connection into the village.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Useful",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Market%20%26%20Bus%20Junction%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-tad-lo-local-clinic",
@@ -1928,8 +1928,8 @@
           "Local experience",
           "Field note"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false,
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true,
         "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
         "duration": "Less than 3 hours",
         "costType": "free",
@@ -1958,17 +1958,17 @@
       "isLandmark": false,
       "longDescription": "Easy riverside waterfall close to the village, combining broad rocks, water and everyday local life.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Tad Hang Waterfall"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Easy riverside waterfall close to the village, combining broad rocks, water and everyday local life.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2021,8 +2021,8 @@
           "Local experience",
           "Field note"
         ],
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false,
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true,
         "gettingThere": "Start from Tad Lo and confirm the current route locally before leaving.",
         "duration": "Less than 3 hours",
         "costType": "free",
@@ -2051,17 +2051,17 @@
       "isLandmark": true,
       "longDescription": "Graceful waterfall woven into the village landscape and an easy slow-travel outing from Tad Lo.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Tad Lo Waterfall"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Graceful waterfall woven into the village landscape and an easy slow-travel outing from Tad Lo.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       },
       "exploreBoard": {
         "kicker": "THE VILLAGE WATERFALL",
@@ -2149,17 +2149,17 @@
       "isLandmark": false,
       "longDescription": "Higher rural waterfall reached through fields and villages, with wide views over the surrounding landscape.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Tad Soung Waterfall"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Higher rural waterfall reached through fields and villages, with wide views over the surrounding landscape.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2242,17 +2242,17 @@
       "isLandmark": false,
       "longDescription": "Hands-on introduction to Katu weaving, textile technique and the patience behind local craft.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Katu Weaving Workshop"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Hands-on introduction to Katu weaving, textile technique and the patience behind local craft.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2335,17 +2335,17 @@
       "isLandmark": false,
       "longDescription": "Prepare, understand and share a Lao meal in a relaxed local cooking workshop.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Lao Cooking Class with Nyay"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Prepare, understand and share a Lao meal in a relaxed local cooking workshop.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2428,17 +2428,17 @@
       "isLandmark": false,
       "longDescription": "Free self-guided village game using phone-based clues to notice details most visitors walk past.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Tad Lo Treasure Hunt"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Free self-guided village game using phone-based clues to notice details most visitors walk past.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2521,17 +2521,17 @@
       "isLandmark": false,
       "longDescription": "Forest aerial course with thirteen ziplines and suspended monkey bridges near Tad Lo.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Fandee Adventure Park"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Forest aerial course with thirteen ziplines and suspended monkey bridges near Tad Lo.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2614,17 +2614,17 @@
       "isLandmark": true,
       "longDescription": "Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Coffee and Katu Culture with Mr Hook"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Guided coffee, useful-plants and Katu cultural experience around Mr Hook’s home area.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       },
       "exploreBoard": {
         "kicker": "COFFEE & KATU CULTURE",
@@ -2712,17 +2712,17 @@
       "isLandmark": false,
       "longDescription": "Friendly tree-to-cup coffee experience near Laongam covering growing, processing and preparation.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Coffee from Tree to Cup with Mr Vieng"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Friendly tree-to-cup coffee experience near Laongam covering growing, processing and preparation.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2805,17 +2805,17 @@
       "isLandmark": true,
       "longDescription": "Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Vat Paa Forest, Buddha and Mystery Cave"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Quiet forest outing among mature trees, a large Buddha and a cave entrance that should not be explored unsupported.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       },
       "exploreBoard": {
         "kicker": "FOREST & MYSTERY CAVE",
@@ -2877,17 +2877,17 @@
       "isLandmark": false,
       "longDescription": "Official locally guided short trek option for travellers who want forest and village paths beyond the immediate waterfalls.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Tad Lo Half-Day Guided Trek"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Official locally guided short trek option for travellers who want forest and village paths beyond the immediate waterfalls.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -2944,17 +2944,17 @@
       "isLandmark": false,
       "longDescription": "Longer guided trekking format using Tad Lo as a base for remote village and forest exploration.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Tad Lo Two-Day Village Trek"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Longer guided trekking format using Tad Lo as a base for remote village and forest exploration.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -3011,17 +3011,17 @@
       "isLandmark": false,
       "longDescription": "Arrange a local traditional massage in the village after walking, riding or waterfall days.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Traditional Lao Massage in Tad Lo"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Arrange a local traditional massage in the village after walking, riding or waterfall days.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     },
     {
@@ -3078,17 +3078,17 @@
       "isLandmark": false,
       "longDescription": "Unhurried self-guided walk through Tad Lo, linking village life, river edges and the waterfall landscape.",
       "breadcrumbs": [
-        "Laos",
-        "Tad Lo",
-        "Things to do",
-        "Tad Lo Riverside & Village Walk"
+        "laos",
+        "tad-lo",
+        "things-to-do"
       ],
       "fieldCard": {
         "template": "compact",
-        "whyGo": "Unhurried self-guided walk through Tad Lo, linking village life, river edges and the waterfall landscape.",
-        "practical": "Confirm current opening, price, weather and availability locally before setting out.",
-        "access": "Use Tad Lo as the base and confirm the current access with the host, Tourism Office or accommodation.",
-        "faq": []
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
       }
     }
   ]

@@ -117,7 +117,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "mama-leuah-restaurant-card",
+            "src": "/assets/cities/laos/don-det/restaurants/mama-leuah-restaurant/mama-leuah-restaurant.webp",
+            "alt": "Mama Leuah Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Leuah%20Restaurant%20Don%20Det%20Laos"
     },
@@ -178,7 +203,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "the-4000-island-bar-card",
+            "src": "/assets/cities/laos/don-det/restaurants/the-4000-island-bar/the-4000-island-bar.webp",
+            "alt": "The 4000 Island Bar on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%204000%20Island%20Bar%20Don%20Det%20Laos"
     },
@@ -239,7 +289,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "ois-place-card",
+            "src": "/assets/cities/laos/don-det/restaurants/ois-place/ois-place.webp",
+            "alt": "Oi's Place on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Oi's%20Place%20Don%20Det%20Laos"
     },
@@ -300,7 +375,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "the-boathouse-card",
+            "src": "/assets/cities/laos/don-det/restaurants/the-boathouse/the-boathouse.webp",
+            "alt": "The Boathouse restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Boathouse%20Don%20Det%20Laos"
     },
@@ -361,7 +461,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "mama-piang-guesthouse-and-restaurant-card",
+            "src": "/assets/cities/laos/don-det/restaurants/mama-piang-guesthouse-and-restaurant/mama-piang-guesthouse-and-restaurant.webp",
+            "alt": "Mama Piang Guesthouse and Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Piang%20Guesthouse%20%26%20Restaurant%20Don%20Det%20Laos"
     },
@@ -417,7 +542,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "sahai-bar-card",
+            "src": "/assets/cities/laos/don-det/restaurants/sahai-bar/sahai-bar.webp",
+            "alt": "Sahai Bar on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sahai%20Bar%20Don%20Det%20Laos"
     },
@@ -478,7 +628,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "keas-backpackers-paradise-restaurant-and-bar-card",
+            "src": "/assets/cities/laos/don-det/restaurants/keas-backpackers-paradise-restaurant-and-bar/keas-backpackers-paradise-restaurant-and-bar.webp",
+            "alt": "Kea's Backpackers Paradise Restaurant and Bar on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kea's%20Backpackers%20Paradise%20Restaurant%20%26%20Bar%20Don%20Det%20Laos"
     },
@@ -539,7 +714,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "banana-restaurant-and-bar-card",
+            "src": "/assets/cities/laos/don-det/restaurants/banana-restaurant-and-bar/banana-restaurant-and-bar.webp",
+            "alt": "Banana Restaurant and Bar on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Banana%20Restaurant%20%26%20Bar%20Don%20Det%20Laos"
     },
@@ -600,7 +800,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "wrap-and-roll-card",
+            "src": "/assets/cities/laos/don-det/restaurants/wrap-and-roll/wrap-and-roll.webp",
+            "alt": "Wrap and Roll on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wrap%20and%20Roll%20Don%20Det%20Laos"
     },
@@ -661,7 +886,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "datta-bananaleaf-restaurant-card",
+            "src": "/assets/cities/laos/don-det/restaurants/datta-bananaleaf-restaurant/datta-bananaleaf-restaurant.webp",
+            "alt": "Datta Bananaleaf Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Datta%20Bananaleaf%20Restaurant%20Don%20Det%20Laos"
     },
@@ -717,7 +967,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "restaurant-naly-card",
+            "src": "/assets/cities/laos/don-det/restaurants/restaurant-naly/restaurant-naly.webp",
+            "alt": "Restaurant Naly on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Restaurant%20Naly%20Don%20Det%20Laos"
     },
@@ -778,7 +1053,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "hathim-indian-restaurant-card",
+            "src": "/assets/cities/laos/don-det/restaurants/hathim-indian-restaurant/hathim-indian-restaurant.webp",
+            "alt": "Hathim Indian Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hathim%20Indian%20Restaurant%20Don%20Det%20Laos"
     },
@@ -839,7 +1139,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "crazy-gecko-card",
+            "src": "/assets/cities/laos/don-det/restaurants/crazy-gecko/crazy-gecko.webp",
+            "alt": "Crazy Gecko cafe on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "verified",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": false,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Crazy%20Gecko%20Don%20Det%20Laos"
     },
@@ -878,8 +1203,8 @@ const data = {
           "Breakfast",
           "Big portions"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -900,7 +1225,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "street-view-restaurant-card",
+            "src": "/assets/cities/laos/don-det/cafes/street-view-restaurant/street-view-restaurant.webp",
+            "alt": "Street View Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Street%20View%20Restaurant%20Don%20Det%20Laos"
     },
@@ -939,8 +1289,8 @@ const data = {
           "Breakfast",
           "Coffee break"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -961,7 +1311,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "mama-tanon-guest-house-and-restaurant-card",
+            "src": "/assets/cities/laos/don-det/cafes/mama-tanon-guest-house-and-restaurant/mama-tanon-guest-house-and-restaurant.webp",
+            "alt": "Mama Tanon Guest House and Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Tanon%20Guest%20House%20%26%20Restaurant%20Don%20Det%20Laos"
     },
@@ -1000,8 +1375,8 @@ const data = {
           "WiFi",
           "Work stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1027,7 +1402,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "dondet-coffee-house-and-gift-shop-card",
+            "src": "/assets/cities/laos/don-det/cafes/dondet-coffee-house-and-gift-shop/dondet-coffee-house-and-gift-shop.webp",
+            "alt": "Dondet Coffee House and Gift Shop on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dondet%20Coffee%20House%20%26%20Gift-shop%20Don%20Det%20Laos"
     },
@@ -1066,8 +1466,8 @@ const data = {
           "Daytime",
           "Casual meal"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1083,7 +1483,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "allnew-coffee-and-restaurant-card",
+            "src": "/assets/cities/laos/don-det/cafes/allnew-coffee-and-restaurant/allnew-coffee-and-restaurant.webp",
+            "alt": "AllNew Coffee and Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=AllNew%20coffee%20%26%20restaurant%20Don%20Det%20Laos"
     },
@@ -1122,8 +1547,8 @@ const data = {
           "Breakfast",
           "Cafe bar"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1139,7 +1564,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "paradise-restaurant-cafe-and-bar-card",
+            "src": "/assets/cities/laos/don-det/cafes/paradise-restaurant-cafe-and-bar/paradise-restaurant-cafe-and-bar.webp",
+            "alt": "Paradise Restaurant Cafe and Bar on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paradise%20Restaurant%20Cafe%20%26%20Bar%20Don%20Det%20Laos"
     },
@@ -1178,8 +1628,8 @@ const data = {
           "Coffee",
           "Breakfast"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1200,7 +1650,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "jimmee-restaurant-card",
+            "src": "/assets/cities/laos/don-det/cafes/jimmee-restaurant/jimmee-restaurant.webp",
+            "alt": "Jimmee Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jimmee%20restaurant%20Don%20Det%20Laos"
     },
@@ -1239,8 +1714,8 @@ const data = {
           "Breakfast",
           "Easy coffee"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1261,7 +1736,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "ms-ning-restaurant-and-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/cafes/ms-ning-restaurant-and-guesthouse/ms-ning-restaurant-and-guesthouse.webp",
+            "alt": "Ms Ning Restaurant and Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ms%20Ning%20Restaurant%20and%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -1300,8 +1800,8 @@ const data = {
           "Breakfast",
           "Riverside"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1317,7 +1817,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "kamphong-riverside-restaurant-card",
+            "src": "/assets/cities/laos/don-det/cafes/kamphong-riverside-restaurant/kamphong-riverside-restaurant.webp",
+            "alt": "Kamphong Riverside Restaurant on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kamphong%20Riverside%20Restaurant%20Don%20Det%20Laos"
     },
@@ -1356,8 +1881,8 @@ const data = {
           "Riverfront",
           "Quiet stay"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1378,7 +1903,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "dodand-studio-and-sunset-riverside-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/dodand-studio-and-sunset-riverside-guesthouse/dodand-studio-and-sunset-riverside-guesthouse.webp",
+            "alt": "Dodand Studio And Sunset Riverside Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DODAND%20Studio%20%26%20Sunset%20Riverside%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -1417,8 +1967,8 @@ const data = {
           "Riverside",
           "Island base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1439,7 +1989,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "dondet-vixay-sunset-and-river-view-card",
+            "src": "/assets/cities/laos/don-det/accommodation/dondet-vixay-sunset-and-river-view/dondet-vixay-sunset-and-river-view.webp",
+            "alt": "Dondet Vixay Sunset And River View on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DONDET%20Vixay%20Sunset%20And%20River%20View%20Don%20Det%20Laos"
     },
@@ -1478,8 +2053,8 @@ const data = {
           "River balcony",
           "Quiet rooms"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1500,7 +2075,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "thiptavanh-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/thiptavanh-guesthouse/thiptavanh-guesthouse.webp",
+            "alt": "Thiptavanh Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "20 Sunrise blv, Don Det, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thiptavanh%20guesthouse%20Don%20Det%20Laos"
     },
@@ -1539,8 +2139,8 @@ const data = {
           "Sunset side",
           "Quiet sleep"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1561,7 +2161,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "moon-by-night-card",
+            "src": "/assets/cities/laos/don-det/accommodation/moon-by-night/moon-by-night.webp",
+            "alt": "Moon By Night on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Moon%20By%20Night%20Don%20Det%20Laos"
     },
@@ -1600,8 +2225,8 @@ const data = {
           "Hotel comfort",
           "Central"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1622,7 +2247,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "don-det-hotel-card",
+            "src": "/assets/cities/laos/don-det/accommodation/don-det-hotel/don-det-hotel.webp",
+            "alt": "Don Det Hotel on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don%20Det%20Hotel%20Don%20Det%20Laos"
     },
@@ -1661,8 +2311,8 @@ const data = {
           "Private rooms",
           "Easy arrival"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1683,7 +2333,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "baba-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/baba-guesthouse/baba-guesthouse.webp",
+            "alt": "Baba Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Ban Dondet, 4,000 thousand Islands, Don Det, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=BABA%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -1722,8 +2397,8 @@ const data = {
           "Garden",
           "South route"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1744,7 +2419,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "boonmy-bungalows-and-restaurant-don-det-4000-islands-card",
+            "src": "/assets/cities/laos/don-det/accommodation/boonmy-bungalows-and-restaurant-don-det-4000-islands/boonmy-bungalows-and-restaurant-don-det-4000-islands.webp",
+            "alt": "Boonmy Bungalows And Restaurant Don Det 4000 Islands on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=BOONMY%20-%20Bungalows%20and%20Restaurant%20-%20DON%20DET%20-%204000%20ISLANDS%20Don%20Det%20Laos"
     },
@@ -1783,8 +2483,8 @@ const data = {
           "River veranda",
           "Quiet stay"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1805,7 +2505,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "namknong-view-card",
+            "src": "/assets/cities/laos/don-det/accommodation/namknong-view/namknong-view.webp",
+            "alt": "Namknong View on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Namknong%20View%20Don%20Det%20Laos"
     },
@@ -1844,8 +2569,8 @@ const data = {
           "Near village",
           "Practical"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1866,7 +2591,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "dondet-garden-guest-house-card",
+            "src": "/assets/cities/laos/don-det/accommodation/dondet-garden-guest-house/dondet-garden-guest-house.webp",
+            "alt": "Dondet Garden Guest House on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DONDET%20Garden%20Guest%20House%20Don%20Det%20Laos"
     },
@@ -1905,8 +2655,8 @@ const data = {
           "Quiet base",
           "Guesthouse"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1927,7 +2677,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "rivergarden-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/rivergarden-guesthouse/rivergarden-guesthouse.webp",
+            "alt": "Rivergarden Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Rivergarden%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -1966,8 +2741,8 @@ const data = {
           "Sunset side",
           "Simple stay"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1988,7 +2763,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "green-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/green-guesthouse/green-guesthouse.webp",
+            "alt": "Green Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Green%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -2027,8 +2827,8 @@ const data = {
           "Near ferry",
           "Central"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2049,7 +2849,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "yommalay-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/yommalay-guesthouse/yommalay-guesthouse.webp",
+            "alt": "Yommalay Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Yommalay%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -2088,8 +2913,8 @@ const data = {
           "South side",
           "Quiet base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2110,7 +2935,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "tawan-daeng-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/tawan-daeng-guesthouse/tawan-daeng-guesthouse.webp",
+            "alt": "Tawan Daeng Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tawan%20Daeng%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -2149,8 +2999,8 @@ const data = {
           "Small stay",
           "Quiet"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2171,7 +3021,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "noupad-sunset-guesthouse-card",
+            "src": "/assets/cities/laos/don-det/accommodation/noupad-sunset-guesthouse/noupad-sunset-guesthouse.webp",
+            "alt": "Noupad Sunset Guesthouse on Don Det",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Noupad%20sunset%20Guesthouse%20Don%20Det%20Laos"
     },
@@ -2210,8 +3085,8 @@ const data = {
           "Nakasang",
           "Boat link"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2227,7 +3102,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "don-det-ferry-card",
+            "src": "/assets/cities/laos/don-det/practical-services/don-det-ferry/don-det-ferry.webp",
+            "alt": "Motorbike crossing on the Don Det ferry",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Northern Don Det, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Don%20Det%20Ferry%20Boat%20Pier%20Laos"
     },
@@ -2266,8 +3166,8 @@ const data = {
           "Basic care",
           "Don Khon"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2288,7 +3188,32 @@ const data = {
           "purpose": "location"
         }
       ],
-      "manualLocks": {},
+      "manualLocks": {
+        "media.card.image": {
+          "value": {
+            "id": "khon-health-center-khonnua-card",
+            "src": "/assets/cities/laos/don-det/practical-services/khon-health-center-khonnua/khon-health-center-khonnua.webp",
+            "alt": "Khon Health Center building in Khonnua",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          },
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoStatus": {
+          "value": "missing",
+          "source": "manual",
+          "locked": true
+        },
+        "spaCard.photoRequiresManualFill": {
+          "value": true,
+          "source": "manual",
+          "locked": true
+        }
+      },
       "address": "Khon Nua, Don Khon, Khong District, Champasak Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khon%20Health%20Center%20Khonnua%20Don%20Khon%20Laos"
     }
@@ -2335,8 +3260,8 @@ const data = {
         "duration": "Half-day",
         "costType": "free",
         "bestTime": "Early morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -2416,8 +3341,8 @@ const data = {
         "duration": "1.5–3 hours",
         "costType": "paid",
         "bestTime": "Early morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -2497,8 +3422,8 @@ const data = {
         "duration": "Half-day",
         "costType": "paid",
         "bestTime": "Morning",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -2710,8 +3635,8 @@ const data = {
         "duration": "1–3 hours",
         "costType": "free",
         "bestTime": "Afternoon",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
@@ -3056,8 +3981,8 @@ const data = {
         "duration": "1–2 hours",
         "costType": "free",
         "bestTime": "Sunset",
-        "photoStatus": "verified",
-        "photoRequiresManualFill": false
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
       },
       "verification": {
         "decision": "accept",
