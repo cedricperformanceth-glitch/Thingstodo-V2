@@ -31,10 +31,30 @@ jobs:
         run: npm ci
 
       - name: Run complete Atlas verification
-        run: npm run verify:city-template
+        id: verify
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run verify:city-template 2>&1 | tee verify-cleanup.log
+
+      - name: Persist exact failure and remove diagnostic workflow
+        if: steps.verify.outcome == 'failure'
+        shell: bash
+        run: |
+          rm .github/workflows/verify-cleanup-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Record cleanup verification failure"
+          git push origin HEAD:master
+          exit 1
 
       - name: Remove completed verification workflow
+        if: steps.verify.outcome == 'success'
+        shell: bash
         run: |
+          rm verify-cleanup.log
           rm .github/workflows/verify-cleanup-once.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
