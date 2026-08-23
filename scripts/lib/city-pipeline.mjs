@@ -110,6 +110,27 @@ function setPath(record, fieldPath, value) {
 export function assignUnlocked(record, fieldPath, value) { if (!isManualLocked(record, fieldPath)) setPath(record, fieldPath, value); }
 const isObject = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const clone = (value) => value === undefined ? value : structuredClone(value);
+const isProtectedManualMedia = (value) => value?.manual === true && value?.locked === true;
+function preserveProtectedManualMedia(existing, incoming) {
+  const existingMedia = existing?.media;
+  const incomingMedia = incoming?.media;
+  if (!existingMedia || !incomingMedia) return incoming;
+  const result = clone(incoming);
+  const existingCard = existingMedia.card?.image;
+  if (isProtectedManualMedia(existingCard)) {
+    result.media ??= {};
+    result.media.card = { ...(result.media.card ?? {}), image: clone(existingCard) };
+  }
+  const existingGallery = existingMedia.fieldCard?.gallery ?? [];
+  const protectedGallery = existingGallery.filter(isProtectedManualMedia);
+  if (protectedGallery.length) {
+    result.media ??= {};
+    result.media.fieldCard ??= {};
+    const generatedGallery = result.media.fieldCard.gallery ?? [];
+    result.media.fieldCard.gallery = [...protectedGallery, ...generatedGallery.filter((item) => !protectedGallery.some((manual) => manual.id === item?.id || manual.src === item?.src))];
+  }
+  return result;
+}
 // Generated values are merged into editorial records one path at a time. Existing
 // manualLocks are never generated data, so they are deliberately skipped.
 export function mergeGenerated(existing, incoming, path = '', lockOwner = existing) {
@@ -124,7 +145,7 @@ export function mergeGenerated(existing, incoming, path = '', lockOwner = existi
     if (isObject(value) && isObject(result[key])) result[key] = mergeGenerated(result[key], value, childPath, lockOwner);
     else result[key] = clone(value);
   }
-  return result;
+  return path === '' ? preserveProtectedManualMedia(existing, result) : result;
 }
 export function validateSource(source) {
   const url = (source.sourceUrl ?? '').toLowerCase();
