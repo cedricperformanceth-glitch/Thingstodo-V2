@@ -17,12 +17,26 @@ const laosCityNotes: Record<string, string> = {
   'vang-vieng': 'Karst horizons and Nam Song',
   vientiane: 'Temple roofs and slow evenings',
 };
+const laosMapLabels = [
+  { name: 'Luang Prabang', x: 951, y: 311, anchor: 'start' },
+  { name: 'Vang Vieng', x: 988, y: 392, anchor: 'start' },
+  { name: 'Vientiane', x: 995, y: 480, anchor: 'start' },
+  { name: 'Thakhek', x: 1157, y: 520, anchor: 'start' },
+  { name: 'Tad Lo', x: 1288, y: 776, anchor: 'end' },
+  { name: 'Paksé', x: 1240, y: 827, anchor: 'end' },
+  { name: 'Don Det', x: 1248, y: 947, anchor: 'end' },
+];
 ---
 {isLaos ? (
   <BaseLayout immersive seo={country.seo} breadcrumbs={[{name:'Home',path:'/'},{name:country.name,path:countryPath(country)}]}>
     <section class="laos-board" aria-labelledby="laos-board-title">
       <div class="laos-board__frame">
         <img class="laos-board__art" src="/assets/countries/laos/laos-city-selection.webp" alt="A chalk illustration of the map of Laos on a green framed chalkboard." width="1536" height="1024" fetchpriority="high" />
+        <svg class="laos-board__map-labels" viewBox="0 0 1536 1024" aria-label="Laos destination labels, ordered from Luang Prabang in the north to Don Det in the south" role="img">
+          {laosMapLabels.map((label, index) => (
+            <text x={label.x} y={label.y} text-anchor={label.anchor} style={`--map-label-delay:${0.94 + index * 0.14}s`}>{label.name}</text>
+          ))}
+        </svg>
         <div class="laos-board__content">
           <header class="laos-board__heading">
             <h1 id="laos-board-title">Explore Laos</h1>
@@ -52,7 +66,9 @@ const laosCityNotes: Record<string, string> = {
   .laos-board { min-height: 100svh; overflow: hidden; background: #10291f; }
   .laos-board__frame { position: relative; width: min(100vw, 150svh); min-height: min(100svh, 66.6667vw); margin: 0 auto; }
   .laos-board__art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
-  .laos-board__content { position: relative; z-index: 1; width: 37%; min-width: 340px; padding: clamp(4.75rem, 7.4vw, 7.3rem) 0 2rem clamp(13.5rem, 14.6vw, 16.5rem); }
+  .laos-board__map-labels { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+  .laos-board__map-labels text { fill: transparent; stroke: #9a4e4b; stroke-width: .72; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 420; stroke-dashoffset: 420; paint-order: stroke; font: 600 19px/1 var(--handwritten); letter-spacing: .015em; opacity: .94; animation: map-label-write .84s cubic-bezier(.2,.75,.22,1) var(--map-label-delay) forwards; }
+  .laos-board__content { position: relative; z-index: 2; width: 37%; min-width: 340px; padding: clamp(4.75rem, 7.4vw, 7.3rem) 0 2rem clamp(13.5rem, 14.6vw, 16.5rem); }
   .laos-board__heading { width: max-content; max-width: 100%; color: rgb(246 244 224 / .93); }
   .laos-board__heading h1 { margin: 0; font: 500 clamp(2.9rem, 4.7vw, 5.2rem) / .86 var(--handwritten); letter-spacing: -.055em; white-space: nowrap; opacity: 0; clip-path: inset(0 100% 0 0); animation: chalk-write .95s cubic-bezier(.2,.75,.22,1) .08s forwards; }
   .laos-board__underline { display: block; width: min(15.5rem, 100%); height: auto; margin: .45rem 0 0 .15rem; overflow: visible; }
@@ -66,16 +82,18 @@ const laosCityNotes: Record<string, string> = {
   .laos-board__city:focus-visible { outline: 1px dashed rgb(255 255 233 / .92); outline-offset: 7px; border-radius: 2px; }
   @keyframes chalk-write { to { opacity: 1; clip-path: inset(0 -2rem 0 0); } }
   @keyframes chalk-underline { to { stroke-dashoffset: 0; } }
+  @keyframes map-label-write { 0%,68% { fill: transparent; } 100% { fill: #803c3a; stroke-dashoffset: 0; } }
   @media (max-width: 860px) {
     .laos-board { min-height: 100dvh; background: #10291f; }
     .laos-board__frame { width: 100%; min-height: 100dvh; margin: 0; }
-    .laos-board__art { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; object-position: top center; }
+    .laos-board__art, .laos-board__map-labels { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; object-position: top center; }
+    .laos-board__map-labels { inset: 0 auto auto 0; }
     .laos-board__content { width: min(78%, 35rem); min-width: 0; padding: clamp(6.8rem, 18vw, 10rem) 0 3rem clamp(2rem, 7vw, 4rem); }
     .laos-board__cities { left: 0; gap: 1.3rem 1.6rem; margin-top: clamp(2.2rem, 6vw, 3.5rem); }
   }
   @media (max-width: 560px) {
-    .laos-board { background: #10291f url('/assets/countries/laos/laos-city-selection.webp') left top / 160% auto no-repeat; }
-    .laos-board__art { display: none; }
+    .laos-board { background: #10291f; }
+    .laos-board__art { display: block; }
     .laos-board__content { width: min(100% - 3rem, 25rem); padding: clamp(7.25rem, 30vw, 10rem) 0 3rem; margin-inline: auto; }
     .laos-board__cities { grid-template-columns: 1fr; gap: 1.05rem; margin-top: 2.5rem; }
     .laos-board__city-name { font-size: 1.35rem; }
@@ -84,6 +102,7 @@ const laosCityNotes: Record<string, string> = {
   @media (prefers-reduced-motion: reduce) {
     .laos-board__heading h1, .laos-board__city { opacity: 1; clip-path: none; animation: none; }
     .laos-board__underline path { stroke-dashoffset: 0; animation: none; }
+    .laos-board__map-labels text { fill: #803c3a; stroke-dashoffset: 0; animation: none; }
     .laos-board__city-name, .laos-board__city-note { transition: none; }
   }
 </style>
