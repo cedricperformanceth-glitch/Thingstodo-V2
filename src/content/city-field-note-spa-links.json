@@ -5,7 +5,10 @@
   "laos/pakse": [
     "laos/don-det",
     "laos/tad-lo",
-    "laos/thakhek"
+    "laos/thakhek",
+    "country/thailand",
+    "country/cambodia",
+    "country/vietnam"
   ],
   "laos/tad-lo": [
     "laos/pakse"
