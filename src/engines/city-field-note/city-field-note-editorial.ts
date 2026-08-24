@@ -1,12 +1,12 @@
 import type { MediaRecord } from '../../core/models/types';
-import copyData from '../../content/city-field-note-copy.json';
-import mediaData from '../../content/city-field-note-media-copy.json';
+import donDetEditorialData from '../../content/city-field-note-editorial-don-det.json';
 import luangPrabangEditorialData from '../../content/city-field-note-editorial-luang-prabang.json';
 import pakseEditorialData from '../../content/city-field-note-editorial-pakse.json';
+import tadLoEditorialData from '../../content/city-field-note-editorial-tad-lo.json';
+import thakhekEditorialData from '../../content/city-field-note-editorial-thakhek.json';
 import vangViengEditorialData from '../../content/city-field-note-editorial-vang-vieng.json';
 import vientianeEditorialData from '../../content/city-field-note-editorial-vientiane.json';
-import seoData from '../../content/city-field-note-seo-copy.json';
-import sourceData from '../../content/city-field-note-source-copy.json';
+import mediaData from '../../content/city-field-note-media-copy.json';
 import type { CityFieldNoteContent } from './city-field-note-engine';
 
 export interface CityFieldNoteSource {
@@ -28,19 +28,21 @@ interface CityFieldNoteEditorialBundle {
   sources: CityFieldNoteSource[];
 }
 
-const copy = copyData as Record<string, CityFieldNoteContent>;
 const media = mediaData as Record<string, MediaRecord[]>;
-const seo = seoData as Record<string, CityFieldNoteSeoOverride>;
-const sources = sourceData as Record<string, CityFieldNoteSource[]>;
 const editorialBundleData = [
+  donDetEditorialData,
+  thakhekEditorialData,
+  tadLoEditorialData,
   pakseEditorialData,
   luangPrabangEditorialData,
   vangViengEditorialData,
   vientianeEditorialData,
 ] as CityFieldNoteEditorialBundle[];
-const editorialBundles = new Map<string, CityFieldNoteEditorialBundle>(editorialBundleData.map((bundle) => [bundle.id, bundle]));
+const editorialBundles = new Map<string, CityFieldNoteEditorialBundle>(
+  editorialBundleData.map((bundle) => [bundle.id, bundle]),
+);
 
-export const getEditorialCityFieldNote = (id: string) => editorialBundles.get(id)?.copy ?? copy[id];
+export const getEditorialCityFieldNote = (id: string) => editorialBundles.get(id)?.copy;
 export const getEditorialCityFieldNoteMedia = (id: string) => media[id] ?? [];
-export const getEditorialCityFieldNoteSeo = (id: string) => editorialBundles.get(id)?.seo ?? seo[id];
-export const getEditorialCityFieldNoteSources = (id: string) => editorialBundles.get(id)?.sources ?? sources[id] ?? [];
+export const getEditorialCityFieldNoteSeo = (id: string) => editorialBundles.get(id)?.seo;
+export const getEditorialCityFieldNoteSources = (id: string) => editorialBundles.get(id)?.sources ?? [];
