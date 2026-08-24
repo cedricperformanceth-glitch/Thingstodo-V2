@@ -7,6 +7,7 @@ import thakhekEditorialData from '../../content/city-field-note-editorial-thakhe
 import vangViengEditorialData from '../../content/city-field-note-editorial-vang-vieng.json';
 import vientianeEditorialData from '../../content/city-field-note-editorial-vientiane.json';
 import mediaData from '../../content/city-field-note-media-copy.json';
+import countryMediaData from '../../content/country-field-note-media-copy.json';
 import type { CityFieldNoteContent } from './city-field-note-engine';
 
 export interface CityFieldNoteSource {
@@ -29,6 +30,7 @@ interface CityFieldNoteEditorialBundle {
 }
 
 const media = mediaData as Record<string, MediaRecord[]>;
+const countryMedia = countryMediaData as Record<string, MediaRecord[]>;
 const editorialBundleData = [
   donDetEditorialData,
   thakhekEditorialData,
@@ -43,6 +45,6 @@ const editorialBundles = new Map<string, CityFieldNoteEditorialBundle>(
 );
 
 export const getEditorialCityFieldNote = (id: string) => editorialBundles.get(id)?.copy;
-export const getEditorialCityFieldNoteMedia = (id: string) => media[id] ?? [];
+export const getEditorialCityFieldNoteMedia = (id: string) => media[id] ?? countryMedia[id] ?? [];
 export const getEditorialCityFieldNoteSeo = (id: string) => editorialBundles.get(id)?.seo;
 export const getEditorialCityFieldNoteSources = (id: string) => editorialBundles.get(id)?.sources ?? [];
