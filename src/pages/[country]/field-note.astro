@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import CountryFieldNote from '../../components/country-field-note/CountryFieldNote.astro';
+import { getCountries, getCountry } from '../../engines/country/country-engine';
+import { countryFieldNotePath, countryPath } from '../../core/routing/paths';
+import { countryFieldNoteView } from '../../engines/country-field-note/country-field-note-engine';
+
+export function getStaticPaths() {
+  return getCountries().map((country) => ({ params: { country: country.slug } }));
+}
+
+const country = getCountry(Astro.params.country ?? '');
+if (!country) return Astro.redirect('/');
+const view = countryFieldNoteView(country);
+const heroImage = view.media[0];
+const seo = {
+  title: `${country.name} country field note | Things To Do Atlas`,
+  description: `A country-scale field note for ${country.name}: regions, routes, seasons, transport logic and the bases that connect individual destinations.`,
+  canonicalPath: countryFieldNotePath(country),
+  indexable: false,
+  ...(heroImage ? { image: heroImage.src, imageAlt: heroImage.alt } : {}),
+};
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: `${country.name} country field note`,
+  description: seo.description,
+  inLanguage: 'en',
+  about: { '@type': 'Country', name: country.name },
+  contentLocation: { '@type': 'Country', name: country.name },
+  ...(heroImage ? { image: heroImage.src } : {}),
+}];
+---
+
+<BaseLayout
+  {seo}
+  {structuredData}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: country.name, path: countryPath(country) },
+    { name: 'Country Field Note', path: countryFieldNotePath(country) },
+  ]}
+  ogType="article"
+>
+  <div class="city-field-note-page">
+    <nav class="city-field-note-page__return" aria-label={`${country.name} field note navigation`}>
+      <a href={countryPath(country)}>← Back to {country.name}</a>
+      <span>Country note · generated layer</span>
+    </nav>
+    <CountryFieldNote {country} />
+  </div>
+</BaseLayout>
+
+<style>
+  .city-field-note-page { width:100%; padding:clamp(5rem,8vw,7rem) 0 4rem; }
+  .city-field-note-page__return { display:flex; width:min(1180px,calc(100% - 48px)); margin-inline:auto; align-items:center; justify-content:space-between; gap:20px; padding:0 0 24px; border-bottom:1px solid rgb(49 85 69/.2); color:#315545; font:700 .72rem/1.2 var(--field-card-practical); letter-spacing:.08em; text-transform:uppercase; }
+  .city-field-note-page__return a { color:inherit; text-decoration:none; }
+  .city-field-note-page__return span { color:#8c4c40; }
+  :global(body:has(.city-note) #main-content) { width:100%; max-width:none; padding:0; }
+  @media(max-width:620px){.city-field-note-page__return{width:min(100% - 24px,1180px)}.city-field-note-page__return span{display:none}}
+</style>
