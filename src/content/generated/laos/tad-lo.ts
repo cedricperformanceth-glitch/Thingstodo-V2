@@ -90,7 +90,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -139,7 +139,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -157,55 +157,6 @@ const data = {
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fandee%20Island%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-mama-pap",
-      "slug": "mama-pap",
-      "name": "Mama Pap",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Very simple family homestay in the village centre and a classic budget Tad Lo base.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Stay",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Pap%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-samaki-guest-house",
@@ -237,7 +188,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -286,7 +237,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -304,153 +255,6 @@ const data = {
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Lodge%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tina-restaurant-homestay",
-      "slug": "tina-restaurant-homestay",
-      "name": "Tina Restaurant & Homestay",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Small local homestay combined with a village restaurant.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Stay",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tina%20Restaurant%20%26%20Homestay%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-sompy-guesthouse",
-      "slug": "sompy-guesthouse",
-      "name": "Sompy Guesthouse",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Simple Tad Lo guesthouse retained from current accommodation directories.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Stay",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sompy%20Guesthouse%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-sipasert-guesthouse-restaurant",
-      "slug": "sipasert-guesthouse-restaurant",
-      "name": "Sipasert Guesthouse & Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Guesthouse and restaurant with a riverside outlook, retained from current Tad Lo directories.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Stay",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sipasert%20Guesthouse%20%26%20Restaurant%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-bolaven-garden-restaurant",
@@ -482,7 +286,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -531,7 +335,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -580,7 +384,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -629,7 +433,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -647,55 +451,6 @@ const data = {
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Samaki%20Guest%20House%20Restaurant%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tad-hang-restaurant",
-      "slug": "tad-hang-restaurant",
-      "name": "Tad Hang Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Riverside meal stop facing the Tad Hang waterfall area.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Hang%20Restaurant%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-tad-lo-lodge-restaurant",
@@ -727,7 +482,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -745,153 +500,6 @@ const data = {
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Lodge%20Restaurant%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tim-restaurant-massage",
-      "slug": "tim-restaurant-massage",
-      "name": "Tim Restaurant & Massage",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Village restaurant where traditional Lao massage can also be arranged.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tim%20Restaurant%20%26%20Massage%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tina-restaurant",
-      "slug": "tina-restaurant",
-      "name": "Tina Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Small local restaurant in Tad Lo centre.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tina%20Restaurant%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-sipasert-restaurant",
-      "slug": "sipasert-restaurant",
-      "name": "Sipasert Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Restaurant attached to Sipasert Guesthouse with a river outlook.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sipasert%20Restaurant%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-fandee-waterpark-restaurant",
@@ -923,7 +531,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -972,7 +580,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1021,7 +629,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1070,7 +678,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1119,7 +727,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1168,7 +776,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1217,7 +825,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1235,153 +843,6 @@ const data = {
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Market%20%26%20Bus%20Junction%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-palamei-family-restaurant",
-      "slug": "palamei-family-restaurant",
-      "name": "Palamei Family Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Family-style meals associated with the long-running Palamei guesthouse.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Palamei%20Family%20Restaurant%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-pakeo-local-restaurant",
-      "slug": "pakeo-local-restaurant",
-      "name": "Pakeo Local Restaurant",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Small local food option retained for manual verification during the Tad Lo editorial pass.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local food",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pakeo%20Local%20Restaurant%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-mama-pap-coffee",
-      "slug": "mama-pap-coffee",
-      "name": "Mama Pap Coffee",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Simple village coffee stop at Mama Pap.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama%20Pap%20Coffee%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-samaki-coffee",
@@ -1413,7 +874,7 @@ const data = {
       "verification": {
         "decision": "manual-review",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1431,104 +892,6 @@ const data = {
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Samaki%20Coffee%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tad-lo-lodge-coffee",
-      "slug": "tad-lo-lodge-coffee",
-      "name": "Tad Lo Lodge Coffee",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Coffee stop at Tad Lo Lodge in the waterfall area.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Lodge%20Coffee%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-mr-m-traditional-coffee",
-      "slug": "mr-m-traditional-coffee",
-      "name": "Mr M Traditional Coffee",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Seasonal traditional coffee roasting stop; availability requires confirmation.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20M%20Traditional%20Coffee%20Tad%20Lo%20Laos"
     },
     {
       "id": "place-tad-lo-local-clinic",
@@ -1560,7 +923,7 @@ const data = {
       "verification": {
         "decision": "manual-review",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1609,7 +972,7 @@ const data = {
       "verification": {
         "decision": "manual-review",
         "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1690,7 +1053,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1783,7 +1146,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1881,7 +1244,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -1974,7 +1337,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2067,7 +1430,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2160,7 +1523,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2253,7 +1616,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2346,7 +1709,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2444,7 +1807,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2537,7 +1900,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2609,7 +1972,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2676,7 +2039,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2743,7 +2106,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
@@ -2810,7 +2173,7 @@ const data = {
       "verification": {
         "decision": "accept",
         "reason": "Retained from Tad Lo partner/local research; conditions and availability can change.",
-        "checkedAt": "2026-08-19T00:00:00.000Z"
+        "checkedAt": "2026-08-19T00:00:00Z"
       },
       "sourceMetadata": {
         "sourceName": "Visit Tad Lo partner research",
