@@ -1,0 +1,152 @@
+{
+  "country-thailand": [
+    {
+      "id": "thailand-field-note-wat-arun",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wat_Arun,_Bangkok,_Thailand.jpg?width=1800",
+      "alt": "Wat Arun beside the Chao Phraya River in Bangkok, Thailand",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Arun,_Bangkok,_Thailand.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Anilakeo",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "thailand-field-note-ayutthaya",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ayutthaya,_Thailand_(1).jpg?width=1600",
+      "alt": "Historic ruins in Ayutthaya, Thailand",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayutthaya,_Thailand_(1).jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Thomas Dahlstrøm Nielsen",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "thailand-field-note-railay",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Railay_Beach_Thai.jpg?width=1600",
+      "alt": "Railay Beach and limestone cliffs in southern Thailand",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Railay_Beach_Thai.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "AnitaAD",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "thailand-field-note-doi-inthanon",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Doi_Inthanon,_View_of_the_mountains,_Thailand.jpg?width=1600",
+      "alt": "Mountain landscape viewed from Doi Inthanon in northern Thailand",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Doi_Inthanon,_View_of_the_mountains,_Thailand.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "manual": true,
+      "locked": true
+    }
+  ],
+  "country-cambodia": [
+    {
+      "id": "cambodia-field-note-angkor-wat",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Angkor_Wat_40.jpg?width=1800",
+      "alt": "Angkor Wat temple complex in Cambodia",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angkor_Wat_40.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Tournasol7",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "cambodia-field-note-phnom-penh",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Royal_Palace_Park,_Phnom_Penh.jpg?width=1600",
+      "alt": "Royal Palace Park in Phnom Penh, Cambodia",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_Palace_Park,_Phnom_Penh.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Christophe95",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "cambodia-field-note-koh-rong",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Koh_Rong_Cambodia_Long_Set_Beach.jpg?width=1600",
+      "alt": "Long Set Beach on Koh Rong island in Cambodia",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Rong_Cambodia_Long_Set_Beach.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "MoonsMoon",
+      "license": "CC BY 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "cambodia-field-note-tonle-sap",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cambodia,_Tonle_Sap_IMG_3279.JPG?width=1600",
+      "alt": "Tonlé Sap lake landscape in Cambodia",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cambodia,_Tonle_Sap_IMG_3279.JPG",
+      "sourceName": "Wikimedia Commons",
+      "author": "Deror_avi",
+      "license": "CC BY-SA 3.0",
+      "manual": true,
+      "locked": true
+    }
+  ],
+  "country-vietnam": [
+    {
+      "id": "vietnam-field-note-ha-long",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ha-Long_Bay_Vietnam.jpg?width=1800",
+      "alt": "Limestone islands in Hạ Long Bay, Vietnam",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ha-Long_Bay_Vietnam.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "USkPune",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vietnam-field-note-hoi-an",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hoi_An_lanterns.jpg?width=1600",
+      "alt": "Traditional lanterns in Hội An, Vietnam",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoi_An_lanterns.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Lishuilynn",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vietnam-field-note-ninh-binh",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aerial_view_of_Ninh_B%C3%ACnh.jpg?width=1600",
+      "alt": "Aerial view of the river and limestone landscape of Ninh Bình, Vietnam",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Ninh_B%C3%ACnh.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Christophe95",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vietnam-field-note-hanoi",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hoan_Kiem_Lake_photo.jpg?width=1600",
+      "alt": "Hoàn Kiếm Lake in central Hanoi, Vietnam",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoan_Kiem_Lake_photo.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Tranhuutukkt",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    }
+  ]
+}
