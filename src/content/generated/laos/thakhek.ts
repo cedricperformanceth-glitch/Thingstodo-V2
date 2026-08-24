@@ -2416,56 +2416,6 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mad%20Monkey%20Motorcycle%20Thakhek%20Laos"
     },
     {
-      "id": "place-thakhek-tourism-information-center",
-      "slug": "thakhek-tourism-information-center",
-      "name": "Thakhek Tourism Information Center",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "practical-services",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Thakhek Tourism Information Center is a practical Thakhek address worth saving for visitor information or essential local services during a stay in Khammouane.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Useful address",
-          "Thakhek",
-          "Save it"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Khammouane Tourism",
-          "sourceUrl": "https://www.khammouanetourism.org/en",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Thakhek%20Tourism%20Information%20Center%20Thakhek%20Laos"
-    },
-    {
       "id": "place-khamouane-province-hospital",
       "slug": "khamouane-province-hospital",
       "name": "Khamouane Province Hospital",
@@ -2478,7 +2428,18 @@ const data = {
       },
       "shortDescription": "Khamouane Province Hospital is a practical Thakhek address worth saving for visitor information or essential local services during a stay in Khammouane.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "khamouane-province-hospital-card",
+            "src": "/assets/cities/laos/thakhek/practical-services/khamouane-province-hospital/khamouane-province-hospital.webp",
+            "alt": "Khamouane Province Hospital in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2489,8 +2450,8 @@ const data = {
           "Thakhek",
           "Save it"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
