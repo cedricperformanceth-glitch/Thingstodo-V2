@@ -3,12 +3,15 @@ import { validateSpaCardCandidate } from './spa-card-generation.mjs';
 import { validateCityCategories } from './city-pipeline.mjs';
 
 const contract = JSON.parse(readFileSync(new URL('../../pipeline/contracts/city-publish-qa.json', import.meta.url), 'utf8'));
+const fieldCardEditorial = JSON.parse(readFileSync(new URL('../../src/content/field-card-editorial.json', import.meta.url), 'utf8'));
 
 export const CITY_PUBLISH_QA_CONTRACT = contract;
 
 const clean = (value) => String(value ?? '').trim();
 const normalizedIdentity = (value) => clean(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-const imageOf = (entity) => entity?.image ?? entity?.media?.card?.image ?? null;
+const editorialHeroOf = (entity) => fieldCardEditorial[entity?.id]?.media?.[0] ?? null;
+const cardImageOf = (entity) => entity?.image ?? entity?.media?.card?.image ?? null;
+const imageOf = (entity) => editorialHeroOf(entity) ?? cardImageOf(entity);
 const isAutomaticEntity = (entity) => clean(entity?.sourceMetadata?.sourceName).toLowerCase() !== 'manual';
 const normalizedLicense = (value) => clean(value)
   .toLowerCase()
@@ -105,15 +108,16 @@ function checkTransientFields(entity, issues) {
 function checkMedia(entity, issues) {
   const label = entity.slug || entity.name || entity.id || 'unnamed';
   const image = imageOf(entity);
+  const cardImage = cardImageOf(entity);
   if (!image?.src) {
     issues.push(issue('warning', 'missing-spa-photo', 'No qualified photo was found. The empty Photo to add placeholder is valid and requires manual fill.', label));
     return;
   }
 
-  if (contract.media.photoPresentRequiresVerifiedStatus && entity?.spaCard?.photoStatus !== 'verified') {
+  if (cardImage?.src && contract.media.photoPresentRequiresVerifiedStatus && entity?.spaCard?.photoStatus !== 'verified') {
     issues.push(issue('error', 'photo-status', `A present SPA photo must have photoStatus=verified; received '${entity?.spaCard?.photoStatus ?? 'missing'}'.`, label));
   }
-  if (entity?.spaCard?.photoRequiresManualFill === true) {
+  if (cardImage?.src && entity?.spaCard?.photoRequiresManualFill === true) {
     issues.push(issue('error', 'photo-status', 'A present SPA photo cannot still require manual fill.', label));
   }
 
