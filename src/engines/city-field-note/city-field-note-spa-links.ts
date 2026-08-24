@@ -1,6 +1,8 @@
 import linksData from '../../content/city-field-note-spa-links.json';
 import type { City } from '../../core/models/types';
 import { getCity } from '../city/city-engine';
+import { getCountry } from '../country/country-engine';
+import { countryFieldNoteCity, countryFieldNoteView } from '../country-field-note/country-field-note-engine';
 import { getEditorialCityFieldNote } from './city-field-note-editorial';
 
 const links = linksData as Record<string, readonly string[]>;
@@ -11,12 +13,21 @@ export function getCityFieldNoteSpaTargets(city: City): City[] {
   const seen = new Set<string>();
 
   return refs.map((ref) => {
-    if (seen.has(ref)) throw new Error(`Duplicate City Field Note SPA link '${ref}' for ${cityKey(city)}.`);
+    if (seen.has(ref)) throw new Error(`Duplicate Field Note SPA link '${ref}' for ${cityKey(city)}.`);
     seen.add(ref);
 
     const parts = ref.split('/');
     if (parts.length !== 2 || !parts[0] || !parts[1]) {
-      throw new Error(`Invalid City Field Note SPA target '${ref}' for ${cityKey(city)}.`);
+      throw new Error(`Invalid Field Note SPA target '${ref}' for ${cityKey(city)}.`);
+    }
+
+    if (parts[0] === 'country') {
+      const targetCountry = getCountry(parts[1]);
+      if (!targetCountry) throw new Error(`Unknown Country Field Note SPA target '${ref}' for ${cityKey(city)}.`);
+      if (targetCountry.slug === city.country) throw new Error(`Country Field Note SPA link cannot target the current country '${targetCountry.slug}'.`);
+      const view = countryFieldNoteView(targetCountry);
+      if (view.media.length !== 4) throw new Error(`Country Field Note SPA target '${ref}' must have exactly 4 media records; found ${view.media.length}.`);
+      return countryFieldNoteCity(targetCountry);
     }
 
     const target = getCity(parts[0], parts[1]);
