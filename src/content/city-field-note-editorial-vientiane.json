@@ -1,0 +1,299 @@
+{
+  "id": "city-laos-vientiane",
+  "copy": {
+    "typeLabel": "City field note",
+    "title": "Vientiane",
+    "contextLine": "Mekong · National capital · Central Laos",
+    "subtitle": "A low-rise capital where national monuments, old temples, contemporary history and everyday city life spread along and beyond the Mekong.",
+    "intro": "Vientiane is easier to understand when it is not forced into the mould of a dense sightseeing capital. The old city near the Mekong is compact, but the places that explain Laos as a nation — Pha That Luang, Patuxai, Wat Si Saket, museums, memorial institutions and major transport gateways — are spread across a wider urban area. The city works best as a sequence of calm districts and short transfers rather than one continuous monument corridor.",
+    "quickRead": [
+      {
+        "label": "Chapters",
+        "value": "7 city notes",
+        "detail": "Capital context, daily rhythm, movement, where to stay, seasonal reality and how to build the city days."
+      },
+      {
+        "label": "Use it for",
+        "value": "Reading the capital beyond the monument list",
+        "detail": "Connect the Mekong old city with national landmarks, contemporary history and the city's transport role."
+      },
+      {
+        "label": "Scope",
+        "value": "Old city · Lane Xang · That Luang · Mekong gateways",
+        "detail": "The centre is manageable; the wider capital and its arrival points require separate movement."
+      },
+      {
+        "label": "Edition",
+        "value": "Researched · August 2026",
+        "detail": "Checked against Tourism Laos, current cross-border transport reporting and 2026 capital event information."
+      }
+    ],
+    "chapters": [
+      {
+        "id": "orientation",
+        "eyebrow": "01 · READ THE PLACE",
+        "title": "Vientiane is a river capital with several centres, not one old-town core",
+        "paragraphs": [
+          "Vientiane Capital sits on a broad bend of the Mekong and has served as the capital of Laos since the sixteenth century. The older urban fabric near the river holds temples, museums, markets and civic buildings close together, while Lane Xang Avenue pushes the city inland toward Patuxai and the wider monumental axis.",
+          "Pha That Luang sits farther out again and carries a different weight: Tourism Laos describes it as the country's most important national cultural monument and a symbol of Lao Buddhism and state identity. Read the city in layers — riverfront and old city, civic axis, then national monuments — rather than expecting one compact historical centre to explain everything."
+        ],
+        "facts": [
+          {
+            "label": "City role",
+            "value": "Capital of the Lao PDR"
+          },
+          {
+            "label": "River",
+            "value": "Mekong"
+          },
+          {
+            "label": "Old-city logic",
+            "value": "Temples, museums and riverfront close together"
+          },
+          {
+            "label": "National landmark",
+            "value": "Pha That Luang"
+          }
+        ],
+        "note": {
+          "label": "Atlas note",
+          "text": "Vientiane makes more sense when you move between layers of the capital instead of judging it by how many sights fit inside one square kilometre."
+        }
+      },
+      {
+        "id": "rhythm",
+        "eyebrow": "02 · FIND THE RHYTHM",
+        "title": "Use the morning for institutions and the evening for the Mekong",
+        "paragraphs": [
+          "The city's strongest rhythm is simple. Temples, museums and major monuments belong to the cooler part of the day and to the hours when institutions are open. The middle of the day can slow down around cafés, food, galleries or practical errands; by late afternoon, the riverfront becomes the easiest place to let the capital return to everyday scale.",
+          "Tourism Laos repeatedly frames dusk on the Mekong as part of the Vientiane experience, and the riverside night market adds activity without changing the city's basic pace. The capital is more useful when the day has contrast: formal history first, ordinary urban life afterward."
+        ],
+        "facts": [
+          {
+            "label": "Morning",
+            "value": "Temples, museums and national monuments"
+          },
+          {
+            "label": "Midday",
+            "value": "Food, cafés, galleries and practical city tasks"
+          },
+          {
+            "label": "Evening",
+            "value": "Mekong promenade, riverfront activity and night market"
+          },
+          {
+            "label": "Planning rule",
+            "value": "Separate institutional hours from the slower river rhythm"
+          }
+        ],
+        "note": {
+          "label": "Field note",
+          "text": "Do not spend the whole day moving between monuments. Vientiane becomes more legible when the formal capital and the lived-in river city share the same itinerary."
+        }
+      },
+      {
+        "id": "move",
+        "eyebrow": "03 · MOVE THROUGH IT",
+        "title": "The old city is walkable; the capital beyond it is a short-transfer city",
+        "paragraphs": [
+          "Tourism Laos describes the principal sights in the older part of Vientiane as close enough for walking or cycling, and that remains the most useful way to handle the riverfront, Wat Si Saket, Ho Phra Keo and nearby streets. Patuxai stretches the walk inland, while Pha That Luang and other outer stops are more comfortable when treated as a separate ride.",
+          "Arrival is on an even larger scale. Wattay International Airport, the Laos–China Railway terminal and the First Lao–Thai Friendship Bridge all connect Vientiane to different transport systems and sit outside the old-city walking logic. Build the arrival or border transfer first; only after that should the city become a walking map."
+        ],
+        "facts": [
+          {
+            "label": "Old city",
+            "value": "Walking or bicycle works well"
+          },
+          {
+            "label": "Wider landmarks",
+            "value": "Short tuk-tuk, taxi or other vehicle transfer"
+          },
+          {
+            "label": "International gateways",
+            "value": "Wattay Airport + Friendship Bridge I"
+          },
+          {
+            "label": "Rail",
+            "value": "Laos–China Railway is a separate transfer from the centre"
+          }
+        ],
+        "note": {
+          "label": "Keep close",
+          "text": "A map can make Vientiane look compact. The old city is compact; the transport city is not."
+        }
+      },
+      {
+        "id": "stay",
+        "eyebrow": "04 · CHOOSE YOUR BASE",
+        "title": "For a first stay, let the Mekong and old city do the daily work",
+        "paragraphs": [
+          "A base near the old city or riverfront is the simplest choice when you want to walk to temples, food, cafés and the evening promenade. It makes the final hours of the day effortless and keeps a large part of the visitor-facing city within a small radius.",
+          "Staying farther inland can make sense when your priorities are business, a particular institution, easier road access or an early transfer. The trade-off is not dramatic, but it is real: the farther the base moves from the Mekong and old centre, the more often a simple evening becomes another transport decision."
+        ],
+        "facts": [
+          {
+            "label": "Old city / riverfront",
+            "value": "Best first base for walking and evenings"
+          },
+          {
+            "label": "Lane Xang / central axis",
+            "value": "Useful for civic landmarks and broader city access"
+          },
+          {
+            "label": "Outer districts",
+            "value": "Choose for a specific logistical reason"
+          },
+          {
+            "label": "Decision rule",
+            "value": "Plan the first and last hour of the day before the room"
+          }
+        ],
+        "note": {
+          "label": "City note",
+          "text": "In Vientiane, convenience is mostly about reducing small daily transfers, not being next door to one headline attraction."
+        }
+      },
+      {
+        "id": "conditions",
+        "eyebrow": "05 · READ THE CONDITIONS",
+        "title": "Heat and rain shape the walking day more than they change the city itself",
+        "paragraphs": [
+          "Like the rest of lowland Laos, Vientiane has a generally drier, cooler travel period from roughly October to March and a hotter, wetter part of the year from around April into September. The city's monuments remain accessible in either season, but exposed avenues, temple courtyards and long walks feel very different in midday heat or heavy rain.",
+          "The Mekong is the visible seasonal marker. River level, cloud, sunset conditions and riverfront atmosphere change across the year, while major festivals follow the Lao lunar calendar rather than a fixed Western date. For 2026, Tourism Laos lists the That Luang Festival in late November, but future editions should always reconfirm the annual dates."
+        ],
+        "facts": [
+          {
+            "label": "Generally drier",
+            "value": "October to March"
+          },
+          {
+            "label": "Hotter / wetter",
+            "value": "April to September"
+          },
+          {
+            "label": "Walking impact",
+            "value": "Heat and rain matter more than attraction availability"
+          },
+          {
+            "label": "Festival timing",
+            "value": "Lunar calendar · annual dates should be reconfirmed"
+          }
+        ],
+        "note": {
+          "label": "Living guide",
+          "text": "Move the exposed parts of the city around the weather instead of forcing the weather around the itinerary."
+        }
+      },
+      {
+        "id": "practical",
+        "eyebrow": "06 · PRACTICAL REALITY",
+        "title": "The capital is easy to use, but its gateways belong to different journeys",
+        "paragraphs": [
+          "Vientiane is one of the best places in Laos to handle practical travel tasks because transport, banking, embassies, medical services and national institutions are concentrated in the capital. That convenience is useful, but it can also turn a short stay into an administrative day if every errand is left until arrival.",
+          "Keep the different gateways distinct. The First Lao–Thai Friendship Bridge links the Vientiane area with Nong Khai in Thailand; Wattay handles air travel; the Laos–China Railway opens the northbound corridor. Border rules, train arrangements and flight schedules can change, so treat those as live logistics rather than permanent city facts."
+        ],
+        "facts": [
+          {
+            "label": "Capital advantage",
+            "value": "Strongest concentration of practical services in Laos"
+          },
+          {
+            "label": "Thailand link",
+            "value": "Friendship Bridge I toward Nong Khai"
+          },
+          {
+            "label": "Northbound rail",
+            "value": "Laos–China Railway corridor"
+          },
+          {
+            "label": "Live logistics",
+            "value": "Reconfirm border, rail and flight details before travel"
+          }
+        ],
+        "note": {
+          "label": "Practical",
+          "text": "Use Vientiane to simplify the next leg, but do not let the next leg consume the entire stay."
+        }
+      },
+      {
+        "id": "pace",
+        "eyebrow": "07 · BUILD THE STAY",
+        "title": "One full day explains the capital; a second lets the history breathe",
+        "paragraphs": [
+          "A short Vientiane stay can be built around one coherent city day: old-city temples and museums in the morning, Patuxai and the national monumental axis later, then the Mekong in the evening. That is enough to understand the city's structure without pretending every major institution belongs in the same loop.",
+          "With a second full day, add the parts that require more context rather than more speed: Pha That Luang, COPE, another museum, a market or an outer-city direction such as Buddha Park. Extra time is also valuable before an international crossing or a fixed train because it separates city time from transport stress."
+        ],
+        "facts": [
+          {
+            "label": "Short stay",
+            "value": "One coherent capital day"
+          },
+          {
+            "label": "Balanced stay",
+            "value": "Two days for monuments, contemporary history and the river"
+          },
+          {
+            "label": "Outer excursion",
+            "value": "Keep Buddha Park or another distant stop as its own direction"
+          },
+          {
+            "label": "Transit margin",
+            "value": "Useful before a border, flight or fixed rail connection"
+          }
+        ],
+        "note": {
+          "label": "Last note",
+          "text": "Vientiane does not need to be overfilled to justify the stop. Its value is context, rhythm and a clear bridge between different parts of Laos."
+        },
+        "photoSlot": true
+      }
+    ],
+    "closing": {
+      "eyebrow": "BACK TO VIENTIANE",
+      "title": "Now build the capital around the day you actually need",
+      "text": "Use these notes as the context layer, then open the Vientiane activities, food, cafés, stays, gyms, rentals and market sections to build the actual city days."
+    }
+  },
+  "seo": {
+    "title": "Vientiane travel field guide | Things To Do Atlas",
+    "description": "A researched Vientiane field guide to the Mekong old city, Pha That Luang, Patuxai, movement, transport gateways, seasonal conditions and capital-day planning.",
+    "indexable": true
+  },
+  "sources": [
+    {
+      "sourceName": "Tourism Laos · Vientiane Capital",
+      "sourceUrl": "https://www.tourismlaos.org/central-provinces/vientiane-capital/",
+      "note": "Primary national tourism reference for Vientiane's Mekong setting, old city, temples, national monuments, markets and riverfront rhythm."
+    },
+    {
+      "sourceName": "Tourism Laos · 9 Things to Do in Vientiane Capital",
+      "sourceUrl": "https://www.tourismlaos.org/2022/03/07/9-things-to-do-in-vientiane-capital/",
+      "note": "Destination reference for the compact old-city cluster, Mekong promenade, Pha That Luang, Patuxai, Wat Si Saket and Xieng Khuan."
+    },
+    {
+      "sourceName": "Tourism Laos · That Luang",
+      "sourceUrl": "https://www.tourismlaos.org/that-luang/",
+      "note": "National reference for Pha That Luang as the country's most important national cultural monument and a central symbol of Lao Buddhism."
+    },
+    {
+      "sourceName": "Tourism Laos · First Lao–Thai Friendship Bridge",
+      "sourceUrl": "https://www.tourismlaos.org/2025/04/23/first-lao-thai-friendship-bridge-marks-31st-anniversary/",
+      "note": "Current cross-border context for the Vientiane–Nong Khai gateway and its role in movement between Laos and Thailand."
+    },
+    {
+      "sourceName": "Tourism Laos · Laos–China Railway tourism connectivity",
+      "sourceUrl": "https://www.tourismlaos.org/2024/02/07/laos-china-railway-boosts-daily-trips-in-preparation-of-tourism-surge/",
+      "note": "National context for the railway as a major domestic and international transport corridor from Vientiane."
+    },
+    {
+      "sourceName": "Tourism Laos · That Luang Festival 2026",
+      "sourceUrl": "https://www.tourismlaos.org/event/that-luang-festival-and-trade-fair-in-vientiane-capital-2/",
+      "note": "Current 2026 reference for the capital's major religious festival and the need to reconfirm lunar-calendar dates by edition."
+    },
+    {
+      "sourceName": "Tourism Laos · COPE Visitor Centre",
+      "sourceUrl": "https://www.tourismlaos.org/central-provinces/vientiane-capital/",
+      "note": "National tourism context for COPE as an important contemporary-history and UXO education stop in Vientiane."
+    }
+  ]
+}
