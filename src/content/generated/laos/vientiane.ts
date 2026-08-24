@@ -409,9 +409,9 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Vientiane%20Laos"
     },
     {
-      "id": "place-pdr-pizza-da-roby",
-      "slug": "pdr-pizza-da-roby",
-      "name": "PDR - Pizza da Roby",
+      "id": "place-joma-bakery-cafe-vientiane",
+      "slug": "joma-bakery-cafe-vientiane",
+      "name": "Joma Bakery Cafe Vientiane",
       "country": "laos",
       "city": "vientiane",
       "category": "cafes",
