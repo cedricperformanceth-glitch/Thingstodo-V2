@@ -4,6 +4,7 @@ import mediaData from '../../content/city-field-note-media-copy.json';
 import luangPrabangEditorialData from '../../content/city-field-note-editorial-luang-prabang.json';
 import pakseEditorialData from '../../content/city-field-note-editorial-pakse.json';
 import vangViengEditorialData from '../../content/city-field-note-editorial-vang-vieng.json';
+import vientianeEditorialData from '../../content/city-field-note-editorial-vientiane.json';
 import seoData from '../../content/city-field-note-seo-copy.json';
 import sourceData from '../../content/city-field-note-source-copy.json';
 import type { CityFieldNoteContent } from './city-field-note-engine';
@@ -35,6 +36,7 @@ const editorialBundleData = [
   pakseEditorialData,
   luangPrabangEditorialData,
   vangViengEditorialData,
+  vientianeEditorialData,
 ] as CityFieldNoteEditorialBundle[];
 const editorialBundles = new Map<string, CityFieldNoteEditorialBundle>(editorialBundleData.map((bundle) => [bundle.id, bundle]));
 
