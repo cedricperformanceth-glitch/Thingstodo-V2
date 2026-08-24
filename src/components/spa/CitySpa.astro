@@ -1,7 +1,9 @@
 ---
 import type { CategorySlug, City, Place, ThingToDo } from '../../core/models/types';
 import { getCategoryEntities } from '../../engines/category/category-engine';
+import { getCityFieldNoteSpaTargets } from '../../engines/city-field-note/city-field-note-spa-links';
 import { getSpaTabs } from '../../engines/spa/spa-engine';
+import CityFieldNoteActivityCard from '../cards/CityFieldNoteActivityCard.astro';
 import PlaceCard from '../cards/PlaceCard.astro';
 import ThingToDoCard from '../cards/ThingToDoCard.astro';
 import FavoritesPanel from './FavoritesPanel.astro';
@@ -74,9 +76,18 @@ const isThingToDo = (entity: Place | ThingToDo): entity is ThingToDo => 'fieldCa
               );
             }
             const entities = getCategoryEntities(city, tab.slug as CategorySlug);
+            const cityFieldNoteTargets = tab.slug === 'things-to-do' ? getCityFieldNoteSpaTargets(city) : [];
+            const hasEntries = entities.length > 0 || cityFieldNoteTargets.length > 0;
             return (
               <SpaPanel slug={tab.slug} cityName={city.name} summary={summary} fieldNote={String(index + 1).padStart(2, '0')} {active}>
-                {entities.length ? <div class="spa-card-grid">{entities.map((entity) => isThingToDo(entity) ? <ThingToDoCard {city} thing={entity} /> : <PlaceCard place={entity} />)}</div> : <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>}
+                {hasEntries ? (
+                  <div class="spa-card-grid">
+                    {entities.map((entity) => isThingToDo(entity) ? <ThingToDoCard {city} thing={entity} /> : <PlaceCard place={entity} />)}
+                    {cityFieldNoteTargets.map((targetCity) => <CityFieldNoteActivityCard {targetCity} />)}
+                  </div>
+                ) : (
+                  <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>
+                )}
               </SpaPanel>
             );
           })}
