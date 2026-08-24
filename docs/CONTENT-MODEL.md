@@ -13,7 +13,7 @@ Generated city/entity records hold the structural and generated base content. Re
 
 City Hero destination copy, display facts and optional partners are consolidated in `src/content/city-hero-editorial.ts`. Shared Hero engines provide deterministic fallbacks and presentation logic only.
 
-City Field Notes keep their destination editorial data in the `city-field-note-*-copy.json` files and expose it through `city-field-note-editorial.ts`; presentation components do not import those JSON files directly.
+Every researched City Field Note has one canonical destination bundle named `src/content/city-field-note-editorial-<city>.json`. That bundle owns exactly the destination's `id`, editorial `copy`, SEO and research `sources`. `src/engines/city-field-note/city-field-note-editorial.ts` is the single registry/resolver for those bundles. Reviewed City Field Note copy, SEO or sources must not be duplicated into aggregate override files. City Field Note media remains intentionally centralized in `src/content/city-field-note-media-copy.json`, where provenance and licensing stay attached to each asset. A city without a researched bundle uses the generic generated City Field Note fallback from the engine until an editorial bundle is created.
 
 ## Field Card Hero
 
