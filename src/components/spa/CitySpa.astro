@@ -1,6 +1,6 @@
 ---
-import type { CategorySlug, City } from '../../core/models/types';
-import { getPlaces, getThings } from '../../engines/category/category-engine';
+import type { CategorySlug, City, Place, ThingToDo } from '../../core/models/types';
+import { getCategoryEntities } from '../../engines/category/category-engine';
 import { getSpaTabs } from '../../engines/spa/spa-engine';
 import PlaceCard from '../cards/PlaceCard.astro';
 import ThingToDoCard from '../cards/ThingToDoCard.astro';
@@ -13,6 +13,7 @@ const { city } = Astro.props;
 const tabs = getSpaTabs(city);
 const defaultSlug = tabs.some((tab) => tab.slug === 'things-to-do') ? 'things-to-do' : (tabs[0]?.slug ?? 'favorites');
 const cityId = `${city.country}-${city.slug}`;
+const isThingToDo = (entity: Place | ThingToDo): entity is ThingToDo => 'fieldCard' in entity;
 ---
 
 <section class="travel-desk" data-city-spa data-spa-default={defaultSlug} aria-labelledby={`${cityId}-travel-desk-title`}>
@@ -72,18 +73,10 @@ const cityId = `${city.country}-${city.slug}`;
                 </SpaPanel>
               );
             }
-            if (tab.slug === 'things-to-do') {
-              const things = getThings(city);
-              return (
-                <SpaPanel slug={tab.slug} cityName={city.name} summary={summary} fieldNote={String(index + 1).padStart(2, '0')} {active}>
-                  {things.length ? <div class="spa-card-grid">{things.map((thing) => <ThingToDoCard {city} {thing} />)}</div> : <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>}
-                </SpaPanel>
-              );
-            }
-            const places = getPlaces(city, tab.slug as CategorySlug);
+            const entities = getCategoryEntities(city, tab.slug as CategorySlug);
             return (
               <SpaPanel slug={tab.slug} cityName={city.name} summary={summary} fieldNote={String(index + 1).padStart(2, '0')} {active}>
-                {places.length ? <div class="spa-card-grid">{places.map((place) => <PlaceCard {place} />)}</div> : <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>}
+                {entities.length ? <div class="spa-card-grid">{entities.map((entity) => isThingToDo(entity) ? <ThingToDoCard {city} thing={entity} /> : <PlaceCard place={entity} />)}</div> : <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>}
               </SpaPanel>
             );
           })}
