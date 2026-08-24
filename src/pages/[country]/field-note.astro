@@ -4,6 +4,7 @@ import CountryFieldNote from '../../components/country-field-note/CountryFieldNo
 import { getCountries, getCountry } from '../../engines/country/country-engine';
 import { countryFieldNotePath, countryPath } from '../../core/routing/paths';
 import { countryFieldNoteView } from '../../engines/country-field-note/country-field-note-engine';
+import { getEditorialCountryFieldNoteSeo } from '../../engines/country-field-note/country-field-note-editorial';
 
 const enabledCountryFieldNotes = new Set(['thailand', 'cambodia', 'vietnam']);
 
@@ -18,11 +19,12 @@ const country = getCountry(Astro.params.country ?? '');
 if (!country || !enabledCountryFieldNotes.has(country.slug)) return Astro.redirect('/');
 const view = countryFieldNoteView(country);
 const heroImage = view.media[0];
+const editorialSeo = getEditorialCountryFieldNoteSeo(country.id);
 const seo = {
-  title: `${country.name} country field note | Things To Do Atlas`,
-  description: `A country-scale field note for ${country.name}: regions, routes, seasons, transport logic and the bases that connect individual destinations.`,
+  title: editorialSeo?.title ?? `${country.name} country field note | Things To Do Atlas`,
+  description: editorialSeo?.description ?? `A country-scale field note for ${country.name}: regions, routes, seasons, transport logic and the bases that connect individual destinations.`,
   canonicalPath: countryFieldNotePath(country),
-  indexable: false,
+  indexable: editorialSeo?.indexable ?? false,
   ...(heroImage ? { image: heroImage.src, imageAlt: heroImage.alt } : {}),
 };
 const structuredData = [{
@@ -50,7 +52,7 @@ const structuredData = [{
   <div class="city-field-note-page">
     <nav class="city-field-note-page__return" aria-label={`${country.name} field note navigation`}>
       <a href={countryPath(country)}>← Back to {country.name}</a>
-      <span>Country note · generated layer</span>
+      <span>Country note · {view.isEditorial ? 'researched editorial' : 'generated layer'}</span>
     </nav>
     <CountryFieldNote {country} />
   </div>
