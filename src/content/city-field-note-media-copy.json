@@ -148,5 +148,55 @@
       "manual": true,
       "locked": true
     }
+  ],
+  "city-laos-luang-prabang": [
+    {
+      "id": "luang-prabang-field-note-mekong-phousi",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Panoramic_view_of_Mount_Phou_Si_seen_from_Wat_Chomphet_in_Luang_Prabang_Laos.jpg?width=1800",
+      "alt": "Mount Phou Si and Luang Prabang seen across the Mekong from Wat Chomphet",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Mount_Phou_Si_seen_from_Wat_Chomphet_in_Luang_Prabang_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "luang-prabang-field-note-wat-xieng-thong",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wat_Xieng_Thong.jpg?width=1600",
+      "alt": "Wat Xieng Thong monastery and the Red Chapel in Luang Prabang",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Xieng_Thong.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Ondřej Žváček",
+      "license": "CC BY-SA 3.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "luang-prabang-field-note-mekong-evening",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Water_reflection_of_clouds_and_Luang_Prabang_cityscape_from_Wat_Long_Koon_evening_Laos.jpg?width=1600",
+      "alt": "Evening clouds reflected in the Mekong with Mount Phou Si and Luang Prabang beyond",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_clouds_and_Luang_Prabang_cityscape_from_Wat_Long_Koon_evening_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "luang-prabang-field-note-kuang-si",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kuang_Si_waterfalls_in_Luang_Prabang%2C_Laos.jpg?width=1600",
+      "alt": "Turquoise cascades at Kuang Si waterfalls south of Luang Prabang",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuang_Si_waterfalls_in_Luang_Prabang,_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "NruasPaoYPP",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    }
   ]
 }
