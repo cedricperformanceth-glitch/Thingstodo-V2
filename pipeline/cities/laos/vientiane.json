@@ -539,9 +539,9 @@
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pimenton%20Vientiane%20Laos"
     },
     {
-      "id": "place-joma-bakery-cafe-vientiane",
-      "slug": "joma-bakery-cafe-vientiane",
-      "name": "Joma Bakery Cafe Vientiane",
+      "id": "place-pdr-pizza-da-roby",
+      "slug": "pdr-pizza-da-roby",
+      "name": "PDR - Pizza da Roby",
       "country": "laos",
       "city": "vientiane",
       "category": "restaurants",
@@ -549,7 +549,7 @@
         "latitude": 17.9757,
         "longitude": 102.6331
       },
-      "shortDescription": "Joma Bakery Cafe Vientiane is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "shortDescription": "PDR - Pizza da Roby is a current Vientiane restaurant address selected for this first Atlas draft.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -575,14 +575,14 @@
       "researchSources": [
         {
           "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Vientiane%20Laos",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=PDR%20-%20Pizza%20da%20Roby%20Vientiane%20Laos",
           "purpose": "location",
           "sourceType": "map-platform"
         }
       ],
       "manualLocks": {},
       "address": "Vientiane, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Vientiane%20Laos"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=PDR%20-%20Pizza%20da%20Roby%20Vientiane%20Laos"
     },
     {
       "id": "place-mekong-riverside-restaurant",
