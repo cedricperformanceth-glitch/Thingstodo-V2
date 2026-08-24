@@ -1,0 +1,54 @@
+name: Materialize Luang Prabang activities once
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/luang-prabang-materialize-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout latest master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run reviewed Luang Prabang activity script
+        shell: bash
+        run: |
+          awk '
+            /node --input-type=module <<'\''NODE'\''/ { capture=1; next }
+            capture && /^          NODE$/ { capture=0; exit }
+            capture { sub(/^          /, ""); print }
+          ' .github/workflows/luang-prabang-activities-once.yml > .tmp-luang-prabang-complete.mjs
+          test -s .tmp-luang-prabang-complete.mjs
+          node .tmp-luang-prabang-complete.mjs
+          rm .tmp-luang-prabang-complete.mjs
+
+      - name: Commit materialized Luang Prabang content
+        shell: bash
+        run: |
+          rm -f .github/workflows/luang-prabang-activities-once.yml
+          rm -f .github/workflows/luang-prabang-activities-retry-once.yml
+          rm -f .github/workflows/luang-prabang-activity-completion-once.yml
+          rm -f .github/workflows/luang-prabang-finalize-once.yml
+          rm -f .github/workflows/luang-prabang-materialize-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Materialize Luang Prabang activity media and Field Cards"
+          git pull --rebase origin master
+          git push origin HEAD:master
