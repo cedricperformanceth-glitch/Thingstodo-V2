@@ -21,6 +21,7 @@ import daoHeuangMarketEditorial from './field-card-editorial-pakse/thing-dao-heu
 import tadChampeeEditorial from './field-card-editorial-pakse/thing-tad-champee.json';
 import champasakRiversideEditorial from './field-card-editorial-pakse/thing-champasak-riverside.json';
 import luangPrabangEditorialData from './field-card-editorial-luang-prabang.json';
+import luangPrabangMediaData from './field-card-media-luang-prabang.json';
 
 export type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 export type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
@@ -55,7 +56,17 @@ const pakseEditorial = {
   ...tadChampeeEditorial,
   ...champasakRiversideEditorial,
 } as unknown as Record<string, FieldCardEditorialEntry>;
-const luangPrabangEditorial = luangPrabangEditorialData as unknown as Record<string, FieldCardEditorialEntry>;
+const luangPrabangBase = luangPrabangEditorialData as unknown as Record<string, FieldCardEditorialEntry>;
+const luangPrabangMedia = luangPrabangMediaData as unknown as Record<string, MediaRecord[]>;
+const luangPrabangEditorial = Object.fromEntries(
+  Object.entries(luangPrabangBase).map(([id, entry]) => {
+    const media = luangPrabangMedia[id];
+    return [id, {
+      ...entry,
+      ...(media?.length ? { media, seo: { ...entry.seo, image: media[0].src } } : {}),
+    }];
+  }),
+) as Record<string, FieldCardEditorialEntry>;
 
 export const fieldCardEditorial: Record<string, FieldCardEditorialEntry> = {
   ...sharedEditorial,
