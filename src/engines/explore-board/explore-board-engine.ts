@@ -13,6 +13,14 @@ export interface ExploreBoardEntry {
   route: string;
 }
 
+const configuredExploreBoardIds = (city: City): readonly string[] => {
+  const editorial = getExploreBoardEditorial(city);
+  return editorial?.featuredThingIds ?? city.exploreBoard.featuredThingIds ?? [];
+};
+
+export const hasExploreBoard = (city: City): boolean =>
+  configuredExploreBoardIds(city).length === EXPLORE_BOARD_LANDMARK_COUNT;
+
 const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
   const heroImage = getEditorialMedia(thing.id)?.[0];
   if (!heroImage) return thing;
@@ -25,7 +33,7 @@ const withEditorialHeroAsCardImage = (thing: ThingToDo): ThingToDo => {
 
 export function getExploreBoard(city: City): { things: ExploreBoardEntry[]; intro: string; note: string } {
   const editorial = getExploreBoardEditorial(city);
-  const configuredIds = editorial?.featuredThingIds ?? city.exploreBoard.featuredThingIds ?? [];
+  const configuredIds = configuredExploreBoardIds(city);
 
   if (configuredIds.length !== EXPLORE_BOARD_LANDMARK_COUNT) {
     throw new Error(`Explore Board requires exactly ${EXPLORE_BOARD_LANDMARK_COUNT} configured landmarks: ${city.country}/${city.slug}; received ${configuredIds.length}`);
