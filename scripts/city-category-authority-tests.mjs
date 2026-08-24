@@ -19,8 +19,17 @@ assert.ok(draft.researchPlan.selection.categories['practical-services']);
 const zeroBarPlan = researchPlan('laos', 'village', 'laos/zero-bars', ['things-to-do', 'restaurants']);
 assert.ok(zeroBarPlan.selection);
 
+assert.deepEqual(
+  validateCityCategories(['things-to-do', 'scooter-rental'], 'village', 'laos/test', ['scooter-rental']),
+  ['things-to-do', 'scooter-rental'],
+  'A village may explicitly enable a contract-approved extension without changing settlement type.',
+);
 assert.throws(
-  () => validateCityCategories(['things-to-do', 'gyms'], 'village', 'laos/test'),
+  () => validateCityCategories(['things-to-do', 'scooter-rental'], 'village', 'laos/test'),
+  /not allowed/,
+);
+assert.throws(
+  () => validateCityCategories(['things-to-do', 'gyms'], 'village', 'laos/test', ['gyms']),
   /not allowed/,
 );
 assert.throws(

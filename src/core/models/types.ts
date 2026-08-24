@@ -36,7 +36,7 @@ export interface Country { id: string; slug: string; name: string; chapter: stri
 export interface ExploreBoardConfig { featuredThingIds: string[]; }
 export interface ExploreBoardCardContent { kicker: string; duration: string; route: string; }
 export interface CityHero { eyebrow: string; title: string; subtitle: string; facts: HeroFact[]; }
-export interface City { id: string; slug: string; name: string; country: string; profile: CityProfile; settlementType: SettlementType; coordinates: Coordinates; description: string; categories: CategorySlug[]; hero: CityHero; exploreBoard: ExploreBoardConfig; manualLocks: ManualLocks; seo: SeoMetadata; }
+export interface City { id: string; slug: string; name: string; country: string; profile: CityProfile; settlementType: SettlementType; coordinates: Coordinates; description: string; categories: CategorySlug[]; categoryExtensions?: CategorySlug[]; hero: CityHero; exploreBoard: ExploreBoardConfig; manualLocks: ManualLocks; seo: SeoMetadata; }
 export interface SourceMetadata { sourceName: string; sourceUrl?: string; }
 export interface ResearchSource extends SourceMetadata { purpose: 'candidate-discovery' | 'facts' | 'location' | 'media' | 'first-party'; sourceType?: SourceType; }
 export interface BaseEntity { id: string; slug: string; name: string; country: string; city: string; category: CategorySlug; coordinates: Coordinates; locationScope?: LocationScope; shortDescription: string; media: EntityMediaManifest; spaCard?: SpaCardContent; verification?: VerificationMetadata; sourceMetadata: SourceMetadata; manualLocks: ManualLocks; }

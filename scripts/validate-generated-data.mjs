@@ -23,7 +23,7 @@ for (const draft of drafts) {
   const settlementType=draft.cityData.settlementType;
   let actualCategories=[];
   try {
-    actualCategories=validateCityCategories(draft.cityData.categories,settlementType,cityKey);
+    actualCategories=validateCityCategories(draft.cityData.categories,settlementType,cityKey,draft.cityData.categoryExtensions);
   } catch (error) {
     fail.push(`${cityKey}: ${error instanceof Error ? error.message : String(error)}`);
   }

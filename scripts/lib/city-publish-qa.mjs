@@ -171,7 +171,7 @@ export function evaluateCityPublication(draft) {
   let configuredCategories = [];
 
   try {
-    configuredCategories = validateCityCategories(actualCategories, settlementType, cityKey);
+    configuredCategories = validateCityCategories(actualCategories, settlementType, cityKey, draft?.cityData?.categoryExtensions);
   } catch (error) {
     issues.push(issue('error', 'city-category-contract', error instanceof Error ? error.message : String(error)));
   }

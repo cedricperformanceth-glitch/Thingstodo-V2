@@ -13,6 +13,12 @@ export const SETTLEMENT_CATEGORIES = Object.freeze({
   city: Object.freeze([...spaCategoryOrder.city]),
 });
 export const PROFILE_CATEGORIES = SETTLEMENT_CATEGORIES.city;
+// Settlement types define defaults. A destination may opt into a narrowly approved
+// category extension without changing its settlement type or changing other villages.
+export const CATEGORY_EXTENSIONS_BY_SETTLEMENT = Object.freeze({
+  village: Object.freeze(['scooter-rental']),
+  city: Object.freeze([]),
+});
 const BLOCKED_MEDIA_HOSTS = ['tripadvisor.', 'booking.com', 'expedia.', 'lonelyplanet.', 'theculturetrip.'];
 const EMPTY_RULE = Object.freeze({ searchPriorities: {} });
 
@@ -36,12 +42,24 @@ export function isManualLocked(record, fieldPath) {
   });
 }
 
-export function validateCityCategories(categories, settlementType, key = 'city') {
+export function validateCategoryExtensions(categoryExtensions, settlementType, key = 'city') {
+  const permitted = CATEGORY_EXTENSIONS_BY_SETTLEMENT[settlementType];
+  if (!permitted) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  const extensions = categoryExtensions ?? [];
+  if (!Array.isArray(extensions)) throw new Error(`City categoryExtensions must be an array for ${key}.`);
+  if (new Set(extensions).size !== extensions.length) throw new Error(`City categoryExtensions must be unique for ${key}.`);
+  const invalid = extensions.filter((category) => !permitted.includes(category));
+  if (invalid.length) throw new Error(`City categoryExtensions are not permitted for ${settlementType} ${key}: ${invalid.join(', ')}`);
+  return [...extensions];
+}
+
+export function validateCityCategories(categories, settlementType, key = 'city', categoryExtensions = []) {
   const allowedCategories = SETTLEMENT_CATEGORIES[settlementType];
   if (!allowedCategories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  const extensions = validateCategoryExtensions(categoryExtensions, settlementType, key);
   if (!Array.isArray(categories) || categories.length === 0) throw new Error(`City categories are required for ${key}.`);
   if (new Set(categories).size !== categories.length) throw new Error(`City categories must be unique for ${key}.`);
-  const allowed = new Set(allowedCategories);
+  const allowed = new Set([...allowedCategories, ...extensions]);
   const invalid = categories.filter((category) => !allowed.has(category));
   if (invalid.length) throw new Error(`City categories are not allowed for ${settlementType} ${key}: ${invalid.join(', ')}`);
   if (!categories.includes('things-to-do')) throw new Error(`City categories must include things-to-do for ${key}.`);
@@ -52,25 +70,30 @@ export function syncGenerationContract(draft) {
   const settlementType = draft.cityData?.settlementType;
   const defaultCategories = SETTLEMENT_CATEGORIES[settlementType];
   if (!defaultCategories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
+  const categoryExtensions = validateCategoryExtensions(draft.cityData?.categoryExtensions, settlementType, `${draft.country}/${draft.city}`);
   const categories = validateCityCategories(
-    Array.isArray(draft.cityData?.categories) && draft.cityData.categories.length ? draft.cityData.categories : defaultCategories,
+    Array.isArray(draft.cityData?.categories) && draft.cityData.categories.length ? draft.cityData.categories : [...defaultCategories, ...categoryExtensions],
     settlementType,
     `${draft.country}/${draft.city}`,
+    categoryExtensions,
   );
   const existingPlan = structuredClone(draft.researchPlan ?? {});
+  draft.cityData.categoryExtensions = categoryExtensions;
   draft.cityData.categories = categories;
   draft.researchPlan = researchPlan(draft.country, settlementType, '', categories, existingPlan);
   return draft;
 }
 
-export function emptyDraft(country, city, profile, settlementType) {
-  const categories = SETTLEMENT_CATEGORIES[settlementType];
+export function emptyDraft(country, city, profile, settlementType, categoryExtensions = []) {
+  const defaults = SETTLEMENT_CATEGORIES[settlementType];
+  const extensions = validateCategoryExtensions(categoryExtensions, settlementType, `${country}/${city}`);
+  const categories = defaults ? [...defaults, ...extensions] : null;
   if (!categories) throw new Error(`Settlement type must be 'village' or 'city'; received '${settlementType ?? ''}'.`);
   const name = city.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
   const plan = researchPlan(country, settlementType, '', categories);
   return { schemaVersion: 1, country, city, profile, researchPlan: plan, cityData: {
     id: `city-${country}-${city}`, slug: city, name, country, profile, settlementType, coordinates: { latitude: 0, longitude: 0 }, description: '',
-    categories: [...categories],
+    categoryExtensions: extensions, categories: [...categories],
     hero: { eyebrow: country, title: name, subtitle: '', facts: [] },
     exploreBoard: { featuredThingIds: [] },
     manualLocks: {}, seo: { title: `${name} travel guide | Things To Do Atlas`, description: '', canonicalPath: `/${country}/${city}`, indexable: true },

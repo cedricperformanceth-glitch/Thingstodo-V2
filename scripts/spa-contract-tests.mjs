@@ -6,6 +6,11 @@ assert.deepEqual(village.cityData.categories, SETTLEMENT_CATEGORIES.village);
 syncGenerationContract(village);
 assert.equal('categoryTargets' in village.cityData, false, 'A city must not carry category quotas.');
 
+const extendedVillage = emptyDraft('laos', 'test-village-extension', 'compact', 'village', ['scooter-rental']);
+assert.equal(extendedVillage.cityData.settlementType, 'village');
+assert.ok(extendedVillage.cityData.categories.includes('scooter-rental'));
+syncGenerationContract(extendedVillage);
+
 const city = emptyDraft('laos', 'test-city', 'standard', 'city');
 syncGenerationContract(city);
 assert.equal('categoryTargets' in city.cityData, false);
