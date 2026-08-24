@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { selectionPlan } from './content-selection.mjs';
 
 const spaCategoryOrder = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-categories.json', import.meta.url), 'utf8'));
+const spaCategoryExtensions = JSON.parse(readFileSync(new URL('../../src/core/contracts/spa-category-extensions.json', import.meta.url), 'utf8'));
 const sourceVerificationRules = JSON.parse(readFileSync(new URL('../../pipeline/contracts/source-verification.json', import.meta.url), 'utf8'));
 
 export const CATEGORY_LABELS = {
@@ -15,10 +16,9 @@ export const SETTLEMENT_CATEGORIES = Object.freeze({
 export const PROFILE_CATEGORIES = SETTLEMENT_CATEGORIES.city;
 // Settlement types define defaults. A destination may opt into a narrowly approved
 // category extension without changing its settlement type or changing other villages.
-export const CATEGORY_EXTENSIONS_BY_SETTLEMENT = Object.freeze({
-  village: Object.freeze(['scooter-rental']),
-  city: Object.freeze([]),
-});
+export const CATEGORY_EXTENSIONS_BY_SETTLEMENT = Object.freeze(Object.fromEntries(
+  Object.entries(spaCategoryExtensions).map(([settlement, categories]) => [settlement, Object.freeze([...categories])]),
+));
 const BLOCKED_MEDIA_HOSTS = ['tripadvisor.', 'booking.com', 'expedia.', 'lonelyplanet.', 'theculturetrip.'];
 const EMPTY_RULE = Object.freeze({ searchPriorities: {} });
 

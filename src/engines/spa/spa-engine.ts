@@ -1,5 +1,6 @@
 import type { CategorySlug, City, SettlementType } from '../../core/models/types';
 import spaCategoryOrder from '../../core/contracts/spa-categories.json';
+import spaCategoryExtensions from '../../core/contracts/spa-category-extensions.json';
 import { getCategoryEntities } from '../category/category-engine';
 
 export type SpaTabSlug = CategorySlug | 'favorites';
@@ -37,7 +38,11 @@ export function getSpaTabs(city: City): SpaTabDefinition[] {
     throw new Error(`City categories are required for ${city.country}/${city.slug}.`);
   }
 
-  const allowed = new Set<CategorySlug>(allowedCategories);
+  const approvedExtensions = spaCategoryExtensions[city.settlementType] ?? [];
+  const extensions = city.categoryExtensions ?? [];
+  const invalidExtension = extensions.find((slug) => !approvedExtensions.includes(slug));
+  if (invalidExtension) throw new Error(Category extension '' is not allowed for  settlement /.);
+  const allowed = new Set<CategorySlug>([...allowedCategories, ...extensions]);
   for (const slug of categories) {
     if (!allowed.has(slug)) {
       throw new Error(`Category '${slug}' is not allowed for ${city.settlementType} settlement ${city.country}/${city.slug}.`);
