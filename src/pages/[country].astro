@@ -112,7 +112,13 @@ const laosMapLabels = [
     overflow: hidden;
     background: #10291f;
   }
-  .laos-board__frame { position: relative; width: min(100vw, 150svh); min-height: min(100svh, 66.6667vw); margin: 0 auto; }
+  .laos-board__frame {
+    position: relative;
+    width: min(100vw, 150svh);
+    min-height: min(100svh, 66.6667vw);
+    margin: 0 auto;
+    container-type: inline-size;
+  }
   .laos-board__art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
   .laos-board__map-labels { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
   .laos-board__map-labels text { font: 650 32px/1 var(--handwritten); letter-spacing: .012em; }
@@ -124,29 +130,41 @@ const laosMapLabels = [
   .laos-board__map-destination.is-active .laos-board__map-label-ink { filter: drop-shadow(0 0 4px rgb(115 149 210 / .5)); opacity: 1; }
   .laos-board__map-destination.is-active .laos-board__map-marker-pulse { opacity: .96; transform: scale(1); }
 
-  .laos-board__content { position: relative; z-index: 2; width: 39%; min-width: 360px; padding: clamp(4.75rem, 7.4vw, 7.3rem) 0 2rem clamp(13.5rem, 14.6vw, 16.5rem); }
-  .laos-board__heading { width: max-content; max-width: 100%; color: rgb(246 244 224 / .93); }
-  .laos-board__heading h1 { margin: 0; font: 500 clamp(2.9rem, 4.7vw, 5.2rem) / .86 var(--handwritten); letter-spacing: -.055em; white-space: nowrap; opacity: 0; clip-path: inset(0 100% 0 0); animation: chalk-write .95s cubic-bezier(.2,.75,.22,1) .08s forwards; }
+  /* Desktop composition is locked to the chalkboard itself, not the viewport. */
+  .laos-board__content { position: absolute; inset: 0; z-index: 2; min-width: 0; pointer-events: none; }
+  .laos-board__heading {
+    position: absolute;
+    top: 11.2%;
+    left: 22.7%;
+    width: max-content;
+    max-width: 34%;
+    color: rgb(246 244 224 / .93);
+    pointer-events: auto;
+  }
+  .laos-board__heading h1 { margin: 0; font: 500 clamp(2.9rem, 4.7cqw, 5.2rem) / .86 var(--handwritten); letter-spacing: -.055em; white-space: nowrap; opacity: 0; clip-path: inset(0 100% 0 0); animation: chalk-write .95s cubic-bezier(.2,.75,.22,1) .08s forwards; }
   .laos-board__underline { display: block; width: min(15.5rem, 100%); height: auto; margin: .45rem 0 0 .15rem; overflow: visible; }
   .laos-board__underline path { fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .82; animation: chalk-underline .8s ease-out .48s forwards; }
 
   .laos-board__cities {
-    position: relative;
-    left: calc(-1 * clamp(6.2rem, 6.8vw, 7.8rem));
+    position: absolute;
+    top: 27.2%;
+    left: 7.6%;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr);
     grid-template-rows: repeat(4, auto);
     grid-auto-flow: column;
-    column-gap: clamp(3rem, 4.5vw, 5.25rem);
-    row-gap: clamp(1.75rem, 2.65vw, 2.8rem);
-    width: min(36rem, 100%);
-    margin-top: clamp(2rem, 3vw, 3.15rem);
+    column-gap: clamp(1.65rem, 2.25cqw, 2.35rem);
+    row-gap: clamp(1.15rem, 1.55cqw, 1.55rem);
+    width: 34.5%;
+    max-width: 34.5%;
+    margin: 0;
     align-items: start;
+    pointer-events: auto;
   }
   .laos-board__city {
     display: grid;
-    grid-template-columns: 2.8rem minmax(0, 1fr);
-    gap: .65rem;
+    grid-template-columns: 2.15rem minmax(0, 1fr);
+    gap: .48rem;
     width: 100%;
     min-width: 0;
     color: var(--chalk-ivory);
@@ -158,45 +176,45 @@ const laosMapLabels = [
   .laos-board__city-index {
     display: flex;
     align-items: center;
-    gap: .36rem;
-    padding-top: .48rem;
-    color: rgb(238 228 207 / .48);
-    font: 500 .68rem/1 var(--field-card-practical);
-    letter-spacing: .14em;
+    gap: .26rem;
+    padding-top: .38rem;
+    color: rgb(238 228 207 / .5);
+    font: 500 clamp(.61rem, .66cqw, .7rem) / 1 var(--field-card-practical);
+    letter-spacing: .12em;
     transition: color 220ms ease, text-shadow 220ms ease;
   }
   .laos-board__city-index::after {
     content: '';
     display: block;
-    width: .8rem;
+    width: .58rem;
     height: 1px;
     background: currentColor;
     opacity: .62;
     transform: rotate(-4deg);
     transform-origin: left center;
   }
-  .laos-board__city-copy { display: grid; gap: .42rem; min-width: 0; }
+  .laos-board__city-copy { display: grid; gap: .31rem; min-width: 0; }
   .laos-board__city-name {
     position: relative;
     display: inline-block;
     justify-self: start;
     max-width: 100%;
-    padding-bottom: .24rem;
-    font: 600 clamp(1.55rem, 2.05vw, 2.28rem) / 1 var(--field-card-title);
-    letter-spacing: .005em;
+    padding-bottom: .2rem;
+    font: 600 clamp(1.42rem, 2.02cqw, 1.95rem) / 1.02 var(--field-card-title);
+    letter-spacing: .004em;
     text-wrap: balance;
-    text-shadow: 0 1px 0 rgb(0 0 0 / .28), 0 0 9px rgb(238 228 207 / .035);
+    text-shadow: 0 1px 0 rgb(0 0 0 / .28), 0 0 8px rgb(238 228 207 / .035);
     transition: color 220ms ease, text-shadow 220ms ease, transform 220ms cubic-bezier(.2,.75,.22,1);
   }
   .laos-board__city[data-city='luang-prabang'] .laos-board__city-name,
   .laos-board__city[data-city='vang-vieng'] .laos-board__city-name { white-space: nowrap; }
-  .laos-board__city-accent { position: absolute; left: 0; bottom: -.12rem; width: 100%; min-width: 3.2rem; height: .48rem; overflow: visible; opacity: .22; }
-  .laos-board__city-accent path { fill: none; stroke: var(--laos-blue-glow); stroke-width: 1.4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 320ms cubic-bezier(.2,.75,.22,1), opacity 220ms ease; }
+  .laos-board__city-accent { position: absolute; left: 0; bottom: -.1rem; width: 100%; min-width: 3rem; height: .42rem; overflow: visible; opacity: .2; }
+  .laos-board__city-accent path { fill: none; stroke: var(--laos-blue-glow); stroke-width: 1.35; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 320ms cubic-bezier(.2,.75,.22,1), opacity 220ms ease; }
   .laos-board__city-note {
-    max-width: 15.5rem;
-    color: rgb(231 222 203 / .82);
-    font: 400 clamp(.84rem, .95vw, 1rem) / 1.42 var(--field-card-practical);
-    letter-spacing: .012em;
+    max-width: 14rem;
+    color: rgb(235 226 208 / .88);
+    font: 400 clamp(.86rem, 1.02cqw, .98rem) / 1.36 var(--field-card-practical);
+    letter-spacing: .008em;
     text-wrap: pretty;
     text-shadow: 0 1px 0 rgb(0 0 0 / .22);
     transition: color 220ms ease, opacity 220ms ease, transform 220ms ease;
@@ -205,32 +223,43 @@ const laosMapLabels = [
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-name { color: var(--laos-blue-glow); text-shadow: 0 1px 0 rgb(0 0 0 / .24), 0 0 8px rgb(115 149 210 / .24); transform: translateY(-1px); }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent { opacity: .9; }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent path { stroke-dashoffset: 0; }
-  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-note { color: rgb(245 239 224 / .96); transform: translateY(-1px); }
-  .laos-board__city:focus-visible { outline: 1px dashed var(--laos-blue-glow); outline-offset: 9px; border-radius: 2px; }
+  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-note { color: rgb(248 242 228 / .98); transform: translateY(-1px); }
+  .laos-board__city:focus-visible { outline: 1px dashed var(--laos-blue-glow); outline-offset: 7px; border-radius: 2px; }
 
   @keyframes chalk-write { to { opacity: 1; clip-path: inset(0 -2rem 0 0); } }
   @keyframes chalk-underline { to { stroke-dashoffset: 0; } }
   @keyframes map-label-halo { to { opacity: .92; } }
   @keyframes map-label-write { 0%,68% { fill: transparent; } 100% { fill: var(--map-label-color); stroke-dashoffset: 0; } }
 
+  @media (max-width: 1100px) and (min-width: 861px) {
+    .laos-board__cities { left: 6.8%; width: 37%; max-width: 37%; column-gap: 1.25rem; row-gap: 1.05rem; }
+    .laos-board__city { grid-template-columns: 1.9rem minmax(0, 1fr); gap: .35rem; }
+    .laos-board__city-index::after { width: .4rem; }
+    .laos-board__city-name { font-size: clamp(1.25rem, 2cqw, 1.55rem); }
+    .laos-board__city-note { max-width: 11.5rem; font-size: clamp(.76rem, 1cqw, .86rem); }
+  }
+
   @media (max-width: 860px) {
     .laos-board { min-height: 100dvh; background: #10291f; }
-    .laos-board__frame { width: 100%; min-height: 100dvh; margin: 0; }
+    .laos-board__frame { width: 100%; min-height: 100dvh; margin: 0; container-type: normal; }
     .laos-board__art, .laos-board__map-labels { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; object-position: top center; }
     .laos-board__map-labels { inset: 0 auto auto 0; }
-    .laos-board__content { width: min(86%, 38rem); min-width: 0; padding: clamp(6.8rem, 18vw, 10rem) 0 3rem clamp(2rem, 7vw, 4rem); }
-    .laos-board__cities { left: 0; column-gap: 2.75rem; row-gap: 1.8rem; width: min(36rem, 100%); margin-top: clamp(2.2rem, 6vw, 3.5rem); }
-    .laos-board__city { grid-template-columns: 2.45rem minmax(0, 1fr); gap: .5rem; }
-    .laos-board__city-note { max-width: 14rem; }
+    .laos-board__content { position: relative; inset: auto; width: min(86%, 38rem); min-width: 0; padding: clamp(6.8rem, 18vw, 10rem) 0 3rem clamp(2rem, 7vw, 4rem); pointer-events: auto; }
+    .laos-board__heading { position: static; width: max-content; max-width: 100%; }
+    .laos-board__heading h1 { font-size: clamp(2.9rem, 8vw, 4.5rem); }
+    .laos-board__cities { position: relative; inset: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 2rem; row-gap: 1.55rem; width: min(34rem, 100%); max-width: 100%; margin-top: clamp(2.2rem, 6vw, 3.5rem); }
+    .laos-board__city { grid-template-columns: 2.15rem minmax(0, 1fr); gap: .45rem; }
+    .laos-board__city-name { font-size: 1.48rem; }
+    .laos-board__city-note { max-width: 12.5rem; font-size: .84rem; }
   }
   @media (max-width: 560px) {
     .laos-board { background: #10291f; }
     .laos-board__art { display: block; }
     .laos-board__content { width: min(100% - 3rem, 27rem); padding: clamp(7.25rem, 30vw, 10rem) 0 3rem; margin-inline: auto; }
-    .laos-board__cities { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 1.15rem; margin-top: 2.5rem; }
-    .laos-board__city { grid-template-columns: 2.3rem minmax(0, 1fr); }
-    .laos-board__city-name { font-size: 1.48rem; }
-    .laos-board__city-note { max-width: none; font-size: .86rem; }
+    .laos-board__cities { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 1.1rem; margin-top: 2.5rem; }
+    .laos-board__city { grid-template-columns: 2.15rem minmax(0, 1fr); }
+    .laos-board__city-name { font-size: 1.42rem; }
+    .laos-board__city-note { max-width: none; font-size: .84rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     .laos-board__heading h1, .laos-board__city { opacity: 1; clip-path: none; animation: none; }
