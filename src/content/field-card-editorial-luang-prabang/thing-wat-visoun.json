@@ -1,0 +1,41 @@
+{
+  "thing-wat-visoun": {
+    "hero": {
+      "eyebrow": "EARLY TEMPLE · THAT MAKMO",
+      "aliases": ["Wat Visoun", "Wat Visounnarath", "Wat Wisunalat", "Wat Visunnarath"],
+      "description": "Wat Visoun is a shorter temple visit with unusually useful historical weight: founded in the early sixteenth century, rebuilt after the 1887 destruction of Luang Prabang and paired with the rounded That Makmo stupa, it shows a different architectural chapter from Wat Xieng Thong.",
+      "steps": ["Read the main sim", "Look for the older Buddha images", "Walk around That Makmo", "Keep the visit compact"],
+      "rhythmNote": "Do not expect the same visual drama as Wat Xieng Thong. Come here for age, reconstruction history and the distinctive stupa.",
+      "photoNote": "Visoun village · south-east of the peninsula"
+    },
+    "quickRead": {
+      "time": {"primary": "45–60 MIN", "secondary": "a compact historical temple stop"},
+      "route": {"primary": "WALK OR BICYCLE", "secondary": "a few minutes beyond the peninsula"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm the current ticket"},
+      "bestFor": {"primary": "EARLY LUANG PRABANG HISTORY", "secondary": "temple · stupa · Buddha images"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE CONTRAST", "title": "Come here after Wat Xieng Thong, not instead of it", "body": "Wat Visoun was founded in 1512 under King Visounnarath and belongs to an earlier architectural chapter of Luang Prabang. The original wooden structure was destroyed during the 1887 attack on the city and later rebuilt, so the temple is valuable partly because it carries both early history and the memory of reconstruction."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "The rounded That Makmo stupa is the visual reason to linger; the temple’s history is the reason to come."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Time", "value": "45–60 minutes", "detail": "Enough for the sim, Buddha images and a circuit around That Makmo."},
+      {"label": "Access", "value": "Walk or bicycle from the centre", "detail": "It sits outside the peninsula but remains an easy in-town stop."},
+      {"label": "Best pairing", "value": "Wat Aham or a wider old-town circuit", "detail": "Use it as a compact historical contrast rather than building a separate outing around it."},
+      {"label": "Dress", "value": "Temple-appropriate", "detail": "Cover shoulders and knees, remove shoes where indicated and respect active religious space."}
+    ]},
+    "faq": [
+      {"question": "Why visit Wat Visoun if I already saw Wat Xieng Thong?", "answer": "Because it represents a different architectural and historical chapter. Wat Visoun is older in origin and is closely associated with the distinctive That Makmo stupa."},
+      {"question": "What is That Makmo?", "answer": "It is the rounded stupa in the temple grounds, often called the watermelon stupa because of its shape."},
+      {"question": "How long do I need?", "answer": "Around 45 minutes to one hour is enough for most visitors."},
+      {"question": "Was the temple rebuilt?", "answer": "Yes. The original temple was destroyed during the 1887 attack on Luang Prabang and reconstructed afterward."}
+    ],
+    "seo": {"title": "Wat Visoun Luang Prabang Guide | Things To Do Atlas", "description": "Visit Wat Visoun for early Luang Prabang temple history, That Makmo and a compact 45–60 minute stop beyond the peninsula."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · Wat Visounnarath", "sourceUrl": "https://tourismluangprabang.org/things-to-do/buddhism/wat-visounnarath/", "purpose": "facts", "sourceType": "official-tourism"}
+    ]
+  }
+}

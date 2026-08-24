@@ -1,0 +1,48 @@
+{
+  "thing-tak-bat-alms": {
+    "hero": {
+      "eyebrow": "MORNING ALMS · LIVING BUDDHISM",
+      "aliases": ["Tak Bat", "Sai Bat", "Morning Alms Giving", "Luang Prabang alms ceremony"],
+      "description": "Sai Bat is not a sunrise attraction staged for visitors. It is a daily Buddhist practice in which residents offer food to monks and novices, and the best way to experience it is to remain quiet, keep your distance and let the ritual stay larger than your photograph.",
+      "steps": ["Arrive before the procession", "Choose a quiet position away from the main flow", "Observe in silence", "Only make an offering if you understand how to do it respectfully"],
+      "rhythmNote": "The most respectful experience is often away from the busiest stretch of Sakkaline Road. The ceremony happens across Luang Prabang, not on one tourist corner.",
+      "photoNote": "Early morning · monasteries and old-town streets"
+    },
+    "quickRead": {
+      "time": {"primary": "30–45 MIN", "secondary": "before the town fully wakes"},
+      "route": {"primary": "OLD-TOWN STREETS", "secondary": "many monasteries and neighbourhood routes"},
+      "budget": {"primary": "FREE TO OBSERVE", "secondary": "offerings are optional, not an admission fee"},
+      "bestFor": {"primary": "LIVING TRADITION", "secondary": "Buddhist practice · quiet observation"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE RITUAL", "title": "Watch a daily practice, not a performance", "body": "Every morning, monks and novices leave their monasteries with alms bowls while local residents wait with prepared food. The exchange is quiet and devotional. Visitors are welcome to observe, but the official Luang Prabang guidance repeatedly asks people not to obstruct the procession, crowd the monks or turn the ceremony into a photo shoot."},
+        {"label": "THE CHOICE", "title": "Participation is not required", "body": "There is no need to buy sticky rice simply because you are present. If you do want to make an offering, do it because the act has meaning for you and follow local practice carefully. Otherwise, stand back, dress modestly and observe. That distance usually produces a more honest experience than joining a row of visitors without context."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "The ceremony becomes more meaningful when you stop trying to get close to it."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "WHERE TO STAND", "title": "Leave the busiest tourist stretch if you want a quieter view", "body": "The official tourism office notes that Sai Bat takes place throughout Luang Prabang and that the most photographed old-city locations can become crowded. A quieter neighbourhood or monastery route can give the ritual more space and keeps your presence less intrusive."}
+      ],
+      "beforeYouLeave": {"title": "Know the etiquette before dawn", "body": "Cover shoulders, chest and legs; avoid flash; do not touch monks; and keep a respectful distance if you are only observing. Those choices matter more than finding the 'best' corner.", "note": {"label": "RESPECT FIRST", "text": "Do not follow the procession or move alongside it for photographs."}}
+    },
+    "practical": {"items": [
+      {"label": "Timing", "value": "Around dawn", "detail": "The official tourism office currently gives roughly 05:30–06:30 from March to October and 06:00–07:00 from November to February."},
+      {"label": "Where", "value": "Across Luang Prabang", "detail": "The main heritage streets are easiest to access, but quieter monastery routes can be more respectful and less crowded."},
+      {"label": "Observation", "value": "Keep your distance", "detail": "Do not block monks or residents, avoid flash and stay out of the procession route."},
+      {"label": "Offering", "value": "Optional", "detail": "Only participate if you understand the practice and can follow local guidance. Watching respectfully is completely valid."}
+    ]},
+    "faq": [
+      {"question": "Do I need to give alms to experience Tak Bat?", "answer": "No. Respectful observation is enough. The official guidance explicitly says to make an offering only if it is meaningful to you and you can do so appropriately."},
+      {"question": "Where is the best place to watch?", "answer": "There is no single best spot. The ceremony takes place across Luang Prabang. The busiest heritage streets are convenient, while quieter neighbourhood routes usually feel less intrusive."},
+      {"question": "Can I photograph the procession?", "answer": "Yes, but from a respectful distance and without flash. Do not step into the procession or position yourself directly in front of monks and residents."},
+      {"question": "What should I wear?", "answer": "Cover shoulders, chest and legs. Treat the ceremony with the same modesty you would use inside a temple."},
+      {"question": "What time does Tak Bat start?", "answer": "Around dawn. The official tourism office currently lists an earlier window from March to October and a slightly later one from November to February, so check locally if timing is critical."}
+    ],
+    "seo": {"title": "Tak Bat Luang Prabang: Respectful Visitor Guide | Atlas", "description": "Understand Luang Prabang’s morning alms ceremony before you go: timing, respectful observation, photography etiquette and whether to participate."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · Morning Alms (Sai Bat)", "sourceUrl": "https://tourismluangprabang.org/things-to-do/buddhism/morning-alms-sai-bat/", "purpose": "facts-and-etiquette", "sourceType": "official-tourism"}
+    ]
+  }
+}

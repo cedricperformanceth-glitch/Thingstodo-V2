@@ -1,0 +1,49 @@
+{
+  "thing-ock-pop-tok-living-crafts-centre": {
+    "hero": {
+      "eyebrow": "TEXTILES · WEAVING · MEKONG",
+      "aliases": ["Ock Pop Tok Living Crafts Centre", "Living Crafts Center", "Ock Pop Tok"],
+      "description": "Ock Pop Tok’s Living Crafts Centre is the hands-on counterpoint to a museum visit: on the Mekong just outside the old town, master weavers, natural dyes and textile demonstrations show how Lao cloth moves from fibre and technique to finished work.",
+      "steps": ["Take the free tour if available", "Watch the weaving studio before shopping", "Look at natural-dye processes", "Add a class only if you want a deeper craft session"],
+      "rhythmNote": "Come to learn first and shop second. The centre is most useful when you slow down enough to watch how the textiles are made.",
+      "photoNote": "Mekong riverbank · about 2 km from the night market"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "longer with a class or meal"},
+      "route": {"primary": "SHORT RIDE SOUTH", "secondary": "free tuk-tuk available from town"},
+      "budget": {"primary": "FREE TO VISIT", "secondary": "classes, food and shopping are optional"},
+      "bestFor": {"primary": "SEEING CRAFT IN PROCESS", "secondary": "weaving · natural dyes · textiles"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE WORK", "title": "Watch the process before looking at the finished scarf", "body": "The Living Crafts Centre was designed so visitors can see textile production rather than only the retail result. Free tours, when available, move from silk and natural dyes into weaving techniques, while the studio lets you watch experienced artisans working at the loom."},
+        {"label": "THE SETTING", "title": "The Mekong location makes it easy to stay longer than planned", "body": "The centre sits in gardens on the riverbank a short distance outside the heritage core. That separation is useful: it feels less like a shop stop and more like a place to spend an hour learning, then stay for food, a workshop or simply the river view if the visit develops naturally."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "If TAEC gives you the cultural context, Ock Pop Tok gives you the production process. The two activities complement each other rather than duplicate each other."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "GO HANDS-ON", "title": "A class changes this from a visit into an activity", "body": "The centre runs classes in weaving, natural dyeing, batik, embroidery and other crafts. Those sessions can take half a day or longer, so do not add one casually to a packed sightseeing schedule. Book it because you genuinely want to make something."}
+      ],
+      "beforeYouLeave": {"title": "Use the free layer first", "body": "The centre currently offers free tours and scheduled demonstrations alongside paid classes. Start with the free visit, then decide whether the deeper craft experience is worth more of your day.", "note": {"label": "BEST RHYTHM", "text": "Tour first. Class only if the process grabs you."}}
+    },
+    "practical": {"items": [
+      {"label": "From the old town", "value": "About 2 km", "detail": "The centre sits outside the heritage core on the Mekong riverbank."},
+      {"label": "Transport", "value": "Free tuk-tuk available", "detail": "Ock Pop Tok currently runs a complimentary shuttle between its town location and the Living Crafts Centre."},
+      {"label": "Time", "value": "1–2 hours", "detail": "Enough for a tour, weaving studio and a slow look around. Classes need a separate time block."},
+      {"label": "Cost", "value": "Free visit · paid extras", "detail": "Tours and demonstrations can be free; workshops, meals and purchases are optional."}
+    ]},
+    "faq": [
+      {"question": "Do I have to book a class to visit Ock Pop Tok?", "answer": "No. You can visit the Living Crafts Centre without taking a class, and the centre offers free tours and demonstrations when available."},
+      {"question": "How long should I allow?", "answer": "One to two hours works well for a normal visit. A hands-on class should be treated as a separate half-day or longer activity."},
+      {"question": "Is it mainly a shop?", "answer": "No. There is a shop, but the stronger reason to visit is seeing weaving, natural dyes and textile production in process."},
+      {"question": "How do I get there from central Luang Prabang?", "answer": "The centre is about 2 km from the night market, and Ock Pop Tok currently operates a free tuk-tuk between town and the riverfront site."},
+      {"question": "Is Ock Pop Tok redundant if I already visited TAEC?", "answer": "Not really. TAEC is stronger for cultural and ethnographic context; Ock Pop Tok is stronger for watching the craft process and trying it yourself."}
+    ],
+    "seo": {"title": "Ock Pop Tok Living Crafts Centre Guide | Atlas", "description": "Visit Ock Pop Tok in Luang Prabang for weaving, natural dyes, free textile tours and an optional hands-on craft class beside the Mekong."},
+    "sources": [
+      {"sourceName": "Ock Pop Tok · Living Crafts Center", "sourceUrl": "https://www.ockpoptok.com/visit-us/living-crafts-center/", "purpose": "facts", "sourceType": "first-party-official"},
+      {"sourceName": "Ock Pop Tok · Visit Us", "sourceUrl": "https://www.ockpoptok.com/visit-us/", "purpose": "visitor-information", "sourceType": "first-party-official"}
+    ]
+  }
+}

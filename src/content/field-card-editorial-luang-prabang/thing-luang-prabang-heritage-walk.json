@@ -1,0 +1,50 @@
+{
+  "thing-luang-prabang-heritage-walk": {
+    "hero": {
+      "eyebrow": "HERITAGE PENINSULA · TWO RIVERS",
+      "aliases": ["Luang Prabang Heritage Walk", "Luang Prabang old town walk", "UNESCO peninsula walk"],
+      "description": "The best first activity in Luang Prabang is not a monument but the town itself: walk the peninsula slowly enough to see monasteries, timber houses, colonial-era buildings and everyday life sharing the same narrow piece of ground between the Mekong and Nam Khan.",
+      "steps": ["Start while the streets are still quiet", "Use the main heritage street only as a spine", "Drift into temple compounds and side lanes", "Finish on one of the river edges"],
+      "rhythmNote": "Do not build this walk around a list of ten stops. Luang Prabang makes sense in the transitions between sacred space, houses, shops, schools and riverbanks.",
+      "photoNote": "Historic peninsula · Mekong · Nam Khan"
+    },
+    "quickRead": {
+      "time": {"primary": "2–3 HOURS", "secondary": "a first reading of the peninsula"},
+      "route": {"primary": "ON FOOT", "secondary": "between the Mekong and Nam Khan"},
+      "budget": {"primary": "MOSTLY FREE", "secondary": "individual temples and museums may charge"},
+      "bestFor": {"primary": "UNDERSTANDING LUANG PRABANG", "secondary": "urban fabric · temples · river life"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE MIXTURE", "title": "The World Heritage value sits between the buildings", "body": "UNESCO describes Luang Prabang as an unusually well-preserved meeting of traditional Lao architecture and urban structures shaped during the colonial period. That idea is much easier to understand on foot than from a viewpoint: monastery walls open onto residential lanes, timber houses sit beside masonry buildings, and the rivers keep the whole peninsula readable."},
+        {"label": "THE WALK", "title": "Use landmarks for orientation, not as a checklist", "body": "Wat Xieng Thong, the National Museum and Phou Si are useful anchors, but the strongest part of this activity is the ground between them. Leave the main street regularly, follow quieter lanes toward the Nam Khan, cross back toward the Mekong and notice how quickly ceremonial Luang Prabang turns back into an inhabited town."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "If you only have one free morning in Luang Prabang, walk the peninsula before deciding which individual monuments deserve more time."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "LIVING HERITAGE", "title": "Treat the old town as a neighbourhood, not a stage set", "body": "The protected centre is still home to monasteries, schools, businesses and residents. Keep doorways clear, lower your voice inside temple grounds and avoid turning ordinary morning routines into photo sessions. The quieter your pace, the more of the town you actually notice."},
+        {"label": "PAIRING", "title": "Come back later from above", "body": "A morning walk and a later climb of Phou Si work well together. The first gives you texture at street level; the second reveals how tightly the old town is held between the two rivers."}
+      ],
+      "beforeYouLeave": {"title": "Let the first walk shape the rest of the stay", "body": "Do this early in your Luang Prabang visit. It will tell you whether you want more temple architecture, royal history, craft culture or simply another slow morning along the rivers.", "note": {"label": "USEFUL CHOICE", "text": "Do not try to finish Luang Prabang on this walk. Use it to decide what deserves a return visit."}}
+    },
+    "practical": {"items": [
+      {"label": "Starting point", "value": "Anywhere on the historic peninsula", "detail": "The National Museum and tourism office area make an easy central start, but there is no required route."},
+      {"label": "Time", "value": "2–3 hours", "detail": "Enough for a first reading of the town with a few unhurried temple stops."},
+      {"label": "Best rhythm", "value": "Early morning", "detail": "Cooler streets and lighter traffic make it easier to notice the urban fabric rather than just the crowds."},
+      {"label": "Temple etiquette", "value": "Dress for sacred spaces", "detail": "Cover shoulders and knees where required, remove shoes when indicated and keep voices low."}
+    ]},
+    "faq": [
+      {"question": "Do I need a fixed route for the Luang Prabang heritage walk?", "answer": "No. Use the peninsula and its two rivers as the structure. The point is to move between main-street landmarks, side lanes, temple compounds and river edges rather than follow a rigid circuit."},
+      {"question": "How long should I allow?", "answer": "Two to three hours is a strong first walk. You can easily shorten it, or extend it if you decide to enter major temples or the National Museum."},
+      {"question": "Should I hire a guide?", "answer": "You can explore independently, but a knowledgeable local guide adds architectural, religious and historical context that is hard to read from façades alone."},
+      {"question": "Is this better in the morning or evening?", "answer": "Early morning is best for a first reading of the town. Late afternoon is excellent for atmosphere, but the main streets become busier around the evening market."},
+      {"question": "What should I pay attention to?", "answer": "Look for the relationship between monasteries, traditional houses, colonial-era buildings and the riverfronts. That mixture is more important than collecting individual monuments."}
+    ],
+    "seo": {"title": "Luang Prabang Heritage Walk | Things To Do Atlas", "description": "Walk Luang Prabang’s UNESCO peninsula with a slower 2–3 hour route that connects temples, houses, colonial architecture and the Mekong and Nam Khan."},
+    "sources": [
+      {"sourceName": "UNESCO World Heritage Centre · Town of Luang Prabang", "sourceUrl": "https://whc.unesco.org/en/list/479/", "purpose": "heritage-context", "sourceType": "first-party-official"},
+      {"sourceName": "Official Tourism Luang Prabang · About Luang Prabang", "sourceUrl": "https://tourismluangprabang.org/about-luangprabang/", "purpose": "destination-context", "sourceType": "official-tourism"}
+    ]
+  }
+}

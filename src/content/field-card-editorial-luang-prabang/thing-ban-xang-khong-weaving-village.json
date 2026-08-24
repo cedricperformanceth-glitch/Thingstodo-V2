@@ -1,0 +1,41 @@
+{
+  "thing-ban-xang-khong-weaving-village": {
+    "hero": {
+      "eyebrow": "SAA PAPER · WEAVING · RIVER VILLAGE",
+      "aliases": ["Ban Xang Khong", "Xang Khong Weaving Village", "Ban Xieng Lek and Ban Xang Khong"],
+      "description": "Ban Xang Khong is a short craft detour rather than a major excursion: just outside Luang Prabang, small workshops show mulberry-bark saa paper drying in the sun and traditional textile weaving in a village setting along the river.",
+      "steps": ["Come by bicycle, tuk-tuk or on foot", "Look for paper-making before shopping", "Watch weaving where workshops are active", "Keep the visit light and informal"],
+      "rhythmNote": "This works best as a one-hour extension of a slow day in town, not as a destination you need to build half a day around.",
+      "photoNote": "North of central Luang Prabang · along the river"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "including the short transfer"},
+      "route": {"primary": "≈3 KM FROM TOWN", "secondary": "tuk-tuk · bicycle · walk"},
+      "budget": {"primary": "FREE TO WANDER", "secondary": "shopping is optional"},
+      "bestFor": {"primary": "SMALL-SCALE CRAFT", "secondary": "saa paper · weaving · village workshops"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE CRAFT", "title": "Come to see how familiar Luang Prabang souvenirs begin", "body": "Ban Xang Khong and neighbouring Ban Xieng Lek are known for posa or saa paper made from mulberry bark and for handwoven textiles. The useful part of the visit is seeing those materials in process: paper sheets drying outside, fibres becoming decorative paper and looms turning thread into finished cloth."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "If you only want to buy a scarf, stay in town. Come here because seeing the making process matters to you."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Distance", "value": "About 3 km from Luang Prabang", "detail": "Close enough for a short tuk-tuk ride, bicycle outing or longer walk depending on the current river crossing."},
+      {"label": "Time", "value": "1–2 hours", "detail": "Enough to see a few workshops without stretching a small craft village into a half-day attraction."},
+      {"label": "Cost", "value": "No general entry fee", "detail": "The visit is built around village workshops and shops; purchases are entirely optional."},
+      {"label": "Best approach", "value": "Daytime", "detail": "Go while workshops are active and there is enough light to see paper-making and weaving."}
+    ]},
+    "faq": [
+      {"question": "What is Ban Xang Khong known for?", "answer": "Mulberry-bark saa paper and traditional textile weaving are the main craft traditions visitors can see in the village area."},
+      {"question": "How long should I spend there?", "answer": "One to two hours including the short transfer from Luang Prabang is plenty for most visitors."},
+      {"question": "Do I need to buy anything?", "answer": "No. Shopping supports local workshops if you find something you genuinely want, but there is no obligation to purchase."},
+      {"question": "How do I get there?", "answer": "Official Luang Prabang tourism information places the villages about 3 km from town and lists tuk-tuk, bicycle and walking as possible approaches depending on the river crossing in use."}
+    ],
+    "seo": {"title": "Ban Xang Khong Weaving Village Guide | Atlas", "description": "Visit Ban Xang Khong near Luang Prabang for a short look at saa-paper making, weaving workshops and a low-key craft village by the river."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · Weaving", "sourceUrl": "https://tourismluangprabang.org/things-to-do/arts-and-shopping/weaving/", "purpose": "facts", "sourceType": "official-tourism"}
+    ]
+  }
+}

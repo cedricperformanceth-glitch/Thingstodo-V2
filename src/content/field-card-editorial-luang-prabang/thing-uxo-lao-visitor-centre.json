@@ -1,0 +1,42 @@
+{
+  "thing-uxo-lao-visitor-centre": {
+    "hero": {
+      "eyebrow": "UXO LAO · WAR LEGACY",
+      "aliases": ["UXO Lao Visitor Centre", "UXO Lao Visitor Center", "UXO Laos Visitor Centre"],
+      "description": "The UXO Lao Visitor Centre is a small, serious stop that adds essential context to travel in Laos: remnants of war, survivor stories and clearance work explain why unexploded ordnance is still part of everyday reality far beyond the museum walls.",
+      "steps": ["Give the exhibition your full attention", "Watch the documentary if available", "Connect the displays to present-day clearance work", "Leave the visit unhurried"],
+      "rhythmNote": "This is not a place to squeeze between two photogenic stops. An hour is enough, but the subject deserves that hour without distraction.",
+      "photoNote": "Wat Naviengkham · behind the Souphanouvong Monument"
+    },
+    "quickRead": {
+      "time": {"primary": "≈1 HOUR", "secondary": "small centre, heavy subject"},
+      "route": {"primary": "SHORT RIDE SOUTH", "secondary": "outside the historic peninsula"},
+      "budget": {"primary": "FREE ENTRY", "secondary": "donations welcome"},
+      "bestFor": {"primary": "UNDERSTANDING MODERN LAOS", "secondary": "UXO · clearance · survivor stories"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE CONTEXT", "title": "A small museum that changes how you read the country", "body": "UXO Lao opened the Luang Prabang centre in 2009 to explain the legacy of unexploded ordnance and the work required to remove it. Displays include war remnants, survivor stories and information on clearance, turning an abstract historical subject into something visibly connected to present-day life in Laos."},
+        {"label": "THE VISIT", "title": "Keep the scale of the centre separate from the scale of the issue", "body": "The exhibition is compact, but the subject is not. Spend enough time to understand how contamination affects land, livelihoods and safety, then carry that context with you when travelling through rural parts of the country."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "This is one of Luang Prabang’s least scenic activities and one of the most useful for understanding Laos beyond the heritage centre."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Time", "value": "About 1 hour", "detail": "The exhibition is compact, with enough material to reward a deliberate visit."},
+      {"label": "Opening", "value": "Weekdays", "detail": "UXO Lao currently lists Monday to Friday with separate morning and afternoon sessions and a midday closure."},
+      {"label": "Entry", "value": "Free", "detail": "Admission is free; donations are welcomed by the programme."},
+      {"label": "Location", "value": "Behind Souphanouvong Monument", "detail": "A short ride or longer walk south of the main heritage centre."}
+    ]},
+    "faq": [
+      {"question": "What is the UXO Lao Visitor Centre about?", "answer": "It explains the continuing impact of unexploded ordnance in Laos and the work of the national UXO Lao programme to survey and clear contaminated land."},
+      {"question": "How long should I allow?", "answer": "Around one hour is enough for the displays and documentary without rushing."},
+      {"question": "Is there an entrance fee?", "answer": "No. UXO Lao currently lists admission as free, with donations welcome."},
+      {"question": "Is it suitable for children?", "answer": "UXO Lao describes the centre as educational for families and students, but the subject includes war remnants and survivor stories, so adults should judge what is appropriate for younger children."}
+    ],
+    "seo": {"title": "UXO Lao Visitor Centre Luang Prabang | Atlas", "description": "Visit the UXO Lao Visitor Centre in Luang Prabang for a compact, free introduction to unexploded ordnance, survivor stories and national clearance work."},
+    "sources": [
+      {"sourceName": "Lao National Unexploded Ordnance Programme · UXO Lao Visitor Center", "sourceUrl": "https://uxolao.gov.la/the-uxo-problem/uxo-lao-visitor-center/", "purpose": "facts", "sourceType": "first-party-official"}
+    ]
+  }
+}

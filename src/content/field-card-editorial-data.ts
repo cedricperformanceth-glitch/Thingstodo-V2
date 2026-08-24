@@ -20,7 +20,18 @@ import watLuangEditorial from './field-card-editorial-pakse/thing-wat-luang.json
 import daoHeuangMarketEditorial from './field-card-editorial-pakse/thing-dao-heuang-market.json';
 import tadChampeeEditorial from './field-card-editorial-pakse/thing-tad-champee.json';
 import champasakRiversideEditorial from './field-card-editorial-pakse/thing-champasak-riverside.json';
-import luangPrabangEditorialData from './field-card-editorial-luang-prabang.json';
+import luangPrabangHeritageWalkEditorial from './field-card-editorial-luang-prabang/thing-luang-prabang-heritage-walk.json';
+import watXiengThongEditorial from './field-card-editorial-luang-prabang/thing-wat-xieng-thong.json';
+import phouSiMountainEditorial from './field-card-editorial-luang-prabang/thing-phou-si-mountain.json';
+import royalPalaceMuseumEditorial from './field-card-editorial-luang-prabang/thing-royal-palace-museum.json';
+import takBatAlmsEditorial from './field-card-editorial-luang-prabang/thing-tak-bat-alms.json';
+import kuangSiWaterfallsEditorial from './field-card-editorial-luang-prabang/thing-kuang-si-waterfalls.json';
+import pakOuCavesEditorial from './field-card-editorial-luang-prabang/thing-pak-ou-caves.json';
+import watVisounEditorial from './field-card-editorial-luang-prabang/thing-wat-visoun.json';
+import uxoLaoVisitorCentreEditorial from './field-card-editorial-luang-prabang/thing-uxo-lao-visitor-centre.json';
+import traditionalArtsEthnologyCentreEditorial from './field-card-editorial-luang-prabang/thing-traditional-arts-ethnology-centre.json';
+import ockPopTokLivingCraftsCentreEditorial from './field-card-editorial-luang-prabang/thing-ock-pop-tok-living-crafts-centre.json';
+import banXangKhongWeavingVillageEditorial from './field-card-editorial-luang-prabang/thing-ban-xang-khong-weaving-village.json';
 import luangPrabangMediaData from './field-card-media-luang-prabang.json';
 
 export type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
@@ -56,7 +67,20 @@ const pakseEditorial = {
   ...tadChampeeEditorial,
   ...champasakRiversideEditorial,
 } as unknown as Record<string, FieldCardEditorialEntry>;
-const luangPrabangBase = luangPrabangEditorialData as unknown as Record<string, FieldCardEditorialEntry>;
+const luangPrabangBase = {
+  ...luangPrabangHeritageWalkEditorial,
+  ...watXiengThongEditorial,
+  ...phouSiMountainEditorial,
+  ...royalPalaceMuseumEditorial,
+  ...takBatAlmsEditorial,
+  ...kuangSiWaterfallsEditorial,
+  ...pakOuCavesEditorial,
+  ...watVisounEditorial,
+  ...uxoLaoVisitorCentreEditorial,
+  ...traditionalArtsEthnologyCentreEditorial,
+  ...ockPopTokLivingCraftsCentreEditorial,
+  ...banXangKhongWeavingVillageEditorial,
+} as unknown as Record<string, FieldCardEditorialEntry>;
 const luangPrabangMedia = luangPrabangMediaData as unknown as Record<string, MediaRecord[]>;
 const luangPrabangEditorial = Object.fromEntries(
   Object.entries(luangPrabangBase).map(([id, entry]) => {

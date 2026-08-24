@@ -1,0 +1,50 @@
+{
+  "thing-kuang-si-waterfalls": {
+    "hero": {
+      "eyebrow": "WATERFALL · FOREST · HALF DAY",
+      "aliases": ["Kuang Si Waterfalls", "Kuang Si Waterfall", "Tat Kuang Si"],
+      "description": "Kuang Si deserves a half day because the attraction is larger than one viewpoint: forest trails, a sequence of pools, the main falls and the bear rescue centre make the outing work best when you stop treating the waterfall as a quick photo target.",
+      "steps": ["Leave Luang Prabang early", "Walk the lower pools before the main falls", "Use only signed swimming areas", "Give the bear rescue centre time on the way in or out"],
+      "rhythmNote": "Morning gives you more room before the site fills up. In wet weather, expect stronger water and more slippery ground; in drier months, the pools often show their clearer blue-green colour.",
+      "photoNote": "About 30 km south of Luang Prabang"
+    },
+    "quickRead": {
+      "time": {"primary": "HALF DAY", "secondary": "road transfer plus 2–3 hours at the falls"},
+      "route": {"primary": "≈30 KM SOUTH", "secondary": "roughly 40–60 minutes by road"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm the current ticket"},
+      "bestFor": {"primary": "WATER + FOREST", "secondary": "pools · trails · waterfall"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE SEQUENCE", "title": "Do not walk straight to the biggest drop", "body": "Kuang Si is a cascade system rather than a single waterfall. The lower pools and forest path build the visit gradually before the main falls, and that sequence is part of why the site feels different from a simple roadside viewpoint. Walk the lower section slowly instead of racing to the final photograph."},
+        {"label": "THE WATER", "title": "Season changes the character more than the value", "body": "The official tourism office notes that drier conditions can bring the mineral-rich blue tones people associate with Kuang Si, while the wet season gives the water a deeper green and a much stronger sound and flow. Neither version is the 'wrong' one; they are simply different experiences."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "Kuang Si is worth the road time even if you do not swim. The forest, cascade sequence and main falls carry the outing on their own."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "SWIMMING", "title": "Follow the site, not the Instagram angle", "body": "Some pools are designated for swimming and others are not. Use the posted signs, respect local expectations around swimwear and remember that rock edges can be extremely slippery, especially when water levels are high."},
+        {"label": "BEARS", "title": "The rescue centre is part of the route, not a separate ticket stop", "body": "The Tat Kuang Si Bear Rescue Centre sits inside the waterfall visit and can be seen without an additional entrance ticket according to the official tourism office. It adds a different layer to an outing otherwise dominated by water and forest."}
+      ],
+      "beforeYouLeave": {"title": "Give the return journey breathing room", "body": "A rushed two-hour window from town makes Kuang Si feel like transport with a waterfall in the middle. A half day leaves enough time for the road, the lower pools, the main falls and one real pause.", "note": {"label": "BEST RHYTHM", "text": "Leave early, stay longer than the first photo, return before you are watching the clock."}}
+    },
+    "practical": {"items": [
+      {"label": "From Luang Prabang", "value": "About 30 km south", "detail": "The current tourism office guidance puts the road journey at roughly 40–60 minutes depending on transport and conditions."},
+      {"label": "Time", "value": "Half day", "detail": "Allow two to three hours at the site if you want pools, trails, the main falls and the rescue centre without rushing."},
+      {"label": "Swimming", "value": "Signed pools only", "detail": "Use designated swimming areas and follow posted local rules."},
+      {"label": "Footing", "value": "Can be very slippery", "detail": "Wear shoes with grip and take extra care in wet conditions or near pool edges."}
+    ]},
+    "faq": [
+      {"question": "How much time should I allow for Kuang Si from Luang Prabang?", "answer": "Treat it as a half-day outing. The road is about 30 km each way, and two to three hours at the site gives you a much better experience than a quick turnaround."},
+      {"question": "Can you swim at Kuang Si?", "answer": "Yes in designated pools. Follow the signs because not every pool is open for swimming, and respect local expectations around clothing."},
+      {"question": "Is Kuang Si better in the dry season?", "answer": "Not necessarily. Drier conditions often bring clearer blue-green pools, while the wet season gives the falls more force and a greener landscape."},
+      {"question": "Is the bear rescue centre included?", "answer": "Yes. The official tourism office states that the rescue centre inside the waterfall area does not require an additional entrance ticket."},
+      {"question": "Should I go early?", "answer": "Yes if you want a calmer visit. Morning also leaves enough time to explore the site without turning the return trip into a deadline."}
+    ],
+    "seo": {"title": "Kuang Si Waterfalls from Luang Prabang | Atlas", "description": "Plan Kuang Si as a proper half-day trip: 30 km access, pools, seasonal water conditions, swimming rules, bear rescue centre and realistic visit time."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · Kuang Si Waterfall", "sourceUrl": "https://tourismluangprabang.org/things-to-do/nature/kuang-si-waterfall/", "purpose": "facts", "sourceType": "official-tourism"},
+      {"sourceName": "Official Tourism Luang Prabang · The Way to Kuang Si", "sourceUrl": "https://tourismluangprabang.org/recommended-trips/day-trips/the-way-to-kuangsi-water-fall-park/", "purpose": "access-and-context", "sourceType": "official-tourism"}
+    ]
+  }
+}

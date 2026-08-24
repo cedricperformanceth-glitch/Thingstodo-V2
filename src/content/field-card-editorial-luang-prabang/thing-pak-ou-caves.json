@@ -1,0 +1,49 @@
+{
+  "thing-pak-ou-caves": {
+    "hero": {
+      "eyebrow": "MEKONG · LIMESTONE · BUDDHA CAVES",
+      "aliases": ["Pak Ou Caves", "Tham Ting", "Pak Ou Cave"],
+      "description": "Pak Ou is a river journey with a cave at the far end: travel upstream on the Mekong to a limestone cliff where two caverns hold a long-standing collection of Buddha images, then decide whether the upper cave is worth the extra climb for you.",
+      "steps": ["Choose boat or road-plus-crossing", "Start with the lower cave", "Climb to the upper cave if you have the energy", "Let the Mekong journey remain part of the activity"],
+      "rhythmNote": "If you go by boat, do not treat the 1.5-hour upstream journey as dead time. River villages, traffic and the changing banks are half the reason to choose this route.",
+      "photoNote": "Nam Ou–Mekong confluence · north of Luang Prabang"
+    },
+    "quickRead": {
+      "time": {"primary": "HALF DAY", "secondary": "especially by boat from Luang Prabang"},
+      "route": {"primary": "MEKONG UPSTREAM", "secondary": "about 1.5 hours by boat one way"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "transport is the larger planning choice"},
+      "bestFor": {"primary": "RIVER + SACRED SITE", "secondary": "Buddha images · caves · Mekong journey"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE LOWER CAVE", "title": "The famous view is an open cliff shrine rather than a deep cavern", "body": "The lower cave sits directly above the river and is the most photographed part of Pak Ou. Thousands of Buddha images have been placed there over generations as acts of merit, so the visual impact comes from the density of devotional objects against the limestone rather than from cave geology alone."},
+        {"label": "THE UPPER CAVE", "title": "Climb only if you want the second chapter", "body": "A staircase through the forest leads to the upper cave. It is darker and less immediately spectacular, but the climb changes the rhythm of the visit and connects the site to older ceremonial use, including royal and local traditions around Lao New Year."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "Choose Pak Ou for the combination. The caves alone are interesting; the caves plus the Mekong journey make the outing memorable."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "THE ROUTE", "title": "Boat and road create two different activities", "body": "The official tourism office notes that most visitors arrive by boat from Luang Prabang, a journey of roughly an hour and a half upstream. It is also possible to travel most of the way by road and make a short boat crossing from Pak Ou village. The first option is slower and more atmospheric; the second is more efficient."},
+        {"label": "THE SETTING", "title": "The confluence matters", "body": "The caves sit where the Nam Ou meets the Mekong. That location helps explain why the site became a natural ritual stop on a major river corridor rather than an isolated cave in the hills."}
+      ],
+      "beforeYouLeave": {"title": "Decide what you are actually buying with your time", "body": "A boat excursion takes more of the day but gives you a real Mekong chapter. Road access saves time but turns Pak Ou into a more conventional attraction visit.", "note": {"label": "USEFUL CHOICE", "text": "Short stay: road. Want the river experience: boat."}}
+    },
+    "practical": {"items": [
+      {"label": "Boat from town", "value": "About 1.5 hours upstream", "detail": "Many operators run Mekong trips from Luang Prabang, often with additional village stops."},
+      {"label": "Road option", "value": "Drive north + short crossing", "detail": "Useful if you want the caves without committing to the full slow-boat journey."},
+      {"label": "Caves", "value": "Two separate caverns", "detail": "The lower cave is the main visual stop; the upper cave requires a stair climb through the forest."},
+      {"label": "Time", "value": "Half day", "detail": "The transport choice determines most of the schedule, especially if travelling by boat."}
+    ]},
+    "faq": [
+      {"question": "Are Pak Ou Caves one cave or two?", "answer": "Two. The lower cave is the open cliff shrine filled with Buddha images; the upper cave is reached by a staircase through the forest."},
+      {"question": "Is it better to go by boat or road?", "answer": "Boat is better if you want the Mekong journey to be part of the experience. Road plus a short crossing is better if you are short on time."},
+      {"question": "How long is the boat trip from Luang Prabang?", "answer": "The official tourism office gives roughly one and a half hours upstream from Luang Prabang."},
+      {"question": "Is the upper cave worth the climb?", "answer": "It is less visually dramatic than the lower cave, but worthwhile if you want the complete site and do not mind extra stairs."},
+      {"question": "Why are there so many Buddha images?", "answer": "Local people have placed Buddha images in the caves over generations as acts of merit, creating the dense devotional collection visible today."}
+    ],
+    "seo": {"title": "Pak Ou Caves from Luang Prabang | Things To Do Atlas", "description": "Plan Pak Ou Caves by boat or road, understand the lower and upper caves, and decide whether the Mekong journey deserves the half day."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · Pak Ou Cave (Tham Ting)", "sourceUrl": "https://tourismluangprabang.org/things-to-do/nature/pak-ou-cave-tham-ting/", "purpose": "facts", "sourceType": "official-tourism"}
+    ]
+  }
+}

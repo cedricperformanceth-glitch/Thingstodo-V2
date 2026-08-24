@@ -1,0 +1,49 @@
+{
+  "thing-royal-palace-museum": {
+    "hero": {
+      "eyebrow": "ROYAL PALACE · NATIONAL HISTORY",
+      "aliases": ["Royal Palace Museum", "Haw Kham", "Luang Prabang National Museum", "National Museum"],
+      "description": "The former Royal Palace is the best place in Luang Prabang to connect the city’s royal past with the national story that followed: the building itself mixes Lao and French architectural ideas, while the museum places the monarchy, the Pha Bang and ceremonial life in one central setting.",
+      "steps": ["Check the day’s opening hours", "Start with the palace architecture", "Use the galleries for royal context", "Finish with Ho Pha Bang and the grounds"],
+      "rhythmNote": "This is a context visit, not a fast photo stop. Museum rules and split opening hours can shape the day more than the distance does.",
+      "photoNote": "Sisavangvong Road · opposite Phou Si"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "palace, collections and grounds"},
+      "route": {"primary": "CENTRAL OLD TOWN", "secondary": "opposite Phou Si"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm the current ticket"},
+      "bestFor": {"primary": "ROYAL & NATIONAL CONTEXT", "secondary": "palace · Pha Bang · modern history"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE BUILDING", "title": "Read the palace as a political object before entering", "body": "Built between 1904 and 1909 for King Sisavang Vong, the palace deliberately combines French Beaux-Arts ideas with Lao architectural forms. That mixture makes it more than a royal residence: the building itself records the relationship between the Luang Prabang monarchy and French colonial rule at the beginning of the twentieth century."},
+        {"label": "THE MUSEUM", "title": "Use the collections to place the city in a wider Lao story", "body": "The palace became the National Museum after the end of the monarchy. Royal rooms, ceremonial objects and the Pha Bang complex help explain why Luang Prabang remained symbolically important even when political power was centred elsewhere. Visit this early in your stay if historical context matters to you."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "Phou Si shows you the shape of Luang Prabang; the National Museum explains why this small city carried so much political and ceremonial weight."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "PHA BANG", "title": "The city’s name is tied to the sacred image beside the palace", "body": "Luang Prabang takes its present name from the Pha Bang, the revered standing Buddha image associated with the city and Lao kingship. Its pavilion on the museum grounds gives the palace visit a religious layer that is easy to miss if you think of the site only as a former royal residence."}
+      ],
+      "beforeYouLeave": {"title": "Keep the schedule flexible", "body": "The museum currently operates with separate morning and afternoon sessions and may close for maintenance or special occasions. Check the current opening before building a tight sequence around it.", "note": {"label": "PRACTICAL", "text": "This is one Luang Prabang stop where opening hours matter more than route planning."}}
+    },
+    "practical": {"items": [
+      {"label": "Time", "value": "1–2 hours", "detail": "Enough for the palace rooms, selected exhibits and the grounds without rushing."},
+      {"label": "Opening pattern", "value": "Morning + afternoon sessions", "detail": "The official museum schedule includes a midday closure. Confirm the current hours before you go."},
+      {"label": "Location", "value": "Central old town", "detail": "The museum sits opposite Phou Si and fits easily into a heritage walk."},
+      {"label": "Museum rules", "value": "Follow current signs", "detail": "Photography, bags, clothing and room access may be restricted in parts of the museum."}
+    ]},
+    "faq": [
+      {"question": "Is the Royal Palace Museum worth visiting?", "answer": "Yes if you want historical context. It connects the Luang Prabang monarchy, French colonial period, the Pha Bang and the transition to modern Laos in one place."},
+      {"question": "How long should I allow?", "answer": "One to two hours is comfortable for the palace and grounds."},
+      {"question": "Why is the building itself important?", "answer": "The palace was built in the early twentieth century with a deliberate mix of Lao and French architectural forms, reflecting the political relationship of that period."},
+      {"question": "Should I check opening hours in advance?", "answer": "Yes. The museum uses separate morning and afternoon opening periods and schedules can change."},
+      {"question": "What pairs well with the museum?", "answer": "Phou Si is directly opposite, and the surrounding streets fit naturally into the Luang Prabang heritage walk."}
+    ],
+    "seo": {"title": "Luang Prabang Royal Palace Museum Guide | Atlas", "description": "Visit Luang Prabang’s former Royal Palace for royal history, Lao-French architecture, the Pha Bang and a practical 1–2 hour museum plan."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · National Museum", "sourceUrl": "https://tourismluangprabang.org/things-to-do/culture-history/national-museum/", "purpose": "facts", "sourceType": "official-tourism"},
+      {"sourceName": "National Museum Luang Prabang · Royal Palace", "sourceUrl": "https://nationalmuseum.tourismluangprabang.org/09-the-royal-palace-haw-kham/", "purpose": "museum-history", "sourceType": "first-party-official"}
+    ]
+  }
+}

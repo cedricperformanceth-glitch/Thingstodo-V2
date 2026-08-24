@@ -1,0 +1,49 @@
+{
+  "thing-wat-xieng-thong": {
+    "hero": {
+      "eyebrow": "GOLDEN CITY · TEMPLE ARCHITECTURE",
+      "aliases": ["Wat Xieng Thong", "Wat Xiengthong", "Vat Xieng Thong", "Temple of the Golden City"],
+      "description": "Wat Xieng Thong is the temple to choose when you want to understand Luang Prabang architecture rather than simply see another monastery: its low-sweeping roofs, glass mosaics and royal funerary buildings concentrate several layers of the city’s religious and ceremonial identity in one compact compound.",
+      "steps": ["Step back and read the roofline first", "Circle the main sim before entering", "Find the Tree of Life mosaic", "Finish at the royal funerary carriage hall"],
+      "rhythmNote": "The site is compact but visually dense. One slow circuit is more rewarding than moving straight from the entrance to the main Buddha image.",
+      "photoNote": "Peninsula tip · above the Mekong"
+    },
+    "quickRead": {
+      "time": {"primary": "≈1 HOUR", "secondary": "longer if you study the mosaics"},
+      "route": {"primary": "WALK THE PENINSULA", "secondary": "near the meeting of the Mekong and Nam Khan"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm the current ticket at the gate"},
+      "bestFor": {"primary": "LUANG PRABANG STYLE", "secondary": "rooflines · mosaics · royal ritual"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE ROOF", "title": "Start with proportion before ornament", "body": "The official tourism office describes Wat Xieng Thong as a classic example of Luang Prabang style. The main sim’s layered roof drops unusually low toward the ground, giving the building its distinctive horizontal weight. Step far enough back to read that silhouette before moving into the gold stencil work and interior details."},
+        {"label": "THE SECOND CIRCUIT", "title": "The side buildings carry as much story as the main hall", "body": "Behind and around the sim, coloured glass mosaics depict local life and religious imagery. The Tree of Life on the rear wall is the obvious landmark, but the royal funerary carriage hall adds another layer: monarchy, ritual and craftsmanship all meet there, making the complex more than a single beautiful prayer hall."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "If you visit only one major temple in Luang Prabang for architecture, make it this one and give the outer walls as much attention as the interior."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "ROYAL CONTEXT", "title": "A monastery with unusually strong royal associations", "body": "Founded by King Setthathirath around 1560, Wat Xieng Thong remained closely tied to the Luang Prabang monarchy. That history is visible in the funerary carriage hall and in the richness of a complex that continued to receive royal patronage long after the political capital moved south."}
+      ],
+      "beforeYouLeave": {"title": "Pair the temple with the peninsula, not another long detour", "body": "Wat Xieng Thong sits naturally at the far end of a heritage walk. Approach it on foot through the old town, then leave by one of the river edges so the temple remains part of the city rather than an isolated stop.", "note": {"label": "BEST PAIRING", "text": "Heritage walk first, Wat Xieng Thong second."}}
+    },
+    "practical": {"items": [
+      {"label": "Time", "value": "About 1 hour", "detail": "Enough for the main sim, rear mosaic, side chapels and funerary carriage hall without rushing."},
+      {"label": "Best time", "value": "Morning", "detail": "The official tourism office specifically recommends morning, especially for calmer light and photography."},
+      {"label": "Access", "value": "Walk to the peninsula tip", "detail": "It is roughly a short walk from the central heritage area and fits easily into an old-town circuit."},
+      {"label": "Dress", "value": "Temple-appropriate", "detail": "Cover shoulders and knees, remove hats and shoes where indicated, and keep voices low around monks and worshippers."}
+    ]},
+    "faq": [
+      {"question": "Why is Wat Xieng Thong considered so important?", "answer": "It is one of the clearest surviving expressions of Luang Prabang temple architecture and has deep royal associations dating back to its foundation under King Setthathirath."},
+      {"question": "What should I make sure to see?", "answer": "Read the main sim from outside first, then look for the Tree of Life mosaic and the royal funerary carriage hall. Those three elements explain the complex better than a quick interior visit."},
+      {"question": "How long do I need?", "answer": "Around one hour is a good minimum. The compound is not large, but the decorative work rewards a slow circuit."},
+      {"question": "When is the best time to visit?", "answer": "Morning is the strongest choice. The official tourism office recommends it, and the site generally feels calmer before the heavier visitor flow."},
+      {"question": "Can I combine it with other activities?", "answer": "Yes. It is best combined with the Luang Prabang heritage walk because it sits near the northern tip of the historic peninsula."}
+    ],
+    "seo": {"title": "Wat Xieng Thong Luang Prabang Guide | Atlas", "description": "Visit Wat Xieng Thong with the right one-hour rhythm: Luang Prabang rooflines, Tree of Life mosaic, royal funerary hall and practical temple etiquette."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · Wat Xiengthong", "sourceUrl": "https://tourismluangprabang.org/things-to-do/buddhism/wat-xiengthong/", "purpose": "facts", "sourceType": "official-tourism"},
+      {"sourceName": "UNESCO World Heritage Centre · Town of Luang Prabang", "sourceUrl": "https://whc.unesco.org/en/list/479/", "purpose": "heritage-context", "sourceType": "first-party-official"}
+    ]
+  }
+}

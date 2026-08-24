@@ -1,0 +1,50 @@
+{
+  "thing-traditional-arts-ethnology-centre": {
+    "hero": {
+      "eyebrow": "ETHNIC CULTURES · MATERIAL LIFE",
+      "aliases": ["Traditional Arts and Ethnology Centre", "TAEC", "Traditional Arts & Ethnology Centre"],
+      "description": "TAEC is the museum to choose when you want the textiles and craft traditions seen around Luang Prabang to make more sense: exhibitions connect objects, clothing and techniques to the diverse ethnic communities that created and still maintain them.",
+      "steps": ["Start with the permanent exhibitions", "Read the community context, not only the objects", "Join a guided tour if timing works", "Use the shop as an extension of the museum, not the main event"],
+      "rhythmNote": "This is a compact museum with dense context. One thoughtful hour can be more useful than another generic handicraft stop.",
+      "photoNote": "Behind Dara Market · Ban Khamyong"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "museum first, workshop only if you want depth"},
+      "route": {"primary": "CENTRAL LUANG PRABANG", "secondary": "behind Dara Market"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "workshops and private tours cost extra"},
+      "bestFor": {"primary": "CULTURAL CONTEXT", "secondary": "textiles · ethnic diversity · craft traditions"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE MUSEUM", "title": "Put the objects back into communities", "body": "TAEC is an independent museum and resource centre dedicated to the traditional arts and lifestyles of Laos’s diverse ethnic groups. The value of the visit is not simply seeing beautiful textiles or tools; it is understanding who made them, what social or ritual role they carry, and how those traditions are changing."},
+        {"label": "THE CONTEXT", "title": "A better stop before serious handicraft shopping", "body": "Luang Prabang is full of textile shops, markets and workshops. TAEC gives you enough background to distinguish technique, community identity and handmade work from generic souvenir language. That makes the museum especially useful early in a stay if craft shopping matters to you."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "Visit TAEC before the night market if you want the textiles you see later to carry more meaning than colour and pattern."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "GO DEEPER", "title": "Tours and workshops can turn a museum hour into a half day", "body": "TAEC offers guided visits and hands-on activities with artisans, including embroidery and bamboo weaving. These are separate experiences rather than something you need for a normal museum visit, but they are worthwhile if your interest is craft rather than general sightseeing."}
+      ],
+      "beforeYouLeave": {"title": "Check the weekly schedule if a tour matters to you", "body": "TAEC currently closes on Mondays and publishes selected guided-tour times during the week. If you want more than a self-guided visit, check the current programme before you arrive.", "note": {"label": "USEFUL CHOICE", "text": "Museum only: 1–2 hours. Workshop: make it a separate plan."}}
+    },
+    "practical": {"items": [
+      {"label": "Time", "value": "1–2 hours", "detail": "Enough for the galleries and shop without turning the visit into a workshop session."},
+      {"label": "Opening", "value": "Tuesday–Sunday", "detail": "TAEC currently lists 08:00–17:00 and closes on Mondays."},
+      {"label": "Location", "value": "Behind Dara Market", "detail": "Easy to reach on foot from the central heritage area."},
+      {"label": "Workshops", "value": "Advance booking recommended", "detail": "Hands-on activities and private tours are separate from normal museum admission."}
+    ]},
+    "faq": [
+      {"question": "What makes TAEC different from a textile shop?", "answer": "It is a museum and resource centre. The focus is on interpreting Laos’s ethnic diversity, material culture and living traditions rather than simply selling handicrafts."},
+      {"question": "How long do I need?", "answer": "One to two hours is comfortable for the museum itself."},
+      {"question": "Is TAEC useful if I am not especially interested in textiles?", "answer": "Yes. The museum uses textiles and objects to explain ethnic communities, livelihoods, traditions and cultural change across Laos."},
+      {"question": "Can I do a workshop there?", "answer": "Yes. TAEC offers workshops and guided experiences, but many require advance booking and should be treated as a separate activity from a normal museum visit."},
+      {"question": "When is TAEC closed?", "answer": "The centre currently lists Monday as its weekly closing day."}
+    ],
+    "seo": {"title": "TAEC Luang Prabang Visitor Guide | Things To Do Atlas", "description": "Visit Luang Prabang’s Traditional Arts and Ethnology Centre for thoughtful context on Laos’s ethnic communities, textiles, crafts and cultural change."},
+    "sources": [
+      {"sourceName": "Traditional Arts and Ethnology Centre · Contact & Visit", "sourceUrl": "https://www.taeclaos.org/contact-us/", "purpose": "visitor-information", "sourceType": "first-party-official"},
+      {"sourceName": "Traditional Arts and Ethnology Centre · Tours & Workshops", "sourceUrl": "https://www.taeclaos.org/visit/tours-workshops/", "purpose": "activity-context", "sourceType": "first-party-official"},
+      {"sourceName": "FAO Mountain Partnership · Traditional Arts and Ethnology Centre", "sourceUrl": "https://www.fao.org/mountain-partnership/members/detail/traditional-arts-and-ethnology-centre-/en", "purpose": "institution-context", "sourceType": "institutional"}
+    ]
+  }
+}

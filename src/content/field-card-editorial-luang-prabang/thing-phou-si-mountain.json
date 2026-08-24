@@ -1,0 +1,43 @@
+{
+  "thing-phou-si-mountain": {
+    "hero": {
+      "eyebrow": "SACRED HILL · CITY ORIENTATION",
+      "aliases": ["Phou Si Mountain", "Mount Phousi", "Phu Si", "Phou Si Hill"],
+      "description": "Phou Si works best as an orientation climb: 328 steps rise from the centre of Luang Prabang to a sacred summit where the Mekong, Nam Khan, old-town roofs and surrounding hills finally line up in one view.",
+      "steps": ["Choose your access side", "Climb steadily rather than rushing", "Pause at religious stops on the way", "Use the summit to read both rivers"],
+      "rhythmNote": "Sunset is the famous moment, but also the busiest. Go earlier if you want the view more than the crowd.",
+      "photoNote": "Central Luang Prabang · Wat Chom Si summit"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "including the climb and summit"},
+      "route": {"primary": "328 STEPS", "secondary": "four access points around the hill"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm the current fee"},
+      "bestFor": {"primary": "CITY ORIENTATION", "secondary": "Mekong · Nam Khan · old-town view"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE CLIMB", "title": "This is a sacred hill before it is a viewpoint", "body": "Phou Si rises directly out of the historic centre and the official tourism office treats the summit as a religious site as well as a panorama. The climb passes temple structures and devotional spaces, so take the stairs steadily and keep the same dress and behaviour you would use in a monastery compound."},
+        {"label": "THE VIEW", "title": "The summit explains the town in one glance", "body": "From above, Luang Prabang’s narrow urban shape becomes obvious: old-town roofs sit between the Mekong and Nam Khan while hills close the horizon beyond. That makes Phou Si especially useful early in a stay, when the geography is still abstract at street level."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "Choose sunset for atmosphere; choose morning or earlier afternoon for more space and a cleaner sense of the town."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Climb", "value": "328 steps on the main approach", "detail": "There are four official access points around the hill, so you do not have to descend the same way you came up."},
+      {"label": "Time", "value": "1–2 hours", "detail": "Enough for the stairs, intermediate stops and a real pause at the summit."},
+      {"label": "Best time", "value": "Morning or late afternoon", "detail": "Sunset is the classic choice but also draws the largest concentration of visitors."},
+      {"label": "Respect", "value": "Sacred site", "detail": "Dress appropriately and follow temple behaviour; alcohol is prohibited on the summit according to the official tourism office."}
+    ]},
+    "faq": [
+      {"question": "How difficult is the Phou Si climb?", "answer": "It is a stair climb rather than a hike. The main approach has 328 steps, so most visitors can manage it comfortably with steady pauses."},
+      {"question": "Is sunset worth it?", "answer": "Yes if you want the classic atmosphere, but it is also the busiest time. Morning or earlier afternoon is better if space matters more than sunset colour."},
+      {"question": "Are there different ways up?", "answer": "Yes. The official tourism office lists four access points around Phou Si, which makes it possible to climb one side and descend another."},
+      {"question": "How long should I allow?", "answer": "Plan one to two hours including the climb, temple stops and time at the summit."},
+      {"question": "Is Phou Si only a viewpoint?", "answer": "No. It is a sacred religious site with temples and long-standing local traditions, so treat the hill accordingly."}
+    ],
+    "seo": {"title": "Phou Si Mountain Luang Prabang Guide | Atlas", "description": "Plan the 328-step Phou Si climb with the right timing, four access options, sacred-site etiquette and the best way to read Luang Prabang from above."},
+    "sources": [
+      {"sourceName": "Official Tourism Luang Prabang · Phou Si Mountain", "sourceUrl": "https://tourismluangprabang.org/things-to-do/nature/phou-si-mountain/", "purpose": "facts", "sourceType": "official-tourism"}
+    ]
+  }
+}
