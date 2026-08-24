@@ -1,0 +1,2 @@
+import type { Country } from '../../core/models/types';
+export const thailand: Country = { id:'country-thailand', slug:'thailand', name:'Thailand', chapter:'Kingdom between mountains and islands', accentColor:'#a94f43', media:{hero:{stamps:[],drawings:[],photos:[]}}, map:{center:{latitude:15.87,longitude:100.99},zoom:5}, seo:{title:'Thailand travel guide | Things To Do Atlas',description:'Independent editorial travel guides to Thailand.',canonicalPath:'/thailand',indexable:false} };
