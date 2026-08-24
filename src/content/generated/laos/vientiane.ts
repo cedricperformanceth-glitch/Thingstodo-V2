@@ -411,7 +411,7 @@ const data = {
     {
       "id": "place-joma-bakery-cafe-vientiane",
       "slug": "joma-bakery-cafe-vientiane",
-      "name": "Joma Bakery Cafe Vientiane",
+      "name": "PDR - Pizza da Roby",
       "country": "laos",
       "city": "vientiane",
       "category": "cafes",
