@@ -2675,6 +2675,7 @@ const data = {
       "name": "Thakhek Loop",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -2860,6 +2861,7 @@ const data = {
       "name": "Xe Bang Fai Cave",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -3668,6 +3670,7 @@ const data = {
       "name": "Old Thakhek & Mekong Riverfront",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -3731,6 +3734,7 @@ const data = {
       "name": "Sikhottabong Stupa",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -3794,6 +3798,7 @@ const data = {
       "name": "Hin Nam No National Park",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,

@@ -2945,6 +2945,7 @@
       "name": "Thakhek Loop",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -3130,6 +3131,7 @@
       "name": "Xe Bang Fai Cave",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -3938,6 +3940,7 @@
       "name": "Old Thakhek & Mekong Riverfront",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -4001,6 +4004,7 @@
       "name": "Sikhottabong Stupa",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,
@@ -4064,6 +4068,7 @@
       "name": "Hin Nam No National Park",
       "country": "laos",
       "city": "thakhek",
+      "locationScope": "area",
       "category": "things-to-do",
       "coordinates": {
         "latitude": 17.3946,

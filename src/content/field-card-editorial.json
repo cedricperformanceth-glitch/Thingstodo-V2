@@ -4130,6 +4130,38 @@
     "secondaryStory": null
   },
   "thing-phou-pha-marn-viewpoint": {
+    "media": [
+      {
+        "id": "phou-pha-marn-viewpoint-photo-1",
+        "src": "/assets/cities/laos/thakhek/things-to-do/phou-pha-marn-viewpoint/phou-pha-marn-viewpoint-photo-1.webp",
+        "alt": "Aerial view of a waterfall in the karst forest near The Rock ViewPoint, Khammouane",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
+        "manual": true,
+        "locked": true
+      },
+      {
+        "id": "phou-pha-marn-viewpoint-photo-2",
+        "src": "/assets/cities/laos/thakhek/things-to-do/phou-pha-marn-viewpoint/phou-pha-marn-viewpoint-photo-2.webp",
+        "alt": "Visitors on an elevated bridge between limestone cliffs at The Rock ViewPoint, Khammouane",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
+        "manual": true,
+        "locked": true
+      },
+      {
+        "id": "phou-pha-marn-viewpoint-photo-3",
+        "src": "/assets/cities/laos/thakhek/things-to-do/phou-pha-marn-viewpoint/phou-pha-marn-viewpoint-photo-3.webp",
+        "alt": "Wooden bridge through karst forest at The Rock ViewPoint, Khammouane",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
+        "manual": true,
+        "locked": true
+      }
+    ],
     "faq": [
       {
         "question": "Is The Rock ViewPoint free?",
