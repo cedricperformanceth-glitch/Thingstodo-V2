@@ -1,0 +1,2 @@
+import type { Country } from '../../core/models/types';
+export const vietnam: Country = { id:'country-vietnam', slug:'vietnam', name:'Vietnam', chapter:'Long coast, river deltas and highlands', accentColor:'#a84d48', media:{hero:{stamps:[],drawings:[],photos:[]}}, map:{center:{latitude:16.0,longitude:107.8},zoom:5}, seo:{title:'Vietnam travel guide | Things To Do Atlas',description:'Independent editorial travel guides to Vietnam.',canonicalPath:'/vietnam',indexable:false} };
