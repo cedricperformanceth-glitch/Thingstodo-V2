@@ -68,8 +68,86 @@ const generatedContent = (city: City, country: Country): CityFieldNoteContent =>
   };
 };
 
+const generatedCountryChapters = (country: Country): CityFieldNoteChapter[] => [
+  {
+    id: 'orientation', eyebrow: '01 · READ THE PLACE', title: `Start with the scale of ${country.name}`,
+    paragraphs: [
+      `${country.name} is too large to plan as one destination. Use this field note to separate the country into meaningful regions, travel corridors and different kinds of days before opening individual cities.`,
+      `The first editorial pass should explain how ${country.chapter.toLowerCase()} shape the country and which regional contrasts actually change a traveller's route.`
+    ],
+    facts: [{label:'Country',value:country.name},{label:'Atlas chapter',value:country.chapter},{label:'Planning scale',value:'Country · regions · cities · routes'},{label:'Map centre',value:`${country.map.center.latitude.toFixed(2)}, ${country.map.center.longitude.toFixed(2)}`}],
+    note: { label: 'Atlas note', text: 'Read the country by regions first. Individual attractions belong later.' }
+  },
+  {
+    id: 'rhythm', eyebrow: '02 · FIND THE RHYTHM', title: `Build ${country.name} as several travel chapters`,
+    paragraphs: [
+      'A country route works better when each region keeps its own rhythm instead of becoming a chain of famous pins.',
+      'The editorial version should identify which areas deserve slower stays, which work as transport hubs and where a long transfer should count as part of the day rather than invisible time.'
+    ],
+    facts: [{label:'Route logic',value:'One region at a time'},{label:'Strong principle',value:'Protect transfer days'},{label:'Use the Atlas for',value:'Opening cities after the country shape is clear'},{label:'Current layer',value:'Generic framework'}],
+    note: { label: 'Editorial note', text: 'Replace generic pacing with a clear north / centre / south or equivalent regional rhythm during research.' }
+  },
+  {
+    id: 'move', eyebrow: '03 · MOVE THROUGH IT', title: 'Treat transport as part of the geography',
+    paragraphs: [
+      `Country-scale movement in ${country.name} should explain the major rail, road, air, river or ferry corridors that genuinely change itinerary design.`,
+      'The researched version should separate long-distance transport from local movement and highlight the handovers most likely to create friction.'
+    ],
+    note: { label: 'Keep close', text: 'A country map can hide travel time. The final note should make the real transfer scale visible.' }
+  },
+  {
+    id: 'stay', eyebrow: '04 · CHOOSE YOUR BASES', title: 'Choose a sequence of bases, not one perfect route',
+    paragraphs: [
+      `A useful ${country.name} itinerary is usually a sequence of bases with different jobs: arrival city, heritage stop, landscape base, coast or countryside, then the next transport gateway.`,
+      'The editorial pass should explain when changing base saves meaningful time and when staying put produces a better day.'
+    ],
+    note: { label: 'Atlas note', text: 'Country planning is base planning. Move only when the next base changes the experience.' }
+  },
+  {
+    id: 'conditions', eyebrow: '05 · READ THE CONDITIONS', title: 'A national season can hide regional weather',
+    paragraphs: [
+      `${country.name} should not be reduced to one dry-season / wet-season sentence. The researched version should identify the regional weather differences that materially change routes, landscapes or access.`,
+      'Use seasonal information to change decisions rather than decorate the page: heat, rain, sea state, mountain visibility, flooding, air quality or festival pressure only belong when they affect the trip.'
+    ],
+    note: { label: 'Living guide', text: 'Country weather is regional. Check the part of the country you are actually entering.' }
+  },
+  {
+    id: 'practical', eyebrow: '06 · PRACTICAL REALITY', title: 'Keep country-level rules at country level',
+    paragraphs: [
+      `Border entry, money, national transport systems, connectivity and major health or administrative constraints belong here when they apply across ${country.name}.`,
+      'City-level practical details should remain in city notes. This layer should contain only the rules that prevent the same information being repeated across every destination.'
+    ],
+    facts: [{label:'Country page',value:`/${country.slug}`},{label:'Field note',value:`/${country.slug}/field-note`},{label:'SEO state',value:country.seo.indexable?'Indexable':'Draft / noindex'},{label:'Rule',value:'Reconfirm live national requirements before publication'}]
+  },
+  {
+    id: 'pace', eyebrow: '07 · BUILD THE ROUTE', title: `Let the route through ${country.name} grow from regions, not attraction count`,
+    paragraphs: [
+      'The generic layer deliberately does not invent a minimum trip length. The researched version should explain what a short route can realistically connect and what extra time unlocks at country scale.',
+      `Use this country note as the planning layer above individual ${country.name} cities: country first, then regions, then bases, then activities.`
+    ],
+    photoSlot: true
+  }
+];
+
+const generatedCountryContent = (country: Country): CityFieldNoteContent => ({
+  typeLabel: 'Country field note',
+  title: country.name,
+  contextLine: `${country.chapter} · Southeast Asia`,
+  subtitle: `A country-scale planning layer for ${country.name}: regions, routes, seasons and the bases that connect them.`,
+  intro: `${country.name} is presented here as a country-scale travel chapter. Use the national shape first, then open individual cities and activities once the route makes sense.`,
+  quickRead: [
+    {label:'Chapters',value:'7 country notes',detail:'Country context before individual destinations.'},
+    {label:'Use it for',value:`Building the ${country.name} route`,detail:'Regions first; city and activity cards second.'},
+    {label:'Scope',value:country.chapter,detail:'A national planning layer above the city Atlas.'},
+    {label:'Edition',value:'Generated framework',detail:'Generic Country Field Note before the full editorial research pass.'}
+  ],
+  chapters: generatedCountryChapters(country),
+  closing: {eyebrow:`BACK TO ${country.name.toUpperCase()}`,title:`Now open the ${country.name} destinations`,text:'Keep the country note as the top planning layer, then move into individual cities, routes and activities as they are added to the Atlas.'}
+});
+
 export const cityFieldNoteView = (city: City, country: Country) => {
-  const content = getEditorialCityFieldNote(city.id) ?? generatedContent(city, country);
+  const isCountryFieldNote = city.id === country.id;
+  const content = getEditorialCityFieldNote(city.id) ?? (isCountryFieldNote ? generatedCountryContent(country) : generatedContent(city, country));
   const media = getEditorialCityFieldNoteMedia(city.id);
   return {
     ...content,
