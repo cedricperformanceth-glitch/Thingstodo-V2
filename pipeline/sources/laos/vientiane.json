@@ -1,0 +1,535 @@
+{
+  "city": {
+    "seo": {
+      "canonicalPath": "/laos/vientiane",
+      "description": "A working Vientiane destination draft.",
+      "indexable": false,
+      "title": "Vientiane travel guide | Things To Do Atlas"
+    },
+    "coordinates": {
+      "longitude": 102.6331,
+      "latitude": 17.9757
+    },
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-pha-that-luang",
+        "thing-patuxai-monument",
+        "thing-wat-si-saket"
+      ]
+    },
+    "hero": {
+      "facts": [],
+      "subtitle": "A calm capital on the Mekong.",
+      "eyebrow": "Laos",
+      "title": "Vientiane"
+    },
+    "description": "Vientiane is a low-rise capital on the Mekong, best understood through its Buddhist landmarks, civic monuments and contemporary history."
+  },
+  "things": [
+    {
+      "id": "thing-pha-that-luang",
+      "slug": "pha-that-luang",
+      "name": "Pha That Luang",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Pha That Luang"
+      ],
+      "coordinates": {
+        "longitude": 102.6331,
+        "latitude": 17.9757
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pha%20That%20Luang%20Vientiane%20Laos",
+      "shortDescription": "Pha That Luang is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": "VIENTIANE · LANDMARK",
+        "duration": "1–2 hours",
+        "route": "Central Vientiane"
+      }
+    },
+    {
+      "id": "thing-patuxai-monument",
+      "slug": "patuxai-monument",
+      "name": "Patuxai Monument",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Patuxai Monument"
+      ],
+      "coordinates": {
+        "longitude": 102.6184,
+        "latitude": 17.9704
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Patuxai%20Monument%20Vientiane%20Laos",
+      "shortDescription": "Patuxai Monument is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": "VIENTIANE · LANDMARK",
+        "duration": "1–2 hours",
+        "route": "Central Vientiane"
+      }
+    },
+    {
+      "id": "thing-wat-si-saket",
+      "slug": "wat-si-saket",
+      "name": "Wat Si Saket",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Wat Si Saket"
+      ],
+      "coordinates": {
+        "longitude": 102.6098,
+        "latitude": 17.961
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat%20Si%20Saket%20Vientiane%20Laos",
+      "shortDescription": "Wat Si Saket is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": "VIENTIANE · LANDMARK",
+        "duration": "1–2 hours",
+        "route": "Central Vientiane"
+      }
+    },
+    {
+      "id": "thing-haw-phra-kaew",
+      "slug": "haw-phra-kaew",
+      "name": "Haw Phra Kaew",
+      "isLandmark": false,
+      "mediaSearchNames": [
+        "Haw Phra Kaew"
+      ],
+      "coordinates": {
+        "longitude": 102.6109,
+        "latitude": 17.9602
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Haw%20Phra%20Kaew%20Vientiane%20Laos",
+      "shortDescription": "Haw Phra Kaew is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ]
+    },
+    {
+      "id": "thing-cope-visitor-centre",
+      "slug": "cope-visitor-centre",
+      "name": "COPE Visitor Centre",
+      "isLandmark": false,
+      "mediaSearchNames": [
+        "COPE Visitor Centre"
+      ],
+      "coordinates": {
+        "longitude": 102.6107,
+        "latitude": 17.9534
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=COPE%20Visitor%20Centre%20Vientiane%20Laos",
+      "shortDescription": "COPE Visitor Centre is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ]
+    },
+    {
+      "id": "thing-buddha-park",
+      "slug": "buddha-park",
+      "name": "Buddha Park",
+      "isLandmark": false,
+      "mediaSearchNames": [
+        "Buddha Park"
+      ],
+      "coordinates": {
+        "longitude": 102.7754,
+        "latitude": 17.9053
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Buddha%20Park%20Vientiane%20Laos",
+      "shortDescription": "Buddha Park is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ]
+    },
+    {
+      "id": "thing-wat-si-muang",
+      "slug": "wat-si-muang",
+      "name": "Wat Si Muang",
+      "isLandmark": false,
+      "mediaSearchNames": [
+        "Wat Si Muang"
+      ],
+      "coordinates": {
+        "longitude": 102.62,
+        "latitude": 17.9589
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat%20Si%20Muang%20Vientiane%20Laos",
+      "shortDescription": "Wat Si Muang is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ]
+    },
+    {
+      "id": "thing-talat-sao-morning-market",
+      "slug": "talat-sao-morning-market",
+      "name": "Talat Sao Morning Market",
+      "isLandmark": false,
+      "mediaSearchNames": [
+        "Talat Sao Morning Market"
+      ],
+      "coordinates": {
+        "longitude": 102.6147,
+        "latitude": 17.9647
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Talat%20Sao%20Morning%20Market%20Vientiane%20Laos",
+      "shortDescription": "Talat Sao Morning Market is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ]
+    },
+    {
+      "id": "thing-chao-anouvong-park",
+      "slug": "chao-anouvong-park",
+      "name": "Chao Anouvong Park",
+      "isLandmark": false,
+      "mediaSearchNames": [
+        "Chao Anouvong Park"
+      ],
+      "coordinates": {
+        "longitude": 102.6004,
+        "latitude": 17.9606
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Chao%20Anouvong%20Park%20Vientiane%20Laos",
+      "shortDescription": "Chao Anouvong Park is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ]
+    },
+    {
+      "id": "thing-mekong-riverside-walk",
+      "slug": "mekong-riverside-walk",
+      "name": "Mekong Riverside Walk",
+      "isLandmark": false,
+      "mediaSearchNames": [
+        "Mekong Riverside Walk"
+      ],
+      "coordinates": {
+        "longitude": 102.5987,
+        "latitude": 17.9591
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Riverside%20Walk%20Vientiane%20Laos",
+      "shortDescription": "Mekong Riverside Walk is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://www.laostourism.org/",
+          "sourceType": "official-tourism",
+          "purpose": "facts",
+          "sourceName": "Laos Tourism"
+        },
+        {
+          "sourceUrl": "https://www.visitlaos.org/",
+          "sourceType": "official-tourism",
+          "purpose": "cross-check",
+          "sourceName": "Visit Laos"
+        }
+      ]
+    }
+  ]
+}
