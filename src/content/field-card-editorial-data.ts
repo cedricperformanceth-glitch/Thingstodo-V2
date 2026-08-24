@@ -32,6 +32,21 @@ import uxoLaoVisitorCentreEditorial from './field-card-editorial-luang-prabang/t
 import traditionalArtsEthnologyCentreEditorial from './field-card-editorial-luang-prabang/thing-traditional-arts-ethnology-centre.json';
 import ockPopTokLivingCraftsCentreEditorial from './field-card-editorial-luang-prabang/thing-ock-pop-tok-living-crafts-centre.json';
 import banXangKhongWeavingVillageEditorial from './field-card-editorial-luang-prabang/thing-ban-xang-khong-weaving-village.json';
+import namXayViewpointEditorial from './field-card-editorial-vang-vieng/thing-nam-xay-viewpoint.json';
+import thamKhanCaveEditorial from './field-card-editorial-vang-vieng/thing-tham-khan-cave.json';
+import thamPhuKhamBlueLagoonEditorial from './field-card-editorial-vang-vieng/thing-tham-phu-kham-and-blue-lagoon-1.json';
+import thamChangCaveEditorial from './field-card-editorial-vang-vieng/thing-tham-chang-cave.json';
+import thamNamWaterCaveEditorial from './field-card-editorial-vang-vieng/thing-tham-nam-water-cave.json';
+import thamSangElephantCaveEditorial from './field-card-editorial-vang-vieng/thing-tham-sang-elephant-cave.json';
+import phaNgernViewpointEditorial from './field-card-editorial-vang-vieng/thing-pha-ngern-viewpoint.json';
+import blueLagoon3Editorial from './field-card-editorial-vang-vieng/thing-blue-lagoon-3.json';
+import blueLagoon4Editorial from './field-card-editorial-vang-vieng/thing-blue-lagoon-4.json';
+import namSongKayakingEditorial from './field-card-editorial-vang-vieng/thing-nam-song-river-kayaking.json';
+import namSongTubingEditorial from './field-card-editorial-vang-vieng/thing-nam-song-river-tubing.json';
+import vangViengCyclingEditorial from './field-card-editorial-vang-vieng/thing-vang-vieng-karst-cycling-loop.json';
+import watKangEditorial from './field-card-editorial-vang-vieng/thing-wat-kang.json';
+import vangViengMorningMarketEditorial from './field-card-editorial-vang-vieng/thing-vang-vieng-morning-market.json';
+import phaTangMountainEditorial from './field-card-editorial-vang-vieng/thing-pha-tang-mountain.json';
 import phaThatLuangEditorial from './field-card-editorial-vientiane/thing-pha-that-luang.json';
 import patuxaiMonumentEditorial from './field-card-editorial-vientiane/thing-patuxai-monument.json';
 import watSiSaketEditorial from './field-card-editorial-vientiane/thing-wat-si-saket.json';
@@ -103,9 +118,32 @@ const luangPrabangEditorial = Object.fromEntries(
     }];
   }),
 ) as Record<string, FieldCardEditorialEntry>;
+const vangViengBase = {
+  ...namXayViewpointEditorial,
+  ...thamKhanCaveEditorial,
+  ...thamPhuKhamBlueLagoonEditorial,
+  ...thamChangCaveEditorial,
+  ...thamNamWaterCaveEditorial,
+  ...thamSangElephantCaveEditorial,
+  ...phaNgernViewpointEditorial,
+  ...blueLagoon3Editorial,
+  ...blueLagoon4Editorial,
+  ...namSongKayakingEditorial,
+  ...namSongTubingEditorial,
+  ...vangViengCyclingEditorial,
+  ...watKangEditorial,
+  ...vangViengMorningMarketEditorial,
+  ...phaTangMountainEditorial,
+} as unknown as Record<string, FieldCardEditorialEntry>;
 const vangViengMedia = vangViengMediaData as unknown as Record<string, MediaRecord[]>;
 const vangViengEditorial = Object.fromEntries(
-  Object.entries(vangViengMedia).map(([id, media]) => [id, { media }]),
+  Object.entries(vangViengBase).map(([id, entry]) => {
+    const media = vangViengMedia[id];
+    return [id, {
+      ...entry,
+      ...(media?.length ? { media, seo: { ...entry.seo, image: media[0].src } } : {}),
+    }];
+  }),
 ) as Record<string, FieldCardEditorialEntry>;
 const vientianeBase = {
   ...phaThatLuangEditorial,
