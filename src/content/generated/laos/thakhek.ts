@@ -20,7 +20,6 @@ const data = {
       "cafes",
       "accommodation",
       "scooter-rental",
-      "markets",
       "practical-services"
     ],
     "hero": {
@@ -1649,56 +1648,6 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vie%20de%20France%20Thakhek%20Laos"
     },
     {
-      "id": "place-talad-lak3-thakek",
-      "slug": "talad-lak3-thakek",
-      "name": "Talad Lak3 Thakek",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "markets",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Talad Lak3 Thakek is a current Thakhek market address for everyday shopping, local food or a walk through the city’s commercial life.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local market",
-          "Thakhek",
-          "Everyday stop"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Talad%20Lak3%20Thakek%20Thakhek%20Laos"
-    },
-    {
       "id": "place-space-bar-and-restaurant",
       "slug": "space-bar-and-restaurant",
       "name": "Space Bar&Restaurant",
@@ -1880,106 +1829,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Room%20Cafe%20Thakhek%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-center-point-thakhek",
-      "slug": "center-point-thakhek",
-      "name": "Center Point Thakhek",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "markets",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Center Point Thakhek is a current Thakhek market address for everyday shopping, local food or a walk through the city’s commercial life.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local market",
-          "Thakhek",
-          "Everyday stop"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Center%20Point%20Thakhek%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-petmany-thakhek-market",
-      "slug": "petmany-thakhek-market",
-      "name": "Petmany Thakhek Market",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "markets",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "Petmany Thakhek Market is a current Thakhek market address for everyday shopping, local food or a walk through the city’s commercial life.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Local market",
-          "Thakhek",
-          "Everyday stop"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Top-Rated.Online current Thakhek-area index",
-          "sourceUrl": "https://www.top-rated.online/countries/Laos/cities/Ban%2BPakdong/all/top-rated",
-          "purpose": "candidate-discovery"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Petmany%20Thakhek%20Market%20Thakhek%20Laos"
     },
     {
       "id": "place-nam-phou-hostel",
@@ -2523,7 +2372,18 @@ const data = {
       },
       "shortDescription": "Mad Monkey Motorcycle is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "mad-monkey-motorcycle-card",
+            "src": "/assets/cities/laos/thakhek/scooter-rental/mad-monkey-motorcycle/mad-monkey-motorcycle.webp",
+            "alt": "Motorcycles at Mad Monkey Motorcycle rental in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2534,8 +2394,8 @@ const data = {
           "Bike check",
           "Before ride"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
