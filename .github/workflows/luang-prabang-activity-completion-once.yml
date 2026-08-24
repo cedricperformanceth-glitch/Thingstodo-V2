@@ -1,0 +1,569 @@
+name: Complete Luang Prabang activities once
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/luang-prabang-activity-completion-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  complete:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout current master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Complete Luang Prabang activity media and Field Cards
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { tsModule } from './scripts/lib/city-pipeline.mjs';
+
+          const sourceFile = 'pipeline/cities/laos/luang-prabang.json';
+          const generatedFile = 'src/content/generated/laos/luang-prabang.ts';
+          const editorialFile = 'src/content/field-card-editorial.json';
+          const draft = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+          const editorial = JSON.parse(fs.readFileSync(editorialFile, 'utf8'));
+
+          const configs = {
+            'thing-wat-xieng-thong': {
+              aliases: ['wat xieng thong', 'vat xieng thong', 'xieng thong'],
+              queries: ['intitle:"Wat Xieng Thong"', '"Wat Xieng Thong" Luang Prabang'],
+              must: ['xieng thong'],
+              hero: {
+                eyebrow: 'TEMPLE NOTE · OLD TOWN',
+                aliases: ['Wat Xieng Thong', 'Temple of the Golden City'],
+                description: 'Walk to the northern end of the peninsula for Luang Prabang’s most important surviving royal-era monastery, where layered roofs, gilded details and the Tree of Life mosaic reward a slow visit.',
+                steps: ['Go early for quieter courtyards', 'Start with the main sim', 'Look for the Tree of Life mosaic', 'Give the smaller chapels time too'],
+                rhythmNote: 'This is a working religious site as well as a major monument. Dress for a temple, keep voices low and do not treat ceremonies or worshippers as a photo set.',
+                photoNote: 'Northern tip of the Luang Prabang peninsula'
+              },
+              quickRead: { time: ['ABOUT 1 HOUR', 'longer if you enjoy temple detail'], route: ['WALK THE PENINSULA', 'easy old-town stop'], budget: ['PAID ENTRY', 'confirm current fee at the gate'], bestFor: ['ARCHITECTURE & HISTORY', 'royal-era temple · mosaics · Buddhist art'] },
+              practical: [
+                ['Timing', 'Morning is the easiest window', 'Arriving earlier usually means cooler temperatures and fewer tour groups. Allow about an hour rather than rushing through the main hall.'],
+                ['Dress', 'Temple clothing', 'Cover shoulders and knees, remove shoes where required and follow signs around prayer spaces.'],
+                ['Photography', 'Be discreet around worship', 'The architecture is highly photogenic, but ceremonies and worshippers deserve space. Ask before photographing people at close range.'],
+                ['Pair it with', 'Peninsula walk', 'It fits naturally with the Mekong and Nam Khan riverfronts and the nearby old-town lanes.']
+              ],
+              chapters: [
+                ['THE TEMPLE', 'The roofline is the first clue', 'Wat Xieng Thong is often reduced to one postcard façade, but the useful way to visit is to notice how the low, layered roofs, carved doors, gilded ornament and small surrounding structures work together as a complete monastery compound. Slow down before entering the main sim and look back from different angles; the architecture changes noticeably as you move around the courtyard.'],
+                ['THE DETAILS', 'Do not leave after the main hall', 'The Tree of Life mosaic and the funerary-carriage building are not side notes. They carry much of the site’s visual identity and royal history. Give the smaller structures the same attention as the main hall, especially if you want the visit to feel different from the many other temples in town.']
+              ],
+              faq: [
+                ['How long do you need at Wat Xieng Thong?', 'About one hour is a good minimum. Give yourself longer if you enjoy architecture, mosaics or photography.'],
+                ['Is Wat Xieng Thong still an active temple?', 'Yes. Treat it as a religious site first: dress appropriately, follow shoe rules and avoid interrupting worship or ceremonies.'],
+                ['What should you make sure not to miss?', 'The main sim, the Tree of Life mosaic and the funerary-carriage building are the strongest anchors for a first visit.'],
+                ['Can you walk there from central Luang Prabang?', 'Yes. It sits at the northern end of the old-town peninsula and is an easy walk from the main heritage streets.']
+              ],
+              seo: ['Wat Xieng Thong Luang Prabang | Things To Do Atlas', 'Plan a thoughtful visit to Wat Xieng Thong in Luang Prabang: what to notice, how long to allow, temple etiquette and the details worth slowing down for.'],
+              spa: ['Visit Luang Prabang’s landmark royal-era monastery for its layered roofs, Tree of Life mosaic and richly detailed temple compound.', ['Temple architecture', 'Tree of Life', 'Old town'], 'Walk to the northern end of the peninsula', '1 hour', 'paid', 'Morning'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context'], ['UNESCO World Heritage Centre', 'https://whc.unesco.org/en/list/479/', 'heritage-context']]
+            },
+            'thing-phou-si-mountain': {
+              aliases: ['mount phousi', 'mount phou si', 'phou si', 'phu si'],
+              queries: ['intitle:"Phousi" Luang Prabang', 'intitle:"Phou Si" Luang Prabang', '"Mount Phousi"'],
+              must: ['phou si', 'phousi', 'phu si'],
+              hero: {
+                eyebrow: 'VIEWPOINT NOTE · CENTRAL HILL',
+                aliases: ['Mount Phousi', 'Phou Si Mountain', 'Phu Si'],
+                description: 'Climb the sacred hill rising from the middle of Luang Prabang for layered views over the old town, Mekong, Nam Khan and surrounding mountains.',
+                steps: ['Choose your ascent side', 'Take the stairs steadily', 'Pause at shrines on the way', 'Stay for the view without blocking others'],
+                rhythmNote: 'Sunset is famous and therefore crowded. If you care more about space than golden-hour colour, go earlier in the day or for morning light.',
+                photoNote: 'Central Luang Prabang · hilltop temples and river views'
+              },
+              quickRead: { time: ['1–2 HOURS', 'including the climb and viewpoints'], route: ['CENTRAL STAIRCASES', 'multiple approaches through town'], budget: ['PAID ENTRY', 'confirm current fee locally'], bestFor: ['CITY OVERVIEW', 'rivers · rooftops · sunset atmosphere'] },
+              practical: [
+                ['Effort', 'A real stair climb', 'The hill is central but the climb still means several hundred steps. Wear footwear you are comfortable using on steep stairs.'],
+                ['Crowds', 'Sunset is the busiest period', 'The summit viewpoint can become packed before sunset. Go earlier if you want room to move and photograph.'],
+                ['Temple etiquette', 'Sacred hill, not only a viewpoint', 'Shrines and Buddhist spaces sit along the route. Dress and behave as you would at a temple.'],
+                ['Weather', 'Heat changes the experience', 'In hot months, avoid charging up the stairs at the hottest part of the afternoon. Carry water.']
+              ],
+              chapters: [
+                ['THE CLIMB', 'The hill is part of the visit', 'Phou Si works best when the climb itself is not treated as dead time. Different stairways pass small shrines, Buddha images and pockets of vegetation, giving the hill a religious character that is easy to miss if you rush directly to the top.'],
+                ['THE VIEW', 'Two rivers explain the town', 'From the upper viewpoints, the geography of Luang Prabang becomes much clearer: the heritage core sits between the Mekong and Nam Khan, with mountains closing the horizon. That context is useful early in a stay because it makes later walks around the peninsula easier to read.']
+              ],
+              faq: [
+                ['Is Phou Si Mountain difficult to climb?', 'It is a moderate stair climb rather than a hike. Most visitors can do it with pauses, but heat can make it feel harder.'],
+                ['Is sunset worth it?', 'The light can be beautiful, but sunset is also the most crowded time. Go earlier if you prefer a calmer viewpoint.'],
+                ['How long should you allow?', 'Allow one to two hours for the ascent, pauses at shrines and time at the viewpoints.'],
+                ['Do you need temple-appropriate clothing?', 'Yes. Phou Si is a sacred hill with religious sites along the route, so cover shoulders and knees.']
+              ],
+              seo: ['Phou Si Mountain Luang Prabang | Things To Do Atlas', 'Plan the Phou Si climb in Luang Prabang: timing, crowds, stair effort, temple etiquette and how to get more from the city-and-river viewpoints.'],
+              spa: ['Climb Luang Prabang’s central sacred hill for views over the old town, Mekong, Nam Khan and surrounding mountains.', ['Hilltop view', 'Sacred hill', 'City overview'], 'Use one of the central stair approaches', '1–2 hours', 'paid', 'Late afternoon or morning'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context'], ['UNESCO World Heritage Centre', 'https://whc.unesco.org/en/list/479/', 'heritage-context']]
+            },
+            'thing-royal-palace-museum': {
+              aliases: ['royal palace luang prabang', 'royal palace museum luang prabang', 'haw kham', 'ho kham'],
+              queries: ['"Royal Palace" "Luang Prabang"', '"Haw Kham" Luang Prabang', '"Ho Kham" Luang Prabang'],
+              must: ['royal palace', 'haw kham', 'ho kham'],
+              hero: {
+                eyebrow: 'HISTORY NOTE · FORMER PALACE',
+                aliases: ['Royal Palace Museum', 'Haw Kham', 'Ho Kham'],
+                description: 'Use the former royal palace to connect Luang Prabang’s ceremonial identity with the last Lao monarchy, then step back outside to read the building as part of the heritage streetscape.',
+                steps: ['Check opening hours before going', 'Store bags if requested', 'Follow photography restrictions indoors', 'Leave time for the grounds'],
+                rhythmNote: 'The interior is the reason to visit, but photography rules are stricter than at most outdoor sights. Go for the historical context rather than expecting a photo-heavy stop.',
+                photoNote: 'Main heritage street · central Luang Prabang'
+              },
+              quickRead: { time: ['1–2 HOURS', 'museum plus grounds'], route: ['CENTRAL OLD TOWN', 'easy to combine with Phou Si'], budget: ['PAID ENTRY', 'confirm current fee and hours'], bestFor: ['ROYAL HISTORY', 'museum collections · palace architecture'] },
+              practical: [
+                ['Hours', 'Check the current schedule', 'Museum opening patterns can include midday closure or changed public days. Verify locally before building a tight itinerary around it.'],
+                ['Photography', 'Expect indoor restrictions', 'Follow the museum’s current signs. Do not assume photography is allowed simply because the exterior is easy to photograph.'],
+                ['Clothing', 'Dress respectfully', 'This is a major national and cultural site. Conservative clothing is the safest choice.'],
+                ['Pair it with', 'Phou Si and the main street', 'Its central location makes it easy to combine with the hill, nearby temples and the night-market area.']
+              ],
+              chapters: [
+                ['THE BUILDING', 'A palace designed for a changing Laos', 'The former palace is useful because it sits at the meeting point of Lao royal tradition and early twentieth-century architectural influence. Before going inside, look at the symmetry, roof forms and ceremonial approach from the main road; the exterior already tells part of the story.'],
+                ['THE COLLECTION', 'Context matters more than quantity', 'The visit is strongest when you use the objects and rooms to understand the royal court, diplomatic relationships and the symbolic role of the Phra Bang image in Luang Prabang. It is not a huge museum, so resist the temptation to race through it as a checklist stop.']
+              ],
+              faq: [
+                ['How long do you need at the Royal Palace Museum?', 'One to two hours is usually enough for the museum and grounds without rushing.'],
+                ['Can you take photos inside?', 'Expect restrictions inside and follow the current signage. Exterior photography is straightforward.'],
+                ['Should you check opening hours in advance?', 'Yes. Museum schedules can change and may include midday closure, so verify before planning a tight visit.'],
+                ['What is the museum best for?', 'It gives useful context for Luang Prabang’s royal history, ceremonial role and the transition into modern Laos.']
+              ],
+              seo: ['Royal Palace Museum Luang Prabang | Things To Do Atlas', 'Visit Luang Prabang’s Royal Palace Museum with practical context on timing, photography rules, what the collections explain and what to notice outside.'],
+              spa: ['Use Luang Prabang’s former royal palace to understand the town’s monarchy, ceremonial history and national symbolism.', ['Royal history', 'Former palace', 'Central old town'], 'Walk from the main heritage street', '1–2 hours', 'paid', 'Morning'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context'], ['UNESCO World Heritage Centre', 'https://whc.unesco.org/en/list/479/', 'heritage-context']]
+            },
+            'thing-tak-bat-alms': {
+              aliases: ['tak bat luang prabang', 'alms giving luang prabang', 'alms procession luang prabang'],
+              queries: ['"alms" "Luang Prabang" monks', '"Tak Bat" "Luang Prabang"'],
+              must: ['luang prabang'],
+              oneOf: ['alms', 'tak bat', 'monk'],
+              hero: {
+                eyebrow: 'LIVING TRADITION · EARLY MORNING',
+                aliases: ['Tak Bat', 'Morning alms giving'],
+                description: 'Observe the dawn alms procession as a living Buddhist practice, keeping enough distance that your visit does not turn a daily religious ritual into a performance.',
+                steps: ['Arrive quietly before the procession', 'Stand back from the monks’ route', 'Do not use flash or block the line', 'Participate only if you understand the etiquette'],
+                rhythmNote: 'Watching respectfully is better than participating badly. If you are unsure how offerings work, simply observe from a distance and let local worshippers lead the ritual.',
+                photoNote: 'Old-town streets · before sunrise'
+              },
+              quickRead: { time: ['30–45 MINUTES', 'before and around sunrise'], route: ['OLD-TOWN STREETS', 'exact route varies'], budget: ['FREE TO OBSERVE', 'offerings are optional'], bestFor: ['LIVING BUDDHIST CULTURE', 'quiet observation · ritual etiquette'] },
+              practical: [
+                ['Timing', 'Before sunrise', 'The procession is early. Ask your accommodation for the current local timing rather than relying on an old blog schedule.'],
+                ['Distance', 'Stay out of the procession', 'Do not stand in monks’ path, crowd worshippers or chase the line for photographs.'],
+                ['Photography', 'No flash · no close intrusion', 'Use a respectful distance and avoid turning faces into close-up subjects without consent.'],
+                ['Participation', 'Only if you know the etiquette', 'If you choose to give alms, follow local guidance on dress, position and offerings. Otherwise observing quietly is completely acceptable.']
+              ],
+              chapters: [
+                ['THE RITUAL', 'This is daily religious practice', 'Tak Bat is not a staged sunrise attraction. Monks leave monasteries to receive food from lay Buddhists, and the exchange belongs to the religious life of the town. The most useful visitor mindset is to make yourself small: arrive quietly, stand aside and let the ritual continue without adapting itself around you.'],
+                ['THE VISITOR', 'Respect is mostly about not interfering', 'Problems arise when visitors use flash, block the route, crowd monks or buy poor-quality offerings without understanding the practice. You do not need to participate to appreciate it. Watching from a calm distance often creates a more meaningful experience and less pressure on everyone involved.']
+              ],
+              faq: [
+                ['What time is Tak Bat in Luang Prabang?', 'It takes place very early in the morning around dawn. Ask locally for the current timing because sunrise and monastery routines vary through the year.'],
+                ['Do tourists have to participate?', 'No. Quiet observation from a respectful distance is often the best choice if you are unfamiliar with the ritual.'],
+                ['Can you photograph the monks?', 'Yes only if you do it unobtrusively: no flash, no blocking the route and no close-up intrusion into worship.'],
+                ['What should you wear?', 'Dress modestly with shoulders and knees covered, particularly if you intend to sit near the route or make an offering.']
+              ],
+              seo: ['Tak Bat Morning Alms Luang Prabang | Things To Do Atlas', 'Understand Luang Prabang’s morning alms procession before you go: respectful observation, photography etiquette, timing and when not to participate.'],
+              spa: ['Observe Luang Prabang’s dawn alms procession quietly and respectfully as part of the town’s living Buddhist culture.', ['Living tradition', 'Before sunrise', 'Respect first'], 'Old-town streets; ask locally for the current route', '30–45 minutes', 'free', 'Before sunrise'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context'], ['UNESCO World Heritage Centre', 'https://whc.unesco.org/en/list/479/', 'living-heritage-context']]
+            },
+            'thing-kuang-si-waterfalls': {
+              aliases: ['kuang si falls', 'kuang si waterfall', 'tat kuang si', 'tad kuang si'],
+              queries: ['intitle:"Kuang Si" waterfall', 'intitle:"Tat Kuang Si"', 'intitle:"Tad Kuang Si"'],
+              must: ['kuang si'],
+              hero: {
+                eyebrow: 'WATERFALL NOTE · SOUTH OF TOWN',
+                aliases: ['Kuang Si Falls', 'Tat Kuang Si'],
+                description: 'Leave town for Kuang Si’s limestone cascades and turquoise forest pools, one of the rare famous day trips that still rewards taking your time beyond the main viewpoint.',
+                steps: ['Go early from Luang Prabang', 'Walk through the lower forest', 'Use only pools marked for swimming', 'Continue to the main cascade and upper paths'],
+                rhythmNote: 'The first bright-blue pools get the attention, but the whole site is better when you walk the sequence slowly and respect closed or sacred pools.',
+                photoNote: 'About 30 km south of Luang Prabang'
+              },
+              quickRead: { time: ['HALF DAY', 'travel plus waterfall time'], route: ['ROAD SOUTH OF TOWN', 'shared van · tuk-tuk · private transport'], budget: ['PAID ENTRY', 'transport is separate'], bestFor: ['WATERFALL & SWIM', 'forest trail · limestone pools · main cascade'] },
+              practical: [
+                ['Timing', 'Go early', 'Kuang Si is one of the busiest excursions from Luang Prabang. Earlier arrival gives you more space at the pools and main fall.'],
+                ['Swimming', 'Use only permitted pools', 'Water conditions and access can change. Follow current signs and do not enter closed or culturally sensitive pools.'],
+                ['Footwear', 'Grip helps', 'Paths near the pools can be wet and slippery. Wear footwear that works on damp steps and forest paths.'],
+                ['Transport', 'Plan the return before relaxing', 'Shared vans and tuk-tuks are common. Agree on return timing or pickup arrangements before entering the site.']
+              ],
+              chapters: [
+                ['THE WATER', 'The colour comes from the limestone system', 'Kuang Si is a sequence rather than one waterfall: water moves through pale limestone terraces, creating pools and smaller drops before reaching the major cascade. Walking the lower section slowly makes the geology and shape of the site much easier to understand than heading straight to the postcard viewpoint.'],
+                ['THE DAY TRIP', 'Leave enough time to stop moving', 'Because transport from Luang Prabang takes a meaningful part of the outing, it is easy to turn Kuang Si into a rushed photo stop. A half day gives you room to walk, swim where permitted, sit away from the busiest pools and still explore around the main cascade.']
+              ],
+              faq: [
+                ['How much time should you allow for Kuang Si?', 'Treat it as a half-day trip from Luang Prabang. That gives enough time for transport, walking and swimming without rushing.'],
+                ['Can you swim at Kuang Si?', 'Swimming is normally possible in designated pools. Follow current signs because some pools can be closed or culturally sensitive.'],
+                ['What is the best time to go?', 'Morning is the easiest way to reduce crowds and heat.'],
+                ['Do you need good shoes?', 'Basic sandals can work around easy sections, but grippy footwear is better if you plan to explore wet steps or upper trails.']
+              ],
+              seo: ['Kuang Si Waterfalls Luang Prabang | Things To Do Atlas', 'Plan a Kuang Si half-day trip from Luang Prabang: when to go, swimming etiquette, transport, footwear and how to enjoy more than the main viewpoint.'],
+              spa: ['Spend a half day at Kuang Si’s forest cascades, turquoise limestone pools and main waterfall south of Luang Prabang.', ['Turquoise pools', 'Forest waterfall', 'Half-day trip'], 'Road south from Luang Prabang', 'Half-day', 'paid', 'Morning'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context']]
+            },
+            'thing-pak-ou-caves': {
+              aliases: ['pak ou caves', 'tham ting', 'tham theung', 'pak ou'],
+              queries: ['intitle:"Pak Ou" cave', '"Pak Ou Caves"', '"Tham Ting" Pak Ou'],
+              must: ['pak ou'],
+              hero: {
+                eyebrow: 'CAVE NOTE · MEKONG & NAM OU',
+                aliases: ['Pak Ou Caves', 'Tham Ting', 'Tham Theung'],
+                description: 'Travel north to the limestone caves above the Mekong–Nam Ou confluence, where generations of Buddha images turn the journey into a cultural visit rather than a conventional cave excursion.',
+                steps: ['Choose boat or road access', 'Start with the lower cave', 'Climb to the upper cave if open', 'Bring a light for darker sections'],
+                rhythmNote: 'The caves are visually strongest when you understand them as religious repositories. The river journey is part of the experience, especially if you choose the slower boat approach.',
+                photoNote: 'Mekong–Nam Ou confluence · north of Luang Prabang'
+              },
+              quickRead: { time: ['HALF DAY', 'especially by boat'], route: ['BOAT OR ROAD NORTH', 'river approach is slower and more scenic'], budget: ['PAID ENTRY', 'transport priced separately'], bestFor: ['CULTURE & RIVER JOURNEY', 'Buddha images · limestone caves'] },
+              practical: [
+                ['Access', 'Boat or road', 'Boat travel makes the Mekong part of the day; road access is usually faster. Compare total travel time rather than only the cave visit.'],
+                ['Light', 'Upper cave can be dark', 'Carry a phone light or small torch and watch uneven steps.'],
+                ['Shoes', 'Expect stairs', 'The upper cave requires climbing. Wear footwear that is comfortable on stone steps.'],
+                ['Respect', 'Religious site', 'Do not touch or rearrange Buddha images and keep the atmosphere quiet inside the caves.']
+              ],
+              chapters: [
+                ['THE CAVES', 'Buddha images define the visit', 'Pak Ou is important less for dramatic cave formations than for the large number of Buddha images placed inside over generations. The lower cave opens toward the river and is easier to read; the upper cave is darker and more enclosed, changing the mood of the visit.'],
+                ['THE JOURNEY', 'The Mekong approach changes the scale', 'A boat from Luang Prabang turns the caves into a longer river day and reveals villages, forested banks and the meeting of the Nam Ou with the Mekong. Road access is more efficient, but the river route is part of why Pak Ou remains memorable for many visitors.']
+              ],
+              faq: [
+                ['Is it better to go to Pak Ou by boat or road?', 'Boat is slower but makes the Mekong journey part of the experience. Road is usually faster if your priority is the caves themselves.'],
+                ['How long should you allow?', 'Allow a half day from Luang Prabang, especially if travelling by boat.'],
+                ['Do you need a flashlight?', 'A small light is useful in the darker upper cave and on uneven interior steps.'],
+                ['Are the caves mainly a natural attraction?', 'No. Their religious significance and the many Buddha images are central to the experience.']
+              ],
+              seo: ['Pak Ou Caves Luang Prabang | Things To Do Atlas', 'Plan a Pak Ou Caves trip from Luang Prabang: boat versus road access, cave etiquette, stairs, lighting and what makes the Buddha-image tradition important.'],
+              spa: ['Travel to Pak Ou’s limestone caves above the Mekong–Nam Ou confluence for Buddha images, river scenery and a strong cultural context.', ['Buddha caves', 'Mekong journey', 'Half-day'], 'Boat or road north from Luang Prabang', 'Half-day', 'paid', 'Morning'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context']]
+            },
+            'thing-wat-visoun': {
+              aliases: ['wat visoun', 'wat wisunarat', 'wat visounnarath', 'vat visoun'],
+              queries: ['intitle:"Wat Visoun"', 'intitle:"Wat Wisunarat"', '"That Makmo" Luang Prabang'],
+              must: ['visoun', 'wisun', 'makmo'],
+              hero: {
+                eyebrow: 'TEMPLE NOTE · EARLY LUANG PRABANG',
+                aliases: ['Wat Visoun', 'Wat Wisunarat', 'Wat Visounnarath'],
+                description: 'Visit one of Luang Prabang’s historically important temples and use the distinctive That Makmo stupa as the visual anchor for understanding an older layer of the town’s religious architecture.',
+                steps: ['Walk east from the peninsula', 'Start with the temple compound', 'Circle That Makmo slowly', 'Look for differences from Xieng Thong'],
+                rhythmNote: 'Wat Visoun is quieter than the headline temples. That is part of its value: it gives you room to compare periods and architectural styles without the same visitor pressure.',
+                photoNote: 'East of the main heritage peninsula'
+              },
+              quickRead: { time: ['45–60 MINUTES', 'compact temple stop'], route: ['WALK OR SHORT RIDE', 'east of the peninsula'], budget: ['PAID ENTRY', 'confirm current fee'], bestFor: ['TEMPLE HISTORY', 'That Makmo · quieter compound'] },
+              practical: [
+                ['Time needed', 'About 45–60 minutes', 'The compound is compact, but allow time to walk around the stupa rather than only stepping into the main hall.'],
+                ['Dress', 'Temple clothing', 'Cover shoulders and knees and follow shoe rules.'],
+                ['Best use', 'Compare with other temples', 'Visit after Xieng Thong or another major wat to see how different periods and forms sit within the same town.'],
+                ['Atmosphere', 'Usually calmer', 'It often feels less crowded than the best-known peninsula temples, which makes slow observation easier.']
+              ],
+              chapters: [
+                ['THE COMPOUND', 'A different architectural mood', 'Wat Visoun feels broader and plainer than the highly decorative Xieng Thong complex. That contrast is useful. Rather than asking which temple is more beautiful, compare rooflines, wall treatment and the relationship between the main hall and surrounding religious structures.'],
+                ['THAT MAKMO', 'The stupa is the site’s strongest marker', 'The rounded That Makmo stupa gives the compound a distinctive silhouette and is one of the easiest monuments in Luang Prabang to recognize once you have seen it. Walk around it slowly; changing perspective is more revealing than a single frontal photograph.']
+              ],
+              faq: [
+                ['How long do you need at Wat Visoun?', 'About 45 minutes to one hour is enough for most visitors.'],
+                ['What is That Makmo?', 'It is the distinctive stupa associated with the Wat Visoun compound and one of the site’s main visual landmarks.'],
+                ['Is Wat Visoun worth visiting if you have seen Xieng Thong?', 'Yes. The value is the contrast in architectural character and the quieter atmosphere.'],
+                ['Can you walk there from the old town?', 'Yes. It is reachable on foot from the heritage centre, or by a very short ride.']
+              ],
+              seo: ['Wat Visoun Luang Prabang | Things To Do Atlas', 'Visit Wat Visoun in Luang Prabang for the distinctive That Makmo stupa, quieter temple atmosphere and a useful contrast with the town’s better-known monasteries.'],
+              spa: ['Visit Wat Visoun for an older layer of Luang Prabang temple architecture and the distinctive That Makmo stupa.', ['Historic temple', 'That Makmo', 'Quiet stop'], 'Walk or take a short ride east of the peninsula', '45–60 minutes', 'paid', 'Morning'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context'], ['UNESCO World Heritage Centre', 'https://whc.unesco.org/en/list/479/', 'heritage-context']]
+            },
+            'thing-uxo-lao-visitor-centre': {
+              aliases: ['uxo lao visitor centre', 'uxo lao luang prabang', 'uxo visitor center luang prabang'],
+              queries: ['"UXO Lao" "Luang Prabang"', '"UXO Visitor Centre" "Luang Prabang"'],
+              must: ['uxo'],
+              oneOf: ['luang prabang', 'visitor centre', 'visitor center'],
+              hero: {
+                eyebrow: 'CONTEXT NOTE · MODERN LAOS',
+                aliases: ['UXO Lao Visitor Centre', 'UXO Lao Luang Prabang'],
+                description: 'Spend an hour with the history and continuing impact of unexploded ordnance in Laos, then leave with a clearer understanding of why clearance work still matters far beyond the museum walls.',
+                steps: ['Read the timeline before the displays', 'Give the maps time', 'Watch any current film material', 'Leave space for the human impact, not only hardware'],
+                rhythmNote: 'This is not military memorabilia. The useful focus is civilian impact, clearance work and the long afterlife of war in rural communities.',
+                photoNote: 'South of central Luang Prabang'
+              },
+              quickRead: { time: ['ABOUT 1 HOUR', 'small but information-dense'], route: ['SHORT RIDE SOUTH', 'easy stop from the centre'], budget: ['FREE ENTRY', 'donations may be possible'], bestFor: ['MODERN HISTORY', 'UXO impact · clearance work · context'] },
+              practical: [
+                ['Time needed', 'About 1 hour', 'The centre is compact, but the maps and explanations are worth reading rather than scanning.'],
+                ['Tone', 'Serious subject matter', 'Expect material about bombing, civilian harm and clearance. It is informative rather than entertainment-focused.'],
+                ['Entry', 'Generally free', 'Confirm current opening hours locally. If donations are accepted, they support the wider mission.'],
+                ['Why go', 'Context beyond heritage architecture', 'Luang Prabang can feel dominated by temples and colonial-era heritage; this centre adds essential twentieth-century and present-day context.']
+              ],
+              chapters: [
+                ['THE HISTORY', 'The war did not end when the bombing stopped', 'The centre explains how large quantities of unexploded ordnance remained in Laos after the conflict period, continuing to affect farming, construction and everyday movement. Maps are especially useful because they show the scale of the issue beyond individual dramatic objects.'],
+                ['THE WORK', 'Clearance is slow, technical and still current', 'The strongest part of the visit is understanding what clearance teams actually do: survey, identify, remove and destroy dangerous remnants while working with affected communities. That turns the subject from distant history into an ongoing public-safety problem.']
+              ],
+              faq: [
+                ['How long does the UXO Lao Visitor Centre take?', 'About one hour is a good estimate if you read the displays rather than rushing through.'],
+                ['Is it suitable for children?', 'It is educational, but the subject includes war and civilian harm. Adults should judge based on the child and current displays.'],
+                ['Is the centre only about military history?', 'No. Its most important focus is the continuing civilian impact of unexploded ordnance and the work required to clear it.'],
+                ['Should you check opening hours?', 'Yes. It is a small institutional visitor centre, so verify the current schedule before making a dedicated trip.']
+              ],
+              seo: ['UXO Lao Visitor Centre Luang Prabang | Things To Do Atlas', 'Visit the UXO Lao Visitor Centre in Luang Prabang for clear context on unexploded ordnance, civilian impact and the continuing work of clearance teams.'],
+              spa: ['Add modern historical context to your stay with a compact visitor centre explaining UXO impact and clearance work in Laos.', ['Modern history', 'UXO clearance', 'Small museum'], 'Short ride south of central Luang Prabang', '1 hour', 'free', 'Daytime'],
+              sources: [['UXO Lao', 'https://uxolao.gov.la/', 'institutional-context'], ['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'destination-context']]
+            },
+            'thing-traditional-arts-ethnology-centre': {
+              aliases: ['traditional arts and ethnology centre', 'traditional arts and ethnology center', 'taec luang prabang'],
+              queries: ['"Traditional Arts and Ethnology Centre"', '"TAEC" "Luang Prabang"'],
+              must: ['traditional arts', 'taec'],
+              hero: {
+                eyebrow: 'MUSEUM NOTE · CULTURAL CONTEXT',
+                aliases: ['Traditional Arts and Ethnology Centre', 'TAEC'],
+                description: 'Use this small museum to move beyond generic “tribal” labels and understand textiles, objects and cultural practices through more specific ethnic and community contexts.',
+                steps: ['Read the introductory labels', 'Follow objects back to named communities', 'Give textile details time', 'Use the shop as an extension, not the main event'],
+                rhythmNote: 'The museum is small enough to rush and good enough not to. Read the labels: the context is what separates it from a decorative textile display.',
+                photoNote: 'Central Luang Prabang · small museum'
+              },
+              quickRead: { time: ['1–2 HOURS', 'small museum, rich labels'], route: ['WALK FROM MAIN STREET', 'central location'], budget: ['PAID ENTRY', 'confirm current fee'], bestFor: ['ETHNOLOGY & TEXTILES', 'named communities · material culture'] },
+              practical: [
+                ['Time needed', '1–2 hours', 'The galleries are compact, but object labels carry much of the value.'],
+                ['Approach', 'Read before photographing', 'The museum is about cultural context, not only visually striking textiles.'],
+                ['Shop', 'Useful ethical-craft extension', 'If the current museum shop carries community-linked work, use its provenance information rather than buying only by appearance.'],
+                ['Pair it with', 'Craft-focused stops', 'TAEC works well before Ock Pop Tok or Ban Xang Khong because it gives vocabulary and context for later textile encounters.']
+              ],
+              chapters: [
+                ['THE LABELS', 'Specificity is the point', 'The museum’s strength is that objects are connected to named communities, techniques and social uses rather than collapsed into a vague image of “ethnic Laos.” Read the interpretation closely and notice how clothing, ritual objects and household materials change meaning once they are placed back in cultural context.'],
+                ['THE TEXTILES', 'Technique and identity sit together', 'Textiles are visually dominant, but they are not only decoration. Pattern, fibre, dye, production method and when a garment is worn can all carry social meaning. TAEC is a useful first stop before visiting weaving centres because it gives you a better set of questions to ask later.']
+              ],
+              faq: [
+                ['How long do you need at TAEC?', 'Allow one to two hours if you want to read the interpretation rather than only scan the displays.'],
+                ['Is TAEC mainly a textile museum?', 'Textiles are important, but the museum is broader: it uses clothing, objects and interpretation to explain cultural practices and community identities.'],
+                ['Is it worth going before a weaving village?', 'Yes. It gives useful context and vocabulary that makes later craft visits more meaningful.'],
+                ['Can you walk there from central Luang Prabang?', 'Yes. It is a central-town museum and fits easily into a heritage-area day on foot.']
+              ],
+              seo: ['Traditional Arts and Ethnology Centre Luang Prabang | Things To Do Atlas', 'Visit TAEC in Luang Prabang for careful context on Laos’s ethnic communities, textiles and material culture, with practical notes on timing and how to use the museum well.'],
+              spa: ['Use TAEC to understand Laos’s ethnic communities through textiles, objects and careful cultural interpretation.', ['Ethnology', 'Textiles', 'Small museum'], 'Walk from the main heritage streets', '1–2 hours', 'paid', 'Daytime'],
+              sources: [['Traditional Arts and Ethnology Centre', 'https://www.taeclaos.org/', 'first-party-museum-context'], ['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'destination-context']]
+            },
+            'thing-ock-pop-tok-living-crafts-centre': {
+              aliases: ['ock pop tok living crafts centre', 'ock pop tok living crafts center', 'ock pop tok'],
+              queries: ['"Ock Pop Tok" "Luang Prabang"', '"Living Crafts Centre" "Luang Prabang"'],
+              must: ['ock pop tok', 'living crafts'],
+              hero: {
+                eyebrow: 'CRAFT NOTE · MEKONG WORKSHOP',
+                aliases: ['Ock Pop Tok Living Crafts Centre', 'Living Crafts Centre'],
+                description: 'See weaving and natural-dye work in a living craft setting beside the Mekong, where the useful part is understanding process and makers rather than treating textiles as anonymous souvenirs.',
+                steps: ['Start with the free craft context', 'Watch weaving without crowding makers', 'Ask how dyes and fibres are prepared', 'Book a class only if you want hands-on time'],
+                rhythmNote: 'You do not need to buy anything for the visit to work. Use the centre to understand labour, technique and provenance before deciding whether a textile is worth taking home.',
+                photoNote: 'Mekong-side craft centre south of town'
+              },
+              quickRead: { time: ['1–2 HOURS', 'longer with a workshop'], route: ['SHORT RIDE SOUTH', 'Mekong-side setting'], budget: ['FREE TO VISIT', 'classes and purchases cost extra'], bestFor: ['WEAVING & NATURAL DYE', 'process · makers · ethical craft'] },
+              practical: [
+                ['Visit format', 'Free visit · paid workshops optional', 'You can learn from the centre without booking a class. Check current workshop schedules if hands-on weaving or dyeing is the priority.'],
+                ['Time needed', '1–2 hours without a class', 'Allow much longer for a workshop.'],
+                ['Buying', 'Ask about provenance', 'Use the centre’s maker and production information to understand what you are paying for.'],
+                ['Transport', 'Short ride from the heritage centre', 'It sits outside the most walkable core, so bike, tuk-tuk or another short ride is usually more practical.']
+              ],
+              chapters: [
+                ['THE PROCESS', 'The loom is only one part of the textile', 'A good visit follows the material backwards: fibre preparation, natural dyes, pattern planning and weaving all shape the final cloth. Watching only the loom can make the work look deceptively simple; asking about preparation reveals how much labour sits behind one finished piece.'],
+                ['THE PURCHASE', 'Provenance is more useful than bargaining', 'If you buy, ask who made the textile, what fibre and dye were used and whether the piece was produced locally. The point is not that every expensive textile is automatically ethical, but that traceable production gives you a better basis for judging value than appearance alone.']
+              ],
+              faq: [
+                ['Do you have to book a workshop to visit Ock Pop Tok?', 'No. The Living Crafts Centre can be visited without taking a class; workshops are optional and should be booked or checked separately.'],
+                ['How long should you allow?', 'One to two hours works for a normal visit. Hands-on workshops require a larger block of time.'],
+                ['Is it mainly a shop?', 'No. The strongest reason to visit is seeing and understanding textile production; shopping is optional.'],
+                ['Is it walkable from the old town?', 'It is south of the main heritage core. A short ride is usually more practical than walking in the heat.']
+              ],
+              seo: ['Ock Pop Tok Living Crafts Centre Luang Prabang | Things To Do Atlas', 'Visit Ock Pop Tok’s Living Crafts Centre in Luang Prabang for weaving, natural dyes and practical context on workshops, provenance and buying textiles well.'],
+              spa: ['See weaving and natural-dye work beside the Mekong at a living craft centre focused on process, makers and textile provenance.', ['Weaving', 'Natural dye', 'Mekong craft'], 'Short ride south of central Luang Prabang', '1–2 hours', 'free', 'Daytime'],
+              sources: [['Ock Pop Tok', 'https://www.ockpoptok.com/', 'first-party-craft-centre-context'], ['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'destination-context']]
+            },
+            'thing-ban-xang-khong-weaving-village': {
+              aliases: ['ban xang khong', 'xang khong village', 'xieng khong weaving village'],
+              queries: ['"Ban Xang Khong" weaving', '"Xang Khong" "Luang Prabang" textile', '"Ban Xang Khong" saa paper'],
+              must: ['xang khong'],
+              hero: {
+                eyebrow: 'VILLAGE NOTE · TEXTILE & SAA PAPER',
+                aliases: ['Ban Xang Khong', 'Xang Khong weaving village'],
+                description: 'Take a short ride from town for a craft-focused village stop where weaving and saa-paper making are easier to understand when you look for working processes rather than only finished products.',
+                steps: ['Go during daytime working hours', 'Look for active looms and paper work', 'Ask before photographing makers', 'Buy only when you understand what is locally made'],
+                rhythmNote: 'This is a lived-in village, not an open-air museum. Keep the visit small, ask before entering workspaces and do not assume every shop-labelled item was made on site.',
+                photoNote: 'Short ride from central Luang Prabang'
+              },
+              quickRead: { time: ['1–2 HOURS', 'short craft detour'], route: ['SHORT RIDE FROM TOWN', 'bike · tuk-tuk · scooter'], budget: ['FREE TO VISIT', 'purchases optional'], bestFor: ['LOCAL CRAFT', 'weaving · saa paper · village context'] },
+              practical: [
+                ['Timing', 'Daytime', 'Go when workshops and family businesses are likely to be active rather than late in the evening.'],
+                ['Photography', 'Ask first', 'A loom or paper workshop is also someone’s workplace or home. Ask before taking close photographs of people.'],
+                ['Buying', 'Check what is made locally', 'Ask who made an item and where. A village location alone does not guarantee every product was produced there.'],
+                ['Transport', 'Easy short ride', 'Bike, tuk-tuk or scooter are practical depending on weather and your confidence in traffic.']
+              ],
+              chapters: [
+                ['THE CRAFT', 'Look for process, not only shelves', 'The useful reason to visit Ban Xang Khong is seeing how textiles or saa paper move from raw material toward a finished object. Active looms, fibre preparation and paper drying tell you more than a shop wall full of completed scarves. Ask simple questions and let makers decide how much of their workspace they want to share.'],
+                ['THE VILLAGE', 'Do not turn homes into exhibits', 'Craft tourism works better when you remember that this is an ordinary settlement with families, traffic and private spaces. Stay on public routes unless invited in, ask before photographing people and keep buying pressure low. A respectful short visit is better than trying to extract a staged demonstration.']
+              ],
+              faq: [
+                ['How long do you need in Ban Xang Khong?', 'One to two hours is enough for a short craft-focused visit from Luang Prabang.'],
+                ['What crafts is the village associated with?', 'It is commonly associated with handwoven textiles and saa-paper making. What is active can vary by workshop and day.'],
+                ['Do you have to buy something?', 'No. Buying is optional. If you do buy, ask what was made locally and by whom.'],
+                ['Can you photograph workshops?', 'Ask first, especially when people, homes or private work areas are in the frame.']
+              ],
+              seo: ['Ban Xang Khong Weaving Village Luang Prabang | Things To Do Atlas', 'Plan a respectful visit to Ban Xang Khong near Luang Prabang for weaving and saa-paper craft, with practical notes on timing, photography and buying locally made work.'],
+              spa: ['Take a short ride from Luang Prabang for weaving and saa-paper craft in a lived-in village setting.', ['Weaving village', 'Saa paper', 'Short ride'], 'Bike, tuk-tuk or scooter from town', '1–2 hours', 'free', 'Daytime'],
+              sources: [['Luang Prabang Tourism', 'https://tourismluangprabang.gov.la/', 'official-destination-context']]
+            }
+          };
+
+          const stripHtml = (value = '') => String(value)
+            .replace(/<[^>]*>/g, ' ')
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#0?39;/g, "'")
+            .replace(/&nbsp;/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+          const normalizeText = (value = '') => stripHtml(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+          const normalizeLicense = (value = '') => {
+            const license = normalizeText(value);
+            if (license.includes('cc by sa')) return 'cc-by-sa';
+            if (license.includes('cc by')) return 'cc-by';
+            if (license.includes('cc0')) return 'cc0';
+            if (license.includes('public domain') || license === 'pd') return 'public-domain';
+            return null;
+          };
+          const cleanAuthor = (value = '') => {
+            const text = stripHtml(value);
+            if (/supanut arunoprayote/i.test(text)) return 'Supanut Arunoprayote';
+            return text.replace(/\s*\(talk\).*$/i, '').trim();
+          };
+          const matchesConfig = (page, config) => {
+            const info = page.imageinfo?.[0];
+            const haystack = normalizeText([page.title, info?.extmetadata?.ObjectName?.value, info?.extmetadata?.ImageDescription?.value, info?.extmetadata?.Categories?.value].filter(Boolean).join(' '));
+            const mustOk = !config.must?.length || config.must.some((term) => haystack.includes(normalizeText(term)));
+            const oneOfOk = !config.oneOf?.length || config.oneOf.some((term) => haystack.includes(normalizeText(term)));
+            return mustOk && oneOfOk;
+          };
+          const makeAsset = (page, thingName) => {
+            const info = page.imageinfo?.[0];
+            if (!info) return null;
+            const license = normalizeLicense(info.extmetadata?.LicenseShortName?.value);
+            if (!license) return null;
+            const width = Number(info.width ?? info.thumbwidth ?? 0);
+            const height = Number(info.height ?? info.thumbheight ?? 0);
+            if (Math.max(width, height) < 640 || Math.min(width, height) < 400) return null;
+            const author = cleanAuthor(info.extmetadata?.Artist?.value);
+            if (!author) return null;
+            return {
+              id: `commons-${page.pageid}`,
+              src: info.thumburl ?? info.url,
+              alt: stripHtml(info.extmetadata?.ImageDescription?.value || info.extmetadata?.ObjectName?.value || `${thingName} in Luang Prabang`),
+              sourceType: 'wikimedia',
+              sourceUrl: page.canonicalurl,
+              sourceName: 'Wikimedia Commons',
+              author,
+              license,
+              manual: false,
+              locked: false
+            };
+          };
+          const searchCommons = async (query, config, thingName) => {
+            const params = new URLSearchParams({
+              action: 'query', format: 'json', formatversion: '2', generator: 'search',
+              gsrnamespace: '6', gsrlimit: '24', gsrsearch: query,
+              prop: 'info|imageinfo', inprop: 'url', iiprop: 'url|size|extmetadata', iiurlwidth: '1920'
+            });
+            const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`, { headers: { 'User-Agent': 'ThingsToDoAtlas/2.0 Luang-Prabang activity media completion' } });
+            if (!response.ok) return [];
+            const payload = await response.json();
+            return (payload.query?.pages ?? []).filter((page) => matchesConfig(page, config)).map((page) => makeAsset(page, thingName)).filter(Boolean);
+          };
+
+          const mediaReport = [];
+          for (const [thingId, config] of Object.entries(configs)) {
+            const thing = draft.things.find((entry) => entry.id === thingId);
+            if (!thing) throw new Error(`Missing Luang Prabang activity: ${thingId}`);
+            if (thing.media?.card?.image?.locked) {
+              mediaReport.push(`${thingId}: preserved locked media`);
+            } else {
+              const found = [];
+              const seen = new Set();
+              for (const query of config.queries) {
+                for (const asset of await searchCommons(query, config, thing.name)) {
+                  if (!seen.has(asset.sourceUrl)) { seen.add(asset.sourceUrl); found.push(asset); }
+                }
+                if (found.length >= 3) break;
+              }
+              const selected = found.slice(0, 3);
+              thing.media ??= {};
+              thing.media.card ??= {};
+              thing.media.fieldCard ??= { gallery: [] };
+              if (selected.length) {
+                thing.media.card.image = selected[0];
+                thing.media.fieldCard.gallery = selected;
+                thing.spaCard.photoStatus = 'verified';
+                thing.spaCard.photoRequiresManualFill = false;
+              } else {
+                delete thing.media.card.image;
+                thing.media.fieldCard.gallery = [];
+                thing.spaCard.photoStatus = 'missing';
+                thing.spaCard.photoRequiresManualFill = true;
+              }
+              mediaReport.push(`${thingId}: ${selected.length} verified Commons image(s)`);
+            }
+
+            const q = config.quickRead;
+            const spa = config.spa;
+            const selectedMedia = thing.media?.fieldCard?.gallery ?? [];
+            editorial[thingId] = {
+              ...(editorial[thingId] ?? {}),
+              faq: config.faq.map(([question, answer]) => ({ question, answer })),
+              hero: config.hero,
+              media: selectedMedia.map((asset) => ({ ...asset, manual: true, locked: true })),
+              practical: { items: config.practical.map(([label, value, detail]) => ({ label, value, detail })) },
+              primaryStory: {
+                chapters: config.chapters.map(([label, title, body]) => ({ label, title, body })),
+                note: { label: 'FIELD NOTE', text: config.hero.rhythmNote }
+              },
+              quickRead: {
+                time: { primary: q.time[0], secondary: q.time[1] },
+                route: { primary: q.route[0], secondary: q.route[1] },
+                budget: { primary: q.budget[0], secondary: q.budget[1] },
+                bestFor: { primary: q.bestFor[0], secondary: q.bestFor[1] }
+              },
+              secondaryStory: null,
+              seo: {
+                title: config.seo[0], description: config.seo[1],
+                ...(selectedMedia[0]?.src ? { image: selectedMedia[0].src } : {})
+              },
+              sources: config.sources.map(([sourceName, sourceUrl, purpose]) => ({ sourceName, sourceUrl, purpose })),
+              spa: {
+                description: spa[0], handwrittenTags: spa[1], gettingThere: spa[2], duration: spa[3], costType: spa[4], bestTime: spa[5]
+              }
+            };
+          }
+
+          fs.writeFileSync(sourceFile, `${JSON.stringify(draft, null, 2)}\n`);
+          fs.writeFileSync(generatedFile, tsModule(draft));
+          fs.writeFileSync(editorialFile, `${JSON.stringify(editorial, null, 2)}\n`);
+          fs.writeFileSync('luang-prabang-activity-completion.log', `${mediaReport.join('\n')}\n`);
+          console.log(mediaReport.join('\n'));
+          NODE
+
+      - name: Validate Luang Prabang completion
+        run: |
+          npm run validate-content
+          npm run validate:field-cards:all
+          npm run test:spa-card-media
+          npm run test:field-card-hero
+          npm run test:field-card-quick-read
+          npm run test:field-card-story-block
+          npm run test:field-card-practical
+          npm run test:field-card-faq
+          npm run check
+
+      - name: Commit verified Luang Prabang completion
+        shell: bash
+        run: |
+          rm .github/workflows/luang-prabang-activity-completion-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pipeline/cities/laos/luang-prabang.json src/content/generated/laos/luang-prabang.ts src/content/field-card-editorial.json luang-prabang-activity-completion.log .github/workflows/luang-prabang-activity-completion-once.yml
+          git commit -m "Complete Luang Prabang activity media and Field Cards"
+          git push origin HEAD:master
