@@ -1,0 +1,23 @@
+---
+import type { Country } from '../../core/models/types';
+import { countryFieldNoteCity } from '../../engines/country-field-note/country-field-note-engine';
+import CityFieldNote from '../city-field-note/CityFieldNote.astro';
+
+interface Props { country: Country; }
+const { country } = Astro.props;
+const fieldNoteCity = countryFieldNoteCity(country);
+---
+
+<div class="country-field-note-shell">
+  <CityFieldNote city={fieldNoteCity} {country} />
+</div>
+
+<style>
+  .country-field-note-shell :global(.city-note__read > span),
+  .country-field-note-shell :global(.city-note__stamp > span) { font-size:0; }
+  .country-field-note-shell :global(.city-note__read > span)::after { content:'READ THE COUNTRY'; font-size:.62rem; }
+  .country-field-note-shell :global(.city-note__stamp > span)::after { content:'COUNTRY FIELD NOTE'; font-size:.58rem; }
+  .country-field-note-shell :global(.city-note__method-copy) { display:none; }
+  .country-field-note-shell :global(.city-note__source-grid section:first-child) { display:none; }
+  .country-field-note-shell :global(.city-note__source-grid) { grid-template-columns:1fr; }
+</style>
