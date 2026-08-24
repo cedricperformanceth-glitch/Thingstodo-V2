@@ -1,0 +1,294 @@
+{
+  "id": "city-laos-vang-vieng",
+  "copy": {
+    "typeLabel": "City field note",
+    "title": "Vang Vieng",
+    "contextLine": "Nam Song · Limestone karst · Vientiane Province",
+    "subtitle": "A compact river town whose real scale begins outside the centre, where caves, viewpoints, lagoons and rural roads spread through the limestone.",
+    "intro": "Vang Vieng works best when the town and the landscape are treated as two different layers. The centre is small, practical and easy to cross; the reason to stay is the wider basin around the Nam Song, where limestone walls, caves, viewpoints, water and village roads turn each direction into a separate outdoor day. The useful question is not how many attractions fit into one loop, but which landscape deserves the conditions you have today.",
+    "quickRead": [
+      {
+        "label": "Chapters",
+        "value": "7 city notes",
+        "detail": "Orientation, river rhythm, movement, where to stay, conditions and how to build the outdoor days."
+      },
+      {
+        "label": "Use it for",
+        "value": "Separating the town from the landscape",
+        "detail": "Use the centre as the base, then give each major karst, cave or river direction enough time."
+      },
+      {
+        "label": "Scope",
+        "value": "Nam Song · caves · viewpoints · rural roads",
+        "detail": "The town is compact; the strongest experiences spread across the wider limestone basin."
+      },
+      {
+        "label": "Edition",
+        "value": "Researched · August 2026",
+        "detail": "Checked against Tourism Laos, current provincial tourism reporting and Laos–China Railway context."
+      }
+    ],
+    "chapters": [
+      {
+        "id": "orientation",
+        "eyebrow": "01 · READ THE PLACE",
+        "title": "Vang Vieng is a small town inside a much larger limestone landscape",
+        "paragraphs": [
+          "Vang Vieng sits in Vientiane Province on the Nam Song, with steep limestone formations rising immediately around the town. National tourism material describes the district through exactly that relationship: river in the middle, karst on both sides, and a network of caves and outdoor sites at the base of the mountains.",
+          "That geography matters more than the street grid. The centre provides rooms, food, rentals and departures, but the memorable parts of the stay usually begin once you cross the river or leave the built-up area. Read Vang Vieng as a service base surrounded by several outdoor directions rather than as a city centre filled with sights."
+        ],
+        "facts": [
+          {
+            "label": "Province",
+            "value": "Vientiane Province · separate from Vientiane Capital"
+          },
+          {
+            "label": "River",
+            "value": "Nam Song"
+          },
+          {
+            "label": "Landscape",
+            "value": "Limestone karst, caves, rural fields and water"
+          },
+          {
+            "label": "Planning scale",
+            "value": "Compact town · wide outdoor radius"
+          }
+        ],
+        "note": {
+          "label": "Atlas note",
+          "text": "The centre is where you organise the day. The landscape outside town is the day."
+        }
+      },
+      {
+        "id": "rhythm",
+        "eyebrow": "02 · FIND THE RHYTHM",
+        "title": "Build the day around one strong outdoor direction, not a chain of pins",
+        "paragraphs": [
+          "Viewpoints, caves, lagoons and river activities use different parts of the day well. A climb makes more sense before the strongest heat; caves and water can absorb the middle of the day; the Nam Song becomes the natural return line toward evening. Trying to force all three into one itinerary usually turns rural movement into the main activity.",
+          "Vang Vieng also changes quickly between weekday calm, busy weekends and seasonal peaks. The town can feel social and active without requiring every night to become part of the plan. Keep enough margin that weather, river level or a slower road can decide the second half of the day."
+        ],
+        "facts": [
+          {
+            "label": "Morning",
+            "value": "Best protected for viewpoints, hikes and exposed outdoor routes"
+          },
+          {
+            "label": "Midday",
+            "value": "Caves, water and slower stops fit better than another exposed climb"
+          },
+          {
+            "label": "Evening",
+            "value": "Nam Song river edge and an easy return to town"
+          },
+          {
+            "label": "Planning rule",
+            "value": "One major outdoor direction at a time"
+          }
+        ],
+        "note": {
+          "label": "Field note",
+          "text": "A full day outside town is usually stronger than three half-finished adventures."
+        }
+      },
+      {
+        "id": "move",
+        "eyebrow": "03 · MOVE THROUGH IT",
+        "title": "Walk the centre; use wheels only when the limestone basin opens up",
+        "paragraphs": [
+          "Central Vang Vieng is small enough for most ordinary movements on foot. Once the day shifts toward viewpoints, caves, lagoons or rural tracks, the scale changes quickly and a bicycle, scooter, tuk-tuk or organised transfer becomes more useful depending on distance and road condition.",
+          "Arrival has changed as well. The Laos–China Railway and the Vientiane–Vang Vieng expressway have made the town much easier to reach than the older Route 13 journey suggests. Treat the railway station or road arrival as a transfer into town, then reset the scale: walking for the centre, deliberate transport for the landscape."
+        ],
+        "facts": [
+          {
+            "label": "Town centre",
+            "value": "Mostly walkable"
+          },
+          {
+            "label": "Outdoor radius",
+            "value": "Bicycle, scooter, tuk-tuk or organised transfer"
+          },
+          {
+            "label": "Rail",
+            "value": "Laos–China Railway has transformed access to Vang Vieng"
+          },
+          {
+            "label": "Road",
+            "value": "Expressway access has shortened the link with Vientiane Capital"
+          }
+        ],
+        "note": {
+          "label": "Keep close",
+          "text": "Do not judge an outdoor route by kilometres alone. Rain, surface and river crossings can matter more than distance."
+        }
+      },
+      {
+        "id": "stay",
+        "eyebrow": "04 · CHOOSE YOUR BASE",
+        "title": "Choose between easy town logistics and waking up closer to the karst",
+        "paragraphs": [
+          "Staying in the central town is the simplest first choice when food, rentals, tour departures and an easy evening matter most. It keeps the practical side of Vang Vieng close and reduces the number of small transport decisions between activities.",
+          "A base nearer the Nam Song or toward the quieter karst edge trades some convenience for landscape and space. That can work well for a slower stay, but it makes each meal, departure or station transfer slightly more deliberate. Choose the first hour of your morning and the last hour of your evening before comparing the room itself."
+        ],
+        "facts": [
+          {
+            "label": "Central town",
+            "value": "Best for services, departures and simple evenings"
+          },
+          {
+            "label": "River edge",
+            "value": "Better if the Nam Song is part of the daily rhythm"
+          },
+          {
+            "label": "Karst side",
+            "value": "More landscape, usually less immediate convenience"
+          },
+          {
+            "label": "Decision rule",
+            "value": "Choose by daily movement, not by the hotel photo"
+          }
+        ],
+        "note": {
+          "label": "City note",
+          "text": "In Vang Vieng, the accommodation location decides whether the landscape begins outside your door or after another transfer."
+        }
+      },
+      {
+        "id": "conditions",
+        "eyebrow": "05 · READ THE CONDITIONS",
+        "title": "Rain changes the routes, the river and the difficulty more than the map does",
+        "paragraphs": [
+          "Tourism Laos describes October to March as the generally drier period for outdoor travel, while the warmer, wetter months bring greener landscapes and stronger water. For Vang Vieng, that difference is practical: trails can become slick, rural roads softer, caves wetter and river activity more dependent on current conditions.",
+          "The same river can feel completely different between seasons. National tourism guidance notes that paddling conditions in Laos are strongly seasonal, with wetter months producing faster water and drier periods changing the banks and flow. Treat the weather forecast, recent rain and local advice as part of the route rather than background information."
+        ],
+        "facts": [
+          {
+            "label": "Generally drier",
+            "value": "October to March"
+          },
+          {
+            "label": "Hotter / wetter",
+            "value": "April to September"
+          },
+          {
+            "label": "Rain affects",
+            "value": "Viewpoint trails, cave surfaces, rural roads and river conditions"
+          },
+          {
+            "label": "Live check",
+            "value": "Recent rain matters more than a fixed seasonal label"
+          }
+        ],
+        "note": {
+          "label": "Living guide",
+          "text": "If a viewpoint, cave or river operator changes the plan because of conditions, that is useful information, not a ruined itinerary."
+        }
+      },
+      {
+        "id": "practical",
+        "eyebrow": "06 · PRACTICAL REALITY",
+        "title": "Outdoor safety matters more here than city logistics",
+        "paragraphs": [
+          "Vang Vieng has mature tourism services, but many of its strongest activities still take place on steep paths, inside caves, on rural roads or on moving water. Footwear, daylight and local route information matter more than they do on a conventional city sightseeing day. A viewpoint that is straightforward when dry can become a different climb after rain.",
+          "The same applies to river activities. Use the safety equipment provided, ask how the current conditions affect the route and avoid treating old tubing stories as a guide to what the river is doing now. For caves, do not assume every chamber has lighting or easy footing; for scooters, inspect the bike before using rougher rural roads."
+        ],
+        "facts": [
+          {
+            "label": "Viewpoints",
+            "value": "Protect daylight and expect steep or slippery sections"
+          },
+          {
+            "label": "Caves",
+            "value": "Lighting and footing vary by site"
+          },
+          {
+            "label": "River",
+            "value": "Use safety equipment and ask about current conditions"
+          },
+          {
+            "label": "Rental check",
+            "value": "Brakes, tyres and lights before rural roads"
+          }
+        ],
+        "note": {
+          "label": "Practical",
+          "text": "The tourism infrastructure is easy. The terrain is still real."
+        }
+      },
+      {
+        "id": "pace",
+        "eyebrow": "07 · BUILD THE STAY",
+        "title": "Give the river, the karst and the caves room to remain different experiences",
+        "paragraphs": [
+          "A short stay works best when one day is built around a major viewpoint or karst loop and another half-day or day is reserved for the Nam Song, a cave or a water stop. That structure is more useful than trying to collect every lagoon and every hill in one circuit.",
+          "With another full day, choose a different direction or leave the schedule flexible enough for conditions to decide. Vang Vieng rewards repetition only when the landscape changes: another mountain profile, another cave system, another river section or a quieter road. Extra time should make the days less compressed, not simply lengthen the checklist."
+        ],
+        "facts": [
+          {
+            "label": "Short stay",
+            "value": "One karst direction + one river or cave chapter"
+          },
+          {
+            "label": "Balanced stay",
+            "value": "Two full outdoor days with different terrain"
+          },
+          {
+            "label": "Extra time",
+            "value": "Keep one day flexible for conditions or a quieter route"
+          },
+          {
+            "label": "Best structure",
+            "value": "Separate viewpoints, caves and river time instead of stacking them"
+          }
+        ],
+        "note": {
+          "label": "Last note",
+          "text": "Vang Vieng becomes better when the schedule starts following the landscape instead of the attraction count."
+        },
+        "photoSlot": true
+      }
+    ],
+    "closing": {
+      "eyebrow": "BACK TO VANG VIENG",
+      "title": "Now choose the direction, not the checklist",
+      "text": "Use these notes as the context layer, then open the Vang Vieng activities, food, stays, rentals and market sections to build the actual days."
+    }
+  },
+  "seo": {
+    "title": "Vang Vieng travel field guide | Things To Do Atlas",
+    "description": "A researched Vang Vieng field guide to the Nam Song, karst viewpoints, caves, seasonal conditions, movement, accommodation areas and outdoor-day planning.",
+    "indexable": true
+  },
+  "sources": [
+    {
+      "sourceName": "Tourism Laos · Vientiane Province",
+      "sourceUrl": "https://www.tourismlaos.org/central-provinces/vientiane-province/",
+      "note": "National tourism reference for Vang Vieng's Nam Song setting, limestone landscape, caves, kayaking, tubing and wider Vientiane Province context."
+    },
+    {
+      "sourceName": "Tourism Laos · Action & Adventure",
+      "sourceUrl": "https://www.tourismlaos.org/welcome/active/",
+      "note": "National tourism guidance for seasonal river conditions, kayaking, tubing, rock climbing and the way rain changes outdoor activity."
+    },
+    {
+      "sourceName": "Tourism Laos · Vang Vieng Adventure Capital of Lao PDR",
+      "sourceUrl": "https://www.tourismlaos.org/2023/08/12/vang-vieng-adventure-capital-of-lao-pdr/",
+      "note": "Tourism context for Vang Vieng as an outdoor base focused on the Nam Song, limestone scenery, caves, climbing and river activities."
+    },
+    {
+      "sourceName": "Tourism Laos · Unlocking Laos: Adventures Await in Vang Vieng",
+      "sourceUrl": "https://www.tourismlaos.org/2024/05/03/unlocking-laos-adventures-await-in-vang-vieng-luang-prabang/",
+      "note": "Current destination context for the town's evolution, Nam Song landscape and accessible cave experience."
+    },
+    {
+      "sourceName": "Tourism Laos · Vang Vieng facilities and safety improvements",
+      "sourceUrl": "https://www.tourismlaos.org/2023/09/10/vang-vieng-improves-tourist-facilities-ahead-of-visit-laos-year-2024/",
+      "note": "Reference for road, tourism-service and safety improvements across Vang Vieng's outdoor tourism infrastructure."
+    },
+    {
+      "sourceName": "Tourism Laos · Laos–China Railway tourism connectivity",
+      "sourceUrl": "https://www.tourismlaos.org/2024/02/07/laos-china-railway-boosts-daily-trips-in-preparation-of-tourism-surge/",
+      "note": "National context for the railway's role in transforming movement between major Lao destinations."
+    }
+  ]
+}
