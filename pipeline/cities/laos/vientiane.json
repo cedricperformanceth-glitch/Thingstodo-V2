@@ -1,0 +1,2501 @@
+{
+  "schemaVersion": 1,
+  "country": "laos",
+  "city": "vientiane",
+  "profile": "compact",
+  "researchPlan": {
+    "searchPriorities": {},
+    "selection": {
+      "searchArea": {
+        "scope": "settlement-first",
+        "preferredRadiusKm": 2,
+        "maxRadiusKm": 3,
+        "appliesTo": [
+          "restaurants",
+          "cafes",
+          "accommodation",
+          "scooter-rental",
+          "gyms",
+          "markets",
+          "practical-services"
+        ]
+      },
+      "sourceStrategy": {
+        "candidateDiscovery": [
+          "existing-atlas-activity-database",
+          "official-establishment-sites",
+          "government-and-official-tourism-sites",
+          "wikipedia",
+          "wikimedia-commons",
+          "wikivoyage",
+          "wikitravel",
+          "unesco-and-other-authoritative-cultural-sites",
+          "web-results",
+          "travel-platforms",
+          "social-networks",
+          "other-public-sources"
+        ],
+        "preferRepeatedMentionsAcrossIndependentSources": true,
+        "verifyCurrentExistenceBeforeSelection": true
+      },
+      "selectionPrinciples": {
+        "pricePositioning": "mostly-affordable-and-midrange",
+        "requireVariety": true,
+        "avoidUltraLuxury": true,
+        "manualEditorialAdditionsExpected": true
+      },
+      "categories": {
+        "things-to-do": {
+          "useExistingAtlasDatabaseAsPrioritySeed": true,
+          "locationScope": "destination-linked-without-fixed-radius",
+          "selectionGoal": "distinct-visitor-relevant-experiences",
+          "avoidNearDuplicates": true,
+          "automaticSubcategoryFilters": false
+        },
+        "restaurants": {
+          "venueTypes": [
+            "restaurant",
+            "bar"
+          ],
+          "barsBelongToRestaurants": true,
+          "automaticSubcategoryFilters": false
+        },
+        "cafes": {
+          "venueTypes": [
+            "cafe",
+            "coffee-shop"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "accommodation": {
+          "venueTypes": [
+            "guesthouse",
+            "hostel",
+            "small-hotel",
+            "budget-hotel"
+          ],
+          "priceUsdPerNight": {
+            "hardMinimum": null,
+            "preferredMin": 10,
+            "preferredMax": 30,
+            "hardMax": 50,
+            "upperBandMaxCount": 3
+          },
+          "automaticSubcategoryFilters": false
+        },
+        "scooter-rental": {
+          "venueTypes": [
+            "scooter-rental",
+            "motorbike-rental"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "gyms": {
+          "automaticSubcategoryFilters": false
+        },
+        "markets": {
+          "venueTypes": [
+            "market",
+            "night-market"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "practical-services": {
+          "searchTypes": [
+            "hospital",
+            "tourism-office",
+            "immigration-office"
+          ],
+          "officialOnly": [
+            "immigration-office"
+          ],
+          "exclude": [
+            "visa-agency",
+            "travel-agency"
+          ],
+          "automaticSubcategoryFilters": false
+        }
+      }
+    },
+    "verification": {
+      "discoveryBudget": {
+        "initialQueriesPerCategory": 4,
+        "maxQueriesPerCategory": 12,
+        "candidatePoolMultiplier": 1.5
+      },
+      "sourceClasses": {
+        "authoritative": [
+          "government",
+          "official-tourism",
+          "official-establishment",
+          "unesco-or-equivalent-institution"
+        ],
+        "open-reference": [
+          "wikipedia",
+          "wikivoyage",
+          "wikitravel"
+        ],
+        "open-media": [
+          "wikimedia-commons"
+        ],
+        "supporting": [
+          "travel-platform",
+          "booking-platform",
+          "map-platform",
+          "reputable-travel-editorial",
+          "local-news",
+          "first-party-social-network",
+          "public-web-result",
+          "public-user-report"
+        ]
+      },
+      "candidateIdentity": {
+        "normalizeName": true,
+        "compareCoordinatesWhenAvailable": true,
+        "compareAddressWhenAvailable": true,
+        "mergeObviousAliases": true,
+        "doNotCountSyndicatedCopiesAsIndependentMentions": true
+      },
+      "repeatedMentionRanking": {
+        "countIndependentSources": true,
+        "preferRecentMentions": true,
+        "preferAuthoritativeSources": true,
+        "existingAtlasDatabaseIsSeedNotProof": true
+      },
+      "reputationRanking": {
+        "purpose": "ranking-signal-only",
+        "sourceNeutral": true,
+        "examples": [
+          "booking-platform-rating",
+          "travel-platform-rating",
+          "map-platform-rating",
+          "local-directory-rating",
+          "other-public-rating-source"
+        ],
+        "maxIndependentSnapshotsUsedPerCandidate": 3,
+        "storeReviewText": false,
+        "storeReviewBodies": false,
+        "bulkReviewCollection": false,
+        "normalizeDifferentRatingScales": true,
+        "useReviewCountWithDiminishingWeight": true,
+        "preferRecentSnapshots": true,
+        "missingRatingsNeverRejectCandidate": true,
+        "firstPartySocialActivityIsSmallPositiveSignalOnly": true,
+        "missingSocialPresenceNeverRejectCandidate": true,
+        "editorialReviewRemainsFinalAuthority": true
+      },
+      "acceptance": {
+        "businessOrOperator": {
+          "minimumIndependentCurrentSignals": 2,
+          "requireAtLeastOneStrongSignal": true,
+          "singleWeakSourceNeverAutoAccepts": true
+        },
+        "staticLandmarkOrNaturalSite": {
+          "singleCurrentAuthoritativeSourceCanConfirmExistence": true,
+          "otherwiseMinimumIndependentSignals": 2
+        },
+        "publicExperience": {
+          "singleCurrentAuthoritativeSourceCanConfirmAvailability": true,
+          "otherwiseMinimumIndependentSignals": 2,
+          "requiresSpecificOperatorVerification": false
+        },
+        "conflictingCurrentSources": "manual-review"
+      },
+      "existenceVerification": {
+        "strongOperationalSignals": [
+          "current-official-establishment-site",
+          "recent-first-party-social-activity",
+          "current-authoritative-listing",
+          "places-api-operational-status"
+        ],
+        "permanentClosure": {
+          "officialClosureNoticeIsConclusive": true,
+          "placesApiClosedPermanentlyIsConclusive": true,
+          "independentExplicitClosureReportsThreshold": 3,
+          "closureReportMaxAgeMonths": 18,
+          "requireNoNewerOperationalSignal": true
+        },
+        "temporaryClosure": {
+          "doNotTreatAsPermanent": true,
+          "status": "needs-review"
+        },
+        "movedBusiness": {
+          "followReplacementLocationWhenVerified": true
+        },
+        "googleMapsPolicy": {
+          "noReviewScraping": true,
+          "noReviewTextCopying": true,
+          "preferPermittedPlacesApiStatusFieldsWhenAvailable": true
+        }
+      },
+      "reusePolicy": {
+        "facts": {
+          "useForResearchAndCrossCheck": true,
+          "writeAtlasCopyIndependently": true,
+          "recordProvenance": true
+        },
+        "text": {
+          "default": "do-not-copy",
+          "mayReuseOnlyWithExplicitCompatibleLicense": true,
+          "honorAttributionAndShareAlikeWhenRequired": true
+        },
+        "media": {
+          "automaticDiscoverySource": "wikimedia-commons",
+          "requirePerAssetLicenseCheck": true,
+          "allowedWhenCompliant": [
+            "public-domain",
+            "cc0",
+            "cc-by",
+            "cc-by-sa"
+          ],
+          "rejectWithoutPermission": [
+            "all-rights-reserved",
+            "unknown-license"
+          ],
+          "rejectForCommercialAtlasUse": [
+            "cc-by-nc",
+            "cc-by-nc-sa",
+            "cc-by-nc-nd"
+          ],
+          "noDerivativeAssetsCannotBeEdited": true,
+          "storeAuthorLicenseSourceAndAttribution": true
+        },
+        "domainSpecific": {
+          "wikimedia-commons": "only-automatic-photo-search-source-check-each-file-license",
+          "wikipedia": "research-and-facts-by-default-do-not-copy-prose",
+          "wikivoyage": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
+          "wikitravel": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
+          "unesco": "authoritative-research-source-but-not-an-automatic-photo-source"
+        }
+      }
+    }
+  },
+  "cityData": {
+    "id": "city-laos-vientiane",
+    "slug": "vientiane",
+    "name": "Vientiane",
+    "country": "laos",
+    "profile": "compact",
+    "settlementType": "city",
+    "coordinates": {
+      "latitude": 17.9757,
+      "longitude": 102.6331
+    },
+    "description": "Vientiane is a low-rise capital on the Mekong, best understood through its Buddhist landmarks, civic monuments and contemporary history.",
+    "categoryExtensions": [],
+    "categories": [
+      "things-to-do",
+      "restaurants",
+      "cafes",
+      "accommodation",
+      "scooter-rental",
+      "gyms",
+      "markets",
+      "practical-services"
+    ],
+    "hero": {
+      "eyebrow": "Laos",
+      "title": "Vientiane",
+      "subtitle": "A calm capital on the Mekong.",
+      "facts": []
+    },
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-pha-that-luang",
+        "thing-patuxai-monument",
+        "thing-wat-si-saket"
+      ]
+    },
+    "manualLocks": {},
+    "seo": {
+      "title": "Vientiane travel guide | Things To Do Atlas",
+      "description": "A working Vientiane destination draft.",
+      "canonicalPath": "/laos/vientiane",
+      "indexable": false
+    }
+  },
+  "places": [
+    {
+      "id": "place-kualao-restaurant",
+      "slug": "kualao-restaurant",
+      "name": "Kualao Restaurant",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Kualao Restaurant is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "commons-87343054",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Sticky_rice_at_Kualao_Restaurant.jpg/1920px-Sticky_rice_at_Kualao_Restaurant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Sticky rice at Kualao Restaurant",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sticky_rice_at_Kualao_Restaurant.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Mx. Granger",
+            "license": "cc0",
+            "manual": false,
+            "locked": false
+          }
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vientiane",
+          "Meal stop"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Kualao%20Restaurant%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kualao%20Restaurant%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-khop-chai-deu",
+      "slug": "khop-chai-deu",
+      "name": "Khop Chai Deu",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Khop Chai Deu is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "commons-124626162",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Lao_sausage_with_dip.jpg/1920px-Lao_sausage_with_dip.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Lao sausage with dip",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lao_sausage_with_dip.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Jpatokal",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vientiane",
+          "Meal stop"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Khop%20Chai%20Deu%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khop%20Chai%20Deu%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-lao-kitchen",
+      "slug": "lao-kitchen",
+      "name": "Lao Kitchen",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Lao Kitchen is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vientiane",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Lao%20Kitchen%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Lao%20Kitchen%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-pimenton",
+      "slug": "pimenton",
+      "name": "Pimenton",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Pimenton is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {
+          "image": {
+            "id": "commons-28189551",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Piment%C3%B3n_Tap_de_Cort%C3%AD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+            "alt": "Pimentón Tap de Cortí",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piment%C3%B3n_Tap_de_Cort%C3%AD.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Marcosgarrido88",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vientiane",
+          "Meal stop"
+        ],
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Pimenton%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pimenton%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-joma-bakery-cafe",
+      "slug": "joma-bakery-cafe",
+      "name": "Joma Bakery Cafe",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Joma Bakery Cafe is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vientiane",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-mekong-riverside-restaurant",
+      "slug": "mekong-riverside-restaurant",
+      "name": "Mekong Riverside Restaurant",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Mekong Riverside Restaurant is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vientiane",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Riverside%20Restaurant%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Riverside%20Restaurant%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-saffron-coffee",
+      "slug": "saffron-coffee",
+      "name": "Saffron Coffee",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Saffron Coffee is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-joma-bakery-cafe-vientiane",
+      "slug": "joma-bakery-cafe-vientiane",
+      "name": "Joma Bakery Cafe Vientiane",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Joma Bakery Cafe Vientiane is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-common-grounds-cafe",
+      "slug": "common-grounds-cafe",
+      "name": "Common Grounds Cafe",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Common Grounds Cafe is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Common%20Grounds%20Cafe%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Common%20Grounds%20Cafe%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-noy-coffee",
+      "slug": "noy-coffee",
+      "name": "Noy Coffee",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Noy Coffee is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Noy%20Coffee%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Noy%20Coffee%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-sinouk-coffee",
+      "slug": "sinouk-coffee",
+      "name": "Sinouk Coffee",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Sinouk Coffee is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Sinouk%20Coffee%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sinouk%20Coffee%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-the-corner-cafe",
+      "slug": "the-corner-cafe",
+      "name": "The Corner Cafe",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "The Corner Cafe is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=The%20Corner%20Cafe%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Corner%20Cafe%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-naked-espresso",
+      "slug": "naked-espresso",
+      "name": "Naked Espresso",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Naked Espresso is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Naked%20Espresso%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Naked%20Espresso%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-le-trio-coffee",
+      "slug": "le-trio-coffee",
+      "name": "Le Trio Coffee",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Le Trio Coffee is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Trio%20Coffee%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Trio%20Coffee%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-dd-coffee",
+      "slug": "dd-coffee",
+      "name": "DD Coffee",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "DD Coffee is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=DD%20Coffee%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DD%20Coffee%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-cafe-vanille",
+      "slug": "cafe-vanille",
+      "name": "Café Vanille",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Café Vanille is a current Vientiane cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vientiane",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Vanille%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Vanille%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-sailomyen-hostel",
+      "slug": "sailomyen-hostel",
+      "name": "Sailomyen Hostel",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Sailomyen Hostel is a current Vientiane accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vientiane",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Sailomyen%20Hostel%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sailomyen%20Hostel%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-barn1920s-hostel",
+      "slug": "barn1920s-hostel",
+      "name": "Barn1920s Hostel",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Barn1920s Hostel is a current Vientiane accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vientiane",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Barn1920s%20Hostel%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Barn1920s%20Hostel%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-dream-home-hostel",
+      "slug": "dream-home-hostel",
+      "name": "Dream Home Hostel",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Dream Home Hostel is a current Vientiane accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vientiane",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Dream%20Home%20Hostel%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dream%20Home%20Hostel%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-family-boutique-hotel",
+      "slug": "family-boutique-hotel",
+      "name": "Family Boutique Hotel",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Family Boutique Hotel is a current Vientiane accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vientiane",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Family%20Boutique%20Hotel%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Family%20Boutique%20Hotel%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-s2-modern-boutique-hotel",
+      "slug": "s2-modern-boutique-hotel",
+      "name": "S2 Modern Boutique Hotel",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "S2 Modern Boutique Hotel is a current Vientiane accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vientiane",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=S2%20Modern%20Boutique%20Hotel%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=S2%20Modern%20Boutique%20Hotel%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-vientiane-garden-hostel",
+      "slug": "vientiane-garden-hostel",
+      "name": "Vientiane Garden Hostel",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Vientiane Garden Hostel is a current Vientiane accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vientiane",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Garden%20Hostel%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Garden%20Hostel%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-vientiane-motorbike-rental",
+      "slug": "vientiane-motorbike-rental",
+      "name": "Vientiane Motorbike Rental",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "scooter-rental",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Vientiane Motorbike Rental is a current Vientiane scooter-rental address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Motorbike rental",
+          "Vientiane",
+          "Confirm terms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Motorbike%20Rental%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Motorbike%20Rental%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-pvo-motorbike-rental",
+      "slug": "pvo-motorbike-rental",
+      "name": "PVO Motorbike Rental",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "scooter-rental",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "PVO Motorbike Rental is a current Vientiane scooter-rental address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Motorbike rental",
+          "Vientiane",
+          "Confirm terms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=PVO%20Motorbike%20Rental%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=PVO%20Motorbike%20Rental%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-lao-rental-car-and-motorbike",
+      "slug": "lao-rental-car-and-motorbike",
+      "name": "Lao Rental Car and Motorbike",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "scooter-rental",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Lao Rental Car and Motorbike is a current Vientiane scooter-rental address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Motorbike rental",
+          "Vientiane",
+          "Confirm terms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Lao%20Rental%20Car%20and%20Motorbike%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Lao%20Rental%20Car%20and%20Motorbike%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-sengdara-fitness",
+      "slug": "sengdara-fitness",
+      "name": "Sengdara Fitness",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "gyms",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Sengdara Fitness is a current Vientiane gyms address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Gym",
+          "Vientiane",
+          "Fitness"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Sengdara%20Fitness%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sengdara%20Fitness%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-vientiane-fitness-center",
+      "slug": "vientiane-fitness-center",
+      "name": "Vientiane Fitness Center",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "gyms",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Vientiane Fitness Center is a current Vientiane gyms address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Gym",
+          "Vientiane",
+          "Fitness"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Fitness%20Center%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Fitness%20Center%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-gold-star-gym",
+      "slug": "gold-star-gym",
+      "name": "Gold Star Gym",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "gyms",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Gold Star Gym is a current Vientiane gyms address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Gym",
+          "Vientiane",
+          "Fitness"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Gold%20Star%20Gym%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gold%20Star%20Gym%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-talat-sao",
+      "slug": "talat-sao",
+      "name": "Talat Sao",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "markets",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Talat Sao is a current Vientiane markets address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Market",
+          "Vientiane",
+          "Local stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Talat%20Sao%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Talat%20Sao%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-vientiane-night-market",
+      "slug": "vientiane-night-market",
+      "name": "Vientiane Night Market",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "markets",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Vientiane Night Market is a current Vientiane markets address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Market",
+          "Vientiane",
+          "Local stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Night%20Market%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vientiane%20Night%20Market%20Vientiane%20Laos"
+    },
+    {
+      "id": "place-khouadin-market",
+      "slug": "khouadin-market",
+      "name": "Khouadin Market",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "markets",
+      "coordinates": {
+        "latitude": 17.9757,
+        "longitude": 102.6331
+      },
+      "shortDescription": "Khouadin Market is a current Vientiane markets address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Market",
+          "Vientiane",
+          "Local stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current public identity and location were cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas Vientiane research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Khouadin%20Market%20Vientiane%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vientiane, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Khouadin%20Market%20Vientiane%20Laos"
+    }
+  ],
+  "things": [
+    {
+      "id": "thing-pha-that-luang",
+      "slug": "pha-that-luang",
+      "name": "Pha That Luang",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.6331,
+        "latitude": 17.9757
+      },
+      "shortDescription": "Pha That Luang is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pha%20That%20Luang%20Vientiane%20Laos",
+      "isLandmark": true,
+      "longDescription": "Pha That Luang is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "kicker": "VIENTIANE · LANDMARK",
+        "duration": "1–2 hours",
+        "route": "Central Vientiane"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-patuxai-monument",
+      "slug": "patuxai-monument",
+      "name": "Patuxai Monument",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.6184,
+        "latitude": 17.9704
+      },
+      "shortDescription": "Patuxai Monument is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Patuxai%20Monument%20Vientiane%20Laos",
+      "isLandmark": true,
+      "longDescription": "Patuxai Monument is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "kicker": "VIENTIANE · LANDMARK",
+        "duration": "1–2 hours",
+        "route": "Central Vientiane"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-wat-si-saket",
+      "slug": "wat-si-saket",
+      "name": "Wat Si Saket",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.6098,
+        "latitude": 17.961
+      },
+      "shortDescription": "Wat Si Saket is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat%20Si%20Saket%20Vientiane%20Laos",
+      "isLandmark": true,
+      "longDescription": "Wat Si Saket is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "kicker": "VIENTIANE · LANDMARK",
+        "duration": "1–2 hours",
+        "route": "Central Vientiane"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-haw-phra-kaew",
+      "slug": "haw-phra-kaew",
+      "name": "Haw Phra Kaew",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.6109,
+        "latitude": 17.9602
+      },
+      "shortDescription": "Haw Phra Kaew is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Haw%20Phra%20Kaew%20Vientiane%20Laos",
+      "isLandmark": false,
+      "longDescription": "Haw Phra Kaew is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-cope-visitor-centre",
+      "slug": "cope-visitor-centre",
+      "name": "COPE Visitor Centre",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.6107,
+        "latitude": 17.9534
+      },
+      "shortDescription": "COPE Visitor Centre is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=COPE%20Visitor%20Centre%20Vientiane%20Laos",
+      "isLandmark": false,
+      "longDescription": "COPE Visitor Centre is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-buddha-park",
+      "slug": "buddha-park",
+      "name": "Buddha Park",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.7754,
+        "latitude": 17.9053
+      },
+      "shortDescription": "Buddha Park is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Buddha%20Park%20Vientiane%20Laos",
+      "isLandmark": false,
+      "longDescription": "Buddha Park is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-wat-si-muang",
+      "slug": "wat-si-muang",
+      "name": "Wat Si Muang",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.62,
+        "latitude": 17.9589
+      },
+      "shortDescription": "Wat Si Muang is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat%20Si%20Muang%20Vientiane%20Laos",
+      "isLandmark": false,
+      "longDescription": "Wat Si Muang is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-talat-sao-morning-market",
+      "slug": "talat-sao-morning-market",
+      "name": "Talat Sao Morning Market",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.6147,
+        "latitude": 17.9647
+      },
+      "shortDescription": "Talat Sao Morning Market is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Talat%20Sao%20Morning%20Market%20Vientiane%20Laos",
+      "isLandmark": false,
+      "longDescription": "Talat Sao Morning Market is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-chao-anouvong-park",
+      "slug": "chao-anouvong-park",
+      "name": "Chao Anouvong Park",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.6004,
+        "latitude": 17.9606
+      },
+      "shortDescription": "Chao Anouvong Park is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Chao%20Anouvong%20Park%20Vientiane%20Laos",
+      "isLandmark": false,
+      "longDescription": "Chao Anouvong Park is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-mekong-riverside-walk",
+      "slug": "mekong-riverside-walk",
+      "name": "Mekong Riverside Walk",
+      "country": "laos",
+      "city": "vientiane",
+      "category": "things-to-do",
+      "coordinates": {
+        "longitude": 102.5987,
+        "latitude": 17.9591
+      },
+      "shortDescription": "Mekong Riverside Walk is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "photoRequiresManualFill": true,
+        "duration": "1–2 hours",
+        "handwrittenTags": [
+          "Vientiane",
+          "Landmark",
+          "Laos"
+        ],
+        "photoStatus": "missing",
+        "bestTime": "Morning",
+        "gettingThere": "Central Vientiane or short transfer",
+        "costType": "free"
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism and institutional reference coverage identify this Vientiane activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Riverside%20Walk%20Vientiane%20Laos",
+      "isLandmark": false,
+      "longDescription": "Mekong Riverside Walk is a distinct Vientiane landmark or cultural stop selected for a first Atlas visit.",
+      "breadcrumbs": [
+        "laos",
+        "vientiane",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    }
+  ]
+}
