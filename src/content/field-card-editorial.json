@@ -6940,14 +6940,12 @@
     },
     "media": [
       {
-        "id": "tham-chang-elephant-cave-adriaan-castermans",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/02%20Tham%20Pha%20Bahn%20Tham%20cave%20-%20panoramio.jpg?width=1600",
-        "alt": "Tham Pha Ban Tham, the Elephant Cave (Tham Xang) near Thakhek in Khammouane Province, Laos",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:02_Tham_Pha_Bahn_Tham_cave_-_panoramio.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Adriaan Castermans",
-        "license": "See Wikimedia Commons file page",
+        "id": "tham-chang-elephant-cave-photo-1",
+        "src": "/assets/cities/laos/thakhek/things-to-do/tham-chang-elephant-cave/tham-chang-elephant-cave-photo-1.webp",
+        "alt": "Decorated entrance to Tham Chang, the Elephant Cave, near Thakhek",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
         "manual": true,
         "locked": true
       }
@@ -7119,14 +7117,22 @@
     },
     "media": [
       {
-        "id": "tham-pha-buddha-cave-nomad-tales",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Buddha%20cave%2C%20Laos.jpg?width=1500",
-        "alt": "Rock shelter below the Buddha Cave near Thakhek, Laos",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Buddha_cave,_Laos.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Nomad Tales",
-        "license": "CC BY-SA 2.0",
+        "id": "tham-pha-buddha-cave-photo-1",
+        "src": "/assets/cities/laos/thakhek/things-to-do/tham-pha-buddha-cave/tham-pha-buddha-cave-photo-1.webp",
+        "alt": "Illuminated stalactite chamber at Tham Pha Buddha Cave near Thakhek",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
+        "manual": true,
+        "locked": true
+      },
+      {
+        "id": "tham-pha-buddha-cave-photo-2",
+        "src": "/assets/cities/laos/thakhek/things-to-do/tham-pha-buddha-cave/tham-pha-buddha-cave-photo-2.webp",
+        "alt": "Illustrated view of the limestone pool and cave entrance at Tham Pha Buddha Cave",
+        "sourceType": "manual",
+        "sourceName": "User-supplied illustration",
+        "license": "User-supplied",
         "manual": true,
         "locked": true
       }
@@ -7314,14 +7320,22 @@
     },
     "media": [
       {
-        "id": "tham-xiang-liap-adrian-castermans",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/05%20Tham%20Xieng%20Liap%20-%20panoramio.jpg?width=1600",
-        "alt": "Tham Xieng Liap cave near Thakhek in Khammouane Province, Laos",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:05_Tham_Xieng_Liap_-_panoramio.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Adriaan Castermans",
-        "license": "CC BY-SA 3.0",
+        "id": "tham-xiang-liap-cave-photo-1",
+        "src": "/assets/cities/laos/thakhek/things-to-do/tham-xiang-liap-cave/tham-xiang-liap-cave-photo-1.webp",
+        "alt": "Boat at the river entrance of Tham Xiang Liap Cave near Thakhek",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
+        "manual": true,
+        "locked": true
+      },
+      {
+        "id": "tham-xiang-liap-cave-photo-2",
+        "src": "/assets/cities/laos/thakhek/things-to-do/tham-xiang-liap-cave/tham-xiang-liap-cave-photo-2.webp",
+        "alt": "Illustrated view of the limestone entrance and bridge at Tham Xiang Liap Cave",
+        "sourceType": "manual",
+        "sourceName": "User-supplied illustration",
+        "license": "User-supplied",
         "manual": true,
         "locked": true
       }
