@@ -32,6 +32,16 @@ import uxoLaoVisitorCentreEditorial from './field-card-editorial-luang-prabang/t
 import traditionalArtsEthnologyCentreEditorial from './field-card-editorial-luang-prabang/thing-traditional-arts-ethnology-centre.json';
 import ockPopTokLivingCraftsCentreEditorial from './field-card-editorial-luang-prabang/thing-ock-pop-tok-living-crafts-centre.json';
 import banXangKhongWeavingVillageEditorial from './field-card-editorial-luang-prabang/thing-ban-xang-khong-weaving-village.json';
+import phaThatLuangEditorial from './field-card-editorial-vientiane/thing-pha-that-luang.json';
+import patuxaiMonumentEditorial from './field-card-editorial-vientiane/thing-patuxai-monument.json';
+import watSiSaketEditorial from './field-card-editorial-vientiane/thing-wat-si-saket.json';
+import hawPhraKaewEditorial from './field-card-editorial-vientiane/thing-haw-phra-kaew.json';
+import copeVisitorCentreEditorial from './field-card-editorial-vientiane/thing-cope-visitor-centre.json';
+import buddhaParkEditorial from './field-card-editorial-vientiane/thing-buddha-park.json';
+import watSiMuangEditorial from './field-card-editorial-vientiane/thing-wat-si-muang.json';
+import talatSaoMorningMarketEditorial from './field-card-editorial-vientiane/thing-talat-sao-morning-market.json';
+import chaoAnouvongParkEditorial from './field-card-editorial-vientiane/thing-chao-anouvong-park.json';
+import mekongRiversideWalkEditorial from './field-card-editorial-vientiane/thing-mekong-riverside-walk.json';
 import luangPrabangMediaData from './field-card-media-luang-prabang.json';
 import vangViengMediaData from './field-card-media-vang-vieng.json';
 import vientianeMediaData from './field-card-media-vientiane.json';
@@ -97,9 +107,27 @@ const vangViengMedia = vangViengMediaData as unknown as Record<string, MediaReco
 const vangViengEditorial = Object.fromEntries(
   Object.entries(vangViengMedia).map(([id, media]) => [id, { media }]),
 ) as Record<string, FieldCardEditorialEntry>;
+const vientianeBase = {
+  ...phaThatLuangEditorial,
+  ...patuxaiMonumentEditorial,
+  ...watSiSaketEditorial,
+  ...hawPhraKaewEditorial,
+  ...copeVisitorCentreEditorial,
+  ...buddhaParkEditorial,
+  ...watSiMuangEditorial,
+  ...talatSaoMorningMarketEditorial,
+  ...chaoAnouvongParkEditorial,
+  ...mekongRiversideWalkEditorial,
+} as unknown as Record<string, FieldCardEditorialEntry>;
 const vientianeMedia = vientianeMediaData as unknown as Record<string, MediaRecord[]>;
 const vientianeEditorial = Object.fromEntries(
-  Object.entries(vientianeMedia).map(([id, media]) => [id, { media }]),
+  Object.entries(vientianeBase).map(([id, entry]) => {
+    const media = vientianeMedia[id];
+    return [id, {
+      ...entry,
+      ...(media?.length ? { media, seo: { ...entry.seo, image: media[0].src } } : {}),
+    }];
+  }),
 ) as Record<string, FieldCardEditorialEntry>;
 
 export const fieldCardEditorial: Record<string, FieldCardEditorialEntry> = {
