@@ -29,9 +29,9 @@ export const cityHeroEditorial: Readonly<Record<string, CityHeroEditorialEntry>>
     copy: {
       drawingCaption: 'Temple roofs · river mornings · northern roads',
       messageLines: [
-        'A quiet old royal capital where temple roofs meet the Mekong and Nam Khan.',
-        'Use the old town as a walking base, then continue toward waterfalls, river roads',
-        'and the northern railway connections beyond the peninsula.',
+        'Temple roofs and old houses sit between two rivers.',
+        'Walk the heritage centre, then head to waterfalls,',
+        'Mekong villages and the northern railway.',
       ],
     },
     facts: ['August 2026', 'UNESCO old town', 'Tropical monsoon', 'Luang Prabang Province'],
