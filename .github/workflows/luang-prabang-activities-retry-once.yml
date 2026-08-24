@@ -1,0 +1,70 @@
+name: Retry Luang Prabang completion once
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/luang-prabang-activities-retry-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  complete:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout latest master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Reuse reviewed Luang Prabang completion script
+        shell: bash
+        run: |
+          awk '
+            /node --input-type=module <<'\''NODE'\''/ { capture=1; next }
+            capture && /^          NODE$/ { capture=0; exit }
+            capture { sub(/^          /, ""); print }
+          ' .github/workflows/luang-prabang-activities-once.yml > .tmp-luang-prabang-complete.mjs
+          test -s .tmp-luang-prabang-complete.mjs
+          node .tmp-luang-prabang-complete.mjs
+          rm .tmp-luang-prabang-complete.mjs
+
+      - name: Validate completed Luang Prabang content
+        shell: bash
+        run: |
+          npm run validate-content
+          npm run test:spa-card-media
+          npm run test:photo-discovery
+          npm run test:field-card-hero
+          npm run test:field-card-quick-read
+          npm run test:field-card-story-block
+          npm run test:field-card-secondary-story
+          npm run test:field-card-practical
+          npm run test:field-card-faq
+          npm run check
+          npm run build
+
+      - name: Commit, rebase and push verified completion
+        shell: bash
+        run: |
+          rm .github/workflows/luang-prabang-activities-once.yml
+          rm .github/workflows/luang-prabang-activities-retry-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Complete Luang Prabang activity media and Field Cards"
+          git pull --rebase origin master
+          git push origin HEAD:master
