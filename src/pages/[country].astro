@@ -105,6 +105,7 @@ const laosMapLabels = [
     --laos-blue: #7395D2;
     --laos-blue-deep: #5f7fb9;
     --laos-blue-glow: #9db8e7;
+    --laos-red: #7d2730;
     --laos-label-erase: #214739;
     --chalk-ivory: #EEE4CF;
     --chalk-muted: #d7ccb5;
@@ -143,7 +144,7 @@ const laosMapLabels = [
   }
   .laos-board__heading h1 { margin: 0; font: 500 clamp(2.9rem, 4.7cqw, 5.2rem) / .86 var(--handwritten); letter-spacing: -.055em; white-space: nowrap; opacity: 0; clip-path: inset(0 100% 0 0); animation: chalk-write .95s cubic-bezier(.2,.75,.22,1) .08s forwards; }
   .laos-board__underline { display: block; width: min(15.5rem, 100%); height: auto; margin: .45rem 0 0 .15rem; overflow: visible; }
-  .laos-board__underline path { fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .82; animation: chalk-underline .8s ease-out .48s forwards; }
+  .laos-board__underline path { fill: none; stroke: var(--laos-red); stroke-width: 1.45; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .88; animation: chalk-underline .8s ease-out .48s forwards; }
 
   .laos-board__cities {
     position: absolute;
