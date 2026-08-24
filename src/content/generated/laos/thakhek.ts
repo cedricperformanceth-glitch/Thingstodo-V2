@@ -72,7 +72,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Soukjai Cafe remains a current public café listing in central Thakhek; its exact branding should be checked editorially if the business identity changes.",
+      "shortDescription": "A central coffee stop to consider when you want a break between a town walk and the next stage of the Loop.",
       "media": {
         "card": {
           "image": {
@@ -133,7 +133,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Naga Hostel & Café is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A hostel-and-café option to compare when you want an overnight base before or after the Loop.",
       "media": {
         "card": {
           "image": {
@@ -194,7 +194,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Kamkhong home cafe by noungning is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A home-café option for a slower daytime pause in Thakhek; check the current opening hours before heading over.",
       "media": {
         "card": {
           "image": {
@@ -255,7 +255,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "DD Bistro & Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A café-bistro option to compare for coffee or a light daytime stop in town.",
       "media": {
         "card": {
           "image": {
@@ -316,7 +316,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Phubeer Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "A Thakhek meal option to consider for a first evening in town or a return from the Loop.",
       "media": {
         "card": {
           "image": {
@@ -377,7 +377,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Bami Thakhek Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A hostel base to consider if you want to stay in town rather than leave immediately for the Loop.",
       "media": {
         "card": {
           "image": {
@@ -499,7 +499,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Thakhek’s Secret Bar is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "An evening-focused food-and-drink option to compare after a day on the road.",
       "media": {
         "card": {
           "image": {
@@ -560,7 +560,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Nana Bungalows is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A bungalow-style stay option to compare against Thakhek’s hostels and guesthouses.",
       "media": {
         "card": {
           "image": {
@@ -621,7 +621,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Orlasone-BBQ is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "A barbecue-named Thakhek meal option to compare with the town’s other evening choices.",
       "media": {
         "card": {
           "image": {
@@ -682,7 +682,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Lao Home Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A hostel option to assess for a simple overnight stop in Thakhek.",
       "media": {
         "card": {
           "image": {
@@ -743,7 +743,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Catty tourist house & restaurant is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A guesthouse-and-restaurant option to compare when you prefer keeping a stay and meal stop together.",
       "media": {
         "card": {
           "image": {
@@ -804,7 +804,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Villa Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A villa-style Thakhek stay to consider alongside the town’s hostel and guesthouse options.",
       "media": {
         "card": {
           "image": {
@@ -865,7 +865,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "YO & KO café is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A compact café choice to keep in mind when you want to stay within Thakhek rather than make a dedicated detour.",
       "media": {
         "card": {
           "image": {
@@ -926,7 +926,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Vegetarian House Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A Thakhek café option worth comparing when a vegetarian-focused name is part of what you are looking for.",
       "media": {
         "card": {
           "image": {
@@ -987,7 +987,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Bonjour Thakhek is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "A named dining option to keep in mind when choosing a meal in town.",
       "media": {
         "card": {
           "image": {
@@ -1048,7 +1048,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Bamboo Hostel Thakhek is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A hostel choice to compare when building a practical first or final night around the Loop.",
       "media": {
         "card": {
           "image": {
@@ -1109,7 +1109,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "STAY HOSTEL by M&M is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A hostel option to weigh against other town bases before choosing a departure rhythm.",
       "media": {
         "card": {
           "image": {
@@ -1170,7 +1170,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Thakhek View is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "A restaurant option to compare for a meal before leaving or after returning from the Loop.",
       "media": {
         "card": {
           "image": {
@@ -1231,7 +1231,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "La Parisian Cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A café stop to compare with Thakhek’s other daytime coffee choices before settling on a pause.",
       "media": {
         "card": {
           "image": {
@@ -1292,7 +1292,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Candy cafe is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A casual coffee stop to consider during a slower afternoon in town.",
       "media": {
         "card": {
           "image": {
@@ -1353,7 +1353,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Organic cafe' is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A café option with an organic identity in its name; confirm the current menu directly if that matters to your stop.",
       "media": {
         "card": {
           "image": {
@@ -1414,7 +1414,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Miss Tang Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "A local dining option to consider as part of a flexible Thakhek evening plan.",
       "media": {
         "card": {
           "image": {
@@ -1475,7 +1475,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Song Lao Guesthouse is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A guesthouse option for travellers comparing a quieter overnight base in Thakhek.",
       "media": {
         "card": {
           "image": {
@@ -1536,7 +1536,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Xoksaysub Hotel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A hotel option to consider when you prefer a town stay over a roadside Loop stop.",
       "media": {
         "card": {
           "image": {
@@ -1597,7 +1597,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Vie de France is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A named café option to compare when choosing where to pause in Thakhek.",
       "media": {
         "card": {
           "image": {
@@ -1658,7 +1658,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Space Bar&Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "A bar-and-restaurant option to compare when you want food and an evening stop in one place.",
       "media": {
         "card": {
           "image": {
@@ -1719,7 +1719,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "ROK Coffee Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A coffee-focused stop to consider before a Loop departure or after arriving back in town.",
       "media": {
         "card": {
           "image": {
@@ -1780,7 +1780,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Room Cafe Thakhek is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A flexible daytime café option for fitting a coffee break around practical errands in Thakhek.",
       "media": {
         "card": {
           "image": {
@@ -1841,7 +1841,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Nam Phou Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A hostel base to check when comparing practical overnight options in Thakhek.",
       "media": {
         "card": {
           "image": {
@@ -1902,7 +1902,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Orlardee Hostel is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A named hostel option to review before committing to a Loop start date.",
       "media": {
         "card": {
           "image": {
@@ -1963,7 +1963,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Thakhek Travel Lodge is a current Thakhek stay retained as a practical base for the town and the start or finish of the Loop.",
+      "shortDescription": "A lodge-style stay to consider if you want to plan the Loop from a settled Thakhek base.",
       "media": {
         "card": {
           "image": {
@@ -2024,7 +2024,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Six Friends Restaurant is a current Thakhek food address retained after public-listing cross-checks, useful as one option for a meal before or after the Loop.",
+      "shortDescription": "A named restaurant option to check when building a short list of Thakhek meals.",
       "media": {
         "card": {
           "image": {
@@ -2085,7 +2085,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Geelot cha is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A tea-and-coffee stop to compare with the town’s broader café list.",
       "media": {
         "card": {
           "image": {
@@ -2146,7 +2146,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "B96 Coffee and Tea is a current Thakhek café or coffee stop retained after public-listing cross-checks for a daytime break in town.",
+      "shortDescription": "A coffee-and-tea option to keep in mind for a daytime break in Thakhek.",
       "media": {
         "card": {
           "image": {
@@ -2202,7 +2202,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Mixay Thakhek Motor Rental is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
+      "shortDescription": "A rental counter to compare when you need a bike for the Thakhek Loop; inspect it before committing.",
       "media": {
         "card": {
           "image": {
@@ -2258,7 +2258,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "PokemonGo Motorbike Rental is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
+      "shortDescription": "A Thakhek bike-rental option; check tyres, brakes, paperwork and current terms before setting off.",
       "media": {
         "card": {
           "image": {
@@ -2314,7 +2314,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Wang Wang Motor Rental is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
+      "shortDescription": "A town rental option to compare when you want to set your own Loop departure time.",
       "media": {
         "card": {
           "image": {
@@ -2370,7 +2370,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Mad Monkey Motorcycle is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
+      "shortDescription": "A Thakhek motorcycle-rental option to compare alongside the other Loop providers.",
       "media": {
         "card": {
           "image": {
@@ -2426,7 +2426,7 @@ const data = {
         "latitude": 17.3946,
         "longitude": 104.8065
       },
-      "shortDescription": "Khamouane Province Hospital is a practical Thakhek address worth saving for visitor information or essential local services during a stay in Khammouane.",
+      "shortDescription": "The provincial hospital in Thakhek; save it for medical needs rather than routine travel planning.",
       "media": {
         "card": {
           "image": {
