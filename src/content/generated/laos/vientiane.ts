@@ -271,9 +271,9 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pimenton%20Vientiane%20Laos"
     },
     {
-      "id": "place-joma-bakery-cafe-vientiane",
-      "slug": "joma-bakery-cafe-vientiane",
-      "name": "Joma Bakery Cafe Vientiane",
+      "id": "place-pdr-pizza-da-roby",
+      "slug": "pdr-pizza-da-roby",
+      "name": "PDR - Pizza da Roby",
       "country": "laos",
       "city": "vientiane",
       "category": "restaurants",
@@ -409,8 +409,8 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Vientiane%20Laos"
     },
     {
-      "id": "place-joma-bakery-cafe-vientiane",
-      "slug": "joma-bakery-cafe-vientiane",
+      "id": "place-pdr-pizza-da-roby",
+      "slug": "pdr-pizza-da-roby",
       "name": "PDR - Pizza da Roby",
       "country": "laos",
       "city": "vientiane",
