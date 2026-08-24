@@ -2355,7 +2355,18 @@ const data = {
       },
       "shortDescription": "Mixay Thakhek Motor Rental is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "mixay-thakhek-motor-rental-card",
+            "src": "/assets/cities/laos/thakhek/scooter-rental/mixay-thakhek-motor-rental/mixay-thakhek-motor-rental.webp",
+            "alt": "Motorbikes at Mixay Thakhek Motor Rental in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2366,8 +2377,8 @@ const data = {
           "Bike check",
           "Before ride"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2400,7 +2411,18 @@ const data = {
       },
       "shortDescription": "PokemonGo Motorbike Rental is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "pokemongo-motorbike-rental-card",
+            "src": "/assets/cities/laos/thakhek/scooter-rental/pokemongo-motorbike-rental/pokemongo-motorbike-rental.webp",
+            "alt": "Motorbike available from PokemonGo Motorbike Rental in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2411,8 +2433,8 @@ const data = {
           "Bike check",
           "Before ride"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2445,7 +2467,18 @@ const data = {
       },
       "shortDescription": "Wang Wang Motor Rental is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "wang-wang-motor-rental-card",
+            "src": "/assets/cities/laos/thakhek/scooter-rental/wang-wang-motor-rental/wang-wang-motor-rental.webp",
+            "alt": "Wang Wang Motor Rental storefront and scooters in Thakhek",
+            "sourceType": "manual",
+            "sourceName": "User-supplied photo",
+            "license": "User-supplied",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
           "gallery": []
         }
@@ -2456,8 +2489,8 @@ const data = {
           "Bike check",
           "Before ride"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -2521,51 +2554,6 @@ const data = {
       "manualLocks": {},
       "address": "Thakhek, Khammouane Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mad%20Monkey%20Motorcycle%20Thakhek%20Laos"
-    },
-    {
-      "id": "place-kus-motorbike-rental",
-      "slug": "kus-motorbike-rental",
-      "name": "KU'S Motorbike Rental",
-      "country": "laos",
-      "city": "thakhek",
-      "category": "scooter-rental",
-      "coordinates": {
-        "latitude": 17.3946,
-        "longitude": 104.8065
-      },
-      "shortDescription": "KU'S Motorbike Rental is a current Thakhek motorbike-rental candidate for Loop preparation; inspect the bike and confirm the rental terms before leaving.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Loop rental",
-          "Bike check",
-          "Before ride"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public listing cross-checked for the Thakhek research pool."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Thakhek verified research"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "location"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Thakhek, Khammouane Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KU'S%20Motorbike%20Rental%20Thakhek%20Laos"
     },
     {
       "id": "place-thakhek-tourism-information-center",
