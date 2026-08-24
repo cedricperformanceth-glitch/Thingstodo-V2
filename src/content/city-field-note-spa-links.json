@@ -1,0 +1,30 @@
+{
+  "laos/don-det": [
+    "laos/pakse"
+  ],
+  "laos/pakse": [
+    "laos/don-det",
+    "laos/tad-lo",
+    "laos/thakhek"
+  ],
+  "laos/tad-lo": [
+    "laos/pakse"
+  ],
+  "laos/thakhek": [
+    "laos/pakse",
+    "laos/vientiane"
+  ],
+  "laos/vientiane": [
+    "laos/pakse",
+    "laos/vang-vieng",
+    "laos/luang-prabang"
+  ],
+  "laos/vang-vieng": [
+    "laos/vientiane",
+    "laos/luang-prabang"
+  ],
+  "laos/luang-prabang": [
+    "laos/vang-vieng",
+    "laos/vientiane"
+  ]
+}
