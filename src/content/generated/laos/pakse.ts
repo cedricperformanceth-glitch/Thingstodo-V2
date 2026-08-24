@@ -29,8 +29,14 @@ const data = {
       "title": "Paksé",
       "subtitle": "A southern Laos base for temples, the Mekong and the Bolaven Plateau.",
       "facts": [
-        "Champasak Province",
-        "Southern Laos"
+        {
+          "label": "Province",
+          "value": "Champasak"
+        },
+        {
+          "label": "Region",
+          "value": "Southern Laos"
+        }
       ]
     },
     "exploreBoard": {

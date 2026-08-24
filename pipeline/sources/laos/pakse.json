@@ -3,7 +3,7 @@
     "name": "Paksé",
     "coordinates": { "latitude": 15.1202, "longitude": 105.7989 },
     "description": "Paksé is the practical base for southern Laos: Buddhist temples and the Mekong in town, with Champasak, the Bolaven Plateau and protected landscapes within day-trip reach.",
-    "hero": { "eyebrow": "Southern Laos", "title": "Paksé", "subtitle": "A southern Laos base for temples, the Mekong and the Bolaven Plateau.", "facts": ["Champasak Province", "Southern Laos"] },
+    "hero": { "eyebrow": "Southern Laos", "title": "Paksé", "subtitle": "A southern Laos base for temples, the Mekong and the Bolaven Plateau.", "facts": [{ "label": "Province", "value": "Champasak" }, { "label": "Region", "value": "Southern Laos" }] },
     "exploreBoard": { "featuredThingIds": ["thing-vat-phou", "thing-tad-fane", "thing-wat-phou-salao"] },
     "seo": { "title": "Paksé travel guide | Things To Do Atlas", "description": "Plan a Paksé stay with temples, Bolaven Plateau waterfalls, Champasak heritage and southern Laos day trips.", "canonicalPath": "/laos/pakse", "indexable": false }
   },
