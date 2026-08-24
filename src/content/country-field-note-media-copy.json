@@ -2,25 +2,25 @@
   "country-thailand": [
     {
       "id": "thailand-field-note-wat-arun",
-      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wat_Arun,_Bangkok,_Thailand.jpg?width=1800",
-      "alt": "Wat Arun beside the Chao Phraya River in Bangkok, Thailand",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View_of_Wat_Arun.jpg?width=1800",
+      "alt": "View of Wat Arun in Bangkok, Thailand",
       "sourceType": "wikimedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Arun,_Bangkok,_Thailand.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Wat_Arun.jpg",
       "sourceName": "Wikimedia Commons",
-      "author": "Anilakeo",
+      "author": "Christophe95",
       "license": "CC BY-SA 4.0",
       "manual": true,
       "locked": true
     },
     {
       "id": "thailand-field-note-ayutthaya",
-      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ayutthaya,_Thailand_(1).jpg?width=1600",
-      "alt": "Historic ruins in Ayutthaya, Thailand",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wat_Chaiwatthanaram_4,_Ayutthaya,_Thailand.jpg?width=1600",
+      "alt": "Wat Chaiwatthanaram in Ayutthaya, Thailand",
       "sourceType": "wikimedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayutthaya,_Thailand_(1).jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Chaiwatthanaram_4,_Ayutthaya,_Thailand.jpg",
       "sourceName": "Wikimedia Commons",
-      "author": "Thomas Dahlstrøm Nielsen",
-      "license": "CC BY-SA 4.0",
+      "author": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
       "manual": true,
       "locked": true
     },
@@ -57,7 +57,7 @@
       "sourceType": "wikimedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angkor_Wat_40.jpg",
       "sourceName": "Wikimedia Commons",
-      "author": "Tournasol7",
+      "author": "Krzysztof Golik",
       "license": "CC BY-SA 4.0",
       "manual": true,
       "locked": true
@@ -102,12 +102,12 @@
   "country-vietnam": [
     {
       "id": "vietnam-field-note-ha-long",
-      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ha-Long_Bay_Vietnam.jpg?width=1800",
-      "alt": "Limestone islands in Hạ Long Bay, Vietnam",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An_island_in_Ha_Long_Bay,_Vietnam.jpg?width=1800",
+      "alt": "Limestone island in Hạ Long Bay, Vietnam",
       "sourceType": "wikimedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ha-Long_Bay_Vietnam.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_island_in_Ha_Long_Bay,_Vietnam.jpg",
       "sourceName": "Wikimedia Commons",
-      "author": "USkPune",
+      "author": "Poom Pengcharoen",
       "license": "CC BY-SA 4.0",
       "manual": true,
       "locked": true
