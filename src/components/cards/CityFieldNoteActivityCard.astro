@@ -1,0 +1,56 @@
+---
+import type { City } from '../../core/models/types';
+import { cityFieldNotePath } from '../../core/routing/paths';
+import { getCountry } from '../../engines/country/country-engine';
+import { getEditorialCityFieldNote, getEditorialCityFieldNoteMedia } from '../../engines/city-field-note/city-field-note-editorial';
+import './entry-card.css';
+import './card-actions.css';
+
+interface Props { targetCity: City; }
+const { targetCity } = Astro.props;
+const note = getEditorialCityFieldNote(targetCity.id);
+if (!note) throw new Error(`Missing canonical City Field Note for ${targetCity.country}/${targetCity.slug}.`);
+
+const image = getEditorialCityFieldNoteMedia(targetCity.id)[0];
+const country = getCountry(targetCity.country);
+const quickValue = (label: string) => note.quickRead.find((item) => item.label === label)?.value;
+const chapters = quickValue('Chapters') ?? `${note.chapters.length} city notes`;
+const scope = quickValue('Scope') ?? note.contextLine;
+const useItFor = quickValue('Use it for') ?? 'Planning the next destination';
+const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
+  ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
+  : '';
+---
+
+<article class="card atlas-entry-card city-field-note-activity-card">
+  <div class:list={['card-media', { empty: !image }]}>
+    {image ? (
+      <img src={image.src} alt={image.alt} loading="lazy" width="640" height="400" />
+    ) : (
+      <span class="card-photo-placeholder" aria-label="City Field Note hero photo missing">Photo to add</span>
+    )}
+    <div class="card-handwritten" aria-label="City Field Note">
+      <span>City Field Note</span>
+      <span>Next destination</span>
+    </div>
+    {photoCredit && image?.sourceUrl && (
+      <a class="card-photo-credit" href={image.sourceUrl} target="_blank" rel="noreferrer">Photo: {photoCredit}</a>
+    )}
+  </div>
+
+  <div class="card-preview">
+    <h3>{targetCity.name}</h3>
+    <p class="destination">{country?.name ?? targetCity.country} · Destination field guide</p>
+    <p class="card-description">{note.subtitle}</p>
+    <dl class="card-activity-meta">
+      <div><dt>Guide</dt><dd>{chapters}</dd></div>
+      <div><dt>Scope</dt><dd>{scope}</dd></div>
+      <div><dt>Use it for</dt><dd>{useItFor}</dd></div>
+      <div><dt>Type</dt><dd>{note.typeLabel}</dd></div>
+    </dl>
+  </div>
+
+  <div class="card-actions" style={`--card-field-color:${country?.accentColor ?? '#b7473b'}`}>
+    <a class="card-action card-action--field" href={cityFieldNotePath(targetCity)}>Open the City Field Note</a>
+  </div>
+</article>
