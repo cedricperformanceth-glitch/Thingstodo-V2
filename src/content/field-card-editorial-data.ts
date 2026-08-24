@@ -20,6 +20,7 @@ import watLuangEditorial from './field-card-editorial-pakse/thing-wat-luang.json
 import daoHeuangMarketEditorial from './field-card-editorial-pakse/thing-dao-heuang-market.json';
 import tadChampeeEditorial from './field-card-editorial-pakse/thing-tad-champee.json';
 import champasakRiversideEditorial from './field-card-editorial-pakse/thing-champasak-riverside.json';
+import luangPrabangEditorialData from './field-card-editorial-luang-prabang.json';
 
 export type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 export type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
@@ -54,8 +55,10 @@ const pakseEditorial = {
   ...tadChampeeEditorial,
   ...champasakRiversideEditorial,
 } as unknown as Record<string, FieldCardEditorialEntry>;
+const luangPrabangEditorial = luangPrabangEditorialData as unknown as Record<string, FieldCardEditorialEntry>;
 
 export const fieldCardEditorial: Record<string, FieldCardEditorialEntry> = {
   ...sharedEditorial,
   ...pakseEditorial,
+  ...luangPrabangEditorial,
 };
