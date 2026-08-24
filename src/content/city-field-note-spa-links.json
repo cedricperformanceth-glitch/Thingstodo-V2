@@ -1,6 +1,7 @@
 {
   "laos/don-det": [
-    "laos/pakse"
+    "laos/pakse",
+    "country/cambodia"
   ],
   "laos/pakse": [
     "laos/don-det",
@@ -15,12 +16,14 @@
   ],
   "laos/thakhek": [
     "laos/pakse",
-    "laos/vientiane"
+    "laos/vientiane",
+    "country/thailand"
   ],
   "laos/vientiane": [
     "laos/pakse",
     "laos/vang-vieng",
-    "laos/luang-prabang"
+    "laos/luang-prabang",
+    "country/thailand"
   ],
   "laos/vang-vieng": [
     "laos/vientiane",
@@ -28,6 +31,7 @@
   ],
   "laos/luang-prabang": [
     "laos/vang-vieng",
-    "laos/vientiane"
+    "laos/vientiane",
+    "country/thailand"
   ]
 }
