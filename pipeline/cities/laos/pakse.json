@@ -656,9 +656,59 @@
       },
       "shortDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Paksé.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "commons-79748148",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Tad_Fane_2.jpg/1920px-Tad_Fane_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Tad Fane twin waterfalls and rainforest gorge on the Bolaven Plateau",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Fane_2.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Christophe95",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "commons-79748148",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Tad_Fane_2.jpg/1920px-Tad_Fane_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Tad Fane twin waterfalls and rainforest gorge on the Bolaven Plateau",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Fane_2.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79745911",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Tad_Fane.jpg/1920px-Tad_Fane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Tad Fane waterfall dropping into the Bolaven Plateau gorge",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Fane.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-145368536",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tad_Fane%2C_Laos.jpg/1920px-Tad_Fane%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Tad Fane waterfall surrounded by forest on the Bolaven Plateau",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Fane,_Laos.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Jakub Michankow",
+              "license": "cc-by",
+              "manual": false,
+              "locked": false
+            }
+          ]
         }
       },
       "spaCard": {
@@ -671,8 +721,8 @@
         "duration": "Half-day",
         "costType": "paid",
         "bestTime": "Rainy season",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -731,9 +781,59 @@
       },
       "shortDescription": "Stop at Tad Yuang on the Bolaven Plateau for a waterfall visit that complements the larger Tad Fane gorge nearby.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "commons-79746059",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tad_Yuang_01.jpg/1920px-Tad_Yuang_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Tad Yuang waterfall on the Bolaven Plateau",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Yuang_01.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Christophe95",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "commons-79746059",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tad_Yuang_01.jpg/1920px-Tad_Yuang_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Tad Yuang waterfall on the Bolaven Plateau",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Yuang_01.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79746060",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tad_Yuang_02.jpg/1920px-Tad_Yuang_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "View of Tad Yuang waterfall and its forested setting",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Yuang_02.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79746057",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tad_Yuang_03.jpg/1920px-Tad_Yuang_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Tad Yuang waterfall seen from the Bolaven Plateau trail area",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Yuang_03.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            }
+          ]
         }
       },
       "spaCard": {
@@ -746,8 +846,8 @@
         "duration": "1–2 hours",
         "costType": "paid",
         "bestTime": "Daylight",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -801,9 +901,59 @@
       },
       "shortDescription": "Use Paksé as the base for a Bolaven Plateau day route, where coffee-growing highlands, villages and waterfall stops shape the journey.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "commons-79768508",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Coffee_plantations_Bolaven_Plateau_01.jpg/1920px-Coffee_plantations_Bolaven_Plateau_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Coffee plantation on the Bolaven Plateau in southern Laos",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coffee_plantations_Bolaven_Plateau_01.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Christophe95",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "commons-79768508",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Coffee_plantations_Bolaven_Plateau_01.jpg/1920px-Coffee_plantations_Bolaven_Plateau_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Coffee plantation on the Bolaven Plateau in southern Laos",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coffee_plantations_Bolaven_Plateau_01.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79768509",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Coffee_plantations_Bolaven_Plateau_02.jpg/1920px-Coffee_plantations_Bolaven_Plateau_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Coffee plants growing on the Bolaven Plateau",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coffee_plantations_Bolaven_Plateau_02.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79768510",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Coffee_plantations_Bolaven_Plateau_03.jpg/1920px-Coffee_plantations_Bolaven_Plateau_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Bolaven Plateau coffee plantation landscape",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coffee_plantations_Bolaven_Plateau_03.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            }
+          ]
         }
       },
       "spaCard": {
@@ -816,8 +966,8 @@
         "duration": "Full day",
         "costType": "paid",
         "bestTime": "October to February",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -871,9 +1021,59 @@
       },
       "shortDescription": "Cross the Mekong side of Paksé for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "commons-181112488",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Golden_Buddha_of_Wat_Phou_Salao%2C_Pakse_20251228_%28II%29.jpg/1920px-Golden_Buddha_of_Wat_Phou_Salao%2C_Pakse_20251228_%28II%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Golden Buddha at Wat Phou Salao in Pakse",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_Buddha_of_Wat_Phou_Salao,_Pakse_20251228_(II).jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่ง ข้อความบอกกล่าวด้วย ) Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+            "license": "cc-by",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "commons-181112488",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Golden_Buddha_of_Wat_Phou_Salao%2C_Pakse_20251228_%28II%29.jpg/1920px-Golden_Buddha_of_Wat_Phou_Salao%2C_Pakse_20251228_%28II%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Golden Buddha at Wat Phou Salao in Pakse",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_Buddha_of_Wat_Phou_Salao,_Pakse_20251228_(II).jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่ง ข้อความบอกกล่าวด้วย ) Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+              "license": "cc-by",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-113474055",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Golden_Buddha_seen_from_behind_at_sunset_at_Wat_Phou_Salao_temple_in_Pakse_Laos.jpg/1920px-Golden_Buddha_seen_from_behind_at_sunset_at_Wat_Phou_Salao_temple_in_Pakse_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Golden Buddha overlooking the Mekong at sunset from Wat Phou Salao",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_Buddha_seen_from_behind_at_sunset_at_Wat_Phou_Salao_temple_in_Pakse_Laos.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Basile Morin",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-92730673",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Multiple_rows_of_golden_statues_of_the_Buddha_seated_with_flowers%2C_at_Wat_Phou_Salao%2C_Pakse%2C_Laos.jpg/1920px-Multiple_rows_of_golden_statues_of_the_Buddha_seated_with_flowers%2C_at_Wat_Phou_Salao%2C_Pakse%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Rows of golden Buddha statues at Wat Phou Salao in Pakse",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Multiple_rows_of_golden_statues_of_the_Buddha_seated_with_flowers,_at_Wat_Phou_Salao,_Pakse,_Laos.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Basile Morin",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            }
+          ]
         }
       },
       "spaCard": {
@@ -886,8 +1086,8 @@
         "duration": "1–2 hours",
         "costType": "free",
         "bestTime": "Late afternoon",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -946,9 +1146,59 @@
       },
       "shortDescription": "Visit Wat Luang, Paksé’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "commons-181194619",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Wat_Luang_20251229.jpg/1920px-Wat_Luang_20251229.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Wat Luang Buddhist temple in Pakse",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Luang_20251229.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่ง ข้อความบอกกล่าวด้วย ) Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+            "license": "cc-by",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "commons-181194619",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Wat_Luang_20251229.jpg/1920px-Wat_Luang_20251229.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Wat Luang Buddhist temple in Pakse",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Luang_20251229.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่ง ข้อความบอกกล่าวด้วย ) Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+              "license": "cc-by",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-181194698",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Wat_Luang_20251229_%28II%29.jpg/1920px-Wat_Luang_20251229_%28II%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Architectural view of Wat Luang in Pakse",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Luang_20251229_(II).jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่ง ข้อความบอกกล่าวด้วย ) Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+              "license": "cc-by",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-29462651",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Wat_Luang_chedi_and_nagi_in_Pakse.jpg/1920px-Wat_Luang_chedi_and_nagi_in_Pakse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Chedi and naga details at Wat Luang in Pakse",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Luang_chedi_and_nagi_in_Pakse.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Phillip Maiwald ( Nikopol )",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            }
+          ]
         }
       },
       "spaCard": {
@@ -961,8 +1211,8 @@
         "duration": "1 hour",
         "costType": "free",
         "bestTime": "Morning",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1086,9 +1336,59 @@
       },
       "shortDescription": "Take the signed side road near Tad Fane to Tad Champee, a quieter Bolaven Plateau waterfall with a path down from the parking area.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "commons-79746186",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tad_Champi_01.jpg/1920px-Tad_Champi_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Tad Champee waterfall on the Bolaven Plateau",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Champi_01.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Christophe95",
+            "license": "cc-by-sa",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "commons-79746186",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tad_Champi_01.jpg/1920px-Tad_Champi_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Tad Champee waterfall on the Bolaven Plateau",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Champi_01.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79746188",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Tad_Champi_02.jpg/1920px-Tad_Champi_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Forest and pool at Tad Champee waterfall",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Champi_02.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79746187",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tad_Champi_03.jpg/1920px-Tad_Champi_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Tad Champee waterfall in the Bolaven Plateau forest",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tad_Champi_03.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            }
+          ]
         }
       },
       "spaCard": {
@@ -1101,8 +1401,8 @@
         "duration": "1–2 hours",
         "costType": "paid",
         "bestTime": "Daylight",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1156,9 +1456,59 @@
       },
       "shortDescription": "Spend time in riverside Champasak, the town within the Vat Phou cultural landscape, before or after visiting the temple complex.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "commons-3264766",
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Mekong_Champasak.jpg/1920px-Mekong_Champasak.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "alt": "Mekong riverside at Champasak in southern Laos",
+            "sourceType": "wikimedia",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mekong_Champasak.jpg",
+            "sourceName": "Wikimedia Commons",
+            "author": "Ondřej Žváček",
+            "license": "cc-by",
+            "manual": false,
+            "locked": false
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "commons-3264766",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Mekong_Champasak.jpg/1920px-Mekong_Champasak.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Mekong riverside at Champasak in southern Laos",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mekong_Champasak.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Ondřej Žváček",
+              "license": "cc-by",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-79769584",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Champasak_main_street.jpg/1920px-Champasak_main_street.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Main street through the riverside town of Champasak",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Champasak_main_street.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Christophe95",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            },
+            {
+              "id": "commons-94200344",
+              "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg/1920px-Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "alt": "Historic riverside-town architecture in Champasak at blue hour",
+              "sourceType": "wikimedia",
+              "sourceUrl": "https://commons.wikimedia.org/wiki/File:Exterior_facade_of_Residence_Bassac_at_blue_hour,_town_of_Champasak,_Laos.jpg",
+              "sourceName": "Wikimedia Commons",
+              "author": "Basile Morin",
+              "license": "cc-by-sa",
+              "manual": false,
+              "locked": false
+            }
+          ]
         }
       },
       "spaCard": {
@@ -1171,8 +1521,8 @@
         "duration": "Half-day",
         "costType": "free",
         "bestTime": "Late afternoon",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
