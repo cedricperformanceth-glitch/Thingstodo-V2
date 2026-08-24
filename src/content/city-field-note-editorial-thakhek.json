@@ -1,0 +1,226 @@
+{
+  "id": "city-laos-thakhek",
+  "copy": {
+    "typeLabel": "City field note",
+    "title": "Thakhek",
+    "contextLine": "Mekong · Khammouane · Central Laos",
+    "subtitle": "A compact Mekong town where the old centre gives way almost immediately to Route 12, limestone country and the Thakhek Loop.",
+    "intro": "Thakhek is not only the place where you collect a scooter key. The riverfront, fountain square and old buildings explain its history as a Mekong landing and provincial capital; the road east explains why so many travellers use the town as the starting and finishing point for Khammouane's cave country.",
+    "focusLabel": "Old town, Loop preparation & karst roads",
+    "regionLabel": "Khammouane Province · Central Laos",
+    "quickRead": [
+      {
+        "label": "Chapters",
+        "value": "7 city notes",
+        "detail": "Old town context, movement, Loop preparation and the realities of the road."
+      },
+      {
+        "label": "Use it for",
+        "value": "Reading the town before the Loop",
+        "detail": "Understand Thakhek first, then decide how much of Khammouane belongs in the ride."
+      },
+      {
+        "label": "Scope",
+        "value": "Old town · Route 12 · Loop logistics",
+        "detail": "The city is both a Mekong stop and the practical gateway to the wider karst province."
+      },
+      {
+        "label": "Edition",
+        "value": "Researched · August 2026",
+        "detail": "Checked against provincial tourism, national tourism, cross-border and recent field sources."
+      }
+    ],
+    "chapters": [
+      {
+        "id": "orientation",
+        "eyebrow": "01 · READ THE PLACE",
+        "title": "Thakhek is the hinge between a Mekong town and a limestone province",
+        "paragraphs": [
+          "Thakhek is the capital of Khammouane Province, set on the Mekong opposite Thailand. Official tourism sources describe a riverside town shaped by French-era architecture, while the national tourism site traces the name to an older role as a 'guest landing' for foreign traders. That history is easiest to read around the old centre and the fountain square near the river.",
+          "The second half of Thakhek's identity begins just beyond those streets. East of town, Route 12 enters the limestone corridor that travellers know as Cave Alley before the wider road system opens into the Thakhek Loop. The useful mental map therefore has two layers: a compact old Mekong town in the foreground and an enormous karst province unfolding behind it."
+        ],
+        "facts": [
+          { "label": "Province", "value": "Khammouane · Central Laos" },
+          { "label": "River", "value": "Mekong" },
+          { "label": "Historic centre", "value": "Fountain square and the surrounding old streets" },
+          { "label": "Road identity", "value": "Route 12 opens the cave corridor east of town" }
+        ],
+        "note": {
+          "label": "Atlas note",
+          "text": "Read the riverfront before the Loop. Thakhek makes more sense when the town and the road belong to the same story."
+        }
+      },
+      {
+        "id": "rhythm",
+        "eyebrow": "02 · FIND THE RHYTHM",
+        "title": "Give the town one slow chapter before the road takes over",
+        "paragraphs": [
+          "Central Thakhek is compact enough that the old streets and Mekong edge work best on foot. Late afternoon is the natural time to slow down: walk the old centre, look back toward the river, sort dinner and let the town feel like somewhere you have arrived rather than a waiting room for a motorbike rental.",
+          "For Loop travellers, the most useful rhythm is to separate preparation from departure. Arrive with enough time to inspect the bike, leave large luggage, withdraw cash, save the route offline and sleep before the first long riding day. The return deserves room too. One unhurried evening after the Loop is often more useful than trying to connect immediately to the next bus."
+        ],
+        "facts": [
+          { "label": "Natural town pace", "value": "Walk the old centre and riverfront" },
+          { "label": "Before the Loop", "value": "Bike check · cash · luggage · offline route" },
+          { "label": "Good slow moment", "value": "Late afternoon by the Mekong" },
+          { "label": "Planning rule", "value": "Prepare the day before the first long ride" }
+        ],
+        "note": {
+          "label": "Field note",
+          "text": "Do not arrive, rent and disappear east in the same hour. Thakhek is the place to remove uncertainty before the road."
+        }
+      },
+      {
+        "id": "move",
+        "eyebrow": "03 · MOVE THROUGH IT",
+        "title": "Everything changes when Route 12 leaves the Mekong",
+        "paragraphs": [
+          "Inside town, walking is enough for the historic centre and short riverfront movements. Thakhek also works as a regional transport hub: provincial tourism lists regular road connections with Vientiane and Pakse, while the Third Thai–Lao Friendship Bridge links the Thakhek side of the Mekong with Nakhon Phanom in Thailand.",
+          "The Loop begins by turning east onto Route 12. Khammouane Tourism now presents the classic circuit as roughly 450 kilometres over four days and three nights, with the first 105-kilometre stage running from Thakhek through Cave Alley toward Thalang. That road remains a working regional route, not a closed scenic drive, so trucks, changing surfaces and ordinary traffic belong in the plan as much as caves and viewpoints do."
+        ],
+        "facts": [
+          { "label": "Town movement", "value": "Old centre is compact and walkable" },
+          { "label": "Cross-border link", "value": "Friendship Bridge III · Nakhon Phanom" },
+          { "label": "Classic Loop", "value": "About 450 km · 4 days / 3 nights" },
+          { "label": "First stage", "value": "Thakhek → Thalang · about 105 km" }
+        ],
+        "note": {
+          "label": "Keep close",
+          "text": "Save the Loop offline before leaving town. Route 12 is the beginning of the trip, not the moment to start solving navigation."
+        }
+      },
+      {
+        "id": "stay",
+        "eyebrow": "04 · CHOOSE YOUR BASE",
+        "title": "Stay where tomorrow morning starts",
+        "paragraphs": [
+          "If the town itself matters, the old centre and riverfront are the strongest base. They keep the historic streets, Mekong evenings, food and much of central Thakhek within walking distance, which is useful before or after several days on a motorbike.",
+          "If the Loop is the priority, convenience can matter more than river view. A stay close to the centre and your chosen rental makes the luggage handover and early departure simpler. The interprovincial bus-station area is practical for a fixed transport day, but it is not the part of Thakhek that best explains why the city is worth seeing. Choose the first hour of the next morning before comparing room photos."
+        ],
+        "facts": [
+          { "label": "Old centre", "value": "Best for walking and historic atmosphere" },
+          { "label": "Riverfront", "value": "Best for the Mekong side of the stay" },
+          { "label": "Loop convenience", "value": "Stay near the rental you actually plan to use" },
+          { "label": "Bus-station area", "value": "Useful when an early onward departure is the priority" }
+        ],
+        "note": {
+          "label": "City note",
+          "text": "For a Loop start, location is logistics. For a Thakhek evening, location is atmosphere. Decide which one matters tomorrow."
+        }
+      },
+      {
+        "id": "conditions",
+        "eyebrow": "05 · READ THE CONDITIONS",
+        "title": "Dry weather simplifies the Loop; rain rewrites the side roads and caves",
+        "paragraphs": [
+          "Khammouane Tourism highlights November to February as the cool dry period and the easiest general window for caves and the Loop. The broader dry season usually makes unsealed access roads and river-cave logistics simpler, while rain can turn short dirt approaches muddy, raise water levels and change whether a cave or river activity is sensible that day.",
+          "Road condition is the other variable. Official Loop guidance says to ride slowly, wear a helmet and avoid riding at night; recent 2025 field reports still describe potholes and large trucks on parts of Route 12. Treat those observations as a prompt to check the road now, not as a permanent surface report. Weather, repairs and construction can change one section much faster than an old itinerary can be updated."
+        ],
+        "facts": [
+          { "label": "Easiest general window", "value": "November–February · cool dry season" },
+          { "label": "Rain changes", "value": "Dirt access, mud, cave water and visibility" },
+          { "label": "Road hazards", "value": "Potholes and large trucks can matter on Route 12" },
+          { "label": "Night riding", "value": "Avoid it on the Loop" }
+        ],
+        "note": {
+          "label": "Road rule",
+          "text": "Ask what the road and cave are doing today. A saved route is navigation, not a guarantee of conditions."
+        }
+      },
+      {
+        "id": "practical",
+        "eyebrow": "06 · PRACTICAL REALITY",
+        "title": "Thakhek is where you solve the problems before they become remote",
+        "paragraphs": [
+          "The official Loop guidance is unusually clear about the basics: carry enough cash because ATM access becomes limited after Thakhek, refuel whenever the opportunity appears and leave unnecessary large luggage in town. Keep the first-day essentials accessible rather than packing as though every stop will have city services.",
+          "The motorbike deserves the same discipline. Before accepting it, check tyres, both brakes, lights and indicators, confirm what helmet is supplied, clarify the deposit and damage terms and photograph the bike's existing marks. Save the rental contact and accommodation details offline. Ten careful minutes in Thakhek are more useful than discovering a preventable problem fifty kilometres into the Loop."
+        ],
+        "facts": [
+          { "label": "Cash", "value": "Withdraw enough before leaving Thakhek" },
+          { "label": "Fuel", "value": "Refill early rather than betting on the next station" },
+          { "label": "Luggage", "value": "Leave large bags in town when your rental or stay offers storage" },
+          { "label": "Bike check", "value": "Tyres · brakes · lights · helmet · existing damage" }
+        ],
+        "note": {
+          "label": "Practical",
+          "text": "The first kilometres should confirm the bike, not reveal it. Solve small mechanical doubts before you leave Thakhek."
+        }
+      },
+      {
+        "id": "pace",
+        "eyebrow": "07 · BUILD THE STAY",
+        "title": "Think in two layers: Thakhek town and the Loop around it",
+        "paragraphs": [
+          "Without the full Loop, Thakhek still deserves a half-day to a full day: old streets and the Mekong first, then one nearby direction such as the Route 12 cave corridor, Tha Falang or another close activity rather than pretending the entire province fits into an afternoon.",
+          "With the Loop, the cleanest rhythm is longer. Arrive the afternoon or evening before departure, use the current four-day / three-night circuit as the reference rather than a race target, then return to Thakhek with enough margin for the bike handover and one final riverfront evening. An extra day is not wasted time: it can absorb bad weather, a mechanical delay or the temptation to stay longer at Kong Lor instead of compressing the road."
+        ],
+        "facts": [
+          { "label": "Town only", "value": "Half day to one full day" },
+          { "label": "Classic Loop reference", "value": "4 days / 3 nights" },
+          { "label": "Before departure", "value": "Arrive early enough to prepare the bike and route" },
+          { "label": "After the Loop", "value": "Keep margin for handover and onward transport" }
+        ],
+        "note": {
+          "label": "Last note",
+          "text": "Thakhek is the start and the finish. Do not treat either side of the Loop as dead time."
+        }
+      }
+    ],
+    "closing": {
+      "eyebrow": "BACK TO THAKHEK",
+      "title": "Now choose the road out of town",
+      "text": "Use these notes as the context layer, then open the Thakhek activities, scooter rentals, restaurants, cafés and stays to build the actual Atlas."
+    }
+  },
+  "seo": {
+    "title": "Thakhek travel field guide | Things To Do Atlas",
+    "description": "A researched Thakhek field guide to the Mekong old town, Thakhek Loop, Route 12 cave country, scooter preparation, road conditions and practical planning.",
+    "indexable": true
+  },
+  "sources": [
+    {
+      "sourceName": "Khammouane Tourism · Thakhek District",
+      "sourceUrl": "https://www.khammouanetourism.org/en/districts/thakhek",
+      "note": "Official provincial overview for Thakhek's Mekong setting, colonial architecture and nearby tourism places."
+    },
+    {
+      "sourceName": "Khammouane Tourism · Thakhek Loop",
+      "sourceUrl": "https://www.khammouanetourism.org/en/thakhek-loop",
+      "note": "Official current Loop reference for the 450 km route, four-day / three-night classic itinerary, Cave Alley, fuel, cash and road-safety guidance."
+    },
+    {
+      "sourceName": "Khammouane Tourism · Travel & Transportation",
+      "sourceUrl": "https://www.khammouanetourism.org/en/transport",
+      "note": "Official transport context for Thakhek's road connections and the walkability of the historic centre."
+    },
+    {
+      "sourceName": "Khammouane Tourism · About Khammouane",
+      "sourceUrl": "https://www.khammouanetourism.org/en/about",
+      "note": "Provincial history and heritage context linking the old Thakhek port town, colonial architecture and Khammouane's wider limestone landscape."
+    },
+    {
+      "sourceName": "Tourism Laos · Khammouane Province",
+      "sourceUrl": "https://www.tourismlaos.org/central-provinces/khammouane-province/",
+      "note": "National tourism reference for Old Thakhek Town, the fountain-square centre, the city's historic role and Route 12 cave context."
+    },
+    {
+      "sourceName": "Thailand.go.th · Third Thai–Lao Friendship Bridge",
+      "sourceUrl": "https://www.thailand.go.th/issue-focus-detail/001_08_030?hl=en",
+      "note": "Government cross-border reference confirming the bridge connection between Nakhon Phanom and the Thakhek side of Khammouane."
+    },
+    {
+      "sourceName": "Adventures of Jellie · Riding the Thakhek Loop",
+      "sourceUrl": "https://www.adventuresofjellie.com/laos/thakhek-loop-guide",
+      "note": "Independent traveller cross-check for practical road questions, side-road surfaces and truck traffic; wording is not copied."
+    },
+    {
+      "sourceName": "The road liss traveled · Thakhek Loop Pt. 1",
+      "sourceUrl": "https://www.adamliss.com/blog/2025/7/12/thakhek-loop-pt-1",
+      "note": "Recent 2025 field perspective used to cross-check the relationship between Thakhek town, Route 12 traffic and current rider concerns."
+    },
+    {
+      "sourceName": "Wikimedia Commons · Thakhek category",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Category:Thakhek",
+      "note": "Exact-location media discovery and licence verification for the Thakhek city note."
+    }
+  ]
+}
