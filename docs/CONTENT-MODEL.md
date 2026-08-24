@@ -15,6 +15,8 @@ City Hero destination copy, display facts and optional partners are consolidated
 
 Every researched City Field Note has one canonical destination bundle named `src/content/city-field-note-editorial-<city>.json`. That bundle owns exactly the destination's `id`, editorial `copy`, SEO and research `sources`. `src/engines/city-field-note/city-field-note-editorial.ts` is the single registry/resolver for those bundles. Reviewed City Field Note copy, SEO or sources must not be duplicated into aggregate override files. City Field Note media remains intentionally centralized in `src/content/city-field-note-media-copy.json`, where provenance and licensing stay attached to each asset. A city without a researched bundle uses the generic generated City Field Note fallback from the engine until an editorial bundle is created.
 
+Cross-destination City Field Note cards in a city's `Things to do` SPA are relationships, not duplicated `ThingToDo` records. Their only source of truth is `src/content/city-field-note-spa-links.json`. The resolver must point each configured relationship to an existing city with a canonical researched City Field Note; the SPA reuses that target note's editorial copy and hero media and links directly to its City Field Note page. Explore Board configuration remains independent and must not be changed to create these SPA relationships.
+
 ## Field Card Hero
 
 `src/components/field-card/FieldCardHero.astro` owns the universal layout. `FieldCardHeroContent` carries only variable editorial copy: eyebrow, exactly three aliases, description, exactly four axis steps, rhythm note and photo note. The exact activity title comes from `ThingToDo.name`.
