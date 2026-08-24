@@ -4,13 +4,50 @@ import CountryFieldNote from '../../../../components/country-field-note/CountryF
 import { getCities, getCity } from '../../../../engines/city/city-engine';
 import { getCityFieldNoteSpaTargets } from '../../../../engines/city-field-note/city-field-note-spa-links';
 import { getCountryFieldNote } from '../../../../content/country-field-notes';
-import { cityPath } from '../../../../core/routing/paths';
-export function getStaticPaths() { return getCities().flatMap((city) => getCityFieldNoteSpaTargets(city).filter((target) => target.id.startsWith('country-')).map((target) => ({ params: { country: city.country, city: city.slug, slug: target.id.replace(/^country-/, '') } }))); }
+import { cityPath, countryFieldNotePath } from '../../../../core/routing/paths';
+import { countryFieldNoteView } from '../../../../engines/country-field-note/country-field-note-engine';
+import { getEditorialCountryFieldNoteSeo } from '../../../../engines/country-field-note/country-field-note-editorial';
+
+export function getStaticPaths() {
+  return getCities().flatMap((city) =>
+    getCityFieldNoteSpaTargets(city)
+      .filter((target) => target.id.startsWith('country-'))
+      .map((target) => ({
+        params: {
+          country: city.country,
+          city: city.slug,
+          slug: target.id.replace(/^country-/, ''),
+        },
+      })),
+  );
+}
+
 const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
 const noteCountry = getCountryFieldNote(Astro.params.slug ?? '');
 const isLinked = city && noteCountry && getCityFieldNoteSpaTargets(city).some((target) => target.id === noteCountry.id);
 if (!city || !noteCountry || !isLinked) return Astro.redirect('/');
-const canonicalPath = `${cityPath(city)}/field-note/${noteCountry.slug}`;
-const seo = { title: `${noteCountry.name} field card from ${city.name} | Things To Do Atlas`, description: `A ${noteCountry.name} Field Card opened from ${city.name}.`, canonicalPath, indexable: false };
+
+const view = countryFieldNoteView(noteCountry);
+const editorialSeo = getEditorialCountryFieldNoteSeo(noteCountry.id);
+const heroImage = view.media[0];
+const canonicalPath = countryFieldNotePath(noteCountry);
+const seo = {
+  title: editorialSeo?.title ?? `${noteCountry.name} country field note | Things To Do Atlas`,
+  description: editorialSeo?.description ?? `A country-scale field note for ${noteCountry.name}.`,
+  canonicalPath,
+  indexable: false,
+  ...(heroImage ? { image: heroImage.src, imageAlt: heroImage.alt } : {}),
+};
 ---
-<BaseLayout {seo} breadcrumbs={[{ name: 'Home', path: '/' }, { name: city.name, path: cityPath(city) }, { name: noteCountry.name, path: canonicalPath }]} ogType="article"><CountryFieldNote country={noteCountry} hostCountry={city.country} /></BaseLayout>
+
+<BaseLayout
+  {seo}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: city.name, path: cityPath(city) },
+    { name: noteCountry.name, path: canonicalPath },
+  ]}
+  ogType="article"
+>
+  <CountryFieldNote country={noteCountry} hostCountry={city.country} />
+</BaseLayout>
