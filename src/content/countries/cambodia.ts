@@ -1,0 +1,2 @@
+import type { Country } from '../../core/models/types';
+export const cambodia: Country = { id:'country-cambodia', slug:'cambodia', name:'Cambodia', chapter:'Temples, rivers and lowland plains', accentColor:'#8f5a43', media:{hero:{stamps:[],drawings:[],photos:[]}}, map:{center:{latitude:12.57,longitude:104.99},zoom:6}, seo:{title:'Cambodia travel guide | Things To Do Atlas',description:'Independent editorial travel guides to Cambodia.',canonicalPath:'/cambodia',indexable:false} };
