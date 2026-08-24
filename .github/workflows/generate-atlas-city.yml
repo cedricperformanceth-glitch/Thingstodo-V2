@@ -1,0 +1,31 @@
+name: Generate Atlas city
+on:
+  workflow_dispatch:
+    inputs:
+      country: {description: Country slug, required: true}
+      city: {description: City slug, required: true}
+      settlement: {description: village or city, required: true}
+      profile: {description: compact standard or large, required: false, default: compact}
+      enable_category: {description: Optional contract-approved category extension, required: false}
+permissions: {contents: write}
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20, cache: npm}
+      - run: npm ci
+      - run: |
+          if [ ! -f "pipeline/cities/${{ inputs.country }}/${{ inputs.city }}.json" ]; then
+            args=("${{ inputs.country }}" "${{ inputs.city }}" --settlement "${{ inputs.settlement }}" --profile "${{ inputs.profile }}")
+            if [ -n "${{ inputs.enable_category }}" ]; then args+=(--enable-category "${{ inputs.enable_category }}"); fi
+            npm run create-city -- "${args[@]}"
+          fi
+      - run: npm run generate-city -- "${{ inputs.country }}" "${{ inputs.city }}"
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "pipeline/cities/${{ inputs.country }}/${{ inputs.city }}.json" "src/content/generated/${{ inputs.country }}/${{ inputs.city }}.ts" src/content/generated/cities.ts
+          git diff --cached --quiet || git commit -m "Generate ${{ inputs.city }} city draft"
+          git push

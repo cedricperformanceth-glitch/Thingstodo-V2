@@ -1,0 +1,678 @@
+{
+  "city": {
+    "hero": {
+      "facts": [],
+      "subtitle": "A working heritage town between the Mekong and Nam Khan.",
+      "title": "Luang Prabang",
+      "eyebrow": "Northern Laos"
+    },
+    "seo": {
+      "title": "Luang Prabang travel guide | Things To Do Atlas",
+      "description": "A working Luang Prabang destination draft.",
+      "canonicalPath": "/laos/luang-prabang",
+      "indexable": false
+    },
+    "coordinates": {
+      "latitude": 19.8845,
+      "longitude": 102.1347
+    },
+    "description": "Luang Prabang is a riverside heritage town in northern Laos, where the Mekong and Nam Khan frame Buddhist, royal and everyday cultural life.",
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-wat-xieng-thong",
+        "thing-phou-si-mountain",
+        "thing-kuang-si-waterfalls"
+      ]
+    }
+  },
+  "things": [
+    {
+      "id": "thing-luang-prabang-heritage-walk",
+      "slug": "luang-prabang-heritage-walk",
+      "name": "Luang Prabang Heritage Walk",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Luang Prabang Heritage Walk"
+      ],
+      "coordinates": {
+        "latitude": 19.8933,
+        "longitude": 102.1352
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Luang%20Prabang%20Heritage%20Walk%20Luang%20Prabang%20Laos",
+      "shortDescription": "Walk the peninsula between the Mekong and Nam Khan to understand Luang Prabang as a lived-in World Heritage town.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Heritage",
+          "Luang Prabang",
+          "Cultural visit"
+        ],
+        "bestTime": "Walk the peninsula",
+        "duration": "2–3 hours",
+        "gettingThere": "Walk the peninsula",
+        "costType": "Early morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": true,
+        "duration": "2–3 hours",
+        "route": "Walk the peninsula"
+      }
+    },
+    {
+      "id": "thing-wat-xieng-thong",
+      "slug": "wat-xieng-thong",
+      "name": "Wat Xieng Thong",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Wat Xieng Thong"
+      ],
+      "coordinates": {
+        "latitude": 19.8985,
+        "longitude": 102.1432
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat%20Xieng%20Thong%20Luang%20Prabang%20Laos",
+      "shortDescription": "Visit the temple of the Golden City for its low-sweeping roofs, mosaics and royal ceremonial history.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Buddhist temple",
+          "Lao architecture",
+          "Old town"
+        ],
+        "bestTime": "Walk to the peninsula tip",
+        "duration": "1 hour",
+        "gettingThere": "Walk to the peninsula tip",
+        "costType": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": true,
+        "duration": "1 hour",
+        "route": "Walk to the peninsula tip"
+      }
+    },
+    {
+      "id": "thing-phou-si-mountain",
+      "slug": "phou-si-mountain",
+      "name": "Phou Si Mountain",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Phou Si Mountain"
+      ],
+      "coordinates": {
+        "latitude": 19.8908,
+        "longitude": 102.1363
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Phou%20Si%20Mountain%20Luang%20Prabang%20Laos",
+      "shortDescription": "Climb the central hill for a view over the two rivers and the roofs of the old town.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Hilltop view",
+          "Sacred site",
+          "Old town"
+        ],
+        "bestTime": "Central staircase",
+        "duration": "1–2 hours",
+        "gettingThere": "Central staircase",
+        "costType": "Late afternoon",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": true,
+        "duration": "1–2 hours",
+        "route": "Central staircase"
+      }
+    },
+    {
+      "id": "thing-royal-palace-museum",
+      "slug": "royal-palace-museum",
+      "name": "Royal Palace Museum",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Royal Palace Museum"
+      ],
+      "coordinates": {
+        "latitude": 19.8912,
+        "longitude": 102.1354
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal%20Palace%20Museum%20Luang%20Prabang%20Laos",
+      "shortDescription": "Use the former Royal Palace to connect the town’s royal past with its role as Laos’s religious and ceremonial centre.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Heritage",
+          "Luang Prabang",
+          "Cultural visit"
+        ],
+        "bestTime": "Walk from the main street",
+        "duration": "1–2 hours",
+        "gettingThere": "Walk from the main street",
+        "costType": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "1–2 hours",
+        "route": "Walk from the main street"
+      }
+    },
+    {
+      "id": "thing-tak-bat-alms",
+      "slug": "tak-bat-alms",
+      "name": "Morning Alms Giving (Tak Bat)",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Morning Alms Giving (Tak Bat)"
+      ],
+      "coordinates": {
+        "latitude": 19.8935,
+        "longitude": 102.1368
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Morning%20Alms%20Giving%20%28Tak%20Bat%29%20Luang%20Prabang%20Laos",
+      "shortDescription": "Observe the morning alms procession as a living Buddhist practice from a quiet, respectful vantage point.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Living tradition",
+          "Buddhist practice",
+          "Early morning"
+        ],
+        "bestTime": "Old-town streets",
+        "duration": "30–45 minutes",
+        "gettingThere": "Old-town streets",
+        "costType": "Before sunrise",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "30–45 minutes",
+        "route": "Old-town streets"
+      }
+    },
+    {
+      "id": "thing-kuang-si-waterfalls",
+      "slug": "kuang-si-waterfalls",
+      "name": "Kuang Si Waterfalls",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Kuang Si Waterfalls"
+      ],
+      "coordinates": {
+        "latitude": 19.7487,
+        "longitude": 101.9911
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kuang%20Si%20Waterfalls%20Luang%20Prabang%20Laos",
+      "shortDescription": "Make the south-of-town trip to Kuang Si for its forested cascade and blue pools.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Waterfall",
+          "Forest pools",
+          "Day trip"
+        ],
+        "bestTime": "Road south from town",
+        "duration": "Half-day",
+        "gettingThere": "Road south from town",
+        "costType": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": true,
+        "duration": "Half-day",
+        "route": "Road south from town"
+      }
+    },
+    {
+      "id": "thing-pak-ou-caves",
+      "slug": "pak-ou-caves",
+      "name": "Pak Ou Caves",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Pak Ou Caves"
+      ],
+      "coordinates": {
+        "latitude": 20.0522,
+        "longitude": 102.2017
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pak%20Ou%20Caves%20Luang%20Prabang%20Laos",
+      "shortDescription": "Travel to the limestone caves at the Nam Ou–Mekong confluence, known for their Buddha-image tradition.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Heritage",
+          "Luang Prabang",
+          "Cultural visit"
+        ],
+        "bestTime": "Boat or road north",
+        "duration": "Half-day",
+        "gettingThere": "Boat or road north",
+        "costType": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "Half-day",
+        "route": "Boat or road north"
+      }
+    },
+    {
+      "id": "thing-wat-visoun",
+      "slug": "wat-visoun",
+      "name": "Wat Visoun",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Wat Visoun"
+      ],
+      "coordinates": {
+        "latitude": 19.8838,
+        "longitude": 102.1396
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat%20Visoun%20Luang%20Prabang%20Laos",
+      "shortDescription": "Stop at Wat Visoun for early Luang Prabang religious architecture and the distinctive That Makmo stupa.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Heritage",
+          "Luang Prabang",
+          "Cultural visit"
+        ],
+        "bestTime": "Walk from the peninsula",
+        "duration": "45 minutes",
+        "gettingThere": "Walk from the peninsula",
+        "costType": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "45 minutes",
+        "route": "Walk from the peninsula"
+      }
+    },
+    {
+      "id": "thing-uxo-lao-visitor-centre",
+      "slug": "uxo-lao-visitor-centre",
+      "name": "UXO Lao Visitor Centre",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "UXO Lao Visitor Centre"
+      ],
+      "coordinates": {
+        "latitude": 19.8788,
+        "longitude": 102.1347
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=UXO%20Lao%20Visitor%20Centre%20Luang%20Prabang%20Laos",
+      "shortDescription": "Visit the UXO Lao Visitor Centre for context on unexploded ordnance and clearance work in Laos.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Heritage",
+          "Luang Prabang",
+          "Cultural visit"
+        ],
+        "bestTime": "Short ride south of centre",
+        "duration": "1 hour",
+        "gettingThere": "Short ride south of centre",
+        "costType": "Daytime",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "1 hour",
+        "route": "Short ride south of centre"
+      }
+    },
+    {
+      "id": "thing-traditional-arts-ethnology-centre",
+      "slug": "traditional-arts-ethnology-centre",
+      "name": "Traditional Arts and Ethnology Centre",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Traditional Arts and Ethnology Centre"
+      ],
+      "coordinates": {
+        "latitude": 19.8857,
+        "longitude": 102.1342
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Traditional%20Arts%20and%20Ethnology%20Centre%20Luang%20Prabang%20Laos",
+      "shortDescription": "Use this small museum to place the textiles, rituals and material culture of Laos’s ethnic communities in context.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Heritage",
+          "Luang Prabang",
+          "Cultural visit"
+        ],
+        "bestTime": "Walk from main street",
+        "duration": "1–2 hours",
+        "gettingThere": "Walk from main street",
+        "costType": "Daytime",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "1–2 hours",
+        "route": "Walk from main street"
+      }
+    },
+    {
+      "id": "thing-ock-pop-tok-living-crafts-centre",
+      "slug": "ock-pop-tok-living-crafts-centre",
+      "name": "Ock Pop Tok Living Crafts Centre",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Ock Pop Tok Living Crafts Centre"
+      ],
+      "coordinates": {
+        "latitude": 19.8662,
+        "longitude": 102.1458
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ock%20Pop%20Tok%20Living%20Crafts%20Centre%20Luang%20Prabang%20Laos",
+      "shortDescription": "Go beyond souvenir shopping at the Living Crafts Centre, where weaving and natural-dye work are presented beside the Mekong.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Textiles",
+          "Local craft",
+          "Daytime"
+        ],
+        "bestTime": "Short ride south of centre",
+        "duration": "1–2 hours",
+        "gettingThere": "Short ride south of centre",
+        "costType": "Daytime",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "1–2 hours",
+        "route": "Short ride south of centre"
+      }
+    },
+    {
+      "id": "thing-ban-xang-khong-weaving-village",
+      "slug": "ban-xang-khong-weaving-village",
+      "name": "Ban Xang Khong Weaving Village",
+      "isLandmark": true,
+      "mediaSearchNames": [
+        "Ban Xang Khong Weaving Village"
+      ],
+      "coordinates": {
+        "latitude": 19.8441,
+        "longitude": 102.1268
+      },
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ban%20Xang%20Khong%20Weaving%20Village%20Luang%20Prabang%20Laos",
+      "shortDescription": "Take a short trip to a riverside village associated with handwoven textiles and saa-paper craft.",
+      "spaCard": {
+        "handwrittenTags": [
+          "Textiles",
+          "Local craft",
+          "Daytime"
+        ],
+        "bestTime": "Short ride from town",
+        "duration": "1–2 hours",
+        "gettingThere": "Short ride from town",
+        "costType": "Daytime",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current official Luang Prabang tourism and UNESCO or institutional reference coverage confirm this destination activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceUrl": "https://tourismluangprabang.gov.la/",
+          "purpose": "facts",
+          "sourceType": "official-tourism",
+          "sourceName": "Luang Prabang Tourism"
+        },
+        {
+          "sourceUrl": "https://whc.unesco.org/en/list/479/",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution",
+          "sourceName": "UNESCO World Heritage Centre"
+        }
+      ],
+      "exploreBoard": {
+        "kicker": false,
+        "duration": "1–2 hours",
+        "route": "Short ride from town"
+      }
+    }
+  ]
+}
