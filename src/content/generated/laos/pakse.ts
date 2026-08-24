@@ -562,17 +562,17 @@ const data = {
       }
     },
     {
-      "id": "thing-xe-pian",
-      "slug": "xe-pian-national-protected-area",
-      "name": "Xe Pian National Protected Area",
+      "id": "thing-tad-champee",
+      "slug": "tad-champee-waterfall",
+      "name": "Tad Champee Waterfall",
       "country": "laos",
       "city": "pakse",
       "category": "things-to-do",
       "coordinates": {
-        "latitude": 14.69,
-        "longitude": 105.8
+        "latitude": 15.2033961,
+        "longitude": 106.1317455
       },
-      "shortDescription": "Arrange a southern Laos nature day around Xe Pian National Protected Area, a broad wetland and forest landscape south of Paksé.",
+      "shortDescription": "Take the signed side road near Tad Fane to Tad Champee, a quieter Bolaven Plateau waterfall with a path down from the parking area.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -581,82 +581,12 @@ const data = {
       },
       "spaCard": {
         "handwrittenTags": [
-          "Protected landscape",
-          "Wetlands",
-          "Southern Laos"
+          "Quiet waterfall",
+          "Bolaven Plateau",
+          "Forest path"
         ],
-        "gettingThere": "Arrange road transport south of Paksé",
-        "duration": "Full day",
-        "costType": "paid",
-        "bestTime": "Dry season",
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "The protected area is documented by conservation authorities and southern Laos destination material."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas research pipeline"
-      },
-      "researchSources": [
-        {
-          "sourceName": "BirdLife International",
-          "sourceUrl": "https://datazone.birdlife.org/site/factsheet/xe-pian-npa-iba-laos",
-          "purpose": "facts",
-          "sourceType": "authoritative"
-        },
-        {
-          "sourceName": "Wikivoyage",
-          "sourceUrl": "https://en.wikivoyage.org/wiki/Champasak",
-          "purpose": "cross-check",
-          "sourceType": "wikivoyage"
-        }
-      ],
-      "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xe+Pian+National+Protected+Area+Laos",
-      "isLandmark": true,
-      "longDescription": "Arrange a southern Laos nature day around Xe Pian National Protected Area, a broad wetland and forest landscape south of Paksé.",
-      "breadcrumbs": [
-        "laos",
-        "pakse",
-        "things-to-do"
-      ],
-      "fieldCard": {
-        "template": "compact",
-        "whyGo": "",
-        "practical": "",
-        "access": "",
-        "faq": [],
-        "sections": []
-      }
-    },
-    {
-      "id": "thing-tad-lo",
-      "slug": "tad-lo-waterfalls",
-      "name": "Tad Lo Waterfalls",
-      "country": "laos",
-      "city": "pakse",
-      "category": "things-to-do",
-      "coordinates": {
-        "latitude": 15.453,
-        "longitude": 106.338
-      },
-      "shortDescription": "Make the longer plateau-side trip to Tad Lo, where waterfalls and a small riverside settlement offer a different southern Laos rhythm.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Riverside falls",
-          "Long day",
-          "Plateau edge"
-        ],
-        "gettingThere": "Road trip from Paksé",
-        "duration": "Full day",
+        "gettingThere": "Route 23, near Tad Fane",
+        "duration": "1–2 hours",
         "costType": "paid",
         "bestTime": "Daylight",
         "photoStatus": "missing",
@@ -664,29 +594,29 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Laos Tourism and Wikivoyage independently document Tad Lo as a southern Laos waterfall destination."
+        "reason": "The official Discover Laos destination page and current Wikivoyage listing independently identify Tad Champee near Paksong and Tad Fane."
       },
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline"
       },
       "researchSources": [
         {
-          "sourceName": "Laos Tourism",
-          "sourceUrl": "https://www.laostourism.org/",
+          "sourceName": "Discover Laos",
+          "sourceUrl": "https://discoverlaos.today/en/paksong-bolaven-plateau/thing-to-do/tad-champee",
           "purpose": "facts",
           "sourceType": "official-tourism"
         },
         {
           "sourceName": "Wikivoyage",
-          "sourceUrl": "https://en.wikivoyage.org/wiki/Tad_Lo",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Bolaven_Plateau",
           "purpose": "cross-check",
           "sourceType": "wikivoyage"
         }
       ],
       "manualLocks": {},
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad+Lo+Waterfalls+Laos",
+      "googleMapsUrl": "https://www.google.com/maps/place/Tad+Champee+Waterfall/@15.2028133,106.1269691,16z/data=!4m6!3m5!1s0x31151f9b1585dcf9:0xdf876e5cd81cd095!8m2!3d15.2033961!4d106.1317455!16s%2Fg%2F11fk0lnnx8?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D",
       "isLandmark": true,
-      "longDescription": "Make the longer plateau-side trip to Tad Lo, where waterfalls and a small riverside settlement offer a different southern Laos rhythm.",
+      "longDescription": "Take the signed side road near Tad Fane to Tad Champee, a quieter Bolaven Plateau waterfall with a path down from the parking area.",
       "breadcrumbs": [
         "laos",
         "pakse",
