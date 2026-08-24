@@ -1,5 +1,6 @@
 name: Retry Luang Prabang completion once
 
+# Explicit second push trigger after the workflow exists on master.
 on:
   push:
     branches: [master]
