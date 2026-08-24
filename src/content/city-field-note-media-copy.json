@@ -248,5 +248,105 @@
       "manual": true,
       "locked": true
     }
+  ],
+  "city-laos-vang-vieng": [
+    {
+      "id": "vang-vieng-field-note-nam-song",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nam_Song_Vang_Vieng.jpg?width=1800",
+      "alt": "Nam Song River running through the karst landscape around Vang Vieng",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nam_Song_Vang_Vieng.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Christophe95",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vang-vieng-field-note-blue-lagoon",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Blue_Lagoon_Vang_Vieng.jpg?width=1600",
+      "alt": "Blue Lagoon in the karst countryside west of Vang Vieng",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Lagoon_Vang_Vieng.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Christophe95",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vang-vieng-field-note-nam-song-bridge",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Red_metal_bridge_over_the_Nam_Song_River_front_view_in_Vang_Vieng_Laos.jpg?width=1600",
+      "alt": "Red metal bridge crossing the Nam Song River in Vang Vieng",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_metal_bridge_over_the_Nam_Song_River_front_view_in_Vang_Vieng_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vang-vieng-field-note-nam-xay",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karst_peaks_and_green_paddy_fields_under_a_stormy_sky_view_from_Mount_Nam_Xay_Vang_Vieng_Laos.jpg?width=1600",
+      "alt": "Karst peaks and green paddy fields seen from Mount Nam Xay in Vang Vieng",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karst_peaks_and_green_paddy_fields_under_a_stormy_sky_view_from_Mount_Nam_Xay_Vang_Vieng_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    }
+  ],
+  "city-laos-vientiane": [
+    {
+      "id": "vientiane-field-note-pha-that-luang",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pha_That_Luang_Sunrise_Panorama_BLS.jpg?width=1800",
+      "alt": "Sunrise over Pha That Luang, the national symbol of Laos, in Vientiane",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pha_That_Luang_Sunrise_Panorama_BLS.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Benh LIEU SONG",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vientiane-field-note-wat-si-saket",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wat_Si_Saket_front_view%2C_Vientiane%2C_Laos.jpg?width=1600",
+      "alt": "Front view of Wat Si Saket in its paved courtyard in central Vientiane",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Si_Saket_front_view,_Vientiane,_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vientiane-field-note-patuxai-axis",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vientiane_Patouxai_Laos.jpg?width=1600",
+      "alt": "Vientiane viewed along Lane Xang Avenue from Patuxai",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vientiane_Patouxai_Laos.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Jean-Pierre Dalbéra",
+      "license": "CC BY 2.0",
+      "manual": true,
+      "locked": true
+    },
+    {
+      "id": "vientiane-field-note-mekong-panorama",
+      "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vientiane_-_Mekong_-_Panorama_0001.jpg?width=1600",
+      "alt": "Panoramic view of the Mekong River from Vientiane",
+      "sourceType": "wikimedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vientiane_-_Mekong_-_Panorama_0001.jpg",
+      "sourceName": "Wikimedia Commons",
+      "author": "Stefan Fussan",
+      "license": "CC BY-SA 3.0",
+      "manual": true,
+      "locked": true
+    }
   ]
 }
