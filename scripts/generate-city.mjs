@@ -23,6 +23,10 @@ const skipPhotoDiscovery = flags.includes('--skip-photo-discovery') || process.e
 if (!country || !city) throw new Error('Usage: npm run generate-city -- <country> <city> [--dry-run] [--from-city] [--publish-check] [--skip-photo-discovery]');
 
 const root = process.cwd();
+const thingCategoryOverridesFile = path.join(root, 'src', 'content', 'thing-category-overrides.json');
+const thingCategoryOverrides = fs.existsSync(thingCategoryOverridesFile)
+  ? JSON.parse(fs.readFileSync(thingCategoryOverridesFile, 'utf8'))
+  : {};
 const draftFile = path.join(root, 'pipeline', 'cities', country, `${city}.json`);
 const sourceFile = path.join(root, 'pipeline', 'sources', country, `${city}.json`);
 const placeSourceShardFile = path.join(root, 'pipeline', 'sources', country, `${city}.places.mjs`);
@@ -195,7 +199,8 @@ function normalizePlace(candidate, baseDraft) {
 }
 
 function normalizeThing(candidate, baseDraft) {
-  const entity = base(candidate, baseDraft, 'things-to-do');
+  const category = candidate.category ?? thingCategoryOverrides[candidate.id] ?? 'things-to-do';
+  const entity = base(candidate, baseDraft, category);
   const template = chooseFieldCardTemplate(candidate);
   const hero = candidate.fieldCardHero
     ? structuredClone(assertValidFieldCardHero(candidate.fieldCardHero, candidate.name))
