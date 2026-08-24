@@ -1,0 +1,53 @@
+{
+  "thing-champasak-riverside": {
+    "hero": {
+      "eyebrow": "MEKONG TOWN · CHAMPASAK",
+      "aliases": ["Champasak Riverside", "Champasak town", "Champassak town"],
+      "description": "Champasak is the slow human-scale side of the Vat Phou landscape: villages, temples, older houses and the Mekong turn the area south of Paksé into more than a temple day trip.",
+      "steps": ["Slow down after Vat Phou", "Follow the town's main spine", "Drop toward the Mekong", "Give the streets their own hour"],
+      "rhythmNote": "Do not search for one 'riverside attraction'. The point is to let Champasak connect the World Heritage landscape back to an inhabited Mekong town.",
+      "photoNote": "West bank of the Mekong · Champasak"
+    },
+    "quickRead": {
+      "time": {"primary": "1–4 HOURS", "secondary": "easy to shorten or stretch around a Vat Phou visit"},
+      "route": {"primary": "SOUTH OF PAKSÉ", "secondary": "Champasak town on the west bank of the Mekong"},
+      "budget": {"primary": "FREE TO WANDER", "secondary": "spend only on food, transport or optional activities"},
+      "bestFor": {"primary": "SLOW CHAMPASAK", "secondary": "Mekong · temples · lived heritage"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE TOWN", "title": "There is no single sight to rush toward", "body": "The official Vat Phou town trail runs through nine villages on the west bank of the Mekong, linking Buddhist temples with traditional houses and later buildings along the main road. You do not need to complete that trail literally. Its value is the idea: Champasak is a long inhabited strip, so the visit works by moving slowly through it rather than arriving at one pin."},
+        {"label": "THE RIVER", "title": "Use the Mekong to reset the scale", "body": "After the geometry and stone of Vat Phou, the riverside brings the landscape back to everyday life. A short walk, a drink or simply time near the water is enough. The town does not need to compete with the temple; it completes the day by showing what this part of Champasak feels like when nobody is presenting a monument."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "Champasak is strongest as a transition: temple → town → Mekong, not temple → next attraction."}
+    },
+    "secondaryStory": {
+      "chapters": [
+        {"label": "HERITAGE", "title": "The wider landscape is part of the UNESCO story", "body": "UNESCO's Vat Phou property is explicitly larger than the temple complex, extending between Phou Kao and the Mekong and including ancient settlements. The modern town is not the same thing as those archaeological cities, but spending time in Champasak helps you understand why the protected landscape is described at territorial scale."}
+      ],
+      "beforeYouLeave": {
+        "title": "Pair it with Vat Phou, but do not make it an afterthought",
+        "body": "If you are coming from Paksé, Champasak is most efficient before or after Vat Phou. Keep enough time that the town can be slow: one to four hours is more realistic than trying to create a rigid list of sights.",
+        "note": {"label": "BEST RHYTHM", "text": "Late afternoon works especially well when the river becomes the final stop of the day."}
+      }
+    },
+    "practical": {"items": [
+      {"label": "From Paksé", "value": "About 40 km south", "detail": "Best combined with Vat Phou rather than treated as a separate long transfer."},
+      {"label": "Time needed", "value": "1–4 hours", "detail": "The official town trail uses this range, which suits a place that can be a short riverside pause or a longer wander."},
+      {"label": "Format", "value": "Linear town + Mekong edge", "detail": "Expect a spread-out sequence of villages, temples and houses rather than one compact historic centre."},
+      {"label": "Cost", "value": "Free to wander", "detail": "The town itself has no entry ticket; transport, food and optional activities are separate."}
+    ]},
+    "faq": [
+      {"question": "Is Champasak Riverside a single attraction?", "answer": "No. It is a way of experiencing Champasak town and the Mekong edge. The useful visit is a slow wander through the town rather than a stop at one viewpoint."},
+      {"question": "How long should I spend in Champasak town?", "answer": "Anywhere from one to four hours works. The official Vat Phou town trail uses that range, and you can shorten it if Champasak is simply the final part of a Vat Phou half day."},
+      {"question": "Should I visit Champasak before or after Vat Phou?", "answer": "Either works, but after Vat Phou gives the day a natural progression from archaeological landscape to living town and river. Late afternoon is especially good for that rhythm."},
+      {"question": "What am I actually looking for in Champasak?", "answer": "Not one landmark. The town trail highlights Buddhist temples, traditional houses and later architecture spread through villages along the west bank of the Mekong."},
+      {"question": "Is Champasak Riverside free?", "answer": "Yes, walking through the town and spending time by the river is free. Budget separately for transport, food or any optional guided activity."}
+    ],
+    "seo": {"title": "Champasak Riverside from Paksé | Things To Do Atlas", "description": "Slow down in Champasak after Vat Phou: how long to stay, what the riverside town experience is really about, and how to read its temples, houses and Mekong setting."},
+    "sources": [
+      {"sourceName": "Vat Phou Champasak · Around Champasak Town", "sourceUrl": "https://www.vatphou-champassak.com/pdfs/bro-vatphou-eng-2018-v1.pdf", "purpose": "facts", "sourceType": "first-party-official"},
+      {"sourceName": "UNESCO World Heritage Centre · Vat Phou", "sourceUrl": "https://whc.unesco.org/en/list/481/", "purpose": "facts", "sourceType": "first-party-official"}
+    ]
+  }
+}

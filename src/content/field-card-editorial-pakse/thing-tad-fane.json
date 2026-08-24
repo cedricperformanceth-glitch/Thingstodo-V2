@@ -1,0 +1,39 @@
+{
+  "thing-tad-fane": {
+    "hero": {
+      "eyebrow": "TWIN FALLS · BOLAVEN",
+      "aliases": ["Tad Fane Waterfall", "Tad Fan", "Fane Waterfall"],
+      "description": "Tad Fane is the Bolaven Plateau at full scale: two streams drop about 120 metres into a forested gorge, with the classic visit built around the rim viewpoints.",
+      "steps": ["Reach the gorge viewpoint", "Give the mist time to shift", "Read both cascades together", "Pair it with one nearby stop"],
+      "rhythmNote": "For most visitors, the view is the point. Do not stretch Tad Fane into a long waterfall stop just because the drop is dramatic.",
+      "photoNote": "Near Paksong · Bolaven Plateau"
+    },
+    "quickRead": {
+      "time": {"primary": "45–90 MIN", "secondary": "on site; allow a half day with the road from Paksé"},
+      "route": {"primary": "VIA PAKSONG", "secondary": "Bolaven Plateau road trip east of Paksé"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm current entrance and parking fees"},
+      "bestFor": {"primary": "SCALE & DRAMA", "secondary": "twin falls · deep gorge · rainforest"}
+    },
+    "primaryStory": {
+      "chapters": [{"label": "THE VIEW", "title": "This is a gorge stop, not a riverbank stop", "body": "The Champi and Pak Koot streams fall side by side into a deep forested gorge. That separation is what gives Tad Fane its shape. The essential visit is simple: stand back, read the two drops together and let the depth do the work. Rainy-season flow is stronger, but mist and cloud can also soften or briefly hide the view."}],
+      "note": {"label": "ATLAS NOTE", "text": "Tad Fane earns its place through scale. If you want a waterfall you can explore more closely, make Tad Yuang the complementary stop."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Format", "value": "Viewpoint-led waterfall stop", "detail": "The classic experience is from the gorge side rather than a long walk beside the river."},
+      {"label": "From Paksé", "value": "Road trip via Paksong", "detail": "Use Tad Fane as one anchor in a Bolaven Plateau half day or full day instead of driving out for a single photograph."},
+      {"label": "Conditions & entry", "value": "Paid · weather matters", "detail": "Rainy-season flow is strongest, while drier conditions can give cleaner visibility. Confirm current entrance and parking fees locally."}
+    ]},
+    "faq": [
+      {"question": "What is special about Tad Fane?", "answer": "Two streams plunge roughly 120 metres side by side into a deep rainforest gorge. The attraction is the scale and twin-drop composition rather than a close-up swimming stop."},
+      {"question": "How long do I need at Tad Fane?", "answer": "Around 45 to 90 minutes is enough for the main viewpoint experience. Allow a half day once the road from Paksé and another plateau stop are included."},
+      {"question": "Is Tad Fane better than Tad Yuang?", "answer": "They do different jobs. Tad Fane is the stronger wide gorge view; Tad Yuang is the better choice if you want paths and several closer viewpoints around a waterfall."},
+      {"question": "When is Tad Fane most impressive?", "answer": "Rainy-season flow is the most powerful. For a clearer view into the gorge, drier conditions can be easier, so choose between water volume and visibility rather than expecting both every day."}
+    ],
+    "seo": {"title": "Tad Fane Waterfall from Paksé | Things To Do Atlas", "description": "Plan Tad Fane from Paksé: how long the viewpoint stop deserves, why the twin 120 m falls matter, seasonal visibility and the best way to pair it on the Bolaven Plateau."},
+    "sources": [
+      {"sourceName": "Laos Tourism · Bolaven Plateau Waterfall", "sourceUrl": "https://www.laostourism.org/laos-things-to-see/bolaven-plateau-waterfall/", "purpose": "facts", "sourceType": "first-party-official"},
+      {"sourceName": "Discover Laos · Tad Fane", "sourceUrl": "https://discoverlaos.today/en/paksong-bolaven-plateau/thing-to-do/tad-fane-fane-waterfall", "purpose": "facts"}
+    ]
+  }
+}

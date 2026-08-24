@@ -1,0 +1,44 @@
+{
+  "thing-tad-yuang": {
+    "hero": {
+      "eyebrow": "WATERFALL WALK · BOLAVEN",
+      "aliases": ["Tad Yuang Waterfall", "Tad Yeuang", "Nguang Waterfall"],
+      "description": "Tad Yuang is the closer, more walkable waterfall stop on this part of the Bolaven Plateau, with paths and viewpoints that let you see the drop from several levels.",
+      "steps": ["Start from the upper viewpoint", "Follow the side path down", "Choose how far to descend", "Leave time for the climb back"],
+      "rhythmNote": "Choose Tad Yuang when you want to move around a waterfall rather than only look across a gorge.",
+      "photoNote": "Near Paksong · a few kilometres from Tad Fane"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "enough for the upper and lower viewpoints without rushing"},
+      "route": {"primary": "VIA PAKSONG", "secondary": "easy to pair with Tad Fane on the same plateau road"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm the current site fee locally"},
+      "bestFor": {"primary": "CLOSER WATERFALL", "secondary": "paths · viewpoints · forest"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE WALK", "title": "One waterfall, several useful angles", "body": "Tad Yuang drops roughly 40 metres and can be read from more than one level. Paths and stairs connect viewpoints around the top and lower section, so the visit has a natural progression: see the shape from above, descend for a closer perspective, then decide whether the extra climb is worth your time."},
+        {"label": "THE PAIRING", "title": "Why it works beside Tad Fane", "body": "Tad Fane gives you distance and scale; Tad Yuang gives you movement and proximity. That contrast is enough reason to visit both without turning the day into a waterfall checklist. If you are cutting stops, choose according to the experience you want rather than the name you have heard more often."}
+      ],
+      "note": {"label": "USEFUL CHOICE", "text": "Short on time? Tad Fane for the panorama; Tad Yuang for the walk."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Time needed", "value": "1–2 hours", "detail": "That gives you time for more than the top viewpoint and keeps the descent from becoming a race."},
+      {"label": "Walking", "value": "Paths and stairs", "detail": "The lower viewpoints require a descent and climb back. Wet-season surfaces can be slippery."},
+      {"label": "Conditions", "value": "Powerful wet season · easier walking in drier months", "detail": "Choose between stronger flow and more comfortable trail conditions rather than assuming one season is simply better."},
+      {"label": "Entry", "value": "Paid", "detail": "Use the current gate price; old online fee references age quickly."}
+    ]},
+    "faq": [
+      {"question": "How is Tad Yuang different from Tad Fane?", "answer": "Tad Yuang is a more physical on-site visit, with paths and several viewpoints around the fall. Tad Fane is primarily about seeing a much deeper twin waterfall gorge from across the rim."},
+      {"question": "How long should I spend at Tad Yuang?", "answer": "Allow one to two hours if you want to use the lower viewpoints rather than stopping only at the top."},
+      {"question": "Can I combine Tad Yuang and Tad Fane?", "answer": "Yes. They are close enough to work naturally in the same Bolaven Plateau outing, and the two experiences are different enough to avoid feeling repetitive."},
+      {"question": "Is Tad Yuang difficult to walk?", "answer": "The visit is straightforward for most people who are comfortable with stairs, but the descent means a climb back out and the surfaces can become slippery in wet weather."},
+      {"question": "Can you swim at Tad Yuang?", "answer": "There is water at the base, but conditions change with flow and weather. Do not plan the visit around swimming; judge the site on the day and follow any local restrictions."}
+    ],
+    "seo": {"title": "Tad Yuang Waterfall from Paksé | Things To Do Atlas", "description": "Plan Tad Yuang on the Bolaven Plateau: 1–2 hours, upper and lower viewpoints, walking conditions, how it differs from Tad Fane and how to pair the two."},
+    "sources": [
+      {"sourceName": "Discover Laos · Tad Yuang Waterfall", "sourceUrl": "https://discoverlaos.today/paksong-bolaven-plateau/thing-to-do/tad-nguang-nguag-waterfall", "purpose": "facts"},
+      {"sourceName": "Laos Tourism · Bolaven Plateau Waterfall", "sourceUrl": "https://www.laostourism.org/laos-things-to-see/bolaven-plateau-waterfall/", "purpose": "facts", "sourceType": "first-party-official"}
+    ]
+  }
+}

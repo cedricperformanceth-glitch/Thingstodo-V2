@@ -1,0 +1,149 @@
+{
+  "thing-vat-phou": {
+    "hero": {
+      "eyebrow": "KHMER LANDSCAPE · CHAMPASAK",
+      "aliases": [
+        "Vat Phou",
+        "Wat Phu",
+        "Vat Phu"
+      ],
+      "description": "Vat Phou is best read as a landscape rather than a single ruin: a Khmer sacred axis rises from the Mekong plain toward the sanctuary beneath Phou Kao.",
+      "steps": [
+        "Start with the lower axis",
+        "Climb the terraces in sequence",
+        "Turn back toward the plain",
+        "Leave time for Champasak"
+      ],
+      "rhythmNote": "Do not rush straight to the upper sanctuary. The scale of Vat Phou only becomes clear when the mountain, terraces, waterworks and Mekong plain are read together.",
+      "photoNote": "Champasak · south of Paksé · Phou Kao"
+    },
+    "quickRead": {
+      "time": {
+        "primary": "HALF DAY",
+        "secondary": "roughly 1–3 hours on site, plus the road from Paksé"
+      },
+      "route": {
+        "primary": "≈40 KM SOUTH",
+        "secondary": "road to Champasak and Vat Phou"
+      },
+      "budget": {
+        "primary": "PAID ENTRY",
+        "secondary": "confirm the current ticket at the site"
+      },
+      "bestFor": {
+        "primary": "KHMER LANDSCAPE",
+        "secondary": "temple · mountain · Mekong plain"
+      }
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE LANDSCAPE",
+          "title": "The temple is only the upper end of the story",
+          "body": "UNESCO protects Vat Phou as a planned cultural landscape extending for roughly 10 kilometres between Phou Kao and the Mekong. Temples, shrines, waterworks, agricultural ground and two ancient settlements belong to the same composition. Keep that axis in mind as you cross the lower site: it makes the climb much easier to understand than treating each ruin as an isolated photo stop."
+        },
+        {
+          "label": "THE ASCENT",
+          "title": "Let the terraces reveal the scale",
+          "body": "The route tightens as it rises toward the sanctuary, then repeatedly opens back across the plain. Those changes in viewpoint are part of the experience. Take the climb in stages and turn around from the upper terraces; the relationship between mountain and river is more important here than checking off individual carvings."
+        }
+      ],
+      "note": {
+        "label": "ATLAS NOTE",
+        "text": "If you only remember one idea, remember the axis: mountain behind you, Mekong plain below you. That is what turns Vat Phou from a ruin into a landscape."
+      }
+    },
+    "secondaryStory": {
+      "chapters": [
+        {
+          "label": "CONTEXT",
+          "title": "A thousand years of landscape, not one building phase",
+          "body": "The protected landscape developed from the 5th to the 15th centuries and is mainly associated with the Khmer Empire. UNESCO describes it as an expression of the Hindu relationship between nature and humanity, which is why the geography matters as much as the masonry."
+        },
+        {
+          "label": "PAIRING",
+          "title": "Champasak is the natural continuation",
+          "body": "Vat Phou works especially well with time in Champasak rather than another distant attraction. The town and Mekong edge put everyday scale back into a visit that can otherwise become purely archaeological."
+        }
+      ],
+      "beforeYouLeave": {
+        "title": "Make Vat Phou the centre of the outing",
+        "body": "From Paksé, this is a half-day decision rather than a quick temple detour. Give the site enough time to read the lower ground and upper terraces, then keep some margin for Champasak if you want the wider landscape to make sense.",
+        "note": {
+          "label": "USEFUL CHOICE",
+          "text": "Short on time? Prioritise the full Vat Phou sequence over adding more stops."
+        }
+      }
+    },
+    "practical": {
+      "items": [
+        {
+          "label": "From Paksé",
+          "value": "About 40 km south",
+          "detail": "Plan the road transfer as part of the outing rather than treating Vat Phou as an in-town temple."
+        },
+        {
+          "label": "Time on site",
+          "value": "Roughly 1–3 hours",
+          "detail": "UNESCO's latest periodic reporting places the average visitor stay in this range. A half day from Paksé leaves a more comfortable margin."
+        },
+        {
+          "label": "Best rhythm",
+          "value": "Morning",
+          "detail": "The exposed lower approach and climb are easier before the hotter part of the day."
+        },
+        {
+          "label": "Entry",
+          "value": "Paid",
+          "detail": "Fees support site management, but the amount can change. Confirm the current ticket at the entrance."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is Vat Phou just a Khmer temple ruin?",
+        "answer": "No. The temple is the focal point, but UNESCO protects a much larger cultural landscape linking Phou Kao, waterworks, agricultural ground, ancient settlements and the Mekong over roughly 10 kilometres."
+      },
+      {
+        "question": "How much time should I allow for Vat Phou from Paksé?",
+        "answer": "Treat it as a half-day outing. The current UNESCO reporting gives an average on-site stay of one to three hours, and you still need the road transfer from Paksé."
+      },
+      {
+        "question": "What should I pay attention to during the visit?",
+        "answer": "Keep returning to the mountain-to-river axis. The lower approach, terraces and views back across the plain explain the site better than focusing only on the upper sanctuary."
+      },
+      {
+        "question": "Should I combine Vat Phou with Champasak town?",
+        "answer": "Yes, if you have the time. Champasak gives the wider World Heritage landscape a human scale and works more naturally with Vat Phou than adding another distant stop."
+      },
+      {
+        "question": "Is there an entrance fee at Vat Phou?",
+        "answer": "Yes. UNESCO's current reporting confirms that visitor fees are collected. Check the current amount at the site rather than relying on an old online price."
+      }
+    ],
+    "seo": {
+      "title": "Vat Phou from Paksé: Visitor Guide | Things To Do Atlas",
+      "description": "Plan Vat Phou from Paksé with the right half-day rhythm, the Khmer mountain-to-Mekong landscape, practical access notes and a clear way to read the site."
+    },
+    "sources": [
+      {
+        "sourceName": "UNESCO World Heritage Centre · Vat Phou",
+        "sourceUrl": "https://whc.unesco.org/en/list/481/",
+        "purpose": "facts",
+        "sourceType": "first-party-official"
+      },
+      {
+        "sourceName": "UNESCO World Heritage Centre · Periodic Reporting 2026",
+        "sourceUrl": "https://whc.unesco.org/document/216802",
+        "purpose": "facts",
+        "sourceType": "first-party-official"
+      },
+      {
+        "sourceName": "Vat Phou Champasak · Around Champasak Town",
+        "sourceUrl": "https://www.vatphou-champassak.com/pdfs/bro-vatphou-eng-2018-v1.pdf",
+        "purpose": "facts",
+        "sourceType": "first-party-official"
+      }
+    ]
+  }
+}

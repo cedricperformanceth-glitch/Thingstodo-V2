@@ -1,0 +1,39 @@
+{
+  "thing-tad-champee": {
+    "hero": {
+      "eyebrow": "QUIET WATERFALL · BOLAVEN",
+      "aliases": ["Tad Champee", "Tad Champi", "Tad Champee Waterfall"],
+      "description": "Tad Champee is the quieter counterpoint to the plateau's headline falls: a signed side road near Tad Fane leads to a forested waterfall reached by a path down from the parking area.",
+      "steps": ["Take the Route 23 turnoff", "Follow the signed side road", "Descend carefully from the parking area", "Stay for the quieter forest setting"],
+      "rhythmNote": "Choose Tad Champee for intimacy rather than scale. It works best when you want one slower waterfall stop instead of another dramatic viewpoint.",
+      "photoNote": "Route 23 · near Tad Fane · Bolaven Plateau"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "including the side road and walk down"},
+      "route": {"primary": "NEAR TAD FANE", "secondary": "Route 23 turnoff around the Paksong waterfall cluster"},
+      "budget": {"primary": "PAID ENTRY", "secondary": "confirm the current local fee"},
+      "bestFor": {"primary": "QUIETER FOREST STOP", "secondary": "waterfall · stream · short descent"}
+    },
+    "primaryStory": {
+      "chapters": [{"label": "THE CHOICE", "title": "A quieter waterfall, with a rougher little approach", "body": "Discover Laos describes Tad Champee as less frequented than the plateau's headline falls. The access leaves Route 23 opposite the Tad Fane road, follows a signed side road, then drops from the parking area on a simple path and handcrafted stairs. The reward is not another huge panorama but a closer, quieter forest-and-stream setting."}],
+      "note": {"label": "USEFUL CHOICE", "text": "If Tad Fane gives you the photograph, Tad Champee gives you the pause."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Access", "value": "Route 23 · opposite the Tad Fane approach", "detail": "Follow the signed side road for the final kilometres, then descend from the parking area."},
+      {"label": "Walking", "value": "Short descent · allow daylight", "detail": "The simple stairs and path deserve more care when wet."},
+      {"label": "Time & entry", "value": "1–2 hours · paid", "detail": "Enough for the side road, descent and a real pause by the waterfall. Confirm the current local fee."}
+    ]},
+    "faq": [
+      {"question": "Why choose Tad Champee over Tad Fane or Tad Yuang?", "answer": "Choose it for a quieter, closer forest stop. Tad Fane is about scale across a gorge and Tad Yuang about several waterfall viewpoints; Tad Champee is the slower alternative."},
+      {"question": "How do I reach Tad Champee?", "answer": "The official destination page places the access from Route 23 opposite the Tad Fane approach. Follow the signed side road for the final few kilometres."},
+      {"question": "How much time should I allow?", "answer": "One to two hours is comfortable once you include the side road and the walk down from the parking area."},
+      {"question": "Is the walk difficult?", "answer": "It is a short descent rather than a major hike, but the stairs are simple and can be slippery in wet conditions. Give yourself daylight and do not rush the return."}
+    ],
+    "seo": {"title": "Tad Champee Waterfall: Bolaven Guide | Atlas", "description": "Plan Tad Champee near Tad Fane: Route 23 access, the short descent, realistic visit time and why this quieter waterfall is worth choosing on the Bolaven Plateau."},
+    "sources": [
+      {"sourceName": "Discover Laos · Tad Champee", "sourceUrl": "https://discoverlaos.today/en/paksong-bolaven-plateau/thing-to-do/tad-champee", "purpose": "facts"},
+      {"sourceName": "Wikivoyage · Bolaven Plateau", "sourceUrl": "https://en.wikivoyage.org/wiki/Bolaven_Plateau", "purpose": "facts"}
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "thing-wat-phou-salao": {
+    "hero": {
+      "eyebrow": "HILLTOP TEMPLE · PAKSÉ",
+      "aliases": ["Wat Phou Salao", "Wat Phousalao", "Golden Buddha Pakse"],
+      "description": "Wat Phou Salao combines a working hilltop temple with Paksé's clearest city view: the large golden Buddha looks back across the Mekong toward the town and lowlands.",
+      "steps": ["Cross the Mekong", "Choose the stairs or road", "Walk beyond the main Buddha", "Stay for the changing light"],
+      "rhythmNote": "Come for the panorama, but remember that the viewpoint is part of a temple. The best visit gives both the city and the religious site a little space.",
+      "photoNote": "Across the Mekong from Paksé · Phou Salao"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "longer if you climb the staircase rather than drive up"},
+      "route": {"primary": "ACROSS THE MEKONG", "secondary": "Lao-Nippon Bridge, then hill access"},
+      "budget": {"primary": "FREE", "secondary": "no standard admission fee; local donations may be possible"},
+      "bestFor": {"primary": "CITY VIEWPOINT", "secondary": "golden Buddha · Mekong · late light"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE VIEW", "title": "The place that makes Paksé legible", "body": "From the hill, the Mekong stops being a strip at the edge of town and becomes the line that organises the whole landscape. The golden Buddha faces that view, with Paksé spread across the opposite bank. Late afternoon is the natural rhythm because the light changes faster than the site itself."},
+        {"label": "THE TEMPLE", "title": "Do not stop at the panorama", "body": "The seated Buddha is the obvious landmark, but the temple grounds continue beyond it. Give yourself enough time to walk rather than taking the view, one photograph and the road back. Wat Phou Salao works because it is both a religious place and a lookout."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "If you want one short activity that explains where Paksé sits in the landscape, this is the most efficient choice."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Access", "value": "Staircase or road to the top", "detail": "After crossing the Lao-Nippon Bridge, you can climb the long staircase or take the road around the hill."},
+      {"label": "Best rhythm", "value": "Late afternoon", "detail": "Sunset is the classic view, but arrive with enough daylight to walk around the temple before the light fades."},
+      {"label": "Time & entry", "value": "1–2 hours · free", "detail": "Driving to the top makes the visit shorter; walking the stairs turns it into more of an outing. Current sources list no standard admission fee."}
+    ]},
+    "faq": [
+      {"question": "Is Wat Phou Salao mainly a temple or a viewpoint?", "answer": "Both. The giant golden Buddha and temple grounds are the religious focus, while the hill gives a broad view over the Mekong and Paksé."},
+      {"question": "Can I drive to the top of Wat Phou Salao?", "answer": "Yes. There is a road route around the hill, while a long staircase offers the more physical approach from below."},
+      {"question": "What is the best time to visit Wat Phou Salao?", "answer": "Late afternoon is the strongest all-round choice because you can explore the temple in daylight and stay as the light changes over the Mekong."},
+      {"question": "How long should I allow?", "answer": "One to two hours is comfortable. Allow more of that time if you climb from below rather than driving to the upper parking area."}
+    ],
+    "seo": {"title": "Wat Phou Salao in Paksé: Viewpoint Guide | Atlas", "description": "Visit Wat Phou Salao for Paksé's Mekong panorama and golden Buddha: stairs or road access, late-afternoon timing, visit length and what to expect at the temple."},
+    "sources": [
+      {"sourceName": "Southern Laos Destination Management Plan", "sourceUrl": "https://www.tiigp2-laos.org/wp-content/uploads/2021/05/Southern-Laos-DMP-2020-2025_Lao_2019_Final.pdf", "purpose": "facts"},
+      {"sourceName": "Lonely Planet · Wat Phou Salao", "sourceUrl": "https://www.lonelyplanet.com/points-of-interest/wat-phou-salao/1543530", "purpose": "facts"}
+    ]
+  }
+}

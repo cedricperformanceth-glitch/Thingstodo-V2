@@ -1,0 +1,44 @@
+{
+  "thing-dao-heuang-market": {
+    "hero": {
+      "eyebrow": "WORKING MARKET · PAKSÉ",
+      "aliases": ["Dao Heuang Market", "Talat Dao Heuang", "Pakse New Market"],
+      "description": "Dao Heuang is Paksé's large working market, where wholesale and retail trade meet: food, produce, household goods and regional coffee make more sense here than a souvenir-only reading.",
+      "steps": ["Go while the morning is active", "Start with food and produce", "Drift into the wider trading aisles", "Leave when the market starts to thin"],
+      "rhythmNote": "Come to watch a city trade, not to hunt for a curated tourist market. The ordinary sections are the reason to visit.",
+      "photoNote": "Paksé · southern Laos market"
+    },
+    "quickRead": {
+      "time": {"primary": "1–2 HOURS", "secondary": "shorter if you only want a quick morning circuit"},
+      "route": {"primary": "IN PAKSÉ", "secondary": "walk or short ride depending on where you stay"},
+      "budget": {"primary": "FREE TO BROWSE", "secondary": "spending depends entirely on what you buy or eat"},
+      "bestFor": {"primary": "LOCAL MARKET MORNING", "secondary": "produce · trade · coffee"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {"label": "THE MARKET", "title": "A distribution point before it is an attraction", "body": "JICA describes Dao Heuang as Paksé's large market with both wholesale and retail activity. That working role is what gives the visit weight. You are not walking through a market arranged for travellers; you are seeing produce and goods move through the commercial centre of southern Laos."},
+        {"label": "THE DETAIL", "title": "Coffee belongs here for a reason", "body": "The Bolaven Plateau sits just beyond Paksé and dominates Lao coffee production, so coffee at Dao Heuang is not a decorative regional product. It is part of the city's relationship with the highlands. Look for that connection alongside the broader food and household trade rather than reducing the market to a single speciality."}
+      ],
+      "note": {"label": "ATLAS NOTE", "text": "The best market visit is usually the least scripted one: go early enough to catch real trade, then let the aisles decide the route."}
+    },
+    "secondaryStory": null,
+    "practical": {"items": [
+      {"label": "Best rhythm", "value": "Morning", "detail": "The market is most useful when trade and food activity are still strong."},
+      {"label": "Time needed", "value": "1–2 hours", "detail": "Enough to move beyond a single aisle without making the market your whole morning."},
+      {"label": "Format", "value": "Wholesale + retail market", "detail": "Expect everyday food, produce and household trade alongside regionally recognisable products."},
+      {"label": "Entry", "value": "Free to browse", "detail": "There is no attraction ticket; your only cost is what you choose to buy or eat."}
+    ]},
+    "faq": [
+      {"question": "What is Dao Heuang Market best for?", "answer": "It is best for seeing Paksé's everyday trade rather than shopping for one specific souvenir. Food, produce, household goods and coffee all sit inside the same working market."},
+      {"question": "What time should I visit Dao Heuang Market?", "answer": "Morning is the stronger choice. You are more likely to catch the market while wholesale, food and produce activity still feel active."},
+      {"question": "Is Dao Heuang a tourist market?", "answer": "No. Its value is that it functions as a real wholesale and retail market for Paksé and the surrounding region."},
+      {"question": "How long should I spend there?", "answer": "One to two hours is enough for a useful circuit. If you only want breakfast or a quick look at the produce sections, you can keep it shorter."},
+      {"question": "Is there an entrance fee?", "answer": "No. It is a public working market, so browsing is free; budget only for food or anything you decide to buy."}
+    ],
+    "seo": {"title": "Dao Heuang Market Paksé: Morning Guide | Atlas", "description": "Visit Dao Heuang Market for Paksé's working market life: when to go, what the wholesale and retail mix feels like, how long to stay and why coffee matters here."},
+    "sources": [
+      {"sourceName": "JICA · Project for Strengthening Food Value Chain in Lao PDR", "sourceUrl": "https://openjicareport.jica.go.jp/pdf/12377396.pdf", "purpose": "facts"},
+      {"sourceName": "Petit Futé · Talat Dao Heuang", "sourceUrl": "https://www.petitfute.com/v52387-pakse/c650-produits-gourmands-vins/c1106-marches-halles/462210-talat-dao-heuang.html", "purpose": "facts"}
+    ]
+  }
+}
