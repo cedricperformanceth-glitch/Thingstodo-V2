@@ -1,12 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { emptyDraft, slugify, tsModule } from './lib/city-pipeline.mjs';
+import { emptyDraft, slugify, syncGenerationContract, tsModule, validateCityCategories } from './lib/city-pipeline.mjs';
 
 const [countryInput, cityInput, ...flags] = process.argv.slice(2);
 const profile = flags.includes('--profile') ? flags[flags.indexOf('--profile') + 1] : 'compact';
 const settlementType = flags.includes('--settlement') ? flags[flags.indexOf('--settlement') + 1] : undefined;
 const dryRun = flags.includes('--dry-run');
 const categoryExtensions = flags.flatMap((flag, index) => flag === '--enable-category' ? [flags[index + 1]] : []).filter(Boolean);
+const categoryList = flags.includes('--categories') ? flags[flags.indexOf('--categories') + 1].split(',').map((value) => value.trim()).filter(Boolean) : [];
 
 if (
   !countryInput
@@ -14,7 +15,7 @@ if (
   || !['compact', 'standard', 'large'].includes(profile)
   || !['village', 'city'].includes(settlementType ?? '')
 ) {
-  throw new Error('Usage: npm run create-city -- <country> <city> --settlement village|city [--profile compact|standard|large] [--enable-category <category>] [--dry-run]');
+  throw new Error('Usage: npm run create-city -- <country> <city> --settlement village|city [--profile compact|standard|large] [--enable-category <category>] [--categories <comma-separated-categories>] [--dry-run]');
 }
 
 const country = slugify(countryInput);
@@ -34,6 +35,10 @@ if (fs.existsSync(draftFile) || fs.existsSync(moduleFile)) {
 }
 
 const draft = emptyDraft(country, city, profile, settlementType, categoryExtensions);
+if (categoryList.length) {
+  draft.cityData.categories = validateCityCategories(categoryList, settlementType, `${country}/${city}`, categoryExtensions);
+  syncGenerationContract(draft);
+}
 // New destinations are working drafts until editorial/publication QA explicitly promotes them.
 draft.cityData.seo.indexable = false;
 

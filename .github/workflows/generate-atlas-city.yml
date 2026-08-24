@@ -7,6 +7,7 @@ on:
       settlement: {description: village or city, required: true}
       profile: {description: compact standard or large, required: false, default: compact}
       enable_category: {description: Optional contract-approved category extension, required: false}
+      categories: {description: Optional comma-separated explicit categories, required: false}
 permissions: {contents: write}
 jobs:
   generate:
@@ -20,6 +21,7 @@ jobs:
           if [ ! -f "pipeline/cities/${{ inputs.country }}/${{ inputs.city }}.json" ]; then
             args=("${{ inputs.country }}" "${{ inputs.city }}" --settlement "${{ inputs.settlement }}" --profile "${{ inputs.profile }}")
             if [ -n "${{ inputs.enable_category }}" ]; then args+=(--enable-category "${{ inputs.enable_category }}"); fi
+            if [ -n "${{ inputs.categories }}" ]; then args+=(--categories "${{ inputs.categories }}"); fi
             npm run create-city -- "${args[@]}"
           fi
       - run: npm run generate-city -- "${{ inputs.country }}" "${{ inputs.city }}"
