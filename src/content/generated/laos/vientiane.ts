@@ -271,9 +271,9 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pimenton%20Vientiane%20Laos"
     },
     {
-      "id": "place-joma-bakery-cafe",
-      "slug": "joma-bakery-cafe",
-      "name": "Joma Bakery Cafe",
+      "id": "place-joma-bakery-cafe-vientiane",
+      "slug": "joma-bakery-cafe-vientiane",
+      "name": "Joma Bakery Cafe Vientiane",
       "country": "laos",
       "city": "vientiane",
       "category": "restaurants",
@@ -281,7 +281,7 @@ const data = {
         "latitude": 17.9757,
         "longitude": 102.6331
       },
-      "shortDescription": "Joma Bakery Cafe is a current Vientiane restaurants address selected for this first Atlas draft.",
+      "shortDescription": "Joma Bakery Cafe Vientiane is a current Vientiane restaurants address selected for this first Atlas draft.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -307,14 +307,14 @@ const data = {
       "researchSources": [
         {
           "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Laos",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Vientiane%20Laos",
           "purpose": "location",
           "sourceType": "map-platform"
         }
       ],
       "manualLocks": {},
       "address": "Vientiane, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Laos"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Vientiane%20Laos"
     },
     {
       "id": "place-mekong-riverside-restaurant",
@@ -363,9 +363,9 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Riverside%20Restaurant%20Vientiane%20Laos"
     },
     {
-      "id": "place-saffron-coffee",
-      "slug": "saffron-coffee",
-      "name": "Saffron Coffee",
+      "id": "place-saffron-coffee-vientiane",
+      "slug": "saffron-coffee-vientiane",
+      "name": "Saffron Coffee Vientiane",
       "country": "laos",
       "city": "vientiane",
       "category": "cafes",
@@ -373,7 +373,7 @@ const data = {
         "latitude": 17.9757,
         "longitude": 102.6331
       },
-      "shortDescription": "Saffron Coffee is a current Vientiane cafes address selected for this first Atlas draft.",
+      "shortDescription": "Saffron Coffee Vientiane is a current Vientiane cafes address selected for this first Atlas draft.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -399,14 +399,14 @@ const data = {
       "researchSources": [
         {
           "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Laos",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Vientiane%20Laos",
           "purpose": "location",
           "sourceType": "map-platform"
         }
       ],
       "manualLocks": {},
       "address": "Vientiane, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Laos"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saffron%20Coffee%20Vientiane%20Vientiane%20Laos"
     },
     {
       "id": "place-joma-bakery-cafe-vientiane",
