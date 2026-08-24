@@ -1,0 +1,1051 @@
+{
+  "schemaVersion": 1,
+  "country": "laos",
+  "city": "pakse",
+  "profile": "compact",
+  "researchPlan": {
+    "searchPriorities": {},
+    "selection": {
+      "searchArea": {
+        "scope": "settlement-first",
+        "preferredRadiusKm": 2,
+        "maxRadiusKm": 3,
+        "appliesTo": [
+          "restaurants",
+          "cafes",
+          "accommodation",
+          "scooter-rental",
+          "gyms",
+          "markets",
+          "practical-services"
+        ]
+      },
+      "sourceStrategy": {
+        "candidateDiscovery": [
+          "existing-atlas-activity-database",
+          "official-establishment-sites",
+          "government-and-official-tourism-sites",
+          "wikipedia",
+          "wikimedia-commons",
+          "wikivoyage",
+          "wikitravel",
+          "unesco-and-other-authoritative-cultural-sites",
+          "web-results",
+          "travel-platforms",
+          "social-networks",
+          "other-public-sources"
+        ],
+        "preferRepeatedMentionsAcrossIndependentSources": true,
+        "verifyCurrentExistenceBeforeSelection": true
+      },
+      "selectionPrinciples": {
+        "pricePositioning": "mostly-affordable-and-midrange",
+        "requireVariety": true,
+        "avoidUltraLuxury": true,
+        "manualEditorialAdditionsExpected": true
+      },
+      "categories": {
+        "things-to-do": {
+          "targetControlledByAdmin": true,
+          "useExistingAtlasDatabaseAsPrioritySeed": true,
+          "locationScope": "destination-linked-without-fixed-radius",
+          "selectionGoal": "distinct-visitor-relevant-experiences",
+          "avoidNearDuplicates": true,
+          "automaticSubcategoryFilters": false
+        },
+        "restaurants": {
+          "venueTypes": [
+            "restaurant",
+            "bar"
+          ],
+          "barsBelongToRestaurants": true,
+          "automaticSubcategoryFilters": false
+        },
+        "cafes": {
+          "venueTypes": [
+            "cafe",
+            "coffee-shop"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "accommodation": {
+          "venueTypes": [
+            "guesthouse",
+            "hostel",
+            "small-hotel",
+            "budget-hotel"
+          ],
+          "priceUsdPerNight": {
+            "hardMinimum": null,
+            "preferredMin": 10,
+            "preferredMax": 30,
+            "hardMax": 50,
+            "upperBandMaxCount": 3
+          },
+          "automaticSubcategoryFilters": false
+        },
+        "scooter-rental": {
+          "venueTypes": [
+            "scooter-rental",
+            "motorbike-rental"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "gyms": {
+          "minimum": 0,
+          "groups": {
+            "fitness-and-weights": {
+              "max": 5
+            },
+            "muay-thai": {
+              "ideal": 2,
+              "max": 3
+            }
+          },
+          "automaticSubcategoryFilters": false
+        },
+        "markets": {
+          "minimum": 0,
+          "venueTypes": [
+            "market",
+            "night-market"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "practical-services": {
+          "minimum": 0,
+          "searchTypes": [
+            "hospital",
+            "tourism-office",
+            "immigration-office"
+          ],
+          "officialOnly": [
+            "immigration-office"
+          ],
+          "exclude": [
+            "visa-agency",
+            "travel-agency"
+          ],
+          "automaticSubcategoryFilters": false
+        }
+      }
+    },
+    "verification": {
+      "discoveryBudget": {
+        "initialQueriesPerCategory": 4,
+        "maxQueriesPerCategory": 12,
+        "candidatePoolMultiplier": 1.5,
+        "stopWhenQualifiedTargetReached": true
+      },
+      "sourceClasses": {
+        "authoritative": [
+          "government",
+          "official-tourism",
+          "official-establishment",
+          "unesco-or-equivalent-institution"
+        ],
+        "open-reference": [
+          "wikipedia",
+          "wikivoyage",
+          "wikitravel"
+        ],
+        "open-media": [
+          "wikimedia-commons"
+        ],
+        "supporting": [
+          "travel-platform",
+          "booking-platform",
+          "map-platform",
+          "reputable-travel-editorial",
+          "local-news",
+          "first-party-social-network",
+          "public-web-result",
+          "public-user-report"
+        ]
+      },
+      "candidateIdentity": {
+        "normalizeName": true,
+        "compareCoordinatesWhenAvailable": true,
+        "compareAddressWhenAvailable": true,
+        "mergeObviousAliases": true,
+        "doNotCountSyndicatedCopiesAsIndependentMentions": true
+      },
+      "repeatedMentionRanking": {
+        "countIndependentSources": true,
+        "preferRecentMentions": true,
+        "preferAuthoritativeSources": true,
+        "existingAtlasDatabaseIsSeedNotProof": true
+      },
+      "reputationRanking": {
+        "purpose": "ranking-signal-only",
+        "sourceNeutral": true,
+        "examples": [
+          "booking-platform-rating",
+          "travel-platform-rating",
+          "map-platform-rating",
+          "local-directory-rating",
+          "other-public-rating-source"
+        ],
+        "maxIndependentSnapshotsUsedPerCandidate": 3,
+        "storeReviewText": false,
+        "storeReviewBodies": false,
+        "bulkReviewCollection": false,
+        "normalizeDifferentRatingScales": true,
+        "useReviewCountWithDiminishingWeight": true,
+        "preferRecentSnapshots": true,
+        "missingRatingsNeverRejectCandidate": true,
+        "firstPartySocialActivityIsSmallPositiveSignalOnly": true,
+        "missingSocialPresenceNeverRejectCandidate": true,
+        "editorialReviewRemainsFinalAuthority": true
+      },
+      "acceptance": {
+        "businessOrOperator": {
+          "minimumIndependentCurrentSignals": 2,
+          "requireAtLeastOneStrongSignal": true,
+          "singleWeakSourceNeverAutoAccepts": true
+        },
+        "staticLandmarkOrNaturalSite": {
+          "singleCurrentAuthoritativeSourceCanConfirmExistence": true,
+          "otherwiseMinimumIndependentSignals": 2
+        },
+        "publicExperience": {
+          "singleCurrentAuthoritativeSourceCanConfirmAvailability": true,
+          "otherwiseMinimumIndependentSignals": 2,
+          "requiresSpecificOperatorVerification": false
+        },
+        "conflictingCurrentSources": "manual-review"
+      },
+      "existenceVerification": {
+        "strongOperationalSignals": [
+          "current-official-establishment-site",
+          "recent-first-party-social-activity",
+          "current-authoritative-listing",
+          "places-api-operational-status"
+        ],
+        "permanentClosure": {
+          "officialClosureNoticeIsConclusive": true,
+          "placesApiClosedPermanentlyIsConclusive": true,
+          "independentExplicitClosureReportsThreshold": 3,
+          "closureReportMaxAgeMonths": 18,
+          "requireNoNewerOperationalSignal": true
+        },
+        "temporaryClosure": {
+          "doNotTreatAsPermanent": true,
+          "status": "needs-review"
+        },
+        "movedBusiness": {
+          "followReplacementLocationWhenVerified": true
+        },
+        "googleMapsPolicy": {
+          "noReviewScraping": true,
+          "noReviewTextCopying": true,
+          "preferPermittedPlacesApiStatusFieldsWhenAvailable": true
+        }
+      },
+      "reusePolicy": {
+        "facts": {
+          "useForResearchAndCrossCheck": true,
+          "writeAtlasCopyIndependently": true,
+          "recordProvenance": true
+        },
+        "text": {
+          "default": "do-not-copy",
+          "mayReuseOnlyWithExplicitCompatibleLicense": true,
+          "honorAttributionAndShareAlikeWhenRequired": true
+        },
+        "media": {
+          "automaticDiscoverySource": "wikimedia-commons",
+          "requirePerAssetLicenseCheck": true,
+          "allowedWhenCompliant": [
+            "public-domain",
+            "cc0",
+            "cc-by",
+            "cc-by-sa"
+          ],
+          "rejectWithoutPermission": [
+            "all-rights-reserved",
+            "unknown-license"
+          ],
+          "rejectForCommercialAtlasUse": [
+            "cc-by-nc",
+            "cc-by-nc-sa",
+            "cc-by-nc-nd"
+          ],
+          "noDerivativeAssetsCannotBeEdited": true,
+          "storeAuthorLicenseSourceAndAttribution": true
+        },
+        "domainSpecific": {
+          "wikimedia-commons": "only-automatic-photo-search-source-check-each-file-license",
+          "wikipedia": "research-and-facts-by-default-do-not-copy-prose",
+          "wikivoyage": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
+          "wikitravel": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
+          "unesco": "authoritative-research-source-but-not-an-automatic-photo-source"
+        }
+      }
+    }
+  },
+  "cityData": {
+    "id": "city-laos-pakse",
+    "slug": "pakse",
+    "name": "Paksé",
+    "country": "laos",
+    "profile": "compact",
+    "settlementType": "city",
+    "coordinates": {
+      "latitude": 15.1202,
+      "longitude": 105.7989
+    },
+    "description": "Paksé is the practical base for southern Laos: Buddhist temples and the Mekong in town, with Champasak, the Bolaven Plateau and protected landscapes within day-trip reach.",
+    "categories": [
+      "things-to-do",
+      "restaurants",
+      "cafes",
+      "accommodation",
+      "scooter-rental",
+      "gyms",
+      "markets",
+      "practical-services"
+    ],
+    "hero": {
+      "eyebrow": "Southern Laos",
+      "title": "Paksé",
+      "subtitle": "A southern Laos base for temples, the Mekong and the Bolaven Plateau.",
+      "facts": [
+        "Champasak Province",
+        "Southern Laos"
+      ]
+    },
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-vat-phou",
+        "thing-tad-fane",
+        "thing-wat-phou-salao"
+      ]
+    },
+    "manualLocks": {},
+    "seo": {
+      "title": "Paksé travel guide | Things To Do Atlas",
+      "description": "Plan a Paksé stay with temples, Bolaven Plateau waterfalls, Champasak heritage and southern Laos day trips.",
+      "canonicalPath": "/laos/pakse",
+      "indexable": false
+    }
+  },
+  "places": [],
+  "things": [
+    {
+      "id": "thing-vat-phou",
+      "slug": "vat-phou-champasak",
+      "name": "Vat Phou",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 14.8483,
+        "longitude": 105.8175
+      },
+      "shortDescription": "Follow the ceremonial axis of Vat Phou, the Khmer temple landscape south of Paksé, from the Mekong plain towards Phou Kao mountain.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Khmer temple",
+          "World Heritage",
+          "Champasak"
+        ],
+        "gettingThere": "Road transfer south from Paksé",
+        "duration": "Half-day",
+        "costType": "paid",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "UNESCO and Laos Tourism confirm the historic site and its Champasak location."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "UNESCO World Heritage Centre",
+          "sourceUrl": "https://whc.unesco.org/en/list/481",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vat+Phou+Champasak+Laos",
+      "isLandmark": true,
+      "longDescription": "Follow the ceremonial axis of Vat Phou, the Khmer temple landscape south of Paksé, from the Mekong plain towards Phou Kao mountain.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "kicker": "KHMER · TEMPLE · CHAMPASAK",
+        "duration": "Half day",
+        "route": "Road south from Paksé"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tad-fane",
+      "slug": "tad-fane-waterfall",
+      "name": "Tad Fane Waterfall",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.191,
+        "longitude": 106.142
+      },
+      "shortDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Paksé.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Twin falls",
+          "Rainforest gorge",
+          "Bolaven"
+        ],
+        "gettingThere": "Road trip via Paksong",
+        "duration": "Half-day",
+        "costType": "paid",
+        "bestTime": "Rainy season",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Laos Tourism and the Bolaven Plateau destination material identify Tad Fane near Paksong."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/bolaven-plateau-waterfall/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Pakse",
+          "purpose": "cross-check",
+          "sourceType": "wikivoyage"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad+Fane+Waterfall+Laos",
+      "isLandmark": true,
+      "longDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Paksé.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "kicker": "WATERFALL · PLATEAU · GORGE",
+        "duration": "Half day",
+        "route": "Road via Paksong"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tad-yuang",
+      "slug": "tad-yuang-waterfall",
+      "name": "Tad Yuang Waterfall",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.1805,
+        "longitude": 106.13
+      },
+      "shortDescription": "Stop at Tad Yuang on the Bolaven Plateau for a waterfall visit that complements the larger Tad Fane gorge nearby.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Plateau stop",
+          "Waterfall walk",
+          "Paksong"
+        ],
+        "gettingThere": "Road trip via Paksong",
+        "duration": "1–2 hours",
+        "costType": "paid",
+        "bestTime": "Daylight",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Laos Tourism destination coverage and Wikivoyage independently list Tad Yuang on the Paksé-Bolaven route."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/bolaven-plateau-waterfall/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Pakse",
+          "purpose": "cross-check",
+          "sourceType": "wikivoyage"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad+Yuang+Waterfall+Laos",
+      "isLandmark": true,
+      "longDescription": "Stop at Tad Yuang on the Bolaven Plateau for a waterfall visit that complements the larger Tad Fane gorge nearby.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-bolaven-coffee-route",
+      "slug": "bolaven-plateau-coffee-route",
+      "name": "Bolaven Plateau Coffee Route",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.25,
+        "longitude": 106.25
+      },
+      "shortDescription": "Use Paksé as the base for a Bolaven Plateau day route, where coffee-growing highlands, villages and waterfall stops shape the journey.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee country",
+          "Highland road",
+          "Day route"
+        ],
+        "gettingThere": "Road trip from Paksé",
+        "duration": "Full day",
+        "costType": "paid",
+        "bestTime": "October to February",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Laos Tourism identifies Paksé as the base for Bolaven Plateau travel and documents its coffee production."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/bolaven-plateau-waterfall/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Pakse",
+          "purpose": "cross-check",
+          "sourceType": "wikivoyage"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bolaven+Plateau+Laos",
+      "isLandmark": false,
+      "longDescription": "Use Paksé as the base for a Bolaven Plateau day route, where coffee-growing highlands, villages and waterfall stops shape the journey.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-wat-phou-salao",
+      "slug": "wat-phou-salao",
+      "name": "Wat Phou Salao",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.1262,
+        "longitude": 105.8257
+      },
+      "shortDescription": "Cross the Mekong side of Paksé for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Hilltop temple",
+          "City outlook",
+          "Golden Buddha"
+        ],
+        "gettingThere": "Road across the Mekong",
+        "duration": "1–2 hours",
+        "costType": "free",
+        "bestTime": "Late afternoon",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Paksé reference coverage and regional tourism material identify the hilltop temple and Buddha."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Pakse",
+          "purpose": "facts",
+          "sourceType": "wikipedia"
+        },
+        {
+          "sourceName": "Southern Laos Destination Management Plan",
+          "sourceUrl": "https://www.tiigp2-laos.org/wp-content/uploads/2021/05/Southern-Laos-DMP-2020-2025_Lao_2019_Final.pdf",
+          "purpose": "cross-check",
+          "sourceType": "government"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat+Phou+Salao+Pakse+Laos",
+      "isLandmark": true,
+      "longDescription": "Cross the Mekong side of Paksé for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "kicker": "TEMPLE · HILL · MEKONG",
+        "duration": "1–2 hours",
+        "route": "Across the Mekong from Paksé"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-wat-luang",
+      "slug": "wat-luang-pakse",
+      "name": "Wat Luang",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.1207,
+        "longitude": 105.7933
+      },
+      "shortDescription": "Visit Wat Luang, Paksé’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "City temple",
+          "Central Paksé",
+          "Buddhist art"
+        ],
+        "gettingThere": "Walk or short ride in Paksé",
+        "duration": "1 hour",
+        "costType": "free",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Paksé reference coverage and the Southern Laos tourism plan both identify Wat Luang."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Pakse",
+          "purpose": "facts",
+          "sourceType": "wikipedia"
+        },
+        {
+          "sourceName": "Southern Laos Destination Management Plan",
+          "sourceUrl": "https://www.tiigp2-laos.org/wp-content/uploads/2021/05/Southern-Laos-DMP-2020-2025_Lao_2019_Final.pdf",
+          "purpose": "cross-check",
+          "sourceType": "government"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat+Luang+Pakse+Laos",
+      "isLandmark": true,
+      "longDescription": "Visit Wat Luang, Paksé’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-dao-heuang-market",
+      "slug": "dao-heuang-market",
+      "name": "Dao Heuang Market",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.117,
+        "longitude": 105.797
+      },
+      "shortDescription": "Browse Dao Heuang Market for a grounded view of Paksé’s everyday trade, including southern Lao produce and coffee.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Local market",
+          "Coffee produce",
+          "City morning"
+        ],
+        "gettingThere": "Walk or short ride in Paksé",
+        "duration": "1–2 hours",
+        "costType": "free",
+        "bestTime": "Morning",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "The Southern Laos tourism plan and Paksé reference coverage identify Dao Heuang Market."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Southern Laos Destination Management Plan",
+          "sourceUrl": "https://www.tiigp2-laos.org/wp-content/uploads/2021/05/Southern-Laos-DMP-2020-2025_Lao_2019_Final.pdf",
+          "purpose": "facts",
+          "sourceType": "government"
+        },
+        {
+          "sourceName": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Pakse",
+          "purpose": "cross-check",
+          "sourceType": "wikipedia"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dao+Heuang+Market+Pakse+Laos",
+      "isLandmark": false,
+      "longDescription": "Browse Dao Heuang Market for a grounded view of Paksé’s everyday trade, including southern Lao produce and coffee.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-xe-pian",
+      "slug": "xe-pian-national-protected-area",
+      "name": "Xe Pian National Protected Area",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 14.69,
+        "longitude": 105.8
+      },
+      "shortDescription": "Arrange a southern Laos nature day around Xe Pian National Protected Area, a broad wetland and forest landscape south of Paksé.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Protected landscape",
+          "Wetlands",
+          "Southern Laos"
+        ],
+        "gettingThere": "Arrange road transport south of Paksé",
+        "duration": "Full day",
+        "costType": "paid",
+        "bestTime": "Dry season",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "The protected area is documented by conservation authorities and southern Laos destination material."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "BirdLife International",
+          "sourceUrl": "https://datazone.birdlife.org/site/factsheet/xe-pian-npa-iba-laos",
+          "purpose": "facts",
+          "sourceType": "authoritative"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Champasak",
+          "purpose": "cross-check",
+          "sourceType": "wikivoyage"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Xe+Pian+National+Protected+Area+Laos",
+      "isLandmark": true,
+      "longDescription": "Arrange a southern Laos nature day around Xe Pian National Protected Area, a broad wetland and forest landscape south of Paksé.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tad-lo",
+      "slug": "tad-lo-waterfalls",
+      "name": "Tad Lo Waterfalls",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 15.453,
+        "longitude": 106.338
+      },
+      "shortDescription": "Make the longer plateau-side trip to Tad Lo, where waterfalls and a small riverside settlement offer a different southern Laos rhythm.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Riverside falls",
+          "Long day",
+          "Plateau edge"
+        ],
+        "gettingThere": "Road trip from Paksé",
+        "duration": "Full day",
+        "costType": "paid",
+        "bestTime": "Daylight",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Laos Tourism and Wikivoyage independently document Tad Lo as a southern Laos waterfall destination."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Tad_Lo",
+          "purpose": "cross-check",
+          "sourceType": "wikivoyage"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad+Lo+Waterfalls+Laos",
+      "isLandmark": true,
+      "longDescription": "Make the longer plateau-side trip to Tad Lo, where waterfalls and a small riverside settlement offer a different southern Laos rhythm.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-champasak-riverside",
+      "slug": "champasak-riverside",
+      "name": "Champasak Riverside",
+      "country": "laos",
+      "city": "pakse",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 14.892,
+        "longitude": 105.876
+      },
+      "shortDescription": "Spend time in riverside Champasak, the town within the Vat Phou cultural landscape, before or after visiting the temple complex.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Mekong town",
+          "Heritage landscape",
+          "Slow afternoon"
+        ],
+        "gettingThere": "Road transfer south from Paksé",
+        "duration": "Half-day",
+        "costType": "free",
+        "bestTime": "Late afternoon",
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "UNESCO identifies Champasak as part of the Vat Phou cultural landscape; travel reference material confirms the town visit."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "UNESCO World Heritage Centre",
+          "sourceUrl": "https://whc.unesco.org/en/list/481",
+          "purpose": "facts",
+          "sourceType": "unesco-or-equivalent-institution"
+        },
+        {
+          "sourceName": "Wikivoyage",
+          "sourceUrl": "https://en.wikivoyage.org/wiki/Champasak",
+          "purpose": "cross-check",
+          "sourceType": "wikivoyage"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Champasak+Laos",
+      "isLandmark": false,
+      "longDescription": "Spend time in riverside Champasak, the town within the Vat Phou cultural landscape, before or after visiting the temple complex.",
+      "breadcrumbs": [
+        "laos",
+        "pakse",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    }
+  ]
+}
