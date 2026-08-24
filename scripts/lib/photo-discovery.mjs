@@ -39,14 +39,21 @@ function commonsSourceUrl(page) {
   return `https://commons.wikimedia.org/wiki/${encodeURIComponent(title).replace(/^File%3A/i, 'File:')}`;
 }
 
-function pageToPhoto(page, candidate) {
+function searchNames(candidate) {
+  const names = [candidate?.name, ...(candidate?.mediaSearchNames ?? [])]
+    .map(clean)
+    .filter(Boolean);
+  return names.filter((name, index) => names.findIndex((item) => normalize(item) === normalize(name)) === index);
+}
+
+function pageToPhoto(page, candidate, names = searchNames(candidate)) {
   const info = page?.imageinfo?.[0];
   if (!info) return null;
   const metadata = info.extmetadata ?? {};
   const description = stripHtml(metadata?.ImageDescription?.value);
   const objectName = stripHtml(metadata?.ObjectName?.value);
   const categories = stripHtml(metadata?.Categories?.value);
-  const subjectConfidence = exactNameConfidence(candidate?.name, page?.title, objectName, description, categories);
+  const subjectConfidence = Math.max(0, ...names.map((name) => exactNameConfidence(name, page?.title, objectName, description, categories)));
   if (subjectConfidence < .9) return null;
 
   const license = compatibleLicenseLabel(metadata?.LicenseShortName?.value);
@@ -89,24 +96,26 @@ function dedupePhotos(photos) {
 export async function discoverWikimediaCommonsPhotos(candidate, context = {}, fetchImpl = globalThis.fetch, options = {}) {
   if (typeof fetchImpl !== 'function' || !clean(candidate?.name)) return [];
   const limit = Math.max(1, Math.min(50, Number(options.maxResults) || PLACE_REUSABLE_LIMIT));
-  const params = new URLSearchParams({
-    action: 'query',
-    format: 'json',
-    origin: '*',
-    generator: 'search',
-    gsrnamespace: '6',
-    gsrsearch: `"${candidate.name}" ${context?.cityName ?? ''}`.trim(),
-    gsrlimit: String(limit),
-    prop: 'info|imageinfo',
-    inprop: 'url',
-    iiprop: 'url|size|extmetadata',
-    iiurlwidth: '1600',
-  });
-
   try {
-    const data = await jsonFetch(`${COMMONS_API_ENDPOINT}?${params}`, fetchImpl);
-    const pages = Object.values(data?.query?.pages ?? {}).sort((a, b) => Number(a?.index ?? 0) - Number(b?.index ?? 0));
-    return dedupePhotos(pages.map((page) => pageToPhoto(page, candidate)).filter(Boolean)).slice(0, limit);
+    const names = searchNames(candidate);
+    const found = [];
+    for (const name of names) {
+      const queries = [`"${name}" ${context?.cityName ?? ''}`.trim(), `"${name}"`]
+        .filter((query, index, list) => list.indexOf(query) === index);
+      for (const query of queries) {
+        const params = new URLSearchParams({
+          action: 'query', format: 'json', origin: '*', generator: 'search', gsrnamespace: '6',
+          gsrsearch: query, gsrlimit: String(limit),
+          prop: 'info|imageinfo', inprop: 'url', iiprop: 'url|size|extmetadata', iiurlwidth: '1600',
+        });
+        const data = await jsonFetch(`${COMMONS_API_ENDPOINT}?${params}`, fetchImpl);
+        const pages = Object.values(data?.query?.pages ?? {}).sort((a, b) => Number(a?.index ?? 0) - Number(b?.index ?? 0));
+        found.push(...pages.map((page) => pageToPhoto(page, candidate, names)).filter(Boolean));
+        if (dedupePhotos(found).length >= limit) break;
+      }
+      if (dedupePhotos(found).length >= limit) break;
+    }
+    return dedupePhotos(found).slice(0, limit);
   } catch {
     return [];
   }

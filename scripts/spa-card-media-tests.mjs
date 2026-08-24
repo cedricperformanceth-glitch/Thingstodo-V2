@@ -101,13 +101,10 @@ const activity = applySpaCardPhotoSelection({
   photoCandidates: [lowerConfidence, higherConfidence, commonsPhoto],
 }, { entityKind: 'thing-to-do' });
 assert.equal(activity.candidate.media.card.image.src, commonsPhoto.src, 'activity SPA still has exactly one best primary photo');
-assert.equal(activity.candidate.media.research.activityPhotoReserve.length, 2, 'qualified Commons surplus must be retained for future Field Card media');
-assert.deepEqual(
-  activity.candidate.media.research.activityPhotoReserve.map((photo) => photo.src),
-  [higherConfidence.src, lowerConfidence.src],
-  'activity reserve must preserve ranking order and exclude the selected SPA photo',
-);
-assert.equal(activity.candidate.media.fieldCard, undefined, 'building the reserve must not generate Field Card media yet');
+assert.equal(activity.candidate.media.research, undefined, 'three qualified images are fully materialized in the Field Card gallery, leaving no surplus reserve');
+assert.equal(activity.candidate.media.fieldCard.gallery.length, 3, 'activity Field Cards must receive up to three distinct qualified Commons images');
+assert.deepEqual(activity.candidate.media.fieldCard.gallery.map((photo) => photo.src), [commonsPhoto.src, higherConfidence.src, lowerConfidence.src]);
+assert.equal(new Set(activity.candidate.media.fieldCard.gallery.map((photo) => photo.sourceUrl)).size, 3, 'Field Card images must be distinct originals');
 
 const activityWithManualPrimary = applySpaCardPhotoSelection({
   ...base,
@@ -116,7 +113,9 @@ const activityWithManualPrimary = applySpaCardPhotoSelection({
   photoCandidates: [higherConfidence, lowerConfidence],
 }, { entityKind: 'thing-to-do' });
 assert.equal(activityWithManualPrimary.candidate.media.card.image.src, manual.src);
-assert.equal(activityWithManualPrimary.candidate.media.research.activityPhotoReserve.length, 2, 'Commons photos remain useful reserve when a manual primary photo is locked');
+assert.equal(activityWithManualPrimary.candidate.media.fieldCard.gallery[0].src, manual.src, 'a locked manual primary remains the first Field Card image');
+assert.equal(activityWithManualPrimary.candidate.media.fieldCard.gallery.length, 3, 'a manual primary can be complemented by two qualified Commons images');
+assert.equal(activityWithManualPrimary.candidate.media.research, undefined, 'no reserve remains after the three public Field Card slots are filled');
 
 const legacyLead = {
   ...base,

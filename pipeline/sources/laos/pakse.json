@@ -11,6 +11,7 @@
   "things": [
     {
       "id": "thing-vat-phou", "slug": "vat-phou-champasak", "name": "Vat Phou", "isLandmark": true,
+      "mediaSearchNames": ["Vat Phu", "Wat Phu"],
       "coordinates": { "latitude": 14.8483, "longitude": 105.8175 },
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vat+Phou+Champasak+Laos",
       "shortDescription": "Follow the ceremonial axis of Vat Phou, the Khmer temple landscape south of Paksé, from the Mekong plain towards Phou Kao mountain.",
@@ -22,6 +23,7 @@
     },
     {
       "id": "thing-tad-fane", "slug": "tad-fane-waterfall", "name": "Tad Fane Waterfall", "isLandmark": true,
+      "mediaSearchNames": ["Tad Fane", "Tad Fan"],
       "coordinates": { "latitude": 15.1910, "longitude": 106.1420 },
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad+Fane+Waterfall+Laos",
       "shortDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Paksé.",
@@ -33,6 +35,7 @@
     },
     {
       "id": "thing-tad-yuang", "slug": "tad-yuang-waterfall", "name": "Tad Yuang Waterfall", "isLandmark": true,
+      "mediaSearchNames": ["Tad Yuang", "Tad Yeuang"],
       "coordinates": { "latitude": 15.1805, "longitude": 106.1300 },
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad+Yuang+Waterfall+Laos",
       "shortDescription": "Stop at Tad Yuang on the Bolaven Plateau for a waterfall visit that complements the larger Tad Fane gorge nearby.",
@@ -53,6 +56,7 @@
     },
     {
       "id": "thing-wat-phou-salao", "slug": "wat-phou-salao", "name": "Wat Phou Salao", "isLandmark": true,
+      "mediaSearchNames": ["Wat Phou Salao Pakse", "Wat Phou Salao"],
       "coordinates": { "latitude": 15.1262, "longitude": 105.8257 },
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat+Phou+Salao+Pakse+Laos",
       "shortDescription": "Cross the Mekong side of Paksé for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
@@ -64,6 +68,7 @@
     },
     {
       "id": "thing-wat-luang", "slug": "wat-luang-pakse", "name": "Wat Luang", "isLandmark": true,
+      "mediaSearchNames": ["Wat Luang Pakse"],
       "coordinates": { "latitude": 15.1207, "longitude": 105.7933 },
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat+Luang+Pakse+Laos",
       "shortDescription": "Visit Wat Luang, Paksé’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
@@ -74,6 +79,7 @@
     },
     {
       "id": "thing-dao-heuang-market", "slug": "dao-heuang-market", "name": "Dao Heuang Market", "isLandmark": false,
+      "mediaSearchNames": ["Talat Dao Heuang", "Dao Heuang Market Pakse"],
       "coordinates": { "latitude": 15.1170, "longitude": 105.7970 },
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dao+Heuang+Market+Pakse+Laos",
       "shortDescription": "Browse Dao Heuang Market for a grounded view of Paksé’s everyday trade, including southern Lao produce and coffee.",
@@ -84,6 +90,7 @@
     },
     {
       "id": "thing-tad-champee", "slug": "tad-champee-waterfall", "name": "Tad Champee Waterfall", "isLandmark": true,
+      "mediaSearchNames": ["Tad Champee", "Tad Champi"],
       "coordinates": { "latitude": 15.2033961, "longitude": 106.1317455 },
       "googleMapsUrl": "https://www.google.com/maps/place/Tad+Champee+Waterfall/@15.2028133,106.1269691,16z/data=!4m6!3m5!1s0x31151f9b1585dcf9:0xdf876e5cd81cd095!8m2!3d15.2033961!4d106.1317455!16s%2Fg%2F11fk0lnnx8?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D",
       "shortDescription": "Take the signed side road near Tad Fane to Tad Champee, a quieter Bolaven Plateau waterfall with a path down from the parking area.",

@@ -127,6 +127,16 @@ function mergeActivityPhotoReserve(existing = [], incoming = []) {
   }).slice(0, maximum);
 }
 
+function mergeDistinctPhotos(existing = [], incoming = [], maximum = 3) {
+  const seen = new Set();
+  return [...existing, ...incoming].filter((photo) => {
+    const key = photoKey(photo);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, maximum);
+}
+
 export function selectSpaCardPhoto(candidate) {
   const current = existingImage(candidate);
   if (current?.src && current.manual === true) {
@@ -157,9 +167,20 @@ export function applySpaCardPhotoSelection(candidate, options = {}) {
   if (next.media.research?.firstPartyPhotoLeads) delete next.media.research.firstPartyPhotoLeads;
 
   if (entityKind === 'thing-to-do') {
-    const selectedKey = photoKey(result.image);
-    const reserve = qualifiedAutomaticPhotos(candidate)
-      .filter((photo) => photoKey(photo) !== selectedKey)
+    const qualified = qualifiedAutomaticPhotos(candidate);
+    const generatedGallery = qualified.map((photo) => toMediaRecord(photo, candidate?.name ?? 'Atlas activity'));
+    const protectedGallery = (next.media.fieldCard?.gallery ?? []).filter((photo) => photo?.manual === true && photo?.locked === true);
+    const primary = result.image ? [result.image] : [];
+    const gallery = mergeDistinctPhotos(protectedGallery, [...primary, ...generatedGallery], contract.selection.entityModes.thingToDo.publicFieldCardPhotoMaximum ?? 3);
+    if (gallery.length) {
+      next.media.fieldCard ??= {};
+      next.media.fieldCard.gallery = gallery;
+    } else if (next.media.fieldCard?.gallery) {
+      delete next.media.fieldCard.gallery;
+    }
+    const selectedKeys = new Set(gallery.map(photoKey));
+    const reserve = qualified
+      .filter((photo) => !selectedKeys.has(photoKey(photo)))
       .map((photo) => toActivityReserveRecord(photo, candidate?.name ?? 'Atlas activity'));
     const mergedReserve = mergeActivityPhotoReserve(next.media.research?.activityPhotoReserve, reserve);
     if (mergedReserve.length) {

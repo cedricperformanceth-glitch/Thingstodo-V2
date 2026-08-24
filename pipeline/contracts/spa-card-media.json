@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "spa-card-photo-and-future-field-card-reserve",
-  "fieldCardMedia": false,
+  "fieldCardMedia": true,
   "futureFieldCardReserve": true,
   "discovery": {
     "automaticSource": "wikimedia-commons",
@@ -25,6 +25,7 @@
       },
       "thingToDo": {
         "publicCardPhotoCount": 1,
+        "publicFieldCardPhotoMaximum": 3,
         "continueDiscoveryAfterPrimaryPhoto": true,
         "discoveryGoal": "retain-qualified-commons-results-from-the-same-query",
         "retainReusableSurplus": true,
