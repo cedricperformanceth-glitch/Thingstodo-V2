@@ -118,9 +118,9 @@ const laosMapLabels = [
     );
   }
   .laos-board {
-    --laos-blue: #002868;
-    --laos-blue-deep: #002868;
-    --laos-blue-glow: #002868;
+    --laos-blue: #5a7ead;
+    --laos-blue-deep: #45658e;
+    --laos-blue-glow: #7595c0;
     --laos-red: #7d2730;
     --laos-label-erase: #214739;
     --chalk-ivory: #EEE4CF;
@@ -142,9 +142,9 @@ const laosMapLabels = [
   .laos-board__map-destination { --map-label-color: var(--laos-blue); }
   .laos-board__map-label-halo { fill: none; stroke: var(--laos-label-erase); stroke-width: 5.2; stroke-linecap: round; stroke-linejoin: round; paint-order: stroke; opacity: 0; animation: map-label-halo .18s ease-out calc(var(--map-label-delay) + .46s) forwards; }
   .laos-board__map-label-ink { fill: transparent; stroke: var(--map-label-color); stroke-width: 1.08; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 520; stroke-dashoffset: 520; paint-order: stroke; opacity: .98; transition: filter 220ms ease, opacity 220ms ease; animation: map-label-write .86s cubic-bezier(.2,.75,.22,1) var(--map-label-delay) forwards; }
-  .laos-board__map-marker-pulse { fill: rgb(0 40 104 / .08); stroke: var(--laos-blue-glow); stroke-width: 1.7; opacity: 0; transform: scale(.68); transform-box: fill-box; transform-origin: center; transition: opacity 220ms ease, transform 260ms cubic-bezier(.2,.75,.22,1); }
+  .laos-board__map-marker-pulse { fill: rgb(90 126 173 / .08); stroke: var(--laos-blue-glow); stroke-width: 1.7; opacity: 0; transform: scale(.68); transform-box: fill-box; transform-origin: center; transition: opacity 220ms ease, transform 260ms cubic-bezier(.2,.75,.22,1); }
   .laos-board__map-destination.is-active { --map-label-color: var(--laos-blue-glow); }
-  .laos-board__map-destination.is-active .laos-board__map-label-ink { filter: drop-shadow(0 0 4px rgb(0 40 104 / .5)); opacity: 1; }
+  .laos-board__map-destination.is-active .laos-board__map-label-ink { filter: drop-shadow(0 0 4px rgb(117 149 192 / .5)); opacity: 1; }
   .laos-board__map-destination.is-active .laos-board__map-marker-pulse { opacity: .96; transform: scale(1); }
 
   /* Desktop composition is locked to the chalkboard itself, not the viewport. */
@@ -236,8 +236,8 @@ const laosMapLabels = [
     text-shadow: 0 1px 0 rgb(0 0 0 / .22);
     transition: color 220ms ease, opacity 220ms ease, transform 220ms ease;
   }
-  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-index { color: var(--laos-blue-glow); text-shadow: 0 0 7px rgb(0 40 104 / .28); }
-  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-name { color: var(--laos-blue-glow); text-shadow: 0 1px 0 rgb(0 0 0 / .24), 0 0 8px rgb(0 40 104 / .24); transform: translateY(-1px); }
+  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-index { color: var(--laos-blue-glow); text-shadow: 0 0 7px rgb(117 149 192 / .28); }
+  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-name { color: var(--laos-blue-glow); text-shadow: 0 1px 0 rgb(0 0 0 / .24), 0 0 8px rgb(117 149 192 / .24); transform: translateY(-1px); }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent { opacity: .9; }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent path { stroke: var(--laos-red); stroke-dashoffset: 0; }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-note { color: rgb(248 242 228 / .98); transform: translateY(-1px); }
