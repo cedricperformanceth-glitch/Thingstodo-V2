@@ -1,0 +1,79 @@
+name: Clean Pakse media attribution once
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/pakse-media-author-cleanup-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  clean-attribution:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout current master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Normalize Commons author display name
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { tsModule } from './scripts/lib/city-pipeline.mjs';
+
+          const sourceFile = 'pipeline/cities/laos/pakse.json';
+          const generatedFile = 'src/content/generated/laos/pakse.ts';
+          const draft = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+          let changed = 0;
+
+          const normalizeAsset = (asset) => {
+            if (!asset || asset.sourceName !== 'Wikimedia Commons') return;
+            if (typeof asset.author === 'string' && asset.author.includes('Supanut Arunoprayote') && asset.author !== 'Supanut Arunoprayote') {
+              asset.author = 'Supanut Arunoprayote';
+              changed += 1;
+            }
+          };
+
+          for (const thing of draft.things ?? []) {
+            normalizeAsset(thing.media?.card?.image);
+            for (const asset of thing.media?.fieldCard?.gallery ?? []) normalizeAsset(asset);
+            for (const asset of thing.media?.research?.activityPhotoReserve ?? []) normalizeAsset(asset);
+          }
+
+          if (!changed) throw new Error('Expected Supanut Arunoprayote attribution metadata to normalize');
+          fs.writeFileSync(sourceFile, `${JSON.stringify(draft, null, 2)}\n`);
+          fs.writeFileSync(generatedFile, tsModule(draft));
+          console.log(`Normalized ${changed} Pakse media attribution field(s).`);
+          NODE
+
+      - name: Verify attribution cleanup
+        run: |
+          npm run validate-content
+          npm run test:spa-card-media
+          npm run check
+
+      - name: Commit cleanup and remove one-time workflow
+        shell: bash
+        run: |
+          rm .github/workflows/pakse-media-author-cleanup-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pipeline/cities/laos/pakse.json src/content/generated/laos/pakse.ts .github/workflows/pakse-media-author-cleanup-once.yml
+          git commit -m "Normalize Pakse Commons attribution"
+          git push origin HEAD:master
