@@ -11,9 +11,10 @@ interface Props {
   breadcrumbs?: Array<{ name: string; path: string }>;
   structuredData?: Record<string, unknown>[];
   ogType?: 'website' | 'article';
+  immersive?: boolean;
 }
 
-const { seo, breadcrumbs = [], structuredData = [], ogType = 'website' } = Astro.props;
+const { seo, breadcrumbs = [], structuredData = [], ogType = 'website', immersive = false } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
 ---
 <!doctype html>
@@ -42,11 +43,11 @@ const meta = pageSeo(seo, breadcrumbs);
       <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
     ))}
   </head>
-  <body>
-    <Navbar />
-    <main id="main-content"><slot /></main>
-    <SiteFooter />
-    <MakeYourOwnAtlas />
+  <body class:list={{ 'page--immersive': immersive }}>
+    {!immersive && <Navbar />}
+    <main id="main-content" class:list={{ 'main--immersive': immersive }}><slot /></main>
+    {!immersive && <SiteFooter />}
+    {!immersive && <MakeYourOwnAtlas />}
     <script>
       import '../../features/trip/client';
 
