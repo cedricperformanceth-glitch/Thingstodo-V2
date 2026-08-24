@@ -14,7 +14,8 @@ const country = getCountry(Astro.params.country ?? '');
 const category = Astro.params.category as CategorySlug;
 if (!city || !city.categories.includes(category)) return Astro.redirect('/');
 const entities = getCategoryEntities(city, category);
+const isThingToDo = (entity: Place | ThingToDo): entity is ThingToDo => 'fieldCard' in entity;
 const title = category.replaceAll('-', ' ');
 const seo = { title:`${title} in ${city.name} | Things To Do Atlas`, description:`Editorial ${title} guide for ${city.name}.`, canonicalPath:categoryPath(city,category), indexable:false };
 ---
-<BaseLayout {seo} breadcrumbs={[{name:'Home',path:'/'},{name:country?.name ?? city.country,path:`/${city.country}`},{name:city.name,path:cityPath(city)},{name:title,path:categoryPath(city,category)}]}><h1 style="text-transform:capitalize">{title} in {city.name}</h1><MapPlaceholder {city} /><div class="grid">{category === 'things-to-do' ? (entities as ThingToDo[]).map((thing) => <ThingToDoCard {city} {thing} />) : (entities as Place[]).map((place) => <PlaceCard {place} />)}</div>{entities.length === 0 && <p>Editorial entries will be added here without changing this route.</p>}</BaseLayout>
+<BaseLayout {seo} breadcrumbs={[{name:'Home',path:'/'},{name:country?.name ?? city.country,path:`/${city.country}`},{name:city.name,path:cityPath(city)},{name:title,path:categoryPath(city,category)}]}><h1 style="text-transform:capitalize">{title} in {city.name}</h1><MapPlaceholder {city} /><div class="grid">{entities.map((entity) => isThingToDo(entity) ? <ThingToDoCard {city} thing={entity} /> : <PlaceCard place={entity} />)}</div>{entities.length === 0 && <p>Editorial entries will be added here without changing this route.</p>}</BaseLayout>
