@@ -46,10 +46,10 @@
           "Luang Prabang",
           "Cultural visit"
         ],
-        "bestTime": "Walk the peninsula",
+        "bestTime": "Early morning",
         "duration": "2–3 hours",
         "gettingThere": "Walk the peninsula",
-        "costType": "Early morning",
+        "costType": "free",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -75,7 +75,7 @@
         }
       ],
       "exploreBoard": {
-        "kicker": true,
+        "kicker": "HERITAGE · MEKONG · NAM KHAN",
         "duration": "2–3 hours",
         "route": "Walk the peninsula"
       }
@@ -100,10 +100,10 @@
           "Lao architecture",
           "Old town"
         ],
-        "bestTime": "Walk to the peninsula tip",
+        "bestTime": "Morning",
         "duration": "1 hour",
         "gettingThere": "Walk to the peninsula tip",
-        "costType": "Morning",
+        "costType": "paid",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -129,7 +129,7 @@
         }
       ],
       "exploreBoard": {
-        "kicker": true,
+        "kicker": "TEMPLE · MOSAIC · PENINSULA",
         "duration": "1 hour",
         "route": "Walk to the peninsula tip"
       }
@@ -154,10 +154,10 @@
           "Sacred site",
           "Old town"
         ],
-        "bestTime": "Central staircase",
+        "bestTime": "Late afternoon",
         "duration": "1–2 hours",
         "gettingThere": "Central staircase",
-        "costType": "Late afternoon",
+        "costType": "paid",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -183,7 +183,7 @@
         }
       ],
       "exploreBoard": {
-        "kicker": true,
+        "kicker": "HILL · TEMPLES · RIVERS",
         "duration": "1–2 hours",
         "route": "Central staircase"
       }
@@ -192,7 +192,7 @@
       "id": "thing-royal-palace-museum",
       "slug": "royal-palace-museum",
       "name": "Royal Palace Museum",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "Royal Palace Museum"
       ],
@@ -208,10 +208,10 @@
           "Luang Prabang",
           "Cultural visit"
         ],
-        "bestTime": "Walk from the main street",
+        "bestTime": "Morning",
         "duration": "1–2 hours",
         "gettingThere": "Walk from the main street",
-        "costType": "Morning",
+        "costType": "paid",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -235,18 +235,13 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "1–2 hours",
-        "route": "Walk from the main street"
-      }
+      ]
     },
     {
       "id": "thing-tak-bat-alms",
       "slug": "tak-bat-alms",
       "name": "Morning Alms Giving (Tak Bat)",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "Morning Alms Giving (Tak Bat)"
       ],
@@ -262,10 +257,10 @@
           "Buddhist practice",
           "Early morning"
         ],
-        "bestTime": "Old-town streets",
+        "bestTime": "Before sunrise",
         "duration": "30–45 minutes",
         "gettingThere": "Old-town streets",
-        "costType": "Before sunrise",
+        "costType": "free",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -289,12 +284,7 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "30–45 minutes",
-        "route": "Old-town streets"
-      }
+      ]
     },
     {
       "id": "thing-kuang-si-waterfalls",
@@ -316,10 +306,10 @@
           "Forest pools",
           "Day trip"
         ],
-        "bestTime": "Road south from town",
+        "bestTime": "Morning",
         "duration": "Half-day",
         "gettingThere": "Road south from town",
-        "costType": "Morning",
+        "costType": "paid",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -345,7 +335,7 @@
         }
       ],
       "exploreBoard": {
-        "kicker": true,
+        "kicker": "WATERFALL · FOREST · DAY TRIP",
         "duration": "Half-day",
         "route": "Road south from town"
       }
@@ -354,7 +344,7 @@
       "id": "thing-pak-ou-caves",
       "slug": "pak-ou-caves",
       "name": "Pak Ou Caves",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "Pak Ou Caves"
       ],
@@ -370,10 +360,10 @@
           "Luang Prabang",
           "Cultural visit"
         ],
-        "bestTime": "Boat or road north",
+        "bestTime": "Morning",
         "duration": "Half-day",
         "gettingThere": "Boat or road north",
-        "costType": "Morning",
+        "costType": "paid",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -397,18 +387,13 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "Half-day",
-        "route": "Boat or road north"
-      }
+      ]
     },
     {
       "id": "thing-wat-visoun",
       "slug": "wat-visoun",
       "name": "Wat Visoun",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "Wat Visoun"
       ],
@@ -424,10 +409,10 @@
           "Luang Prabang",
           "Cultural visit"
         ],
-        "bestTime": "Walk from the peninsula",
+        "bestTime": "Morning",
         "duration": "45 minutes",
         "gettingThere": "Walk from the peninsula",
-        "costType": "Morning",
+        "costType": "paid",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -451,18 +436,13 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "45 minutes",
-        "route": "Walk from the peninsula"
-      }
+      ]
     },
     {
       "id": "thing-uxo-lao-visitor-centre",
       "slug": "uxo-lao-visitor-centre",
       "name": "UXO Lao Visitor Centre",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "UXO Lao Visitor Centre"
       ],
@@ -478,10 +458,10 @@
           "Luang Prabang",
           "Cultural visit"
         ],
-        "bestTime": "Short ride south of centre",
+        "bestTime": "Daytime",
         "duration": "1 hour",
         "gettingThere": "Short ride south of centre",
-        "costType": "Daytime",
+        "costType": "free",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -505,18 +485,13 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "1 hour",
-        "route": "Short ride south of centre"
-      }
+      ]
     },
     {
       "id": "thing-traditional-arts-ethnology-centre",
       "slug": "traditional-arts-ethnology-centre",
       "name": "Traditional Arts and Ethnology Centre",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "Traditional Arts and Ethnology Centre"
       ],
@@ -532,10 +507,10 @@
           "Luang Prabang",
           "Cultural visit"
         ],
-        "bestTime": "Walk from main street",
+        "bestTime": "Daytime",
         "duration": "1–2 hours",
         "gettingThere": "Walk from main street",
-        "costType": "Daytime",
+        "costType": "paid",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -559,18 +534,13 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "1–2 hours",
-        "route": "Walk from main street"
-      }
+      ]
     },
     {
       "id": "thing-ock-pop-tok-living-crafts-centre",
       "slug": "ock-pop-tok-living-crafts-centre",
       "name": "Ock Pop Tok Living Crafts Centre",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "Ock Pop Tok Living Crafts Centre"
       ],
@@ -586,10 +556,10 @@
           "Local craft",
           "Daytime"
         ],
-        "bestTime": "Short ride south of centre",
+        "bestTime": "Daytime",
         "duration": "1–2 hours",
         "gettingThere": "Short ride south of centre",
-        "costType": "Daytime",
+        "costType": "free",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -613,18 +583,13 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "1–2 hours",
-        "route": "Short ride south of centre"
-      }
+      ]
     },
     {
       "id": "thing-ban-xang-khong-weaving-village",
       "slug": "ban-xang-khong-weaving-village",
       "name": "Ban Xang Khong Weaving Village",
-      "isLandmark": true,
+      "isLandmark": false,
       "mediaSearchNames": [
         "Ban Xang Khong Weaving Village"
       ],
@@ -640,10 +605,10 @@
           "Local craft",
           "Daytime"
         ],
-        "bestTime": "Short ride from town",
+        "bestTime": "Daytime",
         "duration": "1–2 hours",
         "gettingThere": "Short ride from town",
-        "costType": "Daytime",
+        "costType": "free",
         "photoStatus": "missing",
         "photoRequiresManualFill": true
       },
@@ -667,12 +632,7 @@
           "sourceType": "unesco-or-equivalent-institution",
           "sourceName": "UNESCO World Heritage Centre"
         }
-      ],
-      "exploreBoard": {
-        "kicker": false,
-        "duration": "1–2 hours",
-        "route": "Short ride from town"
-      }
+      ]
     }
   ]
 }
