@@ -5,7 +5,7 @@ const data = {
   "city": {
     "id": "city-laos-pakse",
     "slug": "pakse",
-    "name": "Paksé",
+    "name": "Pakse",
     "country": "laos",
     "profile": "compact",
     "settlementType": "city",
@@ -13,7 +13,7 @@ const data = {
       "latitude": 15.1202,
       "longitude": 105.7989
     },
-    "description": "Paksé is the practical base for southern Laos: Buddhist temples and the Mekong in town, with Champasak, the Bolaven Plateau and protected landscapes within day-trip reach.",
+    "description": "Pakse is the practical base for southern Laos: Buddhist temples and the Mekong in town, with Champasak, the Bolaven Plateau and protected landscapes within day-trip reach.",
     "categories": [
       "things-to-do",
       "restaurants",
@@ -26,7 +26,7 @@ const data = {
     ],
     "hero": {
       "eyebrow": "Southern Laos",
-      "title": "Paksé",
+      "title": "Pakse",
       "subtitle": "A southern Laos base for temples, the Mekong and the Bolaven Plateau.",
       "facts": [
         {
@@ -48,8 +48,8 @@ const data = {
     },
     "manualLocks": {},
     "seo": {
-      "title": "Paksé travel guide | Things To Do Atlas",
-      "description": "Plan a Paksé stay with temples, Bolaven Plateau waterfalls, Champasak heritage and southern Laos day trips.",
+      "title": "Pakse travel guide | Things To Do Atlas",
+      "description": "Plan a Pakse stay with temples, Bolaven Plateau waterfalls, Champasak heritage and southern Laos day trips.",
       "canonicalPath": "/laos/pakse",
       "indexable": false
     }
@@ -67,7 +67,7 @@ const data = {
         "latitude": 14.8483,
         "longitude": 105.8175
       },
-      "shortDescription": "Follow the ceremonial axis of Vat Phou, the Khmer temple landscape south of Paksé, from the Mekong plain towards Phou Kao mountain.",
+      "shortDescription": "Follow the ceremonial axis of Vat Phou, the Khmer temple landscape south of Pakse, from the Mekong plain towards Phou Kao mountain.",
       "media": {
         "card": {
           "image": {
@@ -310,7 +310,7 @@ const data = {
           "World Heritage",
           "Champasak"
         ],
-        "gettingThere": "Road transfer south from Paksé",
+        "gettingThere": "Road transfer south from Pakse",
         "duration": "Half-day",
         "costType": "paid",
         "bestTime": "Morning",
@@ -341,7 +341,7 @@ const data = {
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vat+Phou+Champasak+Laos",
       "isLandmark": true,
-      "longDescription": "Follow the ceremonial axis of Vat Phou, the Khmer temple landscape south of Paksé, from the Mekong plain towards Phou Kao mountain.",
+      "longDescription": "Follow the ceremonial axis of Vat Phou, the Khmer temple landscape south of Pakse, from the Mekong plain towards Phou Kao mountain.",
       "breadcrumbs": [
         "laos",
         "pakse",
@@ -350,7 +350,7 @@ const data = {
       "exploreBoard": {
         "kicker": "KHMER · TEMPLE · CHAMPASAK",
         "duration": "Half day",
-        "route": "Road south from Paksé"
+        "route": "Road south from Pakse"
       },
       "fieldCard": {
         "template": "compact",
@@ -372,7 +372,7 @@ const data = {
         "latitude": 15.191,
         "longitude": 106.142
       },
-      "shortDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Paksé.",
+      "shortDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Pakse.",
       "media": {
         "card": {
           "image": {
@@ -466,7 +466,7 @@ const data = {
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad+Fane+Waterfall+Laos",
       "isLandmark": true,
-      "longDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Paksé.",
+      "longDescription": "See the twin Tad Fane falls drop into a rainforest gorge on the Bolaven Plateau, reached as a day trip from Pakse.",
       "breadcrumbs": [
         "laos",
         "pakse",
@@ -569,7 +569,7 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Laos Tourism destination coverage and Wikivoyage independently list Tad Yuang on the Paksé-Bolaven route."
+        "reason": "Laos Tourism destination coverage and Wikivoyage independently list Tad Yuang on the Pakse-Bolaven route."
       },
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline"
@@ -617,7 +617,7 @@ const data = {
         "latitude": 15.25,
         "longitude": 106.25
       },
-      "shortDescription": "Use Paksé as the base for a Bolaven Plateau day route, where coffee-growing highlands, villages and waterfall stops shape the journey.",
+      "shortDescription": "Use Pakse as the base for a Bolaven Plateau day route, where coffee-growing highlands, villages and waterfall stops shape the journey.",
       "media": {
         "card": {
           "image": {
@@ -680,7 +680,7 @@ const data = {
           "Highland road",
           "Day route"
         ],
-        "gettingThere": "Road trip from Paksé",
+        "gettingThere": "Road trip from Pakse",
         "duration": "Full day",
         "costType": "paid",
         "bestTime": "October to February",
@@ -689,7 +689,7 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Laos Tourism identifies Paksé as the base for Bolaven Plateau travel and documents its coffee production."
+        "reason": "Laos Tourism identifies Pakse as the base for Bolaven Plateau travel and documents its coffee production."
       },
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline"
@@ -711,7 +711,7 @@ const data = {
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bolaven+Plateau+Laos",
       "isLandmark": false,
-      "longDescription": "Use Paksé as the base for a Bolaven Plateau day route, where coffee-growing highlands, villages and waterfall stops shape the journey.",
+      "longDescription": "Use Pakse as the base for a Bolaven Plateau day route, where coffee-growing highlands, villages and waterfall stops shape the journey.",
       "breadcrumbs": [
         "laos",
         "pakse",
@@ -737,7 +737,7 @@ const data = {
         "latitude": 15.1262,
         "longitude": 105.8257
       },
-      "shortDescription": "Cross the Mekong side of Paksé for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
+      "shortDescription": "Cross the Mekong side of Pakse for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
       "media": {
         "card": {
           "image": {
@@ -809,7 +809,7 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Paksé reference coverage and regional tourism material identify the hilltop temple and Buddha."
+        "reason": "Pakse reference coverage and regional tourism material identify the hilltop temple and Buddha."
       },
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline"
@@ -831,7 +831,7 @@ const data = {
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat+Phou+Salao+Pakse+Laos",
       "isLandmark": true,
-      "longDescription": "Cross the Mekong side of Paksé for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
+      "longDescription": "Cross the Mekong side of Pakse for Wat Phou Salao, the hilltop temple known for its large seated Buddha above the city.",
       "breadcrumbs": [
         "laos",
         "pakse",
@@ -840,7 +840,7 @@ const data = {
       "exploreBoard": {
         "kicker": "TEMPLE · HILL · MEKONG",
         "duration": "1–2 hours",
-        "route": "Across the Mekong from Paksé"
+        "route": "Across the Mekong from Pakse"
       },
       "fieldCard": {
         "template": "compact",
@@ -862,7 +862,7 @@ const data = {
         "latitude": 15.1207,
         "longitude": 105.7933
       },
-      "shortDescription": "Visit Wat Luang, Paksé’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
+      "shortDescription": "Visit Wat Luang, Pakse’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
       "media": {
         "card": {
           "image": {
@@ -922,10 +922,10 @@ const data = {
       "spaCard": {
         "handwrittenTags": [
           "City temple",
-          "Central Paksé",
+          "Central Pakse",
           "Buddhist art"
         ],
-        "gettingThere": "Walk or short ride in Paksé",
+        "gettingThere": "Walk or short ride in Pakse",
         "duration": "1 hour",
         "costType": "free",
         "bestTime": "Morning",
@@ -934,7 +934,7 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "Paksé reference coverage and the Southern Laos tourism plan both identify Wat Luang."
+        "reason": "Pakse reference coverage and the Southern Laos tourism plan both identify Wat Luang."
       },
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline"
@@ -956,7 +956,7 @@ const data = {
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat+Luang+Pakse+Laos",
       "isLandmark": true,
-      "longDescription": "Visit Wat Luang, Paksé’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
+      "longDescription": "Visit Wat Luang, Pakse’s largest temple, as a central-city stop between the riverfront and the old commercial streets.",
       "breadcrumbs": [
         "laos",
         "pakse",
@@ -982,7 +982,7 @@ const data = {
         "latitude": 15.117,
         "longitude": 105.797
       },
-      "shortDescription": "Browse Dao Heuang Market for a grounded view of Paksé’s everyday trade, including southern Lao produce and coffee.",
+      "shortDescription": "Browse Dao Heuang Market for a grounded view of Pakse’s everyday trade, including southern Lao produce and coffee.",
       "media": {
         "card": {},
         "fieldCard": {
@@ -995,7 +995,7 @@ const data = {
           "Coffee produce",
           "City morning"
         ],
-        "gettingThere": "Walk or short ride in Paksé",
+        "gettingThere": "Walk or short ride in Pakse",
         "duration": "1–2 hours",
         "costType": "free",
         "bestTime": "Morning",
@@ -1004,7 +1004,7 @@ const data = {
       },
       "verification": {
         "decision": "accept",
-        "reason": "The Southern Laos tourism plan and Paksé reference coverage identify Dao Heuang Market."
+        "reason": "The Southern Laos tourism plan and Pakse reference coverage identify Dao Heuang Market."
       },
       "sourceMetadata": {
         "sourceName": "Atlas research pipeline"
@@ -1026,7 +1026,7 @@ const data = {
       "manualLocks": {},
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dao+Heuang+Market+Pakse+Laos",
       "isLandmark": false,
-      "longDescription": "Browse Dao Heuang Market for a grounded view of Paksé’s everyday trade, including southern Lao produce and coffee.",
+      "longDescription": "Browse Dao Heuang Market for a grounded view of Pakse’s everyday trade, including southern Lao produce and coffee.",
       "breadcrumbs": [
         "laos",
         "pakse",
@@ -1235,7 +1235,7 @@ const data = {
           "Heritage landscape",
           "Slow afternoon"
         ],
-        "gettingThere": "Road transfer south from Paksé",
+        "gettingThere": "Road transfer south from Pakse",
         "duration": "Half-day",
         "costType": "free",
         "bestTime": "Late afternoon",

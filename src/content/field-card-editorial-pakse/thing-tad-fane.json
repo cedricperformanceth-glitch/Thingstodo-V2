@@ -9,8 +9,8 @@
       "photoNote": "Near Paksong · Bolaven Plateau"
     },
     "quickRead": {
-      "time": {"primary": "45–90 MIN", "secondary": "on site; allow a half day with the road from Paksé"},
-      "route": {"primary": "VIA PAKSONG", "secondary": "Bolaven Plateau road trip east of Paksé"},
+      "time": {"primary": "45–90 MIN", "secondary": "on site; allow a half day with the road from Pakse"},
+      "route": {"primary": "VIA PAKSONG", "secondary": "Bolaven Plateau road trip east of Pakse"},
       "budget": {"primary": "PAID ENTRY", "secondary": "confirm current entrance and parking fees"},
       "bestFor": {"primary": "SCALE & DRAMA", "secondary": "twin falls · deep gorge · rainforest"}
     },
@@ -21,16 +21,16 @@
     "secondaryStory": null,
     "practical": {"items": [
       {"label": "Format", "value": "Viewpoint-led waterfall stop", "detail": "The classic experience is from the gorge side rather than a long walk beside the river."},
-      {"label": "From Paksé", "value": "Road trip via Paksong", "detail": "Use Tad Fane as one anchor in a Bolaven Plateau half day or full day instead of driving out for a single photograph."},
+      {"label": "From Pakse", "value": "Road trip via Paksong", "detail": "Use Tad Fane as one anchor in a Bolaven Plateau half day or full day instead of driving out for a single photograph."},
       {"label": "Conditions & entry", "value": "Paid · weather matters", "detail": "Rainy-season flow is strongest, while drier conditions can give cleaner visibility. Confirm current entrance and parking fees locally."}
     ]},
     "faq": [
       {"question": "What is special about Tad Fane?", "answer": "Two streams plunge roughly 120 metres side by side into a deep rainforest gorge. The attraction is the scale and twin-drop composition rather than a close-up swimming stop."},
-      {"question": "How long do I need at Tad Fane?", "answer": "Around 45 to 90 minutes is enough for the main viewpoint experience. Allow a half day once the road from Paksé and another plateau stop are included."},
+      {"question": "How long do I need at Tad Fane?", "answer": "Around 45 to 90 minutes is enough for the main viewpoint experience. Allow a half day once the road from Pakse and another plateau stop are included."},
       {"question": "Is Tad Fane better than Tad Yuang?", "answer": "They do different jobs. Tad Fane is the stronger wide gorge view; Tad Yuang is the better choice if you want paths and several closer viewpoints around a waterfall."},
       {"question": "When is Tad Fane most impressive?", "answer": "Rainy-season flow is the most powerful. For a clearer view into the gorge, drier conditions can be easier, so choose between water volume and visibility rather than expecting both every day."}
     ],
-    "seo": {"title": "Tad Fane Waterfall from Paksé | Things To Do Atlas", "description": "Plan Tad Fane from Paksé: how long the viewpoint stop deserves, why the twin 120 m falls matter, seasonal visibility and the best way to pair it on the Bolaven Plateau."},
+    "seo": {"title": "Tad Fane Waterfall from Pakse | Things To Do Atlas", "description": "Plan Tad Fane from Pakse: how long the viewpoint stop deserves, why the twin 120 m falls matter, seasonal visibility and the best way to pair it on the Bolaven Plateau."},
     "sources": [
       {"sourceName": "Laos Tourism · Bolaven Plateau Waterfall", "sourceUrl": "https://www.laostourism.org/laos-things-to-see/bolaven-plateau-waterfall/", "purpose": "facts", "sourceType": "first-party-official"},
       {"sourceName": "Discover Laos · Tad Fane", "sourceUrl": "https://discoverlaos.today/en/paksong-bolaven-plateau/thing-to-do/tad-fane-fane-waterfall", "purpose": "facts"}

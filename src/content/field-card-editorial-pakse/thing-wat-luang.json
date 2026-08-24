@@ -3,10 +3,10 @@
     "hero": {
       "eyebrow": "CITY TEMPLE · XE DON",
       "aliases": ["Wat Luang Pakse", "Wat Luang Temple"],
-      "description": "Wat Luang is a living city temple on the Xe Don rather than a monumental day trip: founded in 1935, it remains an important religious and monastic place in central Paksé.",
+      "description": "Wat Luang is a living city temple on the Xe Don rather than a monumental day trip: founded in 1935, it remains an important religious and monastic place in central Pakse.",
       "steps": ["Walk in from the centre", "See the main sim and murals", "Notice the monastic buildings", "Keep the visit unhurried and short"],
-      "rhythmNote": "Its value is not spectacle. Wat Luang is most useful as a quiet look at Paksé's everyday Buddhist life between bigger outings.",
-      "photoNote": "Central Paksé · Xe Don riverbank"
+      "rhythmNote": "Its value is not spectacle. Wat Luang is most useful as a quiet look at Pakse's everyday Buddhist life between bigger outings.",
+      "photoNote": "Central Pakse · Xe Don riverbank"
     },
     "quickRead": {
       "time": {"primary": "30–60 MIN", "secondary": "a compact city stop"},
@@ -15,22 +15,22 @@
       "bestFor": {"primary": "LIVING TEMPLE", "secondary": "monastic life · murals · riverside"}
     },
     "primaryStory": {
-      "chapters": [{"label": "THE PLACE", "title": "A temple that still belongs to the city", "body": "Wat Luang was founded in 1935 and is closely tied to monastic education as well as worship. The decorated sim, murals and older school buildings are worth noticing, but the stronger reason to stop is that this is not an archaeological display. It is an active religious compound woven into central Paksé."}],
+      "chapters": [{"label": "THE PLACE", "title": "A temple that still belongs to the city", "body": "Wat Luang was founded in 1935 and is closely tied to monastic education as well as worship. The decorated sim, murals and older school buildings are worth noticing, but the stronger reason to stop is that this is not an archaeological display. It is an active religious compound woven into central Pakse."}],
       "note": {"label": "KEEP IT SIMPLE", "text": "Thirty minutes with attention is better than turning Wat Luang into a one-hour checklist."}
     },
     "secondaryStory": null,
     "practical": {"items": [
-      {"label": "Location", "value": "Central Paksé · Xe Don bank", "detail": "Easy to combine with a walk through the centre rather than planning separate transport."},
+      {"label": "Location", "value": "Central Pakse · Xe Don bank", "detail": "Easy to combine with a walk through the centre rather than planning separate transport."},
       {"label": "Time needed", "value": "30–60 minutes", "detail": "Enough for the main buildings and a quiet circuit of the compound."},
       {"label": "Entry", "value": "Free", "detail": "There is no standard admission ticket in the current Atlas source data."}
     ]},
     "faq": [
-      {"question": "Why visit Wat Luang in Paksé?", "answer": "It is one of the city's main active temples and has a long-standing monastic education role. Visit for local religious context rather than for a huge monument."},
+      {"question": "Why visit Wat Luang in Pakse?", "answer": "It is one of the city's main active temples and has a long-standing monastic education role. Visit for local religious context rather than for a huge monument."},
       {"question": "How old is Wat Luang?", "answer": "The current temple dates to 1935. Sources also identify its monastic school as an important part of the compound."},
-      {"question": "How much time do I need at Wat Luang?", "answer": "Around 30 to 60 minutes is enough for most visitors, especially if you are already walking through central Paksé."},
+      {"question": "How much time do I need at Wat Luang?", "answer": "Around 30 to 60 minutes is enough for most visitors, especially if you are already walking through central Pakse."},
       {"question": "Is Wat Luang free to visit?", "answer": "Yes, the current Atlas source data lists it as free. It remains an active temple, so visit it as a religious place rather than a ticketed attraction."}
     ],
-    "seo": {"title": "Wat Luang Paksé: Short Visitor Guide | Atlas", "description": "Visit Wat Luang in central Paksé: a living riverside temple founded in 1935, with monastic history, murals, free entry and a realistic 30–60 minute visit."},
+    "seo": {"title": "Wat Luang Pakse: Short Visitor Guide | Atlas", "description": "Visit Wat Luang in central Pakse: a living riverside temple founded in 1935, with monastic history, murals, free entry and a realistic 30–60 minute visit."},
     "sources": [
       {"sourceName": "Discover Laos · Wat Luang Temple", "sourceUrl": "https://www.discoverlaos.today/pakse/thing-to-do/wat-luang-temple", "purpose": "facts"},
       {"sourceName": "Southern Laos Destination Management Plan", "sourceUrl": "https://www.tiigp2-laos.org/wp-content/uploads/2021/05/Southern-Laos-DMP-2020-2025_Lao_2019_Final.pdf", "purpose": "facts"}
