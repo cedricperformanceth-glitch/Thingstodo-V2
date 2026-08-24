@@ -33,6 +33,7 @@ import traditionalArtsEthnologyCentreEditorial from './field-card-editorial-luan
 import ockPopTokLivingCraftsCentreEditorial from './field-card-editorial-luang-prabang/thing-ock-pop-tok-living-crafts-centre.json';
 import banXangKhongWeavingVillageEditorial from './field-card-editorial-luang-prabang/thing-ban-xang-khong-weaving-village.json';
 import luangPrabangMediaData from './field-card-media-luang-prabang.json';
+import vangViengMediaData from './field-card-media-vang-vieng.json';
 
 export type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 export type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
@@ -91,9 +92,14 @@ const luangPrabangEditorial = Object.fromEntries(
     }];
   }),
 ) as Record<string, FieldCardEditorialEntry>;
+const vangViengMedia = vangViengMediaData as unknown as Record<string, MediaRecord[]>;
+const vangViengEditorial = Object.fromEntries(
+  Object.entries(vangViengMedia).map(([id, media]) => [id, { media }]),
+) as Record<string, FieldCardEditorialEntry>;
 
 export const fieldCardEditorial: Record<string, FieldCardEditorialEntry> = {
   ...sharedEditorial,
   ...pakseEditorial,
   ...luangPrabangEditorial,
+  ...vangViengEditorial,
 };
