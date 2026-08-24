@@ -38,7 +38,7 @@ export function getSpaTabs(city: City): SpaTabDefinition[] {
     throw new Error(`City categories are required for ${city.country}/${city.slug}.`);
   }
 
-  const approvedExtensions = spaCategoryExtensions[city.settlementType] ?? [];
+  const approvedExtensions = (spaCategoryExtensions[city.settlementType] ?? []) as CategorySlug[];
   const extensions = city.categoryExtensions ?? [];
   const invalidExtension = extensions.find((slug) => !approvedExtensions.includes(slug));
   if (invalidExtension) throw new Error('Category extension ' + invalidExtension + ' is not allowed for ' + city.settlementType + ' settlement ' + city.country + '/' + city.slug + '.');
