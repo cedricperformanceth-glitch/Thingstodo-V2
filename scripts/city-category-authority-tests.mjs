@@ -30,7 +30,7 @@ assert.throws(
 );
 assert.throws(
   () => validateCityCategories(['things-to-do', 'gyms'], 'village', 'laos/test', ['gyms']),
-  /not allowed/,
+  /not permitted/,
 );
 assert.throws(
   () => validateCityCategories(['cafes'], 'village', 'laos/test'),
