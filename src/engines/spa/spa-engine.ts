@@ -1,6 +1,6 @@
 import type { CategorySlug, City, SettlementType } from '../../core/models/types';
 import spaCategoryOrder from '../../core/contracts/spa-categories.json';
-import { getPlaces, getThings } from '../category/category-engine';
+import { getCategoryEntities } from '../category/category-engine';
 
 export type SpaTabSlug = CategorySlug | 'favorites';
 export type SpaTabIcon = 'explore' | 'guesthouses' | 'restaurants' | 'cafes' | 'scooter' | 'gyms' | 'markets' | 'essential' | 'favorites';
@@ -46,7 +46,7 @@ export function getSpaTabs(city: City): SpaTabDefinition[] {
 
   const tabs = categories.map((slug) => {
     const definition = definitions[slug];
-    const count = slug === 'things-to-do' ? getThings(city).length : getPlaces(city, slug).length;
+    const count = getCategoryEntities(city, slug).length;
     return {
       slug,
       title: definition.title,
