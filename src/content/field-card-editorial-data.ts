@@ -34,6 +34,7 @@ import ockPopTokLivingCraftsCentreEditorial from './field-card-editorial-luang-p
 import banXangKhongWeavingVillageEditorial from './field-card-editorial-luang-prabang/thing-ban-xang-khong-weaving-village.json';
 import luangPrabangMediaData from './field-card-media-luang-prabang.json';
 import vangViengMediaData from './field-card-media-vang-vieng.json';
+import vientianeMediaData from './field-card-media-vientiane.json';
 
 export type FieldCardFaqItem = ThingToDo['fieldCard']['faq'][number];
 export type FieldCardSeoOverride = Pick<SeoMetadata, 'title' | 'description'> & { image?: string };
@@ -96,10 +97,15 @@ const vangViengMedia = vangViengMediaData as unknown as Record<string, MediaReco
 const vangViengEditorial = Object.fromEntries(
   Object.entries(vangViengMedia).map(([id, media]) => [id, { media }]),
 ) as Record<string, FieldCardEditorialEntry>;
+const vientianeMedia = vientianeMediaData as unknown as Record<string, MediaRecord[]>;
+const vientianeEditorial = Object.fromEntries(
+  Object.entries(vientianeMedia).map(([id, media]) => [id, { media }]),
+) as Record<string, FieldCardEditorialEntry>;
 
 export const fieldCardEditorial: Record<string, FieldCardEditorialEntry> = {
   ...sharedEditorial,
   ...pakseEditorial,
   ...luangPrabangEditorial,
   ...vangViengEditorial,
+  ...vientianeEditorial,
 };
