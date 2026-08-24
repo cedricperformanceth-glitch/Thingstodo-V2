@@ -226,7 +226,7 @@ const laosMapLabels = [
   .laos-board__city[data-city='luang-prabang'] .laos-board__city-name,
   .laos-board__city[data-city='vang-vieng'] .laos-board__city-name { white-space: nowrap; }
   .laos-board__city-accent { position: absolute; left: 0; bottom: -.1rem; width: 100%; min-width: 3rem; height: .42rem; overflow: visible; opacity: .2; }
-  .laos-board__city-accent path { fill: none; stroke: var(--laos-blue-glow); stroke-width: 1.35; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 320ms cubic-bezier(.2,.75,.22,1), opacity 220ms ease; }
+  .laos-board__city-accent path { fill: none; stroke: var(--laos-blue-glow); stroke-width: 1.35; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke 220ms ease, stroke-dashoffset 320ms cubic-bezier(.2,.75,.22,1), opacity 220ms ease; }
   .laos-board__city-note {
     max-width: 14rem;
     color: rgb(235 226 208 / .88);
@@ -239,7 +239,7 @@ const laosMapLabels = [
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-index { color: var(--laos-blue-glow); text-shadow: 0 0 7px rgb(115 149 210 / .28); }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-name { color: var(--laos-blue-glow); text-shadow: 0 1px 0 rgb(0 0 0 / .24), 0 0 8px rgb(115 149 210 / .24); transform: translateY(-1px); }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent { opacity: .9; }
-  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent path { stroke-dashoffset: 0; }
+  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent path { stroke: var(--laos-red); stroke-dashoffset: 0; }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-note { color: rgb(248 242 228 / .98); transform: translateY(-1px); }
   .laos-board__city:focus-visible { outline: 1px dashed var(--laos-blue-glow); outline-offset: 7px; border-radius: 2px; }
 
