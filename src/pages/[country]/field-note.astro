@@ -8,8 +8,9 @@ import { countryFieldNoteView } from '../../engines/country-field-note/country-f
 const enabledCountryFieldNotes = new Set(['thailand', 'cambodia', 'vietnam']);
 
 export function getStaticPaths() {
+  const enabled = new Set(['thailand', 'cambodia', 'vietnam']);
   return getCountries()
-    .filter((country) => enabledCountryFieldNotes.has(country.slug))
+    .filter((country) => enabled.has(country.slug))
     .map((country) => ({ params: { country: country.slug } }));
 }
 
