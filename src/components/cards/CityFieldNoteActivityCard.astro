@@ -19,7 +19,7 @@ const quickValue = (label: string) => note.quickRead.find((item) => item.label =
 const chapters = quickValue('Chapters') ?? `${note.chapters.length} ${isCountryFieldNote ? 'country' : 'city'} notes`;
 const scope = quickValue('Scope') ?? note.contextLine;
 const useItFor = quickValue('Use it for') ?? (isCountryFieldNote ? 'Planning the country route' : 'Planning the next destination');
-const fieldHref = isCountryFieldNote ? ${cityPath(sourceCity)}/field-note/ : cityFieldNotePath(targetCity);
+const fieldHref = isCountryFieldNote ? `${cityPath(sourceCity)}/field-note/${targetCity.id.replace(/^country-/, '')}` : cityFieldNotePath(targetCity);
 const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
   ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
   : '';
