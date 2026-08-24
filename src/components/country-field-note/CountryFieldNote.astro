@@ -3,9 +3,9 @@ import type { Country } from '../../core/models/types';
 import { countryFieldNoteCity } from '../../engines/country-field-note/country-field-note-engine';
 import CityFieldNote from '../city-field-note/CityFieldNote.astro';
 
-interface Props { country: Country; }
-const { country } = Astro.props;
-const fieldNoteCity = countryFieldNoteCity(country);
+interface Props { country: Country; hostCountry?: string; }
+const { country, hostCountry } = Astro.props;
+const fieldNoteCity = countryFieldNoteCity(country, hostCountry);
 ---
 
 <div class="country-field-note-shell">

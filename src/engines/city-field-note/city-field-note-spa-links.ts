@@ -2,6 +2,7 @@ import linksData from '../../content/city-field-note-spa-links.json';
 import type { City } from '../../core/models/types';
 import { getCity } from '../city/city-engine';
 import { getCountry } from '../country/country-engine';
+import { getCountryFieldNote } from '../../content/country-field-notes';
 import { countryFieldNoteCity, countryFieldNoteView } from '../country-field-note/country-field-note-engine';
 import { getEditorialCityFieldNote } from './city-field-note-editorial';
 
@@ -22,12 +23,12 @@ export function getCityFieldNoteSpaTargets(city: City): City[] {
     }
 
     if (parts[0] === 'country') {
-      const targetCountry = getCountry(parts[1]);
+      const targetCountry = getCountryFieldNote(parts[1]);
       if (!targetCountry) throw new Error(`Unknown Country Field Note SPA target '${ref}' for ${cityKey(city)}.`);
       if (targetCountry.slug === city.country) throw new Error(`Country Field Note SPA link cannot target the current country '${targetCountry.slug}'.`);
       const view = countryFieldNoteView(targetCountry);
       if (view.media.length !== 4) throw new Error(`Country Field Note SPA target '${ref}' must have exactly 4 media records; found ${view.media.length}.`);
-      return countryFieldNoteCity(targetCountry);
+      return countryFieldNoteCity(targetCountry, city.country);
     }
 
     const target = getCity(parts[0], parts[1]);

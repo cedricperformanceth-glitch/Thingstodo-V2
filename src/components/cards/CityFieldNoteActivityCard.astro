@@ -1,24 +1,25 @@
 ---
 import type { City } from '../../core/models/types';
-import { cityFieldNotePath, countryFieldNotePath } from '../../core/routing/paths';
+import { cityFieldNotePath, cityPath } from '../../core/routing/paths';
 import { getCountry } from '../../engines/country/country-engine';
+import { getCountryFieldNote } from '../../content/country-field-notes';
 import { cityFieldNoteView } from '../../engines/city-field-note/city-field-note-engine';
 import './entry-card.css';
 import './card-actions.css';
 
-interface Props { targetCity: City; }
-const { targetCity } = Astro.props;
-const country = getCountry(targetCity.country);
-if (!country) throw new Error(`Missing country for Field Note target ${targetCity.country}/${targetCity.slug}.`);
-
-const isCountryFieldNote = targetCity.id === country.id;
-const note = cityFieldNoteView(targetCity, country);
+interface Props { targetCity: City; sourceCity: City; }
+const { targetCity, sourceCity } = Astro.props;
+const isCountryFieldNote = targetCity.id.startsWith('country-');
+const hostCountry = getCountry(sourceCity.country);
+const noteCountry = isCountryFieldNote ? getCountryFieldNote(targetCity.id.replace(/^country-/, '')) : getCountry(targetCity.country);
+if (!hostCountry || !noteCountry) throw new Error(`Missing Field Note context for ${targetCity.id}.`);
+const note = cityFieldNoteView(targetCity, noteCountry);
 const image = note.media[0];
 const quickValue = (label: string) => note.quickRead.find((item) => item.label === label)?.value;
 const chapters = quickValue('Chapters') ?? `${note.chapters.length} ${isCountryFieldNote ? 'country' : 'city'} notes`;
 const scope = quickValue('Scope') ?? note.contextLine;
 const useItFor = quickValue('Use it for') ?? (isCountryFieldNote ? 'Planning the country route' : 'Planning the next destination');
-const fieldHref = isCountryFieldNote ? countryFieldNotePath(country) : cityFieldNotePath(targetCity);
+const fieldHref = isCountryFieldNote ? ${cityPath(sourceCity)}/field-note/ : cityFieldNotePath(targetCity);
 const photoCredit = image?.sourceUrl && (image.author || image.sourceName || image.license)
   ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
   : '';
@@ -42,7 +43,7 @@ const photoCredit = image?.sourceUrl && (image.author || image.sourceName || ima
 
   <div class="card-preview">
     <h3>{targetCity.name}</h3>
-    <p class="destination">{isCountryFieldNote ? 'Country' : country.name} · Destination field guide</p>
+    <p class="destination">{isCountryFieldNote ? 'Country field card' : noteCountry.name} · Destination field guide</p>
     <p class="card-description">{note.subtitle}</p>
     <dl class="card-activity-meta">
       <div><dt>Guide</dt><dd>{chapters}</dd></div>
@@ -52,7 +53,7 @@ const photoCredit = image?.sourceUrl && (image.author || image.sourceName || ima
     </dl>
   </div>
 
-  <div class="card-actions" style={`--card-field-color:${country.accentColor}`}>
+  <div class="card-actions" style={`--card-field-color:${hostCountry.accentColor}`}>
     <a class="card-action card-action--field" href={fieldHref}>Open the {isCountryFieldNote ? 'Country' : 'City'} Field Note</a>
   </div>
 </article>

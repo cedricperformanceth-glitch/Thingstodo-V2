@@ -1,11 +1,11 @@
 import type { City, Country } from '../../core/models/types';
 import { cityFieldNoteView } from '../city-field-note/city-field-note-engine';
 
-export const countryFieldNoteCity = (country: Country): City => ({
+export const countryFieldNoteCity = (country: Country, hostCountry = country.slug): City => ({
   id: country.id,
   slug: '',
   name: country.name,
-  country: country.slug,
+  country: hostCountry,
   profile: 'large',
   settlementType: 'city',
   coordinates: country.map.center,

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../../components/layout/BaseLayout.astro';
+import CountryFieldNote from '../../../../components/country-field-note/CountryFieldNote.astro';
+import { getCities, getCity } from '../../../../engines/city/city-engine';
+import { getCityFieldNoteSpaTargets } from '../../../../engines/city-field-note/city-field-note-spa-links';
+import { getCountryFieldNote } from '../../../../content/country-field-notes';
+import { cityPath } from '../../../../core/routing/paths';
+export function getStaticPaths() { return getCities().flatMap((city) => getCityFieldNoteSpaTargets(city).filter((target) => target.id.startsWith('country-')).map((target) => ({ params: { country: city.country, city: city.slug, slug: target.id.replace(/^country-/, '') } }))); }
+const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
+const noteCountry = getCountryFieldNote(Astro.params.slug ?? '');
+const isLinked = city && noteCountry && getCityFieldNoteSpaTargets(city).some((target) => target.id === noteCountry.id);
+if (!city || !noteCountry || !isLinked) return Astro.redirect('/');
+const canonicalPath = `${cityPath(city)}/field-note/${noteCountry.slug}`;
+const seo = { title: `${noteCountry.name} field card from ${city.name} | Things To Do Atlas`, description: `A ${noteCountry.name} Field Card opened from ${city.name}.`, canonicalPath, indexable: false };
+---
+<BaseLayout {seo} breadcrumbs={[{ name: 'Home', path: '/' }, { name: city.name, path: cityPath(city) }, { name: noteCountry.name, path: canonicalPath }]} ogType="article"><CountryFieldNote country={noteCountry} hostCountry={city.country} /></BaseLayout>

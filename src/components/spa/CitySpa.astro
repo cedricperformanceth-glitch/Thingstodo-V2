@@ -83,7 +83,7 @@ const isThingToDo = (entity: Place | ThingToDo): entity is ThingToDo => 'fieldCa
                 {hasEntries ? (
                   <div class="spa-card-grid">
                     {entities.map((entity) => isThingToDo(entity) ? <ThingToDoCard {city} thing={entity} /> : <PlaceCard place={entity} />)}
-                    {cityFieldNoteTargets.map((targetCity) => <CityFieldNoteActivityCard {targetCity} />)}
+                    {cityFieldNoteTargets.map((targetCity) => <CityFieldNoteActivityCard sourceCity={city} {targetCity} />)}
                   </div>
                 ) : (
                   <div class="spa-empty"><h4>Nothing pinned here yet.</h4><p>This section will fill automatically when the city content is generated.</p></div>
