@@ -3,7 +3,6 @@ import spaCategoryOrder from '../../core/contracts/spa-categories.json';
 import spaCategoryExtensions from '../../core/contracts/spa-category-extensions.json';
 import { getCategoryEntities } from '../category/category-engine';
 import { getCityFieldNoteSpaTargets } from '../city-field-note/city-field-note-spa-links';
-import { getCountryFieldNoteSpaTargets } from '../country-field-note/country-field-note-spa-links';
 
 export type SpaTabSlug = CategorySlug | 'favorites';
 export type SpaTabIcon = 'explore' | 'guesthouses' | 'restaurants' | 'cafes' | 'scooter' | 'gyms' | 'markets' | 'essential' | 'favorites';
@@ -51,13 +50,11 @@ export function getSpaTabs(city: City): SpaTabDefinition[] {
     }
   }
 
-  const cityFieldNoteActivityCount = getCityFieldNoteSpaTargets(city).length;
-  const countryFieldNoteActivityCount = getCountryFieldNoteSpaTargets(city).length;
+  const fieldNoteActivityCount = getCityFieldNoteSpaTargets(city).length;
   const tabs = categories.map((slug) => {
     const definition = definitions[slug];
     const localCount = getCategoryEntities(city, slug).length;
-    const linkedFieldNoteCount = slug === 'things-to-do' ? cityFieldNoteActivityCount + countryFieldNoteActivityCount : 0;
-    const count = localCount + linkedFieldNoteCount;
+    const count = localCount + (slug === 'things-to-do' ? fieldNoteActivityCount : 0);
     return {
       slug,
       title: definition.title,
