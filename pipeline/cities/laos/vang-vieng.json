@@ -1,0 +1,2519 @@
+{
+  "schemaVersion": 1,
+  "country": "laos",
+  "city": "vang-vieng",
+  "profile": "compact",
+  "researchPlan": {
+    "searchPriorities": {},
+    "selection": {
+      "searchArea": {
+        "scope": "settlement-first",
+        "preferredRadiusKm": 2,
+        "maxRadiusKm": 3,
+        "appliesTo": [
+          "restaurants",
+          "cafes",
+          "accommodation",
+          "scooter-rental",
+          "markets",
+          "practical-services"
+        ]
+      },
+      "sourceStrategy": {
+        "candidateDiscovery": [
+          "existing-atlas-activity-database",
+          "official-establishment-sites",
+          "government-and-official-tourism-sites",
+          "wikipedia",
+          "wikimedia-commons",
+          "wikivoyage",
+          "wikitravel",
+          "unesco-and-other-authoritative-cultural-sites",
+          "web-results",
+          "travel-platforms",
+          "social-networks",
+          "other-public-sources"
+        ],
+        "preferRepeatedMentionsAcrossIndependentSources": true,
+        "verifyCurrentExistenceBeforeSelection": true
+      },
+      "selectionPrinciples": {
+        "pricePositioning": "mostly-affordable-and-midrange",
+        "requireVariety": true,
+        "avoidUltraLuxury": true,
+        "manualEditorialAdditionsExpected": true
+      },
+      "categories": {
+        "things-to-do": {
+          "useExistingAtlasDatabaseAsPrioritySeed": true,
+          "locationScope": "destination-linked-without-fixed-radius",
+          "selectionGoal": "distinct-visitor-relevant-experiences",
+          "avoidNearDuplicates": true,
+          "automaticSubcategoryFilters": false
+        },
+        "restaurants": {
+          "venueTypes": [
+            "restaurant",
+            "bar"
+          ],
+          "barsBelongToRestaurants": true,
+          "automaticSubcategoryFilters": false
+        },
+        "cafes": {
+          "venueTypes": [
+            "cafe",
+            "coffee-shop"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "accommodation": {
+          "venueTypes": [
+            "guesthouse",
+            "hostel",
+            "small-hotel",
+            "budget-hotel"
+          ],
+          "priceUsdPerNight": {
+            "hardMinimum": null,
+            "preferredMin": 10,
+            "preferredMax": 30,
+            "hardMax": 50,
+            "upperBandMaxCount": 3
+          },
+          "automaticSubcategoryFilters": false
+        },
+        "scooter-rental": {
+          "venueTypes": [
+            "scooter-rental",
+            "motorbike-rental"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "markets": {
+          "venueTypes": [
+            "market",
+            "night-market"
+          ],
+          "automaticSubcategoryFilters": false
+        },
+        "practical-services": {
+          "searchTypes": [
+            "hospital",
+            "tourism-office",
+            "immigration-office"
+          ],
+          "officialOnly": [
+            "immigration-office"
+          ],
+          "exclude": [
+            "visa-agency",
+            "travel-agency"
+          ],
+          "automaticSubcategoryFilters": false
+        }
+      }
+    },
+    "verification": {
+      "discoveryBudget": {
+        "initialQueriesPerCategory": 4,
+        "maxQueriesPerCategory": 12,
+        "candidatePoolMultiplier": 1.5
+      },
+      "sourceClasses": {
+        "authoritative": [
+          "government",
+          "official-tourism",
+          "official-establishment",
+          "unesco-or-equivalent-institution"
+        ],
+        "open-reference": [
+          "wikipedia",
+          "wikivoyage",
+          "wikitravel"
+        ],
+        "open-media": [
+          "wikimedia-commons"
+        ],
+        "supporting": [
+          "travel-platform",
+          "booking-platform",
+          "map-platform",
+          "reputable-travel-editorial",
+          "local-news",
+          "first-party-social-network",
+          "public-web-result",
+          "public-user-report"
+        ]
+      },
+      "candidateIdentity": {
+        "normalizeName": true,
+        "compareCoordinatesWhenAvailable": true,
+        "compareAddressWhenAvailable": true,
+        "mergeObviousAliases": true,
+        "doNotCountSyndicatedCopiesAsIndependentMentions": true
+      },
+      "repeatedMentionRanking": {
+        "countIndependentSources": true,
+        "preferRecentMentions": true,
+        "preferAuthoritativeSources": true,
+        "existingAtlasDatabaseIsSeedNotProof": true
+      },
+      "reputationRanking": {
+        "purpose": "ranking-signal-only",
+        "sourceNeutral": true,
+        "examples": [
+          "booking-platform-rating",
+          "travel-platform-rating",
+          "map-platform-rating",
+          "local-directory-rating",
+          "other-public-rating-source"
+        ],
+        "maxIndependentSnapshotsUsedPerCandidate": 3,
+        "storeReviewText": false,
+        "storeReviewBodies": false,
+        "bulkReviewCollection": false,
+        "normalizeDifferentRatingScales": true,
+        "useReviewCountWithDiminishingWeight": true,
+        "preferRecentSnapshots": true,
+        "missingRatingsNeverRejectCandidate": true,
+        "firstPartySocialActivityIsSmallPositiveSignalOnly": true,
+        "missingSocialPresenceNeverRejectCandidate": true,
+        "editorialReviewRemainsFinalAuthority": true
+      },
+      "acceptance": {
+        "businessOrOperator": {
+          "minimumIndependentCurrentSignals": 2,
+          "requireAtLeastOneStrongSignal": true,
+          "singleWeakSourceNeverAutoAccepts": true
+        },
+        "staticLandmarkOrNaturalSite": {
+          "singleCurrentAuthoritativeSourceCanConfirmExistence": true,
+          "otherwiseMinimumIndependentSignals": 2
+        },
+        "publicExperience": {
+          "singleCurrentAuthoritativeSourceCanConfirmAvailability": true,
+          "otherwiseMinimumIndependentSignals": 2,
+          "requiresSpecificOperatorVerification": false
+        },
+        "conflictingCurrentSources": "manual-review"
+      },
+      "existenceVerification": {
+        "strongOperationalSignals": [
+          "current-official-establishment-site",
+          "recent-first-party-social-activity",
+          "current-authoritative-listing",
+          "places-api-operational-status"
+        ],
+        "permanentClosure": {
+          "officialClosureNoticeIsConclusive": true,
+          "placesApiClosedPermanentlyIsConclusive": true,
+          "independentExplicitClosureReportsThreshold": 3,
+          "closureReportMaxAgeMonths": 18,
+          "requireNoNewerOperationalSignal": true
+        },
+        "temporaryClosure": {
+          "doNotTreatAsPermanent": true,
+          "status": "needs-review"
+        },
+        "movedBusiness": {
+          "followReplacementLocationWhenVerified": true
+        },
+        "googleMapsPolicy": {
+          "noReviewScraping": true,
+          "noReviewTextCopying": true,
+          "preferPermittedPlacesApiStatusFieldsWhenAvailable": true
+        }
+      },
+      "reusePolicy": {
+        "facts": {
+          "useForResearchAndCrossCheck": true,
+          "writeAtlasCopyIndependently": true,
+          "recordProvenance": true
+        },
+        "text": {
+          "default": "do-not-copy",
+          "mayReuseOnlyWithExplicitCompatibleLicense": true,
+          "honorAttributionAndShareAlikeWhenRequired": true
+        },
+        "media": {
+          "automaticDiscoverySource": "wikimedia-commons",
+          "requirePerAssetLicenseCheck": true,
+          "allowedWhenCompliant": [
+            "public-domain",
+            "cc0",
+            "cc-by",
+            "cc-by-sa"
+          ],
+          "rejectWithoutPermission": [
+            "all-rights-reserved",
+            "unknown-license"
+          ],
+          "rejectForCommercialAtlasUse": [
+            "cc-by-nc",
+            "cc-by-nc-sa",
+            "cc-by-nc-nd"
+          ],
+          "noDerivativeAssetsCannotBeEdited": true,
+          "storeAuthorLicenseSourceAndAttribution": true
+        },
+        "domainSpecific": {
+          "wikimedia-commons": "only-automatic-photo-search-source-check-each-file-license",
+          "wikipedia": "research-and-facts-by-default-do-not-copy-prose",
+          "wikivoyage": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
+          "wikitravel": "research-and-facts-by-default-do-not-copy-prose-without-cc-by-sa-compliance",
+          "unesco": "authoritative-research-source-but-not-an-automatic-photo-source"
+        }
+      }
+    }
+  },
+  "cityData": {
+    "id": "city-laos-vang-vieng",
+    "slug": "vang-vieng",
+    "name": "Vang Vieng",
+    "country": "laos",
+    "profile": "compact",
+    "settlementType": "city",
+    "coordinates": {
+      "latitude": 18.9243,
+      "longitude": 102.4478
+    },
+    "description": "Vang Vieng is a karst-and-river base in central Laos, best approached through a deliberate mix of caves, viewpoints, water and quiet rural roads.",
+    "categoryExtensions": [],
+    "categories": [
+      "things-to-do",
+      "restaurants",
+      "cafes",
+      "accommodation",
+      "scooter-rental",
+      "markets",
+      "practical-services"
+    ],
+    "hero": {
+      "eyebrow": "Central Laos",
+      "title": "Vang Vieng",
+      "subtitle": "Karst country around the Nam Song.",
+      "facts": []
+    },
+    "exploreBoard": {
+      "featuredThingIds": [
+        "thing-nam-xay-viewpoint",
+        "thing-tham-khan-cave"
+      ]
+    },
+    "manualLocks": {},
+    "seo": {
+      "title": "Vang Vieng travel guide | Things To Do Atlas",
+      "description": "A working Vang Vieng destination draft.",
+      "canonicalPath": "/laos/vang-vieng",
+      "indexable": false
+    }
+  },
+  "places": [
+    {
+      "id": "place-a-m-d-restaurant",
+      "slug": "a-m-d-restaurant",
+      "name": "A.M.D Restaurant",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "A.M.D Restaurant is a current Vang Vieng restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vang Vieng",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "A.M.D Restaurant public listing",
+          "sourceUrl": "https://www.facebook.com/amdrestaurantvangvieng/",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=A.M.D%20Restaurant%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=A.M.D%20Restaurant%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-laung-xai-kham-restaurant",
+      "slug": "laung-xai-kham-restaurant",
+      "name": "Laung Xai Kham Restaurant",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Laung Xai Kham Restaurant is a current Vang Vieng restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vang Vieng",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Laung Xai Kham Restaurant public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Laung%20Xai%20Kham%20Restaurant%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Laung%20Xai%20Kham%20Restaurant%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-happy-mango-thai-restaurant",
+      "slug": "happy-mango-thai-restaurant",
+      "name": "Happy Mango Thai Restaurant",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Happy Mango Thai Restaurant is a current Vang Vieng restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vang Vieng",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Happy Mango Thai Restaurant public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Happy%20Mango%20Thai%20Restaurant%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Happy%20Mango%20Thai%20Restaurant%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-naked-espresso-vang-vieng",
+      "slug": "naked-espresso-vang-vieng",
+      "name": "Naked Espresso Vang Vieng",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Naked Espresso Vang Vieng is a current Vang Vieng restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vang Vieng",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Naked Espresso Vang Vieng public listing",
+          "sourceUrl": "https://www.facebook.com/nakedespressovangvieng/",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Naked%20Espresso%20Vang%20Vieng%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Naked%20Espresso%20Vang%20Vieng%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-pizza-luka",
+      "slug": "pizza-luka",
+      "name": "Pizza Luka",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "restaurants",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Pizza Luka is a current Vang Vieng restaurants address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Food address",
+          "Vang Vieng",
+          "Meal stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Pizza Luka public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Pizza%20Luka%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pizza%20Luka%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-organic-farm-cafe",
+      "slug": "vang-vieng-organic-farm-cafe",
+      "name": "Vang Vieng Organic Farm Cafe",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Organic Farm Cafe is a current Vang Vieng cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vang Vieng",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Organic Farm Cafe public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Organic%20Farm%20Cafe%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Organic%20Farm%20Cafe%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-sakura-bar-coffee",
+      "slug": "sakura-bar-coffee",
+      "name": "Sakura Bar Coffee",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Sakura Bar Coffee is a current Vang Vieng cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vang Vieng",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Sakura Bar Coffee public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Sakura%20Bar%20Coffee%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sakura%20Bar%20Coffee%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-luang-prabang-bakery",
+      "slug": "luang-prabang-bakery",
+      "name": "Luang Prabang Bakery",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Luang Prabang Bakery is a current Vang Vieng cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vang Vieng",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Luang Prabang Bakery public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Luang%20Prabang%20Bakery%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Luang%20Prabang%20Bakery%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-cafe-eh-eh",
+      "slug": "cafe-eh-eh",
+      "name": "Café Eh Eh",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Café Eh Eh is a current Vang Vieng cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vang Vieng",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Café Eh Eh public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Eh%20Eh%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Eh%20Eh%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-viman-vang-vieng-coffee",
+      "slug": "viman-vang-vieng-coffee",
+      "name": "Viman Vang Vieng Coffee",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "cafes",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Viman Vang Vieng Coffee is a current Vang Vieng cafes address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Coffee stop",
+          "Vang Vieng",
+          "Daytime"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Viman Vang Vieng Coffee public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Viman%20Vang%20Vieng%20Coffee%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Viman%20Vang%20Vieng%20Coffee%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-rock-backpackers-hostel",
+      "slug": "vang-vieng-rock-backpackers-hostel",
+      "name": "Vang Vieng Rock Backpackers Hostel",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Rock Backpackers Hostel is a current Vang Vieng accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vang Vieng",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Rock Backpackers Hostel public listing",
+          "sourceUrl": "https://www.facebook.com/vangviengrockbackpackers/",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Rock%20Backpackers%20Hostel%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Rock%20Backpackers%20Hostel%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-freedom-backpackers",
+      "slug": "vang-vieng-freedom-backpackers",
+      "name": "Vang Vieng Freedom Backpackers",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Freedom Backpackers is a current Vang Vieng accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vang Vieng",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Freedom Backpackers public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Freedom%20Backpackers%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Freedom%20Backpackers%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-faraway-suites",
+      "slug": "faraway-suites",
+      "name": "Faraway Suites",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Faraway Suites is a current Vang Vieng accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vang Vieng",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Faraway Suites public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Faraway%20Suites%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Faraway%20Suites%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-nana-backpackers-hostel",
+      "slug": "nana-backpackers-hostel",
+      "name": "Nana Backpackers Hostel",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Nana Backpackers Hostel is a current Vang Vieng accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vang Vieng",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Nana Backpackers Hostel public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Nana%20Backpackers%20Hostel%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nana%20Backpackers%20Hostel%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-garden-bungalows",
+      "slug": "vang-vieng-garden-bungalows",
+      "name": "Vang Vieng Garden Bungalows",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Garden Bungalows is a current Vang Vieng accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vang Vieng",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Garden Bungalows public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Garden%20Bungalows%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Garden%20Bungalows%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-sout-jai-guesthouse",
+      "slug": "sout-jai-guesthouse",
+      "name": "Sout Jai Guesthouse",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Sout Jai Guesthouse is a current Vang Vieng accommodation address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vang Vieng",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Sout Jai Guesthouse public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Sout%20Jai%20Guesthouse%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sout%20Jai%20Guesthouse%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-motorbike-rental",
+      "slug": "vang-vieng-motorbike-rental",
+      "name": "Vang Vieng Motorbike Rental",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "scooter-rental",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Motorbike Rental is a current Vang Vieng scooter-rental address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Motorbike rental",
+          "Vang Vieng",
+          "Confirm terms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Motorbike Rental public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Motorbike%20Rental%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Motorbike%20Rental%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-adam-motorbike-rental",
+      "slug": "adam-motorbike-rental",
+      "name": "Adam Motorbike Rental",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "scooter-rental",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Adam Motorbike Rental is a current Vang Vieng scooter-rental address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Motorbike rental",
+          "Vang Vieng",
+          "Confirm terms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Adam Motorbike Rental public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Adam%20Motorbike%20Rental%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Adam%20Motorbike%20Rental%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-keo-motorbike-rental",
+      "slug": "keo-motorbike-rental",
+      "name": "Keo Motorbike Rental",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "scooter-rental",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Keo Motorbike Rental is a current Vang Vieng scooter-rental address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Motorbike rental",
+          "Vang Vieng",
+          "Confirm terms"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Keo Motorbike Rental public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Keo%20Motorbike%20Rental%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Keo%20Motorbike%20Rental%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-morning-market",
+      "slug": "vang-vieng-morning-market",
+      "name": "Vang Vieng Morning Market",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "markets",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Morning Market is a current Vang Vieng markets address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Market",
+          "Vang Vieng",
+          "Local stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Morning Market public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Morning%20Market%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Morning%20Market%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-night-market",
+      "slug": "vang-vieng-night-market",
+      "name": "Vang Vieng Night Market",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "markets",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Night Market is a current Vang Vieng markets address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Market",
+          "Vang Vieng",
+          "Local stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Night Market public listing",
+          "sourceUrl": "https://www.google.com/maps",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Night%20Market%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Night%20Market%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-vang-vieng-central-plaza",
+      "slug": "vang-vieng-central-plaza",
+      "name": "Vang Vieng Central Plaza",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "markets",
+      "coordinates": {
+        "latitude": 18.9243,
+        "longitude": 102.4478
+      },
+      "shortDescription": "Vang Vieng Central Plaza is a current Vang Vieng markets address selected for this first Atlas draft.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Market",
+          "Vang Vieng",
+          "Local stop"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Current first-party or public listing identity was cross-checked."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas V2 Vang Vieng verified research"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Vang Vieng Central Plaza public listing",
+          "sourceUrl": "https://vangviengcentralplaza.com/",
+          "purpose": "candidate-discovery",
+          "sourceType": "public-web-result"
+        },
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Central%20Plaza%20Vang%20Vieng%20Laos",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Central%20Plaza%20Vang%20Vieng%20Laos"
+    }
+  ],
+  "things": [
+    {
+      "id": "thing-nam-xay-viewpoint",
+      "slug": "nam-xay-viewpoint",
+      "name": "Nam Xay Viewpoint",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.902,
+        "longitude": 102.407
+      },
+      "shortDescription": "Viewpoint linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "1–2 hours",
+        "bestTime": "Late afternoon",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nam%20Xay%20Viewpoint%20Vang%20Vieng%20Laos",
+      "isLandmark": true,
+      "longDescription": "Viewpoint linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "duration": "1–2 hours",
+        "kicker": "VIEWPOINT · VANG VIENG",
+        "route": "From Vang Vieng town"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tham-khan-cave",
+      "slug": "tham-khan-cave",
+      "name": "Tham Khan Cave",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.907,
+        "longitude": 102.414
+      },
+      "shortDescription": "Cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "1–2 hours",
+        "bestTime": "Daytime",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham%20Khan%20Cave%20Vang%20Vieng%20Laos",
+      "isLandmark": true,
+      "longDescription": "Cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "exploreBoard": {
+        "duration": "1–2 hours",
+        "kicker": "CAVE · VANG VIENG",
+        "route": "From Vang Vieng town"
+      },
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tham-phu-kham-and-blue-lagoon-1",
+      "slug": "tham-phu-kham-and-blue-lagoon-1",
+      "name": "Tham Phu Kham and Blue Lagoon 1",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.895,
+        "longitude": 102.374
+      },
+      "shortDescription": "Cave and lagoon linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "Half-day",
+        "bestTime": "Morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham%20Phu%20Kham%20and%20Blue%20Lagoon%201%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Cave and lagoon linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tham-chang-cave",
+      "slug": "tham-chang-cave",
+      "name": "Tham Chang Cave",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.916,
+        "longitude": 102.43
+      },
+      "shortDescription": "Cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "1 hour",
+        "bestTime": "Morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham%20Chang%20Cave%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tham-nam-water-cave",
+      "slug": "tham-nam-water-cave",
+      "name": "Tham Nam Water Cave",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.899,
+        "longitude": 102.386
+      },
+      "shortDescription": "Water cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "Half-day",
+        "bestTime": "Daytime",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham%20Nam%20Water%20Cave%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Water cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-tham-sang-elephant-cave",
+      "slug": "tham-sang-elephant-cave",
+      "name": "Tham Sang Elephant Cave",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.954,
+        "longitude": 102.406
+      },
+      "shortDescription": "Cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "1 hour",
+        "bestTime": "Daytime",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tham%20Sang%20Elephant%20Cave%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Cave linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-pha-ngern-viewpoint",
+      "slug": "pha-ngern-viewpoint",
+      "name": "Pha Ngern Viewpoint",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.901,
+        "longitude": 102.389
+      },
+      "shortDescription": "Viewpoint linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "2–3 hours",
+        "bestTime": "Early morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pha%20Ngern%20Viewpoint%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Viewpoint linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-blue-lagoon-3",
+      "slug": "blue-lagoon-3",
+      "name": "Blue Lagoon 3",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.862,
+        "longitude": 102.336
+      },
+      "shortDescription": "Lagoon linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "Half-day",
+        "bestTime": "Morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Blue%20Lagoon%203%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Lagoon linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-blue-lagoon-4",
+      "slug": "blue-lagoon-4",
+      "name": "Blue Lagoon 4",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.917,
+        "longitude": 102.356
+      },
+      "shortDescription": "Lagoon linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "Half-day",
+        "bestTime": "Morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Blue%20Lagoon%204%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Lagoon linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-nam-song-river-kayaking",
+      "slug": "nam-song-river-kayaking",
+      "name": "Nam Song River Kayaking",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.924,
+        "longitude": 102.447
+      },
+      "shortDescription": "River activity linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "Half-day",
+        "bestTime": "Daytime",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nam%20Song%20River%20Kayaking%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "River activity linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-nam-song-river-tubing",
+      "slug": "nam-song-river-tubing",
+      "name": "Nam Song River Tubing",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.924,
+        "longitude": 102.447
+      },
+      "shortDescription": "River activity linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "2–3 hours",
+        "bestTime": "Daytime",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nam%20Song%20River%20Tubing%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "River activity linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-vang-vieng-karst-cycling-loop",
+      "slug": "vang-vieng-karst-cycling-loop",
+      "name": "Vang Vieng Karst Cycling Loop",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.924,
+        "longitude": 102.447
+      },
+      "shortDescription": "Countryside ride linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "Half-day",
+        "bestTime": "Early morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Karst%20Cycling%20Loop%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Countryside ride linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-wat-kang",
+      "slug": "wat-kang",
+      "name": "Wat Kang",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.923,
+        "longitude": 102.446
+      },
+      "shortDescription": "Buddhist temple linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "free",
+        "duration": "45 minutes",
+        "bestTime": "Morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wat%20Kang%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Buddhist temple linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-vang-vieng-morning-market",
+      "slug": "vang-vieng-morning-market",
+      "name": "Vang Vieng Morning Market",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.925,
+        "longitude": 102.445
+      },
+      "shortDescription": "Local market walk linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "free",
+        "duration": "1 hour",
+        "bestTime": "Morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Morning%20Market%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Local market walk linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    },
+    {
+      "id": "thing-pha-tang-mountain",
+      "slug": "pha-tang-mountain",
+      "name": "Pha Tang Mountain",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "things-to-do",
+      "coordinates": {
+        "latitude": 18.96,
+        "longitude": 102.412
+      },
+      "shortDescription": "Karst landscape linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "gettingThere": "From Vang Vieng town",
+        "photoStatus": "missing",
+        "costType": "paid",
+        "duration": "2–3 hours",
+        "bestTime": "Early morning",
+        "handwrittenTags": [
+          "Vang Vieng",
+          "Outdoor",
+          "Laos"
+        ],
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "Official Laos tourism reference and current map identity cross-check confirm this Vang Vieng activity."
+      },
+      "sourceMetadata": {
+        "sourceName": "Atlas research pipeline"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Visit Laos",
+          "sourceUrl": "https://www.visitlaos.org/explore-laos/vang-vieng/",
+          "purpose": "facts",
+          "sourceType": "official-tourism"
+        },
+        {
+          "sourceName": "Laos Tourism",
+          "sourceUrl": "https://www.laostourism.org/laos-things-to-see/vang-vieng/",
+          "purpose": "cross-check",
+          "sourceType": "official-tourism"
+        }
+      ],
+      "manualLocks": {},
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pha%20Tang%20Mountain%20Vang%20Vieng%20Laos",
+      "isLandmark": false,
+      "longDescription": "Karst landscape linked to a stay in Vang Vieng's karst and Nam Song landscape.",
+      "breadcrumbs": [
+        "laos",
+        "vang-vieng",
+        "things-to-do"
+      ],
+      "fieldCard": {
+        "template": "compact",
+        "whyGo": "",
+        "practical": "",
+        "access": "",
+        "faq": [],
+        "sections": []
+      }
+    }
+  ]
+}

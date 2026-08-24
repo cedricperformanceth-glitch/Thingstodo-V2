@@ -4,6 +4,7 @@ import { city as city1, places as places1, things as things1 } from './laos/luan
 import { city as city2, places as places2, things as things2 } from './laos/pakse';
 import { city as city3, places as places3, things as things3 } from './laos/tad-lo';
 import { city as city4, places as places4, things as things4 } from './laos/thakhek';
-export const generatedCities: City[] = [city0, city1, city2, city3, city4];
-export const generatedPlaces: Place[] = [...places0, ...places1, ...places2, ...places3, ...places4];
-export const generatedThings: ThingToDo[] = [...things0, ...things1, ...things2, ...things3, ...things4];
+import { city as city5, places as places5, things as things5 } from './laos/vang-vieng';
+export const generatedCities: City[] = [city0, city1, city2, city3, city4, city5];
+export const generatedPlaces: Place[] = [...places0, ...places1, ...places2, ...places3, ...places4, ...places5];
+export const generatedThings: ThingToDo[] = [...things0, ...things1, ...things2, ...things3, ...things4, ...things5];
