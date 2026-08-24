@@ -1,5 +1,6 @@
 name: Finalize Luang Prabang activities once
 
+# Explicit second push trigger after workflow creation.
 on:
   push:
     branches: [master]
