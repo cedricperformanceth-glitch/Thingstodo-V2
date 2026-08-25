@@ -188,11 +188,11 @@ export const initAtlasHomepage = (): void => {
     bookTl = gsap.timeline({ onComplete:() => { visibleDesk = c.assets.open ? open : opening2; finish(MODE.OPEN); } })
       .to(extracted, { opacity:0, visibility:'hidden', duration:0.18, ease:'power2.in' }, 0)
       .to(currentClosed, { opacity:0, visibility:'hidden', duration:0.14 }, 0)
-      .fromTo(opening1, { opacity:0, visibility:'hidden' }, { opacity:1, visibility:'visible', duration:0.22, ease:'sine.inOut' }, 0.08)
-      .to(opening1, { opacity:0, visibility:'hidden', duration:0.14, ease:'sine.inOut' }, 0.28)
-      .fromTo(opening2, { opacity:0, visibility:'hidden' }, { opacity:1, visibility:'visible', duration:0.26, ease:'sine.inOut' }, 0.25);
-    if (c.assets.open) bookTl.to(opening2, { opacity:0, visibility:'hidden', duration:0.14, ease:'sine.inOut' }, 0.5)
-      .fromTo(open, { opacity:0, visibility:'hidden' }, { opacity:1, visibility:'visible', duration:0.56, ease:'sine.inOut' }, 0.44);
+      .fromTo(opening1, { opacity:0, visibility:'hidden', scale:0.95 }, { opacity:1, visibility:'visible', scale:1, duration:0.22 }, 0.08)
+      .to(opening1, { opacity:0, visibility:'hidden', duration:0.14 }, 0.28)
+      .fromTo(opening2, { opacity:0, visibility:'hidden', scale:0.95 }, { opacity:1, visibility:'visible', scale:1, duration:0.26 }, 0.25);
+    if (c.assets.open) bookTl.to(opening2, { opacity:0, visibility:'hidden', duration:0.14 }, 0.5)
+      .fromTo(open, { opacity:0, visibility:'hidden', scale:0.84, yPercent:0 }, { opacity:1, visibility:'visible', scale:1, yPercent:0, duration:0.56, ease:'power3.out' }, 0.44);
   };
 
   const navigate = (): void => {
