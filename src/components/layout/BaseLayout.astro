@@ -12,6 +12,7 @@ interface Props {
   structuredData?: Record<string, unknown>[];
   ogType?: 'website' | 'article';
   immersive?: boolean;
+  scrollableImmersive?: boolean;
   showSiteChrome?: boolean;
   showNavbar?: boolean;
 }
@@ -22,6 +23,7 @@ const {
   structuredData = [],
   ogType = 'website',
   immersive = false,
+  scrollableImmersive = false,
   showSiteChrome = !immersive,
   showNavbar = showSiteChrome,
 } = Astro.props;
@@ -53,9 +55,18 @@ const meta = pageSeo(seo, breadcrumbs);
       <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
     ))}
   </head>
-  <body class:list={{ 'page--immersive': immersive }}>
+  <body class:list={{
+    'page--immersive': immersive,
+    'page--immersive-scroll': immersive && scrollableImmersive,
+  }}>
     {showNavbar && <Navbar />}
-    <main id="main-content" class:list={{ 'main--immersive': immersive }}><slot /></main>
+    <main
+      id="main-content"
+      class:list={{
+        'main--immersive': immersive,
+        'main--immersive-scroll': immersive && scrollableImmersive,
+      }}
+    ><slot /></main>
     {showSiteChrome && <SiteFooter />}
     {showSiteChrome && <MakeYourOwnAtlas />}
     <script>

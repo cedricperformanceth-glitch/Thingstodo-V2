@@ -5,12 +5,12 @@ import '../features/homepage/homepage.css';
 
 const seo = {
   title: 'Things To Do Atlas',
-  description: 'Choose a country and open your Things To Do Atlas travel chapter.',
+  description: 'Independent travel chapters for curious travellers. Start with Laos and explore places, field notes and practical stops across the Atlas.',
   canonicalPath: '/',
   indexable: true,
 };
 ---
 
-<BaseLayout {seo} immersive showNavbar breadcrumbs={[{ name: 'Home', path: '/' }]}>
+<BaseLayout {seo} immersive scrollableImmersive showNavbar breadcrumbs={[{ name: 'Home', path: '/' }]}>
   <AtlasHomepage />
 </BaseLayout>
