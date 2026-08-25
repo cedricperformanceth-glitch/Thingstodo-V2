@@ -2,11 +2,32 @@
 import {
   HOME_COUNTRIES,
   HOME_SCENE_ASSETS,
-  NEUTRAL_SHELF_LEFTS,
+  NEUTRAL_SHELF,
 } from '../../features/homepage/countries';
 ---
 
 <section class="atlas-home" data-atlas-home data-ready="false" aria-busy="true" aria-label="Things to Do Atlas country selection">
+  <div class="atlas-ambient" aria-hidden="true">
+    <img
+      class="atlas-ambient__image"
+      data-ambient-on
+      src={HOME_SCENE_ASSETS.backgroundOn}
+      alt=""
+      width="1448"
+      height="1086"
+      decoding="async"
+    />
+    <img
+      class="atlas-ambient__image atlas-ambient__image--off"
+      data-ambient-off
+      src={HOME_SCENE_ASSETS.backgroundOff}
+      alt=""
+      width="1448"
+      height="1086"
+      decoding="async"
+    />
+  </div>
+
   <div class="atlas-stage" data-atlas-stage>
     <div class="atlas-background" aria-hidden="true">
       <img
@@ -31,11 +52,23 @@ import {
     </div>
 
     <div class="atlas-shelf" aria-label="Country notebooks">
-      {NEUTRAL_SHELF_LEFTS.map((left) => (
-        <div class="atlas-shelf__neutral" style={`--shelf-left:${left}%`} aria-hidden="true">
-          <img src={HOME_SCENE_ASSETS.neutralShelf} alt="" decoding="async" />
-        </div>
-      ))}
+      <div
+        class="atlas-shelf__neutral-group"
+        style={`--neutral-left:${NEUTRAL_SHELF.left}%;--neutral-top:${NEUTRAL_SHELF.top}%;--neutral-height:${NEUTRAL_SHELF.height}%;--neutral-book-width:${NEUTRAL_SHELF.bookWidth}px`}
+        aria-hidden="true"
+      >
+        {Array.from({ length: NEUTRAL_SHELF.count }).map(() => (
+          <span class="atlas-shelf__neutral">
+            <img
+              src={HOME_SCENE_ASSETS.neutralShelf}
+              alt=""
+              width="1254"
+              height="1254"
+              decoding="async"
+            />
+          </span>
+        ))}
+      </div>
 
       {HOME_COUNTRIES.map((country) => (
         <button

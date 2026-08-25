@@ -75,7 +75,13 @@ export const HOME_COUNTRIES: readonly HomeCountryConfig[] = [
   },
 ] as const;
 
-export const NEUTRAL_SHELF_LEFTS = [38.78, 41.68, 44.58, 47.48, 50.38, 53.28, 56.18] as const;
+export const NEUTRAL_SHELF = {
+  count: 7,
+  left: 38.78,
+  top: 9.95,
+  height: 19.3,
+  bookWidth: 42,
+} as const;
 
 export const HOME_SCENE_ASSETS = {
   backgroundOn: gsapAsset('Desk light on.webp'),

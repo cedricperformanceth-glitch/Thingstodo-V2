@@ -29,11 +29,36 @@ main.main--immersive {
   isolation: isolate;
 }
 
+.atlas-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #120c08;
+}
+
+.atlas-ambient__image {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  transform: scale(1.03);
+  filter: blur(24px) brightness(0.72) saturate(0.78) contrast(0.92);
+  opacity: 0.88;
+}
+
+.atlas-ambient__image--off {
+  opacity: 0;
+}
+
 .atlas-stage {
   --atlas-scale: 1;
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 1;
   width: 1448px;
   height: 1086px;
   overflow: hidden;
@@ -82,23 +107,34 @@ main.main--immersive {
   pointer-events: none;
 }
 
-.atlas-shelf__neutral {
+.atlas-shelf__neutral-group {
   position: absolute;
-  left: var(--shelf-left);
-  top: 9.95%;
-  width: 4.55%;
-  height: 19.3%;
+  left: var(--neutral-left);
+  top: var(--neutral-top);
+  height: var(--neutral-height);
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  pointer-events: none;
+}
+
+.atlas-shelf__neutral {
+  position: relative;
+  flex: 0 0 var(--neutral-book-width);
+  width: var(--neutral-book-width);
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
 }
 
 .atlas-shelf__neutral img {
   position: absolute;
   left: 50%;
-  top: 50%;
+  bottom: 0;
   width: auto;
   height: 100%;
   max-width: none;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   transform-origin: 50% 75%;
   pointer-events: none;
   filter: drop-shadow(1px 5px 5px rgb(0 0 0 / 0.4));

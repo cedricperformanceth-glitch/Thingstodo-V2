@@ -48,6 +48,8 @@ export const initAtlasHomepage = (): void => {
   const stage = $<HTMLElement>(root, '[data-atlas-stage]');
   const bgOn = $<HTMLImageElement>(root, '[data-background-on]');
   const bgOff = $<HTMLImageElement>(root, '[data-background-off]');
+  const ambientOn = $<HTMLImageElement>(root, '[data-ambient-on]');
+  const ambientOff = $<HTMLImageElement>(root, '[data-ambient-off]');
   const lamp = $<HTMLButtonElement>(root, '[data-lamp-pull]');
   const extracted = $<HTMLButtonElement>(root, '[data-country-extracted]');
   const extractedImage = $<HTMLImageElement>(root, '[data-country-extracted-image]');
@@ -82,7 +84,7 @@ export const initAtlasHomepage = (): void => {
     const value = triggers.get(slug); if (!value) throw new Error(`Missing trigger: ${slug}`); return value;
   };
   const setMode = (value: Mode): void => { mode = value; root.dataset.mode = value; };
-  const fit = (): void => stage.style.setProperty('--atlas-scale', String(Math.max(window.innerWidth / W, (window.visualViewport?.height ?? window.innerHeight) / H)));
+  const fit = (): void => stage.style.setProperty('--atlas-scale', String(Math.min(window.innerWidth / W, (window.visualViewport?.height ?? window.innerHeight) / H)));
   const stop = (timeline: Timeline | null): void => timeline?.kill();
   const allDesk = [neutral, ...closed, opening1, opening2, open];
 
@@ -213,8 +215,8 @@ export const initAtlasHomepage = (): void => {
     if (lampTl) return; const turningOn = !lampOn; if (!turningOn && selected) returnIdle(); lamp.disabled = true;
     lampTl = gsap.timeline({ onComplete:() => { lampOn = turningOn; lampTl = null; interactive(); } })
       .to(lamp, { yPercent:5.5, duration:0.13, ease:'power2.in' }, 0)
-      .to(bgOn, { opacity:turningOn ? 1 : 0, duration:0.32, ease:'sine.inOut' }, 0.05)
-      .to(bgOff, { opacity:turningOn ? 0 : 1, duration:0.32, ease:'sine.inOut' }, 0.05)
+      .to([bgOn, ambientOn], { opacity:turningOn ? 1 : 0, duration:0.32, ease:'sine.inOut' }, 0.05)
+      .to([bgOff, ambientOff], { opacity:turningOn ? 0 : 1, duration:0.32, ease:'sine.inOut' }, 0.05)
       .to(lamp, { yPercent:0, duration:0.22, ease:'sine.out' }, 0.15);
   };
 
