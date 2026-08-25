@@ -1,5 +1,16 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
-const seo = { title:'Things To Do Atlas V2', description:'A new editorial travel platform foundation.', canonicalPath:'/', indexable:false };
+import AtlasHomepage from '../components/home/AtlasHomepage.astro';
+import '../features/homepage/homepage.css';
+
+const seo = {
+  title: 'Things To Do Atlas',
+  description: 'Choose a country and open your Things To Do Atlas travel chapter.',
+  canonicalPath: '/',
+  indexable: true,
+};
 ---
-<BaseLayout {seo} breadcrumbs={[{name:'Home',path:'/'}]}><h1>Things To Do Atlas V2</h1><p>Foundation environment for a reusable global travel guide.</p><a class="button" href="/laos">Explore Laos</a></BaseLayout>
+
+<BaseLayout {seo} immersive breadcrumbs={[{ name: 'Home', path: '/' }]}>
+  <AtlasHomepage />
+</BaseLayout>

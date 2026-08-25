@@ -1,0 +1,94 @@
+---
+import {
+  HOME_COUNTRIES,
+  HOME_SCENE_ASSETS,
+  NEUTRAL_SHELF_LEFTS,
+} from '../../features/homepage/countries';
+---
+
+<section class="atlas-home" data-atlas-home data-ready="false" aria-busy="true" aria-label="Things to Do Atlas country selection">
+  <div class="atlas-stage" data-atlas-stage>
+    <div class="atlas-background" aria-hidden="true">
+      <img
+        class="atlas-background__image"
+        data-background-on
+        src={HOME_SCENE_ASSETS.backgroundOn}
+        alt=""
+        width="1448"
+        height="1086"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <img
+        class="atlas-background__image atlas-background__image--off"
+        data-background-off
+        src={HOME_SCENE_ASSETS.backgroundOff}
+        alt=""
+        width="1448"
+        height="1086"
+        decoding="async"
+      />
+    </div>
+
+    <div class="atlas-shelf" aria-label="Country notebooks">
+      {NEUTRAL_SHELF_LEFTS.map((left) => (
+        <div class="atlas-shelf__neutral" style={`--shelf-left:${left}%`} aria-hidden="true">
+          <img src={HOME_SCENE_ASSETS.neutralShelf} alt="" decoding="async" />
+        </div>
+      ))}
+
+      {HOME_COUNTRIES.map((country) => (
+        <button
+          class="atlas-country-spine"
+          type="button"
+          data-country-trigger={country.slug}
+          style={`--shelf-left:${country.shelfLeft}%`}
+          aria-label={`Select ${country.name}`}
+          disabled
+        >
+          <img src={country.assets.shelfSpine} alt="" decoding="async" />
+        </button>
+      ))}
+
+      <button
+        class="atlas-country-extracted"
+        type="button"
+        data-country-extracted
+        aria-label="Open selected country notebook"
+        disabled
+      >
+        <img data-country-extracted-image alt="" decoding="async" />
+      </button>
+    </div>
+
+    <div class="atlas-globe" data-globe aria-hidden="true">
+      <img class="atlas-globe__state" data-globe-asia src={HOME_SCENE_ASSETS.globeAsia} alt="" decoding="async" />
+      <img class="atlas-globe__state atlas-globe__state--alternate" data-globe-europe src={HOME_SCENE_ASSETS.globeEurope} alt="" decoding="async" />
+    </div>
+
+    <button class="atlas-lamp-pull" type="button" data-lamp-pull aria-label="Toggle desk lamp" disabled>
+      <img src={HOME_SCENE_ASSETS.lampPull} alt="" decoding="async" />
+    </button>
+
+    <button class="atlas-desk-book" type="button" data-desk-book aria-label="Selected country notebook" disabled>
+      <img
+        class="atlas-desk-book__state atlas-desk-book__state--neutral"
+        data-desk-neutral
+        src={HOME_SCENE_ASSETS.neutralDesk}
+        alt=""
+        decoding="async"
+      />
+      <img class="atlas-desk-book__state atlas-desk-book__state--closed" data-desk-closed-a alt="" decoding="async" />
+      <img class="atlas-desk-book__state atlas-desk-book__state--closed" data-desk-closed-b alt="" decoding="async" />
+      <img class="atlas-desk-book__state atlas-desk-book__state--opening-1" data-desk-opening-1 alt="" decoding="async" />
+      <img class="atlas-desk-book__state atlas-desk-book__state--opening-2" data-desk-opening-2 alt="" decoding="async" />
+      <img class="atlas-desk-book__state atlas-desk-book__state--open" data-desk-open alt="" decoding="async" />
+    </button>
+  </div>
+</section>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script>
+  import { initAtlasHomepage } from '../../features/homepage/client';
+  initAtlasHomepage();
+</script>
