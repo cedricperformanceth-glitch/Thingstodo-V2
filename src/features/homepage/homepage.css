@@ -85,21 +85,23 @@ main.main--immersive {
 .atlas-shelf__neutral {
   position: absolute;
   left: var(--shelf-left);
-  top: 10.7%;
-  width: 1.92%;
-  height: 17.25%;
+  top: 9.95%;
+  width: 4.55%;
+  height: 19.3%;
   pointer-events: none;
-  filter: saturate(0.7) brightness(0.8) drop-shadow(1px 4px 4px rgb(0 0 0 / 0.34));
 }
 
 .atlas-shelf__neutral img {
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 50%;
   width: auto;
   height: 100%;
   max-width: none;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 75%;
+  pointer-events: none;
+  filter: drop-shadow(1px 5px 5px rgb(0 0 0 / 0.4));
 }
 
 .atlas-country-spine,

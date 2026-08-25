@@ -149,7 +149,8 @@ export const initAtlasHomepage = (): void => {
   };
   const extractBack = (tl: Timeline, c: HomeCountryConfig, at: number): void => {
     const spine = $<HTMLImageElement>(trigger(c.slug), 'img');
-    tl.to(extracted, { scale:0.22, rotation:5, xPercent:0, yPercent:0, duration:0.48, ease:'power3.inOut' }, at)
+    tl.set(extracted, { opacity:1, visibility:'visible' }, at)
+      .to(extracted, { scale:0.22, rotation:5, xPercent:0, yPercent:0, duration:0.48, ease:'power3.inOut' }, at)
       .to(extracted, { opacity:0, visibility:'hidden', duration:0.12 }, at + 0.36)
       .fromTo(spine, { opacity:0, yPercent:8 }, { opacity:1, yPercent:0, duration:0.26, ease:'power2.out' }, at + 0.3);
   };
@@ -183,6 +184,7 @@ export const initAtlasHomepage = (): void => {
     if (!selected || mode !== MODE.SELECTED || bookTl) return; const c = country(selected); configureOpening(c); setMode(MODE.OPENING); interactive();
     const currentClosed = closed[activeClosed];
     bookTl = gsap.timeline({ onComplete:() => { visibleDesk = c.assets.open ? open : opening2; finish(MODE.OPEN); } })
+      .to(extracted, { opacity:0, visibility:'hidden', duration:0.18, ease:'power2.in' }, 0)
       .to(currentClosed, { opacity:0, visibility:'hidden', duration:0.14 }, 0)
       .fromTo(opening1, { opacity:0, visibility:'hidden', scale:0.95 }, { opacity:1, visibility:'visible', scale:1, duration:0.22 }, 0.08)
       .to(opening1, { opacity:0, visibility:'hidden', duration:0.14 }, 0.28)
