@@ -46,7 +46,7 @@ main.main--immersive {
   width: 1512px;
   height: 1150px;
   opacity: 0;
-  transform: translateX(-50%) scale(calc(var(--atlas-scale) * 1.125));
+  transform: translateX(-50%) scale(var(--atlas-scale));
   transform-origin: 50% 0;
   transition: opacity 160ms ease;
   will-change: transform;

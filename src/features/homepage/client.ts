@@ -13,8 +13,7 @@ interface Gsap { timeline(config?: Vars): Timeline; set(target: Target, vars: Va
 declare global { interface Window { gsap?: Gsap; } }
 
 const W = 1448;
-const H = 1086;
-const TABLEAU_MARGIN_RATIO = 0.8;
+const TABLEAU_WIDTH_RATIO = 0.8;
 const FRAME_OVERHANG = 32;
 const MODE = { IDLE:'idle', SELECTING:'selecting', SELECTED:'selected', OPENING:'opening', OPEN:'open', SWITCHING:'switching', RETURNING:'returning', NAVIGATING:'navigating' } as const;
 type Mode = (typeof MODE)[keyof typeof MODE];
@@ -85,11 +84,7 @@ export const initAtlasHomepage = (): void => {
   };
   const setMode = (value: Mode): void => { mode = value; root.dataset.mode = value; };
   const fit = (): void => {
-    const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
-    const scale = Math.min(
-      (window.innerWidth * TABLEAU_MARGIN_RATIO) / (W + FRAME_OVERHANG * 2),
-      (viewportHeight * TABLEAU_MARGIN_RATIO) / (H + FRAME_OVERHANG * 2),
-    );
+    const scale = (window.innerWidth * TABLEAU_WIDTH_RATIO) / (W + FRAME_OVERHANG * 2);
     tableau.style.setProperty('--atlas-scale', String(scale));
   };
   const stop = (timeline: Timeline | null): void => timeline?.kill();
