@@ -87,17 +87,24 @@ export const initAtlasHomepage = (): void => {
   const allDesk = [neutral, ...closed, opening1, opening2, open];
 
   const resetGlobe = (): void => {
-    gsap.set(globe, { clearProps:'rotation,yPercent' });
-    gsap.set(globeAsia, { opacity:1 }); gsap.set(globeEurope, { opacity:0 });
+    gsap.set(globeAsia, { opacity:1 });
+    gsap.set(globeEurope, { clearProps:'transform,filter', opacity:0 });
   };
   const globeCue = (): void => {
     stop(globeTl); resetGlobe();
     globeTl = gsap.timeline({ onComplete:() => { resetGlobe(); globeTl = null; } })
-      .to(globe, { rotation:2.4, yPercent:-0.6, duration:0.55, ease:'sine.inOut' }, 0)
-      .to(globeAsia, { opacity:0, duration:0.26 }, 0.18).to(globeEurope, { opacity:1, duration:0.26 }, 0.18)
-      .to(globe, { rotation:-1.7, yPercent:0.18, duration:0.6, ease:'sine.inOut' }, 0.42)
-      .to(globeEurope, { opacity:0, duration:0.26 }, 0.76).to(globeAsia, { opacity:1, duration:0.26 }, 0.76)
-      .to(globe, { rotation:0, yPercent:0, duration:0.42, ease:'sine.out' }, 0.92);
+      .fromTo(
+        globeEurope,
+        { opacity:0, xPercent:8, scaleX:0.82, filter:'blur(0.75px)' },
+        { opacity:0.92, xPercent:0, scaleX:1, filter:'blur(0.08px)', duration:0.52, ease:'power2.out' },
+        0.04,
+      )
+      .to(globeEurope, { opacity:0.92, duration:0.18, ease:'sine.inOut' }, 0.52)
+      .to(
+        globeEurope,
+        { opacity:0, xPercent:-8, scaleX:0.82, filter:'blur(0.75px)', duration:0.52, ease:'sine.inOut' },
+        0.70,
+      );
   };
 
   const resetDesk = (): void => {
@@ -203,9 +210,10 @@ export const initAtlasHomepage = (): void => {
   const toggleLamp = (): void => {
     if (lampTl) return; const turningOn = !lampOn; if (!turningOn && selected) returnIdle(); lamp.disabled = true;
     lampTl = gsap.timeline({ onComplete:() => { lampOn = turningOn; lampTl = null; interactive(); } })
-      .to(lamp, { yPercent:10, duration:0.12, ease:'power2.in' }, 0)
-      .to(bgOn, { opacity:turningOn ? 1 : 0, duration:0.34 }, 0.06).to(bgOff, { opacity:turningOn ? 0 : 1, duration:0.34 }, 0.06)
-      .to(lamp, { yPercent:0, duration:0.3, ease:'back.out(2.2)' }, 0.16);
+      .to(lamp, { yPercent:5.5, duration:0.13, ease:'power2.in' }, 0)
+      .to(bgOn, { opacity:turningOn ? 1 : 0, duration:0.32, ease:'sine.inOut' }, 0.05)
+      .to(bgOff, { opacity:turningOn ? 0 : 1, duration:0.32, ease:'sine.inOut' }, 0.05)
+      .to(lamp, { yPercent:0, duration:0.22, ease:'sine.out' }, 0.15);
   };
 
   triggers.forEach((button, slug) => button.addEventListener('click', () => selectCountry(slug)));

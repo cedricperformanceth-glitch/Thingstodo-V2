@@ -17,7 +17,7 @@ expect(engine.includes('generatedChapters(city,country)'),'generated fallback ch
 expect(engine.includes('generatedCountryChapters'),'country Field Note fallback is missing');
 expect(engine.includes('getEditorialCityFieldNote(city.id)'),'editorial city override is not wired into the engine');
 expect(engine.includes('editorialAdSlots.slice(0, 3)'),'city note should expose exactly three editorial ad slots');
-expect(resolver.includes('country-field-note-media-copy.json'),'country media is not available to the shared Field Note resolver');
+expect(resolver.includes('getEditorialCountryFieldNoteMedia'),'country media is not available to the shared Field Note resolver');
 for (const marker of ['city-note__hero','city-note__quick','city-note__chapters','city-note__chapter-side','city-note__photo-spread','city-note__sources','city-note__closing']) expect(component.includes(marker),`presentation block ${marker} is missing`);
 expect(component.includes('view.media'),'component does not render editorial media'); expect(component.includes('view.sources'),'component does not render editorial sources');
 expect(route.includes('getCities().map'),'route is not generated for the city registry'); expect(route.includes('<CityFieldNote {city} {country} />'),'route does not render the generic city note component'); expect(!/<main(?:\s|>)/i.test(route),'route must not nest another <main> inside BaseLayout');

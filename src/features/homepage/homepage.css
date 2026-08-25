@@ -195,13 +195,18 @@ main.main--immersive {
 .atlas-globe {
   position: absolute;
   left: 21.8%;
-  top: 64%;
-  width: 13.6%;
-  z-index: 12;
+  top: 64.4%;
+  width: 11.2%;
+  z-index: 6;
+  opacity: 0.9;
   transform: translateX(-50%);
   transform-origin: 50% 100%;
   pointer-events: none;
-  filter: drop-shadow(0 12px 10px rgb(0 0 0 / 0.34));
+  filter:
+    brightness(0.93)
+    saturate(0.84)
+    contrast(0.96)
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.18));
 }
 
 .atlas-globe__state {
@@ -215,13 +220,26 @@ main.main--immersive {
 
 .atlas-globe__state--alternate {
   opacity: 0;
+  transform-origin: 50% 34%;
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 34%,
+    #000 0 27%,
+    rgb(0 0 0 / 0.98) 30%,
+    transparent 34%
+  );
+  mask-image: radial-gradient(
+    circle at 50% 34%,
+    #000 0 27%,
+    rgb(0 0 0 / 0.98) 30%,
+    transparent 34%
+  );
 }
 
 .atlas-lamp-pull {
   position: absolute;
   left: 86%;
   top: 18.28%;
-  width: 1.45%;
+  width: 2.1%;
   height: 16.65%;
   z-index: 30;
   transform: translateX(-50%);
@@ -233,11 +251,16 @@ main.main--immersive {
   left: 50%;
   top: 0;
   width: auto;
-  height: 100%;
+  height: 74%;
   max-width: none;
+  opacity: 0.72;
   transform: translateX(-50%);
   pointer-events: none;
-  filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.35));
+  filter:
+    brightness(0.9)
+    saturate(0.82)
+    contrast(0.94)
+    drop-shadow(0 1px 1px rgb(0 0 0 / 0.16));
 }
 
 .atlas-desk-book {
