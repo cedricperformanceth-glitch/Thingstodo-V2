@@ -259,6 +259,7 @@ main.main--immersive {
   left: 21.8%;
   top: 64.4%;
   width: 11.2%;
+  aspect-ratio: 1 / 1;
   z-index: 6;
   opacity: 0.9;
   transform: translateX(-50%);
@@ -280,21 +281,28 @@ main.main--immersive {
   transform: translateX(-50%);
 }
 
-.atlas-globe__state--alternate {
-  opacity: 0;
-  transform-origin: 50% 34%;
+.atlas-globe__sphere-window {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
   -webkit-mask-image: radial-gradient(
     circle at 50% 34%,
-    #000 0 27%,
+    #000 0 28.5%,
     rgb(0 0 0 / 0.98) 30%,
-    transparent 34%
+    transparent 32%
   );
   mask-image: radial-gradient(
     circle at 50% 34%,
-    #000 0 27%,
+    #000 0 28.5%,
     rgb(0 0 0 / 0.98) 30%,
-    transparent 34%
+    transparent 32%
   );
+}
+
+.atlas-globe__state--alternate {
+  opacity: 0;
+  transform-origin: 50% 34%;
 }
 
 .atlas-lamp-pull {
