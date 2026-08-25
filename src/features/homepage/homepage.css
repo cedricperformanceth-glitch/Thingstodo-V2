@@ -239,8 +239,8 @@ main.main--immersive {
 
 .atlas-lamp-pull {
   position: absolute;
-  left: 86%;
-  top: 18.28%;
+  left: 89.5%;
+  top: 18.6%;
   width: 2.1%;
   height: 16.65%;
   z-index: 30;
@@ -253,7 +253,7 @@ main.main--immersive {
   left: 50%;
   top: 0;
   width: auto;
-  height: 74%;
+  height: 64%;
   max-width: none;
   opacity: 0.72;
   transform: translateX(-50%);
