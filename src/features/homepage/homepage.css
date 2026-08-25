@@ -1,7 +1,7 @@
 body.page--immersive {
   margin: 0;
   overflow: hidden;
-  background: #fff;
+  background: var(--paper);
 }
 
 main.main--immersive {
@@ -25,7 +25,7 @@ main.main--immersive {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  background: #fff;
+  background: var(--paper);
   isolation: isolate;
 }
 
@@ -34,14 +34,15 @@ main.main--immersive {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: #fff;
+  background: var(--paper);
 }
 
 .atlas-tableau {
   --atlas-scale: 1;
   position: absolute;
   left: 50%;
-  top: 10dvh;
+  top: 5vh;
+  top: 5dvh;
   z-index: 1;
   width: 1512px;
   height: 1150px;
@@ -87,10 +88,13 @@ main.main--immersive {
 
 .atlas-background__image {
   object-fit: cover;
+  object-position: center;
 }
 
 .atlas-background__image--off {
   opacity: 0;
+  transform: translate(8px, 4px) scale(1.0109);
+  transform-origin: 50% 50%;
 }
 
 .atlas-tableau-frame {

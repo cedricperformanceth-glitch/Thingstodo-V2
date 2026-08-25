@@ -13,6 +13,7 @@ interface Props {
   ogType?: 'website' | 'article';
   immersive?: boolean;
   showSiteChrome?: boolean;
+  showNavbar?: boolean;
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   ogType = 'website',
   immersive = false,
   showSiteChrome = !immersive,
+  showNavbar = showSiteChrome,
 } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
 ---
@@ -52,7 +54,7 @@ const meta = pageSeo(seo, breadcrumbs);
     ))}
   </head>
   <body class:list={{ 'page--immersive': immersive }}>
-    {showSiteChrome && <Navbar />}
+    {showNavbar && <Navbar />}
     <main id="main-content" class:list={{ 'main--immersive': immersive }}><slot /></main>
     {showSiteChrome && <SiteFooter />}
     {showSiteChrome && <MakeYourOwnAtlas />}

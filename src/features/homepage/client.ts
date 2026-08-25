@@ -13,7 +13,7 @@ interface Gsap { timeline(config?: Vars): Timeline; set(target: Target, vars: Va
 declare global { interface Window { gsap?: Gsap; } }
 
 const W = 1448;
-const TABLEAU_WIDTH_RATIO = 0.8;
+const TABLEAU_WIDTH_RATIO = 0.9;
 const FRAME_OVERHANG = 32;
 const MODE = { IDLE:'idle', SELECTING:'selecting', SELECTED:'selected', OPENING:'opening', OPEN:'open', SWITCHING:'switching', RETURNING:'returning', NAVIGATING:'navigating' } as const;
 type Mode = (typeof MODE)[keyof typeof MODE];
