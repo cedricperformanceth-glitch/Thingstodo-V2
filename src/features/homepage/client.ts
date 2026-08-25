@@ -14,6 +14,8 @@ declare global { interface Window { gsap?: Gsap; } }
 
 const W = 1448;
 const H = 1086;
+const TABLEAU_MARGIN_RATIO = 0.8;
+const FRAME_OVERHANG = 32;
 const MODE = { IDLE:'idle', SELECTING:'selecting', SELECTED:'selected', OPENING:'opening', OPEN:'open', SWITCHING:'switching', RETURNING:'returning', NAVIGATING:'navigating' } as const;
 type Mode = (typeof MODE)[keyof typeof MODE];
 
@@ -45,11 +47,9 @@ export const initAtlasHomepage = (): void => {
   const gsap = window.gsap;
   if (!gsap) { root.dataset.ready = 'true'; root.setAttribute('aria-busy', 'false'); return; }
 
-  const stage = $<HTMLElement>(root, '[data-atlas-stage]');
+  const tableau = $<HTMLElement>(root, '[data-atlas-tableau]');
   const bgOn = $<HTMLImageElement>(root, '[data-background-on]');
   const bgOff = $<HTMLImageElement>(root, '[data-background-off]');
-  const ambientOn = $<HTMLImageElement>(root, '[data-ambient-on]');
-  const ambientOff = $<HTMLImageElement>(root, '[data-ambient-off]');
   const lamp = $<HTMLButtonElement>(root, '[data-lamp-pull]');
   const extracted = $<HTMLButtonElement>(root, '[data-country-extracted]');
   const extractedImage = $<HTMLImageElement>(root, '[data-country-extracted-image]');
@@ -84,7 +84,14 @@ export const initAtlasHomepage = (): void => {
     const value = triggers.get(slug); if (!value) throw new Error(`Missing trigger: ${slug}`); return value;
   };
   const setMode = (value: Mode): void => { mode = value; root.dataset.mode = value; };
-  const fit = (): void => stage.style.setProperty('--atlas-scale', String(Math.min(window.innerWidth / W, (window.visualViewport?.height ?? window.innerHeight) / H)));
+  const fit = (): void => {
+    const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+    const scale = Math.min(
+      (window.innerWidth * TABLEAU_MARGIN_RATIO) / (W + FRAME_OVERHANG * 2),
+      (viewportHeight * TABLEAU_MARGIN_RATIO) / (H + FRAME_OVERHANG * 2),
+    );
+    tableau.style.setProperty('--atlas-scale', String(scale));
+  };
   const stop = (timeline: Timeline | null): void => timeline?.kill();
   const allDesk = [neutral, ...closed, opening1, opening2, open];
 
@@ -215,8 +222,8 @@ export const initAtlasHomepage = (): void => {
     if (lampTl) return; const turningOn = !lampOn; if (!turningOn && selected) returnIdle(); lamp.disabled = true;
     lampTl = gsap.timeline({ onComplete:() => { lampOn = turningOn; lampTl = null; interactive(); } })
       .to(lamp, { yPercent:5.5, duration:0.13, ease:'power2.in' }, 0)
-      .to([bgOn, ambientOn], { opacity:turningOn ? 1 : 0, duration:0.32, ease:'sine.inOut' }, 0.05)
-      .to([bgOff, ambientOff], { opacity:turningOn ? 0 : 1, duration:0.32, ease:'sine.inOut' }, 0.05)
+      .to(bgOn, { opacity:turningOn ? 1 : 0, duration:0.32, ease:'sine.inOut' }, 0.05)
+      .to(bgOff, { opacity:turningOn ? 0 : 1, duration:0.32, ease:'sine.inOut' }, 0.05)
       .to(lamp, { yPercent:0, duration:0.22, ease:'sine.out' }, 0.15);
   };
 
