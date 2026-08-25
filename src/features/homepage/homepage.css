@@ -350,15 +350,16 @@ main.main--immersive {
   filter: drop-shadow(0 14px 12px rgb(0 0 0 / 0.36));
 }
 
-.atlas-desk-book__state--neutral,
+.atlas-desk-book__state--neutral {
+  width: 44%;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) rotate(-4deg);
+}
+
 .atlas-desk-book__state--closed {
   width: 48.3%;
   transform: translate(-50%, -48%) rotate(-4deg) scaleY(0.6);
-}
-
-.atlas-desk-book__state--neutral {
-  opacity: 1;
-  visibility: visible;
 }
 
 .atlas-desk-book__state--opening-1 {
