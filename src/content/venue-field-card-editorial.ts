@@ -165,6 +165,54 @@ export const personalVenuePlaces: readonly SourcedPlace[] = [
       },
     ],
   },
+  {
+    id: 'place-bolaven-trail-guesthouse',
+    slug: 'bolaven-trail-guesthouse',
+    name: 'Bolaven Trail Guesthouse',
+    country: 'laos',
+    city: 'pakse',
+    category: 'accommodation',
+    coordinates: { latitude: 15.123728, longitude: 105.802146 },
+    locationScope: 'point',
+    shortDescription: 'A small, quiet Street 24 guesthouse with private air-conditioned rooms, secure scooter parking and a host whose motorbike knowledge opens up a different side of the Bolaven Plateau.',
+    media: {
+      card: {},
+      fieldCard: { gallery: [] },
+    },
+    spaCard: {
+      handwrittenTags: ['Guesthouse', 'Motorbike know-how', 'Personal field note'],
+      photoStatus: 'missing',
+      photoRequiresManualFill: true,
+    },
+    verification: {
+      decision: 'accept',
+      reason: 'User-selected personal venue; identity, address and point coordinates cross-checked against current lodging data.',
+    },
+    sourceMetadata: {
+      sourceName: 'Google Maps',
+      sourceUrl: 'https://maps.app.goo.gl/wNyEctqUS6bhQ2mr5',
+    },
+    manualLocks: {},
+    address: 'Street 24, 16000 Pakse, Laos',
+    googleMapsUrl: 'https://maps.app.goo.gl/wNyEctqUS6bhQ2mr5',
+    researchSources: [
+      {
+        sourceName: 'Traveller first-hand knowledge',
+        purpose: 'first-party',
+        sourceType: 'manual',
+      },
+      {
+        sourceName: 'Google Maps',
+        sourceUrl: 'https://maps.app.goo.gl/wNyEctqUS6bhQ2mr5',
+        purpose: 'location',
+      },
+      {
+        sourceName: 'Current lodging listing cross-check',
+        sourceUrl: 'https://www.booking.com/hotel/la/bolaven-trail-guesthouse.html',
+        purpose: 'facts',
+      },
+    ],
+  },
 ];
 
 export const venueFieldCards: Readonly<Record<string, VenueFieldCardContent>> = {
@@ -311,6 +359,40 @@ export const venueFieldCards: Readonly<Record<string, VenueFieldCardContent>> = 
       },
     ],
     relatedPlaceIds: ['place-sanga-hostel'],
+  },
+  'place-bolaven-trail-guesthouse': {
+    status: 'published',
+    kindLabel: 'Guesthouse',
+    mediaSlots: 2,
+    intro: 'Bolaven Trail Guesthouse is a small place, and I think that is part of its appeal. There are not many rooms, they are private, air-conditioned and very clean, the Wi-Fi is good, and the street stays quiet. But the reason I would remember this address is Xavier. He does not only run the guesthouse: he also rents proper motorcycles for people who want to go beyond the easy scooter routes, and that changes the kind of advice he can give you about the area.',
+    chapters: [
+      {
+        title: 'Xavier knows where a normal scooter stops being enough',
+        body: 'Xavier knows the surroundings around Pakse very well, partly because motorbikes are another side of his business. I am not talking only about the usual small scooters you see everywhere in Laos. He has larger off-road and trail-style motorcycles for people who actually want to get out into rougher country. That means the conversation is different: he knows routes and places that are not necessarily the obvious stops on a standard Bolaven Plateau loop, and he understands what is realistic depending on the bike you are riding. If exploring by motorcycle is part of your trip, that local knowledge is probably the most distinctive reason to stay here.',
+      },
+      {
+        title: 'Small, private and properly calm',
+        body: 'The guesthouse itself is straightforward in a good way. There are only a limited number of rooms, they are private, the air conditioning works, the Wi-Fi is reliable and the standard of cleanliness is very high. It is on the same quiet pocket of Street 24 as Sabai ça Baille, away from most through-traffic, so the atmosphere is naturally calmer than on Pakse’s busier roads. This is not a place I would choose because it has a long list of facilities; I would choose it because the basics are done properly and the scale stays personal.',
+      },
+      {
+        title: 'A sensible setup if you are travelling with a bike',
+        body: 'There is a small courtyard where scooters and motorcycles can be parked, with a gate that closes at night. There is also a night guard and cameras. That setup makes sense for any guest, but it matters even more here because bikes are part of the identity of the place. You can come back from a day outside, leave the bike inside and know that security has actually been thought about rather than added as an afterthought.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Are the rooms private or dormitory-style?',
+        answer: 'The guesthouse is mainly about private rooms rather than a big dormitory setup. The rooms have air conditioning, the Wi-Fi is good and, from what I know of the place, cleanliness is one of its strong points.',
+      },
+      {
+        question: 'Why is this guesthouse interesting for a motorbike trip?',
+        answer: 'Because Xavier does more than rent ordinary scooters. He also has larger trail and off-road motorcycles and knows the surrounding routes very well, including places you would not approach in quite the same way on a small city scooter.',
+      },
+      {
+        question: 'Is there secure parking for a scooter or motorcycle?',
+        answer: 'Yes. There is a courtyard behind a gate that closes at night, plus cameras and a night guard. For me, that is a reassuring setup if you are travelling with a bike.',
+      },
+    ],
   },
 };
 
