@@ -21,7 +21,7 @@ declare global {
   interface Window { gsap?: Gsap; }
 }
 
-const W = 1448;
+const STAGE_WIDTH = 1448;
 const TABLEAU_WIDTH_RATIO = 0.9;
 const FRAME_OVERHANG = 32;
 
@@ -38,14 +38,6 @@ const MODE = {
 
 type Mode = (typeof MODE)[keyof typeof MODE];
 
-const TRANSITION_MODES = new Set<Mode>([
-  MODE.SELECTING,
-  MODE.OPENING,
-  MODE.SWITCHING,
-  MODE.RETURNING,
-  MODE.NAVIGATING,
-]);
-
 const countries = new Map<HomeCountrySlug, HomeCountryConfig>(
   HOME_COUNTRIES.map((country) => [country.slug, country]),
 );
@@ -58,7 +50,6 @@ const $ = <T extends Element>(root: ParentNode, selector: string): T => {
 
 const preload = async (): Promise<void> => {
   const urls = new Set<string>(Object.values(HOME_SCENE_ASSETS));
-
   HOME_COUNTRIES.forEach((country) => {
     urls.add(country.assets.shelfSpine);
     urls.add(country.assets.shelfExtracted);
@@ -105,15 +96,12 @@ export const initAtlasHomepage = (): void => {
   const open = $<HTMLImageElement>(root, '[data-desk-open]');
   const globeAsia = $<HTMLImageElement>(root, '[data-globe-asia]');
   const globeEurope = $<HTMLImageElement>(root, '[data-globe-europe]');
-  const triggers = new Map<HomeCountrySlug, HTMLButtonElement>();
 
+  const triggers = new Map<HomeCountrySlug, HTMLButtonElement>();
   root.querySelectorAll<HTMLButtonElement>('[data-country-trigger]').forEach((button) => {
     const slug = button.dataset.countryTrigger as HomeCountrySlug | undefined;
     if (slug && countries.has(slug)) triggers.set(slug, button);
   });
-
-  gsap.set(bgOn, { opacity: 0 });
-  gsap.set(bgOff, { opacity: 1 });
 
   let mode: Mode = MODE.IDLE;
   let selected: HomeCountrySlug | null = null;
@@ -124,7 +112,7 @@ export const initAtlasHomepage = (): void => {
   let activeClosed = 0;
   let visibleDesk: HTMLImageElement = neutral;
 
-  const allDesk = [neutral, ...closed, opening1, opening2, open];
+  const deskCountryLayers = [closed[0], closed[1], opening1, opening2, open];
 
   const country = (slug: HomeCountrySlug): HomeCountryConfig => {
     const value = countries.get(slug);
@@ -144,15 +132,15 @@ export const initAtlasHomepage = (): void => {
   };
 
   const fit = (): void => {
-    const scale = (window.innerWidth * TABLEAU_WIDTH_RATIO) / (W + FRAME_OVERHANG * 2);
+    const scale = (window.innerWidth * TABLEAU_WIDTH_RATIO) / (STAGE_WIDTH + FRAME_OVERHANG * 2);
     tableau.style.setProperty('--atlas-scale', String(scale));
   };
 
-  const ready = (): boolean => root.dataset.ready === 'true';
-  const transitioning = (): boolean => TRANSITION_MODES.has(mode) || !!bookTl || !!lampTl;
+  const isReady = (): boolean => root.dataset.ready === 'true';
+  const isBusy = (): boolean => !!bookTl || !!lampTl;
 
   const interactive = (): void => {
-    const locked = !ready() || transitioning();
+    const locked = !isReady() || isBusy();
     const current = selected ? country(selected) : null;
 
     lamp.disabled = locked;
@@ -166,27 +154,41 @@ export const initAtlasHomepage = (): void => {
     );
   };
 
-  const activateBookTimeline = (timeline: Timeline): Timeline => {
-    bookTl = timeline;
+  const finishBook = (nextMode: Mode): void => {
+    bookTl = null;
+    setMode(nextMode);
     interactive();
-    return timeline;
   };
 
-  const finishBookTransition = (next: Mode): void => {
-    bookTl = null;
-    setMode(next);
-    interactive();
+  const hideCountryDeskLayers = (except?: HTMLImageElement): void => {
+    const targets = except ? deskCountryLayers.filter((layer) => layer !== except) : deskCountryLayers;
+    gsap.set(targets, { opacity: 0, visibility: 'hidden', clearProps: 'transform' });
+  };
+
+  const resetDesk = (): void => {
+    gsap.killTweensOf([extracted, neutral, ...deskCountryLayers]);
+    hideCountryDeskLayers();
+    gsap.set(neutral, { opacity: 1, visibility: 'visible', clearProps: 'transform' });
+    gsap.set(extracted, { opacity: 0, visibility: 'hidden', clearProps: 'transform' });
+    activeClosed = 0;
+    visibleDesk = neutral;
+  };
+
+  const showCountryDeskLayer = (layer: HTMLImageElement): void => {
+    hideCountryDeskLayers(layer);
+    gsap.set(neutral, { opacity: 0, visibility: 'hidden', clearProps: 'transform' });
+    gsap.set(layer, { opacity: 1, visibility: 'visible', clearProps: 'transform' });
+    visibleDesk = layer;
   };
 
   const resetGlobe = (): void => {
     gsap.set(globeAsia, { opacity: 1 });
-    gsap.set(globeEurope, { clearProps: 'transform,filter', opacity: 0 });
+    gsap.set(globeEurope, { opacity: 0, clearProps: 'transform,filter' });
   };
 
   const globeCue = (): void => {
     globeTl?.kill();
     resetGlobe();
-
     globeTl = gsap.timeline({
       onComplete: () => {
         resetGlobe();
@@ -205,67 +207,6 @@ export const initAtlasHomepage = (): void => {
         { opacity: 0, xPercent: -8, scaleX: 0.82, filter: 'blur(0.75px)', duration: 0.52, ease: 'sine.inOut' },
         0.70,
       );
-  };
-
-  const hideDeskLayersExcept = (active: HTMLImageElement): void => {
-    const inactive = allDesk.filter((layer) => layer !== active);
-    gsap.set(inactive, {
-      opacity: 0,
-      visibility: 'hidden',
-      clearProps: 'transform',
-    });
-  };
-
-  const resetDesk = (): void => {
-    gsap.killTweensOf([extracted, ...allDesk]);
-    gsap.set([closed[0], closed[1], opening1, opening2, open], {
-      opacity: 0,
-      visibility: 'hidden',
-      clearProps: 'transform',
-    });
-    gsap.set(neutral, {
-      opacity: 1,
-      visibility: 'visible',
-      clearProps: 'transform',
-    });
-    gsap.set(extracted, {
-      opacity: 0,
-      visibility: 'hidden',
-      clearProps: 'transform',
-    });
-    activeClosed = 0;
-    visibleDesk = neutral;
-  };
-
-  const settleSelectedDesk = (c: HomeCountryConfig, layer: HTMLImageElement): void => {
-    hideDeskLayersExcept(layer);
-    gsap.set(layer, {
-      opacity: 1,
-      visibility: 'visible',
-      scale: 1,
-      yPercent: 0,
-    });
-    gsap.set(extracted, {
-      opacity: 1,
-      visibility: 'visible',
-      scale: c.motion.selectedScale,
-      rotation: c.motion.selectedRotation,
-      xPercent: c.motion.selectedXPercent,
-      yPercent: c.motion.selectedYPercent,
-    });
-    visibleDesk = layer;
-  };
-
-  const settleOpenDesk = (layer: HTMLImageElement, finalAsset: boolean): void => {
-    hideDeskLayersExcept(layer);
-    gsap.set(layer, {
-      opacity: 1,
-      visibility: 'visible',
-      scale: 1,
-      ...(finalAsset ? { yPercent: 0 } : {}),
-    });
-    gsap.set(extracted, { opacity: 0, visibility: 'hidden' });
-    visibleDesk = layer;
   };
 
   const clearShelf = (slug: HomeCountrySlug): void => {
@@ -333,7 +274,6 @@ export const initAtlasHomepage = (): void => {
   };
 
   const selectFirst = (c: HomeCountryConfig): void => {
-    setMode(MODE.SELECTING);
     selected = c.slug;
     configureExtracted(c);
 
@@ -341,125 +281,131 @@ export const initAtlasHomepage = (): void => {
     const next = closed[nextIndex];
     configureClosed(c, next);
 
-    const tl = activateBookTimeline(gsap.timeline({
+    setMode(MODE.SELECTING);
+    bookTl = gsap.timeline({
       onComplete: () => {
         activeClosed = nextIndex;
-        settleSelectedDesk(c, next);
-        finishBookTransition(MODE.SELECTED);
+        showCountryDeskLayer(next);
+        finishBook(MODE.SELECTED);
       },
-    }));
+    });
+    interactive();
 
-    extractOut(tl, c, 0);
-    tl.to(neutral, { opacity: 0, visibility: 'hidden', scale: 0.97, duration: 0.22 }, 0.12)
+    extractOut(bookTl, c, 0);
+    bookTl
+      .to(neutral, { opacity: 0, visibility: 'hidden', duration: 0.22 }, 0.12)
       .fromTo(
         next,
-        { opacity: 0, visibility: 'hidden', scale: 0.94, yPercent: 3 },
-        { opacity: 1, visibility: 'visible', scale: 1, yPercent: 0, duration: 0.42, ease: 'power3.out' },
+        { opacity: 0, visibility: 'hidden' },
+        { opacity: 1, visibility: 'visible', duration: 0.42, ease: 'power3.out' },
         0.2,
       );
   };
 
   const switchTo = (nextCountry: HomeCountryConfig): void => {
     if (!selected) return;
-
     const previous = country(selected);
-    setMode(MODE.SWITCHING);
-
     const nextIndex = 1 - activeClosed;
     const next = closed[nextIndex];
     configureClosed(nextCountry, next);
 
-    const tl = activateBookTimeline(gsap.timeline({
+    setMode(MODE.SWITCHING);
+    bookTl = gsap.timeline({
       onComplete: () => {
         clearShelf(previous.slug);
         selected = nextCountry.slug;
         activeClosed = nextIndex;
-        settleSelectedDesk(nextCountry, next);
-        finishBookTransition(MODE.SELECTED);
+        showCountryDeskLayer(next);
+        finishBook(MODE.SELECTED);
       },
-    }));
+    });
+    interactive();
 
-    extractBack(tl, previous, 0);
-    tl.to([visibleDesk, opening1, opening2, open], {
-      opacity: 0,
-      visibility: 'hidden',
-      duration: 0.22,
-      ease: 'power2.in',
-    }, 0)
+    extractBack(bookTl, previous, 0);
+    bookTl
+      .to([visibleDesk, opening1, opening2, open], {
+        opacity: 0,
+        visibility: 'hidden',
+        duration: 0.22,
+        ease: 'power2.in',
+      }, 0)
       .fromTo(
         next,
-        { opacity: 0, visibility: 'hidden', scale: 0.96 },
-        { opacity: 1, visibility: 'visible', scale: 1, duration: 0.34 },
+        { opacity: 0, visibility: 'hidden' },
+        { opacity: 1, visibility: 'visible', duration: 0.34, ease: 'power2.out' },
         0.42,
       )
       .call(() => configureExtracted(nextCountry), [], 0.54)
       .set(extracted, { clearProps: 'transform' }, 0.54);
-    extractOut(tl, nextCountry, 0.56);
+    extractOut(bookTl, nextCountry, 0.56);
   };
 
   const selectCountry = (slug: HomeCountrySlug): void => {
-    if (!ready() || transitioning() || selected === slug) return;
-
+    if (!isReady() || isBusy() || selected === slug) return;
     globeCue();
     const c = country(slug);
-    if (!selected) selectFirst(c);
-    else switchTo(c);
+    if (selected) switchTo(c);
+    else selectFirst(c);
   };
 
   const openCountry = (): void => {
-    if (!ready() || transitioning() || !selected || mode !== MODE.SELECTED) return;
+    if (!isReady() || isBusy() || !selected || mode !== MODE.SELECTED) return;
 
     const c = country(selected);
     configureOpening(c);
-    setMode(MODE.OPENING);
-
     const currentClosed = closed[activeClosed];
     const finalLayer = c.assets.open ? open : opening2;
-    const tl = activateBookTimeline(gsap.timeline({
-      onComplete: () => {
-        settleOpenDesk(finalLayer, !!c.assets.open);
-        finishBookTransition(MODE.OPEN);
-      },
-    }));
 
-    tl.to(extracted, { opacity: 0, visibility: 'hidden', duration: 0.18, ease: 'power2.in' }, 0)
+    setMode(MODE.OPENING);
+    bookTl = gsap.timeline({
+      onComplete: () => {
+        showCountryDeskLayer(finalLayer);
+        gsap.set(extracted, { opacity: 0, visibility: 'hidden' });
+        finishBook(MODE.OPEN);
+      },
+    });
+    interactive();
+
+    bookTl
+      .to(extracted, { opacity: 0, visibility: 'hidden', duration: 0.18, ease: 'power2.in' }, 0)
       .to(currentClosed, { opacity: 0, visibility: 'hidden', duration: 0.14 }, 0)
       .fromTo(
         opening1,
-        { opacity: 0, visibility: 'hidden', scale: 0.95 },
-        { opacity: 1, visibility: 'visible', scale: 1, duration: 0.22 },
+        { opacity: 0, visibility: 'hidden' },
+        { opacity: 1, visibility: 'visible', duration: 0.22 },
         0.08,
       )
       .to(opening1, { opacity: 0, visibility: 'hidden', duration: 0.14 }, 0.28)
       .fromTo(
         opening2,
-        { opacity: 0, visibility: 'hidden', scale: 0.95 },
-        { opacity: 1, visibility: 'visible', scale: 1, duration: 0.26 },
+        { opacity: 0, visibility: 'hidden' },
+        { opacity: 1, visibility: 'visible', duration: 0.26 },
         0.25,
       );
 
     if (c.assets.open) {
-      tl.to(opening2, { opacity: 0, visibility: 'hidden', duration: 0.14 }, 0.5)
+      bookTl
+        .to(opening2, { opacity: 0, visibility: 'hidden', duration: 0.14 }, 0.5)
         .fromTo(
           open,
-          { opacity: 0, visibility: 'hidden', scale: 0.84, yPercent: 0 },
-          { opacity: 1, visibility: 'visible', scale: 1, yPercent: 0, duration: 0.56, ease: 'power3.out' },
+          { opacity: 0, visibility: 'hidden' },
+          { opacity: 1, visibility: 'visible', duration: 0.56, ease: 'power3.out' },
           0.44,
         );
     }
   };
 
   const navigate = (): void => {
-    if (!ready() || transitioning() || !selected || mode !== MODE.OPEN) return;
-
+    if (!isReady() || isBusy() || !selected || mode !== MODE.OPEN) return;
     const c = country(selected);
     if (!c.destination || !c.assets.open) return;
 
     setMode(MODE.NAVIGATING);
-    const tl = activateBookTimeline(gsap.timeline({
+    bookTl = gsap.timeline({
       onComplete: () => window.location.assign(c.destination as string),
-    }));
-    tl.to(open, { scale: 1.02, duration: 0.14 }, 0);
+    });
+    interactive();
+    bookTl.to(open, { scale: 1.02, duration: 0.14 }, 0);
   };
 
   const returnIdle = (): void => {
@@ -474,39 +420,37 @@ export const initAtlasHomepage = (): void => {
 
     const c = country(selected);
     const slug = selected;
-    setMode(MODE.RETURNING);
 
-    const tl = activateBookTimeline(gsap.timeline({
+    setMode(MODE.RETURNING);
+    bookTl = gsap.timeline({
       onComplete: () => {
         clearShelf(slug);
         resetDesk();
         selected = null;
-        finishBookTransition(MODE.IDLE);
+        finishBook(MODE.IDLE);
       },
-    }));
+    });
+    interactive();
 
-    extractBack(tl, c, 0);
-    tl.to([closed[0], closed[1], opening1, opening2, open], {
-      opacity: 0,
-      visibility: 'hidden',
-      duration: 0.22,
-    }, 0)
+    extractBack(bookTl, c, 0);
+    bookTl
+      .to(deskCountryLayers, { opacity: 0, visibility: 'hidden', duration: 0.22 }, 0)
       .fromTo(
         neutral,
-        { opacity: 0, visibility: 'hidden', scale: 0.97 },
-        { opacity: 1, visibility: 'visible', scale: 1, duration: 0.3 },
+        { opacity: 0, visibility: 'hidden' },
+        { opacity: 1, visibility: 'visible', duration: 0.3 },
         0.24,
       );
   };
 
   const toggleLamp = (): void => {
-    if (!ready() || lampTl || bookTl || TRANSITION_MODES.has(mode)) return;
+    if (!isReady() || isBusy()) return;
 
     const turningOn = !lampOn;
     if (!turningOn && selected) returnIdle();
     if (turningOn) root.dataset.lamp = 'on';
 
-    const tl = gsap.timeline({
+    lampTl = gsap.timeline({
       onComplete: () => {
         lampOn = turningOn;
         if (!turningOn) root.dataset.lamp = 'off';
@@ -514,11 +458,10 @@ export const initAtlasHomepage = (): void => {
         interactive();
       },
     });
-
-    lampTl = tl;
     interactive();
 
-    tl.to(lamp, { yPercent: 5.5, duration: 0.13, ease: 'power2.in' }, 0)
+    lampTl
+      .to(lamp, { yPercent: 5.5, duration: 0.13, ease: 'power2.in' }, 0)
       .to(bgOn, { opacity: turningOn ? 1 : 0, duration: 0.32, ease: 'sine.inOut' }, 0.05)
       .to(bgOff, { opacity: turningOn ? 0 : 1, duration: 0.32, ease: 'sine.inOut' }, 0.05)
       .to(lamp, { yPercent: 0, duration: 0.22, ease: 'sine.out' }, 0.15);
@@ -527,7 +470,6 @@ export const initAtlasHomepage = (): void => {
   triggers.forEach((button, slug) => {
     button.addEventListener('click', () => selectCountry(slug));
   });
-
   extracted.addEventListener('click', openCountry);
   desk.addEventListener('click', () => {
     if (mode === MODE.SELECTED) openCountry();

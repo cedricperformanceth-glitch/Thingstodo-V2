@@ -35,8 +35,8 @@ main.main--immersive.main--immersive-scroll {
 .atlas-home {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  height: 100dvh;
+  height: max(100vh, calc(5vh + 68.4524vw));
+  height: max(100dvh, calc(5dvh + 68.4524vw));
   overflow: hidden;
   background: var(--paper);
   isolation: isolate;
@@ -104,8 +104,12 @@ main.main--immersive.main--immersive-scroll {
   object-position: center;
 }
 
-.atlas-background__image--off {
+.atlas-background__image[data-background-on] {
   opacity: 0;
+}
+
+.atlas-background__image--off {
+  opacity: 1;
   transform: translate(8px, 4px) scale(1.0109);
   transform-origin: 50% 50%;
 }
@@ -330,6 +334,52 @@ main.main--immersive.main--immersive-scroll {
     drop-shadow(0 1px 1px rgb(0 0 0 / 0.16));
 }
 
+.atlas-lamp-pull::before,
+.atlas-lamp-pull::after {
+  position: absolute;
+  z-index: 1;
+  color: #d8a24b;
+  font-family: var(--handwritten);
+  pointer-events: none;
+  text-shadow:
+    0 1px 2px rgb(0 0 0 / 0.42),
+    0 0 10px rgb(216 162 75 / 0.12);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.atlas-lamp-pull::before {
+  top: 31%;
+  right: 150%;
+  width: max-content;
+  content: 'Pull to turn on';
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+  transform: rotate(-4deg);
+}
+
+.atlas-lamp-pull::after {
+  top: 47%;
+  right: 88%;
+  content: '→';
+  font-size: 29px;
+  line-height: 1;
+  opacity: 0.86;
+  transform: translateY(-50%) rotate(7deg);
+}
+
+.atlas-home[data-lamp='on'] .atlas-lamp-pull::before {
+  opacity: 0;
+  transform: translateY(-2px) rotate(-4deg);
+}
+
+.atlas-home[data-lamp='on'] .atlas-lamp-pull::after {
+  opacity: 0;
+  transform: translateY(calc(-50% - 2px)) rotate(7deg);
+}
+
 .atlas-desk-book {
   position: absolute;
   left: 35%;
@@ -362,24 +412,33 @@ main.main--immersive.main--immersive-scroll {
   transform: translate(-50%, -50%) rotate(-4deg);
 }
 
+/* Country notebook geometry is canonical here. GSAP only changes opacity for
+   these desk layers, so repeated interactions cannot rewrite their alignment. */
+.atlas-desk-book__state--closed,
+.atlas-desk-book__state--opening-1,
+.atlas-desk-book__state--opening-2,
+.atlas-desk-book__state--open {
+  top: 42.5%;
+}
+
 .atlas-desk-book__state--closed {
-  width: 48.3%;
-  transform: translate(-50%, -48%) rotate(-4deg) scaleY(0.6);
+  width: 51.5%;
+  transform: translate(-50%, 0) rotate(-4deg);
 }
 
 .atlas-desk-book__state--opening-1 {
-  width: 50.1%;
-  transform: translate(-50%, -48%) rotate(-4deg) scaleY(0.58);
+  width: 53.5%;
+  transform: translate(-50%, 0) rotate(-4deg);
 }
 
 .atlas-desk-book__state--opening-2 {
-  width: 50.6%;
-  transform: translate(-50%, -48%) rotate(-3deg) scaleY(0.56);
+  width: 54%;
+  transform: translate(-50%, 0) rotate(-3deg);
 }
 
 .atlas-desk-book__state--open {
-  width: 89.5%;
-  transform: translate(-50%, -49%) rotate(-1deg) scaleY(0.47);
+  width: 96%;
+  transform: translate(-50%, 0) rotate(-1deg);
 }
 
 .atlas-country-feature,
@@ -833,6 +892,8 @@ main.main--immersive.main--immersive-scroll {
 
 @media (prefers-reduced-motion: reduce) {
   .atlas-tableau,
+  .atlas-lamp-pull::before,
+  .atlas-lamp-pull::after,
   .atlas-country-feature__cta,
   .atlas-country-feature__cta-mark {
     transition: none;
