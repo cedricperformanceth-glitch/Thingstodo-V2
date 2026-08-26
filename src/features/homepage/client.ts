@@ -58,7 +58,6 @@ export const initAtlasHomepage = (): void => {
   const opening1 = $<HTMLImageElement>(root, '[data-desk-opening-1]');
   const opening2 = $<HTMLImageElement>(root, '[data-desk-opening-2]');
   const open = $<HTMLImageElement>(root, '[data-desk-open]');
-  const globe = $<HTMLElement>(root, '[data-globe]');
   const globeAsia = $<HTMLImageElement>(root, '[data-globe-asia]');
   const globeEurope = $<HTMLImageElement>(root, '[data-globe-europe]');
   const triggers = new Map<HomeCountrySlug, HTMLButtonElement>();
