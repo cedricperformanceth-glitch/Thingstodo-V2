@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layout/BaseLayout.astro';
+import type { LegalPageData } from '../../features/legal/types';
+import LegalHero from './LegalHero.astro';
+import LegalDocument from './LegalDocument.astro';
+
+interface Props {
+  page: LegalPageData;
+}
+
+const { page } = Astro.props;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: page.title, path: page.seo.canonicalPath },
+];
+---
+
+<BaseLayout seo={page.seo} breadcrumbs={breadcrumbs}>
+  <div class="legal-page">
+    <LegalHero
+      eyebrow={page.eyebrow}
+      title={page.title}
+      intro={page.heroIntro}
+    />
+    <LegalDocument page={page} />
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    width: 100%;
+  }
+</style>
