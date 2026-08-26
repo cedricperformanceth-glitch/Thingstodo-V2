@@ -4,7 +4,7 @@
 .atlas-stage::after {
   position: absolute;
   top: calc(46.8% + 7px);
-  right: calc(6.4% + 23px);
+  left: 15.2%;
   width: 13.2%;
   aspect-ratio: 1;
   background-position: center;
