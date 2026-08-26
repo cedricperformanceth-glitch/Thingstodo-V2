@@ -1,7 +1,11 @@
 ---
 import type { Place } from '../../core/models/types';
-import type { VenueFieldCardContent } from '../../content/venue-field-card-editorial';
-import { categoryPath } from '../../core/routing/paths';
+import {
+  getVenueFieldCard,
+  personalVenuePlaces,
+  type VenueFieldCardContent,
+} from '../../content/venue-field-card-editorial';
+import { categoryPath, placeFieldCardPath } from '../../core/routing/paths';
 import { getCity } from '../../engines/city/city-engine';
 
 interface Props {
@@ -15,6 +19,10 @@ const gallery = place.media.fieldCard?.gallery ?? [];
 const mediaCount = Math.max(content.mediaSlots, gallery.length);
 const mediaSlots = Array.from({ length: mediaCount }, (_, index) => gallery[index]);
 const cityLabel = city?.name ?? place.city.replaceAll('-', ' ');
+const relatedPlaces = (content.relatedPlaceIds ?? []).flatMap((placeId) => {
+  const related = personalVenuePlaces.find((candidate) => candidate.id === placeId);
+  return related && getVenueFieldCard(related.id) ? [related] : [];
+});
 ---
 
 <article class:list={['venue-field-card', { 'venue-field-card--draft': content.status === 'draft' }]}>
@@ -66,6 +74,20 @@ const cityLabel = city?.name ?? place.city.replaceAll('-', ' ');
           <p>{chapter.body}</p>
         </section>
       ))}
+      {relatedPlaces.length > 0 && (
+        <section class="venue-field-card__related">
+          <p class="venue-field-card__section-kicker">Related personal notes</p>
+          <h2>Another place connected to this one</h2>
+          <div class="venue-field-card__related-grid">
+            {relatedPlaces.map((related) => (
+              <a href={placeFieldCardPath(related)}>
+                <strong>{related.name}</strong>
+                <span>{related.shortDescription}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
       {content.faq.length > 0 && (
         <section class="venue-field-card__faq">
           <p class="venue-field-card__section-kicker">FAQ</p>
@@ -196,6 +218,32 @@ const cityLabel = city?.name ?? place.city.replaceAll('-', ' ');
     margin: 0;
     font-family: var(--field-card-title, Georgia, serif);
     font-size: clamp(1.7rem, 3vw, 2.5rem);
+  }
+
+  .venue-field-card__related-grid {
+    display: grid;
+    gap: .8rem;
+    margin-top: 1rem;
+  }
+
+  .venue-field-card__related-grid a {
+    display: grid;
+    gap: .35rem;
+    padding: 1rem;
+    border: 1px solid rgba(38, 36, 31, .22);
+    color: inherit;
+    text-decoration: none;
+    background: rgba(255, 255, 255, .22);
+  }
+
+  .venue-field-card__related-grid strong {
+    font-family: var(--field-card-title, Georgia, serif);
+    font-size: 1.18rem;
+  }
+
+  .venue-field-card__related-grid span {
+    color: var(--muted);
+    line-height: 1.5;
   }
 
   .venue-field-card__faq details { border-top: 1px solid rgba(38, 36, 31, .16); padding: .9rem 0; }
