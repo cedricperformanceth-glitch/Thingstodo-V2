@@ -1,0 +1,70 @@
+/* Coffee cup is a self-contained decorative desk layer. The cup stays fixed;
+   only the transparent steam artwork moves, so the scene remains stable. */
+.atlas-stage::before,
+.atlas-stage::after {
+  position: absolute;
+  top: 60.8%;
+  right: 6.4%;
+  width: 13.2%;
+  aspect-ratio: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  pointer-events: none;
+  transform-origin: 50% 78%;
+}
+
+.atlas-stage::before {
+  z-index: 11;
+  background-image: url('/assets/GSAP/tasse%20sans%20fumee.webp');
+  filter: brightness(0.82) saturate(0.8) contrast(0.93) drop-shadow(0 7px 6px rgb(0 0 0 / 0.2));
+  transition: filter 320ms ease;
+}
+
+.atlas-stage::after {
+  z-index: 12;
+  background-image: url('/assets/GSAP/fumee%20seule.webp');
+  opacity: 0.76;
+  filter: brightness(0.82) saturate(0.78) contrast(0.92);
+  animation: atlas-coffee-steam 4.8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.atlas-home[data-lamp='on'] .atlas-stage::before {
+  filter: brightness(1) saturate(1) contrast(1) drop-shadow(0 7px 6px rgb(0 0 0 / 0.2));
+}
+
+.atlas-home[data-lamp='on'] .atlas-stage::after {
+  filter: brightness(1) saturate(1) contrast(1);
+}
+
+@keyframes atlas-coffee-steam {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+
+  35% {
+    opacity: 0.82;
+    transform: translate3d(1.2%, -1.8%, 0) rotate(-1.1deg) scale(1.012, 1.025);
+  }
+
+  68% {
+    opacity: 0.74;
+    transform: translate3d(-1%, -0.8%, 0) rotate(0.9deg) scale(0.995, 1.018);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-stage::before {
+    background-image: url('/assets/GSAP/cafe%20avec%20fumee.webp');
+    transition: none;
+  }
+
+  .atlas-stage::after {
+    display: none;
+    animation: none;
+  }
+}
