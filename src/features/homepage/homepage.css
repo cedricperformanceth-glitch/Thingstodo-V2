@@ -129,6 +129,12 @@ main.main--immersive.main--immersive-scroll {
   inset: 0;
   z-index: 8;
   pointer-events: none;
+  filter: brightness(0.82) saturate(0.8) contrast(0.93);
+  transition: filter 320ms ease;
+}
+
+.atlas-home[data-lamp='on'] .atlas-shelf {
+  filter: brightness(1) saturate(1) contrast(1);
 }
 
 .atlas-shelf__neutral-group {
@@ -266,6 +272,15 @@ main.main--immersive.main--immersive-scroll {
   transform-origin: 50% 100%;
   pointer-events: none;
   filter:
+    brightness(0.78)
+    saturate(0.72)
+    contrast(0.9)
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.18));
+  transition: filter 320ms ease;
+}
+
+.atlas-home[data-lamp='on'] .atlas-globe {
+  filter:
     brightness(0.93)
     saturate(0.84)
     contrast(0.96)
@@ -388,6 +403,12 @@ main.main--immersive.main--immersive-scroll {
   height: 23%;
   z-index: 22;
   pointer-events: none;
+  filter: brightness(0.82) saturate(0.8) contrast(0.93);
+  transition: filter 320ms ease;
+}
+
+.atlas-home[data-lamp='on'] .atlas-desk-book {
+  filter: brightness(1) saturate(1) contrast(1);
 }
 
 .atlas-desk-book:not(:disabled) {
@@ -892,6 +913,9 @@ main.main--immersive.main--immersive-scroll {
 
 @media (prefers-reduced-motion: reduce) {
   .atlas-tableau,
+  .atlas-shelf,
+  .atlas-globe,
+  .atlas-desk-book,
   .atlas-lamp-pull::before,
   .atlas-lamp-pull::after,
   .atlas-country-feature__cta,
