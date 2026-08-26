@@ -236,11 +236,20 @@ const linkTarget = (item: LegalInlineText) => item.external ? '_blank' : undefin
   }
 
   .legal-divider {
-    width: 100%;
+    width: min(82%, 590px);
     height: 1px;
-    margin: clamp(28px, 4vw, 42px) 0;
+    margin: clamp(32px, 5vw, 48px) auto;
     border: 0;
-    background: rgb(49 87 59 / .15);
+    background: linear-gradient(
+      90deg,
+      rgb(var(--legal-divider-red, 118 42 52) / 0) 0%,
+      rgb(var(--legal-divider-red, 118 42 52) / .06) 14%,
+      rgb(var(--legal-divider-red, 118 42 52) / .22) 30%,
+      rgb(var(--legal-divider-red, 118 42 52) / .7) 50%,
+      rgb(var(--legal-divider-red, 118 42 52) / .22) 70%,
+      rgb(var(--legal-divider-red, 118 42 52) / .06) 86%,
+      rgb(var(--legal-divider-red, 118 42 52) / 0) 100%
+    );
   }
 
   @media (max-width: 620px) {
@@ -259,6 +268,11 @@ const linkTarget = (item: LegalInlineText) => item.external ? '_blank' : undefin
 
     .legal-table-wrap {
       margin-block: 24px;
+    }
+
+    .legal-divider {
+      width: 90%;
+      margin-block: 30px;
     }
   }
 </style>
