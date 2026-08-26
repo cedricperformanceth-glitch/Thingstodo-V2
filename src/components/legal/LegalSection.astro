@@ -1,0 +1,79 @@
+---
+import type { LegalSection as LegalSectionData } from '../../features/legal/types';
+import LegalBlock from './LegalBlock.astro';
+
+interface Props {
+  section: LegalSectionData;
+  ordinal?: number;
+}
+
+const { section, ordinal } = Astro.props;
+const sectionNumber = section.number ?? (ordinal ? String(ordinal).padStart(2, '0') : undefined);
+---
+
+<section class="legal-section" id={section.id}>
+  <header class="legal-section__header">
+    {sectionNumber && <span class="legal-section__number">{sectionNumber}</span>}
+    <h2>{section.title}</h2>
+  </header>
+
+  <div class="legal-section__content">
+    {section.blocks.map((block) => <LegalBlock block={block} />)}
+  </div>
+</section>
+
+<style>
+  .legal-section {
+    scroll-margin-top: 90px;
+  }
+
+  .legal-section + .legal-section {
+    margin-top: clamp(54px, 8vw, 86px);
+  }
+
+  .legal-section__header {
+    display: flex;
+    align-items: baseline;
+    gap: 11px;
+    margin-bottom: clamp(20px, 3vw, 27px);
+  }
+
+  .legal-section__number {
+    flex: none;
+    color: rgb(49 87 59 / .58);
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .09em;
+  }
+
+  .legal-section h2 {
+    margin: 0;
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.13;
+    letter-spacing: -.025em;
+  }
+
+  .legal-section__content {
+    display: grid;
+    gap: 16px;
+  }
+
+  @media (max-width: 620px) {
+    .legal-section + .legal-section {
+      margin-top: 48px;
+    }
+
+    .legal-section__header {
+      gap: 8px;
+      margin-bottom: 17px;
+    }
+
+    .legal-section h2 {
+      font-size: clamp(1.55rem, 7.3vw, 2rem);
+    }
+  }
+</style>
