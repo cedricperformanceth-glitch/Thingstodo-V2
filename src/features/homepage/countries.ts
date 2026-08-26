@@ -46,7 +46,7 @@ export const HOME_COUNTRIES: readonly HomeCountryConfig[] = [
       selectedXPercent: 6,
       selectedYPercent: 10,
       selectedRotation: -7,
-      selectedScale: 1.05,
+      selectedScale: 1.1,
     },
   },
   {
@@ -70,7 +70,7 @@ export const HOME_COUNTRIES: readonly HomeCountryConfig[] = [
       selectedXPercent: 6,
       selectedYPercent: 10,
       selectedRotation: -7,
-      selectedScale: 1.05,
+      selectedScale: 1.1,
     },
   },
 ] as const;
