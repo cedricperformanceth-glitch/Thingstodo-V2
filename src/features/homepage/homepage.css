@@ -443,7 +443,7 @@ main.main--immersive.main--immersive-scroll {
 }
 
 .atlas-desk-book__state--open {
-  width: 96%;
+  width: 100.8%;
   transform: translate(-50%, -50%) rotate(-1deg);
 }
 
