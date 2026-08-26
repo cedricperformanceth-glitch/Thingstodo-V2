@@ -2,6 +2,7 @@
 import BaseLayout from '../components/layout/BaseLayout.astro';
 import AtlasHomepage from '../components/home/AtlasHomepage.astro';
 import '../features/homepage/homepage.css';
+import '../features/homepage/coffee.css';
 
 const seo = {
   title: 'Things To Do Atlas',
@@ -11,6 +12,6 @@ const seo = {
 };
 ---
 
-<BaseLayout {seo} immersive scrollableImmersive showNavbar breadcrumbs={[{ name: 'Home', path: '/' }]}>
+<BaseLayout {seo} immersive scrollableImmersive showNavbar breadcrumbs={[{ name: 'Home', path: '/' }]}> 
   <AtlasHomepage />
 </BaseLayout>
