@@ -65,3 +65,10 @@
   opacity: 0;
   transform: translateY(calc(-50% - 2px)) rotate(7deg);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-lamp-pull::before,
+  .atlas-lamp-pull::after {
+    transition: none;
+  }
+}
