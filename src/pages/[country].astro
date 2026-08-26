@@ -138,10 +138,10 @@ const laosMapLabels = [
   }
   .laos-board__art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
   .laos-board__map-labels { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
-  .laos-board__map-labels text { font: 650 32px/1 var(--handwritten); letter-spacing: .012em; }
+  .laos-board__map-labels text { font: 500 32px/1 var(--handwritten); letter-spacing: .018em; }
   .laos-board__map-destination { --map-label-color: var(--laos-blue); }
   .laos-board__map-label-halo { fill: none; stroke: var(--laos-label-erase); stroke-width: 5.2; stroke-linecap: round; stroke-linejoin: round; paint-order: stroke; opacity: 0; animation: map-label-halo .18s ease-out calc(var(--map-label-delay) + .46s) forwards; }
-  .laos-board__map-label-ink { fill: transparent; stroke: var(--map-label-color); stroke-width: 1.08; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 520; stroke-dashoffset: 520; paint-order: stroke; opacity: .98; transition: filter 220ms ease, opacity 220ms ease; animation: map-label-write .86s cubic-bezier(.2,.75,.22,1) var(--map-label-delay) forwards; }
+  .laos-board__map-label-ink { fill: transparent; stroke: var(--map-label-color); stroke-width: .72; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 520; stroke-dashoffset: 520; paint-order: stroke; opacity: .98; transition: filter 220ms ease, opacity 220ms ease; animation: map-label-write .86s cubic-bezier(.2,.75,.22,1) var(--map-label-delay) forwards; }
   .laos-board__map-marker-pulse { fill: rgb(214 161 90 / .08); stroke: var(--laos-blue-glow); stroke-width: 1.7; opacity: 0; transform: scale(.68); transform-box: fill-box; transform-origin: center; transition: opacity 220ms ease, transform 260ms cubic-bezier(.2,.75,.22,1); }
   .laos-board__map-destination.is-active { --map-label-color: var(--laos-blue-glow); }
   .laos-board__map-destination.is-active .laos-board__map-label-ink { filter: drop-shadow(0 0 4px rgb(224 184 106 / .5)); opacity: 1; }
