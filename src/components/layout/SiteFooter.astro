@@ -25,12 +25,21 @@ const countries = getCountries();
         <div class="atlas-footer__divider" aria-hidden="true"></div>
       </div>
 
-      <nav class="atlas-footer__navigation" aria-labelledby="atlas-footer-navigation-title">
-        <h2 id="atlas-footer-navigation-title">Navigation</h2>
-        <div class="atlas-footer__country-list">
-          {countries.map((country) => <a href={`/${country.slug}`}>{country.name}</a>)}
-        </div>
-      </nav>
+      <div class="atlas-footer__navigation-grid">
+        <nav class="atlas-footer__navigation" aria-labelledby="atlas-footer-navigation-title">
+          <h2 id="atlas-footer-navigation-title">Navigation</h2>
+          <div class="atlas-footer__country-list">
+            {countries.map((country) => <a href={`/${country.slug}`}>{country.name}</a>)}
+          </div>
+        </nav>
+
+        <nav class="atlas-footer__navigation atlas-footer__navigation--legal" aria-labelledby="atlas-footer-legal-title">
+          <h2 id="atlas-footer-legal-title">Legal</h2>
+          <div class="atlas-footer__legal-list">
+            <a href="/legal/privacy-policy">Privacy Policy</a>
+          </div>
+        </nav>
+      </div>
     </div>
   </div>
 </footer>
@@ -104,6 +113,13 @@ const countries = getCountries();
     background: #db8058;
   }
 
+  .atlas-footer__navigation-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(150px, .34fr);
+    gap: clamp(36px, 6vw, 88px);
+    align-items: start;
+  }
+
   .atlas-footer__navigation h2 {
     margin: 0 0 18px;
     color: #db8058;
@@ -115,10 +131,16 @@ const countries = getCountries();
     text-transform: uppercase;
   }
 
-  .atlas-footer__country-list {
+  .atlas-footer__country-list,
+  .atlas-footer__legal-list {
     display: flex;
     flex-wrap: wrap;
     gap: .7rem 1.35rem;
+  }
+
+  .atlas-footer__legal-list {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .atlas-footer__navigation a {
@@ -169,6 +191,11 @@ const countries = getCountries();
 
     .atlas-footer__heading {
       margin-bottom: 34px;
+    }
+
+    .atlas-footer__navigation-grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
     }
   }
 
