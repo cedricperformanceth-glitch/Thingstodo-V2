@@ -2,6 +2,7 @@ import { HOME_COUNTRIES, HOME_SCENE_ASSETS, type HomeCountryConfig, type HomeCou
 
 type Target = Element | Element[] | string;
 type Vars = Record<string, unknown>;
+
 interface Timeline {
   to(target: Target, vars: Vars, at?: number | string): Timeline;
   fromTo(target: Target, from: Vars, to: Vars, at?: number | string): Timeline;
@@ -9,16 +10,21 @@ interface Timeline {
   call(fn: () => void, params?: unknown[], at?: number | string): Timeline;
   kill(): void;
 }
+
 interface Gsap {
   timeline(config?: Vars): Timeline;
   set(target: Target, vars: Vars): void;
   killTweensOf(target: Target): void;
 }
-declare global { interface Window { gsap?: Gsap; } }
+
+declare global {
+  interface Window { gsap?: Gsap; }
+}
 
 const W = 1448;
 const TABLEAU_WIDTH_RATIO = 0.9;
 const FRAME_OVERHANG = 32;
+
 const MODE = {
   IDLE: 'idle',
   SELECTING: 'selecting',
@@ -29,6 +35,7 @@ const MODE = {
   RETURNING: 'returning',
   NAVIGATING: 'navigating',
 } as const;
+
 type Mode = (typeof MODE)[keyof typeof MODE];
 
 const TRANSITION_MODES = new Set<Mode>([
@@ -51,6 +58,7 @@ const $ = <T extends Element>(root: ParentNode, selector: string): T => {
 
 const preload = async (): Promise<void> => {
   const urls = new Set<string>(Object.values(HOME_SCENE_ASSETS));
+
   HOME_COUNTRIES.forEach((country) => {
     urls.add(country.assets.shelfSpine);
     urls.add(country.assets.shelfExtracted);
@@ -77,6 +85,7 @@ export const initAtlasHomepage = (): void => {
     root.setAttribute('aria-busy', 'false');
     return;
   }
+
   root.dataset.lamp = 'off';
 
   const tableau = $<HTMLElement>(root, '[data-atlas-tableau]');
@@ -139,13 +148,12 @@ export const initAtlasHomepage = (): void => {
     tableau.style.setProperty('--atlas-scale', String(scale));
   };
 
-  const stop = (timeline: Timeline | null): void => timeline?.kill();
   const ready = (): boolean => root.dataset.ready === 'true';
   const transitioning = (): boolean => TRANSITION_MODES.has(mode) || !!bookTl || !!lampTl;
 
   const interactive = (): void => {
     const locked = !ready() || transitioning();
-    const c = selected ? country(selected) : null;
+    const current = selected ? country(selected) : null;
 
     lamp.disabled = locked;
     triggers.forEach((button, slug) => {
@@ -154,7 +162,7 @@ export const initAtlasHomepage = (): void => {
     extracted.disabled = locked || mode !== MODE.SELECTED;
     desk.disabled = locked || (
       mode !== MODE.SELECTED
-      && !(mode === MODE.OPEN && !!c?.destination && !!c.assets.open)
+      && !(mode === MODE.OPEN && !!current?.destination && !!current.assets.open)
     );
   };
 
@@ -176,8 +184,9 @@ export const initAtlasHomepage = (): void => {
   };
 
   const globeCue = (): void => {
-    stop(globeTl);
+    globeTl?.kill();
     resetGlobe();
+
     globeTl = gsap.timeline({
       onComplete: () => {
         resetGlobe();
@@ -196,6 +205,15 @@ export const initAtlasHomepage = (): void => {
         { opacity: 0, xPercent: -8, scaleX: 0.82, filter: 'blur(0.75px)', duration: 0.52, ease: 'sine.inOut' },
         0.70,
       );
+  };
+
+  const hideDeskLayersExcept = (active: HTMLImageElement): void => {
+    const inactive = allDesk.filter((layer) => layer !== active);
+    gsap.set(inactive, {
+      opacity: 0,
+      visibility: 'hidden',
+      clearProps: 'transform',
+    });
   };
 
   const resetDesk = (): void => {
@@ -220,15 +238,12 @@ export const initAtlasHomepage = (): void => {
   };
 
   const settleSelectedDesk = (c: HomeCountryConfig, layer: HTMLImageElement): void => {
-    gsap.set(allDesk, {
-      opacity: 0,
-      visibility: 'hidden',
-      clearProps: 'transform',
-    });
+    hideDeskLayersExcept(layer);
     gsap.set(layer, {
       opacity: 1,
       visibility: 'visible',
-      clearProps: 'transform',
+      scale: 1,
+      yPercent: 0,
     });
     gsap.set(extracted, {
       opacity: 1,
@@ -241,16 +256,13 @@ export const initAtlasHomepage = (): void => {
     visibleDesk = layer;
   };
 
-  const settleOpenDesk = (layer: HTMLImageElement): void => {
-    gsap.set(allDesk, {
-      opacity: 0,
-      visibility: 'hidden',
-      clearProps: 'transform',
-    });
+  const settleOpenDesk = (layer: HTMLImageElement, finalAsset: boolean): void => {
+    hideDeskLayersExcept(layer);
     gsap.set(layer, {
       opacity: 1,
       visibility: 'visible',
-      clearProps: 'transform',
+      scale: 1,
+      ...(finalAsset ? { yPercent: 0 } : {}),
     });
     gsap.set(extracted, { opacity: 0, visibility: 'hidden' });
     visibleDesk = layer;
@@ -349,6 +361,7 @@ export const initAtlasHomepage = (): void => {
 
   const switchTo = (nextCountry: HomeCountryConfig): void => {
     if (!selected) return;
+
     const previous = country(selected);
     setMode(MODE.SWITCHING);
 
@@ -386,6 +399,7 @@ export const initAtlasHomepage = (): void => {
 
   const selectCountry = (slug: HomeCountrySlug): void => {
     if (!ready() || transitioning() || selected === slug) return;
+
     globeCue();
     const c = country(slug);
     if (!selected) selectFirst(c);
@@ -394,6 +408,7 @@ export const initAtlasHomepage = (): void => {
 
   const openCountry = (): void => {
     if (!ready() || transitioning() || !selected || mode !== MODE.SELECTED) return;
+
     const c = country(selected);
     configureOpening(c);
     setMode(MODE.OPENING);
@@ -402,7 +417,7 @@ export const initAtlasHomepage = (): void => {
     const finalLayer = c.assets.open ? open : opening2;
     const tl = activateBookTimeline(gsap.timeline({
       onComplete: () => {
-        settleOpenDesk(finalLayer);
+        settleOpenDesk(finalLayer, !!c.assets.open);
         finishBookTransition(MODE.OPEN);
       },
     }));
@@ -436,6 +451,7 @@ export const initAtlasHomepage = (): void => {
 
   const navigate = (): void => {
     if (!ready() || transitioning() || !selected || mode !== MODE.OPEN) return;
+
     const c = country(selected);
     if (!c.destination || !c.assets.open) return;
 
@@ -448,6 +464,7 @@ export const initAtlasHomepage = (): void => {
 
   const returnIdle = (): void => {
     if (bookTl) return;
+
     if (!selected) {
       resetDesk();
       setMode(MODE.IDLE);
@@ -497,6 +514,7 @@ export const initAtlasHomepage = (): void => {
         interactive();
       },
     });
+
     lampTl = tl;
     interactive();
 
@@ -509,6 +527,7 @@ export const initAtlasHomepage = (): void => {
   triggers.forEach((button, slug) => {
     button.addEventListener('click', () => selectCountry(slug));
   });
+
   extracted.addEventListener('click', openCountry);
   desk.addEventListener('click', () => {
     if (mode === MODE.SELECTED) openCountry();
