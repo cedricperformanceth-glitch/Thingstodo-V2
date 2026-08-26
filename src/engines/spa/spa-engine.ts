@@ -28,6 +28,10 @@ const definitions: Record<CategorySlug, { title: string; icon: Exclude<SpaTabIco
   'practical-services': { title: 'Essential Information', icon: 'essential', singular: 'address', plural: 'addresses' },
 };
 
+const hiddenCategoriesByCity: Record<string, readonly CategorySlug[]> = {
+  'laos/vang-vieng': ['practical-services'],
+};
+
 export const spaCategoriesFor = (settlementType: SettlementType): readonly CategorySlug[] => categoryOrder[settlementType];
 
 export function getSpaTabs(city: City): SpaTabDefinition[] {
@@ -51,7 +55,9 @@ export function getSpaTabs(city: City): SpaTabDefinition[] {
   }
 
   const fieldNoteActivityCount = getCityFieldNoteSpaTargets(city).length;
-  const tabs = categories.map((slug) => {
+  const hiddenCategories = new Set(hiddenCategoriesByCity[`${city.country}/${city.slug}`] ?? []);
+  const visibleCategories = categories.filter((slug) => !hiddenCategories.has(slug));
+  const tabs = visibleCategories.map((slug) => {
     const definition = definitions[slug];
     const localCount = getCategoryEntities(city, slug).length;
     const count = localCount + (slug === 'things-to-do' ? fieldNoteActivityCount : 0);
