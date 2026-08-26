@@ -7,6 +7,7 @@ import type {
 } from '../../core/models/types';
 import type { VenueFieldCardContent } from '../../content/venue-field-card-editorial';
 import { venueFieldCardLayouts } from '../../content/venue-field-card-layouts';
+import { venueFieldCardLayoutProfiles } from '../../content/venue-field-card-registry';
 
 const fallbackAliases = (place: Place, kindLabel: string) => {
   const source = place.spaCard?.handwrittenTags?.filter(Boolean) ?? [];
@@ -29,7 +30,7 @@ const fallbackBeforeYouLeave = (place: Place): FieldCardBeforeYouLeaveContent =>
 });
 
 export const venueFieldCardView = (place: Place, content: VenueFieldCardContent) => {
-  const profile = venueFieldCardLayouts[place.id];
+  const profile = venueFieldCardLayouts[place.id] ?? venueFieldCardLayoutProfiles[place.id];
   const gallery = place.media.fieldCard?.gallery ?? [];
   const aliases = profile?.hero.aliases ?? fallbackAliases(place, content.kindLabel);
 
