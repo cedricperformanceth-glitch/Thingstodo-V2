@@ -46,7 +46,7 @@ const countries = getCountries();
 
             <div class="atlas-footer__legal-column">
               <a href="/legal/legal-notice">Legal Notice</a>
-              <a href="/legal/media-credits">Media Credits &amp; Licensing</a>
+              <a class="atlas-footer__legal-media" href="/legal/media-credits">Media Credits &amp; Licensing</a>
               <a href="/legal/editorial-policy">Editorial Policy</a>
             </div>
           </div>
@@ -151,9 +151,10 @@ const countries = getCountries();
 
   .atlas-footer__legal-list {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-    gap: clamp(18px, 2.4vw, 30px);
+    grid-template-columns: max-content 1px max-content;
+    column-gap: clamp(12px, 1.35vw, 18px);
     align-items: stretch;
+    justify-content: start;
   }
 
   .atlas-footer__legal-column {
@@ -173,6 +174,10 @@ const countries = getCountries();
       rgb(219 128 88 / .7) 84%,
       rgb(219 128 88 / 0) 100%
     );
+  }
+
+  .atlas-footer__legal-media {
+    white-space: nowrap;
   }
 
   .atlas-footer__navigation a {
@@ -201,7 +206,7 @@ const countries = getCountries();
     }
 
     .atlas-footer__legal-list {
-      gap: 18px;
+      column-gap: 12px;
     }
   }
 
@@ -253,7 +258,11 @@ const countries = getCountries();
 
     .atlas-footer__legal-list {
       grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-      gap: 14px;
+      column-gap: 10px;
+    }
+
+    .atlas-footer__legal-media {
+      white-space: normal;
     }
 
     .atlas-footer__navigation a {
