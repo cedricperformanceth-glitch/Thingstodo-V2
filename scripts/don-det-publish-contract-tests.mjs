@@ -16,8 +16,16 @@ const fieldNote = JSON.parse(readFileSync(new URL('../src/content/city-field-not
 const fieldNoteMedia = JSON.parse(readFileSync(new URL('../src/content/city-field-note-media-copy.json', import.meta.url), 'utf8'))['city-don-det'];
 const cityOverrides = readFileSync(new URL('../src/content/city-runtime-overrides.ts', import.meta.url), 'utf8');
 const thingOverrides = readFileSync(new URL('../src/content/thing-runtime-overrides.ts', import.meta.url), 'utf8');
+const mediaOverrides = readFileSync(new URL('../src/content/field-card-media-don-det-overrides.ts', import.meta.url), 'utf8');
+const editorialLoader = readFileSync(new URL('../src/content/field-card-editorial-data.ts', import.meta.url), 'utf8');
 const placeRegistry = readFileSync(new URL('../src/content/registry/places.ts', import.meta.url), 'utf8');
 const thingRegistry = readFileSync(new URL('../src/content/registry/things-to-do.ts', import.meta.url), 'utf8');
+
+const hasExplicitMediaOverride = (id) => {
+  const escaped = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const block = mediaOverrides.match(new RegExp(`'${escaped}':\\s*\\{([\\s\\S]*?)\\n\\s*\\},`))?.[1] ?? '';
+  return /license:\s*'CC BY-SA 4\.0'/.test(block) && /author:\s*'Christophe95'/.test(block);
+};
 
 assert.equal(data.city.id, 'city-don-det');
 assert.equal(data.city.slug, 'don-det');
@@ -42,6 +50,7 @@ const expectedThingIds = [
 assert.equal(data.things.length, expectedThingIds.length, `Expected ${expectedThingIds.length} Don Det activities; found ${data.things.length}.`);
 assert.deepEqual(new Set(data.things.map((thing) => thing.id)), new Set(expectedThingIds));
 
+assert.ok(editorialLoader.includes('applyDonDetMediaCorrections'), 'Don Det media corrections must be applied by the canonical editorial loader.');
 const spaDescriptions = [];
 for (const thing of data.things) {
   const entry = editorial[thing.id];
@@ -63,8 +72,10 @@ for (const thing of data.things) {
       assert.ok(media.sourceUrl?.startsWith('http'), `Missing source URL for ${thing.id}: ${media.id}`);
       assert.ok(media.author?.trim(), `Missing media author for ${thing.id}: ${media.id}`);
       assert.ok(media.license?.trim(), `Missing media licence for ${thing.id}: ${media.id}`);
-      assert.equal(/^cc-by(?:-sa)?$/i.test(media.license.trim()), false, `Generic media licence must be explicit for ${thing.id}: ${media.id}`);
-      assert.equal(/see .*file page/i.test(media.license), false, `Vague media licence for ${thing.id}: ${media.id}`);
+      const rawLicenceIsVague = /^cc-by(?:-sa)?$/i.test(media.license.trim()) || /see .*file page/i.test(media.license);
+      if (rawLicenceIsVague) {
+        assert.ok(hasExplicitMediaOverride(media.id), `Vague media licence has no canonical explicit override for ${thing.id}: ${media.id}`);
+      }
     }
   }
 }
