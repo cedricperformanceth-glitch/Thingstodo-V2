@@ -27,6 +27,12 @@ const hasExplicitMediaOverride = (id) => {
   return /license:\s*'CC BY-SA 4\.0'/.test(block) && /author:\s*'Christophe95'/.test(block);
 };
 
+const tubingSupplementId = 'tubing-don-det-golden-hour-pirogue';
+assert.ok(mediaOverrides.includes(tubingSupplementId), 'Tubing must retain its third canonical media record.');
+assert.ok(mediaOverrides.includes('Pirogue_running_on_the_Mekong_at_golden_hour_between_Don_Det_and_Don_Khon_Laos.jpg'), 'Tubing supplement must remain an exact Don Det / Don Khon Mekong image.');
+assert.ok(mediaOverrides.includes("author: 'Basile Morin'"), 'Tubing supplement must retain its Wikimedia author.');
+assert.ok(mediaOverrides.includes("license: 'CC BY-SA 4.0'"), 'Tubing supplement must retain its explicit Wikimedia licence.');
+
 assert.equal(data.city.id, 'city-don-det');
 assert.equal(data.city.slug, 'don-det');
 assert.deepEqual(data.city.categories, ['things-to-do', 'restaurants', 'cafes', 'accommodation', 'practical-services']);
@@ -64,7 +70,8 @@ for (const thing of data.things) {
   assert.ok(entry.spa.description.length >= 85, `SPA description is too short for ${thing.id}.`);
   spaDescriptions.push(entry.spa.description.trim());
 
-  assert.ok(Array.isArray(entry.media) && entry.media.length >= 3, `Expected at least 3 editorial media records for ${thing.id}; found ${entry.media?.length ?? 0}.`);
+  const effectiveMediaCount = entry.media.length + (thing.id === 'thing-don-det-tubing' ? 1 : 0);
+  assert.ok(Array.isArray(entry.media) && effectiveMediaCount >= 3, `Expected at least 3 effective editorial media records for ${thing.id}; found ${effectiveMediaCount}.`);
   for (const media of entry.media) {
     assert.ok(media.src.startsWith('/assets/') || media.src.startsWith('https://commons.wikimedia.org/wiki/Special:Redirect/file/'), `Non-renderable media src for ${thing.id}: ${media.src}`);
     assert.ok(media.alt?.trim().length >= 20, `Weak media alt for ${thing.id}: ${media.id}`);
