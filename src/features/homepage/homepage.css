@@ -428,7 +428,7 @@ main.main--immersive.main--immersive-scroll {
 /* All desk notebook states share the neutral notebook's exact center anchor.
    Country artwork keeps its native depth instead of being vertically flattened into the desk. */
 .atlas-desk-book__state--closed {
-  width: 51.5%;
+  width: 55.1%;
   transform: translate(-50%, -50%) rotate(-4deg);
 }
 
