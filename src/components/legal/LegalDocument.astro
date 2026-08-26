@@ -54,6 +54,7 @@ const showToc = Boolean(page.showToc && page.sections.length > 1);
 
 <style>
   .legal-document {
+    --legal-divider-red: 118 42 52;
     width: min(970px, 100%);
     margin: 0 auto clamp(28px, 6vw, 72px);
     border: 1px solid rgb(49 87 59 / .1);
@@ -68,8 +69,35 @@ const showToc = Boolean(page.showToc && page.sections.length > 1);
   }
 
   .legal-document__header {
+    position: relative;
     padding-bottom: clamp(34px, 5vw, 48px);
-    border-bottom: 1px solid rgb(49 87 59 / .14);
+  }
+
+  .legal-document__header::after,
+  .legal-document__toc::after,
+  .legal-document__footer::before {
+    content: '';
+    display: block;
+    width: min(86%, 620px);
+    height: 1px;
+    margin-inline: auto;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--legal-divider-red) / 0) 0%,
+      rgb(var(--legal-divider-red) / .08) 16%,
+      rgb(var(--legal-divider-red) / .26) 32%,
+      rgb(var(--legal-divider-red) / .66) 50%,
+      rgb(var(--legal-divider-red) / .26) 68%,
+      rgb(var(--legal-divider-red) / .08) 84%,
+      rgb(var(--legal-divider-red) / 0) 100%
+    );
+  }
+
+  .legal-document__header::after {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
   }
 
   .legal-document__label {
@@ -120,8 +148,11 @@ const showToc = Boolean(page.showToc && page.sections.length > 1);
 
   .legal-document__toc {
     margin-top: 28px;
-    padding: 20px 0 22px;
-    border-bottom: 1px solid rgb(49 87 59 / .12);
+    padding: 20px 0 0;
+  }
+
+  .legal-document__toc::after {
+    margin-top: 22px;
   }
 
   .legal-document__toc > p {
@@ -175,13 +206,17 @@ const showToc = Boolean(page.showToc && page.sections.length > 1);
     display: grid;
     gap: 8px;
     margin-top: clamp(58px, 8vw, 84px);
-    padding-top: 20px;
-    border-top: 1px solid rgb(49 87 59 / .14);
+    padding-top: 0;
     color: rgb(31 43 36 / .46);
     font-family: 'DM Sans', Arial, sans-serif;
     font-size: .63rem;
     line-height: 1.55;
     letter-spacing: .035em;
+  }
+
+  .legal-document__footer::before {
+    width: min(86%, 620px);
+    margin-bottom: 20px;
   }
 
   .legal-document__footer div {
@@ -215,6 +250,12 @@ const showToc = Boolean(page.showToc && page.sections.length > 1);
 
     .legal-document__header {
       padding-bottom: 30px;
+    }
+
+    .legal-document__header::after,
+    .legal-document__toc::after,
+    .legal-document__footer::before {
+      width: 92%;
     }
 
     .legal-document__toc ol {
