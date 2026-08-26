@@ -29,6 +29,11 @@ import {
   missNoyMotorbikeLayout,
   missNoyMotorbikePlace,
 } from './venue-field-card-miss-noy';
+import {
+  fandeeIslandFieldCard,
+  fandeeIslandLayout,
+  fandeeIslandPlaceId,
+} from './venue-field-card-fandee-island';
 
 export type { VenueFieldCardChapter, VenueFieldCardContent } from './venue-field-card-editorial';
 
@@ -50,6 +55,7 @@ export const venueFieldCards = {
   [italaoPlace.id]: italaoFieldCard,
   [laBoulangeGardenPlace.id]: laBoulangeGardenFieldCard,
   [missNoyMotorbikePlace.id]: missNoyMotorbikeFieldCard,
+  [fandeeIslandPlaceId]: fandeeIslandFieldCard,
 } as const;
 
 export const venueFieldCardLayoutProfiles: Readonly<Record<string, VenueFieldCardLayoutProfile>> = {
@@ -58,6 +64,7 @@ export const venueFieldCardLayoutProfiles: Readonly<Record<string, VenueFieldCar
   [italaoPlace.id]: italaoLayout,
   [laBoulangeGardenPlace.id]: laBoulangeGardenLayout,
   [missNoyMotorbikePlace.id]: missNoyMotorbikeLayout,
+  [fandeeIslandPlaceId]: fandeeIslandLayout,
 };
 
 export const getVenueFieldCard = (placeId: string) => venueFieldCards[placeId as keyof typeof venueFieldCards];
