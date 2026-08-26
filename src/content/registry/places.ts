@@ -1,6 +1,6 @@
 import { generatedPlaces } from '../generated';
 import { placeCardEditorial, supplementalPlaces } from '../place-card-editorial';
-import { personalVenuePlaces } from '../venue-field-card-editorial';
+import { personalVenuePlaces } from '../venue-field-card-registry';
 import type { Place, ResearchSource } from '../../core/models/types';
 
 type SourcedPlace = Place & { researchSources?: ResearchSource[] };
