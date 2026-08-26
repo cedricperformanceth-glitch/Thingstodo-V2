@@ -133,10 +133,6 @@ main.main--immersive.main--immersive-scroll {
   transition: filter 320ms ease;
 }
 
-.atlas-home[data-lamp='on'] .atlas-shelf {
-  filter: brightness(1) saturate(1) contrast(1);
-}
-
 .atlas-shelf__neutral-group {
   position: absolute;
   left: var(--neutral-left);
@@ -262,7 +258,7 @@ main.main--immersive.main--immersive-scroll {
 
 .atlas-globe {
   position: absolute;
-  left: 21.8%;
+  left: calc(87% - 23px);
   top: 64.4%;
   width: 11.2%;
   aspect-ratio: 5 / 6;
@@ -405,10 +401,6 @@ main.main--immersive.main--immersive-scroll {
   pointer-events: none;
   filter: brightness(0.82) saturate(0.8) contrast(0.93);
   transition: filter 320ms ease;
-}
-
-.atlas-home[data-lamp='on'] .atlas-desk-book {
-  filter: brightness(1) saturate(1) contrast(1);
 }
 
 .atlas-desk-book:not(:disabled) {
