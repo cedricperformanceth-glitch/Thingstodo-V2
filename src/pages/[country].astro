@@ -56,7 +56,6 @@ const laosMapLabels = [
           <nav class="laos-board__cities" aria-label="Choose a city in Laos">
             {navigationCities.map((city, index) => (
               <a class="laos-board__city" data-city={city.slug} href={cityPath(city)} style={`--city-delay:${0.34 + index * 0.13}s`}>
-                <span class="laos-board__city-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 <span class="laos-board__city-copy">
                   <span class="laos-board__city-name">
                     {city.name}
@@ -179,9 +178,7 @@ const laosMapLabels = [
     pointer-events: auto;
   }
   .laos-board__city {
-    display: grid;
-    grid-template-columns: 2.15rem minmax(0, 1fr);
-    gap: .48rem;
+    display: block;
     width: 100%;
     min-width: 0;
     color: var(--chalk-ivory);
@@ -189,26 +186,6 @@ const laosMapLabels = [
     opacity: 0;
     clip-path: inset(0 100% 0 0);
     animation: chalk-write .72s cubic-bezier(.2,.75,.22,1) var(--city-delay) forwards;
-  }
-  .laos-board__city-index {
-    display: flex;
-    align-items: center;
-    gap: .26rem;
-    padding-top: .38rem;
-    color: rgb(238 228 207 / .5);
-    font: 500 clamp(.61rem, .66cqw, .7rem) / 1 var(--field-card-practical);
-    letter-spacing: .12em;
-    transition: color 220ms ease, text-shadow 220ms ease;
-  }
-  .laos-board__city-index::after {
-    content: '';
-    display: block;
-    width: .58rem;
-    height: 1px;
-    background: currentColor;
-    opacity: .62;
-    transform: rotate(-4deg);
-    transform-origin: left center;
   }
   .laos-board__city-copy { display: grid; gap: .31rem; min-width: 0; }
   .laos-board__city-name {
@@ -236,7 +213,6 @@ const laosMapLabels = [
     text-shadow: 0 1px 0 rgb(0 0 0 / .22);
     transition: color 220ms ease, opacity 220ms ease, transform 220ms ease;
   }
-  .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-index { color: var(--laos-blue); text-shadow: 0 0 7px rgb(214 161 90 / .28); }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-name { color: var(--laos-blue); text-shadow: 0 1px 0 rgb(0 0 0 / .24), 0 0 8px rgb(214 161 90 / .24); transform: translateY(-1px); }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent { opacity: .9; }
   .laos-board__city:is(:hover, :focus-visible, .is-active) .laos-board__city-accent path { stroke: var(--laos-red); stroke-dashoffset: 0; }
@@ -250,8 +226,6 @@ const laosMapLabels = [
 
   @media (max-width: 1100px) and (min-width: 861px) {
     .laos-board__cities { left: 6.8%; width: 37%; max-width: 37%; column-gap: 1.25rem; row-gap: 1.05rem; }
-    .laos-board__city { grid-template-columns: 1.9rem minmax(0, 1fr); gap: .35rem; }
-    .laos-board__city-index::after { width: .4rem; }
     .laos-board__city-name { font-size: clamp(1.25rem, 2cqw, 1.55rem); }
     .laos-board__city-note { max-width: 11.5rem; font-size: clamp(.76rem, 1cqw, .86rem); }
   }
@@ -265,7 +239,6 @@ const laosMapLabels = [
     .laos-board__heading { position: static; width: max-content; max-width: 100%; }
     .laos-board__heading h1 { font-size: clamp(2.9rem, 8vw, 4.5rem); }
     .laos-board__cities { position: relative; inset: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 2rem; row-gap: 1.55rem; width: min(34rem, 100%); max-width: 100%; margin-top: clamp(2.2rem, 6vw, 3.5rem); }
-    .laos-board__city { grid-template-columns: 2.15rem minmax(0, 1fr); gap: .45rem; }
     .laos-board__city-name { font-size: 1.48rem; }
     .laos-board__city-note { max-width: 12.5rem; font-size: .84rem; }
   }
@@ -277,7 +250,6 @@ const laosMapLabels = [
     .laos-board__art { display: block; }
     .laos-board__content { width: min(100% - 3rem, 27rem); padding: clamp(7.25rem, 30vw, 10rem) 0 3rem; margin-inline: auto; }
     .laos-board__cities { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 1.1rem; margin-top: 2.5rem; }
-    .laos-board__city { grid-template-columns: 2.15rem minmax(0, 1fr); }
     .laos-board__city-name { font-size: 1.42rem; }
     .laos-board__city-note { max-width: none; font-size: .84rem; }
   }
@@ -286,6 +258,6 @@ const laosMapLabels = [
     .laos-board__underline path { stroke-dashoffset: 0; animation: none; }
     .laos-board__map-label-halo { opacity: .92; animation: none; }
     .laos-board__map-label-ink { fill: var(--map-label-color); stroke-dashoffset: 0; animation: none; transition: none; }
-    .laos-board__map-marker-pulse, .laos-board__city-name, .laos-board__city-note, .laos-board__city-index, .laos-board__city-accent path { transition: none; }
+    .laos-board__map-marker-pulse, .laos-board__city-name, .laos-board__city-note, .laos-board__city-accent path { transition: none; }
   }
 </style>
