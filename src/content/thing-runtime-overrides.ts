@@ -7,6 +7,15 @@ type ThingRuntimeOverride = Partial<Pick<
 
 /** Targeted manual corrections that must stay stable across generated city refreshes. */
 export const thingRuntimeOverrides: Readonly<Record<string, ThingRuntimeOverride>> = {
+  'thing-don-som-island': {
+    name: 'Don Som Island',
+    locationScope: 'area',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Don+Som+Island+Si+Phan+Don+Laos',
+  },
+  'thing-si-phan-don-by-boat': {
+    locationScope: 'area',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Don+Det+Boat+Pier+Laos',
+  },
   'thing-sikhottabong-stupa': {
     coordinates: { latitude: 17.34939, longitude: 104.80709 },
     locationScope: 'point',
