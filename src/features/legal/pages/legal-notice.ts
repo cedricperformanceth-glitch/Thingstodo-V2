@@ -3,14 +3,14 @@ import type { LegalPageData } from '../types';
 export const legalNoticePage: LegalPageData = {
   slug: 'legal-notice',
   eyebrow: 'Legal',
-  documentLabel: 'Legal note · Publisher information',
+  documentLabel: 'Legal note · Site information',
   title: 'Legal Notice',
-  heroIntro: 'Publisher, hosting and editorial information for Things To Do Atlas.',
-  documentIntro: 'This page identifies the website, its publisher and technical host, and explains where responsibility for the editorial content sits. Some publisher details are intentionally marked as pending until the final legal identity used to operate Things To Do Atlas is confirmed.',
+  heroIntro: 'Website, hosting and editorial information for Things To Do Atlas.',
+  documentIntro: 'Things To Do Atlas is currently an independent personal editorial travel project. This page explains the status of the website, its technical hosting, editorial responsibility and the rules that apply to its original content and third-party material.',
   lastUpdated: 'August 26, 2026',
   seo: {
     title: 'Legal Notice | Things To Do Atlas',
-    description: 'Publisher, hosting, editorial responsibility and legal information for Things To Do Atlas.',
+    description: 'Website, hosting, editorial responsibility and legal information for Things To Do Atlas.',
     canonicalPath: '/legal/legal-notice',
     indexable: false,
   },
@@ -40,41 +40,35 @@ export const legalNoticePage: LegalPageData = {
       ],
     },
     {
-      id: 'publisher',
-      title: 'Publisher information',
+      id: 'project-status',
+      title: 'Project status',
       blocks: [
         {
-          type: 'callout',
-          tone: 'important',
-          label: 'To complete before final publication',
-          title: 'Publisher identity still required',
-          paragraphs: [
-            [
-              {
-                text: 'The legal identity used to operate Things To Do Atlas has not yet been entered into the site. The fields below must be completed with the real publisher details before this Legal Notice is treated as final or made indexable.',
-              },
-            ],
-          ],
-        },
-        {
-          type: 'table',
-          caption: 'Publisher details',
-          columns: ['Field', 'Information'],
-          rows: [
-            ['Publisher / legal operator', '[To be completed]'],
-            ['Legal form or status', '[To be completed if applicable]'],
-            ['Registered or business address', '[To be completed if legally required]'],
-            ['Registration / tax identifiers', '[To be completed if applicable]'],
-            ['Public contact email', '[To be completed]'],
-            ['Publication or editorial director', '[To be completed if applicable]'],
+          type: 'paragraph',
+          content: [
+            {
+              text: 'Things To Do Atlas is currently developed and operated as an independent personal editorial project. The website is not presently presented as a company, registered organisation or separate commercial entity.',
+            },
           ],
         },
         {
           type: 'paragraph',
           content: [
             {
-              text: 'The exact information that must be published here depends on the legal status and jurisdiction of the person or organisation operating the website. Only information that is actually required and appropriate for publication should be added.',
+              text: 'If the operating structure of the project changes in the future, or if additional public publisher information becomes appropriate, this Legal Notice will be updated to reflect the new situation.',
             },
+          ],
+        },
+        {
+          type: 'callout',
+          label: 'Current status',
+          title: 'Independent personal project',
+          paragraphs: [
+            [
+              {
+                text: 'No company name, registration number, business address or corporate status is currently published for Things To Do Atlas because the project is not presently operated through such an entity.',
+              },
+            ],
           ],
         },
       ],
@@ -136,6 +130,14 @@ export const legalNoticePage: LegalPageData = {
           ],
         },
         {
+          type: 'paragraph',
+          content: [
+            { text: 'More detail about research, verification, personal experience and editorial independence is available in the ' },
+            { text: 'Editorial Policy', href: '/legal/editorial-policy' },
+            { text: '.' },
+          ],
+        },
+        {
           type: 'callout',
           label: 'Field note',
           title: 'Travel information changes',
@@ -164,12 +166,11 @@ export const legalNoticePage: LegalPageData = {
         {
           type: 'paragraph',
           content: [
-            { text: 'More detailed rules about using site content are set out in the ' },
-            {
-              text: 'Terms of Use',
-              href: '/legal/terms-of-use',
-            },
-            { text: '. A dedicated Media Credits & Licensing page will provide the central media-credit framework.' },
+            { text: 'Rules about using site content are set out in the ' },
+            { text: 'Terms of Use', href: '/legal/terms-of-use' },
+            { text: ', while the sourcing, attribution and reuse framework for photographs and other visual material is explained in ' },
+            { text: 'Media Credits & Licensing', href: '/legal/media-credits' },
+            { text: '.' },
           ],
         },
       ],
@@ -206,18 +207,20 @@ export const legalNoticePage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas aims to correct material factual errors and to handle legitimate copyright, privacy or attribution concerns responsibly. A public contact channel will be added here once the publisher contact details are confirmed.',
+              text: 'Things To Do Atlas aims to correct material factual errors and to handle legitimate copyright, privacy or attribution concerns responsibly.',
             },
           ],
         },
         {
-          type: 'contact',
-          eyebrow: 'Publisher contact',
-          title: 'Contact details pending',
-          body: 'The final public contact email will be inserted here together with the confirmed publisher identity before this notice is considered complete.',
+          type: 'paragraph',
+          content: [
+            {
+              text: 'A dedicated public contact channel is not yet published on the website. A public email address and other appropriate contact links may be added to this page when they are introduced for the project.',
+            },
+          ],
         },
       ],
     },
   ],
-  footerNote: 'Draft publisher notice · publisher identity and public contact details still to be completed.',
+  footerNote: 'Things To Do Atlas · Legal Notice',
 };
