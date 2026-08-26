@@ -35,6 +35,8 @@ export const thakhekMediaRecordOverrides: Readonly<Record<string, MediaRecordPat
 
 export const applyThakhekMediaCorrections = (media?: MediaRecord[]): MediaRecord[] | undefined => {
   if (!media?.length) return media;
+  if (!media.some((record) => thakhekMediaRecordOverrides[record.id])) return media;
+
   return media.flatMap((record) => {
     const patch = thakhekMediaRecordOverrides[record.id];
     if (!patch) return [record];
