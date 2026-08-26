@@ -1,12 +1,22 @@
 ---
-import type { Place } from '../../core/models/types';
+import type { Place, ThingToDo } from '../../core/models/types';
 import {
   getVenueFieldCard,
   personalVenuePlaces,
   type VenueFieldCardContent,
-} from '../../content/venue-field-card-editorial';
-import { categoryPath, placeFieldCardPath } from '../../core/routing/paths';
+} from '../../content/venue-field-card-registry';
+import { placeFieldCardPath } from '../../core/routing/paths';
 import { getCity } from '../../engines/city/city-engine';
+import { getCountry } from '../../engines/country/country-engine';
+import { venueFieldCardView } from '../../engines/field-card/venue-field-card-engine';
+import FieldCardHero from './FieldCardHero.astro';
+import FieldCardQuickRead from './FieldCardQuickRead.astro';
+import FieldCardStoryBlock from './FieldCardStoryBlock.astro';
+import FieldCardSecondaryStory from './FieldCardSecondaryStory.astro';
+import FieldCardBeforeYouLeave from './FieldCardBeforeYouLeave.astro';
+import FieldCardFaq from './FieldCardFaq.astro';
+import FieldCardPracticalNotes from './FieldCardPracticalNotes.astro';
+import FieldCardAtlasCta from './FieldCardAtlasCta.astro';
 
 interface Props {
   place: Place;
@@ -15,241 +25,158 @@ interface Props {
 
 const { place, content } = Astro.props;
 const city = getCity(place.country, place.city);
-const gallery = place.media.fieldCard?.gallery ?? [];
-const mediaCount = Math.max(content.mediaSlots, gallery.length);
-const mediaSlots = Array.from({ length: mediaCount }, (_, index) => gallery[index]);
-const cityLabel = city?.name ?? place.city.replaceAll('-', ' ');
+const country = getCountry(place.country);
+if (!city || !country) throw new Error(`Missing city or country context for ${place.id}`);
+
+const view = venueFieldCardView(place, content);
+const fieldEntity = place as unknown as ThingToDo;
 const relatedPlaces = (content.relatedPlaceIds ?? []).flatMap((placeId) => {
   const related = personalVenuePlaces.find((candidate) => candidate.id === placeId);
   return related && getVenueFieldCard(related.id) ? [related] : [];
 });
 ---
 
-<article class:list={['venue-field-card', { 'venue-field-card--draft': content.status === 'draft' }]}>
-  <header class="venue-field-card__hero">
-    <p class="venue-field-card__eyebrow">Personal field note · {cityLabel}</p>
-    <h1>{place.name}</h1>
-    <p class="venue-field-card__lede">{place.shortDescription}</p>
-    <dl class="venue-field-card__facts">
-      <div><dt>Type</dt><dd>{content.kindLabel}</dd></div>
-      <div><dt>Address</dt><dd>{place.address}</dd></div>
-    </dl>
-    <div class="venue-field-card__actions">
-      <a href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>
-      {city && <a href={categoryPath(city, place.category)}>Back to {content.kindLabel.toLowerCase()}s</a>}
-    </div>
-  </header>
-
-  <section class="venue-field-card__media" aria-label={`${place.name} field photographs`}>
-    {mediaSlots.map((image, index) => image ? (
-      <figure>
-        <img src={image.src} alt={image.alt} width="1100" height="820" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
-        {(image.author || image.sourceName || image.license) && (
-          <figcaption>
-            {image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a> : <span>{image.author || image.sourceName || 'Photo source'}</span>}
-            {image.license && <> · {image.license}</>}
-          </figcaption>
-        )}
-      </figure>
-    ) : (
-      <div class="venue-field-card__placeholder" role="img" aria-label={`Personal photograph ${index + 1} to add`}>
-        <span>Personal photo {index + 1}</span>
-        <small>To add</small>
-      </div>
-    ))}
-  </section>
+<article class={`field-card field-card--${view.template}`}>
+  <FieldCardHero thing={fieldEntity} {city} {country} hero={view.hero} image={view.heroImage} />
 
   {content.status === 'draft' ? (
-    <section class="venue-field-card__draft-note">
-      <p class="venue-field-card__section-kicker">First-hand note</p>
-      <h2>Personal experience coming next</h2>
-      <p>This Field Card is reserved for a first-person account. No generic review has been inserted: the story, practical takeaways and FAQ will be written only from the traveller’s own notes.</p>
+    <section class="field-card-venue-draft">
+      <p>PERSONAL FIELD NOTE</p>
+      <h2>First-hand story coming next</h2>
+      <span>No generic review is inserted here. This page stays noindex until the traveller’s own notes are ready.</span>
     </section>
   ) : (
-    <div class="venue-field-card__editorial">
-      {content.intro && <p class="venue-field-card__intro">{content.intro}</p>}
-      {content.chapters.map((chapter) => (
-        <section>
-          <h2>{chapter.title}</h2>
-          <p>{chapter.body}</p>
-        </section>
-      ))}
-      {relatedPlaces.length > 0 && (
-        <section class="venue-field-card__related">
-          <p class="venue-field-card__section-kicker">Related personal notes</p>
-          <h2>Another place connected to this one</h2>
-          <div class="venue-field-card__related-grid">
-            {relatedPlaces.map((related) => (
-              <a href={placeFieldCardPath(related)}>
-                <strong>{related.name}</strong>
-                <span>{related.shortDescription}</span>
-              </a>
-            ))}
-          </div>
-        </section>
+    <>
+      <FieldCardQuickRead thing={fieldEntity} {country} quickRead={view.quickRead} />
+      {view.primaryStory.chapters.length > 0 && (
+        <FieldCardStoryBlock thing={fieldEntity} story={view.primaryStory} image={view.storyImage} />
       )}
-      {content.faq.length > 0 && (
-        <section class="venue-field-card__faq">
-          <p class="venue-field-card__section-kicker">FAQ</p>
-          <h2>What I would want to know before staying</h2>
-          {content.faq.map((item) => (
-            <details>
-              <summary>{item.question}</summary>
-              <p>{item.answer}</p>
-            </details>
-          ))}
-        </section>
+      {view.secondaryStory && (
+        <FieldCardSecondaryStory thing={fieldEntity} story={view.secondaryStory} image={view.secondaryImage} />
       )}
-    </div>
+      {view.secondaryStory && (
+        <FieldCardBeforeYouLeave thing={fieldEntity} content={view.secondaryStory.beforeYouLeave} />
+      )}
+
+      <div class="field-card__body">
+        {view.faq.length > 0 && <FieldCardFaq thing={fieldEntity} items={view.faq} />}
+        <FieldCardPracticalNotes thing={fieldEntity} content={view.practicalNotes} />
+        <FieldCardAtlasCta thing={fieldEntity} />
+
+        {relatedPlaces.length > 0 && (
+          <section class="field-card-venue-related" aria-label="Related personal field notes">
+            <p class="field-card-venue-related__eyebrow">RELATED PERSONAL NOTES</p>
+            <h2>Another place connected to this one</h2>
+            <div>
+              {relatedPlaces.map((related) => (
+                <a href={placeFieldCardPath(related)}>
+                  <strong>{related.name}</strong>
+                  <span>{related.shortDescription}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </>
   )}
 </article>
 
 <style>
-  .venue-field-card {
-    --paper: #f5f0e6;
-    --ink: #26241f;
-    --muted: #6d685d;
+  .field-card {
     display: grid;
-    gap: 2.4rem;
-    color: var(--ink);
-    background: var(--paper);
-    padding: clamp(1.25rem, 3vw, 3rem);
+    gap: 0;
   }
 
-  .venue-field-card__hero,
-  .venue-field-card__draft-note,
-  .venue-field-card__editorial {
-    max-width: 880px;
-    width: 100%;
-    margin-inline: auto;
+  .field-card__body {
+    display: grid;
+    gap: 2rem;
   }
 
-  .venue-field-card__eyebrow,
-  .venue-field-card__section-kicker {
-    margin: 0 0 .6rem;
-    font-size: .78rem;
-    font-weight: 700;
+  .field-card-venue-draft,
+  .field-card-venue-related {
+    justify-self: center;
+    width: min(1000px, calc(100vw - 48px));
+    margin: clamp(48px, 6vw, 82px) 0;
+    color: #203c31;
+  }
+
+  .field-card-venue-draft {
+    padding: clamp(28px, 4vw, 48px);
+    border-top: 1px solid rgb(49 85 69 / .2);
+    border-bottom: 1px solid rgb(49 85 69 / .2);
+  }
+
+  .field-card-venue-draft p,
+  .field-card-venue-related__eyebrow {
+    margin: 0 0 10px;
+    color: #9d3040;
+    font-family: var(--field-card-practical);
+    font-size: .58rem;
     letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--muted);
   }
 
-  .venue-field-card h1 {
+  .field-card-venue-draft h2,
+  .field-card-venue-related h2 {
     margin: 0;
-    font-family: var(--field-card-title, Georgia, serif);
-    font-size: clamp(2.3rem, 6vw, 5rem);
-    line-height: .98;
+    color: #203c31;
+    font-family: var(--field-card-title);
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 600;
   }
 
-  .venue-field-card__lede,
-  .venue-field-card__intro,
-  .venue-field-card__editorial p,
-  .venue-field-card__draft-note p {
-    font-family: var(--field-card-editorial, Georgia, serif);
-    font-size: clamp(1.05rem, 1.5vw, 1.22rem);
-    line-height: 1.7;
+  .field-card-venue-draft span {
+    display: block;
+    max-width: 48rem;
+    margin-top: 14px;
+    color: rgb(38 55 47 / .7);
+    font-family: var(--field-card-editorial);
+    line-height: 1.65;
   }
 
-  .venue-field-card__facts {
+  .field-card-venue-related {
+    padding-top: 24px;
+    border-top: 1px solid rgb(49 85 69 / .16);
+  }
+
+  .field-card-venue-related > div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin: 1.6rem 0;
+    gap: 12px;
+    margin-top: 22px;
   }
 
-  .venue-field-card__facts div {
-    border-top: 1px solid rgba(38, 36, 31, .22);
-    padding-top: .7rem;
-  }
-
-  .venue-field-card__facts dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
-  .venue-field-card__facts dd { margin: .3rem 0 0; }
-
-  .venue-field-card__actions { display: flex; flex-wrap: wrap; gap: .7rem; }
-  .venue-field-card__actions a {
-    display: inline-flex;
-    padding: .7rem 1rem;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    color: inherit;
+  .field-card-venue-related a {
+    display: grid;
+    gap: 5px;
+    padding: 16px 0;
+    border-top: 1px solid rgb(49 85 69 / .12);
+    color: #203c31;
     text-decoration: none;
-    font-weight: 650;
   }
 
-  .venue-field-card__media {
-    width: min(1180px, 100%);
-    margin-inline: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
+  .field-card-venue-related strong {
+    font-family: var(--field-card-title);
+    font-size: 1.3rem;
+    font-weight: 600;
   }
 
-  .venue-field-card__media figure { margin: 0; }
-  .venue-field-card__media img,
-  .venue-field-card__placeholder {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 2px;
+  .field-card-venue-related span {
+    max-width: 48rem;
+    color: rgb(38 55 47 / .65);
+    font-family: var(--field-card-editorial);
+    line-height: 1.55;
   }
 
-  .venue-field-card__placeholder {
-    display: grid;
-    place-content: center;
-    gap: .25rem;
-    text-align: center;
-    border: 1px dashed rgba(38, 36, 31, .35);
-    background: rgba(255,255,255,.28);
-    color: var(--muted);
+  @media (max-width: 620px) {
+    .field-card-venue-draft,
+    .field-card-venue-related {
+      width: calc(100vw - 28px);
+    }
   }
-
-  .venue-field-card__placeholder span { font-family: var(--field-card-title, Georgia, serif); font-size: 1.15rem; }
-  .venue-field-card__placeholder small { text-transform: uppercase; letter-spacing: .12em; }
-  .venue-field-card__media figcaption { margin-top: .45rem; font-size: .72rem; }
-
-  .venue-field-card__draft-note,
-  .venue-field-card__editorial section {
-    border-top: 1px solid rgba(38, 36, 31, .22);
-    padding-top: 1.4rem;
-  }
-
-  .venue-field-card__draft-note h2,
-  .venue-field-card__editorial h2 {
-    margin: 0;
-    font-family: var(--field-card-title, Georgia, serif);
-    font-size: clamp(1.7rem, 3vw, 2.5rem);
-  }
-
-  .venue-field-card__related-grid {
-    display: grid;
-    gap: .8rem;
-    margin-top: 1rem;
-  }
-
-  .venue-field-card__related-grid a {
-    display: grid;
-    gap: .35rem;
-    padding: 1rem;
-    border: 1px solid rgba(38, 36, 31, .22);
-    color: inherit;
-    text-decoration: none;
-    background: rgba(255, 255, 255, .22);
-  }
-
-  .venue-field-card__related-grid strong {
-    font-family: var(--field-card-title, Georgia, serif);
-    font-size: 1.18rem;
-  }
-
-  .venue-field-card__related-grid span {
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .venue-field-card__faq details { border-top: 1px solid rgba(38, 36, 31, .16); padding: .9rem 0; }
-  .venue-field-card__faq summary { cursor: pointer; font-weight: 700; }
 </style>
 
 <style is:global>
-  body:has(.venue-field-card) { background: #f5f0e6; }
+  body:has(.field-card) {
+    background: var(--field-card-page);
+  }
 </style>
