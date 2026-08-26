@@ -423,22 +423,22 @@ main.main--immersive.main--immersive-scroll {
 
 .atlas-desk-book__state--closed {
   width: 51.5%;
-  transform: translate(-50%, 0) rotate(-4deg);
+  transform: translate(-50%, -48%) rotate(-4deg) scaleY(0.6);
 }
 
 .atlas-desk-book__state--opening-1 {
   width: 53.5%;
-  transform: translate(-50%, 0) rotate(-4deg);
+  transform: translate(-50%, -48%) rotate(-4deg) scaleY(0.58);
 }
 
 .atlas-desk-book__state--opening-2 {
   width: 54%;
-  transform: translate(-50%, 0) rotate(-3deg);
+  transform: translate(-50%, -48%) rotate(-3deg) scaleY(0.56);
 }
 
 .atlas-desk-book__state--open {
   width: 96%;
-  transform: translate(-50%, 0) rotate(-1deg);
+  transform: translate(-50%, -49%) rotate(-1deg) scaleY(0.47);
 }
 
 .atlas-country-feature,
