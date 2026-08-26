@@ -1,0 +1,207 @@
+---
+import type { Place } from '../../core/models/types';
+import type { VenueFieldCardContent } from '../../content/venue-field-card-editorial';
+import { categoryPath } from '../../core/routing/paths';
+import { getCity } from '../../engines/city/city-engine';
+
+interface Props {
+  place: Place;
+  content: VenueFieldCardContent;
+}
+
+const { place, content } = Astro.props;
+const city = getCity(place.country, place.city);
+const gallery = place.media.fieldCard?.gallery ?? [];
+const mediaCount = Math.max(content.mediaSlots, gallery.length);
+const mediaSlots = Array.from({ length: mediaCount }, (_, index) => gallery[index]);
+const cityLabel = city?.name ?? place.city.replaceAll('-', ' ');
+---
+
+<article class:list={['venue-field-card', { 'venue-field-card--draft': content.status === 'draft' }]}>
+  <header class="venue-field-card__hero">
+    <p class="venue-field-card__eyebrow">Personal field note · {cityLabel}</p>
+    <h1>{place.name}</h1>
+    <p class="venue-field-card__lede">{place.shortDescription}</p>
+    <dl class="venue-field-card__facts">
+      <div><dt>Type</dt><dd>{content.kindLabel}</dd></div>
+      <div><dt>Address</dt><dd>{place.address}</dd></div>
+    </dl>
+    <div class="venue-field-card__actions">
+      <a href={place.googleMapsUrl} target="_blank" rel="noreferrer">Open Google Maps</a>
+      {city && <a href={categoryPath(city, place.category)}>Back to {content.kindLabel.toLowerCase()}s</a>}
+    </div>
+  </header>
+
+  <section class="venue-field-card__media" aria-label={`${place.name} field photographs`}>
+    {mediaSlots.map((image, index) => image ? (
+      <figure>
+        <img src={image.src} alt={image.alt} width="1100" height="820" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+        {(image.author || image.sourceName || image.license) && (
+          <figcaption>
+            {image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a> : <span>{image.author || image.sourceName || 'Photo source'}</span>}
+            {image.license && <> · {image.license}</>}
+          </figcaption>
+        )}
+      </figure>
+    ) : (
+      <div class="venue-field-card__placeholder" role="img" aria-label={`Personal photograph ${index + 1} to add`}>
+        <span>Personal photo {index + 1}</span>
+        <small>To add</small>
+      </div>
+    ))}
+  </section>
+
+  {content.status === 'draft' ? (
+    <section class="venue-field-card__draft-note">
+      <p class="venue-field-card__section-kicker">First-hand note</p>
+      <h2>Personal experience coming next</h2>
+      <p>This Field Card is reserved for a first-person account. No generic review has been inserted: the story, practical takeaways and FAQ will be written only from the traveller’s own notes.</p>
+    </section>
+  ) : (
+    <div class="venue-field-card__editorial">
+      {content.intro && <p class="venue-field-card__intro">{content.intro}</p>}
+      {content.chapters.map((chapter) => (
+        <section>
+          <h2>{chapter.title}</h2>
+          <p>{chapter.body}</p>
+        </section>
+      ))}
+      {content.faq.length > 0 && (
+        <section class="venue-field-card__faq">
+          <p class="venue-field-card__section-kicker">FAQ</p>
+          <h2>What I would want to know before staying</h2>
+          {content.faq.map((item) => (
+            <details>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </section>
+      )}
+    </div>
+  )}
+</article>
+
+<style>
+  .venue-field-card {
+    --paper: #f5f0e6;
+    --ink: #26241f;
+    --muted: #6d685d;
+    display: grid;
+    gap: 2.4rem;
+    color: var(--ink);
+    background: var(--paper);
+    padding: clamp(1.25rem, 3vw, 3rem);
+  }
+
+  .venue-field-card__hero,
+  .venue-field-card__draft-note,
+  .venue-field-card__editorial {
+    max-width: 880px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .venue-field-card__eyebrow,
+  .venue-field-card__section-kicker {
+    margin: 0 0 .6rem;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .venue-field-card h1 {
+    margin: 0;
+    font-family: var(--field-card-title, Georgia, serif);
+    font-size: clamp(2.3rem, 6vw, 5rem);
+    line-height: .98;
+  }
+
+  .venue-field-card__lede,
+  .venue-field-card__intro,
+  .venue-field-card__editorial p,
+  .venue-field-card__draft-note p {
+    font-family: var(--field-card-editorial, Georgia, serif);
+    font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+    line-height: 1.7;
+  }
+
+  .venue-field-card__facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.6rem 0;
+  }
+
+  .venue-field-card__facts div {
+    border-top: 1px solid rgba(38, 36, 31, .22);
+    padding-top: .7rem;
+  }
+
+  .venue-field-card__facts dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  .venue-field-card__facts dd { margin: .3rem 0 0; }
+
+  .venue-field-card__actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .venue-field-card__actions a {
+    display: inline-flex;
+    padding: .7rem 1rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 650;
+  }
+
+  .venue-field-card__media {
+    width: min(1180px, 100%);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .venue-field-card__media figure { margin: 0; }
+  .venue-field-card__media img,
+  .venue-field-card__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  .venue-field-card__placeholder {
+    display: grid;
+    place-content: center;
+    gap: .25rem;
+    text-align: center;
+    border: 1px dashed rgba(38, 36, 31, .35);
+    background: rgba(255,255,255,.28);
+    color: var(--muted);
+  }
+
+  .venue-field-card__placeholder span { font-family: var(--field-card-title, Georgia, serif); font-size: 1.15rem; }
+  .venue-field-card__placeholder small { text-transform: uppercase; letter-spacing: .12em; }
+  .venue-field-card__media figcaption { margin-top: .45rem; font-size: .72rem; }
+
+  .venue-field-card__draft-note,
+  .venue-field-card__editorial section {
+    border-top: 1px solid rgba(38, 36, 31, .22);
+    padding-top: 1.4rem;
+  }
+
+  .venue-field-card__draft-note h2,
+  .venue-field-card__editorial h2 {
+    margin: 0;
+    font-family: var(--field-card-title, Georgia, serif);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+  }
+
+  .venue-field-card__faq details { border-top: 1px solid rgba(38, 36, 31, .16); padding: .9rem 0; }
+  .venue-field-card__faq summary { cursor: pointer; font-weight: 700; }
+</style>
+
+<style is:global>
+  body:has(.venue-field-card) { background: #f5f0e6; }
+</style>

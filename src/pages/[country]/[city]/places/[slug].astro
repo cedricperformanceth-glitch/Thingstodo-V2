@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../components/layout/BaseLayout.astro';
+import VenueFieldCard from '../../../../components/field-card/VenueFieldCard.astro';
+import { places } from '../../../../content/registry/places';
+import { getVenueFieldCard, hasVenueFieldCard } from '../../../../content/venue-field-card-editorial';
+import { getCity } from '../../../../engines/city/city-engine';
+import { getCountry } from '../../../../engines/country/country-engine';
+import { categoryPath, cityPath, placeFieldCardPath } from '../../../../core/routing/paths';
+import type { Place } from '../../../../core/models/types';
+
+export function getStaticPaths() {
+  return places
+    .filter((place) => hasVenueFieldCard(place.id))
+    .map((place) => ({
+      params: { country: place.country, city: place.city, slug: place.slug },
+      props: { place },
+    }));
+}
+
+const { place } = Astro.props as { place: Place };
+const content = getVenueFieldCard(place.id);
+const city = getCity(place.country, place.city);
+const country = getCountry(place.country);
+
+if (!content || !city) return Astro.redirect('/');
+
+const seo = {
+  title: `${place.name} in ${city.name} | Personal Field Note | Things To Do Atlas`,
+  description: place.shortDescription,
+  canonicalPath: placeFieldCardPath(place),
+  indexable: content.status === 'published' && city.seo.indexable,
+};
+---
+
+<BaseLayout
+  {seo}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: country?.name ?? place.country, path: `/${place.country}` },
+    { name: city.name, path: cityPath(city) },
+    { name: content.kindLabel, path: categoryPath(city, place.category) },
+    { name: place.name, path: placeFieldCardPath(place) },
+  ]}
+>
+  <VenueFieldCard {place} {content} />
+</BaseLayout>

@@ -1,10 +1,12 @@
 import { generatedPlaces } from '../generated';
 import { placeCardEditorial, supplementalPlaces } from '../place-card-editorial';
+import { personalVenuePlaces } from '../venue-field-card-editorial';
 import type { Place, ResearchSource } from '../../core/models/types';
 
 type SourcedPlace = Place & { researchSources?: ResearchSource[] };
 
 const generatedIds = new Set(generatedPlaces.map((place) => place.id));
+const supplementalIds = new Set(supplementalPlaces.map((place) => place.id));
 const DON_DET_CENTROID = { latitude: 13.9709, longitude: 105.9215 } as const;
 
 const applyEditorial = (place: SourcedPlace): SourcedPlace => {
@@ -48,4 +50,7 @@ const publish = (place: SourcedPlace): SourcedPlace => normalizePublicationMetad
 export const places: Place[] = [
   ...generatedPlaces.map((place) => publish(place as SourcedPlace)),
   ...supplementalPlaces.filter((place) => !generatedIds.has(place.id)).map((place) => publish(place as SourcedPlace)),
+  ...personalVenuePlaces
+    .filter((place) => !generatedIds.has(place.id) && !supplementalIds.has(place.id))
+    .map((place) => publish(place as SourcedPlace)),
 ];

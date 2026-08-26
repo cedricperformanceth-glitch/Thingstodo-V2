@@ -1,5 +1,7 @@
 ---
 import type { Place } from '../../core/models/types';
+import { getVenueFieldCard } from '../../content/venue-field-card-editorial';
+import { placeFieldCardPath } from '../../core/routing/paths';
 import FavoriteHeart from '../shared/FavoriteHeart.astro';
 import CardActions from './CardActions.astro';
 import './entry-card.css';
@@ -10,6 +12,7 @@ const photoCredit = image?.sourceUrl && (image.author || image.sourceName || ima
   ? [image.author ?? image.sourceName, image.license].filter(Boolean).join(' · ')
   : '';
 const titleize = (value: string) => value.split('-').map((part) => part ? `${part.charAt(0).toUpperCase()}${part.slice(1)}` : '').join(' ');
+const fieldHref = getVenueFieldCard(place.id) ? placeFieldCardPath(place) : undefined;
 ---
 <article class="card atlas-entry-card">
   <div class:list={['card-media', { empty: !image }]}>
@@ -38,5 +41,5 @@ const titleize = (value: string) => value.split('-').map((part) => part ? `${par
     )}
   </div>
 
-  <CardActions entity={place} />
+  <CardActions entity={place} {fieldHref} />
 </article>
