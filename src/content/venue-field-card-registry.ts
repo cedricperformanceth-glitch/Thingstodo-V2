@@ -14,6 +14,11 @@ import {
   ninetyVintageLayout,
   ninetyVintagePlace,
 } from './venue-field-card-90s-vintage';
+import {
+  italaoFieldCard,
+  italaoLayout,
+  italaoPlace,
+} from './venue-field-card-italao';
 
 export type { VenueFieldCardChapter, VenueFieldCardContent } from './venue-field-card-editorial';
 
@@ -22,6 +27,7 @@ export const personalVenuePlaces = [
   samleesGardenPlace,
   seseWineBeerPlace,
   ninetyVintagePlace,
+  italaoPlace,
 ] as const;
 
 export const venueFieldCards = {
@@ -29,11 +35,13 @@ export const venueFieldCards = {
   [samleesGardenPlace.id]: samleesGardenFieldCard,
   [seseWineBeerPlace.id]: seseWineBeerFieldCard,
   [ninetyVintagePlace.id]: ninetyVintageFieldCard,
+  [italaoPlace.id]: italaoFieldCard,
 } as const;
 
 export const venueFieldCardLayoutProfiles: Readonly<Record<string, VenueFieldCardLayoutProfile>> = {
   [seseWineBeerPlace.id]: seseWineBeerLayout,
   [ninetyVintagePlace.id]: ninetyVintageLayout,
+  [italaoPlace.id]: italaoLayout,
 };
 
 export const getVenueFieldCard = (placeId: string) => venueFieldCards[placeId as keyof typeof venueFieldCards];
