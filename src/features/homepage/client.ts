@@ -45,6 +45,7 @@ export const initAtlasHomepage = (): void => {
   root.dataset.initialized = 'true';
   const gsap = window.gsap;
   if (!gsap) { root.dataset.ready = 'true'; root.setAttribute('aria-busy', 'false'); return; }
+  root.dataset.lamp = 'off';
 
   const tableau = $<HTMLElement>(root, '[data-atlas-tableau]');
   const bgOn = $<HTMLImageElement>(root, '[data-background-on]');
@@ -66,9 +67,12 @@ export const initAtlasHomepage = (): void => {
     if (slug && countries.has(slug)) triggers.set(slug, button);
   });
 
+  gsap.set(bgOn, { opacity:0 });
+  gsap.set(bgOff, { opacity:1 });
+
   let mode: Mode = MODE.IDLE;
   let selected: HomeCountrySlug | null = null;
-  let lampOn = true;
+  let lampOn = false;
   let bookTl: Timeline | null = null;
   let lampTl: Timeline | null = null;
   let globeTl: Timeline | null = null;
@@ -213,8 +217,17 @@ export const initAtlasHomepage = (): void => {
   };
 
   const toggleLamp = (): void => {
-    if (lampTl) return; const turningOn = !lampOn; if (!turningOn && selected) returnIdle(); lamp.disabled = true;
-    lampTl = gsap.timeline({ onComplete:() => { lampOn = turningOn; lampTl = null; interactive(); } })
+    if (lampTl) return;
+    const turningOn = !lampOn;
+    if (!turningOn && selected) returnIdle();
+    if (turningOn) root.dataset.lamp = 'on';
+    lamp.disabled = true;
+    lampTl = gsap.timeline({ onComplete:() => {
+      lampOn = turningOn;
+      if (!turningOn) root.dataset.lamp = 'off';
+      lampTl = null;
+      interactive();
+    } })
       .to(lamp, { yPercent:5.5, duration:0.13, ease:'power2.in' }, 0)
       .to(bgOn, { opacity:turningOn ? 1 : 0, duration:0.32, ease:'sine.inOut' }, 0.05)
       .to(bgOff, { opacity:turningOn ? 0 : 1, duration:0.32, ease:'sine.inOut' }, 0.05)
@@ -228,6 +241,8 @@ export const initAtlasHomepage = (): void => {
   const fitNow = (): void => fit(); window.addEventListener('resize', fitNow, { passive:true }); window.visualViewport?.addEventListener('resize', fitNow, { passive:true }); fit();
 
   void preload().then(() => requestAnimationFrame(() => {
+    gsap.set(bgOn, { opacity:0 });
+    gsap.set(bgOff, { opacity:1 });
     resetGlobe(); resetDesk(); root.dataset.ready = 'true'; root.setAttribute('aria-busy', 'false'); setMode(MODE.IDLE); interactive();
   }));
 };
