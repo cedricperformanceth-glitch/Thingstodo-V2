@@ -1,5 +1,6 @@
 import { generatedPlaces } from '../generated';
 import { placeCardEditorial, supplementalPlaces } from '../place-card-editorial';
+import { placeMediaOverrides } from '../place-media-overrides';
 import { personalVenuePlaces } from '../venue-field-card-registry';
 import type { Place, ResearchSource } from '../../core/models/types';
 
@@ -12,6 +13,11 @@ const DON_DET_CENTROID = { latitude: 13.9709, longitude: 105.9215 } as const;
 const applyEditorial = (place: SourcedPlace): SourcedPlace => {
   const override = placeCardEditorial[place.id];
   return override ? { ...place, ...override } : place;
+};
+
+const applyMediaOverride = (place: SourcedPlace): SourcedPlace => {
+  const media = placeMediaOverrides[place.id];
+  return media ? { ...place, media } : place;
 };
 
 const normalizePublicationMetadata = (place: SourcedPlace): SourcedPlace => {
@@ -45,7 +51,7 @@ const normalizePublicationMetadata = (place: SourcedPlace): SourcedPlace => {
   };
 };
 
-const publish = (place: SourcedPlace): SourcedPlace => normalizePublicationMetadata(applyEditorial(place));
+const publish = (place: SourcedPlace): SourcedPlace => normalizePublicationMetadata(applyMediaOverride(applyEditorial(place)));
 
 export const places: Place[] = [
   ...generatedPlaces.map((place) => publish(place as SourcedPlace)),
