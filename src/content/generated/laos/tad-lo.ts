@@ -73,9 +73,29 @@ const data = {
       },
       "shortDescription": "Leafy riverside bungalows and tents with an on-site restaurant and garden setting.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-bolaven-garden",
+            "src": "/images/places/tad-lo/bolaven-garden.webp",
+            "alt": "Bolaven Garden in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-tad-lo-bolaven-garden",
+            "src": "/images/places/tad-lo/bolaven-garden.webp",
+            "alt": "Bolaven Garden in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+          ]
         }
       },
       "spaCard": {
@@ -84,8 +104,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -171,9 +191,29 @@ const data = {
       },
       "shortDescription": "Sociable local guesthouse and homestay with bungalows, dorm beds and food on site.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-samaki-guest-house",
+            "src": "/images/places/tad-lo/samaki-guest-house.webp",
+            "alt": "Samaki Guest House in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-tad-lo-samaki-guest-house",
+            "src": "/images/places/tad-lo/samaki-guest-house.webp",
+            "alt": "Samaki Guest House in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+          ]
         }
       },
       "spaCard": {
@@ -182,8 +222,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -220,9 +260,29 @@ const data = {
       },
       "shortDescription": "Established riverside lodge in the waterfall area with private rooms and dining.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-tad-lo-lodge",
+            "src": "/images/places/tad-lo/tad-lo-lodge.webp",
+            "alt": "Tad Lo Lodge in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-tad-lo-tad-lo-lodge",
+            "src": "/images/places/tad-lo/tad-lo-lodge.webp",
+            "alt": "Tad Lo Lodge in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+          ]
         }
       },
       "spaCard": {
@@ -231,8 +291,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -269,9 +329,29 @@ const data = {
       },
       "shortDescription": "Local, Thai and Asian food in a riverside garden setting.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-bolaven-garden",
+            "src": "/images/places/tad-lo/bolaven-garden.webp",
+            "alt": "Bolaven Garden in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-tad-lo-bolaven-garden",
+            "src": "/images/places/tad-lo/bolaven-garden.webp",
+            "alt": "Bolaven Garden in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+          ]
         }
       },
       "spaCard": {
@@ -280,8 +360,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -367,9 +447,29 @@ const data = {
       },
       "shortDescription": "Simple family cooking attached to Mama Pap homestay.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-mama-pap-restaurant",
+            "src": "/images/places/tad-lo/mama-pap-restaurant.webp",
+            "alt": "Mama Pap Restaurant in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-tad-lo-mama-pap-restaurant",
+            "src": "/images/places/tad-lo/mama-pap-restaurant.webp",
+            "alt": "Mama Pap Restaurant in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+          ]
         }
       },
       "spaCard": {
@@ -378,8 +478,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -416,9 +516,29 @@ const data = {
       },
       "shortDescription": "Guesthouse restaurant serving travellers and overnight guests.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-samaki-guest-house",
+            "src": "/images/places/tad-lo/samaki-guest-house.webp",
+            "alt": "Samaki Guest House in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-tad-lo-samaki-guest-house",
+            "src": "/images/places/tad-lo/samaki-guest-house.webp",
+            "alt": "Samaki Guest House in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+          ]
         }
       },
       "spaCard": {
@@ -427,8 +547,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -465,9 +585,29 @@ const data = {
       },
       "shortDescription": "Restaurant attached to Tad Lo Lodge near the waterfall.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-tad-lo-lodge",
+            "src": "/images/places/tad-lo/tad-lo-lodge.webp",
+            "alt": "Tad Lo Lodge in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-tad-lo-tad-lo-lodge",
+            "src": "/images/places/tad-lo/tad-lo-lodge.webp",
+            "alt": "Tad Lo Lodge in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Tad Lo venue media",
+            "manual": true,
+            "locked": true
+          }
+          ]
         }
       },
       "spaCard": {
@@ -476,8 +616,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -661,9 +801,35 @@ const data = {
       },
       "shortDescription": "Coffee tasting and cultural stop around Mr Hook’s Katu experience.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-mr-hook-coffee-katu-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/070e07c0-0d12-4fad-817b-e46165c61887-Mr-Hook.jpg",
+            "alt": "Coffee and Katu cultural experience with Mr Hook near Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceName": "Visit Tad Lo",
+            "manual": true,
+            "locked": true,
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-hook-coffee-experience",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required"
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-mr-hook-coffee-katu-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/070e07c0-0d12-4fad-817b-e46165c61887-Mr-Hook.jpg",
+            "alt": "Coffee and Katu cultural experience with Mr Hook near Tad Lo, Laos",
+            "sourceType": "first-party-official",
+            "sourceName": "Visit Tad Lo",
+            "manual": true,
+            "locked": true,
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-hook-coffee-experience",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required"
+          }
+          ]
         }
       },
       "spaCard": {
@@ -672,8 +838,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -710,9 +876,35 @@ const data = {
       },
       "shortDescription": "Tree-to-cup coffee stop near Laongam, useful as a Tad Lo excursion.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-mr-vieng-coffee-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/c0632601-bb76-41a3-947e-2e47a3a7c88f-Mr-Vieng.jpg",
+            "alt": "Coffee from tree to cup experience with Mr Vieng near Laongam, Laos",
+            "sourceType": "first-party-official",
+            "sourceName": "Visit Tad Lo",
+            "manual": true,
+            "locked": true,
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-vieng-coffee-experience",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required"
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+{
+            "id": "media-mr-vieng-coffee-visit-tad-lo",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/accommodation/c0632601-bb76-41a3-947e-2e47a3a7c88f-Mr-Vieng.jpg",
+            "alt": "Coffee from tree to cup experience with Mr Vieng near Laongam, Laos",
+            "sourceType": "first-party-official",
+            "sourceName": "Visit Tad Lo",
+            "manual": true,
+            "locked": true,
+            "sourceUrl": "https://visit-tadlo.com/en/things-to-do/mr-vieng-coffee-experience",
+            "author": "Visit Tad Lo partner media",
+            "license": "Used with owner permission; attribution and link to Visit Tad Lo required"
+          }
+          ]
         }
       },
       "spaCard": {
@@ -721,8 +913,8 @@ const data = {
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
