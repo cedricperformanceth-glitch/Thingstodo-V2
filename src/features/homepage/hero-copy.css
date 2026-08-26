@@ -1,0 +1,56 @@
+/* Homepage title placed inside the lamp's pool of light. The copy uses the
+   existing handwritten typeface so it belongs to the classroom/atlas scene. */
+.atlas-hero-copy {
+  position: absolute;
+  left: 68.7%;
+  top: 30.7%;
+  z-index: 7;
+  width: 29.5%;
+  color: rgb(66 45 31 / 0.76);
+  font-family: var(--handwritten);
+  text-align: center;
+  pointer-events: none;
+  filter: contrast(0.94);
+  transition:
+    color 320ms ease,
+    filter 320ms ease,
+    opacity 320ms ease;
+}
+
+.atlas-hero-copy h1,
+.atlas-hero-copy h2 {
+  margin: 0;
+  font-family: inherit;
+  font-style: normal;
+  text-wrap: balance;
+  text-shadow: 0 1px 1px rgb(255 236 203 / 0.15);
+}
+
+.atlas-hero-copy h1 {
+  font-size: 43px;
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  transform: rotate(-1.2deg);
+}
+
+.atlas-hero-copy h2 {
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.012em;
+  white-space: nowrap;
+  transform: rotate(0.35deg);
+}
+
+.atlas-home[data-lamp='on'] .atlas-hero-copy {
+  color: rgb(55 35 23 / 0.94);
+  filter: contrast(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-hero-copy {
+    transition: none;
+  }
+}
