@@ -28,7 +28,25 @@ const sectionNumber = section.number ?? (ordinal ? String(ordinal).padStart(2, '
   }
 
   .legal-section + .legal-section {
-    margin-top: clamp(54px, 8vw, 86px);
+    margin-top: clamp(46px, 7vw, 72px);
+  }
+
+  .legal-section + .legal-section::before {
+    content: '';
+    display: block;
+    width: min(82%, 590px);
+    height: 1px;
+    margin: 0 auto clamp(44px, 6.5vw, 66px);
+    background: linear-gradient(
+      90deg,
+      rgb(var(--legal-divider-red, 118 42 52) / 0) 0%,
+      rgb(var(--legal-divider-red, 118 42 52) / .06) 14%,
+      rgb(var(--legal-divider-red, 118 42 52) / .22) 30%,
+      rgb(var(--legal-divider-red, 118 42 52) / .7) 50%,
+      rgb(var(--legal-divider-red, 118 42 52) / .22) 70%,
+      rgb(var(--legal-divider-red, 118 42 52) / .06) 86%,
+      rgb(var(--legal-divider-red, 118 42 52) / 0) 100%
+    );
   }
 
   .legal-section__header {
@@ -64,7 +82,12 @@ const sectionNumber = section.number ?? (ordinal ? String(ordinal).padStart(2, '
 
   @media (max-width: 620px) {
     .legal-section + .legal-section {
-      margin-top: 48px;
+      margin-top: 40px;
+    }
+
+    .legal-section + .legal-section::before {
+      width: 90%;
+      margin-bottom: 42px;
     }
 
     .legal-section__header {
