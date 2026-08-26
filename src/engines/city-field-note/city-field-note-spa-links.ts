@@ -1,7 +1,6 @@
 import linksData from '../../content/city-field-note-spa-links.json';
 import type { City } from '../../core/models/types';
 import { getCity } from '../city/city-engine';
-import { getCountry } from '../country/country-engine';
 import { getCountryFieldNote } from '../../content/country-field-notes';
 import { countryFieldNoteCity, countryFieldNoteView } from '../country-field-note/country-field-note-engine';
 import { getEditorialCityFieldNote } from './city-field-note-editorial';
