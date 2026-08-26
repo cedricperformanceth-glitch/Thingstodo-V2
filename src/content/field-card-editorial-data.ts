@@ -11,6 +11,7 @@ import type {
   ThingToDoSpaCardContent,
 } from '../core/models/types';
 import editorialData from './field-card-editorial.json';
+import { applyThakhekMediaCorrections } from './field-card-media-thakhek-overrides';
 import vatPhouEditorial from './field-card-editorial-pakse/thing-vat-phou.json';
 import tadFaneEditorial from './field-card-editorial-pakse/thing-tad-fane.json';
 import tadYuangEditorial from './field-card-editorial-pakse/thing-tad-yuang.json';
@@ -82,7 +83,13 @@ export interface FieldCardEditorialEntry {
   practicalItemLabels?: string[];
 }
 
-const sharedEditorial = editorialData as unknown as Record<string, FieldCardEditorialEntry>;
+const sharedEditorialRaw = editorialData as unknown as Record<string, FieldCardEditorialEntry>;
+const sharedEditorial = Object.fromEntries(
+  Object.entries(sharedEditorialRaw).map(([id, entry]) => {
+    const media = applyThakhekMediaCorrections(entry.media);
+    return [id, media === entry.media ? entry : { ...entry, media }];
+  }),
+) as Record<string, FieldCardEditorialEntry>;
 const pakseEditorial = {
   ...vatPhouEditorial,
   ...tadFaneEditorial,
