@@ -1,0 +1,264 @@
+---
+import type { LegalBlock, LegalInlineText } from '../../features/legal/types';
+
+interface Props {
+  block: LegalBlock;
+}
+
+const { block } = Astro.props;
+const linkRel = (item: LegalInlineText) => item.external ? 'noreferrer' : undefined;
+const linkTarget = (item: LegalInlineText) => item.external ? '_blank' : undefined;
+---
+
+{block.type === 'paragraph' && (
+  <p class="legal-copy">
+    {block.content.map((item) => item.href ? (
+      <a href={item.href} target={linkTarget(item)} rel={linkRel(item)}>{item.text}</a>
+    ) : item.text)}
+  </p>
+)}
+
+{block.type === 'list' && (
+  <ul class:list={['legal-list', `legal-list--${block.style ?? 'dash'}`]}>
+    {block.items.map((item) => (
+      <li>
+        {item.map((part) => part.href ? (
+          <a href={part.href} target={linkTarget(part)} rel={linkRel(part)}>{part.text}</a>
+        ) : part.text)}
+      </li>
+    ))}
+  </ul>
+)}
+
+{block.type === 'callout' && (
+  <aside class:list={['legal-callout', `legal-callout--${block.tone ?? 'field-note'}`]}>
+    <p class="legal-callout__label">{block.label ?? (block.tone === 'important' ? 'Important' : 'Field note')}</p>
+    {block.title && <h3>{block.title}</h3>}
+    {block.paragraphs.map((paragraph) => (
+      <p>
+        {paragraph.map((part) => part.href ? (
+          <a href={part.href} target={linkTarget(part)} rel={linkRel(part)}>{part.text}</a>
+        ) : part.text)}
+      </p>
+    ))}
+  </aside>
+)}
+
+{block.type === 'table' && (
+  <div class="legal-table-wrap">
+    <table class="legal-table">
+      {block.caption && <caption>{block.caption}</caption>}
+      <thead>
+        <tr>{block.columns.map((column) => <th scope="col">{column}</th>)}</tr>
+      </thead>
+      <tbody>
+        {block.rows.map((row) => (
+          <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+
+{block.type === 'contact' && (
+  <aside class="legal-contact">
+    {block.eyebrow && <p class="legal-contact__eyebrow">{block.eyebrow}</p>}
+    <h3>{block.title}</h3>
+    {block.body && <p>{block.body}</p>}
+    {block.ctaHref && block.ctaLabel && <a href={block.ctaHref}>{block.ctaLabel} <span aria-hidden="true">→</span></a>}
+  </aside>
+)}
+
+{block.type === 'divider' && <hr class="legal-divider" />}
+
+<style>
+  .legal-copy,
+  .legal-list,
+  .legal-callout p,
+  .legal-contact p {
+    color: rgb(31 43 36 / .79);
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(.94rem, 1.45vw, 1.02rem);
+    line-height: 1.78;
+  }
+
+  .legal-copy {
+    margin: 0;
+  }
+
+  .legal-copy + .legal-copy {
+    margin-top: 16px;
+  }
+
+  a {
+    color: var(--moss);
+    text-decoration-color: rgb(49 87 59 / .28);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: #9d5139;
+    text-decoration-color: rgb(157 81 57 / .45);
+  }
+
+  .legal-list {
+    display: grid;
+    gap: 9px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding-left: 22px;
+  }
+
+  .legal-list--dash li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgb(49 87 59 / .64);
+  }
+
+  .legal-list--bullet li::before {
+    content: '•';
+    position: absolute;
+    left: 5px;
+    color: rgb(49 87 59 / .64);
+  }
+
+  .legal-callout {
+    margin: clamp(26px, 4vw, 38px) 0;
+    padding: clamp(20px, 3vw, 28px) clamp(20px, 3.4vw, 32px);
+    border-left: 2px solid rgb(49 87 59 / .58);
+    background: rgb(49 87 59 / .045);
+  }
+
+  .legal-callout--important {
+    border-left-color: rgb(157 81 57 / .68);
+    background: rgb(157 81 57 / .045);
+  }
+
+  .legal-callout__label,
+  .legal-contact__eyebrow {
+    margin: 0 0 8px !important;
+    color: rgb(49 87 59 / .68) !important;
+    font-family: 'DM Sans', Arial, sans-serif !important;
+    font-size: .61rem !important;
+    font-weight: 700;
+    line-height: 1.2 !important;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+  }
+
+  .legal-callout--important .legal-callout__label {
+    color: rgb(157 81 57 / .82) !important;
+  }
+
+  .legal-callout h3,
+  .legal-contact h3 {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(1.28rem, 2.2vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .legal-callout p:not(.legal-callout__label),
+  .legal-contact p:not(.legal-contact__eyebrow) {
+    margin: 0;
+  }
+
+  .legal-callout p + p {
+    margin-top: 10px;
+  }
+
+  .legal-table-wrap {
+    width: 100%;
+    margin: clamp(26px, 4vw, 40px) 0;
+    overflow-x: auto;
+    border-top: 1px solid rgb(49 87 59 / .16);
+    border-bottom: 1px solid rgb(49 87 59 / .16);
+  }
+
+  .legal-table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    color: rgb(31 43 36 / .78);
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    font-size: .88rem;
+    line-height: 1.55;
+  }
+
+  .legal-table caption {
+    padding: 13px 0;
+    color: rgb(49 87 59 / .68);
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .legal-table th,
+  .legal-table td {
+    padding: 14px 16px 14px 0;
+    border-top: 1px solid rgb(49 87 59 / .11);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .legal-table th {
+    color: rgb(31 43 36 / .88);
+    font-size: .78rem;
+    font-weight: 700;
+  }
+
+  .legal-contact {
+    margin-top: clamp(30px, 5vw, 48px);
+    padding-top: clamp(22px, 3vw, 30px);
+    border-top: 1px solid rgb(49 87 59 / .16);
+  }
+
+  .legal-contact > a {
+    display: inline-block;
+    margin-top: 13px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: .83rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+
+  .legal-divider {
+    width: 100%;
+    height: 1px;
+    margin: clamp(28px, 4vw, 42px) 0;
+    border: 0;
+    background: rgb(49 87 59 / .15);
+  }
+
+  @media (max-width: 620px) {
+    .legal-copy,
+    .legal-list,
+    .legal-callout p,
+    .legal-contact p {
+      font-size: .92rem;
+      line-height: 1.72;
+    }
+
+    .legal-callout {
+      margin-block: 24px;
+      padding: 18px 17px 19px;
+    }
+
+    .legal-table-wrap {
+      margin-block: 24px;
+    }
+  }
+</style>
