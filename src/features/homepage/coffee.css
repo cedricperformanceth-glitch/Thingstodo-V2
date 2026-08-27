@@ -18,8 +18,8 @@
 .atlas-stage::before {
   z-index: 11;
   background-image: url('/assets/GSAP/tasse%20sans%20fumee.webp');
-  opacity: 0.92;
-  filter: brightness(0.77) saturate(0.74) contrast(1.05) drop-shadow(0 7px 6px rgb(0 0 0 / 0.22));
+  opacity: 0.91;
+  filter: brightness(0.75) saturate(0.72) contrast(1.1) drop-shadow(0 7px 6px rgb(0 0 0 / 0.23));
   transition: filter 320ms ease, opacity 320ms ease;
 }
 
@@ -33,8 +33,8 @@
 }
 
 .atlas-home[data-lamp='on'] .atlas-stage::before {
-  opacity: 0.94;
-  filter: brightness(0.86) saturate(0.82) contrast(1.1) drop-shadow(0 7px 7px rgb(0 0 0 / 0.26));
+  opacity: 0.93;
+  filter: brightness(0.84) saturate(0.8) contrast(1.15) drop-shadow(0 7px 7px rgb(0 0 0 / 0.27));
 }
 
 .atlas-home[data-lamp='on'] .atlas-stage::after {
