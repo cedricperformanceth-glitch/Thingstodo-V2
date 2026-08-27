@@ -3,6 +3,11 @@ import type { AtlasEntity } from '../../core/models/types';
 export const MY_ATLAS_STORAGE_KEY = 'thingsToDoAtlas.makeYourOwnAtlas.v1';
 export const MY_ATLAS_EVENT = 'atlas:my-atlas-changed';
 
+export interface TripCardImage {
+  src: string;
+  alt: string;
+}
+
 export interface TripEntry {
   id: string;
   slug: string;
@@ -14,6 +19,7 @@ export interface TripEntry {
   kind: 'place' | 'thing-to-do';
   sourcePath: string;
   savedAt: string;
+  cardImage?: TripCardImage;
 }
 
 export interface TripStore {
@@ -25,6 +31,16 @@ export const tripKey = (entry: Pick<TripEntry, 'id' | 'country' | 'city'>) => `$
 const emptyStore = (): TripStore => ({ entries: [] });
 
 const isBrowser = () => typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+
+const normalizeCardImage = (value: unknown): TripCardImage | undefined => {
+  if (!value || typeof value !== 'object') return undefined;
+  const image = value as Partial<TripCardImage>;
+  if (typeof image.src !== 'string' || !image.src.trim()) return undefined;
+  return {
+    src: image.src,
+    alt: typeof image.alt === 'string' ? image.alt : '',
+  };
+};
 
 const normalizeEntry = (value: Partial<TripEntry>): TripEntry | null => {
   if (!value.id || !value.name || !value.country || !value.city) return null;
@@ -39,6 +55,7 @@ const normalizeEntry = (value: Partial<TripEntry>): TripEntry | null => {
     kind: value.kind === 'thing-to-do' ? 'thing-to-do' : 'place',
     sourcePath: String(value.sourcePath ?? ''),
     savedAt: String(value.savedAt ?? new Date().toISOString()),
+    cardImage: normalizeCardImage(value.cardImage),
   };
 };
 
@@ -66,6 +83,16 @@ const writeTripStore = (store: TripStore) => {
 const entityKind = (entity: AtlasEntity): TripEntry['kind'] =>
   'isLandmark' in entity ? 'thing-to-do' : 'place';
 
+const entityCardImage = (entity: AtlasEntity): TripCardImage | undefined => {
+  const source = entity as AtlasEntity & { cardImage?: TripCardImage };
+  const direct = normalizeCardImage(source.cardImage);
+  if (direct) return direct;
+
+  const image = ('image' in source ? source.image : undefined) ?? source.media?.card?.image;
+  if (!image?.src) return undefined;
+  return { src: image.src, alt: image.alt ?? '' };
+};
+
 export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
   const store = readTripStore();
   if (store.entries.some((entry) => tripKey(entry) === tripKey(entity))) return store;
@@ -81,6 +108,7 @@ export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
     kind: entityKind(entity),
     sourcePath,
     savedAt: new Date().toISOString(),
+    cardImage: entityCardImage(entity),
   });
   writeTripStore(store);
   return store;
