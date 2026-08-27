@@ -3,6 +3,7 @@ import BaseLayout from '../../../components/layout/BaseLayout.astro';
 import AtlasRoutePage from '../../../components/atlas-route/AtlasRoutePage.astro';
 import { getAtlasRouteContent } from '../../../content/atlas-route-content';
 import { getAtlasRouteEditorialContent } from '../../../content/atlas-route-editorial';
+import { applyAtlasRouteMediaPolicy } from '../../../content/atlas-route-media-policy';
 import { getAllFinalCtaRoutes } from '../../../content/final-cta-routes';
 
 export function getStaticPaths() {
@@ -14,7 +15,8 @@ export function getStaticPaths() {
 
 const { route } = Astro.props;
 const editorialRouteContent = getAtlasRouteEditorialContent(route.country, route.slug);
-const routeContent = editorialRouteContent ?? getAtlasRouteContent(route.country, route.slug);
+const rawRouteContent = editorialRouteContent ?? getAtlasRouteContent(route.country, route.slug);
+const routeContent = rawRouteContent ? applyAtlasRouteMediaPolicy(rawRouteContent) : undefined;
 
 const seo = {
   title: editorialRouteContent
