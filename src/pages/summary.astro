@@ -10,8 +10,21 @@ const seo = {
 ---
 <BaseLayout seo={seo}>
   <section class="summary-shell">
-    <p>PERSONAL ATLAS</p>
-    <h1>Trip Summary</h1>
+    <div class="summary-hero">
+      <div class="summary-heading">
+        <p>PERSONAL ATLAS</p>
+        <h1>Trip Summary</h1>
+      </div>
+
+      <img
+        class="summary-clipboard"
+        src="/assets/shared/summary/clipboard-trip-summary.svg"
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+      />
+    </div>
+
     <div class="summary-sections" aria-label="Future trip summary sections">
       <article><h2>My Favorites</h2></article>
       <article><h2>Make Your Own Atlas</h2></article>
@@ -28,7 +41,19 @@ const seo = {
     padding: 9rem 0 5rem;
   }
 
-  .summary-shell > p {
+  .summary-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    margin-bottom: 2.75rem;
+  }
+
+  .summary-heading {
+    min-width: 0;
+  }
+
+  .summary-heading > p {
     margin: 0 0 .6rem;
     color: var(--accent, #315545);
     font-size: .68rem;
@@ -36,7 +61,19 @@ const seo = {
     letter-spacing: .15em;
   }
 
-  h1 { margin: 0 0 3rem; }
+  h1 {
+    margin: 0;
+  }
+
+  .summary-clipboard {
+    display: block;
+    width: clamp(10.5rem, 18vw, 13rem);
+    height: auto;
+    flex: 0 0 auto;
+    transform: rotate(2.5deg);
+    transform-origin: 50% 50%;
+    filter: drop-shadow(0 12px 14px rgba(31, 43, 36, .14));
+  }
 
   .summary-sections {
     display: grid;
@@ -53,6 +90,31 @@ const seo = {
   h2 { margin: 0; font-size: 1rem; }
 
   @media (max-width: 700px) {
+    .summary-shell {
+      padding-top: 7.5rem;
+    }
+
+    .summary-hero {
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-clipboard {
+      width: clamp(7rem, 28vw, 8.75rem);
+      transform: rotate(2deg);
+    }
+
     .summary-sections { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 430px) {
+    .summary-hero {
+      align-items: center;
+    }
+
+    .summary-clipboard {
+      width: 6.75rem;
+    }
   }
 </style>
