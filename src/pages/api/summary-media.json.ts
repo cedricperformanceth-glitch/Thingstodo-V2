@@ -5,27 +5,29 @@ import { things } from '../../content/registry/things-to-do';
 
 export const prerender = true;
 
-const imageFor = (entity: AtlasEntity) => {
+type SummaryMedia = { src: string; alt: string };
+
+const imageFor = (entity: AtlasEntity): SummaryMedia | undefined => {
   const direct = 'image' in entity ? entity.image : undefined;
-  return direct ?? entity.media.card?.image;
+  const image = direct ?? entity.media.card?.image;
+  if (!image?.src) return undefined;
+  return { src: image.src, alt: image.alt ?? '' };
 };
 
-const mediaIndex = Object.fromEntries(
-  [...places, ...things]
-    .map((entity) => {
-      const image = imageFor(entity);
-      if (!image?.src) return null;
-      return [
-        `${entity.country}:${entity.city}:${entity.id}`,
-        { src: image.src, alt: image.alt ?? '' },
-      ] as const;
-    })
-    .filter((entry): entry is readonly [string, { src: string; alt: string }] => Boolean(entry)),
-);
+const mediaIndex: Record<string, SummaryMedia> = {};
+
+for (const entity of [...places, ...things]) {
+  const image = imageFor(entity);
+  if (!image) continue;
+
+  mediaIndex[`${entity.country}:${entity.city}:${entity.id}`] = image;
+  mediaIndex[`id:${entity.id}`] = image;
+  mediaIndex[`slug:${entity.slug}`] = image;
+}
 
 export const GET: APIRoute = () => new Response(JSON.stringify(mediaIndex), {
   headers: {
     'Content-Type': 'application/json; charset=utf-8',
-    'Cache-Control': 'public, max-age=3600',
+    'Cache-Control': 'public, max-age=300',
   },
 });
