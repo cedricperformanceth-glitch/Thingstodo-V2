@@ -1,48 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" role="img" aria-labelledby="title desc">
-  <title id="title">Travel clipboard</title>
-  <desc id="desc">A rigid travel clipboard with a brass clip, paper notes, checklist marks and a hand-drawn route.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" preserveAspectRatio="none" role="img" aria-labelledby="title desc">
+  <title id="title">Large Atlas clipboard frame</title>
+  <desc id="desc">A large dark green travel clipboard holding a warm paper sheet, designed as the frame for the Trip Summary interface.</desc>
+  <defs>
+    <filter id="boardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#16231d" flood-opacity=".22"/>
+    </filter>
+    <filter id="paperShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#16231d" flood-opacity=".12"/>
+    </filter>
+  </defs>
 
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- board -->
-    <path d="M51 48C51 36 60 27 72 27H288C300 27 309 36 309 48V393C309 405 300 414 288 414H72C60 414 51 405 51 393V48Z" fill="#2f4a3f" stroke="#23372f" stroke-width="4"/>
-    <path d="M61 55C61 45 68 38 78 38H282C292 38 299 45 299 55V387C299 397 292 404 282 404H78C68 404 61 397 61 387V55Z" stroke="#597066" stroke-width="1.6" opacity=".55"/>
+    <rect x="22" y="28" width="1156" height="944" rx="48" fill="#2f4a3f" stroke="#20352c" stroke-width="6" filter="url(#boardShadow)"/>
+    <rect x="40" y="46" width="1120" height="908" rx="38" stroke="#64796f" stroke-width="2" opacity=".62"/>
+    <path d="M73 80C205 60 321 64 420 74" stroke="#7c9187" stroke-width="2" opacity=".32"/>
+    <path d="M1127 914C1012 935 895 934 797 926" stroke="#172a22" stroke-width="2" opacity=".35"/>
 
-    <!-- paper -->
-    <path d="M79 80C79 72 85 66 93 66H267C275 66 281 72 281 80V370C281 378 275 384 267 384H93C85 384 79 378 79 370V80Z" fill="#f3ede0" stroke="#d6cdbd" stroke-width="2"/>
-    <path d="M93 88H267" stroke="#d8cfc0" stroke-width="1.2"/>
+    <rect x="72" y="72" width="1056" height="856" rx="27" fill="#f3ede0" stroke="#d1c6b4" stroke-width="3" filter="url(#paperShadow)"/>
+    <rect x="88" y="88" width="1024" height="824" rx="20" stroke="#ded5c5" stroke-width="1.5" opacity=".72"/>
 
-    <!-- top clip -->
-    <path d="M132 44V34C132 24 140 16 150 16H210C220 16 228 24 228 34V44" stroke="#725f45" stroke-width="5"/>
-    <rect x="121" y="36" width="118" height="57" rx="14" fill="#ad9169" stroke="#725f45" stroke-width="3"/>
-    <path d="M143 54H217" stroke="#d4bea0" stroke-width="3" opacity=".8"/>
-    <rect x="153" y="27" width="54" height="27" rx="10" fill="#c5aa82" stroke="#725f45" stroke-width="3"/>
-    <circle cx="180" cy="40" r="5" fill="#725f45" stroke="none"/>
-
-    <!-- hand-drawn title marks -->
-    <path d="M107 119C127 114 152 114 171 117" stroke="#315f83" stroke-width="3"/>
-    <path d="M107 127C142 125 174 126 199 129" stroke="#315f83" stroke-width="2" opacity=".55"/>
-
-    <!-- checklist -->
-    <rect x="106" y="157" width="17" height="17" rx="3" stroke="#315545" stroke-width="2"/>
-    <path d="M110 165L115 170L125 157" stroke="#315545" stroke-width="3"/>
-    <path d="M139 164C165 162 192 162 224 164" stroke="#6f766f" stroke-width="2" opacity=".7"/>
-
-    <rect x="106" y="194" width="17" height="17" rx="3" stroke="#315545" stroke-width="2"/>
-    <path d="M110 202L115 207L125 194" stroke="#315545" stroke-width="3"/>
-    <path d="M139 201C172 199 209 200 250 203" stroke="#6f766f" stroke-width="2" opacity=".7"/>
-
-    <rect x="106" y="231" width="17" height="17" rx="3" stroke="#315545" stroke-width="2"/>
-    <path d="M139 238C161 236 183 237 207 240" stroke="#6f766f" stroke-width="2" opacity=".7"/>
-
-    <!-- travel route -->
-    <path d="M112 311C126 283 153 278 169 296C186 315 195 338 218 325C237 314 235 287 252 280" stroke="#315f83" stroke-width="3" stroke-dasharray="5 8"/>
-    <circle cx="112" cy="311" r="7" fill="#9e5f53" stroke="#f3ede0" stroke-width="3"/>
-    <circle cx="252" cy="280" r="7" fill="#315545" stroke="#f3ede0" stroke-width="3"/>
-    <path d="M243 275L253 280L246 289" stroke="#315545" stroke-width="2.6"/>
-
-    <!-- pencil annotations -->
-    <path d="M102 341C130 346 154 345 177 341" stroke="#9e5f53" stroke-width="2.4"/>
-    <path d="M102 348C127 352 153 351 184 346" stroke="#9e5f53" stroke-width="1.4" opacity=".55"/>
-    <path d="M221 350C230 340 244 338 254 346C261 352 258 361 248 365C236 369 221 362 218 354C215 348 220 343 226 341" stroke="#315f83" stroke-width="2" opacity=".75"/>
+    <path d="M101 152C204 146 296 148 385 153" stroke="#315f83" stroke-width="3" opacity=".22"/>
+    <path d="M818 867C886 855 954 858 1032 870" stroke="#9e5f53" stroke-width="3" opacity=".20"/>
+    <path d="M1014 131C1036 119 1060 124 1071 141C1082 157 1070 175 1048 176C1028 177 1011 162 1016 147C1019 137 1030 132 1040 133" stroke="#315545" stroke-width="2.5" opacity=".20"/>
   </g>
 </svg>
