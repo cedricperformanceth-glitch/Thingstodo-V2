@@ -88,7 +88,5 @@ export const HOME_SCENE_ASSETS = {
   backgroundOff: gsapAsset('Desk light off.webp'),
   neutralShelf: gsapAsset('tranche neutre.webp'),
   neutralDesk: gsapAsset('Carnet neutre.webp'),
-  globeAsia: gsapAsset('Globe Asie.webp'),
-  globeEurope: gsapAsset('Globe Europe.webp'),
   lampPull: gsapAsset('Languette.webp'),
 } as const;

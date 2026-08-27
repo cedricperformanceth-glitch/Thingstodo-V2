@@ -94,8 +94,6 @@ export const initAtlasHomepage = (): void => {
   const opening1 = $<HTMLImageElement>(root, '[data-desk-opening-1]');
   const opening2 = $<HTMLImageElement>(root, '[data-desk-opening-2]');
   const open = $<HTMLImageElement>(root, '[data-desk-open]');
-  const globeAsia = $<HTMLImageElement>(root, '[data-globe-asia]');
-  const globeEurope = $<HTMLImageElement>(root, '[data-globe-europe]');
 
   const triggers = new Map<HomeCountrySlug, HTMLButtonElement>();
   root.querySelectorAll<HTMLButtonElement>('[data-country-trigger]').forEach((button) => {
@@ -108,7 +106,6 @@ export const initAtlasHomepage = (): void => {
   let lampOn = false;
   let bookTl: Timeline | null = null;
   let lampTl: Timeline | null = null;
-  let globeTl: Timeline | null = null;
   let activeClosed = 0;
   let visibleDesk: HTMLImageElement = neutral;
 
@@ -179,34 +176,6 @@ export const initAtlasHomepage = (): void => {
     gsap.set(neutral, { opacity: 0, visibility: 'hidden', clearProps: 'transform' });
     gsap.set(layer, { opacity: 1, visibility: 'visible', clearProps: 'transform' });
     visibleDesk = layer;
-  };
-
-  const resetGlobe = (): void => {
-    gsap.set(globeAsia, { opacity: 1 });
-    gsap.set(globeEurope, { opacity: 0, clearProps: 'transform,filter' });
-  };
-
-  const globeCue = (): void => {
-    globeTl?.kill();
-    resetGlobe();
-    globeTl = gsap.timeline({
-      onComplete: () => {
-        resetGlobe();
-        globeTl = null;
-      },
-    })
-      .fromTo(
-        globeEurope,
-        { opacity: 0, xPercent: 8, scaleX: 0.82, filter: 'blur(0.75px)' },
-        { opacity: 0.92, xPercent: 0, scaleX: 1, filter: 'blur(0.08px)', duration: 0.52, ease: 'power2.out' },
-        0.04,
-      )
-      .to(globeEurope, { opacity: 0.92, duration: 0.18, ease: 'sine.inOut' }, 0.52)
-      .to(
-        globeEurope,
-        { opacity: 0, xPercent: -8, scaleX: 0.82, filter: 'blur(0.75px)', duration: 0.52, ease: 'sine.inOut' },
-        0.70,
-      );
   };
 
   const clearShelf = (slug: HomeCountrySlug): void => {
@@ -342,7 +311,6 @@ export const initAtlasHomepage = (): void => {
 
   const selectCountry = (slug: HomeCountrySlug): void => {
     if (!isReady() || isBusy() || selected === slug) return;
-    globeCue();
     const c = country(slug);
     if (selected) switchTo(c);
     else selectFirst(c);
@@ -485,7 +453,6 @@ export const initAtlasHomepage = (): void => {
   void preload().then(() => requestAnimationFrame(() => {
     gsap.set(bgOn, { opacity: 0 });
     gsap.set(bgOff, { opacity: 1 });
-    resetGlobe();
     resetDesk();
     root.dataset.ready = 'true';
     root.setAttribute('aria-busy', 'false');

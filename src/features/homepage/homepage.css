@@ -256,67 +256,6 @@ main.main--immersive.main--immersive-scroll {
   filter: drop-shadow(0 14px 14px rgb(0 0 0 / 0.34));
 }
 
-.atlas-globe {
-  position: absolute;
-  left: calc(87% - 23px);
-  top: 64.4%;
-  width: 11.2%;
-  aspect-ratio: 5 / 6;
-  z-index: 6;
-  opacity: 0.9;
-  transform: translate(-50%, -100%);
-  transform-origin: 50% 100%;
-  pointer-events: none;
-  filter:
-    brightness(0.78)
-    saturate(0.72)
-    contrast(0.9)
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.18));
-  transition: filter 320ms ease;
-}
-
-.atlas-home[data-lamp='on'] .atlas-globe {
-  filter:
-    brightness(0.93)
-    saturate(0.84)
-    contrast(0.96)
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.18));
-}
-
-.atlas-globe__state {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  transform: translateX(-50%);
-}
-
-.atlas-globe__sphere-window {
-  position: absolute;
-  left: 50%;
-  top: 34%;
-  width: 55%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.atlas-globe__sphere-window .atlas-globe__state--alternate {
-  position: absolute;
-  left: -40.909%;
-  top: -24.182%;
-  bottom: auto;
-  width: 181.818%;
-  height: auto;
-  max-width: none;
-  opacity: 0;
-  transform: none;
-  transform-origin: 50% 34%;
-}
-
 .atlas-lamp-pull {
   position: absolute;
   left: 89.5%;
@@ -908,7 +847,6 @@ main.main--immersive.main--immersive-scroll {
 @media (prefers-reduced-motion: reduce) {
   .atlas-tableau,
   .atlas-shelf,
-  .atlas-globe,
   .atlas-desk-book,
   .atlas-lamp-pull::before,
   .atlas-lamp-pull::after,
