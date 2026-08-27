@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 112" role="img" aria-labelledby="title desc">
+  <title id="title">Wide brass clipboard clip</title>
+  <desc id="desc">A wide brass clipboard clamp with the original proportions and subtle raised metal relief.</desc>
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c3a67d"/>
+      <stop offset="0.5" stop-color="#ad9169"/>
+      <stop offset="1" stop-color="#927650"/>
+    </linearGradient>
+    <linearGradient id="spring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d5bc94"/>
+      <stop offset="1" stop-color="#b4966d"/>
+    </linearGradient>
+    <filter id="metalShadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#2c251b" flood-opacity=".24"/>
+    </filter>
+  </defs>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#metalShadow)">
+    <path d="M301 34V24C301 13 310 5 321 5H399C410 5 419 13 419 24V34" stroke="#725f45" stroke-width="6"/>
+
+    <rect x="42" y="29" width="636" height="76" rx="18" fill="url(#plate)" stroke="#725f45" stroke-width="4"/>
+    <path d="M63 51H657" stroke="#dfc9a8" stroke-width="4" opacity=".78"/>
+    <path d="M68 55H652" stroke="#8c714e" stroke-width="1.5" opacity=".28"/>
+    <path d="M65 84C221 77 499 77 655 84" stroke="#725f45" stroke-width="3" opacity=".48"/>
+    <path d="M72 93C224 88 496 88 648 93" stroke="#e0c9a6" stroke-width="1.5" opacity=".27"/>
+
+    <rect x="321" y="13" width="78" height="36" rx="12" fill="url(#spring)" stroke="#725f45" stroke-width="4"/>
+    <path d="M334 20H386" stroke="#e8d4b4" stroke-width="2.5" opacity=".58"/>
+    <circle cx="360" cy="31" r="7" fill="#725f45" stroke="none"/>
+    <circle cx="360" cy="29.5" r="2" fill="#d9c09a" stroke="none" opacity=".7"/>
+  </g>
+</svg>
