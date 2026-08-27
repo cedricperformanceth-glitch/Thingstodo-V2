@@ -84,8 +84,8 @@ export const NEUTRAL_SHELF = {
 } as const;
 
 export const HOME_SCENE_ASSETS = {
-  backgroundOn: gsapAsset('Desk light on.webp'),
-  backgroundOff: gsapAsset('Desk light off.webp'),
+  backgroundOn: gsapAsset('desk on.webp'),
+  backgroundOff: gsapAsset('desk off.webp'),
   neutralShelf: gsapAsset('tranche neutre.webp'),
   neutralDesk: gsapAsset('Carnet neutre.webp'),
   lampPull: gsapAsset('Languette.webp'),
