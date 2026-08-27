@@ -120,8 +120,8 @@ const routes = getFinalCtaRoutes(country);
 
   .final-cta__canvas {
     position: relative;
-    min-height: clamp(28rem, 39vw, 31rem);
-    padding: clamp(2.75rem, 5vw, 4rem) 0 clamp(2.5rem, 4vw, 3.25rem);
+    min-height: clamp(27.25rem, 38vw, 30rem);
+    padding: clamp(2.75rem, 5vw, 4rem) 0 clamp(2.35rem, 3.8vw, 3rem);
   }
 
   .final-cta__logo {
@@ -166,17 +166,17 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .final-cta__note--explore {
-    top: 9%;
-    left: 69%;
+    top: 5.5%;
+    left: 2.5%;
     width: clamp(8.1rem, 12.75vw, 10.6rem);
-    transform: rotate(-8deg);
+    transform: rotate(-10deg);
   }
 
   .final-cta__note--yours {
-    top: 5.5%;
-    left: 2.5%;
+    top: 9%;
+    left: 69%;
     width: clamp(9.45rem, 14.4vw, 11.7rem);
-    transform: rotate(-10deg);
+    transform: rotate(-8deg);
   }
 
   .final-cta__actions {
@@ -412,8 +412,8 @@ const routes = getFinalCtaRoutes(country);
 
   @media (max-width: 760px) {
     .final-cta__canvas {
-      min-height: 41rem;
-      padding: 2.75rem 0 3.25rem;
+      min-height: 40rem;
+      padding: 2.75rem 0 3rem;
     }
 
     .final-cta__logo {
@@ -435,17 +435,17 @@ const routes = getFinalCtaRoutes(country);
     }
 
     .final-cta__note--yours {
-      top: 2.5%;
-      left: 1.5%;
+      top: 54.5%;
+      left: 50%;
       width: 9rem;
-      transform: rotate(-10deg);
+      transform: translateX(-50%) rotate(-8deg);
     }
 
     .final-cta__note--explore {
-      top: 54.5%;
-      left: 50%;
+      top: 2.5%;
+      left: 1.5%;
       width: 8.1rem;
-      transform: translateX(-50%) rotate(-8deg);
+      transform: rotate(-10deg);
     }
 
     .atlas-route-selector {
@@ -470,8 +470,8 @@ const routes = getFinalCtaRoutes(country);
 
   @media (max-width: 520px) {
     .final-cta__canvas {
-      min-height: 39rem;
-      padding: 2.5rem 0 3rem;
+      min-height: 38rem;
+      padding: 2.5rem 0 2.8rem;
     }
 
     .atlas-summary-link {
@@ -480,12 +480,12 @@ const routes = getFinalCtaRoutes(country);
     }
 
     .final-cta__note--yours {
-      top: 2%;
+      top: 53.5%;
       width: 8.5rem;
     }
 
     .final-cta__note--explore {
-      top: 53.5%;
+      top: 2%;
       width: 7.7rem;
     }
 
