@@ -15,6 +15,7 @@ interface Props {
   scrollableImmersive?: boolean;
   showSiteChrome?: boolean;
   showNavbar?: boolean;
+  showFooter?: boolean;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   scrollableImmersive = false,
   showSiteChrome = !immersive,
   showNavbar = showSiteChrome,
+  showFooter = showSiteChrome,
 } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
 ---
@@ -67,7 +69,7 @@ const meta = pageSeo(seo, breadcrumbs);
         'main--immersive-scroll': immersive && scrollableImmersive,
       }}
     ><slot /></main>
-    {showSiteChrome && <SiteFooter />}
+    {showFooter && <SiteFooter />}
     {showSiteChrome && <MakeYourOwnAtlas />}
     <script>
       import '../../features/trip/client';
