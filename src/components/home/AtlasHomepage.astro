@@ -133,15 +133,44 @@ import {
 <section class="atlas-country-feature" aria-labelledby="atlas-country-feature-title">
   <div class="atlas-country-feature__inner">
     <div class="atlas-country-feature__palm atlas-country-feature__palm--left" aria-hidden="true">
-      <img src="/assets/home/laos-palm-left.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async" />
+      <img
+        class="atlas-country-feature__masked-photo"
+        src="/assets/cities/laos/vang-vieng/hero/photos/vang-vieng-hero-photo.webp"
+        alt=""
+        width="1024"
+        height="1536"
+        loading="lazy"
+        decoding="async"
+        style="--shape-mask: url('/assets/home/laos-palm-left.webp'); --photo-position: 50% 50%;"
+      />
     </div>
 
     <div class="atlas-country-feature__content">
       <p class="atlas-country-feature__eyebrow"><span>01</span> The Laos chapter</p>
       <div class="atlas-country-feature__title-row">
-        <img class="atlas-country-feature__water-drop" src="/assets/home/laos-water-drop.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async" aria-hidden="true" />
+        <img
+          class="atlas-country-feature__water-drop atlas-country-feature__masked-photo"
+          src="/assets/cities/laos/tad-lo/hero/photos/tad-lo-hero-photo.webp"
+          alt=""
+          width="1024"
+          height="1536"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+          style="--shape-mask: url('/assets/home/laos-water-drop.webp'); --photo-position: 50% 48%;"
+        />
         <h1 id="atlas-country-feature-title">Explore Laos</h1>
-        <img class="atlas-country-feature__water-drop atlas-country-feature__water-drop--right" src="/assets/home/laos-water-drop.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async" aria-hidden="true" />
+        <img
+          class="atlas-country-feature__water-drop atlas-country-feature__water-drop--right atlas-country-feature__masked-photo"
+          src="/assets/cities/laos/luang-prabang/hero/photos/luang-prabang-hero-photo.webp"
+          alt=""
+          width="1024"
+          height="1536"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+          style="--shape-mask: url('/assets/home/laos-water-drop.webp'); --photo-position: 50% 46%;"
+        />
       </div>
       <p class="atlas-country-feature__lede">
         Follow the Mekong through temple towns, limestone caves, turquoise pools and the deep green south.
@@ -155,10 +184,35 @@ import {
     </div>
 
     <div class="atlas-country-feature__palm atlas-country-feature__palm--right" aria-hidden="true">
-      <img src="/assets/home/laos-palm-right.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async" />
+      <img
+        class="atlas-country-feature__masked-photo"
+        src="/assets/cities/laos/pakse/hero/photos/pakse-hero-photo.webp"
+        alt=""
+        width="1024"
+        height="1536"
+        loading="lazy"
+        decoding="async"
+        style="--shape-mask: url('/assets/home/laos-palm-right.webp'); --photo-position: 50% 50%;"
+      />
     </div>
   </div>
 </section>
+
+<style>
+  .atlas-country-feature__masked-photo {
+    aspect-ratio: 2 / 3;
+    object-fit: cover !important;
+    object-position: var(--photo-position, 50% 50%);
+    -webkit-mask-image: var(--shape-mask);
+    mask-image: var(--shape-mask);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+</style>
 
 <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script>
