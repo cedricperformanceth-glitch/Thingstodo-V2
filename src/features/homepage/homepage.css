@@ -149,7 +149,7 @@ main.main--immersive.main--immersive-scroll {
   content: 'Organize your adventure.\A Spend less time planning. Explore more.';
   font-size: 27px;
   opacity: 0.88;
-  transform: rotate(24deg);
+  transform: rotate(10deg);
 }
 
 .atlas-home[data-lamp='on'] .atlas-background::before,
