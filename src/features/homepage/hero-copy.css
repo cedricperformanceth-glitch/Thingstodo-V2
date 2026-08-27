@@ -17,8 +17,8 @@
     opacity 320ms ease;
 }
 
-.atlas-hero-copy h1,
-.atlas-hero-copy h2 {
+.atlas-hero-copy__title,
+.atlas-hero-copy__subtitle {
   margin: 0;
   font-family: inherit;
   font-style: normal;
@@ -26,7 +26,7 @@
   text-shadow: 0 1px 1px rgb(255 236 203 / 0.15);
 }
 
-.atlas-hero-copy h1 {
+.atlas-hero-copy__title {
   font-size: 47px;
   font-weight: 600;
   line-height: 0.98;
@@ -34,7 +34,7 @@
   transform: rotate(-1.2deg);
 }
 
-.atlas-hero-copy h2 {
+.atlas-hero-copy__subtitle {
   margin-top: 12px;
   font-size: 22px;
   font-weight: 500;
