@@ -32,21 +32,6 @@ const { route } = Astro.props;
     padding-bottom: clamp(4rem, 8vw, 7rem);
   }
 
-  .atlas-route-page__journey {
-    position: relative;
-  }
-
-  .atlas-route-page__journey::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 4rem;
-    left: 64px;
-    width: 1px;
-    background: linear-gradient(#d7cdbb, rgba(215, 205, 187, 0));
-    pointer-events: none;
-  }
-
   .atlas-route-page__closing {
     width: min(760px, 100%);
     margin: 0 auto;
@@ -87,12 +72,6 @@ const { route } = Astro.props;
     font-size: 1.3rem;
     text-decoration-thickness: 1px;
     text-underline-offset: .2em;
-  }
-
-  @media (max-width: 780px) {
-    .atlas-route-page__journey::before {
-      display: none;
-    }
   }
 
   @media (max-width: 520px) {
