@@ -1,6 +1,14 @@
 ---
 import type { AtlasEntity } from '../../core/models/types';
-interface Props { entity: AtlasEntity; }
-const { entity } = Astro.props;
+
+interface Props {
+  entity: AtlasEntity;
+  cardImage?: { src: string; alt: string };
+}
+
+const { entity, cardImage } = Astro.props;
+const tripEntity = cardImage
+  ? { ...entity, cardImage: { src: cardImage.src, alt: cardImage.alt } }
+  : entity;
 ---
-<button class="button button--quiet" type="button" data-trip data-entity={JSON.stringify(entity)}>Add to My Atlas</button>
+<button class="button button--quiet" type="button" data-trip data-entity={JSON.stringify(tripEntity)}>Add to My Atlas</button>
