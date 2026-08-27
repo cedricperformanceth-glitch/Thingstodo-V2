@@ -16,6 +16,8 @@ const ADVENTURE_ROUTES = [
   '/laos/atlas-routes/south-to-north',
 ] as const;
 
+let atlasMediaIndex = new Map<string, TripCardImage>();
+
 type SummaryTab = 'atlas' | 'favorites' | 'adventure';
 
 const escapeHtml = (value = '') => value.replace(/[&<>'"]/g, (character) => ({
@@ -52,7 +54,7 @@ const cardMedia = (image?: TripCardImage | FavoriteSnapshot['cardImage']) => ima
   ? `<div class="summary-card__media"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" width="640" height="400"></div>`
   : `<div class="summary-card__media summary-card__media--empty" aria-hidden="true"><span>Atlas</span></div>`;
 
-const atlasCard = (entry: TripEntry, index: number, fallbackImage?: FavoriteSnapshot['cardImage']) => `
+const atlasCard = (entry: TripEntry, index: number, fallbackImage?: TripCardImage | FavoriteSnapshot['cardImage']) => `
   <article class="summary-card summary-card--favorite summary-card--atlas-photo">
     ${cardMedia(entry.cardImage ?? fallbackImage)}
     <div class="summary-card__favorite-body">
@@ -134,7 +136,10 @@ const initSummary = () => {
     );
     atlasCount.textContent = `${entries.length} ${entries.length === 1 ? 'saved card' : 'saved cards'}`;
     atlasGrid.innerHTML = entries.length
-      ? entries.map((entry, index) => atlasCard(entry, index, favoriteImages.get(tripKey(entry)))).join('')
+      ? entries.map((entry, index) => {
+          const key = tripKey(entry);
+          return atlasCard(entry, index, favoriteImages.get(key) ?? atlasMediaIndex.get(key));
+        }).join('')
       : emptyState('Your atlas is waiting for its first card.', 'Add places and experiences while exploring the site. Everything you save to My Atlas will appear here.');
   };
 
@@ -150,6 +155,20 @@ const initSummary = () => {
   const renderAll = () => {
     renderAtlas();
     renderFavorites();
+  };
+
+  const loadAtlasMedia = async () => {
+    try {
+      const response = await fetch('/api/summary-media.json');
+      if (!response.ok) return;
+      const payload = await response.json() as Record<string, TripCardImage>;
+      atlasMediaIndex = new Map(
+        Object.entries(payload).filter(([, image]) => Boolean(image?.src)),
+      );
+      renderAtlas();
+    } catch {
+      // Keep saved/favorite image fallbacks if the compact media index cannot be loaded.
+    }
   };
 
   adventureRoutes.forEach((route, index) => {
@@ -225,6 +244,7 @@ const initSummary = () => {
   window.addEventListener('hashchange', () => activateTab(tabFromHash(), false));
 
   renderAll();
+  void loadAtlasMedia();
   activateTab(tabFromHash(), false);
 };
 
