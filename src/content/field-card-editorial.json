@@ -5852,26 +5852,22 @@
         "locked": true
       },
       {
-        "id": "tad-lo-waterfall-visit-tad-lo",
-        "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/waterfalls/207aa6ff-5a00-4300-8a4c-f86a1bec032f-Tad-Lo.jpg",
-        "alt": "Current Visit Tad Lo view of Tad Lo Waterfall beside the village",
-        "sourceType": "first-party-official",
-        "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall",
-        "sourceName": "Visit Tad Lo",
-        "author": "Visit Tad Lo partner media",
-        "license": "Used with owner permission; attribution and link to Visit Tad Lo required",
+        "id": "tad-lo-waterfall-photo-2",
+        "src": "/assets/cities/laos/tad-lo/things-to-do/tad-lo-waterfall/tad-lo-waterfall-photo-2.webp",
+        "alt": "Wide view of Tad Lo Waterfall and the Xe Set River in southern Laos",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
         "manual": true,
         "locked": true
       },
       {
-        "id": "tad-lo-river-above-basile-morin",
-        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View_of_Tad_Lo_river_from_above%2C_with_temporary_footbridge_and_goats%2C_Laos.jpg?width=1600",
-        "alt": "View from above across the Tad Lo river, temporary footbridge and rocks near the waterfall area",
-        "sourceType": "wikimedia",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg",
-        "sourceName": "Wikimedia Commons",
-        "author": "Basile Morin",
-        "license": "CC BY-SA 4.0",
+        "id": "tad-lo-waterfall-photo-3",
+        "src": "/assets/cities/laos/tad-lo/things-to-do/tad-lo-waterfall/tad-lo-waterfall-photo-3.webp",
+        "alt": "Powerful cascade at Tad Lo Waterfall framed by riverbank foliage",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
         "manual": true,
         "locked": true
       }
@@ -6003,18 +5999,6 @@
         "sourceName": "Wikimedia Commons · Salavan TadLo3 tango7174",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salavan_TadLo3_tango7174.jpg",
         "purpose": "hero-media",
-        "sourceType": "wikimedia"
-      },
-      {
-        "sourceName": "Visit Tad Lo · Tad Lo Waterfall image",
-        "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-waterfall",
-        "purpose": "story-media",
-        "sourceType": "first-party-official"
-      },
-      {
-        "sourceName": "Wikimedia Commons · View of Tad Lo river from above",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tad_Lo_river_from_above,_with_temporary_footbridge_and_goats,_Laos.jpg",
-        "purpose": "secondary-media",
         "sourceType": "wikimedia"
       }
     ],
