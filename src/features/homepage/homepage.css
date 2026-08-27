@@ -544,21 +544,16 @@ main.main--immersive.main--immersive-scroll {
 .atlas-country-feature__water-drop {
   position: absolute;
   top: 50%;
-  left: clamp(-5.5rem, -6vw, -3.2rem);
+  left: clamp(-7.2rem, -8vw, -4.3rem);
   display: block;
-  width: clamp(3.2rem, 5vw, 4.8rem);
+  width: clamp(4.25rem, 6.8vw, 6.5rem);
   height: auto;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  clip-path: polygon(50% 0, 76% 14%, 93% 42%, 94% 64%, 78% 89%, 50% 100%, 22% 89%, 6% 64%, 7% 42%, 24% 14%);
-  opacity: 0.94;
-  transform: translateY(-50%) rotate(-7deg);
+  transform: translateY(-50%);
 }
 
 .atlas-country-feature__water-drop--right {
-  right: clamp(-5.5rem, -6vw, -3.2rem);
+  right: clamp(-7.2rem, -8vw, -4.3rem);
   left: auto;
-  transform: translateY(-50%) rotate(7deg) scaleX(-1);
 }
 
 .atlas-country-feature h1 {
@@ -660,11 +655,12 @@ main.main--immersive.main--immersive-scroll {
   }
 
   .atlas-country-feature__water-drop {
-    left: clamp(-4.4rem, -7vw, -2.8rem);
+    left: clamp(-5.75rem, -9vw, -3.5rem);
+    width: clamp(3.5rem, 8vw, 5.5rem);
   }
 
   .atlas-country-feature__water-drop--right {
-    right: clamp(-4.4rem, -7vw, -2.8rem);
+    right: clamp(-5.75rem, -9vw, -3.5rem);
     left: auto;
   }
 }
@@ -695,12 +691,12 @@ main.main--immersive.main--immersive-scroll {
   }
 
   .atlas-country-feature__water-drop {
-    left: -2.25rem;
-    width: 2.7rem;
+    left: -3rem;
+    width: 3.4rem;
   }
 
   .atlas-country-feature__water-drop--right {
-    right: -2.25rem;
+    right: -3rem;
     left: auto;
   }
 
