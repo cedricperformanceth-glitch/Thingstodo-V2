@@ -19,7 +19,6 @@
     <rect x="72" y="72" width="1056" height="856" rx="27" fill="#f3ede0" stroke="#d1c6b4" stroke-width="3" filter="url(#paperShadow)"/>
     <rect x="88" y="88" width="1024" height="824" rx="20" stroke="#ded5c5" stroke-width="1.5" opacity=".72"/>
 
-    <path d="M101 152C204 146 296 148 385 153" stroke="#315f83" stroke-width="3" opacity=".22"/>
     <path d="M818 867C886 855 954 858 1032 870" stroke="#9e5f53" stroke-width="3" opacity=".20"/>
     <path d="M1014 131C1036 119 1060 124 1071 141C1082 157 1070 175 1048 176C1028 177 1011 162 1016 147C1019 137 1030 132 1040 133" stroke="#315545" stroke-width="2.5" opacity=".20"/>
   </g>
