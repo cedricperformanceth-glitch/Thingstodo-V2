@@ -128,10 +128,10 @@ const routes = getFinalCtaRoutes(country);
     position: absolute;
     z-index: 2;
     left: 25%;
-    top: 19%;
+    top: 18%;
     display: block;
-    width: min(31rem, 43vw);
-    max-width: 47%;
+    width: min(35rem, 47vw);
+    max-width: 50%;
     height: auto;
     transform: translateX(-50%);
   }
@@ -166,17 +166,17 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .final-cta__note--explore {
-    top: 8%;
-    left: 67%;
-    width: clamp(9.5rem, 15vw, 12.5rem);
+    top: 9%;
+    left: 69%;
+    width: clamp(8.1rem, 12.75vw, 10.6rem);
     transform: rotate(-8deg);
   }
 
   .final-cta__note--yours {
-    top: 69%;
-    left: 15.5%;
-    width: clamp(10.5rem, 16vw, 13rem);
-    transform: rotate(-3deg);
+    top: 5.5%;
+    left: 2.5%;
+    width: clamp(9.45rem, 14.4vw, 11.7rem);
+    transform: rotate(-10deg);
   }
 
   .final-cta__actions {
@@ -195,7 +195,7 @@ const routes = getFinalCtaRoutes(country);
   .atlas-summary-link {
     position: absolute;
     left: 25%;
-    top: 56%;
+    top: 57%;
     display: inline-flex;
     align-items: center;
     gap: 2rem;
@@ -246,12 +246,12 @@ const routes = getFinalCtaRoutes(country);
   .atlas-route-selector {
     position: absolute;
     left: 75%;
-    top: 39%;
-    width: min(34rem, 47%);
+    top: 36%;
+    width: min(38rem, 52%);
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    gap: clamp(.7rem, 1.5vw, 1.5rem);
+    gap: clamp(.8rem, 1.7vw, 1.7rem);
     transform: translateX(-50%);
     pointer-events: none;
   }
@@ -260,7 +260,7 @@ const routes = getFinalCtaRoutes(country);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: .4rem;
+    gap: .45rem;
     min-width: 0;
     font-family: 'Caveat', cursive;
     font-weight: 650;
@@ -282,15 +282,15 @@ const routes = getFinalCtaRoutes(country);
 
   .atlas-route__label {
     display: block;
-    font-size: clamp(1.15rem, 1.65vw, 1.55rem);
+    font-size: clamp(1.25rem, 1.85vw, 1.7rem);
     white-space: nowrap;
   }
 
   .atlas-route__direction {
     display: flex;
     align-items: center;
-    gap: .4rem;
-    width: min(8rem, 100%);
+    gap: .45rem;
+    width: min(9rem, 100%);
     opacity: .62;
   }
 
@@ -304,7 +304,7 @@ const routes = getFinalCtaRoutes(country);
 
   .atlas-route__line {
     display: block;
-    width: clamp(2rem, 4vw, 4.2rem);
+    width: clamp(2.3rem, 4.6vw, 4.8rem);
     height: 1px;
     background: currentColor;
     transform-origin: center;
@@ -314,7 +314,7 @@ const routes = getFinalCtaRoutes(country);
   .atlas-route__arrow {
     display: block;
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.2rem;
+    font-size: 1.28rem;
     font-weight: 400;
     line-height: .8;
   }
@@ -336,7 +336,7 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .atlas-compass {
-    width: clamp(7rem, 10vw, 8.6rem);
+    width: clamp(8rem, 11.5vw, 10rem);
     aspect-ratio: 1;
     color: #315545;
     pointer-events: none;
@@ -418,9 +418,9 @@ const routes = getFinalCtaRoutes(country);
 
     .final-cta__logo {
       left: 50%;
-      top: 8%;
-      width: min(84vw, 34rem);
-      max-width: 90%;
+      top: 10%;
+      width: min(88vw, 36rem);
+      max-width: 94%;
       transform: translateX(-50%);
     }
 
@@ -430,41 +430,41 @@ const routes = getFinalCtaRoutes(country);
 
     .atlas-summary-link {
       left: 50%;
-      top: 37%;
+      top: 39%;
       font-size: 1.3rem;
     }
 
     .final-cta__note--yours {
-      top: 45%;
-      left: 50%;
-      width: 10rem;
-      transform: translateX(-50%) rotate(-4deg);
+      top: 2.5%;
+      left: 1.5%;
+      width: 9rem;
+      transform: rotate(-10deg);
     }
 
     .final-cta__note--explore {
-      top: 55%;
+      top: 54.5%;
       left: 50%;
-      width: 9.5rem;
+      width: 8.1rem;
       transform: translateX(-50%) rotate(-8deg);
     }
 
     .atlas-route-selector {
       left: 50%;
-      top: 68%;
-      width: 96%;
-      gap: .75rem;
+      top: 66%;
+      width: 98%;
+      gap: .8rem;
     }
 
     .atlas-route__label {
-      font-size: clamp(1.08rem, 4vw, 1.3rem);
+      font-size: clamp(1.12rem, 4.2vw, 1.35rem);
     }
 
     .atlas-route__direction {
-      width: min(7rem, 100%);
+      width: min(7.4rem, 100%);
     }
 
     .atlas-compass {
-      width: clamp(6rem, 20vw, 7.1rem);
+      width: clamp(6.7rem, 22vw, 7.8rem);
     }
   }
 
@@ -475,30 +475,32 @@ const routes = getFinalCtaRoutes(country);
     }
 
     .atlas-summary-link {
-      top: 36%;
+      top: 38%;
       font-size: 1.2rem;
     }
 
     .final-cta__note--yours {
-      top: 44%;
+      top: 2%;
+      width: 8.5rem;
     }
 
     .final-cta__note--explore {
-      top: 54%;
+      top: 53.5%;
+      width: 7.7rem;
     }
 
     .atlas-route-selector {
-      grid-template-columns: 1fr 5.5rem 1fr;
-      gap: .45rem;
-      top: 68%;
+      grid-template-columns: 1fr 6.2rem 1fr;
+      gap: .5rem;
+      top: 65.5%;
     }
 
     .atlas-compass {
-      width: 5.5rem;
+      width: 6.2rem;
     }
 
     .atlas-route__label {
-      font-size: 1.02rem;
+      font-size: 1.06rem;
     }
 
     .atlas-route__direction {
@@ -506,7 +508,7 @@ const routes = getFinalCtaRoutes(country);
     }
 
     .atlas-route__line {
-      width: clamp(1.6rem, 8vw, 2.8rem);
+      width: clamp(1.7rem, 8.5vw, 3rem);
     }
   }
 
