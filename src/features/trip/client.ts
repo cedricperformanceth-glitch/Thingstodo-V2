@@ -185,7 +185,8 @@ document.addEventListener('click', (event) => {
   if (addButton) {
     const entity = parseEntity(addButton);
     if (!entity) return;
-    const sourcePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    const sourcePath = addButton.dataset.sourcePath
+      ?? `${window.location.pathname}${window.location.search}${window.location.hash}`;
     addToTrip(entity, sourcePath);
     return;
   }
