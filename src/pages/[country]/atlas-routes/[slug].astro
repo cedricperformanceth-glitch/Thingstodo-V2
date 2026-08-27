@@ -2,6 +2,7 @@
 import BaseLayout from '../../../components/layout/BaseLayout.astro';
 import AtlasRoutePage from '../../../components/atlas-route/AtlasRoutePage.astro';
 import { getAtlasRouteContent } from '../../../content/atlas-route-content';
+import { getAtlasRouteEditorialContent } from '../../../content/atlas-route-editorial';
 import { getAllFinalCtaRoutes } from '../../../content/final-cta-routes';
 
 export function getStaticPaths() {
@@ -12,13 +13,18 @@ export function getStaticPaths() {
 }
 
 const { route } = Astro.props;
-const routeContent = getAtlasRouteContent(route.country, route.slug);
+const editorialRouteContent = getAtlasRouteEditorialContent(route.country, route.slug);
+const routeContent = editorialRouteContent ?? getAtlasRouteContent(route.country, route.slug);
 
 const seo = {
-  title: `${route.label} Atlas Route | Things To Do Atlas`,
-  description: `${route.label} travel route for ${route.country}.`,
+  title: editorialRouteContent
+    ? `${editorialRouteContent.title} | Things To Do Atlas`
+    : `${route.label} Atlas Route | Things To Do Atlas`,
+  description: editorialRouteContent
+    ? editorialRouteContent.subtitle
+    : `${route.label} travel route for ${route.country}.`,
   canonicalPath: route.href,
-  indexable: false,
+  indexable: Boolean(editorialRouteContent),
 };
 ---
 
