@@ -120,10 +120,10 @@ const routes = getFinalCtaRoutes(country);
 
   .final-cta__canvas {
     position: relative;
-    min-height: clamp(36rem, 54vw, 42rem);
+    min-height: clamp(29.5rem, 43vw, 34rem);
     display: grid;
     place-items: center;
-    padding: clamp(3rem, 7vw, 6rem) 0 clamp(5rem, 9vw, 7.5rem);
+    padding: clamp(2.6rem, 5vw, 4rem) 0 clamp(2.5rem, 4vw, 3.5rem);
   }
 
   .final-cta__logo {
@@ -133,7 +133,7 @@ const routes = getFinalCtaRoutes(country);
     width: min(42rem, 76vw);
     max-width: 100%;
     height: auto;
-    transform: translateY(-2.8rem);
+    transform: translateY(-5rem);
   }
 
   .final-cta__note {
@@ -166,14 +166,14 @@ const routes = getFinalCtaRoutes(country);
   }
 
   .final-cta__note--explore {
-    top: 8%;
+    top: clamp(2.85rem, 4.2vw, 3.35rem);
     left: 7.5%;
     width: clamp(9.5rem, 16vw, 13.5rem);
     transform: rotate(-8deg);
   }
 
   .final-cta__note--yours {
-    top: 20%;
+    top: clamp(7.1rem, 10.8vw, 8.35rem);
     right: 5.5%;
     width: clamp(10.5rem, 17vw, 14rem);
     transform: rotate(-3deg);
@@ -195,7 +195,7 @@ const routes = getFinalCtaRoutes(country);
   .atlas-summary-link {
     position: absolute;
     left: 50%;
-    top: 61%;
+    top: 48.5%;
     display: inline-flex;
     align-items: center;
     gap: 2rem;
@@ -246,7 +246,7 @@ const routes = getFinalCtaRoutes(country);
   .atlas-route-selector {
     position: absolute;
     left: 50%;
-    bottom: 3.5%;
+    top: 63%;
     width: min(50rem, 92%);
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -412,13 +412,13 @@ const routes = getFinalCtaRoutes(country);
 
   @media (max-width: 760px) {
     .final-cta__canvas {
-      min-height: 36rem;
-      padding-bottom: 6rem;
+      min-height: 30.5rem;
+      padding: 3rem 0 3.25rem;
     }
 
     .final-cta__logo {
       width: min(84vw, 34rem);
-      transform: translateY(-3.3rem);
+      transform: translateY(-4.6rem);
     }
 
     .final-cta__note text {
@@ -426,26 +426,26 @@ const routes = getFinalCtaRoutes(country);
     }
 
     .final-cta__note--explore {
-      top: 7%;
+      top: 2.45rem;
       left: -1.5%;
       width: 9.5rem;
       transform: rotate(-10deg);
     }
 
     .final-cta__note--yours {
-      top: 17%;
+      top: 5.95rem;
       right: -2%;
       width: 10rem;
       transform: rotate(-5deg);
     }
 
     .atlas-summary-link {
-      top: 59%;
+      top: 48.5%;
       font-size: 1.3rem;
     }
 
     .atlas-route-selector {
-      bottom: 4%;
+      top: 64%;
       width: 96%;
       gap: .75rem;
     }
@@ -465,19 +465,19 @@ const routes = getFinalCtaRoutes(country);
 
   @media (max-width: 520px) {
     .final-cta__canvas {
-      min-height: 35rem;
-      padding: 3.5rem 0 5.75rem;
+      min-height: 29.5rem;
+      padding: 3rem 0 3rem;
     }
 
     .atlas-summary-link {
-      top: 57%;
+      top: 48%;
       font-size: 1.2rem;
     }
 
     .atlas-route-selector {
       grid-template-columns: 1fr 5.5rem 1fr;
       gap: .45rem;
-      bottom: 3.5%;
+      top: 64.5%;
     }
 
     .atlas-compass {
