@@ -8,6 +8,18 @@ interface Props {
 
 const { reference, compact = false } = Astro.props;
 const published = reference.status !== 'coming-soon' && Boolean(reference.entity && reference.href);
+const tripEntity = reference.entity
+  ? {
+      id: reference.entity.id,
+      slug: reference.entity.slug,
+      name: reference.entity.name,
+      country: reference.entity.country,
+      city: reference.entity.city,
+      category: reference.entity.category,
+      shortDescription: reference.entity.shortDescription,
+      ...('isLandmark' in reference.entity ? { isLandmark: reference.entity.isLandmark } : {}),
+    }
+  : undefined;
 ---
 
 <article class:list={['atlas-route-reference', compact && 'atlas-route-reference--compact']}>
@@ -30,7 +42,7 @@ const published = reference.status !== 'coming-soon' && Boolean(reference.entity
         <button
           type="button"
           data-trip
-          data-entity={JSON.stringify(reference.entity)}
+          data-entity={JSON.stringify(tripEntity)}
           data-source-path={reference.href}
           aria-pressed="false"
           aria-label={`Add ${reference.title} to My Atlas`}
