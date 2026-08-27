@@ -1,0 +1,144 @@
+{
+  "thing-mekong-slow-boat-huay-xai-luang-prabang": {
+    "hero": {
+      "eyebrow": "MEKONG · 2 DAYS · BORDER ROUTE",
+      "aliases": ["Mekong Slow Boat", "Huay Xai to Luang Prabang", "Pak Beng overnight"],
+      "description": "The slow boat is one of those rare transfers where the journey becomes the activity. From Huay Xai, the Mekong carries you south for two days through northern Laos, with a night in Pak Beng before the final run into Luang Prabang.",
+      "steps": ["Start from Huay Xai", "Spend day one on the Mekong", "Sleep in Pak Beng", "Continue to Luang Prabang on day two"],
+      "rhythmNote": "I took this route after crossing from Thailand. The boat was not especially comfortable, but that became part of the adventure: long river views, time to talk and a group of travellers I would keep crossing paths with later in Laos.",
+      "photoNote": "Huay Xai · Pak Beng · Luang Prabang"
+    },
+    "quickRead": {
+      "time": {"primary": "2 DAYS · 1 NIGHT", "secondary": "two long river days with one night in Pak Beng"},
+      "route": {"primary": "HUAY XAI → LUANG PRABANG", "secondary": "down the Mekong via Pak Beng"},
+      "budget": {"primary": "PAID BOAT", "secondary": "boat ticket and Pak Beng room are separate practical costs"},
+      "bestFor": {"primary": "SLOW TRAVEL", "secondary": "Mekong scenery · meeting people · border-to-city journey"}
+    },
+    "primaryStory": {
+      "chapters": [
+        {
+          "label": "THE JOURNEY",
+          "title": "Treat the transfer as two days of travel, not lost time",
+          "body": "The classic downstream route starts in Huay Xai, the Lao border town opposite northern Thailand, and reaches Luang Prabang over two days. Pak Beng splits the journey almost naturally in half. You spend long hours moving through forested river country instead of trying to rush across northern Laos by road, and the pace gives the scenery time to become more than a background through a window."
+        },
+        {
+          "label": "ON BOARD",
+          "title": "The discomfort is real, but it belongs to the experience",
+          "body": "Do not board expecting a polished cruise. A public slow boat can mean long periods in the same seat, basic comfort and a day that feels very long by the end. That never spoiled it for me. The slightly awkward setup made the journey feel more like a real travel day, while the open views of the Mekong and the mountains gave you something completely different every time you looked outside."
+        }
+      ],
+      "note": {
+        "label": "PERSONAL NOTE",
+        "text": "I took the boat south from the Thai border to Luang Prabang, and one of the best parts was meeting people on day one who I then kept seeing again as we all followed roughly the same route through Laos."
+      }
+    },
+    "secondaryStory": {
+      "chapters": [
+        {
+          "label": "THE PEOPLE",
+          "title": "The boat can become your first little travel community in Laos",
+          "body": "When you enter Laos from Thailand at Huay Xai, a lot of travellers on the slow boat are beginning the same north-to-south journey. Two days together is long enough to talk properly, share food, compare plans and recognise faces. In my case, those were not people who disappeared at the pier in Luang Prabang; I crossed paths with several of them again later because the backpacker routes through Laos naturally overlap. That social side is difficult to plan, but it was one of the strongest parts of the trip."
+        },
+        {
+          "label": "PAK BENG",
+          "title": "The overnight stop feels like a river-road service town",
+          "body": "Pak Beng is the practical midpoint, and its atmosphere is unusual because so much of the village rhythm revolves around boats arriving, travellers finding a room, eating, sleeping and leaving again the next morning. My memory is of a compact place where almost everything you need for one night is concentrated around the same few streets. It felt a little like a stop built for people in transit, except the road is the Mekong."
+        }
+      ],
+      "beforeYouLeave": {
+        "title": "Go in expecting long hours and simple logistics",
+        "body": "The route itself is straightforward, but two days on a passenger boat are easier when you accept the pace before boarding. Keep water and snacks with you, wear something comfortable, and treat Pak Beng as part of the journey rather than an inconvenience between the two boat days. Current departures, fares and overnight options can change, so confirm the practical details locally before you leave.",
+        "note": {
+          "label": "BEST MINDSET",
+          "text": "Do not choose the slow boat because it is the fastest way to Luang Prabang. Choose it because you want the journey to count."
+        }
+      }
+    },
+    "practical": {
+      "items": [
+        {
+          "label": "Route",
+          "value": "Huay Xai · Pak Beng · Luang Prabang",
+          "detail": "The classic downstream journey from the Thai-border side of Laos takes two days with an overnight stop in Pak Beng."
+        },
+        {
+          "label": "Time",
+          "value": "2 days · 1 night",
+          "detail": "Expect two long days on the river rather than a short sightseeing cruise."
+        },
+        {
+          "label": "Overnight",
+          "value": "Pak Beng",
+          "detail": "Accommodation is on land in the midpoint river town; confirm your preferred room arrangements separately from the boat ticket."
+        },
+        {
+          "label": "Comfort",
+          "value": "Basic passenger-boat comfort",
+          "detail": "Long seated periods are part of the trip. Pack for comfort rather than treating the boat like a luxury cruise."
+        },
+        {
+          "label": "Luang Prabang pier",
+          "value": "Outside the historic centre",
+          "detail": "Official Luang Prabang tourism notes that the slow-boat pier is several kilometres from the town centre, so keep a final local transfer in mind."
+        },
+        {
+          "label": "Tickets",
+          "value": "Confirm current arrangements locally",
+          "detail": "Boat schedules, fares and seat arrangements can change. Check the current information at the boat counter, tourist office or a reputable local agency before departure."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "question": "How long is the slow boat from Huay Xai to Luang Prabang?",
+        "answer": "Plan for two days and one night. The first leg runs from Huay Xai to Pak Beng, where you sleep on land, and the second day continues to Luang Prabang."
+      },
+      {
+        "question": "Where do you sleep during the slow-boat journey?",
+        "answer": "In Pak Beng. The boat stops there overnight and travellers stay in guesthouses or hotels in town before boarding again the next morning."
+      },
+      {
+        "question": "Is the slow boat comfortable?",
+        "answer": "Comfort is basic on the public passenger boats and you spend many hours seated. For me that slight discomfort was part of the adventure rather than a reason not to do it."
+      },
+      {
+        "question": "Is the slow boat good for meeting other travellers?",
+        "answer": "It can be excellent for that, especially on the downstream route from the Thai border. You share two long days with people who are often starting a similar Laos itinerary, so conversations happen naturally and you may see the same people again later in the country."
+      },
+      {
+        "question": "Can I take the slow boat in the opposite direction?",
+        "answer": "Yes. Official Luang Prabang tourism also describes the two-day upstream journey toward Bokeo and the Thai border, again with a night in Pak Beng."
+      }
+    ],
+    "seo": {
+      "title": "Mekong Slow Boat to Luang Prabang | 2-Day Huay Xai Route | Atlas",
+      "description": "Plan the two-day Mekong slow boat from Huay Xai to Luang Prabang via Pak Beng, with practical notes and first-hand perspective on the scenery, comfort and social side."
+    },
+    "sources": [
+      {
+        "sourceName": "Official Tourism Luang Prabang · Access",
+        "sourceUrl": "https://tourismluangprabang.org/travel-guide/access/",
+        "purpose": "route-and-access",
+        "sourceType": "official-tourism"
+      },
+      {
+        "sourceName": "Official Tourism Luang Prabang · Slow boat & River cruise",
+        "sourceUrl": "https://tourismluangprabang.org/things-to-do/nature/slow-boat-river-cruise/",
+        "purpose": "activity-context",
+        "sourceType": "official-tourism"
+      },
+      {
+        "sourceName": "Tourism Laos · Bokeo Province",
+        "sourceUrl": "https://www.tourismlaos.org/northern-provinces/bokeo/",
+        "purpose": "huay-xai-route-context",
+        "sourceType": "official-tourism"
+      },
+      {
+        "sourceName": "Tourism Laos · Oudomxay Province",
+        "sourceUrl": "https://www.tourismlaos.org/northern-provinces/oudomxay-province/",
+        "purpose": "pak-beng-context",
+        "sourceType": "official-tourism"
+      }
+    ]
+  }
+}

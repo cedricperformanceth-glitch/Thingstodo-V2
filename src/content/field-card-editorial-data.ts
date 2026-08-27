@@ -34,6 +34,7 @@ import uxoLaoVisitorCentreEditorial from './field-card-editorial-luang-prabang/t
 import traditionalArtsEthnologyCentreEditorial from './field-card-editorial-luang-prabang/thing-traditional-arts-ethnology-centre.json';
 import ockPopTokLivingCraftsCentreEditorial from './field-card-editorial-luang-prabang/thing-ock-pop-tok-living-crafts-centre.json';
 import banXangKhongWeavingVillageEditorial from './field-card-editorial-luang-prabang/thing-ban-xang-khong-weaving-village.json';
+import mekongSlowBoatEditorial from './field-card-editorial-luang-prabang/thing-mekong-slow-boat-huay-xai-luang-prabang.json';
 import namXayViewpointEditorial from './field-card-editorial-vang-vieng/thing-nam-xay-viewpoint.json';
 import thamKhanCaveEditorial from './field-card-editorial-vang-vieng/thing-tham-khan-cave.json';
 import thamPhuKhamBlueLagoonEditorial from './field-card-editorial-vang-vieng/thing-tham-phu-kham-and-blue-lagoon-1.json';
@@ -116,6 +117,7 @@ const luangPrabangBase = {
   ...traditionalArtsEthnologyCentreEditorial,
   ...ockPopTokLivingCraftsCentreEditorial,
   ...banXangKhongWeavingVillageEditorial,
+  ...mekongSlowBoatEditorial,
 } as unknown as Record<string, FieldCardEditorialEntry>;
 const luangPrabangMedia = luangPrabangMediaData as unknown as Record<string, MediaRecord[]>;
 const luangPrabangEditorial = Object.fromEntries(
