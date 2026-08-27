@@ -100,6 +100,7 @@ main.main--immersive.main--immersive-scroll {
 }
 
 .atlas-background__image {
+  z-index: 0;
   object-fit: cover;
   object-position: center;
 }
@@ -112,6 +113,48 @@ main.main--immersive.main--immersive-scroll {
   opacity: 1;
   transform: translate(8px, 4px) scale(1.0109);
   transform-origin: 50% 50%;
+}
+
+.atlas-background::before,
+.atlas-background::after {
+  position: absolute;
+  z-index: 2;
+  color: #d8a24b;
+  font-family: var(--handwritten);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  white-space: pre-line;
+  pointer-events: none;
+  text-shadow:
+    0 1px 2px rgb(0 0 0 / 0.42),
+    0 0 10px rgb(216 162 75 / 0.12);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.atlas-background::before {
+  top: 34%;
+  left: 7.8%;
+  width: 20%;
+  content: 'Welcome to the journey.';
+  font-size: 27px;
+  opacity: 0.9;
+  transform: rotate(-11deg);
+}
+
+.atlas-background::after {
+  top: 44.5%;
+  right: 6.5%;
+  width: 23%;
+  content: 'Organize your adventure.\A Spend less time planning. Explore more.';
+  font-size: 23px;
+  opacity: 0.88;
+  transform: rotate(24deg);
+}
+
+.atlas-home[data-lamp='on'] .atlas-background::before,
+.atlas-home[data-lamp='on'] .atlas-background::after {
+  opacity: 0;
 }
 
 .atlas-tableau-frame {
@@ -378,7 +421,7 @@ main.main--immersive.main--immersive-scroll {
 .atlas-desk-book__state--opening-1,
 .atlas-desk-book__state--opening-2,
 .atlas-desk-book__state--open {
-  translate: 5% 0;
+  translate: 10% 0;
 }
 
 .atlas-desk-book__state--closed {
