@@ -1,5 +1,7 @@
 ---
 import type { AtlasRouteChapter as AtlasRouteChapterData, AtlasRouteMedia } from '../../content/atlas-route-content';
+import type { AtlasRouteExperienceChapter } from '../../content/atlas-route-experience';
+import AtlasRouteReference from './AtlasRouteReference.astro';
 import FieldNotebook from './FieldNotebook.astro';
 
 interface Props {
@@ -7,17 +9,15 @@ interface Props {
 }
 
 const { chapter } = Astro.props;
+const richChapter = chapter as AtlasRouteExperienceChapter;
 const variant = chapter.variant ?? 'standard';
+const references = richChapter.references ?? [];
+const notes = richChapter.personalNotes ?? [];
+const storyNotes = notes.filter((note) => !note.placement || note.placement === 'story');
+const galleryNotes = notes.filter((note) => note.placement && note.placement !== 'story');
 
 const aspectClass = (media: AtlasRouteMedia) =>
   `atlas-route-chapter__media--${media.aspect ?? 'landscape'}`;
-
-const storyNotes = (chapter.personalNotes ?? []).filter(
-  (note) => !note.placement || note.placement === 'story',
-);
-const galleryNotes = (chapter.personalNotes ?? []).filter(
-  (note) => note.placement && note.placement !== 'story',
-);
 ---
 
 <section
@@ -25,32 +25,62 @@ const galleryNotes = (chapter.personalNotes ?? []).filter(
   id={chapter.id}
   data-route-chapter
 >
-  <div class="atlas-route-chapter__heading">
+  <header class="atlas-route-chapter__heading">
     <p>{chapter.chapterLabel}</p>
     <div>
       <h2>{chapter.title}</h2>
       {chapter.durationLabel && <span>{chapter.durationLabel}</span>}
     </div>
-  </div>
+  </header>
 
   <div class="atlas-route-chapter__layout">
     <div class="atlas-route-chapter__story">
       <p class="atlas-route-chapter__intro">{chapter.intro}</p>
 
-      {chapter.body?.map((paragraph) => <p>{paragraph}</p>)}
+      {richChapter.marginNote && <p class="atlas-route-chapter__margin-note">{richChapter.marginNote}</p>}
+
+      {chapter.body && chapter.body.length > 0 && (
+        <div class="atlas-route-chapter__body">
+          {chapter.body.map((paragraph, index) => (
+            <p class:list={[index === 0 && 'atlas-route-chapter__body-lead']}>{paragraph}</p>
+          ))}
+        </div>
+      )}
 
       {chapter.highlights && chapter.highlights.length > 0 && (
         <div class="atlas-route-chapter__highlights" aria-label={`${chapter.title} highlights`}>
-          {chapter.highlights.map((highlight) => <span>{highlight}</span>)}
+          <span class="atlas-route-chapter__highlights-label">KEEP CLOSE</span>
+          <ul>{chapter.highlights.map((highlight) => <li>{highlight}</li>)}</ul>
         </div>
+      )}
+
+      {references.length > 0 && (
+        <aside class="atlas-route-chapter__references" aria-label={`${chapter.title} Atlas picks`}>
+          <div class="atlas-route-chapter__references-heading">
+            <span>OPEN FROM THE ATLAS</span>
+            <small>Save only the ones you want</small>
+          </div>
+          <div class="atlas-route-chapter__references-list">
+            {references.map((reference) => <AtlasRouteReference {reference} />)}
+          </div>
+        </aside>
       )}
 
       {storyNotes.length > 0 && (
         <aside class="atlas-route-chapter__personal-notes" aria-label={`${chapter.title} personal notes`}>
           {storyNotes.map((note) => (
-            <div class="atlas-route-chapter__post-it" data-personal-note={note.id}>
+            <div
+              class:list={[
+                'atlas-route-chapter__post-it',
+                `atlas-route-chapter__post-it--${note.tone ?? 'butter'}`,
+                `atlas-route-chapter__post-it--${note.style ?? 'memory'}`,
+                `atlas-route-chapter__post-it--${note.size ?? 'medium'}`,
+              ]}
+              data-personal-note={note.id}
+            >
               <span>{note.label ?? 'PERSONAL NOTE'}</span>
               <p>{note.text}</p>
+              {note.items && note.items.length > 0 && <ul>{note.items.map((item) => <li>{item}</li>)}</ul>}
             </div>
           ))}
         </aside>
@@ -69,6 +99,7 @@ const galleryNotes = (chapter.personalNotes ?? []).filter(
                 <small>{media.label ?? `${chapter.title} image ${index + 1}`}</small>
               </div>
             )}
+            {media.label && <figcaption>{media.label}</figcaption>}
           </figure>
         ))}
 
@@ -80,11 +111,15 @@ const galleryNotes = (chapter.personalNotes ?? []).filter(
                   'atlas-route-chapter__post-it',
                   'atlas-route-chapter__post-it--gallery',
                   `atlas-route-chapter__post-it--${note.placement}`,
+                  `atlas-route-chapter__post-it--${note.tone ?? 'butter'}`,
+                  `atlas-route-chapter__post-it--${note.style ?? 'memory'}`,
+                  `atlas-route-chapter__post-it--${note.size ?? 'medium'}`,
                 ]}
                 data-personal-note={note.id}
               >
                 <span>{note.label ?? 'PERSONAL NOTE'}</span>
                 <p>{note.text}</p>
+                {note.items && note.items.length > 0 && <ul>{note.items.map((item) => <li>{item}</li>)}</ul>}
               </div>
             ))}
           </aside>
@@ -105,389 +140,95 @@ const galleryNotes = (chapter.personalNotes ?? []).filter(
 </section>
 
 <style>
-  .atlas-route-chapter {
-    scroll-margin-top: 7rem;
-    margin-bottom: clamp(6rem, 12vw, 11rem);
-  }
-
-  .atlas-route-chapter__heading {
-    display: grid;
-    grid-template-columns: 130px minmax(0, 1fr);
-    gap: 1.5rem;
-    align-items: end;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid #d8cfbf;
-  }
-
-  .atlas-route-chapter__heading > p {
-    margin: 0 0 .4rem;
-    color: #b76645;
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .17em;
-    text-transform: uppercase;
-  }
-
-  .atlas-route-chapter__heading > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-    align-items: baseline;
-  }
-
-  .atlas-route-chapter__heading h2 {
-    margin: 0;
-    color: #315545;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 500;
-    letter-spacing: -.035em;
-  }
-
-  .atlas-route-chapter__heading span {
-    color: #7a7166;
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .atlas-route-chapter__layout {
-    display: grid;
-    grid-template-columns: minmax(240px, .74fr) minmax(0, 1.26fr);
-    gap: clamp(2rem, 6vw, 5rem);
-    padding-top: clamp(2rem, 4vw, 3.5rem);
-  }
-
-  .atlas-route-chapter__story {
-    align-self: start;
-  }
-
-  .atlas-route-chapter__story > p {
-    max-width: 40rem;
-    margin: 0 0 1rem;
-    color: #575149;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1rem;
-  }
-
-  .atlas-route-chapter__intro {
-    color: #302c27 !important;
-    font-size: clamp(1.2rem, 2.2vw, 1.5rem) !important;
-    line-height: 1.42;
-  }
-
-  .atlas-route-chapter__highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .55rem;
-    margin-top: 1.8rem;
-  }
-
-  .atlas-route-chapter__highlights span {
-    padding: .45rem .7rem;
-    border: 1px solid #d8cfbf;
-    background: rgba(255, 253, 248, .65);
-    color: #635d54;
-    font-size: .72rem;
-  }
-
-  .atlas-route-chapter__personal-notes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .9rem;
-    margin-top: clamp(2rem, 4vw, 3rem);
-    padding: .35rem .15rem .8rem;
-  }
-
-  .atlas-route-chapter__post-it {
-    position: relative;
-    width: min(230px, 86%);
-    min-height: 145px;
-    padding: 1.15rem 1.15rem 1.25rem;
-    transform: rotate(-1.8deg);
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.17), transparent 24%),
-      #f2db82;
-    box-shadow: 0 8px 14px rgba(71, 59, 39, .12);
-  }
-
-  .atlas-route-chapter__post-it::before {
-    content: '';
-    position: absolute;
-    top: -7px;
-    left: 50%;
-    width: 54px;
-    height: 17px;
-    transform: translateX(-50%) rotate(.8deg);
-    background: rgba(225, 211, 178, .72);
-    box-shadow: 0 1px 2px rgba(61, 52, 39, .08);
-  }
-
-  .atlas-route-chapter__post-it:nth-child(even) {
-    transform: rotate(1.5deg) translateY(.4rem);
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.16), transparent 24%),
-      #eed2ae;
-  }
-
-  .atlas-route-chapter__post-it span {
-    display: block;
-    margin-bottom: .5rem;
-    color: #8e6545;
-    font-size: .57rem;
-    font-weight: 700;
-    letter-spacing: .15em;
-  }
-
-  .atlas-route-chapter__post-it p {
-    margin: 0;
-    color: #504331;
-    font-family: 'Caveat', cursive;
-    font-size: clamp(1.15rem, 2vw, 1.35rem);
-    line-height: 1.16;
-  }
-
-  .atlas-route-chapter__gallery {
-    position: relative;
-    min-height: clamp(340px, 45vw, 540px);
-  }
-
-  .atlas-route-chapter__media {
-    position: absolute;
-    overflow: hidden;
-    margin: 0;
-    border: 7px solid #fffdf8;
-    background: #ece4d5;
-    box-shadow: 0 14px 32px rgba(57, 50, 40, .13);
-  }
-
-  .atlas-route-chapter__gallery--1 .atlas-route-chapter__media--slot-1 {
-    inset: 0;
-    transform: rotate(-.7deg);
-  }
-
-  .atlas-route-chapter__gallery--2 .atlas-route-chapter__media--slot-1 {
-    top: 0;
-    left: 0;
-    width: 66%;
-    height: 78%;
-    transform: rotate(-1.2deg);
-  }
-
-  .atlas-route-chapter__gallery--2 .atlas-route-chapter__media--slot-2 {
-    right: 0;
-    bottom: 0;
-    width: 50%;
-    height: 58%;
-    transform: rotate(1.8deg);
-  }
-
-  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-1 {
-    top: 2%;
-    left: 0;
-    width: 62%;
-    height: 68%;
-    transform: rotate(-1.4deg);
-  }
-
-  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-2 {
-    top: 0;
-    right: 0;
-    width: 36%;
-    height: 49%;
-    transform: rotate(1.6deg);
-  }
-
-  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-3 {
-    right: 8%;
-    bottom: 0;
-    width: 51%;
-    height: 46%;
-    transform: rotate(-.6deg);
-  }
-
-  .atlas-route-chapter__gallery-notes {
-    position: absolute;
-    z-index: 5;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .atlas-route-chapter__post-it--gallery {
-    position: absolute;
-    width: min(210px, 31%);
-    min-height: 118px;
-    padding: .95rem 1rem 1.05rem;
-  }
-
-  .atlas-route-chapter__post-it--gallery-top-right-gap,
-  .atlas-route-chapter__post-it--gallery-top-right-gap:nth-child(even) {
-    top: 6%;
-    right: 0;
-    left: auto;
-    transform: rotate(1.5deg);
-  }
-
-  .atlas-route-chapter__post-it--gallery-image-1-overlap,
-  .atlas-route-chapter__post-it--gallery-image-1-overlap:nth-child(even) {
-    top: 62%;
-    left: 3%;
-    right: auto;
-    transform: rotate(-2.4deg);
-  }
-
-  .atlas-route-chapter__post-it--gallery-bottom-left-gap,
-  .atlas-route-chapter__post-it--gallery-bottom-left-gap:nth-child(even) {
-    left: 2%;
-    bottom: 1%;
-    width: min(220px, 35%);
-    transform: rotate(-1.7deg);
-  }
-
-  .atlas-route-chapter__media img,
-  .atlas-route-chapter__placeholder {
-    width: 100%;
-    height: 100%;
-  }
-
-  .atlas-route-chapter__media img {
-    display: block;
-    object-fit: cover;
-  }
-
-  .atlas-route-chapter__placeholder {
-    display: grid;
-    place-content: center;
-    gap: .35rem;
-    padding: 1rem;
-    background:
-      linear-gradient(135deg, rgba(49, 85, 69, .035), rgba(183, 102, 69, .05)),
-      repeating-linear-gradient(0deg, transparent 0 25px, rgba(84, 74, 58, .035) 26px),
-      #eee6d7;
-    color: #81786d;
-    text-align: center;
-  }
-
-  .atlas-route-chapter__placeholder span {
-    font-size: .65rem;
-    font-weight: 700;
-    letter-spacing: .2em;
-  }
-
-  .atlas-route-chapter__placeholder small {
-    font-family: 'Caveat', cursive;
-    font-size: 1.05rem;
-  }
-
-  .atlas-route-chapter__transfer {
-    display: grid;
-    grid-template-columns: 120px minmax(0, 1fr);
-    gap: .4rem 1.5rem;
-    width: min(100%, 840px);
-    margin-top: clamp(3rem, 6vw, 5rem);
-    padding: 1.25rem 0;
-    border-top: 1px dashed #b9ad99;
-    border-bottom: 1px dashed #b9ad99;
-  }
-
-  .atlas-route-chapter__transfer > span {
-    grid-row: 1 / span 2;
-    color: #b76645;
-    font-size: .62rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-  }
-
-  .atlas-route-chapter__transfer strong {
-    color: #315545;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  .atlas-route-chapter__transfer p {
-    margin: 0;
-    color: #71695f;
-    font-size: .82rem;
-  }
-
-  .atlas-route-chapter--feature {
-    padding: clamp(2rem, 5vw, 4rem);
-    margin-inline: clamp(-2rem, -3vw, -.5rem);
-    border: 1px solid rgba(112, 96, 74, .13);
-    background: rgba(240, 233, 218, .47);
-  }
-
-  .atlas-route-chapter--epilogue .atlas-route-chapter__heading h2 {
-    font-style: italic;
-  }
-
+  .atlas-route-chapter { scroll-margin-top: 7rem; margin-bottom: clamp(6rem, 12vw, 11rem); }
+  .atlas-route-chapter__heading { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 1.5rem; align-items: end; padding-bottom: 1.25rem; border-bottom: 1px solid #d8cfbf; }
+  .atlas-route-chapter__heading > p { margin: 0 0 .4rem; color: #b76645; font-size: .68rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+  .atlas-route-chapter__heading > div { display: flex; justify-content: space-between; gap: 1.5rem; align-items: baseline; }
+  .atlas-route-chapter__heading h2 { margin: 0; color: #315545; font-family: 'Newsreader', Georgia, serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 500; letter-spacing: -.035em; }
+  .atlas-route-chapter__heading span { color: #7a7166; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+  .atlas-route-chapter__layout { display: grid; grid-template-columns: minmax(250px, .76fr) minmax(0, 1.24fr); gap: clamp(2rem, 6vw, 5rem); padding-top: clamp(2rem, 4vw, 3.5rem); }
+  .atlas-route-chapter__story { align-self: start; }
+  .atlas-route-chapter__intro { max-width: 35rem; margin: 0; color: #302c27; font-family: 'Newsreader', Georgia, serif; font-size: clamp(1.22rem, 2.2vw, 1.55rem); line-height: 1.42; }
+  .atlas-route-chapter__margin-note { width: fit-content; max-width: 30rem; margin: 1rem 0 0; color: #8a5848; font-family: 'Caveat', cursive; font-size: 1.28rem; line-height: 1.08; transform: rotate(-1deg); }
+  .atlas-route-chapter__body { display: grid; gap: .85rem; margin-top: 1.45rem; }
+  .atlas-route-chapter__body p { max-width: 38rem; margin: 0; color: #5b554d; font-family: 'Newsreader', Georgia, serif; font-size: .95rem; line-height: 1.6; }
+  .atlas-route-chapter__body p:nth-child(even) { width: 91%; margin-left: 6%; color: #6d655b; font-size: .89rem; }
+  .atlas-route-chapter__highlights { position: relative; width: min(100%, 360px); margin-top: 1.7rem; padding: 1rem 1.1rem 1rem 1.25rem; border-left: 2px solid rgba(183, 102, 69, .42); background: rgba(238, 230, 211, .44); }
+  .atlas-route-chapter__highlights-label { color: #a3523f; font-size: .55rem; font-weight: 700; letter-spacing: .14em; }
+  .atlas-route-chapter__highlights ul { display: grid; gap: .34rem; margin: .55rem 0 0; padding: 0; list-style: none; }
+  .atlas-route-chapter__highlights li { position: relative; padding-left: 1.1rem; color: #565047; font-family: 'Caveat', cursive; font-size: 1.12rem; line-height: 1.15; }
+  .atlas-route-chapter__highlights li::before { content: '✓'; position: absolute; left: 0; color: #315545; font-family: sans-serif; font-size: .72rem; }
+  .atlas-route-chapter__references { margin-top: 2.2rem; }
+  .atlas-route-chapter__references-heading { display: flex; justify-content: space-between; gap: .8rem; align-items: baseline; margin-bottom: .65rem; }
+  .atlas-route-chapter__references-heading span { color: #315545; font-size: .58rem; font-weight: 700; letter-spacing: .14em; }
+  .atlas-route-chapter__references-heading small { color: #8a7f70; font-family: 'Caveat', cursive; font-size: 1rem; }
+  .atlas-route-chapter__references-list { display: grid; gap: .65rem; }
+  .atlas-route-chapter__personal-notes { display: flex; flex-wrap: wrap; gap: 1.1rem; align-items: flex-start; margin-top: 2.25rem; padding: .25rem 0 .8rem; }
+  .atlas-route-chapter__post-it { position: relative; width: min(220px, 88%); min-height: 118px; padding: 1rem 1.05rem 1.1rem; box-shadow: 0 8px 14px rgba(71, 59, 39, .11); }
+  .atlas-route-chapter__post-it::before { content: ''; position: absolute; top: -7px; left: 50%; width: 52px; height: 16px; transform: translateX(-50%) rotate(.8deg); background: rgba(225, 211, 178, .68); }
+  .atlas-route-chapter__post-it--butter { background: #f1dc88; }
+  .atlas-route-chapter__post-it--rose { background: #ecc6bc; }
+  .atlas-route-chapter__post-it--sage { background: #cddbc5; }
+  .atlas-route-chapter__post-it--sky { background: #cbdce0; }
+  .atlas-route-chapter__post-it--paper { background: #eadfcf; }
+  .atlas-route-chapter__post-it--small { width: min(180px, 80%); min-height: 95px; }
+  .atlas-route-chapter__post-it--large { width: min(275px, 96%); min-height: 145px; }
+  .atlas-route-chapter__post-it--memory { transform: rotate(-2deg); }
+  .atlas-route-chapter__post-it--scribble { transform: rotate(1.8deg); }
+  .atlas-route-chapter__post-it--reminder { transform: rotate(-.6deg); }
+  .atlas-route-chapter__post-it--list { transform: rotate(1deg); }
+  .atlas-route-chapter__post-it > span { display: block; margin-bottom: .45rem; color: #845843; font-size: .55rem; font-weight: 700; letter-spacing: .14em; }
+  .atlas-route-chapter__post-it p { margin: 0; color: #4d4437; font-family: 'Caveat', cursive; font-size: 1.25rem; line-height: 1.13; }
+  .atlas-route-chapter__post-it--scribble p { font-size: 1.48rem; line-height: 1.02; }
+  .atlas-route-chapter__post-it--reminder p { font-family: 'Newsreader', Georgia, serif; font-size: .89rem; line-height: 1.42; }
+  .atlas-route-chapter__post-it--large p { font-size: 1.48rem; }
+  .atlas-route-chapter__post-it--small p { font-size: 1.08rem; }
+  .atlas-route-chapter__post-it ul { display: grid; gap: .18rem; margin: .55rem 0 0; padding: 0; list-style: none; color: #4d4437; font-family: 'Caveat', cursive; font-size: 1.05rem; }
+  .atlas-route-chapter__post-it li::before { content: '○ '; }
+  .atlas-route-chapter__gallery { position: relative; min-height: clamp(380px, 47vw, 565px); }
+  .atlas-route-chapter__media { position: absolute; overflow: visible; margin: 0; border: 7px solid #fffdf8; background: #ece4d5; box-shadow: 0 14px 32px rgba(57, 50, 40, .13); }
+  .atlas-route-chapter__media img, .atlas-route-chapter__placeholder { width: 100%; height: 100%; }
+  .atlas-route-chapter__media img { display: block; object-fit: cover; }
+  .atlas-route-chapter__media figcaption { position: absolute; right: .35rem; bottom: .3rem; max-width: 78%; padding: .18rem .35rem; background: rgba(255, 253, 248, .84); color: #746b5e; font-family: 'Caveat', cursive; font-size: .88rem; line-height: 1; }
+  .atlas-route-chapter__gallery--1 .atlas-route-chapter__media--slot-1 { inset: 0; transform: rotate(-.7deg); }
+  .atlas-route-chapter__gallery--2 .atlas-route-chapter__media--slot-1 { top: 0; left: 0; width: 66%; height: 78%; transform: rotate(-1.2deg); }
+  .atlas-route-chapter__gallery--2 .atlas-route-chapter__media--slot-2 { right: 0; bottom: 0; width: 50%; height: 58%; transform: rotate(1.8deg); }
+  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-1 { top: 2%; left: 0; width: 62%; height: 68%; transform: rotate(-1.4deg); }
+  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-2 { top: 0; right: 0; width: 36%; height: 49%; transform: rotate(1.6deg); }
+  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-3 { right: 8%; bottom: 0; width: 51%; height: 46%; transform: rotate(-.6deg); }
+  .atlas-route-chapter__placeholder { display: grid; place-content: center; gap: .35rem; padding: 1rem; background: #eee6d7; color: #81786d; text-align: center; }
+  .atlas-route-chapter__placeholder span { font-size: .65rem; font-weight: 700; letter-spacing: .2em; }
+  .atlas-route-chapter__placeholder small { font-family: 'Caveat', cursive; font-size: 1.05rem; }
+  .atlas-route-chapter__gallery-notes { position: absolute; z-index: 5; inset: 0; pointer-events: none; }
+  .atlas-route-chapter__post-it--gallery { position: absolute; width: min(210px, 31%); min-height: 108px; padding: .9rem .95rem 1rem; }
+  .atlas-route-chapter__post-it--gallery-top-right-gap { top: 6%; right: 0; left: auto; }
+  .atlas-route-chapter__post-it--gallery-image-1-overlap { top: 62%; left: 3%; right: auto; }
+  .atlas-route-chapter__post-it--gallery-bottom-left-gap { left: 2%; bottom: 1%; width: min(220px, 35%); }
+  .atlas-route-chapter__transfer { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: .4rem 1.5rem; width: min(100%, 840px); margin-top: clamp(3rem, 6vw, 5rem); padding: 1.25rem 1.2rem; border: 1px solid rgba(114, 99, 76, .15); background: rgba(235, 225, 204, .48); box-shadow: 5px 6px 0 rgba(49, 85, 69, .045); transform: rotate(-.18deg); }
+  .atlas-route-chapter__transfer > span { grid-row: 1 / span 2; color: #b76645; font-size: .62rem; font-weight: 700; letter-spacing: .16em; }
+  .atlas-route-chapter__transfer strong { color: #315545; font-family: 'Newsreader', Georgia, serif; font-size: 1.2rem; font-weight: 600; }
+  .atlas-route-chapter__transfer p { margin: 0; color: #71695f; font-size: .82rem; line-height: 1.5; }
+  .atlas-route-chapter--feature { padding: clamp(2rem, 5vw, 4rem); margin-inline: clamp(-2rem, -3vw, -.5rem); border: 1px solid rgba(112, 96, 74, .13); background: rgba(240, 233, 218, .47); }
+  .atlas-route-chapter--epilogue .atlas-route-chapter__heading h2 { font-style: italic; }
   @media (max-width: 780px) {
-    .atlas-route-chapter__heading,
-    .atlas-route-chapter__layout {
-      grid-template-columns: 1fr;
-    }
-
-    .atlas-route-chapter__heading > div {
-      align-items: end;
-    }
-
-    .atlas-route-chapter__gallery {
-      min-height: min(600px, 92vw);
-    }
-
-    .atlas-route-chapter__gallery-notes {
-      position: static;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem;
-      margin-top: 1rem;
-      pointer-events: auto;
-    }
-
-    .atlas-route-chapter__post-it--gallery,
-    .atlas-route-chapter__post-it--gallery-top-right-gap,
-    .atlas-route-chapter__post-it--gallery-image-1-overlap,
-    .atlas-route-chapter__post-it--gallery-bottom-left-gap,
-    .atlas-route-chapter__post-it--gallery:nth-child(even) {
-      position: relative;
-      inset: auto;
-      width: min(230px, 86%);
-      transform: rotate(-1.4deg);
-    }
-
-    .atlas-route-chapter__transfer {
-      grid-template-columns: 1fr;
-    }
-
-    .atlas-route-chapter__transfer > span {
-      grid-row: auto;
-    }
+    .atlas-route-chapter__heading, .atlas-route-chapter__layout { grid-template-columns: 1fr; }
+    .atlas-route-chapter__heading > div { align-items: end; }
+    .atlas-route-chapter__gallery { min-height: 560px; margin-top: 1rem; }
+    .atlas-route-chapter__post-it--gallery { width: min(190px, 38%); }
+    .atlas-route-chapter__references-heading { align-items: flex-start; flex-direction: column; }
   }
-
-  @media (max-width: 520px) {
-    .atlas-route-chapter__heading > div {
-      display: block;
-    }
-
-    .atlas-route-chapter__heading span {
-      display: block;
-      margin-top: .65rem;
-    }
-
-    .atlas-route-chapter__personal-notes {
-      gap: .65rem;
-    }
-
-    .atlas-route-chapter__post-it {
-      width: min(250px, 92%);
-    }
-
-    .atlas-route-chapter--feature {
-      margin-inline: -.6rem;
-      padding: 1.3rem .8rem 1.6rem;
-    }
+  @media (max-width: 560px) {
+    .atlas-route-chapter { margin-bottom: 6rem; }
+    .atlas-route-chapter__heading > div { display: grid; gap: .35rem; }
+    .atlas-route-chapter__heading h2 { font-size: clamp(2.8rem, 15vw, 4.4rem); }
+    .atlas-route-chapter__gallery { min-height: 475px; }
+    .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-1 { width: 69%; height: 59%; }
+    .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-2 { width: 38%; height: 40%; }
+    .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-3 { right: 2%; width: 61%; height: 42%; }
+    .atlas-route-chapter__post-it--gallery { width: min(160px, 43%); min-height: 92px; }
+    .atlas-route-chapter__post-it--gallery p { font-size: 1rem; }
+    .atlas-route-chapter__transfer { grid-template-columns: 1fr; }
+    .atlas-route-chapter__transfer > span { grid-row: auto; }
+    .atlas-route-chapter--feature { margin-inline: -.6rem; padding: 1.2rem .8rem 2rem; }
   }
 </style>
