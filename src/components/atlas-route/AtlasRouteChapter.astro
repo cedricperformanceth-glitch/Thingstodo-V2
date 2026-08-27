@@ -1,0 +1,335 @@
+---
+import type { AtlasRouteChapter as AtlasRouteChapterData, AtlasRouteMedia } from '../../content/atlas-route-content';
+import FieldNotebook from './FieldNotebook.astro';
+
+interface Props {
+  chapter: AtlasRouteChapterData;
+}
+
+const { chapter } = Astro.props;
+const variant = chapter.variant ?? 'standard';
+
+const aspectClass = (media: AtlasRouteMedia) =>
+  `atlas-route-chapter__media--${media.aspect ?? 'landscape'}`;
+---
+
+<section
+  class:list={['atlas-route-chapter', `atlas-route-chapter--${variant}`]}
+  id={chapter.id}
+  data-route-chapter
+>
+  <div class="atlas-route-chapter__heading">
+    <p>{chapter.chapterLabel}</p>
+    <div>
+      <h2>{chapter.title}</h2>
+      {chapter.durationLabel && <span>{chapter.durationLabel}</span>}
+    </div>
+  </div>
+
+  <div class="atlas-route-chapter__layout">
+    <div class="atlas-route-chapter__story">
+      <p class="atlas-route-chapter__intro">{chapter.intro}</p>
+
+      {chapter.body?.map((paragraph) => <p>{paragraph}</p>)}
+
+      {chapter.highlights && chapter.highlights.length > 0 && (
+        <div class="atlas-route-chapter__highlights" aria-label={`${chapter.title} highlights`}>
+          {chapter.highlights.map((highlight) => <span>{highlight}</span>)}
+        </div>
+      )}
+    </div>
+
+    {chapter.media && chapter.media.length > 0 && (
+      <div class:list={['atlas-route-chapter__gallery', `atlas-route-chapter__gallery--${Math.min(chapter.media.length, 3)}`]}>
+        {chapter.media.slice(0, 3).map((media, index) => (
+          <figure class:list={['atlas-route-chapter__media', aspectClass(media), `atlas-route-chapter__media--slot-${index + 1}`]}>
+            {media.src ? (
+              <img src={media.src} alt={media.alt} loading="lazy" decoding="async" />
+            ) : (
+              <div class="atlas-route-chapter__placeholder" role="img" aria-label={media.alt}>
+                <span>PHOTO</span>
+                <small>{media.label ?? `${chapter.title} image ${index + 1}`}</small>
+              </div>
+            )}
+          </figure>
+        ))}
+      </div>
+    )}
+  </div>
+
+  {chapter.notebook && <FieldNotebook notebook={chapter.notebook} />}
+
+  {chapter.transfer && (
+    <aside class="atlas-route-chapter__transfer">
+      <span>ON THE ROAD</span>
+      <strong>{chapter.transfer.label}</strong>
+      {chapter.transfer.note && <p>{chapter.transfer.note}</p>}
+    </aside>
+  )}
+</section>
+
+<style>
+  .atlas-route-chapter {
+    scroll-margin-top: 7rem;
+    margin-bottom: clamp(6rem, 12vw, 11rem);
+  }
+
+  .atlas-route-chapter__heading {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: end;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #d8cfbf;
+  }
+
+  .atlas-route-chapter__heading > p {
+    margin: 0 0 .4rem;
+    color: #b76645;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
+  .atlas-route-chapter__heading > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-items: baseline;
+  }
+
+  .atlas-route-chapter__heading h2 {
+    margin: 0;
+    color: #315545;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 500;
+    letter-spacing: -.035em;
+  }
+
+  .atlas-route-chapter__heading span {
+    color: #7a7166;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .atlas-route-chapter__layout {
+    display: grid;
+    grid-template-columns: minmax(240px, .74fr) minmax(0, 1.26fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .atlas-route-chapter__story {
+    align-self: start;
+  }
+
+  .atlas-route-chapter__story > p {
+    max-width: 40rem;
+    margin: 0 0 1rem;
+    color: #575149;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1rem;
+  }
+
+  .atlas-route-chapter__intro {
+    color: #302c27 !important;
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem) !important;
+    line-height: 1.42;
+  }
+
+  .atlas-route-chapter__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+    margin-top: 1.8rem;
+  }
+
+  .atlas-route-chapter__highlights span {
+    padding: .45rem .7rem;
+    border: 1px solid #d8cfbf;
+    background: rgba(255, 253, 248, .65);
+    color: #635d54;
+    font-size: .72rem;
+  }
+
+  .atlas-route-chapter__gallery {
+    position: relative;
+    min-height: clamp(340px, 45vw, 540px);
+  }
+
+  .atlas-route-chapter__media {
+    position: absolute;
+    overflow: hidden;
+    margin: 0;
+    border: 7px solid #fffdf8;
+    background: #ece4d5;
+    box-shadow: 0 14px 32px rgba(57, 50, 40, .13);
+  }
+
+  .atlas-route-chapter__gallery--1 .atlas-route-chapter__media--slot-1 {
+    inset: 0;
+    transform: rotate(-.7deg);
+  }
+
+  .atlas-route-chapter__gallery--2 .atlas-route-chapter__media--slot-1 {
+    top: 0;
+    left: 0;
+    width: 66%;
+    height: 78%;
+    transform: rotate(-1.2deg);
+  }
+
+  .atlas-route-chapter__gallery--2 .atlas-route-chapter__media--slot-2 {
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 58%;
+    transform: rotate(1.8deg);
+  }
+
+  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-1 {
+    top: 2%;
+    left: 0;
+    width: 62%;
+    height: 68%;
+    transform: rotate(-1.4deg);
+  }
+
+  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-2 {
+    top: 0;
+    right: 0;
+    width: 36%;
+    height: 49%;
+    transform: rotate(1.6deg);
+  }
+
+  .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-3 {
+    right: 8%;
+    bottom: 0;
+    width: 51%;
+    height: 46%;
+    transform: rotate(-.6deg);
+  }
+
+  .atlas-route-chapter__media img,
+  .atlas-route-chapter__placeholder {
+    width: 100%;
+    height: 100%;
+  }
+
+  .atlas-route-chapter__media img {
+    display: block;
+    object-fit: cover;
+  }
+
+  .atlas-route-chapter__placeholder {
+    display: grid;
+    place-content: center;
+    gap: .35rem;
+    padding: 1rem;
+    background:
+      linear-gradient(135deg, rgba(49, 85, 69, .035), rgba(183, 102, 69, .05)),
+      repeating-linear-gradient(0deg, transparent 0 25px, rgba(84, 74, 58, .035) 26px),
+      #eee6d7;
+    color: #81786d;
+    text-align: center;
+  }
+
+  .atlas-route-chapter__placeholder span {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+  }
+
+  .atlas-route-chapter__placeholder small {
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+  }
+
+  .atlas-route-chapter__transfer {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: .4rem 1.5rem;
+    width: min(100%, 840px);
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding: 1.25rem 0;
+    border-top: 1px dashed #b9ad99;
+    border-bottom: 1px dashed #b9ad99;
+  }
+
+  .atlas-route-chapter__transfer > span {
+    grid-row: 1 / span 2;
+    color: #b76645;
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+  }
+
+  .atlas-route-chapter__transfer strong {
+    color: #315545;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .atlas-route-chapter__transfer p {
+    margin: 0;
+    color: #71695f;
+    font-size: .82rem;
+  }
+
+  .atlas-route-chapter--feature {
+    padding: clamp(2rem, 5vw, 4rem);
+    margin-inline: clamp(-2rem, -3vw, -.5rem);
+    border: 1px solid rgba(112, 96, 74, .13);
+    background: rgba(240, 233, 218, .47);
+  }
+
+  .atlas-route-chapter--epilogue .atlas-route-chapter__heading h2 {
+    font-style: italic;
+  }
+
+  @media (max-width: 780px) {
+    .atlas-route-chapter__heading,
+    .atlas-route-chapter__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .atlas-route-chapter__heading > div {
+      align-items: end;
+    }
+
+    .atlas-route-chapter__gallery {
+      min-height: min(600px, 92vw);
+    }
+
+    .atlas-route-chapter__transfer {
+      grid-template-columns: 1fr;
+    }
+
+    .atlas-route-chapter__transfer > span {
+      grid-row: auto;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .atlas-route-chapter__heading > div {
+      display: block;
+    }
+
+    .atlas-route-chapter__heading span {
+      display: block;
+      margin-top: .65rem;
+    }
+
+    .atlas-route-chapter--feature {
+      margin-inline: -.6rem;
+      padding: 1.3rem .8rem 1.6rem;
+    }
+  }
+</style>

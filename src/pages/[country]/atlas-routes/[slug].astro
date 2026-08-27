@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import AtlasRoutePage from '../../../components/atlas-route/AtlasRoutePage.astro';
+import { getAtlasRouteContent } from '../../../content/atlas-route-content';
 import { getAllFinalCtaRoutes } from '../../../content/final-cta-routes';
 
 export function getStaticPaths() {
@@ -10,6 +12,8 @@ export function getStaticPaths() {
 }
 
 const { route } = Astro.props;
+const routeContent = getAtlasRouteContent(route.country, route.slug);
+
 const seo = {
   title: `${route.label} Atlas Route | Things To Do Atlas`,
   description: `${route.label} travel route for ${route.country}.`,
@@ -18,16 +22,33 @@ const seo = {
 };
 ---
 
-<BaseLayout seo={seo} breadcrumbs={[{ name: 'Home', path: '/' }, { name: route.country.toUpperCase(), path: `/${route.country}` }, { name: route.label, path: route.href }]}>
-  <section class="atlas-route-shell">
-    <p>ATLAS ROUTE</p>
-    <h1>{route.label}</h1>
-    <p class="atlas-route-shell__note">The route itself will be mapped here next.</p>
-    <a href={`/${route.country}`}>Continue exploring {route.country} →</a>
-  </section>
+<BaseLayout
+  seo={seo}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: route.country.toUpperCase(), path: `/${route.country}` },
+    { name: route.label, path: route.href },
+  ]}
+  ogType="article"
+>
+  {routeContent ? (
+    <AtlasRoutePage route={routeContent} />
+  ) : (
+    <section class="atlas-route-shell">
+      <p>ATLAS ROUTE</p>
+      <h1>{route.label}</h1>
+      <p class="atlas-route-shell__note">This route is registered and ready for its reusable Atlas Route content blocks.</p>
+      <a href={`/${route.country}`}>Continue exploring {route.country} →</a>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
+  :global(#main-content) {
+    width: min(1240px, calc(100% - 2rem));
+    padding-top: 0;
+  }
+
   .atlas-route-shell {
     width: min(760px, calc(100% - 2rem));
     min-height: 72vh;
@@ -43,7 +64,7 @@ const seo = {
     letter-spacing: .16em;
   }
 
-  h1 {
+  .atlas-route-shell h1 {
     margin: 0;
     color: #315545;
   }
@@ -53,7 +74,7 @@ const seo = {
     color: #645f56;
   }
 
-  a {
+  .atlas-route-shell a {
     color: #315545;
     font-family: 'Caveat', cursive;
     font-size: 1.25rem;
