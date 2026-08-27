@@ -372,7 +372,13 @@ main.main--immersive.main--immersive-scroll {
 .atlas-desk-book__state--opening-1,
 .atlas-desk-book__state--opening-2,
 .atlas-desk-book__state--open {
-  scale: 1.3978321875;
+  scale: 1.453745475;
+}
+
+.atlas-desk-book__state--opening-1,
+.atlas-desk-book__state--opening-2,
+.atlas-desk-book__state--open {
+  translate: 5% 0;
 }
 
 .atlas-desk-book__state--closed {
