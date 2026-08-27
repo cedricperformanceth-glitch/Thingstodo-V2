@@ -29,6 +29,7 @@ const tripEntity = (item: FavoriteSnapshot) => ({
   city: item.city,
   category: item.category,
   shortDescription: item.shortDescription,
+  cardImage: item.cardImage ? { src: item.cardImage.src, alt: item.cardImage.alt } : undefined,
   ...(item.type === 'thing' ? { isLandmark: false } : {}),
 });
 
