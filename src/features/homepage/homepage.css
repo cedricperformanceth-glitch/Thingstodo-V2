@@ -534,9 +534,36 @@ main.main--immersive.main--immersive-scroll {
   transform: rotate(-4deg);
 }
 
+.atlas-country-feature__title-row {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 1.45rem;
+}
+
+.atlas-country-feature__water-drop {
+  position: absolute;
+  top: 50%;
+  left: clamp(-5.5rem, -6vw, -3.2rem);
+  display: block;
+  width: clamp(3.2rem, 5vw, 4.8rem);
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  clip-path: polygon(50% 0, 76% 14%, 93% 42%, 94% 64%, 78% 89%, 50% 100%, 22% 89%, 6% 64%, 7% 42%, 24% 14%);
+  opacity: 0.94;
+  transform: translateY(-50%) rotate(-7deg);
+}
+
+.atlas-country-feature__water-drop--right {
+  right: clamp(-5.5rem, -6vw, -3.2rem);
+  left: auto;
+  transform: translateY(-50%) rotate(7deg) scaleX(-1);
+}
+
 .atlas-country-feature h1 {
   max-width: 8ch;
-  margin: 0 auto 1.45rem;
+  margin: 0;
   color: #20342a;
   font-family: 'Newsreader', Georgia, serif;
   font-size: clamp(4rem, 6.1vw, 6.65rem);
@@ -631,6 +658,15 @@ main.main--immersive.main--immersive-scroll {
   .atlas-country-feature__lede {
     max-width: 46ch;
   }
+
+  .atlas-country-feature__water-drop {
+    left: clamp(-4.4rem, -7vw, -2.8rem);
+  }
+
+  .atlas-country-feature__water-drop--right {
+    right: clamp(-4.4rem, -7vw, -2.8rem);
+    left: auto;
+  }
 }
 
 @media (max-width: 560px) {
@@ -651,8 +687,21 @@ main.main--immersive.main--immersive-scroll {
   }
 
   .atlas-country-feature h1 {
-    margin-bottom: 1.15rem;
     font-size: clamp(3.35rem, 18vw, 4.7rem);
+  }
+
+  .atlas-country-feature__title-row {
+    margin-bottom: 1.15rem;
+  }
+
+  .atlas-country-feature__water-drop {
+    left: -2.25rem;
+    width: 2.7rem;
+  }
+
+  .atlas-country-feature__water-drop--right {
+    right: -2.25rem;
+    left: auto;
   }
 
   .atlas-country-feature__lede {
