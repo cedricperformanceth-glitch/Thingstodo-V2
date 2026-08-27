@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
+import '../features/summary/summary-adjustments.css';
 
 const seo = {
   title: 'Trip Summary | Things To Do Atlas',
@@ -30,16 +31,21 @@ const seo = {
         </g>
       </svg>
 
+      <span class="paper-detail paper-detail--date" aria-hidden="true">LAOS / 2026</span>
+      <span class="paper-detail paper-detail--check" aria-hidden="true">✓ field notes</span>
+      <span class="paper-detail paper-detail--corner" aria-hidden="true"></span>
+
       <div class="summary-clipboard__ui">
         <header class="summary-heading">
-          <p>PERSONAL ATLAS</p>
+          <p class="summary-heading__eyebrow">PERSONAL ATLAS</p>
           <h1 id="trip-summary-title">Trip Summary</h1>
+          <p class="summary-status" data-summary-status aria-live="polite">YOUR ATLAS · 0 places collected · 0 favorites · 2 routes</p>
         </header>
 
         <div class="summary-tabs" role="tablist" aria-label="Trip Summary sections">
           <button
             id="summary-tab-atlas"
-            class="summary-tab"
+            class="summary-tab summary-tab--atlas"
             type="button"
             role="tab"
             aria-selected="true"
@@ -51,7 +57,7 @@ const seo = {
           </button>
           <button
             id="summary-tab-favorites"
-            class="summary-tab"
+            class="summary-tab summary-tab--favorites"
             type="button"
             role="tab"
             aria-selected="false"
@@ -64,7 +70,7 @@ const seo = {
           </button>
           <button
             id="summary-tab-adventure"
-            class="summary-tab"
+            class="summary-tab summary-tab--adventure"
             type="button"
             role="tab"
             aria-selected="false"
@@ -80,84 +86,95 @@ const seo = {
         <div class="summary-panels">
           <section
             id="summary-panel-atlas"
-            class="summary-panel"
+            class="summary-panel summary-panel--atlas"
             role="tabpanel"
             aria-labelledby="summary-tab-atlas"
             data-summary-panel="atlas"
           >
-            <div class="summary-panel__heading">
-              <div>
-                <p class="summary-panel__eyebrow">YOUR SAVED JOURNEY</p>
-                <h2>My Atlas</h2>
-              </div>
-              <p class="summary-count" data-summary-atlas-count aria-live="polite">0 saved cards</p>
+            <div class="summary-panel__intro">
+              <h2 class="summary-visually-hidden">My Atlas</h2>
+              <p class="summary-count" data-summary-atlas-count aria-live="polite">0 SAVED PLACES</p>
+              <p class="summary-panel__note">Your journey so far.</p>
             </div>
             <div class="summary-grid" data-summary-atlas-grid></div>
           </section>
 
           <section
             id="summary-panel-favorites"
-            class="summary-panel"
+            class="summary-panel summary-panel--favorites"
             role="tabpanel"
             aria-labelledby="summary-tab-favorites"
             data-summary-panel="favorites"
             hidden
           >
-            <div class="summary-panel__heading">
-              <div>
-                <p class="summary-panel__eyebrow">PLACES TO REMEMBER</p>
-                <h2>My Favorites</h2>
-              </div>
-              <p class="summary-count" data-summary-favorites-count aria-live="polite">0 favorites</p>
+            <div class="summary-panel__intro">
+              <h2 class="summary-visually-hidden">My Favorites</h2>
+              <p class="summary-count" data-summary-favorites-count aria-live="polite">0 FAVORITES</p>
+              <p class="summary-panel__note">The places you would choose again.</p>
             </div>
             <div class="summary-grid" data-summary-favorites-grid></div>
           </section>
 
           <section
             id="summary-panel-adventure"
-            class="summary-panel"
+            class="summary-panel summary-panel--adventure"
             role="tabpanel"
             aria-labelledby="summary-tab-adventure"
             data-summary-panel="adventure"
             hidden
           >
-            <div class="summary-panel__heading">
-              <div>
-                <p class="summary-panel__eyebrow">ROUTES &amp; ADVENTURES</p>
-                <h2>The Adventure</h2>
-              </div>
-              <p class="summary-count">2 routes prepared</p>
+            <div class="summary-panel__intro summary-panel__intro--adventure">
+              <h2 class="summary-visually-hidden">The Adventure</h2>
+              <p class="summary-count" data-summary-route-count>2 ROUTES READY</p>
+              <p class="summary-panel__note adventure-intro">Choose a direction and turn the places you collected into a journey.</p>
             </div>
 
-            <p class="adventure-intro">
-              Choose a route to shape the journey. The route slots are ready now; their detailed itinerary content will be connected here next.
-            </p>
-
-            <div class="adventure-routes" aria-label="Adventure routes prepared for future content">
-              <article class="adventure-route">
-                <span class="adventure-route__number">01</span>
-                <div>
-                  <p class="adventure-route__label">LAOS ROUTE</p>
-                  <h3>North <span aria-hidden="true">→</span> South</h3>
-                  <p>From the northern mountains toward the islands and the southern border.</p>
+            <div class="adventure-routes" aria-label="Laos adventure routes">
+              <article class="adventure-route adventure-route--north-south">
+                <div class="adventure-route__identity">
+                  <div class="adventure-route__kicker">
+                    <span class="adventure-route__number">01</span>
+                    <p class="adventure-route__label">LAOS · ROUTE 01</p>
+                  </div>
+                  <h3><span>NORTH</span><b aria-hidden="true">↓</b><span>SOUTH</span></h3>
                 </div>
-                <span class="adventure-route__status">Prepared</span>
+                <ol class="adventure-route__stops" aria-label="North to South route stops">
+                  <li>Luang Prabang</li>
+                  <li>Vang Vieng</li>
+                  <li>Vientiane</li>
+                  <li>Thakhek</li>
+                  <li>Bolaven Loop</li>
+                  <li>Pakse</li>
+                  <li>Don Det</li>
+                </ol>
+                <span class="adventure-route__status">OPEN ROUTE →</span>
               </article>
 
-              <article class="adventure-route">
-                <span class="adventure-route__number">02</span>
-                <div>
-                  <p class="adventure-route__label">LAOS ROUTE</p>
-                  <h3>South <span aria-hidden="true">→</span> North</h3>
-                  <p>The reverse journey, ready to receive its own editorial itinerary.</p>
+              <article class="adventure-route adventure-route--south-north">
+                <div class="adventure-route__identity">
+                  <div class="adventure-route__kicker">
+                    <span class="adventure-route__number">02</span>
+                    <p class="adventure-route__label">LAOS · ROUTE 02</p>
+                  </div>
+                  <h3><span>SOUTH</span><b aria-hidden="true">↑</b><span>NORTH</span></h3>
                 </div>
-                <span class="adventure-route__status">Prepared</span>
+                <ol class="adventure-route__stops" aria-label="South to North route stops">
+                  <li>Don Det</li>
+                  <li>Pakse</li>
+                  <li>Bolaven Loop</li>
+                  <li>Thakhek</li>
+                  <li>Vientiane</li>
+                  <li>Vang Vieng</li>
+                  <li>Luang Prabang</li>
+                  <li>Slow Boat</li>
+                </ol>
+                <span class="adventure-route__status">OPEN ROUTE →</span>
               </article>
             </div>
 
             <div class="adventure-note">
-              <span aria-hidden="true">+</span>
-              <p>Future adventures can be added here without changing the three main tabs.</p>
+              <span aria-hidden="true">✓</span>
+              <p>Collect places. Keep the ones that matter. Then choose the road that connects them.</p>
             </div>
           </section>
         </div>
@@ -169,613 +186,3 @@ const seo = {
     import '../features/summary/client';
   </script>
 </BaseLayout>
-
-<style>
-  .summary-shell {
-    width: min(1240px, calc(100% - 2rem));
-    margin: 0 auto;
-    padding: clamp(8rem, 10vw, 9.5rem) 0 clamp(4rem, 7vw, 6rem);
-  }
-
-  .summary-clipboard {
-    position: relative;
-    width: 100%;
-    height: clamp(760px, 79svh, 940px);
-    min-height: 760px;
-    isolation: isolate;
-  }
-
-  .summary-clipboard__frame {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .summary-clipboard__clip {
-    position: absolute;
-    z-index: 3;
-    top: 1.4%;
-    left: 50%;
-    width: clamp(11.5rem, 22vw, 16rem);
-    height: auto;
-    transform: translateX(-50%);
-    filter: drop-shadow(0 5px 5px rgba(31, 43, 36, .16));
-    pointer-events: none;
-  }
-
-  .summary-clipboard__ui {
-    position: absolute;
-    z-index: 2;
-    inset: 8.5% 7.6% 7.4%;
-    display: flex;
-    min-height: 0;
-    flex-direction: column;
-  }
-
-  .summary-heading {
-    flex: 0 0 auto;
-    padding: .8rem clamp(.2rem, 1.5vw, 1rem) .85rem;
-    text-align: left;
-  }
-
-  .summary-heading > p,
-  .summary-panel__eyebrow,
-  .adventure-route__label {
-    margin: 0;
-    color: #315545;
-    font-size: .66rem;
-    font-weight: 800;
-    letter-spacing: .16em;
-  }
-
-  .summary-heading h1 {
-    margin: .25rem 0 0;
-    color: #1f3028;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    font-weight: 500;
-    letter-spacing: -.035em;
-    line-height: 1;
-  }
-
-  .summary-tabs {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    flex: 0 0 auto;
-    gap: .5rem;
-    padding: 0 clamp(.15rem, 1.5vw, 1rem);
-    border-bottom: 1px solid rgba(49, 85, 69, .20);
-  }
-
-  .summary-tab {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .55rem;
-    min-height: 3.25rem;
-    padding: .65rem .6rem .8rem;
-    border: 0;
-    border-radius: .55rem .55rem 0 0;
-    background: transparent;
-    color: #657069;
-    font: inherit;
-    font-size: clamp(.72rem, 1.2vw, .9rem);
-    font-weight: 750;
-    letter-spacing: .035em;
-    cursor: pointer;
-    transition: color 160ms ease, background 160ms ease;
-  }
-
-  .summary-tab > span {
-    color: #9e5f53;
-    font-size: .62rem;
-    letter-spacing: .08em;
-    opacity: .72;
-  }
-
-  .summary-tab::after {
-    content: '';
-    position: absolute;
-    right: 12%;
-    bottom: -1px;
-    left: 12%;
-    height: 3px;
-    border-radius: 99px;
-    background: #315545;
-    transform: scaleX(0);
-    transition: transform 160ms ease;
-  }
-
-  .summary-tab:hover {
-    background: rgba(49, 85, 69, .045);
-    color: #243a30;
-  }
-
-  .summary-tab[aria-selected='true'] {
-    background: rgba(49, 85, 69, .06);
-    color: #21372d;
-  }
-
-  .summary-tab[aria-selected='true']::after {
-    transform: scaleX(1);
-  }
-
-  .summary-tab:focus-visible,
-  :global(.summary-card__actions a:focus-visible),
-  :global(.summary-card__remove:focus-visible) {
-    outline: 2px solid #315f83;
-    outline-offset: 2px;
-  }
-
-  .summary-panels {
-    min-height: 0;
-    flex: 1 1 auto;
-    margin: 0 clamp(.15rem, 1.5vw, 1rem);
-    overflow: hidden;
-  }
-
-  .summary-panel {
-    box-sizing: border-box;
-    height: 100%;
-    overflow-y: auto;
-    padding: clamp(1.1rem, 2.2vw, 1.75rem) clamp(.25rem, 1vw, .75rem) 2rem;
-    scrollbar-color: rgba(49, 85, 69, .35) transparent;
-    scrollbar-width: thin;
-  }
-
-  .summary-panel[hidden] {
-    display: none;
-  }
-
-  .summary-panel__heading {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-    padding: 0 .15rem;
-  }
-
-  .summary-panel__heading h2 {
-    margin: .25rem 0 0;
-    color: #263a31;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(1.35rem, 2.2vw, 1.8rem);
-    font-weight: 500;
-  }
-
-  .summary-count {
-    flex: 0 0 auto;
-    margin: 0;
-    color: #777b74;
-    font-size: .72rem;
-    font-weight: 650;
-    letter-spacing: .04em;
-  }
-
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  :global(.summary-card) {
-    position: relative;
-    box-sizing: border-box;
-    min-width: 0;
-    overflow: hidden;
-    border: 1px solid rgba(49, 85, 69, .18);
-    border-radius: .55rem;
-    background: #faf6ec;
-    box-shadow: 0 4px 12px rgba(45, 57, 49, .07);
-  }
-
-  :global(.summary-card--atlas) {
-    display: flex;
-    min-height: 13.5rem;
-    flex-direction: column;
-    padding: 1rem 1.05rem .95rem;
-  }
-
-  :global(.summary-card:nth-child(4n + 1)) {
-    transform: rotate(-.18deg);
-  }
-
-  :global(.summary-card:nth-child(4n + 3)) {
-    transform: rotate(.16deg);
-  }
-
-  :global(.summary-card__topline) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: .75rem;
-  }
-
-  :global(.summary-card__number) {
-    color: #9e5f53;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: .82rem;
-    font-style: italic;
-  }
-
-  :global(.summary-card__category) {
-    overflow: hidden;
-    color: #52675d;
-    font-size: .61rem;
-    font-weight: 800;
-    letter-spacing: .11em;
-    text-overflow: ellipsis;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  :global(.summary-card h3) {
-    margin: .75rem 0 .22rem;
-    color: #1f3028;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.12rem;
-    font-weight: 600;
-    line-height: 1.15;
-  }
-
-  :global(.summary-card__place) {
-    margin: 0;
-    color: #315f83;
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .03em;
-  }
-
-  :global(.summary-card__description) {
-    display: -webkit-box;
-    margin: .8rem 0 1rem;
-    overflow: hidden;
-    color: #5b615d;
-    font-size: .8rem;
-    line-height: 1.48;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
-
-  :global(.summary-card__actions) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: .75rem;
-    margin-top: auto;
-    padding-top: .65rem;
-    border-top: 1px dashed rgba(49, 85, 69, .18);
-  }
-
-  :global(.summary-card__actions a),
-  :global(.summary-card__remove) {
-    border: 0;
-    background: none;
-    color: #315545;
-    font: inherit;
-    font-size: .7rem;
-    font-weight: 750;
-    text-decoration: none;
-  }
-
-  :global(.summary-card__actions a:hover) {
-    text-decoration: underline;
-    text-underline-offset: .2em;
-  }
-
-  :global(.summary-card__remove) {
-    color: #9e5f53;
-    cursor: pointer;
-  }
-
-  :global(.summary-card--favorite) {
-    display: grid;
-    grid-template-columns: minmax(7.75rem, 36%) 1fr;
-    min-height: 13.5rem;
-  }
-
-  :global(.summary-card__media) {
-    position: relative;
-    min-height: 100%;
-    overflow: hidden;
-    background: #d8d0c1;
-  }
-
-  :global(.summary-card__media img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  :global(.summary-card__media--empty) {
-    display: grid;
-    place-items: center;
-    background:
-      linear-gradient(135deg, rgba(49, 85, 69, .08), rgba(49, 95, 131, .07)),
-      #e5ddce;
-  }
-
-  :global(.summary-card__media--empty span) {
-    color: #52675d;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1rem;
-    font-style: italic;
-  }
-
-  :global(.summary-card__favorite-body) {
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-    padding: .9rem .95rem .85rem;
-  }
-
-  :global(.summary-card__heart) {
-    color: #9e5f53;
-    font-size: .95rem;
-  }
-
-  :global(.summary-empty) {
-    grid-column: 1 / -1;
-    display: grid;
-    min-height: 15rem;
-    place-items: center;
-    align-content: center;
-    padding: 2rem;
-    border: 1px dashed rgba(49, 85, 69, .24);
-    border-radius: .65rem;
-    background: rgba(255, 252, 244, .46);
-    text-align: center;
-  }
-
-  :global(.summary-empty__mark) {
-    margin-bottom: .65rem;
-    color: #9e5f53;
-    font-size: 1.25rem;
-  }
-
-  :global(.summary-empty strong) {
-    color: #263a31;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.1rem;
-  }
-
-  :global(.summary-empty p) {
-    max-width: 34rem;
-    margin: .55rem 0 0;
-    color: #6a6e68;
-    font-size: .8rem;
-    line-height: 1.55;
-  }
-
-  .adventure-intro {
-    max-width: 46rem;
-    margin: -.2rem 0 1.35rem;
-    color: #626760;
-    font-size: .84rem;
-    line-height: 1.55;
-  }
-
-  .adventure-routes {
-    display: grid;
-    gap: .9rem;
-  }
-
-  .adventure-route {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.05rem 1.15rem;
-    border: 1px solid rgba(49, 85, 69, .20);
-    border-radius: .6rem;
-    background: #faf6ec;
-    box-shadow: 0 4px 11px rgba(45, 57, 49, .06);
-  }
-
-  .adventure-route__number {
-    color: #9e5f53;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.1rem;
-    font-style: italic;
-  }
-
-  .adventure-route h3 {
-    margin: .2rem 0 .3rem;
-    color: #263a31;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(1.15rem, 2vw, 1.45rem);
-    font-weight: 550;
-  }
-
-  .adventure-route h3 span {
-    color: #315f83;
-    padding: 0 .15rem;
-  }
-
-  .adventure-route div > p:last-child {
-    margin: 0;
-    color: #696d67;
-    font-size: .76rem;
-    line-height: 1.45;
-  }
-
-  .adventure-route__status {
-    padding: .38rem .55rem;
-    border: 1px solid rgba(49, 85, 69, .22);
-    border-radius: 99px;
-    color: #315545;
-    font-size: .61rem;
-    font-weight: 800;
-    letter-spacing: .07em;
-    text-transform: uppercase;
-  }
-
-  .adventure-note {
-    display: flex;
-    align-items: center;
-    gap: .7rem;
-    margin-top: 1rem;
-    padding: .8rem .95rem;
-    border-left: 3px solid rgba(49, 95, 131, .45);
-    color: #687069;
-  }
-
-  .adventure-note > span {
-    color: #315f83;
-    font-size: 1.1rem;
-  }
-
-  .adventure-note p {
-    margin: 0;
-    font-size: .74rem;
-    line-height: 1.45;
-  }
-
-  @media (min-width: 1080px) {
-    .summary-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    :global(.summary-card--favorite) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    :global(.summary-card__media) {
-      min-height: 8rem;
-      height: 8rem;
-    }
-
-    :global(.summary-card__favorite-body) {
-      flex: 1 1 auto;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .summary-shell {
-      width: min(100% - .65rem, 44rem);
-      padding-top: 6.8rem;
-      padding-bottom: 3rem;
-    }
-
-    .summary-clipboard {
-      height: min(800px, 82svh);
-      min-height: 680px;
-    }
-
-    .summary-clipboard__ui {
-      inset: 8.8% 8.2% 7.8%;
-    }
-
-    .summary-clipboard__clip {
-      top: 1.3%;
-      width: 9.2rem;
-    }
-
-    .summary-heading {
-      padding-top: 1.8rem;
-      padding-bottom: .65rem;
-    }
-
-    .summary-heading h1 {
-      font-size: clamp(1.7rem, 8vw, 2.25rem);
-    }
-
-    .summary-tabs {
-      gap: .15rem;
-      padding-inline: 0;
-    }
-
-    .summary-tab {
-      gap: .25rem;
-      min-height: 3rem;
-      padding-inline: .25rem;
-      font-size: clamp(.61rem, 2.8vw, .72rem);
-      letter-spacing: .01em;
-    }
-
-    .summary-tab > span {
-      display: none;
-    }
-
-    .summary-panels {
-      margin-inline: 0;
-    }
-
-    .summary-panel {
-      padding: 1rem .1rem 1.5rem;
-    }
-
-    .summary-panel__heading {
-      align-items: flex-start;
-    }
-
-    .summary-grid {
-      grid-template-columns: 1fr;
-    }
-
-    :global(.summary-card--favorite) {
-      grid-template-columns: minmax(6.5rem, 34%) 1fr;
-    }
-
-    .adventure-route {
-      grid-template-columns: auto minmax(0, 1fr);
-      align-items: start;
-      gap: .75rem;
-      padding: .9rem;
-    }
-
-    .adventure-route__status {
-      grid-column: 2;
-      justify-self: start;
-    }
-  }
-
-  @media (max-width: 430px) {
-    .summary-shell {
-      width: calc(100% - .35rem);
-    }
-
-    .summary-clipboard {
-      height: min(780px, 83svh);
-      min-height: 660px;
-    }
-
-    .summary-clipboard__ui {
-      inset-right: 8.7%;
-      inset-left: 8.7%;
-    }
-
-    .summary-panel__heading {
-      display: block;
-    }
-
-    .summary-count {
-      margin-top: .35rem;
-    }
-
-    :global(.summary-card--favorite) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    :global(.summary-card__media) {
-      min-height: 8rem;
-      height: 8rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .summary-tab,
-    .summary-tab::after {
-      transition: none;
-    }
-  }
-</style>
