@@ -17,7 +17,7 @@
   </defs>
 
   <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#metalShadow)">
-    <path d="M301 34V24C301 13 310 5 321 5H399C410 5 419 13 419 24V34" stroke="#725f45" stroke-width="6"/>
+    <path d="M292 34V24C292 13 301 5 312 5H408C419 5 428 13 428 24V34" stroke="#725f45" stroke-width="6"/>
 
     <rect x="42" y="29" width="636" height="76" rx="18" fill="url(#plate)" stroke="#725f45" stroke-width="4"/>
     <path d="M63 51H657" stroke="#dfc9a8" stroke-width="4" opacity=".78"/>
@@ -25,8 +25,8 @@
     <path d="M65 84C221 77 499 77 655 84" stroke="#725f45" stroke-width="3" opacity=".48"/>
     <path d="M72 93C224 88 496 88 648 93" stroke="#e0c9a6" stroke-width="1.5" opacity=".27"/>
 
-    <rect x="321" y="13" width="78" height="36" rx="12" fill="url(#spring)" stroke="#725f45" stroke-width="4"/>
-    <path d="M334 20H386" stroke="#e8d4b4" stroke-width="2.5" opacity=".58"/>
+    <rect x="315" y="13" width="90" height="36" rx="12" fill="url(#spring)" stroke="#725f45" stroke-width="4"/>
+    <path d="M330 20H390" stroke="#e8d4b4" stroke-width="2.5" opacity=".58"/>
     <circle cx="360" cy="31" r="7" fill="#725f45" stroke="none"/>
     <circle cx="360" cy="29.5" r="2" fill="#d9c09a" stroke="none" opacity=".7"/>
   </g>
