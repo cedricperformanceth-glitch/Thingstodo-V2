@@ -7,9 +7,10 @@ import './card-actions.css';
 interface Props {
   entity: AtlasEntity;
   fieldHref?: string;
+  cardImage?: { src: string; alt: string };
 }
 
-const { entity, fieldHref } = Astro.props;
+const { entity, fieldHref, cardImage } = Astro.props;
 const countryAccent = getCountry(entity.country)?.accentColor ?? '#b7473b';
 const mapsHref = entity.googleMapsUrl;
 ---
@@ -21,5 +22,5 @@ const mapsHref = entity.googleMapsUrl;
   {fieldHref && (
     <a class="card-action card-action--field" href={fieldHref}>Open the Field Card</a>
   )}
-  <TripButton entity={entity} />
+  <TripButton entity={entity} {cardImage} />
 </div>
