@@ -6,10 +6,8 @@
 .summary-clipboard__clip {
   width: 80% !important;
   max-width: none !important;
-}
-
-.summary-clipboard__ui {
-  top: clamp(9.5rem, calc(31vw + 1rem), 25rem) !important;
+  transform: translateX(-50%) scaleY(.27) !important;
+  transform-origin: top center !important;
 }
 
 .summary-tabs {
@@ -40,10 +38,7 @@
 
   .summary-clipboard__clip {
     width: 80% !important;
-  }
-
-  .summary-clipboard__ui {
-    top: clamp(9.5rem, calc(31vw + 1rem), 15rem) !important;
+    transform: translateX(-50%) scaleY(.46) !important;
   }
 }
 
