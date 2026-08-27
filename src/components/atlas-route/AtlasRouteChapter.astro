@@ -11,6 +11,13 @@ const variant = chapter.variant ?? 'standard';
 
 const aspectClass = (media: AtlasRouteMedia) =>
   `atlas-route-chapter__media--${media.aspect ?? 'landscape'}`;
+
+const storyNotes = (chapter.personalNotes ?? []).filter(
+  (note) => !note.placement || note.placement === 'story',
+);
+const galleryNotes = (chapter.personalNotes ?? []).filter(
+  (note) => note.placement && note.placement !== 'story',
+);
 ---
 
 <section
@@ -38,9 +45,9 @@ const aspectClass = (media: AtlasRouteMedia) =>
         </div>
       )}
 
-      {chapter.personalNotes && chapter.personalNotes.length > 0 && (
+      {storyNotes.length > 0 && (
         <aside class="atlas-route-chapter__personal-notes" aria-label={`${chapter.title} personal notes`}>
-          {chapter.personalNotes.map((note) => (
+          {storyNotes.map((note) => (
             <div class="atlas-route-chapter__post-it" data-personal-note={note.id}>
               <span>{note.label ?? 'PERSONAL NOTE'}</span>
               <p>{note.text}</p>
@@ -64,6 +71,24 @@ const aspectClass = (media: AtlasRouteMedia) =>
             )}
           </figure>
         ))}
+
+        {galleryNotes.length > 0 && (
+          <aside class="atlas-route-chapter__gallery-notes" aria-label={`${chapter.title} image notes`}>
+            {galleryNotes.map((note) => (
+              <div
+                class:list={[
+                  'atlas-route-chapter__post-it',
+                  'atlas-route-chapter__post-it--gallery',
+                  `atlas-route-chapter__post-it--${note.placement}`,
+                ]}
+                data-personal-note={note.id}
+              >
+                <span>{note.label ?? 'PERSONAL NOTE'}</span>
+                <p>{note.text}</p>
+              </div>
+            ))}
+          </aside>
+        )}
       </div>
     )}
   </div>
@@ -283,6 +308,44 @@ const aspectClass = (media: AtlasRouteMedia) =>
     transform: rotate(-.6deg);
   }
 
+  .atlas-route-chapter__gallery-notes {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .atlas-route-chapter__post-it--gallery {
+    position: absolute;
+    width: min(210px, 31%);
+    min-height: 118px;
+    padding: .95rem 1rem 1.05rem;
+  }
+
+  .atlas-route-chapter__post-it--gallery-top-right-gap,
+  .atlas-route-chapter__post-it--gallery-top-right-gap:nth-child(even) {
+    top: 6%;
+    right: 0;
+    left: auto;
+    transform: rotate(1.5deg);
+  }
+
+  .atlas-route-chapter__post-it--gallery-image-1-overlap,
+  .atlas-route-chapter__post-it--gallery-image-1-overlap:nth-child(even) {
+    top: 52%;
+    left: 3%;
+    right: auto;
+    transform: rotate(-2.4deg);
+  }
+
+  .atlas-route-chapter__post-it--gallery-bottom-left-gap,
+  .atlas-route-chapter__post-it--gallery-bottom-left-gap:nth-child(even) {
+    left: 2%;
+    bottom: 1%;
+    width: min(220px, 35%);
+    transform: rotate(-1.7deg);
+  }
+
   .atlas-route-chapter__media img,
   .atlas-route-chapter__placeholder {
     width: 100%;
@@ -373,6 +436,26 @@ const aspectClass = (media: AtlasRouteMedia) =>
 
     .atlas-route-chapter__gallery {
       min-height: min(600px, 92vw);
+    }
+
+    .atlas-route-chapter__gallery-notes {
+      position: static;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1rem;
+      pointer-events: auto;
+    }
+
+    .atlas-route-chapter__post-it--gallery,
+    .atlas-route-chapter__post-it--gallery-top-right-gap,
+    .atlas-route-chapter__post-it--gallery-image-1-overlap,
+    .atlas-route-chapter__post-it--gallery-bottom-left-gap,
+    .atlas-route-chapter__post-it--gallery:nth-child(even) {
+      position: relative;
+      inset: auto;
+      width: min(230px, 86%);
+      transform: rotate(-1.4deg);
     }
 
     .atlas-route-chapter__transfer {
