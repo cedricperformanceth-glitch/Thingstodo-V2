@@ -18,8 +18,7 @@ const data = {
       "things-to-do",
       "restaurants",
       "cafes",
-      "accommodation",
-      "practical-services"
+      "accommodation"
     ],
     "hero": {
       "eyebrow": "Salavan · Southern Laos",
@@ -939,104 +938,6 @@ const data = {
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mr%20Vieng%20Coffee%20Tad%20Lo%20Laos"
     },
     {
-      "id": "place-tad-lo-tourism-office",
-      "slug": "tad-lo-tourism-office",
-      "name": "Tad Lo Tourism Office",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "practical-services",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Local reference point for official guided treks, guides and current destination information.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Useful",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Tourism%20Office%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tad-lo-market-bus-junction",
-      "slug": "tad-lo-market-bus-junction",
-      "name": "Tad Lo Market & Bus Junction",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "practical-services",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Useful arrival point for local transport, basic shopping and the final connection into the village.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Useful",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Market%20%26%20Bus%20Junction%20Tad%20Lo%20Laos"
-    },
-    {
       "id": "place-samaki-coffee",
       "slug": "samaki-coffee",
       "name": "Samaki Coffee",
@@ -1084,104 +985,6 @@ const data = {
       "manualLocks": {},
       "address": "Tad Lo, Salavan Province, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Samaki%20Coffee%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tad-lo-local-clinic",
-      "slug": "tad-lo-local-clinic",
-      "name": "Tad Lo Local Clinic",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "practical-services",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Local care reference; confirm opening and capability before relying on it.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Useful",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%20Local%20Clinic%20Tad%20Lo%20Laos"
-    },
-    {
-      "id": "place-tad-lo-24-hour-dispensary",
-      "slug": "tad-lo-24-hour-dispensary",
-      "name": "Tad Lo 24-hour Dispensary",
-      "country": "laos",
-      "city": "tad-lo",
-      "category": "practical-services",
-      "coordinates": {
-        "latitude": 15.53441,
-        "longitude": 106.27473
-      },
-      "shortDescription": "Medicine and basic health reference reported in the locally checked practical guide.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Useful",
-          "Tad Lo",
-          "Local"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "manual-review",
-        "reason": "Retained from Tad Lo partner/local research; live details should be reconfirmed where marked.",
-        "checkedAt": "2026-08-19T00:00:00Z"
-      },
-      "sourceMetadata": {
-        "sourceName": "Visit Tad Lo partner research",
-        "sourceUrl": "https://visit-tadlo.com/en",
-        "reviewedAt": "2026-08-19"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Visit Tad Lo",
-          "sourceUrl": "https://visit-tadlo.com/en",
-          "purpose": "first-party",
-          "sourceType": "first-party-official"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Tad Lo, Salavan Province, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tad%20Lo%2024-hour%20Dispensary%20Tad%20Lo%20Laos"
     }
   ],
   "things": [
