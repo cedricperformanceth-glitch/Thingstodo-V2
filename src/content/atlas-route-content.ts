@@ -280,9 +280,7 @@ const southToNorth: AtlasRouteContent = {
       intro: 'Chapter introduction placeholder for an exploration-focused stop.',
       body: [genericParagraph],
       highlights: ['Exploration placeholder', 'Scooter placeholder', 'Stay placeholder'],
-      personalNotes: [
-        personalNote('thakhek-personal-01'),
-      ],
+      personalNotes: [personalNote('thakhek-personal-01')],
       media: [
         placeholder('thakhek-01', 'Thakhek image 01'),
         placeholder('thakhek-02', 'Thakhek image 02'),
@@ -392,7 +390,261 @@ const southToNorth: AtlasRouteContent = {
     'Closing copy placeholder. This block can later send the reader back to the country, into their saved Atlas, or toward another proposed route.',
 };
 
-const routeContent: AtlasRouteContent[] = [southToNorth];
+const northToSouth: AtlasRouteContent = {
+  country: 'laos',
+  slug: 'north-to-south',
+  label: 'North → South',
+  eyebrow: 'ATLAS ROUTE',
+  title: 'North to South',
+  subtitle: 'A second generic route generated from the same reusable Atlas Route system.',
+  durationLabel: 'Around 30 days',
+  directionLabel: 'North → South',
+  intro: [
+    'Generic route introduction placeholder. This second page exists to demonstrate that the Atlas Route layout is reusable and not tied to the South to North example.',
+    'Editorial content will be written later. For now, every chapter, note, media slot and notebook is deliberately structural.',
+  ],
+  heroMedia: [
+    placeholder('north-south-hero-01', 'Hero image 01', 'portrait'),
+    placeholder('north-south-hero-02', 'Hero image 02'),
+    placeholder('north-south-hero-03', 'Hero image 03', 'square'),
+    placeholder('north-south-hero-04', 'Hero image 04'),
+  ],
+  stops: [
+    { label: 'Luang Prabang', durationLabel: '5 days', chapterId: 'north-luang-prabang' },
+    { label: 'Vang Vieng', durationLabel: '3 days', chapterId: 'north-vang-vieng' },
+    { label: 'Vientiane', durationLabel: '2 days', chapterId: 'north-vientiane' },
+    { label: 'Thakhek', durationLabel: '4 days', chapterId: 'north-thakhek' },
+    { label: 'Bolaven Loop', durationLabel: '4 days', chapterId: 'north-bolaven-loop' },
+    { label: 'Pakse', durationLabel: '2 days', chapterId: 'north-pakse' },
+    { label: 'Don Det', durationLabel: '4 days', chapterId: 'north-don-det' },
+  ],
+  chapters: [
+    {
+      id: 'north-luang-prabang',
+      chapterLabel: 'Chapter 01',
+      title: 'Luang Prabang',
+      durationLabel: '5 days',
+      intro: 'Generic chapter introduction placeholder for the northern starting point.',
+      body: [genericParagraph, genericSecondParagraph],
+      highlights: ['Highlight placeholder', 'Activity placeholder', 'Slow moment placeholder'],
+      personalNotes: [
+        personalNote('north-lp-note-01', 'FIRST NOTE'),
+        personalNote(
+          'north-lp-note-02',
+          'ONE MORE THING',
+          'Gallery post-it placeholder for a future personal recommendation.',
+          'gallery-bottom-left-gap',
+        ),
+      ],
+      media: [
+        placeholder('north-lp-01', 'Luang Prabang image 01'),
+        placeholder('north-lp-02', 'Luang Prabang image 02', 'portrait'),
+        placeholder('north-lp-03', 'Luang Prabang image 03'),
+      ],
+      notebook: {
+        id: 'north-lp-notebook',
+        label: 'FIELD NOTES',
+        title: 'A few pages from Luang Prabang',
+        intro: 'Generic notebook placeholder demonstrating optional page-turning content.',
+        pages: [
+          {
+            id: 'north-lp-page-01',
+            kicker: 'PAGE 01',
+            title: 'A place to remember',
+            copy: 'Notebook copy placeholder.',
+            handwrittenNote: 'Short handwritten note placeholder.',
+            media: [placeholder('north-lp-notebook-01', 'Notebook photo 01')],
+          },
+          {
+            id: 'north-lp-page-02',
+            kicker: 'PAGE 02',
+            title: 'Another small moment',
+            copy: 'Second notebook page placeholder.',
+            handwrittenNote: 'Another personal memory can live here.',
+            media: [placeholder('north-lp-notebook-02', 'Notebook photo 02', 'square')],
+          },
+        ],
+      },
+      transfer: {
+        label: 'On the road · Luang Prabang → Vang Vieng',
+        note: 'Generic transfer placeholder.',
+      },
+    },
+    {
+      id: 'north-vang-vieng',
+      chapterLabel: 'Chapter 02',
+      title: 'Vang Vieng',
+      durationLabel: '3 days',
+      intro: 'Generic chapter introduction placeholder for an active stop.',
+      body: [genericParagraph],
+      highlights: ['Activity placeholder', 'Viewpoint placeholder', 'Evening placeholder'],
+      personalNotes: [
+        personalNote(
+          'north-vv-note-01',
+          'CITY NOTE',
+          'Gallery note placeholder.',
+          'gallery-top-right-gap',
+        ),
+        personalNote(
+          'north-vv-note-02',
+          'NIGHT NOTE',
+          'Overlapping photo note placeholder.',
+          'gallery-image-1-overlap',
+        ),
+      ],
+      media: [
+        placeholder('north-vv-01', 'Vang Vieng image 01'),
+        placeholder('north-vv-02', 'Vang Vieng image 02'),
+      ],
+      transfer: {
+        label: 'On the road · Vang Vieng → Vientiane',
+        note: 'Generic transfer placeholder.',
+      },
+    },
+    {
+      id: 'north-vientiane',
+      chapterLabel: 'Chapter 03',
+      title: 'Vientiane',
+      durationLabel: '2 days',
+      intro: 'Generic lighter city chapter placeholder.',
+      body: [genericParagraph],
+      highlights: ['Walk placeholder', 'Food placeholder', 'Rest placeholder'],
+      personalNotes: [personalNote('north-vientiane-note-01', 'CITY NOTE')],
+      media: [
+        placeholder('north-vientiane-01', 'Vientiane image 01'),
+        placeholder('north-vientiane-02', 'Vientiane image 02', 'portrait'),
+      ],
+      transfer: {
+        label: 'On the road · Vientiane → Thakhek',
+        note: 'Generic transfer placeholder.',
+      },
+    },
+    {
+      id: 'north-thakhek',
+      chapterLabel: 'Chapter 04',
+      title: 'Thakhek',
+      durationLabel: '4 days',
+      intro: 'Generic exploration chapter placeholder.',
+      body: [genericParagraph],
+      highlights: ['Exploration placeholder', 'Road placeholder', 'Stay placeholder'],
+      personalNotes: [personalNote('north-thakhek-note-01', 'PERSONAL NOTE')],
+      media: [
+        placeholder('north-thakhek-01', 'Thakhek image 01'),
+        placeholder('north-thakhek-02', 'Thakhek image 02'),
+      ],
+      transfer: {
+        label: 'On the road · Thakhek → Bolaven Loop',
+        note: 'Generic longer transfer placeholder.',
+      },
+    },
+    {
+      id: 'north-bolaven-loop',
+      chapterLabel: 'Chapter 05',
+      title: 'The Bolaven Loop',
+      durationLabel: '4 days',
+      intro: 'Generic feature chapter placeholder for a road loop.',
+      body: [genericParagraph, genericSecondParagraph],
+      highlights: ['Loop placeholder', 'Landscape placeholder', 'Stay placeholder'],
+      personalNotes: [
+        personalNote('north-bolaven-note-01', 'ROAD NOTE'),
+        personalNote(
+          'north-bolaven-note-02',
+          'REMEMBER THIS',
+          'Gallery-gap personal note placeholder.',
+          'gallery-bottom-left-gap',
+        ),
+      ],
+      media: [
+        placeholder('north-bolaven-01', 'Bolaven image 01'),
+        placeholder('north-bolaven-02', 'Bolaven image 02', 'portrait'),
+        placeholder('north-bolaven-03', 'Bolaven image 03'),
+      ],
+      notebook: {
+        id: 'north-bolaven-notebook',
+        label: 'OPEN THE ROAD BOOK',
+        title: 'Inside the Bolaven Loop',
+        intro: 'Generic deeper notebook layer for extra photos and field notes.',
+        pages: [
+          {
+            id: 'north-bolaven-page-01',
+            kicker: 'PAGE 01',
+            title: 'First road note',
+            copy: 'Notebook placeholder copy.',
+            handwrittenNote: 'Short memory placeholder.',
+            media: [placeholder('north-bolaven-notebook-01', 'Bolaven notebook photo 01')],
+          },
+          {
+            id: 'north-bolaven-page-02',
+            kicker: 'PAGE 02',
+            title: 'Second road note',
+            copy: 'Another optional notebook page.',
+            handwrittenNote: 'Another handwritten placeholder.',
+            media: [placeholder('north-bolaven-notebook-02', 'Bolaven notebook photo 02', 'portrait')],
+          },
+          {
+            id: 'north-bolaven-page-03',
+            kicker: 'PAGE 03',
+            title: 'One more stop',
+            copy: 'Third optional notebook page.',
+            handwrittenNote: 'Tiny personal recommendation placeholder.',
+            media: [placeholder('north-bolaven-notebook-03', 'Bolaven notebook photo 03')],
+          },
+        ],
+      },
+      transfer: {
+        label: 'On the road · Bolaven Loop → Pakse',
+        note: 'Generic transfer placeholder.',
+      },
+      variant: 'feature',
+    },
+    {
+      id: 'north-pakse',
+      chapterLabel: 'Chapter 06',
+      title: 'Pakse',
+      durationLabel: '2 days',
+      intro: 'Generic short city pause placeholder.',
+      body: [genericParagraph],
+      highlights: ['City placeholder', 'Food placeholder', 'Practical placeholder'],
+      personalNotes: [personalNote('north-pakse-note-01', 'DON’T FORGET')],
+      media: [
+        placeholder('north-pakse-01', 'Pakse image 01'),
+        placeholder('north-pakse-02', 'Pakse image 02'),
+      ],
+      transfer: {
+        label: 'On the road · Pakse → Don Det',
+        note: 'Generic transfer placeholder.',
+      },
+    },
+    {
+      id: 'north-don-det',
+      chapterLabel: 'Epilogue',
+      title: 'Don Det',
+      durationLabel: '4 days',
+      intro: 'Generic final chapter placeholder for the southern end of the route.',
+      body: [genericParagraph],
+      highlights: ['Slow moment placeholder', 'Activity placeholder', 'Final stop placeholder'],
+      personalNotes: [
+        personalNote('north-don-det-note-01', 'LAST NOTE'),
+        personalNote(
+          'north-don-det-note-02',
+          'QUICK MEMORY',
+          'Final gallery note placeholder.',
+          'gallery-top-right-gap',
+        ),
+      ],
+      media: [
+        placeholder('north-don-det-01', 'Don Det image 01'),
+        placeholder('north-don-det-02', 'Don Det image 02', 'portrait'),
+      ],
+      variant: 'epilogue',
+    },
+  ],
+  closingTitle: 'Your route continues from here',
+  closingCopy:
+    'Closing copy placeholder retained for the generic data contract. The rendered page uses the standard final Atlas CTA.',
+};
+
+const routeContent: AtlasRouteContent[] = [southToNorth, northToSouth];
 
 export const getAtlasRouteContent = (
   country: string,
