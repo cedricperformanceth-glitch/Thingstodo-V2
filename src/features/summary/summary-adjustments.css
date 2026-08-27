@@ -4,10 +4,21 @@
 }
 
 .summary-clipboard__clip {
-  width: 80% !important;
-  max-width: none !important;
-  transform: translateX(-50%) scaleY(.27) !important;
-  transform-origin: top center !important;
+  display: none !important;
+}
+
+.summary-clipboard::before {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  top: .9%;
+  left: 50%;
+  width: 60%;
+  aspect-ratio: 720 / 112;
+  transform: translateX(-50%);
+  background: url('/assets/shared/summary/clipboard-clip-wide.svg') center / contain no-repeat;
+  filter: drop-shadow(0 5px 5px rgba(31, 43, 36, .16));
+  pointer-events: none;
 }
 
 .summary-tabs {
@@ -36,9 +47,9 @@
     min-height: 1190px !important;
   }
 
-  .summary-clipboard__clip {
-    width: 80% !important;
-    transform: translateX(-50%) scaleY(.46) !important;
+  .summary-clipboard::before {
+    top: 2.9%;
+    width: 88%;
   }
 }
 
@@ -46,6 +57,11 @@
   .summary-clipboard {
     height: clamp(1155px, 145svh, 1365px) !important;
     min-height: 1155px !important;
+  }
+
+  .summary-clipboard::before {
+    top: 2.8%;
+    width: 92%;
   }
 }
 
