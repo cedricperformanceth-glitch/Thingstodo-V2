@@ -1,5 +1,6 @@
 ---
 import type { AtlasRouteContent } from '../../content/atlas-route-content';
+import FinalCta from '../final-cta/FinalCta.astro';
 import AtlasRouteHero from './AtlasRouteHero.astro';
 import RouteOverview from './RouteOverview.astro';
 import AtlasRouteChapter from './AtlasRouteChapter.astro';
@@ -19,64 +20,11 @@ const { route } = Astro.props;
     {route.chapters.map((chapter) => <AtlasRouteChapter {chapter} />)}
   </div>
 
-  <section class="atlas-route-page__closing">
-    <p>END OF ROUTE</p>
-    <h2>{route.closingTitle}</h2>
-    <span>{route.closingCopy}</span>
-    <a href={`/${route.country}`}>Continue exploring {route.country} →</a>
-  </section>
+  <FinalCta country={route.country} />
 </div>
 
 <style>
   .atlas-route-page {
-    padding-bottom: clamp(4rem, 8vw, 7rem);
-  }
-
-  .atlas-route-page__closing {
-    width: min(760px, 100%);
-    margin: 0 auto;
-    padding: clamp(3rem, 7vw, 5.5rem);
-    border: 1px solid #d4c9b7;
-    background: #fffdf8;
-    text-align: center;
-    box-shadow: 0 18px 45px rgba(55, 47, 37, .07);
-  }
-
-  .atlas-route-page__closing p {
-    margin: 0 0 .65rem;
-    color: #b76645;
-    font-size: .65rem;
-    font-weight: 700;
-    letter-spacing: .17em;
-  }
-
-  .atlas-route-page__closing h2 {
-    margin: 0;
-    color: #315545;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 500;
-  }
-
-  .atlas-route-page__closing span {
-    display: block;
-    max-width: 560px;
-    margin: 1rem auto 1.8rem;
-    color: #675f56;
-    font-family: 'Newsreader', Georgia, serif;
-  }
-
-  .atlas-route-page__closing a {
-    color: #315545;
-    font-family: 'Caveat', cursive;
-    font-size: 1.3rem;
-    text-decoration-thickness: 1px;
-    text-underline-offset: .2em;
-  }
-
-  @media (max-width: 520px) {
-    .atlas-route-page__closing {
-      padding: 2.2rem 1.2rem;
-    }
+    padding-bottom: 0;
   }
 </style>
