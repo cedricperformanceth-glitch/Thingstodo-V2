@@ -3,8 +3,8 @@
 .atlas-stage::before,
 .atlas-stage::after {
   position: absolute;
-  top: calc(48.2% + 7px);
-  left: 14.4%;
+  top: 58%;
+  left: 10%;
   width: 13.2%;
   aspect-ratio: 1;
   background-position: center;
