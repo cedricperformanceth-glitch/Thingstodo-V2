@@ -1,28 +1,23 @@
 ---
 import type { AtlasRouteMedia, AtlasRouteNotebook } from '../../content/atlas-route-content';
+import type { AtlasRouteExperienceNotebook, AtlasRouteExperienceNotebookPage } from '../../content/atlas-route-experience';
+import AtlasRouteReference from './AtlasRouteReference.astro';
 
 interface Props {
   notebook: AtlasRouteNotebook;
 }
 
 const { notebook } = Astro.props;
+const richNotebook = notebook as AtlasRouteExperienceNotebook;
 const panelId = `field-notebook-${notebook.id}`;
-
-const aspectClass = (media: AtlasRouteMedia) =>
-  `field-notebook__media--${media.aspect ?? 'landscape'}`;
+const aspectClass = (media: AtlasRouteMedia) => `field-notebook__media--${media.aspect ?? 'landscape'}`;
 ---
 
 <section class="field-notebook" data-field-notebook>
-  <button
-    class="field-notebook__open"
-    type="button"
-    aria-expanded="false"
-    aria-controls={panelId}
-    data-notebook-open
-  >
+  <button class="field-notebook__open" type="button" aria-expanded="false" aria-controls={panelId} data-notebook-open>
     <span class="field-notebook__open-kicker">{notebook.label ?? 'FIELD NOTES'}</span>
     <span class="field-notebook__open-title">{notebook.title}</span>
-    <span class="field-notebook__open-action">Open notebook <span aria-hidden="true">↗</span></span>
+    <span class="field-notebook__open-action">Turn the pages ↗</span>
   </button>
 
   <div class="field-notebook__panel" id={panelId} data-notebook-panel hidden>
@@ -39,9 +34,9 @@ const aspectClass = (media: AtlasRouteMedia) =>
     <div class="field-notebook__book" data-notebook-book>
       <div class="field-notebook__binding" aria-hidden="true"></div>
 
-      {notebook.pages.map((page, pageIndex) => (
+      {richNotebook.pages.map((page: AtlasRouteExperienceNotebookPage, pageIndex) => (
         <article
-          class="field-notebook__page"
+          class:list={['field-notebook__page', `field-notebook__page--${page.variant ?? 'memory'}`]}
           data-notebook-page
           data-page-index={pageIndex}
           hidden={pageIndex !== 0}
@@ -50,43 +45,55 @@ const aspectClass = (media: AtlasRouteMedia) =>
             {page.kicker && <p class="field-notebook__kicker">{page.kicker}</p>}
             <h3>{page.title}</h3>
             {page.copy && <p class="field-notebook__copy">{page.copy}</p>}
+
+            {page.list && page.list.length > 0 && (
+              <ul class="field-notebook__list">
+                {page.list.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+
             {page.handwrittenNote && (
-              <p class="field-notebook__handwritten">{page.handwrittenNote}</p>
+              <p class:list={['field-notebook__handwritten', `field-notebook__handwritten--${page.noteTone ?? 'butter'}`]}>
+                {page.handwrittenNote}
+              </p>
             )}
           </div>
 
           {page.media && page.media.length > 0 && (
-            <div class="field-notebook__media-grid">
-              {page.media.map((media) => (
-                <figure class:list={['field-notebook__media', aspectClass(media)]}>
+            <div class:list={['field-notebook__media-grid', `field-notebook__media-grid--${Math.min(page.media.length, 3)}`]}>
+              {page.media.slice(0, 3).map((media, mediaIndex) => (
+                <figure class:list={['field-notebook__media', aspectClass(media), `field-notebook__media--slot-${mediaIndex + 1}`]}>
                   {media.src ? (
-                    <img
-                      data-notebook-media
-                      data-src={media.src}
-                      alt={media.alt}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <img data-notebook-media data-src={media.src} alt={media.alt} loading="lazy" decoding="async" />
                   ) : (
                     <div class="field-notebook__placeholder" role="img" aria-label={media.alt}>
                       <span>PHOTO</span>
                       <small>{media.label ?? 'Notebook image'}</small>
                     </div>
                   )}
+                  {media.label && <figcaption>{media.label}</figcaption>}
                 </figure>
               ))}
             </div>
           )}
 
+          {page.references && page.references.length > 0 && (
+            <div class="field-notebook__references">
+              <span class="field-notebook__references-label">PULL THESE FROM THE ATLAS</span>
+              {page.references.map((reference) => <AtlasRouteReference {reference} compact />)}
+            </div>
+          )}
+
+          {page.caption && <p class="field-notebook__caption">{page.caption}</p>}
           <span class="field-notebook__folio" aria-hidden="true">{pageIndex + 1}</span>
         </article>
       ))}
     </div>
 
     <div class="field-notebook__controls">
-      <button type="button" data-notebook-prev>← Previous</button>
+      <button type="button" data-notebook-prev>← Previous page</button>
       <span data-notebook-status aria-live="polite">1 / {notebook.pages.length}</span>
-      <button type="button" data-notebook-next>Next →</button>
+      <button type="button" data-notebook-next>Next page →</button>
     </div>
   </div>
 </section>
@@ -95,7 +102,6 @@ const aspectClass = (media: AtlasRouteMedia) =>
   const hydratePageMedia = (pages: HTMLElement[], index: number) => {
     const page = pages[index];
     if (!page) return;
-
     page.querySelectorAll<HTMLImageElement>('img[data-notebook-media][data-src]').forEach((image) => {
       if (image.src) return;
       const src = image.dataset.src;
@@ -145,11 +151,9 @@ const aspectClass = (media: AtlasRouteMedia) =>
     const goTo = async (targetIndex: number) => {
       if (animating || targetIndex < 0 || targetIndex >= pages.length || targetIndex === currentIndex) return;
       animating = true;
-
       const direction = targetIndex > currentIndex ? 1 : -1;
       const currentPage = pages[currentIndex];
       const targetPage = pages[targetIndex];
-
       hydratePageMedia(pages, targetIndex);
       if (direction > 0) hydratePageMedia(pages, targetIndex + 1);
 
@@ -191,316 +195,85 @@ const aspectClass = (media: AtlasRouteMedia) =>
 </script>
 
 <style>
-  .field-notebook {
-    margin-top: clamp(2.5rem, 5vw, 4rem);
+  .field-notebook { margin-top: clamp(2.7rem, 5vw, 4.4rem); }
+  .field-notebook__open { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem 1.4rem; align-items: center; width: min(100%, 900px); min-height: 96px; padding: 1.1rem 1.3rem; border: 1px solid #cfc3ae; background: linear-gradient(90deg, rgba(183, 102, 69, .09), transparent 23%), #fffdf8; color: #302c26; text-align: left; cursor: pointer; box-shadow: 7px 9px 0 rgba(49, 85, 69, .055), 0 14px 30px rgba(57, 50, 40, .08); transform: rotate(-.2deg); }
+  .field-notebook__open:hover { border-color: #a9876e; transform: rotate(-.2deg) translateY(-2px); }
+  .field-notebook__open-kicker { color: #b76645; font-size: .64rem; font-weight: 700; letter-spacing: .16em; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .field-notebook__open-title { color: #315545; font-family: 'Newsreader', Georgia, serif; font-size: clamp(1.45rem, 3vw, 2.1rem); }
+  .field-notebook__open-action { color: #6b6257; font-family: 'Caveat', cursive; font-size: 1.18rem; white-space: nowrap; }
+  .field-notebook__panel { width: min(100%, 960px); margin-top: 1.2rem; padding: clamp(1rem, 3vw, 1.75rem); border: 1px solid #cfc3ae; background: #e9dfcc; box-shadow: 0 22px 55px rgba(49, 43, 34, .15); }
+  .field-notebook__toolbar { display: flex; justify-content: space-between; gap: 1.5rem; align-items: start; padding: .25rem .25rem 1rem; }
+  .field-notebook__toolbar > div { display: grid; gap: .15rem; }
+  .field-notebook__toolbar span { color: #b76645; font-size: .62rem; font-weight: 700; letter-spacing: .16em; }
+  .field-notebook__toolbar strong { color: #315545; font-family: 'Newsreader', Georgia, serif; font-size: 1.3rem; font-weight: 600; }
+  .field-notebook__toolbar button, .field-notebook__controls button { min-height: 42px; border: 0; background: transparent; color: #4e473e; font: inherit; cursor: pointer; }
+  .field-notebook__intro { max-width: 650px; margin: 0 .25rem 1.25rem; color: #655d53; font-family: 'Newsreader', Georgia, serif; font-size: .92rem; }
+  .field-notebook__book { position: relative; min-height: 500px; perspective: 1400px; }
+  .field-notebook__binding { position: absolute; z-index: 6; top: 0; bottom: 0; left: 50%; width: 26px; transform: translateX(-50%); pointer-events: none; background: linear-gradient(90deg, transparent, rgba(75, 61, 45, .12), transparent); }
+  .field-notebook__page { position: relative; min-height: 500px; padding: clamp(1.5rem, 4vw, 3.2rem); overflow: hidden; border: 1px solid rgba(108, 92, 70, .2); background: repeating-linear-gradient(0deg, transparent 0 30px, rgba(83, 72, 57, .04) 31px), #fffdf8; box-shadow: inset 0 0 35px rgba(78, 64, 47, .04); transform-origin: left center; }
+  .field-notebook__page-copy { position: relative; z-index: 3; width: min(46%, 390px); }
+  .field-notebook__kicker { margin: 0 0 .45rem; color: #b76645; font-size: .6rem; font-weight: 700; letter-spacing: .16em; }
+  .field-notebook__page h3 { margin: 0; color: #315545; font-family: 'Newsreader', Georgia, serif; font-size: clamp(2rem, 4vw, 3.35rem); font-weight: 500; line-height: 1; }
+  .field-notebook__copy { margin: 1rem 0 0; color: #514b43; font-family: 'Newsreader', Georgia, serif; font-size: .93rem; line-height: 1.55; }
+  .field-notebook__list { display: grid; gap: .5rem; margin: 1.15rem 0 0; padding: 0; list-style: none; }
+  .field-notebook__list li { position: relative; padding-left: 1.25rem; color: #50493f; font-family: 'Caveat', cursive; font-size: 1.25rem; line-height: 1.08; }
+  .field-notebook__list li::before { content: '✓'; position: absolute; left: 0; color: #9d3040; font-family: sans-serif; font-size: .7rem; }
+  .field-notebook__handwritten { width: min(100%, 305px); margin: 1.65rem 0 0; padding: .9rem 1.05rem; color: #504331; font-family: 'Caveat', cursive; font-size: 1.4rem; line-height: 1.1; box-shadow: 0 7px 12px rgba(81, 68, 47, .09); transform: rotate(-1.7deg); }
+  .field-notebook__handwritten--butter { background: #f4df91; }
+  .field-notebook__handwritten--rose { background: #ecc6bc; }
+  .field-notebook__handwritten--sage { background: #cddbc5; }
+  .field-notebook__handwritten--sky { background: #cbdce0; }
+  .field-notebook__handwritten--paper { background: #eadfcf; }
+  .field-notebook__media-grid { position: absolute; top: 8%; right: 5%; bottom: 8%; width: 43%; }
+  .field-notebook__media { position: absolute; overflow: visible; margin: 0; border: 8px solid #f8f4e9; background: #e8dfcf; box-shadow: 0 12px 24px rgba(59, 49, 38, .15); }
+  .field-notebook__media-grid--1 .field-notebook__media { inset: 0; transform: rotate(1.4deg); }
+  .field-notebook__media-grid--2 .field-notebook__media--slot-1 { top: 0; left: 0; width: 76%; height: 62%; transform: rotate(-2deg); }
+  .field-notebook__media-grid--2 .field-notebook__media--slot-2 { right: 0; bottom: 0; width: 72%; height: 55%; transform: rotate(2.4deg); }
+  .field-notebook__media-grid--3 .field-notebook__media--slot-1 { top: 0; left: 0; width: 68%; height: 55%; transform: rotate(-2deg); }
+  .field-notebook__media-grid--3 .field-notebook__media--slot-2 { top: 14%; right: 0; width: 48%; height: 43%; transform: rotate(2.8deg); }
+  .field-notebook__media-grid--3 .field-notebook__media--slot-3 { right: 9%; bottom: 0; width: 66%; height: 47%; transform: rotate(-.8deg); }
+  .field-notebook__media img, .field-notebook__placeholder { width: 100%; height: 100%; }
+  .field-notebook__media img { display: block; object-fit: cover; }
+  .field-notebook__media figcaption { position: absolute; right: .25rem; bottom: .2rem; max-width: 82%; padding: .15rem .3rem; background: rgba(255, 253, 248, .86); color: #746b5e; font-family: 'Caveat', cursive; font-size: .8rem; line-height: 1; }
+  .field-notebook__placeholder { display: grid; place-content: center; gap: .3rem; padding: 1rem; background: #eee6d7; color: #81786d; text-align: center; }
+  .field-notebook__placeholder span { font-size: .64rem; font-weight: 700; letter-spacing: .19em; }
+  .field-notebook__placeholder small { font-family: 'Caveat', cursive; font-size: 1.05rem; }
+  .field-notebook__references { position: absolute; z-index: 4; right: 4%; bottom: 8%; width: min(48%, 420px); display: grid; gap: .55rem; }
+  .field-notebook__references-label { color: #9d3040; font-size: .55rem; font-weight: 700; letter-spacing: .13em; }
+  .field-notebook__caption { position: absolute; left: 5%; bottom: 1.1rem; margin: 0; color: #8b8173; font-family: 'Caveat', cursive; font-size: 1rem; transform: rotate(-1deg); }
+  .field-notebook__folio { position: absolute; right: 1.35rem; bottom: .75rem; color: #9e9589; font-family: 'Newsreader', Georgia, serif; font-size: .72rem; }
+  .field-notebook__page--photo .field-notebook__page-copy { width: min(38%, 330px); }
+  .field-notebook__page--photo .field-notebook__media-grid { top: 4%; right: 3%; bottom: 4%; width: 57%; }
+  .field-notebook__page--checklist .field-notebook__page-copy { width: min(50%, 420px); }
+  .field-notebook__page--checklist .field-notebook__media-grid { top: 15%; right: 6%; bottom: 15%; width: 34%; }
+  .field-notebook__page--atlas-picks .field-notebook__page-copy { width: 43%; }
+  .field-notebook__page--atlas-picks .field-notebook__media-grid { top: 7%; right: 4%; bottom: 46%; width: 45%; }
+  .field-notebook__page--memory .field-notebook__handwritten { font-size: 1.6rem; }
+  .field-notebook__page--scrapbook .field-notebook__page-copy { width: 36%; }
+  .field-notebook__page--scrapbook .field-notebook__media-grid { width: 59%; right: 2%; top: 4%; bottom: 4%; }
+  .field-notebook__controls { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; padding-top: 1rem; }
+  .field-notebook__controls button:last-child { justify-self: end; }
+  .field-notebook__controls button:disabled { opacity: .35; cursor: default; }
+  .field-notebook__controls span { color: #746b60; font-size: .7rem; }
+  @media (max-width: 760px) {
+    .field-notebook__open { grid-template-columns: auto 1fr; }
+    .field-notebook__open-action { grid-column: 2; }
+    .field-notebook__book, .field-notebook__page { min-height: 720px; }
+    .field-notebook__binding { display: none; }
+    .field-notebook__page-copy, .field-notebook__page--photo .field-notebook__page-copy, .field-notebook__page--checklist .field-notebook__page-copy, .field-notebook__page--atlas-picks .field-notebook__page-copy, .field-notebook__page--scrapbook .field-notebook__page-copy { width: 100%; max-width: 100%; }
+    .field-notebook__media-grid, .field-notebook__page--photo .field-notebook__media-grid, .field-notebook__page--checklist .field-notebook__media-grid, .field-notebook__page--atlas-picks .field-notebook__media-grid, .field-notebook__page--scrapbook .field-notebook__media-grid { top: auto; right: 5%; bottom: 7%; left: 5%; width: 90%; height: 285px; }
+    .field-notebook__references { position: relative; right: auto; bottom: auto; width: 100%; margin-top: 1.2rem; padding-bottom: 315px; }
+    .field-notebook__page--atlas-picks .field-notebook__media-grid { display: none; }
+    .field-notebook__page--atlas-picks .field-notebook__references { padding-bottom: 0; }
   }
-
-  .field-notebook__open {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 1rem 1.4rem;
-    align-items: center;
-    width: min(100%, 860px);
-    min-height: 92px;
-    padding: 1.1rem 1.25rem;
-    border: 1px solid #cfc3ae;
-    background:
-      linear-gradient(90deg, rgba(183, 102, 69, .08), transparent 20%),
-      #fffdf8;
-    color: #302c26;
-    text-align: left;
-    cursor: pointer;
-    box-shadow: 0 12px 28px rgba(57, 50, 40, .08);
+  @media (max-width: 520px) {
+    .field-notebook__panel { padding: .8rem; }
+    .field-notebook__page { padding: 1.25rem 1.05rem; }
+    .field-notebook__book, .field-notebook__page { min-height: 700px; }
+    .field-notebook__page h3 { font-size: 2.25rem; }
+    .field-notebook__controls button { font-size: .72rem; }
   }
-
-  .field-notebook__open:hover {
-    border-color: #a9876e;
-    transform: translateY(-1px);
-  }
-
-  .field-notebook__open-kicker {
-    color: #b76645;
-    font-size: .64rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-  }
-
-  .field-notebook__open-title {
-    color: #315545;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(1.45rem, 3vw, 2rem);
-  }
-
-  .field-notebook__open-action {
-    color: #6b6257;
-    font-family: 'Caveat', cursive;
-    font-size: 1.12rem;
-    white-space: nowrap;
-  }
-
-  .field-notebook__panel {
-    width: min(100%, 920px);
-    margin-top: 1.2rem;
-    padding: clamp(1rem, 3vw, 1.75rem);
-    border: 1px solid #cfc3ae;
-    background: #e9dfcc;
-    box-shadow: 0 22px 55px rgba(49, 43, 34, .15);
-  }
-
-  .field-notebook__toolbar {
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-    align-items: start;
-    padding: .25rem .25rem 1rem;
-  }
-
-  .field-notebook__toolbar > div {
-    display: grid;
-    gap: .15rem;
-  }
-
-  .field-notebook__toolbar span {
-    color: #b76645;
-    font-size: .62rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-  }
-
-  .field-notebook__toolbar strong {
-    color: #315545;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-
-  .field-notebook__toolbar button,
-  .field-notebook__controls button {
-    min-height: 42px;
-    border: 0;
-    background: transparent;
-    color: #4e473e;
-    font: inherit;
-    cursor: pointer;
-  }
-
-  .field-notebook__toolbar button {
-    font-size: .78rem;
-  }
-
-  .field-notebook__intro {
-    max-width: 670px;
-    margin: 0 .25rem 1.2rem;
-    color: #655d53;
-    font-family: 'Newsreader', Georgia, serif;
-  }
-
-  .field-notebook__book {
-    position: relative;
-    min-height: 460px;
-    perspective: 1400px;
-  }
-
-  .field-notebook__binding {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 28px;
-    transform: translateX(-50%);
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, rgba(75, 61, 45, .12), transparent);
-  }
-
-  .field-notebook__page {
-    position: relative;
-    min-height: 460px;
-    padding: clamp(1.6rem, 4vw, 3.4rem);
-    overflow: hidden;
-    border: 1px solid rgba(108, 92, 70, .2);
-    background:
-      linear-gradient(90deg, rgba(118, 96, 66, .035), transparent 8%, transparent 92%, rgba(118, 96, 66, .035)),
-      repeating-linear-gradient(0deg, transparent 0 30px, rgba(83, 72, 57, .045) 31px),
-      #fffdf8;
-    box-shadow: inset 0 0 35px rgba(78, 64, 47, .04);
-    transform-origin: left center;
-  }
-
-  .field-notebook__page-copy {
-    width: min(48%, 390px);
-  }
-
-  .field-notebook__kicker {
-    margin: 0 0 .45rem;
-    color: #b76645;
-    font-size: .62rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-  }
-
-  .field-notebook__page h3 {
-    margin: 0;
-    color: #315545;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: clamp(2rem, 4vw, 3.3rem);
-    font-weight: 500;
-  }
-
-  .field-notebook__copy {
-    margin: 1.2rem 0 0;
-    color: #514b43;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 1rem;
-  }
-
-  .field-notebook__handwritten {
-    width: min(100%, 310px);
-    margin: 2rem 0 0;
-    padding: 1rem 1.15rem;
-    transform: rotate(-1.7deg);
-    background: #f4df91;
-    color: #504331;
-    font-family: 'Caveat', cursive;
-    font-size: 1.35rem;
-    line-height: 1.18;
-    box-shadow: 0 7px 12px rgba(81, 68, 47, .09);
-  }
-
-  .field-notebook__media-grid {
-    position: absolute;
-    top: 9%;
-    right: 6%;
-    bottom: 9%;
-    width: 40%;
-  }
-
-  .field-notebook__media {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-    border: 8px solid #f8f4e9;
-    background: #e8dfcf;
-    box-shadow: 0 12px 24px rgba(59, 49, 38, .15);
-    transform: rotate(1.4deg);
-  }
-
-  .field-notebook__media img,
-  .field-notebook__placeholder {
-    width: 100%;
-    height: 100%;
-  }
-
-  .field-notebook__media img {
-    display: block;
-    object-fit: cover;
-  }
-
-  .field-notebook__placeholder {
-    display: grid;
-    place-content: center;
-    gap: .3rem;
-    padding: 1rem;
-    background:
-      linear-gradient(135deg, rgba(49, 85, 69, .035), rgba(183, 102, 69, .05)),
-      #eee6d7;
-    color: #81786d;
-    text-align: center;
-  }
-
-  .field-notebook__placeholder span {
-    font-size: .64rem;
-    font-weight: 700;
-    letter-spacing: .19em;
-  }
-
-  .field-notebook__placeholder small {
-    font-family: 'Caveat', cursive;
-    font-size: 1.05rem;
-  }
-
-  .field-notebook__folio {
-    position: absolute;
-    right: 1.4rem;
-    bottom: .9rem;
-    color: #9e9589;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: .75rem;
-  }
-
-  .field-notebook__controls {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 1rem;
-    padding-top: .75rem;
-  }
-
-  .field-notebook__controls button:first-child {
-    justify-self: start;
-  }
-
-  .field-notebook__controls button:last-child {
-    justify-self: end;
-  }
-
-  .field-notebook__controls button:disabled {
-    opacity: .35;
-    cursor: default;
-  }
-
-  .field-notebook__controls span {
-    color: #62594f;
-    font-size: .76rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-  }
-
-  @media (max-width: 680px) {
-    .field-notebook__open {
-      grid-template-columns: auto 1fr;
-    }
-
-    .field-notebook__open-action {
-      grid-column: 2;
-    }
-
-    .field-notebook__book,
-    .field-notebook__page {
-      min-height: 650px;
-    }
-
-    .field-notebook__binding {
-      display: none;
-    }
-
-    .field-notebook__page-copy {
-      width: 100%;
-    }
-
-    .field-notebook__media-grid {
-      position: absolute;
-      top: auto;
-      right: 1.5rem;
-      bottom: 2.4rem;
-      left: 1.5rem;
-      width: auto;
-      height: 250px;
-    }
-
-    .field-notebook__handwritten {
-      position: relative;
-      z-index: 2;
-      margin-top: 1.3rem;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .field-notebook__open {
-      transition: none;
-    }
+    .field-notebook__open { transition: none; }
   }
 </style>
