@@ -1,4 +1,9 @@
 export type AtlasRouteMediaAspect = 'landscape' | 'portrait' | 'square';
+export type AtlasRoutePersonalNotePlacement =
+  | 'story'
+  | 'gallery-top-right-gap'
+  | 'gallery-image-1-overlap'
+  | 'gallery-bottom-left-gap';
 
 export interface AtlasRouteMedia {
   id: string;
@@ -35,6 +40,7 @@ export interface AtlasRoutePersonalNote {
   id: string;
   label?: string;
   text: string;
+  placement?: AtlasRoutePersonalNotePlacement;
 }
 
 export interface AtlasRouteTransfer {
@@ -89,7 +95,8 @@ const personalNote = (
   id: string,
   label = 'PERSONAL NOTE',
   text = 'Personal note placeholder — a short memory, reaction or recommendation can live here.',
-): AtlasRoutePersonalNote => ({ id, label, text });
+  placement: AtlasRoutePersonalNotePlacement = 'story',
+): AtlasRoutePersonalNote => ({ id, label, text, placement });
 
 const genericParagraph =
   'Editorial copy placeholder. This block will later explain why this stop belongs in the route, how long it deserves, and the feeling or practical logic that connects it to the journey.';
@@ -137,7 +144,12 @@ const southToNorth: AtlasRouteContent = {
       highlights: ['Activity placeholder', 'Slow moment placeholder', 'Local stop placeholder'],
       personalNotes: [
         personalNote('don-det-personal-01'),
-        personalNote('don-det-personal-02', 'QUICK MEMORY', 'Second post-it placeholder — ideal for one spontaneous sentence.'),
+        personalNote(
+          'don-det-personal-02',
+          'QUICK MEMORY',
+          'Second post-it placeholder — ideal for one spontaneous sentence.',
+          'gallery-top-right-gap',
+        ),
       ],
       media: [
         placeholder('don-det-01', 'Don Det image 01'),
@@ -265,7 +277,6 @@ const southToNorth: AtlasRouteContent = {
       highlights: ['Exploration placeholder', 'Scooter placeholder', 'Stay placeholder'],
       personalNotes: [
         personalNote('thakhek-personal-01'),
-        personalNote('thakhek-personal-02', 'LITTLE STORY', 'Post-it placeholder for a guesthouse moment, encounter or funny detail from the road.'),
       ],
       media: [
         placeholder('thakhek-01', 'Thakhek image 01'),
@@ -305,8 +316,18 @@ const southToNorth: AtlasRouteContent = {
       body: [genericParagraph],
       highlights: ['Activity placeholder', 'Viewpoint placeholder', 'Evening placeholder'],
       personalNotes: [
-        personalNote('vang-vieng-personal-01', 'AFTERWARDS', 'Post-it placeholder for the one detail you remember after the activity itself.'),
-        personalNote('vang-vieng-personal-02', 'NIGHT NOTE', 'A second small note can capture an evening, encounter or atmosphere.'),
+        personalNote(
+          'vang-vieng-personal-01',
+          'CITY NOTE',
+          'Post-it placeholder for the one detail you remember after the activity itself.',
+          'gallery-top-right-gap',
+        ),
+        personalNote(
+          'vang-vieng-personal-02',
+          'NIGHT NOTE',
+          'A second small note can capture an evening, encounter or atmosphere.',
+          'gallery-image-1-overlap',
+        ),
       ],
       media: [
         placeholder('vang-vieng-01', 'Vang Vieng image 01'),
@@ -327,7 +348,12 @@ const southToNorth: AtlasRouteContent = {
       highlights: ['Waterfall placeholder', 'Walk placeholder', 'Slow day placeholder'],
       personalNotes: [
         personalNote('luang-prabang-personal-01', 'WORTH IT', 'Post-it placeholder for a strong recommendation that deserves a more personal voice.'),
-        personalNote('luang-prabang-personal-02', 'ONE MORE THING', 'Second personal-note slot for a longer chapter.'),
+        personalNote(
+          'luang-prabang-personal-02',
+          'ONE MORE THING',
+          'Second personal-note slot for a longer chapter.',
+          'gallery-bottom-left-gap',
+        ),
       ],
       media: [
         placeholder('luang-prabang-01', 'Luang Prabang image 01'),
