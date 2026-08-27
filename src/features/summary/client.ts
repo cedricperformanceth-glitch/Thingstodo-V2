@@ -1,4 +1,3 @@
-import './summary-adjustments.css';
 import {
   MY_ATLAS_EVENT,
   MY_ATLAS_STORAGE_KEY,
@@ -63,7 +62,7 @@ const indexedAtlasImage = (entry: TripEntry) => atlasMediaIndex.get(tripKey(entr
   ?? (entry.slug ? atlasMediaIndex.get(`slug:${entry.slug}`) : undefined);
 
 const atlasCard = (entry: TripEntry, index: number, fallbackImage?: TripCardImage | FavoriteSnapshot['cardImage']) => `
-  <article class="summary-card summary-card--favorite summary-card--atlas-photo">
+  <article class="summary-card summary-card--atlas-photo">
     ${cardMedia(entry.cardImage ?? fallbackImage)}
     <div class="summary-card__favorite-body">
       <div class="summary-card__topline">
@@ -87,11 +86,12 @@ const atlasCard = (entry: TripEntry, index: number, fallbackImage?: TripCardImag
     </div>
   </article>`;
 
-const favoriteCard = (item: FavoriteSnapshot) => `
+const favoriteCard = (item: FavoriteSnapshot, index: number) => `
   <article class="summary-card summary-card--favorite">
     ${cardMedia(item.cardImage)}
     <div class="summary-card__favorite-body">
       <div class="summary-card__topline">
+        <span class="summary-card__number">${String(index + 1).padStart(2, '0')}</span>
         <span class="summary-card__category">${escapeHtml(titleize(item.category))}</span>
         <span class="summary-card__heart" aria-hidden="true">♥</span>
       </div>
@@ -116,6 +116,8 @@ const initSummary = () => {
   const favoritesGrid = root.querySelector<HTMLElement>('[data-summary-favorites-grid]');
   const atlasCount = root.querySelector<HTMLElement>('[data-summary-atlas-count]');
   const favoritesCount = root.querySelector<HTMLElement>('[data-summary-favorites-count]');
+  const routeCount = root.querySelector<HTMLElement>('[data-summary-route-count]');
+  const summaryStatus = root.querySelector<HTMLElement>('[data-summary-status]');
   const adventureRoutes = [...root.querySelectorAll<HTMLElement>('.adventure-route')];
   const adventureIntro = root.querySelector<HTMLElement>('.adventure-intro');
 
@@ -136,13 +138,29 @@ const initSummary = () => {
     if (updateHash) history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${name}`);
   };
 
+  const updateSummaryStatus = () => {
+    const entries = readTripStore().entries;
+    const favorites = favoritesStore.all();
+    const countries = [...new Set([...entries, ...favorites].map((item) => item.country).filter(Boolean))];
+    const scope = countries.length === 1
+      ? titleize(countries[0]).toUpperCase()
+      : countries.length > 1
+        ? `${countries.length} COUNTRIES`
+        : 'YOUR ATLAS';
+
+    if (summaryStatus) {
+      summaryStatus.textContent = `${scope} · ${entries.length} ${entries.length === 1 ? 'place' : 'places'} collected · ${favorites.length} ${favorites.length === 1 ? 'favorite' : 'favorites'} · ${ADVENTURE_ROUTES.length} routes`;
+    }
+    if (routeCount) routeCount.textContent = `${ADVENTURE_ROUTES.length} ROUTES READY`;
+  };
+
   const renderAtlas = () => {
     if (!atlasGrid || !atlasCount) return;
     const entries = readTripStore().entries;
     const favoriteImages = new Map(
       favoritesStore.all().map((favorite) => [favoriteKey(favorite), favorite.cardImage] as const),
     );
-    atlasCount.textContent = `${entries.length} ${entries.length === 1 ? 'saved card' : 'saved cards'}`;
+    atlasCount.textContent = `${entries.length} SAVED ${entries.length === 1 ? 'PLACE' : 'PLACES'}`;
     atlasGrid.innerHTML = entries.length
       ? entries.map((entry, index) => {
           const key = tripKey(entry);
@@ -154,7 +172,7 @@ const initSummary = () => {
   const renderFavorites = () => {
     if (!favoritesGrid || !favoritesCount) return;
     const favorites = favoritesStore.all();
-    favoritesCount.textContent = `${favorites.length} ${favorites.length === 1 ? 'favorite' : 'favorites'}`;
+    favoritesCount.textContent = `${favorites.length} ${favorites.length === 1 ? 'FAVORITE' : 'FAVORITES'}`;
     favoritesGrid.innerHTML = favorites.length
       ? favorites.map(favoriteCard).join('')
       : emptyState('No favorites yet.', 'Use the heart on a card while exploring. Your favorite places will be gathered here.');
@@ -163,6 +181,7 @@ const initSummary = () => {
   const renderAll = () => {
     renderAtlas();
     renderFavorites();
+    updateSummaryStatus();
   };
 
   const loadAtlasMedia = async () => {
@@ -191,7 +210,7 @@ const initSummary = () => {
     const title = route.querySelector('h3')?.textContent?.trim() ?? 'Adventure route';
     route.setAttribute('aria-label', `Open ${title}`);
     const status = route.querySelector<HTMLElement>('.adventure-route__status');
-    if (status) status.textContent = 'Open route';
+    if (status) status.textContent = 'Open route →';
     route.addEventListener('click', () => window.location.assign(href));
     route.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
@@ -201,7 +220,7 @@ const initSummary = () => {
   });
 
   if (adventureIntro) {
-    adventureIntro.textContent = 'Choose a direction and open the complete Laos adventure route.';
+    adventureIntro.textContent = 'Choose a direction and turn the places you collected into a journey.';
   }
 
   tabs.forEach((tab, index) => {
@@ -231,7 +250,7 @@ const initSummary = () => {
         country: atlasRemove.dataset.country,
         city: atlasRemove.dataset.city,
       });
-      renderAtlas();
+      renderAll();
       return;
     }
 
@@ -239,17 +258,23 @@ const initSummary = () => {
     if (favoriteRemove?.dataset.key) {
       const item = favoritesStore.all().find((favorite) => favoriteKey(favorite) === favoriteRemove.dataset.key);
       if (item) favoritesStore.toggle(item);
-      renderFavorites();
-      renderAtlas();
+      renderAll();
     }
   });
 
-  window.addEventListener(MY_ATLAS_EVENT, renderAtlas);
+  window.addEventListener(MY_ATLAS_EVENT, () => {
+    renderAtlas();
+    updateSummaryStatus();
+  });
   window.addEventListener('storage', (event) => {
-    if (event.key === MY_ATLAS_STORAGE_KEY || event.key === null) renderAtlas();
+    if (event.key === MY_ATLAS_STORAGE_KEY || event.key === null) {
+      renderAtlas();
+      updateSummaryStatus();
+    }
     if (event.key === FAVORITES_STORAGE_KEY || event.key === null) {
       renderFavorites();
       renderAtlas();
+      updateSummaryStatus();
     }
   });
   window.addEventListener('hashchange', () => activateTab(tabFromHash(), false));
