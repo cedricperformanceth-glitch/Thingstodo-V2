@@ -1,13 +1,20 @@
+import './summary-adjustments.css';
 import {
   MY_ATLAS_EVENT,
   MY_ATLAS_STORAGE_KEY,
   readTripStore,
   removeFromTrip,
+  tripKey,
   type TripEntry,
+  type TripCardImage,
 } from '../trip/store';
 import { favoriteKey, favoritesStore, type FavoriteSnapshot } from '../favorites/store';
 
 const FAVORITES_STORAGE_KEY = 'things-to-do-atlas:favorites';
+const ADVENTURE_ROUTES = [
+  '/laos/atlas-routes/north-to-south',
+  '/laos/atlas-routes/south-to-north',
+] as const;
 
 type SummaryTab = 'atlas' | 'favorites' | 'adventure';
 
@@ -41,51 +48,52 @@ const emptyState = (title: string, copy: string) => `
     <p>${escapeHtml(copy)}</p>
   </div>`;
 
-const atlasCard = (entry: TripEntry, index: number) => `
-  <article class="summary-card summary-card--atlas">
-    <div class="summary-card__topline">
-      <span class="summary-card__number">${String(index + 1).padStart(2, '0')}</span>
-      <span class="summary-card__category">${escapeHtml(titleize(entry.category))}</span>
-    </div>
-    <h3>${escapeHtml(entry.name)}</h3>
-    <p class="summary-card__place">${escapeHtml(titleize(entry.city))} · ${escapeHtml(titleize(entry.country))}</p>
-    ${entry.shortDescription ? `<p class="summary-card__description">${escapeHtml(entry.shortDescription)}</p>` : ''}
-    <div class="summary-card__actions">
-      <a href="${escapeHtml(entry.sourcePath || fallbackEntryPath(entry))}">Open card <span aria-hidden="true">→</span></a>
-      <button
-        type="button"
-        class="summary-card__remove"
-        data-summary-atlas-remove
-        data-id="${escapeHtml(entry.id)}"
-        data-country="${escapeHtml(entry.country)}"
-        data-city="${escapeHtml(entry.city)}"
-      >Remove</button>
+const cardMedia = (image?: TripCardImage | FavoriteSnapshot['cardImage']) => image
+  ? `<div class="summary-card__media"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" width="640" height="400"></div>`
+  : `<div class="summary-card__media summary-card__media--empty" aria-hidden="true"><span>Atlas</span></div>`;
+
+const atlasCard = (entry: TripEntry, index: number, fallbackImage?: FavoriteSnapshot['cardImage']) => `
+  <article class="summary-card summary-card--favorite summary-card--atlas-photo">
+    ${cardMedia(entry.cardImage ?? fallbackImage)}
+    <div class="summary-card__favorite-body">
+      <div class="summary-card__topline">
+        <span class="summary-card__number">${String(index + 1).padStart(2, '0')}</span>
+        <span class="summary-card__category">${escapeHtml(titleize(entry.category))}</span>
+      </div>
+      <h3>${escapeHtml(entry.name)}</h3>
+      <p class="summary-card__place">${escapeHtml(titleize(entry.city))} · ${escapeHtml(titleize(entry.country))}</p>
+      ${entry.shortDescription ? `<p class="summary-card__description">${escapeHtml(entry.shortDescription)}</p>` : ''}
+      <div class="summary-card__actions">
+        <a href="${escapeHtml(entry.sourcePath || fallbackEntryPath(entry))}">Open card <span aria-hidden="true">→</span></a>
+        <button
+          type="button"
+          class="summary-card__remove"
+          data-summary-atlas-remove
+          data-id="${escapeHtml(entry.id)}"
+          data-country="${escapeHtml(entry.country)}"
+          data-city="${escapeHtml(entry.city)}"
+        >Remove</button>
+      </div>
     </div>
   </article>`;
 
-const favoriteCard = (item: FavoriteSnapshot) => {
-  const media = item.cardImage
-    ? `<div class="summary-card__media"><img src="${escapeHtml(item.cardImage.src)}" alt="${escapeHtml(item.cardImage.alt)}" loading="lazy" width="640" height="400"></div>`
-    : `<div class="summary-card__media summary-card__media--empty" aria-hidden="true"><span>Atlas</span></div>`;
-
-  return `
-    <article class="summary-card summary-card--favorite">
-      ${media}
-      <div class="summary-card__favorite-body">
-        <div class="summary-card__topline">
-          <span class="summary-card__category">${escapeHtml(titleize(item.category))}</span>
-          <span class="summary-card__heart" aria-hidden="true">♥</span>
-        </div>
-        <h3>${escapeHtml(item.name)}</h3>
-        <p class="summary-card__place">${escapeHtml(titleize(item.city))} · ${escapeHtml(titleize(item.country))}</p>
-        ${item.shortDescription ? `<p class="summary-card__description">${escapeHtml(item.shortDescription)}</p>` : ''}
-        <div class="summary-card__actions">
-          <a href="${escapeHtml(favoritePath(item))}">Open card <span aria-hidden="true">→</span></a>
-          <button type="button" class="summary-card__remove" data-summary-favorite-remove data-key="${escapeHtml(favoriteKey(item))}">Remove</button>
-        </div>
+const favoriteCard = (item: FavoriteSnapshot) => `
+  <article class="summary-card summary-card--favorite">
+    ${cardMedia(item.cardImage)}
+    <div class="summary-card__favorite-body">
+      <div class="summary-card__topline">
+        <span class="summary-card__category">${escapeHtml(titleize(item.category))}</span>
+        <span class="summary-card__heart" aria-hidden="true">♥</span>
       </div>
-    </article>`;
-};
+      <h3>${escapeHtml(item.name)}</h3>
+      <p class="summary-card__place">${escapeHtml(titleize(item.city))} · ${escapeHtml(titleize(item.country))}</p>
+      ${item.shortDescription ? `<p class="summary-card__description">${escapeHtml(item.shortDescription)}</p>` : ''}
+      <div class="summary-card__actions">
+        <a href="${escapeHtml(favoritePath(item))}">Open card <span aria-hidden="true">→</span></a>
+        <button type="button" class="summary-card__remove" data-summary-favorite-remove data-key="${escapeHtml(favoriteKey(item))}">Remove</button>
+      </div>
+    </div>
+  </article>`;
 
 const initSummary = () => {
   const root = document.querySelector<HTMLElement>('[data-trip-summary]');
@@ -98,6 +106,8 @@ const initSummary = () => {
   const favoritesGrid = root.querySelector<HTMLElement>('[data-summary-favorites-grid]');
   const atlasCount = root.querySelector<HTMLElement>('[data-summary-atlas-count]');
   const favoritesCount = root.querySelector<HTMLElement>('[data-summary-favorites-count]');
+  const adventureRoutes = [...root.querySelectorAll<HTMLElement>('.adventure-route')];
+  const adventureIntro = root.querySelector<HTMLElement>('.adventure-intro');
 
   const tabFromHash = (): SummaryTab => {
     const hash = window.location.hash.replace('#', '');
@@ -119,9 +129,12 @@ const initSummary = () => {
   const renderAtlas = () => {
     if (!atlasGrid || !atlasCount) return;
     const entries = readTripStore().entries;
+    const favoriteImages = new Map(
+      favoritesStore.all().map((favorite) => [favoriteKey(favorite), favorite.cardImage] as const),
+    );
     atlasCount.textContent = `${entries.length} ${entries.length === 1 ? 'saved card' : 'saved cards'}`;
     atlasGrid.innerHTML = entries.length
-      ? entries.map(atlasCard).join('')
+      ? entries.map((entry, index) => atlasCard(entry, index, favoriteImages.get(tripKey(entry)))).join('')
       : emptyState('Your atlas is waiting for its first card.', 'Add places and experiences while exploring the site. Everything you save to My Atlas will appear here.');
   };
 
@@ -138,6 +151,28 @@ const initSummary = () => {
     renderAtlas();
     renderFavorites();
   };
+
+  adventureRoutes.forEach((route, index) => {
+    const href = ADVENTURE_ROUTES[index];
+    if (!href) return;
+    route.tabIndex = 0;
+    route.setAttribute('role', 'link');
+    route.dataset.routeHref = href;
+    const title = route.querySelector('h3')?.textContent?.trim() ?? 'Adventure route';
+    route.setAttribute('aria-label', `Open ${title}`);
+    const status = route.querySelector<HTMLElement>('.adventure-route__status');
+    if (status) status.textContent = 'Open route';
+    route.addEventListener('click', () => window.location.assign(href));
+    route.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      window.location.assign(href);
+    });
+  });
+
+  if (adventureIntro) {
+    adventureIntro.textContent = 'Choose a direction and open the complete Laos adventure route.';
+  }
 
   tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => activateTab((tab.dataset.summaryTab ?? 'atlas') as SummaryTab));
@@ -175,13 +210,17 @@ const initSummary = () => {
       const item = favoritesStore.all().find((favorite) => favoriteKey(favorite) === favoriteRemove.dataset.key);
       if (item) favoritesStore.toggle(item);
       renderFavorites();
+      renderAtlas();
     }
   });
 
   window.addEventListener(MY_ATLAS_EVENT, renderAtlas);
   window.addEventListener('storage', (event) => {
     if (event.key === MY_ATLAS_STORAGE_KEY || event.key === null) renderAtlas();
-    if (event.key === FAVORITES_STORAGE_KEY || event.key === null) renderFavorites();
+    if (event.key === FAVORITES_STORAGE_KEY || event.key === null) {
+      renderFavorites();
+      renderAtlas();
+    }
   });
   window.addEventListener('hashchange', () => activateTab(tabFromHash(), false));
 
