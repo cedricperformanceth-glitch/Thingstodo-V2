@@ -214,7 +214,12 @@ const southToNorth: AtlasRouteContent = {
       highlights: ['Loop highlight', 'Landscape highlight', 'Stay highlight'],
       personalNotes: [
         personalNote('bolaven-personal-01', 'ROAD NOTE', 'Main-route post-it placeholder for a personal observation before opening the deeper notebook.'),
-        personalNote('bolaven-personal-02', 'REMEMBER THIS', 'A second short handwritten memory can sit beside the chapter without adding another paragraph.'),
+        personalNote(
+          'bolaven-personal-02',
+          'REMEMBER THIS',
+          'A second short handwritten memory can sit beside the chapter without adding another paragraph.',
+          'gallery-bottom-left-gap',
+        ),
       ],
       media: [
         placeholder('bolaven-01', 'Bolaven image 01'),
