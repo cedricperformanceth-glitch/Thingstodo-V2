@@ -5840,6 +5840,16 @@
     },
     "media": [
       {
+        "id": "tad-lo-waterfall-photo-2",
+        "src": "/assets/cities/laos/tad-lo/things-to-do/tad-lo-waterfall/tad-lo-waterfall-photo-2.webp",
+        "alt": "Wide view of Tad Lo Waterfall and the Xe Set River in southern Laos",
+        "sourceType": "manual",
+        "sourceName": "User-supplied photo",
+        "license": "User-supplied",
+        "manual": true,
+        "locked": true
+      },
+      {
         "id": "tad-lo-waterfall-tango7174",
         "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Salavan_TadLo3_tango7174.jpg?width=1200",
         "alt": "Tad Lo Waterfall in Salavanh Province, Laos",
@@ -5848,16 +5858,6 @@
         "sourceName": "Wikimedia Commons",
         "author": "Tango7174",
         "license": "CC BY-SA 4.0",
-        "manual": true,
-        "locked": true
-      },
-      {
-        "id": "tad-lo-waterfall-photo-2",
-        "src": "/assets/cities/laos/tad-lo/things-to-do/tad-lo-waterfall/tad-lo-waterfall-photo-2.webp",
-        "alt": "Wide view of Tad Lo Waterfall and the Xe Set River in southern Laos",
-        "sourceType": "manual",
-        "sourceName": "User-supplied photo",
-        "license": "User-supplied",
         "manual": true,
         "locked": true
       },
