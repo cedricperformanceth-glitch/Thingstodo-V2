@@ -15,6 +15,10 @@ const ADVENTURE_ROUTES = [
   '/laos/atlas-routes/north-to-south',
   '/laos/atlas-routes/south-to-north',
 ] as const;
+const ATLAS_MEDIA_URLS = [
+  '/summary-media.json',
+  '/api/summary-media.json',
+] as const;
 
 let atlasMediaIndex = new Map<string, TripCardImage>();
 
@@ -53,6 +57,10 @@ const emptyState = (title: string, copy: string) => `
 const cardMedia = (image?: TripCardImage | FavoriteSnapshot['cardImage']) => image
   ? `<div class="summary-card__media"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" width="640" height="400"></div>`
   : `<div class="summary-card__media summary-card__media--empty" aria-hidden="true"><span>Atlas</span></div>`;
+
+const indexedAtlasImage = (entry: TripEntry) => atlasMediaIndex.get(tripKey(entry))
+  ?? atlasMediaIndex.get(`id:${entry.id}`)
+  ?? (entry.slug ? atlasMediaIndex.get(`slug:${entry.slug}`) : undefined);
 
 const atlasCard = (entry: TripEntry, index: number, fallbackImage?: TripCardImage | FavoriteSnapshot['cardImage']) => `
   <article class="summary-card summary-card--favorite summary-card--atlas-photo">
@@ -138,7 +146,7 @@ const initSummary = () => {
     atlasGrid.innerHTML = entries.length
       ? entries.map((entry, index) => {
           const key = tripKey(entry);
-          return atlasCard(entry, index, favoriteImages.get(key) ?? atlasMediaIndex.get(key));
+          return atlasCard(entry, index, favoriteImages.get(key) ?? indexedAtlasImage(entry));
         }).join('')
       : emptyState('Your atlas is waiting for its first card.', 'Add places and experiences while exploring the site. Everything you save to My Atlas will appear here.');
   };
@@ -158,16 +166,19 @@ const initSummary = () => {
   };
 
   const loadAtlasMedia = async () => {
-    try {
-      const response = await fetch('/api/summary-media.json');
-      if (!response.ok) return;
-      const payload = await response.json() as Record<string, TripCardImage>;
-      atlasMediaIndex = new Map(
-        Object.entries(payload).filter(([, image]) => Boolean(image?.src)),
-      );
-      renderAtlas();
-    } catch {
-      // Keep saved/favorite image fallbacks if the compact media index cannot be loaded.
+    for (const url of ATLAS_MEDIA_URLS) {
+      try {
+        const response = await fetch(url, { cache: 'no-store' });
+        if (!response.ok) continue;
+        const payload = await response.json() as Record<string, TripCardImage>;
+        const entries = Object.entries(payload).filter(([, image]) => Boolean(image?.src));
+        if (!entries.length) continue;
+        atlasMediaIndex = new Map(entries);
+        renderAtlas();
+        return;
+      } catch {
+        // Try the next static media endpoint.
+      }
     }
   };
 
