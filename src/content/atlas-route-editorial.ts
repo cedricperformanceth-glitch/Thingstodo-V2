@@ -1,52 +1,157 @@
+import type { AtlasEntity, CategorySlug } from '../core/models/types';
+import { places } from './registry/places';
+import { things } from './registry/things-to-do';
+import type { AtlasRouteMedia, AtlasRouteMediaAspect, AtlasRoutePersonalNotePlacement } from './atlas-route-content';
 import type {
-  AtlasRouteContent,
-  AtlasRouteMedia,
-  AtlasRouteMediaAspect,
-  AtlasRoutePersonalNote,
-  AtlasRoutePersonalNotePlacement,
-} from './atlas-route-content';
+  AtlasRouteExperienceContent,
+  AtlasRouteExperienceNote,
+  AtlasRouteNotebookPageVariant,
+  AtlasRouteNoteSize,
+  AtlasRouteNoteStyle,
+  AtlasRouteNoteTone,
+  AtlasRouteReference,
+} from './atlas-route-experience';
 
-const placeholder = (
+const cleanVisible = (value: string) => value.replace(/[\-‐‑‒–—]/g, ' ').replace(/\s+/g, ' ').trim();
+const searchable = (value: string) => cleanVisible(value).toLowerCase();
+
+const pickThing = (city: string, ...terms: string[]) =>
+  things.find((thing) =>
+    thing.city === city
+    && terms.some((term) => searchable(`${thing.name} ${thing.slug}`).includes(searchable(term))),
+  );
+
+const pickPlace = (city: string, ...terms: string[]) =>
+  places.find((place) =>
+    place.city === city
+    && terms.some((term) => searchable(`${place.name} ${place.slug}`).includes(searchable(term))),
+  );
+
+const pickPlaceByCategory = (city: string, category: CategorySlug) =>
+  places.find((place) => place.city === city && place.category === category && Boolean(place.media.card?.image));
+
+const entityImage = (entity?: AtlasEntity) => entity?.media.card?.image ?? entity?.media.fieldCard?.gallery?.[0];
+
+const entityHref = (entity: AtlasEntity) =>
+  entity.category === 'things-to-do'
+    ? `/${entity.country}/${entity.city}/things-to-do/${entity.slug}`
+    : `/${entity.country}/${entity.city}/places/${entity.slug}`;
+
+const mediaFrom = (
   id: string,
-  label: string,
+  entity: AtlasEntity | undefined,
+  fallbackLabel: string,
   aspect: AtlasRouteMediaAspect = 'landscape',
-): AtlasRouteMedia => ({
+): AtlasRouteMedia => {
+  const image = entityImage(entity);
+  return {
+    id,
+    alt: cleanVisible(image?.alt ?? fallbackLabel),
+    label: cleanVisible(entity?.name ?? fallbackLabel),
+    ...(image?.src ? { src: image.src } : {}),
+    aspect,
+  };
+};
+
+const reference = (
+  id: string,
+  title: string,
+  entity: AtlasEntity | undefined,
+  note: string,
+  kicker = 'FROM THE ATLAS',
+): AtlasRouteReference => ({
   id,
-  alt: `${label} photo placeholder`,
-  label,
-  aspect,
+  title: cleanVisible(entity?.name ?? title),
+  note,
+  kicker,
+  status: entity ? 'published' : 'coming-soon',
+  ...(entity ? { entity, href: entityHref(entity), media: mediaFrom(`${id}-media`, entity, title, 'square') } : {}),
 });
 
-const personalNote = (
+const note = (
   id: string,
   label: string,
   text: string,
-  placement: AtlasRoutePersonalNotePlacement = 'story',
-): AtlasRoutePersonalNote => ({ id, label, text, placement });
+  options: {
+    placement?: AtlasRoutePersonalNotePlacement;
+    tone?: AtlasRouteNoteTone;
+    style?: AtlasRouteNoteStyle;
+    size?: AtlasRouteNoteSize;
+    items?: string[];
+  } = {},
+): AtlasRouteExperienceNote => ({
+  id,
+  label,
+  text,
+  placement: options.placement ?? 'story',
+  tone: options.tone ?? 'butter',
+  style: options.style ?? 'memory',
+  size: options.size ?? 'medium',
+  ...(options.items ? { items: options.items } : {}),
+});
 
-const southToNorthEditorial: AtlasRouteContent = {
+const page = (
+  id: string,
+  variant: AtlasRouteNotebookPageVariant,
+  title: string,
+  copy: string,
+  extras: Record<string, unknown> = {},
+) => ({ id, variant, title, copy, ...extras });
+
+const donBridge = pickThing('don-det', 'old railway bridge');
+const donCycle = pickThing('don-det', 'cycle don det');
+const donKayak = pickThing('don-det', 'kayaking');
+const donSwim = pickThing('don-det', 'xai kong nyai');
+const donSunset = pickThing('don-det', 'sunset on don det');
+
+const vatPhou = pickThing('pakse', 'vat phou', 'wat phou');
+const boulange = pickPlace('pakse', 'boulange', 'la boulange');
+const pakseCafe = pickPlaceByCategory('pakse', 'cafes');
+
+const fandee = pickPlace('tad-lo', 'fandee');
+const samaki = pickPlace('tad-lo', 'samaki');
+const mrHook = pickThing('tad-lo', 'mr hook');
+const treasureHunt = pickThing('tad-lo', 'treasure');
+const tadLoWaterfall = pickThing('tad-lo', 'tad lo waterfall', 'tad hang');
+
+const thaFalang = pickThing('thakhek', 'tha falang', 'falang');
+const thakhekCave = pickThing('thakhek', 'xieng liap', 'buddha cave', 'cave');
+const bamboo = pickPlace('thakhek', 'bamboo');
+
+const vientianeCafe = pickPlaceByCategory('vientiane', 'cafes');
+const vientianeRestaurant = pickPlaceByCategory('vientiane', 'restaurants');
+
+const balloon = pickThing('vang-vieng', 'hot air balloon', 'balloon');
+const tubing = pickThing('vang-vieng', 'tubing');
+const namXay = pickThing('vang-vieng', 'nam xay');
+
+const kuangSi = pickThing('luang-prabang', 'kuang si');
+const phousi = pickThing('luang-prabang', 'phousi', 'phu si');
+const pakOu = pickThing('luang-prabang', 'pak ou');
+const slowBoat = pickThing('luang-prabang', 'slow boat', 'mekong boat');
+
+const southToNorthEditorial: AtlasRouteExperienceContent = {
   country: 'laos',
   slug: 'south-to-north',
   label: 'South → North',
   eyebrow: 'ATLAS ROUTE',
-  title: 'Laos South to North — 30 Days',
-  subtitle:
-    'A month through Mekong islands, southern road loops, limestone country and northern Laos — with enough room to stay when a place deserves another day.',
+  title: 'Laos South to North in 30 Days',
+  subtitle: 'One month from the Cambodian border to the Thai border, built around islands, road days, limestone, river time and places worth staying for.',
   durationLabel: 'About 30 days',
   directionLabel: 'Cambodia → Thailand',
   intro: [
-    'This is the Laos route I would build for roughly one month when entering from Cambodia and travelling north. It begins slowly on Don Det, uses Pakse as the hinge into the Bolaven Plateau, crosses central Laos through Thakhek, pauses in Vientiane, climbs into the limestone landscape of Vang Vieng and finishes with enough time in Luang Prabang before leaving the country by slow boat toward the Thai border.',
-    'It is a route proposal, not a rigid day-by-day programme. The named stops account for most of the month, while the remaining time belongs to transfers, a return night in Pakse, weather, tired mornings and the places that make you change your plan. That breathing room is part of the itinerary, not time that still needs to be filled.',
+    'If I had one month to cross Laos from south to north, this is the route I would build. I would start slowly on the Mekong, give the southern roads real time, use the cities as breathing spaces and keep the biggest block for Luang Prabang before leaving by boat.',
+    'Nothing here needs to be followed like a timetable. Save the places that speak to you, open the little field books when you want more detail, and leave enough room for one breakfast, one guesthouse or one conversation to change the plan.',
   ],
   heroMedia: [
-    placeholder('hero-01', 'Mekong arrival in Don Det', 'portrait'),
-    placeholder('hero-02', 'Bolaven Plateau road and landscape'),
-    placeholder('hero-03', 'Vang Vieng limestone landscape', 'square'),
-    placeholder('hero-04', 'Luang Prabang and the Mekong'),
+    mediaFrom('hero-01', donBridge ?? donSunset, 'Don Det and the Mekong', 'portrait'),
+    mediaFrom('hero-02', tadLoWaterfall ?? mrHook, 'Bolaven Plateau'),
+    mediaFrom('hero-03', balloon ?? namXay, 'Vang Vieng limestone', 'square'),
+    mediaFrom('hero-04', kuangSi ?? phousi, 'Luang Prabang'),
   ],
   stops: [
     { label: 'Don Det', durationLabel: '4 days', chapterId: 'don-det' },
-    { label: 'Pakse', durationLabel: '2 days + return night', chapterId: 'pakse' },
+    { label: 'Pakse', durationLabel: '2 days plus one return night', chapterId: 'pakse' },
     { label: 'Bolaven Loop', durationLabel: '4 days', chapterId: 'bolaven-loop' },
     { label: 'Thakhek', durationLabel: '3 days', chapterId: 'thakhek' },
     { label: 'Vientiane', durationLabel: '2 days', chapterId: 'vientiane' },
@@ -60,172 +165,159 @@ const southToNorthEditorial: AtlasRouteContent = {
       chapterLabel: 'Chapter 01',
       title: 'Don Det',
       durationLabel: '4 days',
-      intro:
-        'Crossing in from Cambodia, I would not start Laos by rushing north. Don Det is where I would let the journey slow down first: four days for the islands, the river and the feeling that the Atlas has actually begun.',
-      body: [
-        'Keep one full day for a bicycle across Don Det and Don Khon, another for the Mekong — kayaking, a swim stop or whatever water activity fits the conditions — and resist the temptation to fill every remaining hour. The island works because breakfast can run long, a ride can stop for no reason and sunset can become the plan.',
-        'Four days may look generous on a map, but that is exactly the point. After a border crossing, this is a soft landing into Laos rather than a checklist stop. If you want more waterfalls, boats or activities, the Atlas cards can take you deeper; the route itself only needs to protect the island rhythm.',
+      intro: 'Cross the Cambodian border, get onto the island and stop trying to move north for a few days. Don Det is where I would let Laos begin slowly.',
+      marginNote: 'The Atlas begins here. Not with a checklist. With a river.',
+      body: ['Give one day to the bicycle, one to the water, then keep the rest loose enough for a swim, a sunset or simply another lap of the island.'],
+      highlights: ['Cycle Don Det and Don Khon', 'Choose one proper Mekong day', 'Keep an afternoon completely free'],
+      references: [
+        reference('don-cycle-ref', 'Cycle Don Det and Don Khon', donCycle, 'The easiest way to let the two islands become one day.'),
+        reference('don-kayak-ref', '4,000 Islands Kayaking', donKayak, 'A full river day when you want more movement.'),
+        reference('don-swim-ref', 'Xai Kong Nyai Beach', donSwim, 'A slower stop for the part of the day that needs less ambition.'),
       ],
-      highlights: ['Cycle Don Det & Don Khon', 'Kayak or spend time on the Mekong', 'Keep one slow island day'],
       personalNotes: [
-        personalNote(
-          'don-det-personal-01',
-          'ATLAS STARTS HERE',
-          'I like Don Det as the first page because it forces the trip to slow down before it has even really started.',
-        ),
-        personalNote(
-          'don-det-personal-02',
-          'QUICK MEMORY',
-          'Leave one afternoon empty. On these islands, doing less is often the part you remember.',
-          'gallery-top-right-gap',
-        ),
+        note('don-det-personal-01', 'FIRST PAGE', 'Do not rush the first four days.', { tone: 'sage', style: 'scribble', size: 'small' }),
+        note('don-det-personal-02', 'QUICK MEMORY', 'Leave one afternoon empty. That empty afternoon may become the memory.', { placement: 'gallery-top-right-gap', tone: 'butter', style: 'memory', size: 'medium' }),
       ],
       media: [
-        placeholder('don-det-01', 'Don Det bicycle and island tracks'),
-        placeholder('don-det-02', 'Mekong water day from Don Det', 'portrait'),
+        mediaFrom('don-det-01', donBridge, 'Don Khon bridge'),
+        mediaFrom('don-det-02', donSunset ?? donSwim, 'Mekong light', 'portrait'),
       ],
       notebook: {
         id: 'don-det-notes',
-        label: 'FIELD NOTES',
-        title: 'A few pages from Don Det',
-        intro:
-          'Open this only if you want the island to become more than the first pin on the route.',
+        label: 'FIELD BOOK',
+        title: 'Open the island pages',
+        intro: 'A few pages for the days when you want more than the short route.',
         pages: [
-          {
-            id: 'don-det-note-01',
-            kicker: 'PAGE 01',
-            title: 'The bicycle day',
-            copy:
-              'Take the bicycle beyond the busy arrival side and let Don Det and Don Khon become one long, easy island chapter. The point is not speed; it is being able to stop whenever the river, a bridge or a quiet track looks better than the next planned pin.',
-            handwrittenNote: 'No stopwatch today. Just ride until something makes you stop.',
-            media: [placeholder('don-det-note-media-01', 'Bicycle on Don Det or Don Khon')],
-          },
-          {
-            id: 'don-det-note-02',
-            kicker: 'PAGE 02',
-            title: 'A day on the water',
-            copy:
-              'Use another day for the Mekong: kayaking, a boat or a swimming stop chosen for the conditions. It changes the scale of Si Phan Don completely — the islands stop being places on a map and become pieces of one huge river landscape.',
-            handwrittenNote: 'The river is the activity and the road at the same time.',
-            media: [placeholder('don-det-note-media-02', 'Kayaking or swimming around Don Det', 'square')],
-          },
+          page('don-page-01', 'scrapbook', 'Ride until something makes you stop', 'The bicycle day does not need a perfect circuit. Cross the old bridge, follow the island roads and stop whenever the Mekong looks better than the next pin.', {
+            kicker: 'ISLAND SCRAPBOOK',
+            media: [mediaFrom('don-book-bridge', donBridge, 'Old railway bridge'), mediaFrom('don-book-sunset', donSunset, 'Sunset on Don Det')],
+            handwrittenNote: 'No stopwatch today.',
+            noteTone: 'sky',
+          }),
+          page('don-page-02', 'atlas-picks', 'Choose your water day', 'The river can be active or lazy. Pick the version that fits the day.', {
+            kicker: 'PICK ONE',
+            list: ['Kayak if you want a full day', 'Swim only where the current and local advice make sense', 'Keep the sunset free'],
+            references: [reference('don-book-kayak', 'Kayaking', donKayak, 'Save it if a proper paddle belongs in your route.'), reference('don-book-swim', 'River beach', donSwim, 'Save it if a quiet swim stop sounds better.')],
+          }),
+          page('don-page-03', 'memory', 'Nothing planned after lunch', 'A route page should be allowed to recommend nothing. Don Det is one of those places where an empty block can be the right decision.', {
+            kicker: 'MEMORY',
+            handwrittenNote: 'One drink. One hammock. No next stop.',
+            noteTone: 'rose',
+            media: [mediaFrom('don-book-last', donSunset, 'Don Det at the end of the day')],
+          }),
         ],
       },
-      transfer: {
-        label: 'On the road · Don Det → Pakse',
-        note:
-          'Leave the islands with margin for the boat and mainland handover. Pakse is the next base, not a connection worth racing toward.',
-      },
+      transfer: { label: 'Don Det → Pakse', note: 'Leave enough margin for the boat and the mainland handover. Pakse is a base, not a connection worth racing toward.' },
     },
     {
       id: 'pakse',
       chapterLabel: 'Chapter 02',
       title: 'Pakse',
-      durationLabel: '2 days + return night',
-      intro:
-        'Pakse is the hinge of this southern route. I would keep the city itself light, use one day for Vat Phou, leave another window for training at Naga Muay Lao Boxing Gym, then come back through Pakse after the Bolaven Loop before continuing north.',
-      body: [
-        'The useful thing about Pakse is not a giant urban checklist. It is how cleanly the city opens different directions: Champasak and Vat Phou to the south, the Bolaven Plateau to the east, and the long road north. Give those directions their own time instead of trying to compress them into one sightseeing day.',
-        'This route also allows Pakse to reappear naturally. After the loop, sleep here again before the next long transfer. A base is doing its job when returning to it removes friction rather than feeling like backtracking.',
+      durationLabel: '2 days plus one return night',
+      intro: 'Pakse is useful because several southern chapters meet here. I would keep the city light, give Vat Phou a real day and leave space for training before the Bolaven road begins.',
+      marginNote: 'Pakse works best when tomorrow already has a direction.',
+      body: ['Return after the loop for one quiet night before the long movement north. Coming back is not wasted time when the base removes friction.'],
+      highlights: ['Vat Phou gets its own day', 'Naga Gym when the field note is ready', 'Breakfast before the road'],
+      references: [
+        reference('pakse-vat-ref', 'Vat Phou', vatPhou, 'The heritage day I would protect rather than squeeze around the city.'),
+        reference('pakse-boulange-ref', 'Boulange Garden', boulange ?? pakseCafe, 'The breakfast stop that can become a reason to stay longer.', 'PERSONAL PICK'),
+        reference('pakse-naga-ref', 'Naga Gym', undefined, 'The Muay Thai stop belongs here. Its Atlas field note is still coming.', 'COMING NEXT'),
       ],
-      highlights: ['Vat Phou day', 'Muay Thai at Naga Gym', 'Breakfast and a slow Pakse morning'],
       personalNotes: [
-        personalNote(
-          'pakse-personal-01',
-          'DON’T FORGET',
-          'La Boulange Garden is one of the breakfasts I still think about. I once stayed an extra day in Pakse largely because I wanted another breakfast there.',
-        ),
+        note('pakse-personal-01', 'BREAKFAST NOTE', 'I stayed an extra day largely because I wanted that breakfast again.', { tone: 'rose', style: 'memory', size: 'large' }),
+        note('pakse-personal-02', 'PACK BEFORE THE LOOP', '', { tone: 'paper', style: 'list', size: 'small', items: ['Cash', 'Fuel', 'Offline map'] }),
       ],
       media: [
-        placeholder('pakse-01', 'Pakse Mekong city morning'),
-        placeholder('pakse-02', 'Vat Phou or Pakse training day'),
+        mediaFrom('pakse-01', vatPhou, 'Vat Phou'),
+        mediaFrom('pakse-02', boulange ?? pakseCafe, 'Pakse breakfast'),
       ],
-      transfer: {
-        label: 'On the road · Pakse → Bolaven Loop',
-        note:
-          'Sort the scooter, cash, fuel and offline map in Pakse, then let the plateau become a separate chapter rather than a day trip squeezed around the city.',
+      notebook: {
+        id: 'pakse-notes',
+        label: 'CITY NOTES',
+        title: 'Two pages from Pakse',
+        intro: 'This chapter is small on purpose. Pakse gives the route direction rather than volume.',
+        pages: [
+          page('pakse-page-01', 'atlas-picks', 'One day south', 'Give Vat Phou enough room that the drive and the landscape belong to the same day.', {
+            kicker: 'DAY DIRECTION',
+            references: [reference('pakse-book-vat', 'Vat Phou', vatPhou, 'Open the full field note before you build the day.')],
+            media: [mediaFrom('pakse-book-vat-media', vatPhou, 'Vat Phou')],
+          }),
+          page('pakse-page-02', 'memory', 'The breakfast that changed the schedule', 'The best personal recommendations are sometimes tiny. Mine in Pakse is breakfast.', {
+            kicker: 'PERSONAL MEMORY',
+            handwrittenNote: 'Yes, I stayed another day for it.',
+            noteTone: 'butter',
+            references: [reference('pakse-book-breakfast', 'Boulange Garden', boulange ?? pakseCafe, 'Save it if breakfast matters as much as the next attraction.')],
+          }),
+          page('pakse-page-03', 'checklist', 'Before the scooter leaves town', 'Use Pakse to remove the boring problems before the plateau gets wider.', {
+            kicker: 'POCKET LIST',
+            list: ['Check the bike', 'Fill the tank', 'Save the map', 'Carry enough cash'],
+            handwrittenNote: 'Then stop thinking about logistics.',
+            noteTone: 'sage',
+          }),
+        ],
       },
+      transfer: { label: 'Pakse → Bolaven Loop', note: 'Sort the scooter and the practical details in town. Once the road climbs, let the plateau become its own chapter.' },
     },
     {
       id: 'bolaven-loop',
       chapterLabel: 'Chapter 03',
       title: 'The Bolaven Loop',
       durationLabel: '4 days',
-      intro:
-        'This is the section I would refuse to rush. Four days on the Bolaven Loop are not four days spent collecting waterfalls; they are four days where the road, the forest, the guesthouses, the coffee and the people you meet become as important as the famous stops.',
-      body: [
-        'I would build the loop around slow overnight stops rather than mileage: enough time around Fandee Island and Tad Lo to actually settle in, a stop at Samaki for the easy traveller atmosphere, time with Mr Hook for coffee and local perspectives, and room for the Tad Lo treasure hunt to thread through the village and viewpoints instead of becoming another task to finish.',
-        'The landscape is the continuity between all of it. Roads climb through coffee country, forest opens into viewpoints, waterfalls appear between ordinary villages and the best moments often happen because you stopped earlier than planned. Four days are useful because they let that happen without turning every detour into a scheduling problem.',
+      intro: 'This is the section I would refuse to rush. The loop is not a race between waterfalls. The road, the forest, the guesthouses, the coffee and the people are the chapter.',
+      marginNote: 'Half of the Bolaven happens between the pins.',
+      body: ['Build the four days around places where you actually stop. Fandee Island, Tad Lo, Samaki, Mr Hook and the treasure hunt can turn the loop from mileage into a journey.'],
+      highlights: ['Sleep on the road', 'Let Tad Lo breathe', 'Follow the clues and the landscapes'],
+      references: [
+        reference('bolaven-fandee-ref', 'Fandee Island', fandee, 'A stop that deserves time for the lake, pétanque and an evening with nowhere else to be.', 'PERSONAL PICK'),
+        reference('bolaven-hook-ref', 'Mr Hook', mrHook, 'Coffee and local context are stronger when they are not squeezed between two waterfalls.'),
+        reference('bolaven-treasure-ref', 'Tad Lo Treasure Hunt', treasureHunt, 'A playful way to notice the village instead of riding straight through it.'),
       ],
-      highlights: ['Fandee Island & Tad Lo', 'Mr Hook coffee experience', 'Treasure hunt, waterfalls & road landscapes'],
       personalNotes: [
-        personalNote(
-          'bolaven-personal-01',
-          'ROAD NOTE',
-          'Do not ride this loop like a race between waterfalls. Half of the Bolaven is everything that happens between the pins.',
-        ),
-        personalNote(
-          'bolaven-personal-02',
-          'REMEMBER THIS',
-          'Give the plateau enough time for the unplanned stops. Those are usually the stories that survive the itinerary.',
-          'gallery-bottom-left-gap',
-        ),
+        note('bolaven-personal-01', 'ROAD NOTE', 'Park the scooter sometimes.', { tone: 'sky', style: 'scribble', size: 'small' }),
+        note('bolaven-personal-02', 'REMEMBER THIS', 'The unplanned stop is often the story that survives the itinerary.', { placement: 'gallery-bottom-left-gap', tone: 'sage', style: 'memory', size: 'medium' }),
       ],
       media: [
-        placeholder('bolaven-01', 'Bolaven road through forest and coffee country'),
-        placeholder('bolaven-02', 'Fandee Island or Tad Lo slow stay', 'portrait'),
-        placeholder('bolaven-03', 'Bolaven waterfall or wide plateau viewpoint'),
+        mediaFrom('bolaven-01', tadLoWaterfall ?? mrHook, 'Bolaven landscape'),
+        mediaFrom('bolaven-02', fandee ?? samaki, 'Tad Lo stay', 'portrait'),
+        mediaFrom('bolaven-03', mrHook ?? treasureHunt, 'Coffee and village road'),
       ],
       notebook: {
         id: 'bolaven-notes',
-        label: 'OPEN THE ROAD BOOK',
+        label: 'ROAD BOOK',
         title: 'Inside the Bolaven Loop',
-        intro:
-          'These are the details I would hide behind the main route: the places and small moments that explain why the loop deserves several days.',
+        intro: 'This is where the route becomes personal. Turn the pages only if you want the little stories.',
         pages: [
-          {
-            id: 'bolaven-note-01',
-            kicker: 'PAGE 01',
-            title: 'Fandee Island',
-            copy:
-              'Stay long enough for Fandee Island to become more than a bed. Use the lake, take a pedal boat, play pétanque, wander around Tad Lo and let the evening arrive without needing a second destination.',
-            handwrittenNote: 'They are way too good at pétanque here.',
-            media: [placeholder('bolaven-note-media-01', 'Fandee Island lake, pétanque or pedal boat')],
-          },
-          {
-            id: 'bolaven-note-02',
-            kicker: 'PAGE 02',
-            title: 'Samaki and the traveller pause',
-            copy:
-              'A simple guesthouse stop can become part of the trip when nobody is trying to leave immediately. Sit down, order a fruit juice, talk about where everyone has come from and where they are going next. The loop needs places where the scooter is parked for a while.',
-            handwrittenNote: 'One fruit juice can turn into an afternoon of travel stories.',
-            media: [placeholder('bolaven-note-media-02', 'Samaki Guesthouse and Tad Lo traveller atmosphere', 'portrait')],
-          },
-          {
-            id: 'bolaven-note-03',
-            kicker: 'PAGE 03',
-            title: 'Coffee with Mr Hook',
-            copy:
-              'Make room for the coffee and cultural experience with Mr Hook instead of fitting it between two waterfalls. It works because it changes the rhythm: you stop travelling through the plateau for a moment and start listening to someone explain the place from inside it.',
-            handwrittenNote: 'Don’t rush the coffee.',
-            media: [placeholder('bolaven-note-media-03', 'Mr Hook coffee and village experience')],
-          },
-          {
-            id: 'bolaven-note-04',
-            kicker: 'PAGE 04',
-            title: 'Follow the clues, not the clock',
-            copy:
-              'Let the Tad Lo treasure hunt stretch across the stay if it wants to. The clues give you a reason to notice paths, viewpoints and pieces of village life that are easy to ride past when the only objective is the next waterfall.',
-            handwrittenNote: 'The best part is everything you notice between the clues.',
-            media: [placeholder('bolaven-note-media-04', 'Tad Lo treasure hunt, paths and viewpoints', 'square')],
-          },
+          page('bolaven-page-01', 'scrapbook', 'Fandee Island', 'Stay long enough for the accommodation to become part of the trip rather than just the place where you sleep.', {
+            kicker: 'TAD LO MEMORY',
+            media: [mediaFrom('bolaven-fandee-media', fandee, 'Fandee Island'), mediaFrom('bolaven-water-media', tadLoWaterfall, 'Tad Lo waterfall')],
+            handwrittenNote: 'They are far too good at pétanque here.',
+            noteTone: 'rose',
+            references: [reference('bolaven-fandee-book', 'Fandee Island', fandee, 'Open the place note or save it straight to your Atlas.')],
+          }),
+          page('bolaven-page-02', 'memory', 'One fruit juice becomes an afternoon', 'Samaki works in the story because the scooter is parked. Sit down, talk about the road and let other travellers alter your sense of time.', {
+            kicker: 'SMALL STORY',
+            handwrittenNote: 'One juice. Then another story. Then it is evening.',
+            noteTone: 'sky',
+            media: [mediaFrom('bolaven-samaki-media', samaki, 'Samaki guesthouse')],
+            references: [reference('bolaven-samaki-book', 'Samaki Guesthouse', samaki, 'Keep it if you want a social pause in Tad Lo.')],
+          }),
+          page('bolaven-page-03', 'atlas-picks', 'Coffee with Mr Hook', 'Do not treat this like a quick coffee stop. Give the conversation and the place their own space.', {
+            kicker: 'COFFEE PAGE',
+            handwrittenNote: 'Do not rush the coffee.',
+            noteTone: 'butter',
+            references: [reference('bolaven-hook-book', 'Mr Hook', mrHook, 'Save the experience if this belongs in your loop.')],
+            media: [mediaFrom('bolaven-hook-media', mrHook, 'Mr Hook coffee experience')],
+          }),
+          page('bolaven-page-04', 'checklist', 'Follow clues, not the clock', 'Let the treasure hunt pull you through the village and toward things you may otherwise ride past.', {
+            kicker: 'TREASURE PAGE',
+            list: ['Follow the clue', 'Look up from the phone', 'Stop at the viewpoint', 'Let the hunt spill into tomorrow'],
+            references: [reference('bolaven-treasure-book', 'Tad Lo Treasure Hunt', treasureHunt, 'Open the full activity if you want the clues in the Atlas.')],
+            handwrittenNote: 'The best bit is between the clues.',
+            noteTone: 'sage',
+          }),
         ],
       },
-      transfer: {
-        label: 'On the road · Bolaven Loop → Pakse → Thakhek',
-        note:
-          'Close the loop back in Pakse. I would keep one recovery night there before taking the long northbound transfer to Thakhek rather than stacking the ride and the bus into the same exhausted day.',
-      },
+      transfer: { label: 'Bolaven Loop → Pakse → Thakhek', note: 'Close the loop back in Pakse and keep a recovery night. I would rather start the long northbound movement rested than stack everything into one exhausted day.' },
       variant: 'feature',
     },
     {
@@ -233,170 +325,241 @@ const southToNorthEditorial: AtlasRouteContent = {
       chapterLabel: 'Chapter 04',
       title: 'Thakhek',
       durationLabel: '3 days',
-      intro:
-        'Thakhek changes the scenery completely. After the plateau, three days here give you a Mekong town, a scooter key and enough time to push east into the limestone and cave country without pretending you are completing the entire classic Loop.',
-      body: [
-        'Use the town as the base, rent the scooter carefully and give Route 12 its own day. Caves, Tha Falang and the karst landscape are stronger when the road itself is part of the experience instead of a commute between attractions. A second riding day can go deeper or stay flexible depending on weather and how much time you actually want underground.',
-        'I would keep the final evening easy: bring the scooter back, walk the old centre or Mekong edge and reset before the next long movement. Thakhek is one of those places where preparation and return are part of the chapter, not dead time around the activity.',
+      intro: 'After the plateau, Thakhek changes the texture of the trip. Pick up a scooter and let Route 12 pull you into limestone, caves and swimming stops.',
+      marginNote: 'The scooter is not the activity. It is the key that opens the landscape.',
+      body: ['I would keep the final evening easy. Return the bike, walk toward the Mekong and leave a little margin before the next long transfer.'],
+      highlights: ['Cave country', 'Tha Falang', 'One road day with no rush'],
+      references: [
+        reference('thakhek-cave-ref', 'Thakhek cave', thakhekCave, 'Choose one cave and give the road around it enough time.'),
+        reference('thakhek-falang-ref', 'Tha Falang', thaFalang, 'A useful water stop when the day needs a different rhythm.'),
+        reference('thakhek-bamboo-ref', 'Bamboo stay', bamboo, 'Keep the stay close if it fits the way you want to start the scooter day.', 'STAY NOTE'),
       ],
-      highlights: ['Route 12 cave country', 'Tha Falang', 'Scooter days from Thakhek'],
       personalNotes: [
-        personalNote(
-          'thakhek-personal-01',
-          'SCOOTER KEY',
-          'Thakhek makes more sense once you have the scooter key in your pocket — but give the bike a real check before the limestone road begins.',
-        ),
+        note('thakhek-personal-01', 'BIKE CHECK', '', { tone: 'paper', style: 'list', size: 'small', items: ['Tyres', 'Brakes', 'Lights', 'Helmet'] }),
       ],
       media: [
-        placeholder('thakhek-01', 'Thakhek Route 12 limestone and scooter road'),
-        placeholder('thakhek-02', 'Thakhek cave or Tha Falang landscape'),
+        mediaFrom('thakhek-01', thakhekCave, 'Thakhek cave country'),
+        mediaFrom('thakhek-02', thaFalang, 'Tha Falang'),
       ],
-      transfer: {
-        label: 'Choice on the road · Thakhek → Vientiane',
-        note:
-          'The direct overland option is the cheaper, simpler line on the map. Personally, I chose comfort over avoiding a detour: I went back to Pakse and flew to Vientiane rather than spending a long night on a bus. Treat that as a choice, not a rule, and recheck current flight and bus schedules before travelling.',
+      notebook: {
+        id: 'thakhek-notes',
+        label: 'SCOOTER BOOK',
+        title: 'A few road pages from Thakhek',
+        intro: 'Open this when the route starts feeling more like a road trip than a city stop.',
+        pages: [
+          page('thakhek-page-01', 'checklist', 'Before Route 12', 'Ten careful minutes in town are better than a mechanical surprise in limestone country.', {
+            kicker: 'BEFORE YOU RIDE',
+            list: ['Check both brakes', 'Look at the tyres', 'Test the lights', 'Save the route offline'],
+            handwrittenNote: 'The first kilometres should confirm the bike.',
+            noteTone: 'sage',
+          }),
+          page('thakhek-page-02', 'atlas-picks', 'Pick the cave, then enjoy the road', 'Do not stack every cave into one day. Pick the one that makes the route feel right.', {
+            kicker: 'ONE DIRECTION',
+            references: [reference('thakhek-book-cave', 'Cave country', thakhekCave, 'Open the full field note before you ride.'), reference('thakhek-book-falang', 'Tha Falang', thaFalang, 'Keep this as the water stop if it fits the day.')],
+            media: [mediaFrom('thakhek-book-media', thakhekCave ?? thaFalang, 'Thakhek road day')],
+          }),
+          page('thakhek-page-03', 'memory', 'The comfort choice', 'The direct night bus is the cheaper line. Personally I went back to Pakse and flew to Vientiane because I wanted a proper night and a short flight. I am not twenty anymore.', {
+            kicker: 'PERSONAL CHOICE',
+            handwrittenNote: 'Cheapest and best are not always the same answer.',
+            noteTone: 'rose',
+          }),
+        ],
       },
+      transfer: { label: 'Thakhek → Vientiane', note: 'Choose the direct overland route if price matters most. Choose another connection if comfort matters more. Recheck current buses and flights before travelling.' },
     },
     {
       id: 'vientiane',
       chapterLabel: 'Chapter 05',
       title: 'Vientiane',
       durationLabel: '2 days',
-      intro:
-        'I would not turn Vientiane into another heavy sightseeing chapter. After southern Laos and Thakhek, two days in the capital work better as a reset: walk, eat well, find a good breakfast and let the pace flatten out before the mountains return.',
-      body: [
-        'Keep the city loose. Choose a few places from the Atlas if they genuinely interest you, but protect the ordinary parts of the stop too — a long meal, a café, a Mekong evening, a morning without a scooter or a departure alarm. Not every destination has to compete for the title of most spectacular place on the route.',
-        'That lighter rhythm is useful because Vang Vieng is next. Leave Vientiane rested enough that the outdoor days ahead still feel exciting rather than like the next obligation.',
+      intro: 'I would use Vientiane as a reset rather than another heavy activity chapter. Walk, eat, find a breakfast you like and enjoy two days with less pressure.',
+      marginNote: 'A quiet city can be useful in the middle of a busy route.',
+      highlights: ['A long breakfast', 'A Mekong evening', 'No need to collect everything'],
+      references: [
+        reference('vientiane-cafe-ref', 'Vientiane cafe', vientianeCafe, 'Save one breakfast or coffee place and let the rest happen around it.', 'FOOD NOTE'),
+        reference('vientiane-food-ref', 'Vientiane restaurant', vientianeRestaurant, 'A meal can be the main plan here.', 'FOOD NOTE'),
       ],
-      highlights: ['Walk the city slowly', 'Restaurants & breakfast', 'Mekong evening and reset'],
       personalNotes: [
-        personalNote(
-          'vientiane-personal-01',
-          'CITY NOTE',
-          'For me, Vientiane works as a pause between bigger chapters. Two easy days are enough when the point is to reset, not to complete a list.',
-        ),
+        note('vientiane-personal-01', 'CITY NOTE', 'Two easy days. Good food. Legs off the scooter.', { tone: 'sky', style: 'scribble', size: 'medium' }),
       ],
       media: [
-        placeholder('vientiane-01', 'Vientiane street, café or breakfast morning'),
-        placeholder('vientiane-02', 'Vientiane Mekong evening', 'portrait'),
+        mediaFrom('vientiane-01', vientianeCafe, 'Vientiane cafe'),
+        mediaFrom('vientiane-02', vientianeRestaurant, 'Vientiane food stop', 'portrait'),
       ],
-      transfer: {
-        label: 'On the road · Vientiane → Vang Vieng',
-        note:
-          'Keep this transfer uncomplicated and arrive with enough daylight to settle in. Train and road options can change, so check the current departure rather than building the route around an old timetable.',
+      notebook: {
+        id: 'vientiane-notes',
+        label: 'PAUSE BOOK',
+        title: 'Two quiet pages in Vientiane',
+        intro: 'This is the smallest field book on purpose.',
+        pages: [
+          page('vientiane-page-01', 'atlas-picks', 'Breakfast first', 'Choose one place you actually want to sit in. A slow morning is enough of a plan.', {
+            kicker: 'MORNING',
+            references: [reference('vientiane-book-cafe', 'Breakfast stop', vientianeCafe, 'Save it for the morning you do not want an alarm.')],
+            media: [mediaFrom('vientiane-book-cafe-media', vientianeCafe, 'Vientiane breakfast')],
+          }),
+          page('vientiane-page-02', 'memory', 'Nothing heroic today', 'Walk, eat and watch the city settle toward the river. The route gets bigger again tomorrow.', {
+            kicker: 'RESET',
+            handwrittenNote: 'Rest is part of the Atlas too.',
+            noteTone: 'paper',
+          }),
+        ],
       },
+      transfer: { label: 'Vientiane → Vang Vieng', note: 'Keep the transfer simple and arrive with enough energy for the landscape. Check the current train or road departure before you go.' },
     },
     {
       id: 'vang-vieng',
       chapterLabel: 'Chapter 06',
       title: 'Vang Vieng',
       durationLabel: '3 days',
-      intro:
-        'Vang Vieng is where the route becomes playful again. Three days are enough for a strong mix of sky, river and limestone without trying to collect every cave, lagoon and viewpoint around town.',
-      body: [
-        'I would protect one morning for a hot-air balloon, one afternoon for tubing on the Nam Song and keep the remaining full day for the karst landscape — a viewpoint, cave or other activity chosen from the Atlas according to the weather and your energy. The centre is only the base; the mountains and river are the real scale of the stop.',
-        'Vang Vieng is also one of the easiest places on this route to meet other travellers. Leave the evening socially open. Someone you met on the river can become dinner, and dinner can become the story you remember more clearly than the activity that introduced you.',
+      intro: 'Vang Vieng is where the route becomes playful again. Three days are enough for sky, river and limestone if you stop trying to collect every lagoon and viewpoint.',
+      marginNote: 'One morning in the sky. One afternoon on the river. One day for the karst.',
+      highlights: ['Hot air balloon', 'Tubing on the Nam Song', 'One strong limestone day'],
+      references: [
+        reference('vv-balloon-ref', 'Hot air balloon', balloon, 'The morning I would protect for the sky.'),
+        reference('vv-tubing-ref', 'Tubing', tubing, 'A river afternoon when the current and local conditions make sense.'),
+        reference('vv-namxay-ref', 'Nam Xay Viewpoint', namXay, 'Use the remaining outdoor day for one strong climb rather than five rushed stops.'),
       ],
-      highlights: ['Hot-air balloon', 'Tubing on the Nam Song', 'Karst day & social evening'],
       personalNotes: [
-        personalNote(
-          'vang-vieng-personal-01',
-          'CITY NOTE',
-          'Leave one morning for the sky and one afternoon for the river. The rest can follow the conditions.',
-          'gallery-top-right-gap',
-        ),
-        personalNote(
-          'vang-vieng-personal-02',
-          'NIGHT NOTE',
-          'Vang Vieng is one of those places where dinner can turn into a night with people you met that afternoon.',
-          'gallery-image-1-overlap',
-        ),
+        note('vang-vieng-personal-01', 'CITY NOTE', 'Sky. River. Karst. That is already enough.', { placement: 'gallery-top-right-gap', tone: 'sage', style: 'scribble', size: 'small' }),
+        note('vang-vieng-personal-02', 'NIGHT NOTE', 'Dinner can become a night with people you met that afternoon.', { placement: 'gallery-image-1-overlap', tone: 'rose', style: 'memory', size: 'medium' }),
       ],
       media: [
-        placeholder('vang-vieng-01', 'Vang Vieng hot-air balloon and karst'),
-        placeholder('vang-vieng-02', 'Nam Song tubing or river afternoon'),
+        mediaFrom('vang-vieng-01', balloon ?? namXay, 'Vang Vieng limestone'),
+        mediaFrom('vang-vieng-02', tubing, 'Nam Song river', 'portrait'),
       ],
-      transfer: {
-        label: 'On the road · Vang Vieng → Luang Prabang',
-        note:
-          'This is a natural rail connection in the shape of the route, but keep the exact train and station transfer current. Luang Prabang deserves an arrival that is not immediately buried under the next activity.',
+      notebook: {
+        id: 'vang-vieng-notes',
+        label: 'PLAY BOOK',
+        title: 'Three ways to read Vang Vieng',
+        intro: 'Sky, water and limestone. The pages can be opened in any order even if the route cannot.',
+        pages: [
+          page('vv-page-01', 'photo', 'Morning above the karst', 'If the balloon belongs in your trip, give it the cleanest morning rather than squeezing it before another activity.', {
+            kicker: 'SKY PAGE',
+            media: [mediaFrom('vv-balloon-media', balloon, 'Hot air balloon')],
+            references: [reference('vv-book-balloon', 'Hot air balloon', balloon, 'Open the full field note and save it if this is your morning.')],
+            handwrittenNote: 'This one is for the view, not the checklist.',
+            noteTone: 'sky',
+          }),
+          page('vv-page-02', 'atlas-picks', 'Let the river take the afternoon', 'Tubing changes the pace completely. Use it when the river conditions and your energy say yes.', {
+            kicker: 'RIVER PAGE',
+            references: [reference('vv-book-tubing', 'Tubing', tubing, 'Keep the river afternoon in your Atlas.')],
+            media: [mediaFrom('vv-tubing-media', tubing, 'Tubing on the Nam Song')],
+          }),
+          page('vv-page-03', 'checklist', 'One limestone day', 'Pick one climb or cave direction and let it be enough.', {
+            kicker: 'KARST PAGE',
+            list: ['Start before the strongest heat', 'Bring water', 'Choose one main objective', 'Keep the evening open'],
+            references: [reference('vv-book-namxay', 'Nam Xay Viewpoint', namXay, 'Open the field note if this is the climb you choose.')],
+            handwrittenNote: 'More pins do not make a better day.',
+            noteTone: 'butter',
+          }),
+        ],
       },
+      transfer: { label: 'Vang Vieng → Luang Prabang', note: 'The railway makes this a natural northbound step. Keep the exact train and station transfer current, then let Luang Prabang start slowly.' },
     },
     {
       id: 'luang-prabang',
       chapterLabel: 'Chapter 07',
       title: 'Luang Prabang',
       durationLabel: '6 days',
-      intro:
-        'This is where I would spend the largest block of the month. Luang Prabang can absorb six days without becoming repetitive because the old town, the Mekong, the waterfalls and the slower northern rhythm are different experiences rather than one attraction list.',
-      body: [
-        'Give the old town unbroken time first. Walk it, come back through the same streets at different hours, sit by the rivers and let the temples, markets and cafés become part of the daily rhythm. Then give Kuang Si its own day instead of squeezing it into a half-day between city sights. Add one hike or another Atlas activity, but keep at least one day loose enough to repeat something you loved.',
-        'That last point matters here. A month-long route should have enough flexibility to go back to the same waterfall, café or street simply because the first time was not enough. Luang Prabang is the place where I would spend that extra margin before the final river journey out of Laos.',
+      intro: 'This is where I would spend the largest block of the month. The old town, the Mekong, Kuang Si and the slower northern rhythm deserve to remain different experiences.',
+      marginNote: 'If you love something enough to go back tomorrow, go back tomorrow.',
+      body: ['Give the town unbroken time before the day trips. Then give Kuang Si its own day and keep at least one extra day with no obligation to be new.'],
+      highlights: ['Kuang Si gets a full day', 'Walk the old town more than once', 'Keep one day for whatever you want to repeat'],
+      references: [
+        reference('lp-kuangsi-ref', 'Kuang Si Waterfall', kuangSi, 'The place I would protect even if the rest of the week had to move.'),
+        reference('lp-phousi-ref', 'Mount Phousi', phousi, 'A small climb when you want to see the town from above.'),
+        reference('lp-pakou-ref', 'Pak Ou', pakOu, 'A different Mekong direction if you want another full day out.'),
       ],
-      highlights: ['Kuang Si Waterfall', 'Old town & Mekong', 'One extra day with no pressure'],
       personalNotes: [
-        personalNote(
-          'luang-prabang-personal-01',
-          'WORTH IT',
-          'Kuang Si is still the most beautiful waterfall I have seen. I paid to go back a second time, and I would do it again.',
-        ),
-        personalNote(
-          'luang-prabang-personal-02',
-          'ONE MORE THING',
-          'If a place makes you want to return the next day, return. That is exactly why this route has breathing room.',
-          'gallery-bottom-left-gap',
-        ),
+        note('luang-prabang-personal-01', 'WORTH IT', 'Kuang Si is still the most beautiful waterfall I have seen. I paid to go back a second time.', { tone: 'butter', style: 'memory', size: 'large' }),
+        note('luang-prabang-personal-02', 'ONE MORE THING', 'I would go back again.', { placement: 'gallery-bottom-left-gap', tone: 'sky', style: 'scribble', size: 'small' }),
       ],
       media: [
-        placeholder('luang-prabang-01', 'Kuang Si turquoise pools and waterfall'),
-        placeholder('luang-prabang-02', 'Luang Prabang old town and temple rhythm', 'portrait'),
-        placeholder('luang-prabang-03', 'Mekong, walk or slow Luang Prabang day'),
+        mediaFrom('luang-prabang-01', kuangSi, 'Kuang Si Waterfall'),
+        mediaFrom('luang-prabang-02', phousi, 'Luang Prabang old town', 'portrait'),
+        mediaFrom('luang-prabang-03', pakOu ?? slowBoat, 'Mekong near Luang Prabang'),
       ],
-      transfer: {
-        label: 'Leaving Laos · Luang Prabang → Pakbeng → Houayxay',
-        note:
-          'Do not treat the exit as dead transport time. The slow boat north takes two days with an overnight in Pakbeng before continuing toward Houayxay and the Thai border. Confirm the current pier and departure locally before you go.',
+      notebook: {
+        id: 'luang-prabang-notes',
+        label: 'FAVOURITE PAGES',
+        title: 'The Luang Prabang pages I would keep',
+        intro: 'This book gets more room because this is the part of the route where repeating a place is allowed.',
+        pages: [
+          page('lp-page-01', 'photo', 'Kuang Si once', 'Give the waterfall its own day. Walk through the levels, swim where it is allowed and do not schedule the afternoon so tightly that you have to leave before you want to.', {
+            kicker: 'FIRST VISIT',
+            media: [mediaFrom('lp-kuangsi-media-01', kuangSi, 'Kuang Si pools')],
+            references: [reference('lp-book-kuangsi', 'Kuang Si Waterfall', kuangSi, 'Open the field note and save it before you build the day.')],
+          }),
+          page('lp-page-02', 'memory', 'Kuang Si twice', 'I went back. That is the whole recommendation.', {
+            kicker: 'SECOND VISIT',
+            handwrittenNote: 'Some places do not need a new activity. They need another day.',
+            noteTone: 'rose',
+            media: [mediaFrom('lp-kuangsi-media-02', kuangSi, 'Kuang Si again')],
+          }),
+          page('lp-page-03', 'scrapbook', 'The town between excursions', 'Walk the same streets at different hours. Let temples, markets, cafes and the river become familiar instead of trying to make every walk unique.', {
+            kicker: 'OLD TOWN',
+            media: [mediaFrom('lp-phousi-media', phousi, 'Mount Phousi'), mediaFrom('lp-pakou-media', pakOu, 'Mekong direction')],
+            handwrittenNote: 'Familiar is not boring.',
+            noteTone: 'sage',
+          }),
+          page('lp-page-04', 'atlas-picks', 'One more direction', 'If six days still have room, choose one more strong direction rather than filling every half day.', {
+            kicker: 'CHOOSE ONE',
+            references: [reference('lp-book-phousi', 'Mount Phousi', phousi, 'Keep the short climb if it fits your town day.'), reference('lp-book-pakou', 'Pak Ou', pakOu, 'Save the river day only if you actually want it.')],
+          }),
+        ],
       },
+      transfer: { label: 'Luang Prabang → Pakbeng → Houayxay', note: 'The exit becomes part of the story. Two slow boat days, one night in Pakbeng and a final arrival near the Thai border.' },
     },
     {
       id: 'slow-boat',
       chapterLabel: 'Epilogue',
-      title: 'Two days on the Mekong',
+      title: 'Two Days on the Mekong',
       durationLabel: '2 days',
-      intro:
-        'The route finishes without a final attraction. For two days, the Mekong becomes the itinerary: long bends of river, forested banks, villages, boats passing in the opposite direction and an overnight in Pakbeng before the final run toward Houayxay.',
-      body: [
-        'This is a good way to leave Laos because the country does not disappear at airport speed. You watch it stretch out for hours instead. Bring patience, something to read, water and a seat you are happy to keep for a while; the point is the landscape moving past you, not arriving as quickly as possible.',
-        'From Houayxay, the route can cross toward Thailand. Exact border, pier and transport procedures can change, so keep the final practical details current. Editorially, though, the idea stays the same: let the Atlas end slowly on the same river system that shaped so much of the month.',
-      ],
-      highlights: ['Luang Prabang → Pakbeng', 'Pakbeng → Houayxay', 'Mekong landscapes to the Thai border'],
+      intro: 'The route ends without a final attraction. For two days, the Mekong is the itinerary.',
+      marginNote: 'Let Laos disappear at river speed.',
+      body: ['Bring patience, water and something to read. The reason to choose the slow boat is the long river landscape between the places, not the efficiency of arriving.'],
+      highlights: ['Luang Prabang to Pakbeng', 'Sleep in Pakbeng', 'Pakbeng to Houayxay'],
+      references: [reference('slow-boat-ref', 'Slow boat', slowBoat, 'Open the Atlas note if a river exit belongs in your version of the route.')],
       personalNotes: [
-        personalNote(
-          'slow-boat-personal-01',
-          'LAST NOTE',
-          'The visa clock may be ending, but this is not dead transport time. Let Laos fade out slowly.',
-        ),
+        note('slow-boat-personal-01', 'LAST NOTE', 'The visa clock can be ending without the journey feeling finished.', { tone: 'paper', style: 'memory', size: 'large' }),
       ],
       media: [
-        placeholder('slow-boat-01', 'Slow boat on the Mekong toward Pakbeng'),
-        placeholder('slow-boat-02', 'Mekong landscapes toward Houayxay'),
+        mediaFrom('slow-boat-01', slowBoat ?? pakOu, 'Mekong slow boat'),
+        mediaFrom('slow-boat-02', pakOu ?? slowBoat, 'Mekong river landscape', 'portrait'),
       ],
+      notebook: {
+        id: 'slow-boat-notes',
+        label: 'LAST PAGES',
+        title: 'The Atlas closes slowly',
+        intro: 'Two pages are enough for the last two river days.',
+        pages: [
+          page('slow-page-01', 'photo', 'Day one to Pakbeng', 'Settle into the boat and stop measuring the day by arrival time. The banks, villages and long bends of river are the point.', {
+            kicker: 'RIVER DAY ONE',
+            media: [mediaFrom('slow-book-01', slowBoat ?? pakOu, 'Mekong boat day')],
+            handwrittenNote: 'No rush. That is why you chose the boat.',
+            noteTone: 'sky',
+          }),
+          page('slow-page-02', 'memory', 'Day two toward Houayxay', 'The second day turns the border into an ending rather than a sudden cut. Recheck the current pier and border details when you travel, then let the editorial idea stay simple.', {
+            kicker: 'RIVER DAY TWO',
+            handwrittenNote: 'One last long look at Laos.',
+            noteTone: 'butter',
+            references: [reference('slow-book-ref', 'Slow boat', slowBoat, 'Save the field note if you want this ending in your Atlas.')],
+          }),
+        ],
+      },
       variant: 'epilogue',
     },
   ],
   closingTitle: 'Make this route yours',
-  closingCopy:
-    'Keep the direction, change the pace, remove the chapters that do not fit and save the places that do. The route is only useful once it becomes your Atlas.',
+  closingCopy: 'Keep the direction, change the pace, remove what does not fit and save the places that do. The route becomes useful when it becomes your Atlas.',
 };
 
-const editorialRoutes: AtlasRouteContent[] = [southToNorthEditorial];
+const editorialRoutes: AtlasRouteExperienceContent[] = [southToNorthEditorial];
 
 export const getAtlasRouteEditorialContent = (
   country: string,
   slug: string,
-): AtlasRouteContent | undefined =>
+): AtlasRouteExperienceContent | undefined =>
   editorialRoutes.find(
-    (route) =>
-      route.country === country.toLowerCase() &&
-      route.slug === slug.toLowerCase(),
+    (route) => route.country === country.toLowerCase() && route.slug === slug.toLowerCase(),
   );
