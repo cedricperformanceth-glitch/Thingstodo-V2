@@ -4,44 +4,6 @@ import {
   HOME_SCENE_ASSETS,
   NEUTRAL_SHELF,
 } from '../../features/homepage/countries';
-
-const LAOS_DIRECTORY_MEDIA = {
-  kuangSi: {
-    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kuang%20Si%20Falls%20and%20a%20turquoise%20water%20pool%20in%20Luang%20Prabang%20province%20Laos.jpg',
-    alt: 'Kuang Si Falls and a turquoise pool near Luang Prabang',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kuang_Si_Falls_and_a_turquoise_water_pool_in_Luang_Prabang_province_Laos.jpg',
-    author: 'Basile Morin',
-    license: 'CC BY-SA',
-  },
-  mekong: {
-    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mountains%20clouds%20Mekong%20and%20dwellings%20from%20Mount%20Phou%20Si%20at%20sunrise%20in%20Luang%20Prabang%20Laos.jpg',
-    alt: 'The Mekong and mountain landscape seen from Mount Phou Si at sunrise',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Mountains_clouds_Mekong_and_dwellings_from_Mount_Phou_Si_at_sunrise_in_Luang_Prabang_Laos.jpg',
-    author: 'Basile Morin',
-    license: 'CC BY-SA',
-  },
-  lagoon: {
-    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Blue%20Lagoon%20Vang%20Vieng.jpg',
-    alt: 'Blue Lagoon in Vang Vieng',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Blue_Lagoon_Vang_Vieng.jpg',
-    author: 'Christophe95',
-    license: 'CC BY-SA',
-  },
-  vatPhou: {
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Stone_gate_with_columns_and_Buddhist_reliefs_leading_to_a_clothed_statue_of_the_Buddha_seated%2C_Wat_Phou_temple%2C_Champasak%2C_Laos.jpg/1920px-Stone_gate_with_columns_and_Buddhist_reliefs_leading_to_a_clothed_statue_of_the_Buddha_seated%2C_Wat_Phou_temple%2C_Champasak%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail',
-    alt: 'Stone gate and Buddhist reliefs at Vat Phou in Champasak',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Stone_gate_with_columns_and_Buddhist_reliefs_leading_to_a_clothed_statue_of_the_Buddha_seated,_Wat_Phou_temple,_Champasak,_Laos.jpg',
-    author: 'Basile Morin',
-    license: 'CC BY-SA',
-  },
-  cave: {
-    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/VientianeProvince%20VangVieng%20ThamJang4%20tango7174.jpg',
-    alt: 'Interior of Tham Jang cave in Vang Vieng',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:VientianeProvince_VangVieng_ThamJang4_tango7174.jpg',
-    author: 'Tango7174',
-    license: 'CC BY-SA',
-  },
-} as const;
 ---
 
 <section class="atlas-home" data-atlas-home data-ready="false" aria-busy="true" aria-label="Things to Do Atlas country selection">
@@ -170,50 +132,8 @@ const LAOS_DIRECTORY_MEDIA = {
 
 <section class="atlas-country-feature" aria-labelledby="atlas-country-feature-title">
   <div class="atlas-country-feature__inner">
-    <div class="atlas-country-feature__visual">
-      <svg class="atlas-country-feature__river-line" viewBox="0 0 700 520" aria-hidden="true" focusable="false">
-        <path d="M25 352C150 286 189 371 292 333C393 296 410 177 536 174C603 172 655 201 683 230" />
-        <path d="M83 401C189 354 240 432 339 384C431 340 480 263 633 282" />
-      </svg>
-
-      <figure class="atlas-water-drop atlas-water-drop--mekong">
-        <span class="atlas-water-drop__mask">
-          <img src={LAOS_DIRECTORY_MEDIA.mekong.src} alt={LAOS_DIRECTORY_MEDIA.mekong.alt} loading="lazy" decoding="async" fetchpriority="low" />
-        </span>
-      </figure>
-
-      <figure class="atlas-water-drop atlas-water-drop--kuang-si">
-        <span class="atlas-water-drop__mask">
-          <img src={LAOS_DIRECTORY_MEDIA.kuangSi.src} alt={LAOS_DIRECTORY_MEDIA.kuangSi.alt} loading="lazy" decoding="async" fetchpriority="low" />
-        </span>
-      </figure>
-
-      <figure class="atlas-water-drop atlas-water-drop--lagoon">
-        <span class="atlas-water-drop__mask">
-          <img src={LAOS_DIRECTORY_MEDIA.lagoon.src} alt={LAOS_DIRECTORY_MEDIA.lagoon.alt} loading="lazy" decoding="async" fetchpriority="low" />
-        </span>
-      </figure>
-
-      <figure class="atlas-photo-leaf atlas-photo-leaf--vat-phou">
-        <span class="atlas-photo-leaf__mask">
-          <img src={LAOS_DIRECTORY_MEDIA.vatPhou.src} alt={LAOS_DIRECTORY_MEDIA.vatPhou.alt} loading="lazy" decoding="async" fetchpriority="low" />
-        </span>
-      </figure>
-
-      <figure class="atlas-photo-leaf atlas-photo-leaf--cave">
-        <span class="atlas-photo-leaf__mask">
-          <img src={LAOS_DIRECTORY_MEDIA.cave.src} alt={LAOS_DIRECTORY_MEDIA.cave.alt} loading="lazy" decoding="async" fetchpriority="low" />
-        </span>
-      </figure>
-
-      <details class="atlas-country-feature__credits">
-        <summary>Photo credits</summary>
-        <div class="atlas-country-feature__credits-list">
-          {Object.values(LAOS_DIRECTORY_MEDIA).map((photo) => (
-            <a href={photo.sourceUrl} target="_blank" rel="noreferrer">{photo.author} · {photo.license}</a>
-          ))}
-        </div>
-      </details>
+    <div class="atlas-country-feature__palm atlas-country-feature__palm--left" aria-hidden="true">
+      <img src="/assets/home/laos-palm-left.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async" />
     </div>
 
     <div class="atlas-country-feature__content">
@@ -228,6 +148,10 @@ const LAOS_DIRECTORY_MEDIA = {
         <span>Open the Laos chapter</span>
         <span class="atlas-country-feature__cta-mark" aria-hidden="true">→</span>
       </a>
+    </div>
+
+    <div class="atlas-country-feature__palm atlas-country-feature__palm--right" aria-hidden="true">
+      <img src="/assets/home/laos-palm-right.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

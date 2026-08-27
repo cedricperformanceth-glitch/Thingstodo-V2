@@ -476,248 +476,45 @@ main.main--immersive.main--immersive-scroll {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-  gap: clamp(3rem, 6vw, 7rem);
+  grid-template-columns: minmax(180px, 0.8fr) minmax(340px, 0.92fr) minmax(180px, 0.8fr);
+  gap: clamp(1.5rem, 3.5vw, 4.5rem);
   align-items: center;
-  width: min(1180px, calc(100% - 64px));
+  width: min(1360px, calc(100% - 64px));
   margin: 0 auto;
 }
 
-.atlas-country-feature__visual {
+.atlas-country-feature__palm {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-width: 0;
-  height: 540px;
-}
-
-.atlas-country-feature__river-line {
-  position: absolute;
-  inset: 2% -2% auto 0;
-  z-index: 0;
-  width: 104%;
-  height: 88%;
-  opacity: 0.28;
   pointer-events: none;
 }
 
-.atlas-country-feature__river-line path {
-  fill: none;
-  stroke: var(--river);
-  stroke-width: 1.25;
-  stroke-linecap: round;
-  stroke-dasharray: 3 9;
-}
-
-.atlas-water-drop,
-.atlas-photo-leaf {
-  position: absolute;
-  margin: 0;
-}
-
-.atlas-water-drop {
-  z-index: 3;
-  aspect-ratio: 1;
-  filter: drop-shadow(0 16px 18px rgb(35 46 39 / 0.13));
-}
-
-.atlas-water-drop__mask {
-  position: relative;
+.atlas-country-feature__palm img {
   display: block;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border: 1px solid rgb(251 247 237 / 0.86);
-  border-radius: 54% 50% 54% 9%;
-  background: #d7e3dc;
-  transform: rotate(45deg);
-}
-
-.atlas-water-drop__mask::after {
-  position: absolute;
-  inset: 7% 12% auto auto;
-  width: 19%;
-  height: 10%;
-  border-radius: 50%;
-  background: rgb(255 255 255 / 0.2);
-  content: '';
-  filter: blur(1px);
-  transform: rotate(-18deg);
-}
-
-.atlas-water-drop img {
-  position: absolute;
-  top: -27%;
-  left: -27%;
-  display: block;
-  width: 154%;
-  height: 154%;
-  max-width: none;
-  object-fit: cover;
-  transform: rotate(-45deg) scale(1.02);
+  width: min(100%, 360px);
+  height: auto;
+  max-height: 650px;
+  object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
-}
-
-.atlas-water-drop--mekong {
-  top: 118px;
-  left: 7%;
-  width: 154px;
-}
-
-.atlas-water-drop--mekong img {
-  object-position: 55% 46%;
-}
-
-.atlas-water-drop--kuang-si {
-  top: 28px;
-  left: 36%;
-  width: 214px;
-}
-
-.atlas-water-drop--kuang-si img {
-  object-position: 50% 54%;
-}
-
-.atlas-water-drop--lagoon {
-  top: 152px;
-  right: 7%;
-  width: 132px;
-}
-
-.atlas-water-drop--lagoon img {
-  object-position: 50% 52%;
-}
-
-.atlas-photo-leaf {
-  z-index: 2;
-  filter: drop-shadow(0 15px 17px rgb(35 46 39 / 0.1));
-}
-
-.atlas-photo-leaf__mask {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border: 1px solid rgb(49 87 59 / 0.17);
-  border-radius: 100% 7% 100% 7%;
-  background: #d7ded4;
-}
-
-.atlas-photo-leaf__mask::after {
-  position: absolute;
-  top: 54%;
-  left: 7%;
-  width: 88%;
-  height: 1px;
-  background: rgb(251 247 237 / 0.62);
-  box-shadow: 0 1px 0 rgb(31 43 36 / 0.12);
-  content: '';
-  transform: rotate(-5deg);
-  transform-origin: left center;
-}
-
-.atlas-photo-leaf img {
-  position: absolute;
-  top: -11%;
-  left: -9%;
-  display: block;
-  width: 118%;
-  height: 122%;
-  max-width: none;
-  object-fit: cover;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.atlas-photo-leaf--vat-phou {
-  bottom: 78px;
-  left: 0;
-  width: 390px;
-  height: 172px;
-  transform: rotate(-13deg);
-  transform-origin: 12% 78%;
-}
-
-.atlas-photo-leaf--vat-phou img {
-  object-position: 52% 48%;
-  transform: rotate(5deg) scale(1.04);
-}
-
-.atlas-photo-leaf--cave {
-  right: 0;
-  bottom: 28px;
-  width: 386px;
-  height: 168px;
-  transform: rotate(13deg) scaleX(-1);
-  transform-origin: 88% 78%;
-}
-
-.atlas-photo-leaf--cave img {
-  object-position: 52% 52%;
-  transform: scaleX(-1) rotate(2deg) scale(1.04);
-}
-
-.atlas-country-feature__credits {
-  position: absolute;
-  bottom: 0;
-  left: 12px;
-  z-index: 5;
-  color: rgb(31 43 36 / 0.54);
-  font-family: 'Manrope', var(--sans);
-  font-size: 0.66rem;
-  line-height: 1.45;
-}
-
-.atlas-country-feature__credits summary {
-  width: fit-content;
-  cursor: pointer;
-  list-style: none;
-  letter-spacing: 0.045em;
-}
-
-.atlas-country-feature__credits summary::-webkit-details-marker {
-  display: none;
-}
-
-.atlas-country-feature__credits summary::after {
-  margin-left: 0.4rem;
-  content: '+';
-}
-
-.atlas-country-feature__credits[open] summary::after {
-  content: '−';
-}
-
-.atlas-country-feature__credits-list {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 0;
-  display: grid;
-  gap: 0.32rem;
-  width: min(330px, 72vw);
-  padding: 0.8rem 0.9rem;
-  border: 1px solid rgb(49 87 59 / 0.13);
-  background: rgb(251 247 237 / 0.96);
-  box-shadow: 0 10px 24px rgb(35 46 39 / 0.08);
-}
-
-.atlas-country-feature__credits-list a {
-  color: inherit;
-  text-decoration-color: rgb(49 87 59 / 0.24);
-  text-underline-offset: 2px;
 }
 
 .atlas-country-feature__content {
   position: relative;
   max-width: 490px;
   padding-bottom: 1.5rem;
+  text-align: center;
 }
 
 .atlas-country-feature__eyebrow {
   display: flex;
   gap: 0.78rem;
   align-items: center;
+  justify-content: center;
   margin: 0 0 1.1rem;
   color: rgb(31 43 36 / 0.58);
   font-family: 'Manrope', var(--sans);
@@ -739,7 +536,7 @@ main.main--immersive.main--immersive-scroll {
 
 .atlas-country-feature h1 {
   max-width: 8ch;
-  margin: 0 0 1.45rem;
+  margin: 0 auto 1.45rem;
   color: #20342a;
   font-family: 'Newsreader', Georgia, serif;
   font-size: clamp(4rem, 6.1vw, 6.65rem);
@@ -750,7 +547,7 @@ main.main--immersive.main--immersive-scroll {
 
 .atlas-country-feature__lede {
   max-width: 41ch;
-  margin: 0 0 2.15rem;
+  margin: 0 auto 2.15rem;
   color: rgb(31 43 36 / 0.78);
   font-family: 'Newsreader', Georgia, serif;
   font-size: clamp(1.08rem, 1.45vw, 1.25rem);
@@ -805,20 +602,25 @@ main.main--immersive.main--immersive-scroll {
   }
 
   .atlas-country-feature__inner {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
     width: min(680px, calc(100% - 48px));
   }
 
   .atlas-country-feature__content {
-    order: 1;
+    grid-column: 1 / -1;
+    grid-row: 1;
     max-width: 560px;
   }
 
-  .atlas-country-feature__visual {
-    order: 2;
-    height: 470px;
-    margin-top: 2.4rem;
+  .atlas-country-feature__palm {
+    grid-row: 2;
+    align-self: start;
+    margin-top: 1.2rem;
+  }
+
+  .atlas-country-feature__palm img {
+    max-height: 480px;
   }
 
   .atlas-country-feature h1 {
@@ -840,45 +642,12 @@ main.main--immersive.main--immersive-scroll {
     width: calc(100% - 36px);
   }
 
-  .atlas-country-feature__visual {
-    height: 365px;
-    margin-top: 2.2rem;
+  .atlas-country-feature__palm {
+    margin-top: 0.9rem;
   }
 
-  .atlas-water-drop--mekong {
-    top: 88px;
-    left: 5%;
-    width: 102px;
-  }
-
-  .atlas-water-drop--kuang-si {
-    top: 14px;
-    left: 36%;
-    width: 142px;
-  }
-
-  .atlas-water-drop--lagoon {
-    top: 110px;
-    right: 5%;
-    width: 88px;
-  }
-
-  .atlas-photo-leaf--vat-phou {
-    bottom: 66px;
-    left: -4%;
-    width: 252px;
-    height: 112px;
-  }
-
-  .atlas-photo-leaf--cave {
-    right: -5%;
-    bottom: 30px;
-    width: 258px;
-    height: 112px;
-  }
-
-  .atlas-country-feature__credits {
-    left: 2px;
+  .atlas-country-feature__palm img {
+    max-height: 330px;
   }
 
   .atlas-country-feature h1 {
