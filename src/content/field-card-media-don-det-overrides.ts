@@ -2,19 +2,18 @@ import type { MediaRecord } from '../core/models/types';
 
 type MediaRecordPatch = Partial<MediaRecord>;
 
-const DON_DET_THING_IDS = new Set([
-  'thing-old-french-railway-bridge',
-  'thing-li-phi-somphamit-waterfalls',
-  'thing-khone-phapheng-falls',
-  'thing-don-som-island',
-  'thing-khone-pa-soi-waterfall',
-  'thing-xai-kong-nyai-beach',
-  'thing-si-phan-don-by-boat',
-  'thing-4000-islands-kayaking',
-  'thing-cycle-don-det-don-khon',
-  'thing-don-det-tubing',
-  'thing-don-det-sunset',
-]);
+const DON_DET_MEDIA_ID_PREFIXES = [
+  'don-det-',
+  'don-som-',
+  'li-phi-',
+  'khone-phapheng-',
+  'khone-pa-',
+  'xai-kong-',
+  'si-phan-don-',
+  '4000-islands-',
+  'cycle-don-det-',
+  'tubing-don-det-',
+];
 
 /**
  * Canonical Don Det media metadata corrections.
@@ -22,9 +21,9 @@ const DON_DET_THING_IDS = new Set([
  * licensed CC BY-SA 4.0. The tubing supplement reuses a verified Don Det Mekong Commons image
  * rather than introducing an unsourced or commercial photograph.
  *
- * Provenance is also normalized here for every effective Don Det Wikimedia activity image so the
- * runtime MediaRecord carries the same classification as the central provenance policy. The
- * Xai Kong Nyai riverboats asset is an original Atlas drawing, confirmed by the publisher.
+ * Provenance is normalized only for effective Don Det activity media sets so the runtime
+ * MediaRecord carries the same classification as the central provenance policy. The Xai Kong Nyai
+ * riverboats asset is an original Atlas drawing, confirmed by the publisher.
  */
 export const donDetMediaRecordOverrides: Readonly<Record<string, MediaRecordPatch>> = {
   'khone-pa-soi-falls-christophe95': {
@@ -47,6 +46,10 @@ export const donDetMediaRecordOverrides: Readonly<Record<string, MediaRecordPatc
     license: 'Creator-owned',
   },
 };
+
+const isDonDetMediaSet = (media: MediaRecord[]) => media.some((record) =>
+  DON_DET_MEDIA_ID_PREFIXES.some((prefix) => record.id.startsWith(prefix)),
+);
 
 const wikimediaRightsBasis = (license?: string): MediaRecord['rightsBasis'] => {
   const normalized = String(license ?? '').trim().toLowerCase();
@@ -87,11 +90,8 @@ const tubingSupplement: MediaRecord = {
   locked: true,
 };
 
-export const applyDonDetMediaCorrections = (
-  media?: MediaRecord[],
-  thingId?: string,
-): MediaRecord[] | undefined => {
-  if (!media?.length || !thingId || !DON_DET_THING_IDS.has(thingId)) return media;
+export const applyDonDetMediaCorrections = (media?: MediaRecord[]): MediaRecord[] | undefined => {
+  if (!media?.length || !isDonDetMediaSet(media)) return media;
 
   const corrected = media.map(classifyDonDetRecord);
   const isTubingSet = corrected.some((record) => record.id === 'tubing-don-det-mekong-view');
