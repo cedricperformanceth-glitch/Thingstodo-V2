@@ -58,9 +58,29 @@ const data = {
       },
       "shortDescription": "A.M.D Restaurant is a current Vang Vieng restaurants address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-a-m-d-restaurant",
+            "src": "/images/places/vang-vieng/a-m-d-restaurant.webp",
+            "alt": "A.M.D Restaurant in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-a-m-d-restaurant",
+              "src": "/images/places/vang-vieng/a-m-d-restaurant.webp",
+              "alt": "A.M.D Restaurant in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -69,8 +89,8 @@ const data = {
           "Vang Vieng",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -110,9 +130,29 @@ const data = {
       },
       "shortDescription": "Laung Xai Kham Restaurant is a current Vang Vieng restaurants address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-laung-xai-kham-restaurant",
+            "src": "/images/places/vang-vieng/laung-xai-kham-restaurant.webp",
+            "alt": "Laung Xai Kham Restaurant in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-laung-xai-kham-restaurant",
+              "src": "/images/places/vang-vieng/laung-xai-kham-restaurant.webp",
+              "alt": "Laung Xai Kham Restaurant in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -121,8 +161,8 @@ const data = {
           "Vang Vieng",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -162,9 +202,29 @@ const data = {
       },
       "shortDescription": "Happy Mango Thai Restaurant is a current Vang Vieng restaurants address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-happy-mango-thai-restaurant",
+            "src": "/images/places/vang-vieng/happy-mango-thai-restaurant.webp",
+            "alt": "Happy Mango Thai Restaurant in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-happy-mango-thai-restaurant",
+              "src": "/images/places/vang-vieng/happy-mango-thai-restaurant.webp",
+              "alt": "Happy Mango Thai Restaurant in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -173,8 +233,8 @@ const data = {
           "Vang Vieng",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -214,9 +274,29 @@ const data = {
       },
       "shortDescription": "Naked Espresso Vang Vieng is a current Vang Vieng restaurants address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-naked-espresso-vang-vieng",
+            "src": "/images/places/vang-vieng/naked-espresso-vang-vieng.webp",
+            "alt": "Naked Espresso Vang Vieng in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-naked-espresso-vang-vieng",
+              "src": "/images/places/vang-vieng/naked-espresso-vang-vieng.webp",
+              "alt": "Naked Espresso Vang Vieng in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -225,8 +305,8 @@ const data = {
           "Vang Vieng",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -266,9 +346,29 @@ const data = {
       },
       "shortDescription": "Pizza Luka is a current Vang Vieng restaurants address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-pizza-luka",
+            "src": "/images/places/vang-vieng/pizza-luka.webp",
+            "alt": "Pizza Luka in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-pizza-luka",
+              "src": "/images/places/vang-vieng/pizza-luka.webp",
+              "alt": "Pizza Luka in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -277,8 +377,8 @@ const data = {
           "Vang Vieng",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -318,9 +418,29 @@ const data = {
       },
       "shortDescription": "Vang Vieng Organic Farm Cafe is a current Vang Vieng cafes address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-vang-vieng-organic-farm-cafe",
+            "src": "/images/places/vang-vieng/vang-vieng-organic-farm-cafe.webp",
+            "alt": "Vang Vieng Organic Farm Cafe in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-vang-vieng-organic-farm-cafe",
+              "src": "/images/places/vang-vieng/vang-vieng-organic-farm-cafe.webp",
+              "alt": "Vang Vieng Organic Farm Cafe in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -329,8 +449,8 @@ const data = {
           "Vang Vieng",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -370,9 +490,29 @@ const data = {
       },
       "shortDescription": "Sakura Bar Coffee is a current Vang Vieng cafes address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-sakura-bar-coffee",
+            "src": "/images/places/vang-vieng/sakura-bar-coffee.webp",
+            "alt": "Sakura Bar Coffee in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-sakura-bar-coffee",
+              "src": "/images/places/vang-vieng/sakura-bar-coffee.webp",
+              "alt": "Sakura Bar Coffee in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -381,8 +521,8 @@ const data = {
           "Vang Vieng",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -422,9 +562,29 @@ const data = {
       },
       "shortDescription": "Luang Prabang Bakery is a current Vang Vieng cafes address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-luang-prabang-bakery",
+            "src": "/images/places/vang-vieng/luang-prabang-bakery.webp",
+            "alt": "Luang Prabang Bakery in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-luang-prabang-bakery",
+              "src": "/images/places/vang-vieng/luang-prabang-bakery.webp",
+              "alt": "Luang Prabang Bakery in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -433,8 +593,8 @@ const data = {
           "Vang Vieng",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -474,9 +634,29 @@ const data = {
       },
       "shortDescription": "Café Eh Eh is a current Vang Vieng cafes address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-cafe-eh-eh",
+            "src": "/images/places/vang-vieng/cafe-eh-eh.webp",
+            "alt": "Café Eh Eh in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-cafe-eh-eh",
+              "src": "/images/places/vang-vieng/cafe-eh-eh.webp",
+              "alt": "Café Eh Eh in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -485,8 +665,8 @@ const data = {
           "Vang Vieng",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -526,9 +706,29 @@ const data = {
       },
       "shortDescription": "Viman Vang Vieng Coffee is a current Vang Vieng cafes address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-viman-vang-vieng-coffee",
+            "src": "/images/places/vang-vieng/viman-vang-vieng-coffee.webp",
+            "alt": "Viman Vang Vieng Coffee in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-viman-vang-vieng-coffee",
+              "src": "/images/places/vang-vieng/viman-vang-vieng-coffee.webp",
+              "alt": "Viman Vang Vieng Coffee in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -537,8 +737,8 @@ const data = {
           "Vang Vieng",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
