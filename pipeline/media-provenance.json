@@ -5,7 +5,29 @@
     "unknownInternetMedia": "rights-review-required",
     "wikimediaRequiresPerAssetLicense": true
   },
+  "destinationRules": {
+    "laos/don-det": {
+      "cardMedia": {
+        "restaurants": "original-illustration",
+        "cafes": "original-illustration",
+        "accommodation": "original-illustration"
+      },
+      "essentialInfo": "authorized-third-party",
+      "heroPhoto": "authorized-third-party",
+      "permissionBasis": "permission-granted"
+    }
+  },
   "items": [
+    {
+      "id": "don-det-banana-restaurant-and-bar-card",
+      "entity": "laos/don-det/restaurants/banana-restaurant-and-bar",
+      "src": "/assets/cities/laos/don-det/restaurants/banana-restaurant-and-bar/banana-restaurant-and-bar.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
     {
       "id": "don-det-crazy-gecko-card",
       "entity": "laos/don-det/cafes/crazy-gecko",
@@ -14,6 +36,369 @@
       "treatment": "none",
       "rightsBasis": "creator-owned",
       "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-datta-bananaleaf-restaurant-card",
+      "entity": "laos/don-det/restaurants/datta-bananaleaf-restaurant",
+      "src": "/assets/cities/laos/don-det/restaurants/datta-bananaleaf-restaurant/datta-bananaleaf-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-hathim-indian-restaurant-card",
+      "entity": "laos/don-det/restaurants/hathim-indian-restaurant",
+      "src": "/assets/cities/laos/don-det/restaurants/hathim-indian-restaurant/hathim-indian-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-keas-backpackers-paradise-restaurant-and-bar-card",
+      "entity": "laos/don-det/restaurants/keas-backpackers-paradise-restaurant-and-bar",
+      "src": "/assets/cities/laos/don-det/restaurants/keas-backpackers-paradise-restaurant-and-bar/keas-backpackers-paradise-restaurant-and-bar.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-mama-leuah-restaurant-card",
+      "entity": "laos/don-det/restaurants/mama-leuah-restaurant",
+      "src": "/assets/cities/laos/don-det/restaurants/mama-leuah-restaurant/mama-leuah-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-mama-piang-guesthouse-and-restaurant-card",
+      "entity": "laos/don-det/restaurants/mama-piang-guesthouse-and-restaurant",
+      "src": "/assets/cities/laos/don-det/restaurants/mama-piang-guesthouse-and-restaurant/mama-piang-guesthouse-and-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-ois-place-card",
+      "entity": "laos/don-det/restaurants/ois-place",
+      "src": "/assets/cities/laos/don-det/restaurants/ois-place/ois-place.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-restaurant-naly-card",
+      "entity": "laos/don-det/restaurants/restaurant-naly",
+      "src": "/assets/cities/laos/don-det/restaurants/restaurant-naly/restaurant-naly.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-sahai-bar-card",
+      "entity": "laos/don-det/restaurants/sahai-bar",
+      "src": "/assets/cities/laos/don-det/restaurants/sahai-bar/sahai-bar.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-the-4000-island-bar-card",
+      "entity": "laos/don-det/restaurants/the-4000-island-bar",
+      "src": "/assets/cities/laos/don-det/restaurants/the-4000-island-bar/the-4000-island-bar.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-the-boathouse-card",
+      "entity": "laos/don-det/restaurants/the-boathouse",
+      "src": "/assets/cities/laos/don-det/restaurants/the-boathouse/the-boathouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-wrap-and-roll-card",
+      "entity": "laos/don-det/restaurants/wrap-and-roll",
+      "src": "/assets/cities/laos/don-det/restaurants/wrap-and-roll/wrap-and-roll.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-allnew-coffee-and-restaurant-card",
+      "entity": "laos/don-det/cafes/allnew-coffee-and-restaurant",
+      "src": "/assets/cities/laos/don-det/cafes/allnew-coffee-and-restaurant/allnew-coffee-and-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-dondet-coffee-house-and-gift-shop-card",
+      "entity": "laos/don-det/cafes/dondet-coffee-house-and-gift-shop",
+      "src": "/assets/cities/laos/don-det/cafes/dondet-coffee-house-and-gift-shop/dondet-coffee-house-and-gift-shop.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-jimmee-restaurant-card",
+      "entity": "laos/don-det/cafes/jimmee-restaurant",
+      "src": "/assets/cities/laos/don-det/cafes/jimmee-restaurant/jimmee-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-kamphong-riverside-restaurant-card",
+      "entity": "laos/don-det/cafes/kamphong-riverside-restaurant",
+      "src": "/assets/cities/laos/don-det/cafes/kamphong-riverside-restaurant/kamphong-riverside-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-mama-tanon-guest-house-and-restaurant-card",
+      "entity": "laos/don-det/cafes/mama-tanon-guest-house-and-restaurant",
+      "src": "/assets/cities/laos/don-det/cafes/mama-tanon-guest-house-and-restaurant/mama-tanon-guest-house-and-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-ms-ning-restaurant-and-guesthouse-card",
+      "entity": "laos/don-det/cafes/ms-ning-restaurant-and-guesthouse",
+      "src": "/assets/cities/laos/don-det/cafes/ms-ning-restaurant-and-guesthouse/ms-ning-restaurant-and-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-paradise-restaurant-cafe-and-bar-card",
+      "entity": "laos/don-det/cafes/paradise-restaurant-cafe-and-bar",
+      "src": "/assets/cities/laos/don-det/cafes/paradise-restaurant-cafe-and-bar/paradise-restaurant-cafe-and-bar.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-street-view-restaurant-card",
+      "entity": "laos/don-det/cafes/street-view-restaurant",
+      "src": "/assets/cities/laos/don-det/cafes/street-view-restaurant/street-view-restaurant.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-baba-guesthouse-card",
+      "entity": "laos/don-det/accommodation/baba-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/baba-guesthouse/baba-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-boonmy-bungalows-and-restaurant-don-det-4000-islands-card",
+      "entity": "laos/don-det/accommodation/boonmy-bungalows-and-restaurant-don-det-4000-islands",
+      "src": "/assets/cities/laos/don-det/accommodation/boonmy-bungalows-and-restaurant-don-det-4000-islands/boonmy-bungalows-and-restaurant-don-det-4000-islands.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-dodand-studio-and-sunset-riverside-guesthouse-card",
+      "entity": "laos/don-det/accommodation/dodand-studio-and-sunset-riverside-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/dodand-studio-and-sunset-riverside-guesthouse/dodand-studio-and-sunset-riverside-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-don-det-hotel-card",
+      "entity": "laos/don-det/accommodation/don-det-hotel",
+      "src": "/assets/cities/laos/don-det/accommodation/don-det-hotel/don-det-hotel.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-dondet-garden-guest-house-card",
+      "entity": "laos/don-det/accommodation/dondet-garden-guest-house",
+      "src": "/assets/cities/laos/don-det/accommodation/dondet-garden-guest-house/dondet-garden-guest-house.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-dondet-vixay-sunset-and-river-view-card",
+      "entity": "laos/don-det/accommodation/dondet-vixay-sunset-and-river-view",
+      "src": "/assets/cities/laos/don-det/accommodation/dondet-vixay-sunset-and-river-view/dondet-vixay-sunset-and-river-view.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-green-guesthouse-card",
+      "entity": "laos/don-det/accommodation/green-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/green-guesthouse/green-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-moon-by-night-card",
+      "entity": "laos/don-det/accommodation/moon-by-night",
+      "src": "/assets/cities/laos/don-det/accommodation/moon-by-night/moon-by-night.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-namknong-view-card",
+      "entity": "laos/don-det/accommodation/namknong-view",
+      "src": "/assets/cities/laos/don-det/accommodation/namknong-view/namknong-view.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-noupad-sunset-guesthouse-card",
+      "entity": "laos/don-det/accommodation/noupad-sunset-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/noupad-sunset-guesthouse/noupad-sunset-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-rivergarden-guesthouse-card",
+      "entity": "laos/don-det/accommodation/rivergarden-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/rivergarden-guesthouse/rivergarden-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-tawan-daeng-guesthouse-card",
+      "entity": "laos/don-det/accommodation/tawan-daeng-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/tawan-daeng-guesthouse/tawan-daeng-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-thiptavanh-guesthouse-card",
+      "entity": "laos/don-det/accommodation/thiptavanh-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/thiptavanh-guesthouse/thiptavanh-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-yommalay-guesthouse-card",
+      "entity": "laos/don-det/accommodation/yommalay-guesthouse",
+      "src": "/assets/cities/laos/don-det/accommodation/yommalay-guesthouse/yommalay-guesthouse.webp",
+      "provenance": "original-illustration",
+      "treatment": "none",
+      "rightsBasis": "creator-owned",
+      "sourceName": "Original Atlas illustration",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-don-det-ferry-essential-info",
+      "entity": "laos/don-det/practical-services/don-det-ferry",
+      "src": "/assets/cities/laos/don-det/practical-services/don-det-ferry/don-det-ferry.webp",
+      "provenance": "authorized-third-party",
+      "treatment": "none",
+      "rightsBasis": "permission-granted",
+      "sourceName": "Photo owner (permission granted)",
+      "permissionNote": "Photo used on Things To Do Atlas with direct permission from the photo owner.",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-khon-health-center-khonnua-essential-info",
+      "entity": "laos/don-det/practical-services/khon-health-center-khonnua",
+      "src": "/assets/cities/laos/don-det/practical-services/khon-health-center-khonnua/khon-health-center-khonnua.webp",
+      "provenance": "authorized-third-party",
+      "treatment": "none",
+      "rightsBasis": "permission-granted",
+      "sourceName": "Photo owner (permission granted)",
+      "permissionNote": "Photo used on Things To Do Atlas with direct permission from the photo owner.",
+      "status": "verified"
+    },
+    {
+      "id": "don-det-hero-photo",
+      "entity": "laos/don-det/hero",
+      "src": "/assets/cities/laos/don-det/hero/photos/don-det-hero-photo.webp",
+      "provenance": "authorized-third-party",
+      "treatment": "none",
+      "rightsBasis": "permission-granted",
+      "sourceName": "Photo owner (permission granted)",
+      "permissionNote": "Hero photo used on Things To Do Atlas with direct permission from the photo owner.",
       "status": "verified"
     },
     {
