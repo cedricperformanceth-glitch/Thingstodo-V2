@@ -3,7 +3,9 @@ import type { Place, ResearchSource } from '../core/models/types';
 type PlaceEditorialOverride = Partial<Pick<
   Place,
   'name' | 'shortDescription' | 'coordinates' | 'locationScope' | 'address' | 'googleMapsUrl'
->>;
+>> & {
+  researchSources?: ResearchSource[];
+};
 
 type SourcedPlace = Place & { researchSources?: ResearchSource[] };
 
@@ -132,6 +134,37 @@ export const placeCardEditorial: Readonly<Record<string, PlaceEditorialOverride>
   },
   'place-khamouane-province-hospital': {
     shortDescription: 'The provincial public hospital for Thakhek; save the address before the Loop so an emergency contact point is already in your Atlas.',
+  },
+  'place-pdr-pizza-da-roby': {
+    coordinates: { latitude: 17.9686654, longitude: 102.6002495 },
+    locationScope: 'point',
+    shortDescription: 'PDR - Pizza da Roby is a Vientiane restaurant address with its exact mapped location now pinned in the Atlas.',
+    address: 'Vientiane, Laos',
+    googleMapsUrl: 'https://www.google.com/maps/place/PDR+-+Pizza+da+Roby/@17.9686705,102.5976746,17z/data=!3m1!4b1!4m6!3m5!1s0x312468605da89feb:0x9318a48e0a3a999b!8m2!3d17.9686654!4d102.6002495!16s%2Fg%2F11b6dqqnv5?entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D',
+    researchSources: [
+      {
+        sourceName: 'Google Maps',
+        sourceUrl: 'https://www.google.com/maps/place/PDR+-+Pizza+da+Roby/@17.9686705,102.5976746,17z/data=!3m1!4b1!4m6!3m5!1s0x312468605da89feb:0x9318a48e0a3a999b!8m2!3d17.9686654!4d102.6002495!16s%2Fg%2F11b6dqqnv5?entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D',
+        purpose: 'location',
+        sourceType: 'map-platform',
+      },
+    ],
+  },
+  'place-lao-kitchen': {
+    name: 'LAO Kitchen Home made',
+    coordinates: { latitude: 17.97056, longitude: 102.5887291 },
+    locationScope: 'point',
+    shortDescription: 'LAO Kitchen Home made is a Vientiane restaurant address with its exact mapped location now pinned in the Atlas.',
+    address: 'Vientiane, Laos',
+    googleMapsUrl: 'https://www.google.com/maps/place/LAO+Kitchen+Home+made/@17.97056,102.5707047,15z/data=!4m10!1m2!2m1!1sLao+Kitchen+Vientiane+Laos!3m6!1s0x312469326f4b0a9d:0x70e3a1a15b1f2a97!8m2!3d17.97056!4d102.5887291!15sChpMYW8gS2l0Y2hlbiBWaWVudGlhbmUgTGFvc1ocIhpsYW8ga2l0Y2hlbiB2aWVudGlhbmUgbGFvc5IBEmxhb3RpYW5fcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQydE9ORTVVVmtKaGEyeE5aR3M1UlUxSVJrMVNlbXh1Wlcxd1NWVnVZeEFC4AEA-gEECAAQTA!16s%2Fg%2F11ts17kmpq?entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D',
+    researchSources: [
+      {
+        sourceName: 'Google Maps',
+        sourceUrl: 'https://www.google.com/maps/place/LAO+Kitchen+Home+made/@17.97056,102.5707047,15z/data=!4m10!1m2!2m1!1sLao+Kitchen+Vientiane+Laos!3m6!1s0x312469326f4b0a9d:0x70e3a1a15b1f2a97!8m2!3d17.97056!4d102.5887291!15sChpMYW8gS2l0Y2hlbiBWaWVudGlhbmUgTGFvc1ocIhpsYW8ga2l0Y2hlbiB2aWVudGlhbmUgbGFvc5IBEmxhb3RpYW5fcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQydE9ORTVVVmtKaGEyeE5aR3M1UlUxSVJrMVNlbXh1Wlcxd1NWVnVZeEFC4AEA-gEECAAQTA!16s%2Fg%2F11ts17kmpq?entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D',
+        purpose: 'location',
+        sourceType: 'map-platform',
+      },
+    ],
   },
   'place-thakhek-tourism-information-center': {
     coordinates: { latitude: 17.40242, longitude: 104.81163 },
