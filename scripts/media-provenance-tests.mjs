@@ -39,7 +39,7 @@ for (const item of registry.items) {
     assert.equal(item.sourceType, 'wikimedia');
     assert.ok(item.sourceUrl?.startsWith('https://commons.wikimedia.org/'), `${item.id}: Commons source URL is required`);
     assert.ok(item.sourceName, `${item.id}: source name is required`);
-    assert.ok(item.author, `${item.id}: author is required for the seeded licensed example`);
+    assert.ok(item.author, `${item.id}: author is required for Wikimedia media`);
     assert.ok(item.license, `${item.id}: per-asset license is required`);
     assert.ok(['open-license', 'public-domain'].includes(item.rightsBasis), `${item.id}: Wikimedia rights basis must be explicit`);
   }
@@ -61,21 +61,22 @@ assert.equal(donDetRule?.heroPhoto, 'authorized-third-party');
 assert.equal(donDetRule?.permissionBasis, 'permission-granted');
 
 const donDetItems = registry.items.filter((item) => item.entity.startsWith('laos/don-det/'));
-assert.equal(donDetItems.length, 38, 'Don Det should have 38 classified media assets in this pass');
-assert.equal(new Set(donDetItems.map((item) => item.src)).size, 38, 'Don Det classified src paths must be unique');
+assert.equal(donDetItems.length, 43, 'Don Det should have 43 classified media assets in this pass');
+assert.equal(new Set(donDetItems.map((item) => item.src)).size, 43, 'Don Det classified src paths must be unique');
 
 const donDetIllustrations = donDetItems.filter((item) => item.provenance === 'original-illustration');
-assert.equal(donDetIllustrations.length, 35, 'all 35 restaurant/cafe/accommodation card media are illustrations');
+assert.equal(donDetIllustrations.length, 36, 'Don Det has 35 venue-card illustrations plus the Xai Kong Nyai activity drawing');
 for (const item of donDetIllustrations) {
   assert.equal(item.rightsBasis, 'creator-owned');
   assert.equal(item.treatment, 'none');
-  assert.ok(
-    item.src.startsWith('/assets/cities/laos/don-det/restaurants/')
-      || item.src.startsWith('/assets/cities/laos/don-det/cafes/')
-      || item.src.startsWith('/assets/cities/laos/don-det/accommodation/'),
-    `${item.id}: Don Det illustration must belong to restaurant, cafe or accommodation media`,
-  );
+  assert.ok(item.src.startsWith('/assets/cities/laos/don-det/'), `${item.id}: Don Det illustration must use a local Don Det asset`);
 }
+
+const xaiDrawing = byId.get('xai-kong-nyai-beach-riverboats');
+assert.equal(xaiDrawing?.entity, 'laos/don-det/things-to-do/xai-kong-nyai-beach');
+assert.equal(xaiDrawing?.provenance, 'original-illustration');
+assert.equal(xaiDrawing?.treatment, 'none');
+assert.equal(xaiDrawing?.rightsBasis, 'creator-owned');
 
 const donDetPermissionMedia = donDetItems.filter((item) => item.provenance === 'authorized-third-party');
 assert.equal(donDetPermissionMedia.length, 3, 'Don Det hero photo + two Essential Info media are permission-granted');
@@ -86,5 +87,24 @@ for (const item of donDetPermissionMedia) {
 assert.equal(byId.get('don-det-hero-photo')?.rightsBasis, 'permission-granted');
 assert.equal(byId.get('don-det-don-det-ferry-essential-info')?.rightsBasis, 'permission-granted');
 assert.equal(byId.get('don-det-khon-health-center-khonnua-essential-info')?.rightsBasis, 'permission-granted');
+
+const donDetFieldNoteIds = [
+  'don-det-field-note-sunset-pirogue',
+  'don-det-field-note-ricefields',
+  'don-det-field-note-bridge-sunrise',
+  'don-det-field-note-chapter-seven-sunset-islands',
+];
+for (const id of donDetFieldNoteIds) {
+  const item = byId.get(id);
+  assert.ok(item, `${id}: missing from canonical provenance registry`);
+  assert.equal(item.entity, 'laos/don-det/city-field-note');
+  assert.equal(item.provenance, 'wikimedia');
+  assert.equal(item.treatment, 'none');
+  assert.equal(item.sourceType, 'wikimedia');
+}
+assert.equal(byId.get('don-det-field-note-ricefields')?.rightsBasis, 'public-domain');
+for (const id of donDetFieldNoteIds.filter((id) => id !== 'don-det-field-note-ricefields')) {
+  assert.equal(byId.get(id)?.rightsBasis, 'open-license');
+}
 
 console.log('Media provenance registry tests passed.');
