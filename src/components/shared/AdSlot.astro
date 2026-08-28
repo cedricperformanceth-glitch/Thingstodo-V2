@@ -1,13 +1,15 @@
 ---
 import type { AdSlot } from '../../core/ads/slots';
-interface Props { slot: AdSlot; }
-const { slot } = Astro.props;
+interface Props { slot: AdSlot; visible?: boolean; }
+const { slot, visible = false } = Astro.props;
 ---
 
-<aside class="ad-placeholder" data-ad-slot={slot} data-ad-placeholder="true" aria-label="Advertising placeholder">
-  <span class="ad-placeholder__label">AD PLACEHOLDER</span>
-  <small>{slot}</small>
-</aside>
+{visible && (
+  <aside class="ad-placeholder" data-ad-slot={slot} data-ad-placeholder="true" aria-label="Advertising placeholder">
+    <span class="ad-placeholder__label">AD PLACEHOLDER</span>
+    <small>{slot}</small>
+  </aside>
+)}
 
 <style>
   .ad-placeholder {
