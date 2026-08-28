@@ -814,53 +814,7 @@
       "address": "Vientiane, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Trio%20Coffee%20Vientiane%20Laos"
     },
-    {
-      "id": "place-dd-coffee",
-      "slug": "dd-coffee",
-      "name": "DD Coffee",
-      "country": "laos",
-      "city": "vientiane",
-      "category": "cafes",
-      "coordinates": {
-        "latitude": 17.9757,
-        "longitude": 102.6331
-      },
-      "shortDescription": "DD Coffee is a current Vientiane cafes address selected for this first Atlas draft.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Coffee stop",
-          "Vientiane",
-          "Daytime"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public identity and location were cross-checked."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas Vientiane research"
-      },
-      "researchSources": [
         {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=DD%20Coffee%20Vientiane%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Vientiane, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=DD%20Coffee%20Vientiane%20Laos"
-    },
-    {
       "id": "place-cafe-vanille",
       "slug": "cafe-vanille",
       "name": "Café Vanille",
