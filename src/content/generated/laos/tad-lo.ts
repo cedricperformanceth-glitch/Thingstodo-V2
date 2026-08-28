@@ -141,9 +141,59 @@ const data = {
       },
       "shortDescription": "Treehouses, lake houses and unusual stays beside a lake within walking distance of Tad Lo.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-fandee-island-1",
+            "src": "/images/places/tad-lo/fandee-island-1.webp",
+            "alt": "Fandee Island in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+            "author": "Site owner",
+            "license": "Owner-provided personal photo",
+            "capturedAt": "2026-08-28",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-tad-lo-fandee-island-1",
+              "src": "/images/places/tad-lo/fandee-island-1.webp",
+              "alt": "Fandee Island in Tad Lo, Laos",
+              "sourceType": "manual",
+              "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+              "author": "Site owner",
+              "license": "Owner-provided personal photo",
+              "capturedAt": "2026-08-28",
+              "manual": true,
+              "locked": true
+            },
+            {
+              "id": "media-tad-lo-fandee-island-2",
+              "src": "/images/places/tad-lo/fandee-island-2.webp",
+              "alt": "Fandee Island in Tad Lo, Laos",
+              "sourceType": "manual",
+              "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+              "author": "Site owner",
+              "license": "Owner-provided personal photo",
+              "capturedAt": "2026-08-28",
+              "manual": true,
+              "locked": true
+            },
+            {
+              "id": "media-tad-lo-fandee-island-3",
+              "src": "/images/places/tad-lo/fandee-island-3.webp",
+              "alt": "Fandee Island in Tad Lo, Laos",
+              "sourceType": "manual",
+              "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+              "author": "Site owner",
+              "license": "Owner-provided personal photo",
+              "capturedAt": "2026-08-28",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -397,9 +447,35 @@ const data = {
       },
       "shortDescription": "Lakeside restaurant serving Lao, Asian and Western dishes.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-fandee-island-restaurant",
+            "src": "/images/places/tad-lo/fandee-island-restaurant.webp",
+            "alt": "Fandee Island Restaurant in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+            "author": "Site owner",
+            "license": "Owner-provided personal photo",
+            "capturedAt": "2026-08-28",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-tad-lo-fandee-island-restaurant",
+              "src": "/images/places/tad-lo/fandee-island-restaurant.webp",
+              "alt": "Fandee Island Restaurant in Tad Lo, Laos",
+              "sourceType": "manual",
+              "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+              "author": "Site owner",
+              "license": "Owner-provided personal photo",
+              "capturedAt": "2026-08-28",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -702,9 +778,35 @@ const data = {
       },
       "shortDescription": "Coffee and breakfast stop at Fandee Island beside the lake.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-fandee-island-restaurant",
+            "src": "/images/places/tad-lo/fandee-island-restaurant.webp",
+            "alt": "Fandee Island Coffee in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+            "author": "Site owner",
+            "license": "Owner-provided personal photo",
+            "capturedAt": "2026-08-28",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-tad-lo-fandee-island-restaurant",
+              "src": "/images/places/tad-lo/fandee-island-restaurant.webp",
+              "alt": "Fandee Island Coffee in Tad Lo, Laos",
+              "sourceType": "manual",
+              "sourceName": "Personal Fandee Island photos provided by site owner (28 Aug 2026)",
+              "author": "Site owner",
+              "license": "Owner-provided personal photo",
+              "capturedAt": "2026-08-28",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
