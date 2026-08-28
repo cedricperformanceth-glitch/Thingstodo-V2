@@ -4,6 +4,10 @@ export type LocationScope = 'point' | 'area';
 export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party-official';
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
 export type MediaVerificationStatus = 'verified' | 'partial' | 'review-needed';
+export type MediaAvailabilityStatus = 'present' | 'missing';
+export type MediaRightsSourceType = 'first-party-original' | 'user-owned' | 'user-permission' | 'user-supplied' | 'wikimedia-open-license' | 'public-domain' | 'generated-editorial' | 'first-party-official' | 'unknown';
+export type MediaDepictionType = 'exact-subject' | 'exact-place' | 'local-context' | 'illustrative';
+export type MediaSubjectMatch = 'exact' | 'contextual' | 'illustrative' | 'unknown';
 
 export interface Coordinates { latitude: number; longitude: number; }
 export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; imageAlt?: string; }
@@ -23,12 +27,19 @@ export interface MediaRecord {
   license?: string;
   licenseUrl?: string;
   attribution?: string;
+  availabilityStatus?: MediaAvailabilityStatus;
+  rightsSourceType?: MediaRightsSourceType;
+  rightsVerificationStatus?: MediaVerificationStatus;
   commercialUseAllowed?: boolean;
   modificationAllowed?: boolean;
   attributionRequired?: boolean;
   verificationStatus?: MediaVerificationStatus;
   verifiedAt?: string;
   verificationMethod?: string;
+  depictionType?: MediaDepictionType;
+  depictionSubject?: string;
+  subjectMatch?: MediaSubjectMatch;
+  depictionNote?: string;
   localFile?: string;
   sha256?: string;
   derivativeOf?: string;
@@ -57,7 +68,7 @@ export interface FieldCardSecondaryStoryContent { chapters: FieldCardSecondarySt
 export interface FieldCardContent { template: 'compact' | 'deep'; hero?: FieldCardHeroContent; quickRead?: FieldCardQuickReadContent; practicalNotes?: FieldCardPracticalContent; primaryStory?: FieldCardPrimaryStoryContent; secondaryStory?: FieldCardSecondaryStoryContent; whyGo: string; practical: string; access: string; notes?: string; faq: Array<{ question: string; answer: string }>; sections?: FieldCardSection[]; }
 // Exact SPA tag cardinality is enforced by the generation and publication contracts.
 // Generated JSON is inferred as string[], so the model keeps the serializable shape here.
-export interface SpaCardContent { handwrittenTags: string[]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; }
+export interface SpaCardContent { handwrittenTags: string[]; openingHours?: string; photoStatus?: 'verified' | 'missing'; photoRequiresManualFill?: boolean; photoAvailabilityStatus?: MediaAvailabilityStatus; photoRightsStatus?: MediaVerificationStatus; }
 export interface ThingToDoSpaCardContent extends SpaCardContent { gettingThere: string; duration: string; costType: 'free' | 'paid'; bestTime: string; }
 export interface VerificationMetadata { decision: 'accept' | 'manual-review' | 'reject-closed'; reason: string; }
 export interface ManualField<T> { value: T; source: 'manual' | 'generated'; locked: boolean; }
