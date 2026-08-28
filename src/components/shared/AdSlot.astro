@@ -3,4 +3,37 @@ import type { AdSlot } from '../../core/ads/slots';
 interface Props { slot: AdSlot; }
 const { slot } = Astro.props;
 ---
-<aside data-ad-slot={slot} aria-label="Reserved advertising space" hidden></aside>
+
+<aside class="ad-placeholder" data-ad-slot={slot} data-ad-placeholder="true" aria-label="Advertising placeholder">
+  <span class="ad-placeholder__label">AD PLACEHOLDER</span>
+  <small>{slot}</small>
+</aside>
+
+<style>
+  .ad-placeholder {
+    display: grid;
+    place-items: center;
+    gap: .35rem;
+    width: min(970px, calc(100% - 32px));
+    min-height: 112px;
+    margin: clamp(24px, 4vw, 44px) auto;
+    padding: 20px;
+    border: 1px dashed rgb(49 85 69 / .36);
+    background: rgb(255 250 240 / .62);
+    color: rgb(49 85 69 / .62);
+    text-align: center;
+  }
+
+  .ad-placeholder__label {
+    font-family: var(--field-card-practical, sans-serif);
+    font-size: .66rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+  }
+
+  .ad-placeholder small {
+    font-family: var(--field-card-practical, sans-serif);
+    font-size: .55rem;
+    letter-spacing: .08em;
+  }
+</style>
