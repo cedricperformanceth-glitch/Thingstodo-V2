@@ -89,7 +89,7 @@ const sharedEditorialRaw = editorialData as unknown as Record<string, FieldCardE
 const sharedEditorial = Object.fromEntries(
   Object.entries(sharedEditorialRaw).map(([id, entry]) => {
     const thakhekMedia = applyThakhekMediaCorrections(entry.media);
-    const media = applyDonDetMediaCorrections(thakhekMedia);
+    const media = applyDonDetMediaCorrections(thakhekMedia, id);
     return [id, media === entry.media ? entry : { ...entry, media }];
   }),
 ) as Record<string, FieldCardEditorialEntry>;
