@@ -1009,59 +1009,7 @@ const data = {
       "address": "Luang Prabang, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mad%20Monkey%20Luang%20Prabang%20Luang%20Prabang%20Laos"
     },
-    {
-      "id": "place-downtown-backpackers-hostel",
-      "slug": "downtown-backpackers-hostel",
-      "name": "Downtown Backpackers Hostel",
-      "country": "laos",
-      "city": "luang-prabang",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 19.8845,
-        "longitude": 102.1347
-      },
-      "shortDescription": "Downtown Backpackers Hostel is a current Luang Prabang stay selected as a practical independent base.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Independent stay",
-          "Luang Prabang",
-          "Overnight base"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current first-party establishment information was cross-checked with its current public map listing."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Luang Prabang verified research"
-      },
-      "researchSources": [
-        {
-          "sourceName": "Downtown Backpackers Hostel official site",
-          "sourceUrl": "https://www.facebook.com/downtownbackpackershostel/",
-          "purpose": "first-party",
-          "sourceType": "official-establishment"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Downtown%20Backpackers%20Hostel%20Luang%20Prabang%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
       ],
-      "manualLocks": {},
-      "address": "Luang Prabang, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Downtown%20Backpackers%20Hostel%20Luang%20Prabang%20Laos"
-    }
-  ],
   "things": [
     {
       "id": "thing-luang-prabang-heritage-walk",
