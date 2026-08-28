@@ -778,9 +778,29 @@ const data = {
       },
       "shortDescription": "Vang Vieng Rock Backpackers Hostel is a current Vang Vieng accommodation address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-vang-vieng-rock-backpackers-hostel",
+            "src": "/images/places/vang-vieng/vang-vieng-rock-backpackers-hostel.webp",
+            "alt": "Vang Vieng Rock Backpackers Hostel in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-vang-vieng-rock-backpackers-hostel",
+              "src": "/images/places/vang-vieng/vang-vieng-rock-backpackers-hostel.webp",
+              "alt": "Vang Vieng Rock Backpackers Hostel in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -789,8 +809,8 @@ const data = {
           "Vang Vieng",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -830,9 +850,29 @@ const data = {
       },
       "shortDescription": "Vang Vieng Freedom Backpackers is a current Vang Vieng accommodation address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-vang-vieng-freedom-backpackers",
+            "src": "/images/places/vang-vieng/vang-vieng-freedom-backpackers.webp",
+            "alt": "Vang Vieng Freedom Backpackers in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-vang-vieng-freedom-backpackers",
+              "src": "/images/places/vang-vieng/vang-vieng-freedom-backpackers.webp",
+              "alt": "Vang Vieng Freedom Backpackers in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -841,8 +881,8 @@ const data = {
           "Vang Vieng",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -934,9 +974,29 @@ const data = {
       },
       "shortDescription": "Vang Vieng Garden Bungalows is a current Vang Vieng accommodation address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-vang-vieng-garden-bungalows",
+            "src": "/images/places/vang-vieng/vang-vieng-garden-bungalows.webp",
+            "alt": "Vang Vieng Garden Bungalows in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-vang-vieng-garden-bungalows",
+              "src": "/images/places/vang-vieng/vang-vieng-garden-bungalows.webp",
+              "alt": "Vang Vieng Garden Bungalows in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -945,8 +1005,8 @@ const data = {
           "Vang Vieng",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -986,9 +1046,29 @@ const data = {
       },
       "shortDescription": "Sout Jai Guesthouse is a current Vang Vieng accommodation address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-sout-jai-guesthouse",
+            "src": "/images/places/vang-vieng/sout-jai-guesthouse.webp",
+            "alt": "Sout Jai Guesthouse in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-sout-jai-guesthouse",
+              "src": "/images/places/vang-vieng/sout-jai-guesthouse.webp",
+              "alt": "Sout Jai Guesthouse in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -997,8 +1077,8 @@ const data = {
           "Vang Vieng",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1038,9 +1118,29 @@ const data = {
       },
       "shortDescription": "Vang Vieng Motorbike Rental is a current Vang Vieng scooter-rental address selected for this first Atlas draft.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-vang-vieng-motorbike-rental",
+            "src": "/images/places/vang-vieng/vang-vieng-motorbike-rental.webp",
+            "alt": "Vang Vieng Motorbike Rental in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-vang-vieng-motorbike-rental",
+              "src": "/images/places/vang-vieng/vang-vieng-motorbike-rental.webp",
+              "alt": "Vang Vieng Motorbike Rental in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -1049,8 +1149,8 @@ const data = {
           "Vang Vieng",
           "Confirm terms"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -1246,9 +1346,29 @@ const data = {
       },
       "shortDescription": "Santara Backpackers Hostel is a Vang Vieng accommodation address added from a user-provided map listing.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-vang-vieng-santara-backpackers-hostel",
+            "src": "/images/places/vang-vieng/santara-backpackers-hostel.webp",
+            "alt": "Santara Backpackers Hostel in Vang Vieng, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Vang Vieng venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-vang-vieng-santara-backpackers-hostel",
+              "src": "/images/places/vang-vieng/santara-backpackers-hostel.webp",
+              "alt": "Santara Backpackers Hostel in Vang Vieng, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Vang Vieng venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -1257,8 +1377,8 @@ const data = {
           "Vang Vieng",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
