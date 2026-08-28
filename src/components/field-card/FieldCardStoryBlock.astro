@@ -1,13 +1,16 @@
 ---
 import type { FieldCardPrimaryStoryContent, MediaRecord, ThingToDo } from '../../core/models/types';
+import type { AdSlot as AdSlotName } from '../../core/ads/slots';
+import AdSlot from '../shared/AdSlot.astro';
 
 interface Props {
   thing: ThingToDo;
   story: FieldCardPrimaryStoryContent;
   image?: MediaRecord;
+  adAfterFirstChapter?: AdSlotName;
 }
 
-const { thing, story, image } = Astro.props;
+const { thing, story, image, adAfterFirstChapter } = Astro.props;
 const fallbackChapterLabel = (title: string, index: number) => {
   const words = title.replace(/[?!.,:;]/g, '').trim().split(/\s+/).filter(Boolean).slice(0, 3).join(' ');
   return words ? words.toUpperCase() : `CHAPTER ${index + 1}`;
@@ -17,13 +20,16 @@ const fallbackChapterLabel = (title: string, index: number) => {
 <section class="field-card-story-block" aria-label={`${thing.name} field notes`}>
   <div class="field-card-story-block__stories">
     {story.chapters.map((chapter, index) => (
-      <section class="field-card-story-block__story">
-        <p class="field-card-story-block__label">
-          <span aria-hidden="true">{String(index + 1).padStart(2, '0')} ·</span> {chapter.label || fallbackChapterLabel(chapter.title, index)}
-        </p>
-        <h2>{chapter.title}</h2>
-        <p>{chapter.body}</p>
-      </section>
+      <>
+        <section class="field-card-story-block__story">
+          <p class="field-card-story-block__label">
+            <span aria-hidden="true">{String(index + 1).padStart(2, '0')} ·</span> {chapter.label || fallbackChapterLabel(chapter.title, index)}
+          </p>
+          <h2>{chapter.title}</h2>
+          <p>{chapter.body}</p>
+        </section>
+        {index === 0 && adAfterFirstChapter && <AdSlot slot={adAfterFirstChapter} />}
+      </>
     ))}
   </div>
 
