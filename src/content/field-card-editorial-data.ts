@@ -12,6 +12,7 @@ import type {
 } from '../core/models/types';
 import editorialData from './field-card-editorial.json';
 import { applyDonDetMediaCorrections } from './field-card-media-don-det-overrides';
+import { applyTadLoActivityMediaCorrections } from './field-card-media-tad-lo-overrides';
 import { applyThakhekMediaCorrections } from './field-card-media-thakhek-overrides';
 import vatPhouEditorial from './field-card-editorial-pakse/thing-vat-phou.json';
 import tadFaneEditorial from './field-card-editorial-pakse/thing-tad-fane.json';
@@ -89,7 +90,8 @@ const sharedEditorialRaw = editorialData as unknown as Record<string, FieldCardE
 const sharedEditorial = Object.fromEntries(
   Object.entries(sharedEditorialRaw).map(([id, entry]) => {
     const thakhekMedia = applyThakhekMediaCorrections(entry.media);
-    const media = applyDonDetMediaCorrections(thakhekMedia, id);
+    const donDetMedia = applyDonDetMediaCorrections(thakhekMedia, id);
+    const media = applyTadLoActivityMediaCorrections(donDetMedia, id, entry.sources);
     return [id, media === entry.media ? entry : { ...entry, media }];
   }),
 ) as Record<string, FieldCardEditorialEntry>;
