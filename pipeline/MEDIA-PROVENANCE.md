@@ -48,6 +48,14 @@ Automatic photo discovery remains Wikimedia-Commons-only. Every asset must still
 
 `provenance: wikimedia` identifies where the asset came from. `rightsBasis` records whether the particular Commons asset is used under an open licence or public-domain basis.
 
+### Don Det activity audit
+
+The 11 Don Det activity Field Cards use Wikimedia Commons as their photo provenance. The canonical Don Det media correction layer applies `provenance: wikimedia`, `treatment: none` and a licence-derived `rightsBasis` to every effective Commons activity image at runtime. CC0/public-domain records receive `public-domain`; compatible licensed Commons records receive `open-license`.
+
+Every Wikimedia activity image must retain a canonical Commons file URL, author and explicit per-asset licence. The Don Det publication contract fails when one of those fields is missing or when an unexpected non-Wikimedia activity photo is introduced.
+
+There is one legacy local media exception in the Xai Kong Nyai Beach Field Card, `xai-kong-nyai-beach-riverboats`. Its existing metadata identifies it as `Atlas-provided artwork`, not as a third-party photograph. Its precise creation provenance is not evidenced by the repository history, so it must not be relabelled as AI-created, original photography or owner-authorized without supporting provenance information.
+
 ## Seed examples
 
 The canonical starter records live in `pipeline/media-provenance.json`:
