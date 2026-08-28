@@ -12,7 +12,7 @@ const allThings: ThingToDo[] = [
   ...supplementalThings.filter((thing) => !generatedIds.has(thing.id)),
 ];
 
-const resolveDonDetPhotoRightsStatus = (media: MediaRecord[]): MediaVerificationStatus | undefined => {
+const resolvePhotoRightsStatus = (media: MediaRecord[]): MediaVerificationStatus | undefined => {
   if (!media.length) return undefined;
   const statuses = media.map((image) => image.rightsVerificationStatus ?? image.verificationStatus ?? 'partial');
   if (statuses.every((status) => status === 'verified')) return 'verified';
@@ -25,7 +25,9 @@ export const things: ThingToDo[] = allThings.map((thing) => {
   const editorialMedia = fieldCardEditorial[thing.id]?.media ?? [];
   const hasEditorialMedia = editorialMedia.length > 0;
   const isDonDetPilot = thing.country === 'laos' && thing.city === 'don-det';
-  const donDetPhotoRightsStatus = isDonDetPilot ? resolveDonDetPhotoRightsStatus(editorialMedia) : undefined;
+  const isTadLoPilot = thing.country === 'laos' && thing.city === 'tad-lo';
+  const isMediaRightsPilot = isDonDetPilot || isTadLoPilot;
+  const photoRightsStatus = isMediaRightsPilot ? resolvePhotoRightsStatus(editorialMedia) : undefined;
   const media = hasEditorialMedia
     ? {
         ...thing.media,
@@ -37,9 +39,9 @@ export const things: ThingToDo[] = allThings.map((thing) => {
     ? {
         ...thing.spaCard,
         ...(hasEditorialMedia ? { photoStatus: 'verified' as const, photoRequiresManualFill: false } : {}),
-        ...(isDonDetPilot ? {
+        ...(isMediaRightsPilot ? {
           photoAvailabilityStatus: hasEditorialMedia ? 'present' as const : 'missing' as const,
-          ...(donDetPhotoRightsStatus ? { photoRightsStatus: donDetPhotoRightsStatus } : {}),
+          ...(photoRightsStatus ? { photoRightsStatus } : {}),
         } : {}),
       }
     : thing.spaCard;
