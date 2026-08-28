@@ -1,5 +1,6 @@
 ---
 import type { City, Country, MediaRecord } from '../../core/models/types';
+import { cityFieldNoteAdSlots } from '../../core/ads/slots';
 import { cityFieldNoteView } from '../../engines/city-field-note/city-field-note-engine';
 import { cityPath } from '../../core/routing/paths';
 import AdSlot from '../shared/AdSlot.astro';
@@ -22,7 +23,11 @@ const categoryLinks = city.categories.slice(0, 4).map((category) => ({
   detail: categoryDetails[category] ?? 'Open this section in the practical notebook',
   href: `${cityPath(city)}#${category}`,
 }));
-const adIndexes = new Map([[1, view.adSlots[0]], [4, view.adSlots[1]], [6, view.adSlots[2]]]);
+const adIndexes = new Map([
+  [1, cityFieldNoteAdSlots.afterChapterTwo],
+  [3, cityFieldNoteAdSlots.afterChapterFour],
+  [6, cityFieldNoteAdSlots.afterChapterSeven],
+]);
 const credit = (image: MediaRecord) => [image.author || image.sourceName, image.license].filter(Boolean).join(' · ');
 const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((candidate) => (candidate.sourceUrl || candidate.src || candidate.id) === (photo.sourceUrl || photo.src || photo.id)) === index);
 ---
@@ -50,6 +55,8 @@ const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((c
     {view.quickRead.map((item) => <div><span>{item.label}</span><strong>{item.value}</strong><small>{item.detail}</small></div>)}
   </section>
 
+  <AdSlot slot={cityFieldNoteAdSlots.beforeChapterOne} visible />
+
   <div class="city-note__chapters">
     {view.chapters.map((chapter, index) => {
       const isChapterSevenPhoto = index === 6 || chapter.photoSlot;
@@ -64,7 +71,7 @@ const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((c
           </figure> : hasSupport && <aside class="city-note__chapter-side">{chapter.facts && chapter.facts.length > 0 && <><h3>Keep close</h3><dl class="city-note__facts">{chapter.facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl></>}{chapter.note && <div class="city-note__note"><span>{chapter.note.label}</span><p>{chapter.note.text}</p></div>}</aside>}
         </section>
         {index === 2 && <section class="city-note__photo-spread" aria-label={`${city.name} field photographs`}>{(galleryImages.length ? galleryImages : [undefined, undefined]).map((image, imageIndex) => <figure class="city-note__photo-card">{image ? <img src={image.src} alt={image.alt} width="1200" height="900" loading="lazy" decoding="async" /> : <div class="city-note__photo-placeholder"><span>FIELD PHOTO {String(imageIndex + 1).padStart(2, '0')}</span></div>}<figcaption><span>{image ? image.alt : 'Editorial image to add'}</span>{image && <small>{image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{credit(image)}</a> : credit(image)}</small>}</figcaption></figure>)}</section>}
-        {adSlot && <AdSlot slot={adSlot} />}
+        {adSlot && <AdSlot slot={adSlot} visible />}
       </>;
     })}
   </div>
