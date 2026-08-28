@@ -909,59 +909,7 @@ const data = {
       "address": "Vang Vieng, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Freedom%20Backpackers%20Vang%20Vieng%20Laos"
     },
-    {
-      "id": "place-nana-backpackers-hostel",
-      "slug": "nana-backpackers-hostel",
-      "name": "Nana Backpackers Hostel",
-      "country": "laos",
-      "city": "vang-vieng",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 18.9243,
-        "longitude": 102.4478
-      },
-      "shortDescription": "Nana Backpackers Hostel is a current Vang Vieng accommodation address selected for this first Atlas draft.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Independent stay",
-          "Vang Vieng",
-          "Overnight base"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current first-party or public listing identity was cross-checked."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Vang Vieng verified research"
-      },
-      "researchSources": [
         {
-          "sourceName": "Nana Backpackers Hostel public listing",
-          "sourceUrl": "https://www.google.com/maps",
-          "purpose": "candidate-discovery",
-          "sourceType": "public-web-result"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Nana%20Backpackers%20Hostel%20Vang%20Vieng%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Vang Vieng, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nana%20Backpackers%20Hostel%20Vang%20Vieng%20Laos"
-    },
-    {
       "id": "place-vang-vieng-garden-bungalows",
       "slug": "vang-vieng-garden-bungalows",
       "name": "Vang Vieng Garden Bungalows",
