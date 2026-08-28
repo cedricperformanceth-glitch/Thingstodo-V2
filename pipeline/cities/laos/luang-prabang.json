@@ -641,59 +641,7 @@
       "address": "Luang Prabang, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sky%20Motorbike%20for%20Rent%20Luang%20Prabang%20Laos"
     },
-    {
-      "id": "place-mekong-estate",
-      "slug": "mekong-estate",
-      "name": "Mekong Estate",
-      "country": "laos",
-      "city": "luang-prabang",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 19.8845,
-        "longitude": 102.1347
-      },
-      "shortDescription": "Mekong Estate is a current Luang Prabang stay selected as a practical independent base.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Independent stay",
-          "Luang Prabang",
-          "Overnight base"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current first-party establishment information was cross-checked with its current public map listing."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Luang Prabang verified research"
-      },
-      "researchSources": [
         {
-          "sourceName": "Mekong Estate official site",
-          "sourceUrl": "https://mekongestate.com/",
-          "purpose": "first-party",
-          "sourceType": "official-establishment"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Estate%20Luang%20Prabang%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Luang Prabang, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Estate%20Luang%20Prabang%20Laos"
-    },
-    {
       "id": "place-bouang-asian-eatery",
       "slug": "bouang-asian-eatery",
       "name": "Bouang Asian Eatery",
@@ -953,59 +901,7 @@
       "address": "Luang Prabang, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=My%20Dream%20Boutique%20Resort%20Luang%20Prabang%20Laos"
     },
-    {
-      "id": "place-villa-maly",
-      "slug": "villa-maly",
-      "name": "Villa Maly",
-      "country": "laos",
-      "city": "luang-prabang",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 19.8845,
-        "longitude": 102.1347
-      },
-      "shortDescription": "Villa Maly is a current Luang Prabang stay selected as a practical independent base.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Independent stay",
-          "Luang Prabang",
-          "Overnight base"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current first-party establishment information was cross-checked with its current public map listing."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas V2 Luang Prabang verified research"
-      },
-      "researchSources": [
         {
-          "sourceName": "Villa Maly official site",
-          "sourceUrl": "https://www.villamaly.com/",
-          "purpose": "first-party",
-          "sourceType": "official-establishment"
-        },
-        {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Villa%20Maly%20Luang%20Prabang%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Luang Prabang, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Villa%20Maly%20Luang%20Prabang%20Laos"
-    },
-    {
       "id": "place-maison-dalabua",
       "slug": "maison-dalabua",
       "name": "Maison Dalabua",
