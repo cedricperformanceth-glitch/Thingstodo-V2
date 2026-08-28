@@ -3,10 +3,40 @@ export type SettlementType = 'village' | 'city';
 export type LocationScope = 'point' | 'area';
 export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party-official';
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
+export type MediaVerificationStatus = 'verified' | 'partial' | 'review-needed';
 
 export interface Coordinates { latitude: number; longitude: number; }
 export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; imageAlt?: string; }
-export interface MediaRecord { id: string; src: string; alt: string; sourceType: SourceType; sourceUrl?: string; sourceName?: string; author?: string; license?: string; manual: boolean; locked: boolean; }
+export interface MediaRecord {
+  id: string;
+  assetId?: string;
+  entityId?: string;
+  usage?: string;
+  src: string;
+  alt: string;
+  sourceType: SourceType;
+  sourceUrl?: string;
+  sourceName?: string;
+  sourcePage?: string;
+  originalFile?: string;
+  author?: string;
+  license?: string;
+  licenseUrl?: string;
+  attribution?: string;
+  commercialUseAllowed?: boolean;
+  modificationAllowed?: boolean;
+  attributionRequired?: boolean;
+  verificationStatus?: MediaVerificationStatus;
+  verifiedAt?: string;
+  verificationMethod?: string;
+  localFile?: string;
+  sha256?: string;
+  derivativeOf?: string;
+  transformations?: string[];
+  caption?: string;
+  manual: boolean;
+  locked: boolean;
+}
 export interface ActivityPhotoReserveEntry extends MediaRecord { width: number; height: number; subjectConfidence: number; sourceConfidence: number; }
 export interface MediaResearch { activityPhotoReserve?: ActivityPhotoReserveEntry[]; }
 export interface CountryMediaManifest { hero: { stamps: MediaRecord[]; drawings: MediaRecord[]; photos: MediaRecord[] }; card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }
