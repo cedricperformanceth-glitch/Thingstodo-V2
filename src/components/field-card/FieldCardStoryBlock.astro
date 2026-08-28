@@ -11,6 +11,8 @@ interface Props {
 }
 
 const { thing, story, image, adAfterFirstChapter } = Astro.props;
+const firstChapter = story.chapters[0];
+const remainingChapters = story.chapters.slice(1);
 const fallbackChapterLabel = (title: string, index: number) => {
   const words = title.replace(/[?!.,:;]/g, '').trim().split(/\s+/).filter(Boolean).slice(0, 3).join(' ');
   return words ? words.toUpperCase() : `CHAPTER ${index + 1}`;
@@ -19,18 +21,34 @@ const fallbackChapterLabel = (title: string, index: number) => {
 
 <section class="field-card-story-block" aria-label={`${thing.name} field notes`}>
   <div class="field-card-story-block__stories">
-    {story.chapters.map((chapter, index) => (
-      <>
+    {firstChapter && (
+      <section class="field-card-story-block__story">
+        <p class="field-card-story-block__label">
+          <span aria-hidden="true">01 ·</span> {firstChapter.label || fallbackChapterLabel(firstChapter.title, 0)}
+        </p>
+        <h2>{firstChapter.title}</h2>
+        <p>{firstChapter.body}</p>
+      </section>
+    )}
+
+    {firstChapter && adAfterFirstChapter && (
+      <div class="field-card-story-block__chapter-ad">
+        <AdSlot slot={adAfterFirstChapter} visible />
+      </div>
+    )}
+
+    {remainingChapters.map((chapter, index) => {
+      const chapterIndex = index + 1;
+      return (
         <section class="field-card-story-block__story">
           <p class="field-card-story-block__label">
-            <span aria-hidden="true">{String(index + 1).padStart(2, '0')} ·</span> {chapter.label || fallbackChapterLabel(chapter.title, index)}
+            <span aria-hidden="true">{String(chapterIndex + 1).padStart(2, '0')} ·</span> {chapter.label || fallbackChapterLabel(chapter.title, chapterIndex)}
           </p>
           <h2>{chapter.title}</h2>
           <p>{chapter.body}</p>
         </section>
-        {index === 0 && adAfterFirstChapter && <AdSlot slot={adAfterFirstChapter} visible />}
-      </>
-    ))}
+      );
+    })}
   </div>
 
   <div class="field-card-story-block__visual">
@@ -82,6 +100,10 @@ const fallbackChapterLabel = (title: string, index: number) => {
     display: grid;
     gap: clamp(42px, 5vw, 62px);
     min-width: 0;
+  }
+
+  .field-card-story-block__chapter-ad {
+    width: 100%;
   }
 
   .field-card-story-block__story {
