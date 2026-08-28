@@ -952,53 +952,7 @@
       "address": "Vientiane, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Barn1920s%20Hostel%20Vientiane%20Laos"
     },
-    {
-      "id": "place-dream-home-hostel",
-      "slug": "dream-home-hostel",
-      "name": "Dream Home Hostel",
-      "country": "laos",
-      "city": "vientiane",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.9757,
-        "longitude": 102.6331
-      },
-      "shortDescription": "Dream Home Hostel is a current Vientiane accommodation address selected for this first Atlas draft.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Independent stay",
-          "Vientiane",
-          "Overnight base"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public identity and location were cross-checked."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas Vientiane research"
-      },
-      "researchSources": [
         {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Dream%20Home%20Hostel%20Vientiane%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Vientiane, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dream%20Home%20Hostel%20Vientiane%20Laos"
-    },
-    {
       "id": "place-family-boutique-hotel",
       "slug": "family-boutique-hotel",
       "name": "Family Boutique Hotel",
