@@ -179,4 +179,51 @@ const relatedPlaces = (content.relatedPlaceIds ?? []).flatMap((placeId) => {
   body:has(.field-card) {
     background: var(--field-card-page);
   }
+
+  /* Fandee Island photos 2 and 3 are wider than their Polaroid slots.
+     Keep the complete photo visible, while a subdued cover layer of the
+     same image fills the slot behind it so the frame never has empty bands. */
+  .field-card-story-block__photo:has(img[src$="/fandee-island-2.webp"])::after,
+  .field-card-secondary-story__photo:has(img[src$="/fandee-island-3.webp"])::after {
+    position: absolute;
+    z-index: 0;
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    content: '';
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: saturate(.72) brightness(.82);
+    opacity: .52;
+  }
+
+  .field-card-story-block__photo:has(img[src$="/fandee-island-2.webp"])::after {
+    height: clamp(300px, 31vw, 420px);
+    background-image: url('/images/places/tad-lo/fandee-island-2.webp');
+  }
+
+  .field-card-secondary-story__photo:has(img[src$="/fandee-island-3.webp"])::after {
+    height: clamp(330px, 34vw, 470px);
+    background-image: url('/images/places/tad-lo/fandee-island-3.webp');
+  }
+
+  .field-card-story-block__photo img[src$="/fandee-island-2.webp"],
+  .field-card-secondary-story__photo img[src$="/fandee-island-3.webp"] {
+    position: relative;
+    z-index: 1;
+    object-fit: contain;
+    object-position: center;
+    filter: saturate(.92) contrast(.98);
+  }
+
+  @media (max-width: 820px) {
+    .field-card-story-block__photo:has(img[src$="/fandee-island-2.webp"])::after {
+      height: clamp(260px, 65vw, 380px);
+    }
+
+    .field-card-secondary-story__photo:has(img[src$="/fandee-island-3.webp"])::after {
+      height: clamp(280px, 70vw, 420px);
+    }
+  }
 </style>
