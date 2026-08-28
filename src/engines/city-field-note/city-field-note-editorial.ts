@@ -7,6 +7,7 @@ import thakhekEditorialData from '../../content/city-field-note-editorial-thakhe
 import vangViengEditorialData from '../../content/city-field-note-editorial-vang-vieng.json';
 import vientianeEditorialData from '../../content/city-field-note-editorial-vientiane.json';
 import mediaData from '../../content/city-field-note-media-copy.json';
+import { applyDonDetCityFieldNoteMediaCorrections } from '../../content/field-card-media-don-det-overrides';
 import {
   getEditorialCountryFieldNote,
   getEditorialCountryFieldNoteMedia,
@@ -34,7 +35,11 @@ interface CityFieldNoteEditorialBundle {
   sources: CityFieldNoteSource[];
 }
 
-const media = mediaData as Record<string, MediaRecord[]>;
+const rawMedia = mediaData as Record<string, MediaRecord[]>;
+const media: Record<string, MediaRecord[]> = {
+  ...rawMedia,
+  'city-don-det': applyDonDetCityFieldNoteMediaCorrections(rawMedia['city-don-det'], 'city-don-det') ?? [],
+};
 const editorialBundleData = [
   donDetEditorialData,
   thakhekEditorialData,
