@@ -32,6 +32,10 @@ assert.ok(mediaOverrides.includes(tubingSupplementId), 'Tubing must retain its t
 assert.ok(mediaOverrides.includes('Pirogue_running_on_the_Mekong_at_golden_hour_between_Don_Det_and_Don_Khon_Laos.jpg'), 'Tubing supplement must remain an exact Don Det / Don Khon Mekong image.');
 assert.ok(mediaOverrides.includes("author: 'Basile Morin'"), 'Tubing supplement must retain its Wikimedia author.');
 assert.ok(mediaOverrides.includes("license: 'CC BY-SA 4.0'"), 'Tubing supplement must retain its explicit Wikimedia licence.');
+assert.ok(mediaOverrides.includes("provenance: 'wikimedia'"), 'Don Det Wikimedia activity media must receive explicit Wikimedia provenance.');
+assert.ok(mediaOverrides.includes("treatment: 'none'"), 'Don Det Wikimedia activity media must record no AI treatment.');
+assert.ok(mediaOverrides.includes("'public-domain'"), 'CC0/public-domain Commons media must retain a public-domain rights basis.');
+assert.ok(mediaOverrides.includes("'open-license'"), 'Open-licence Commons media must retain an open-license rights basis.');
 
 assert.equal(data.city.id, 'city-don-det');
 assert.equal(data.city.slug, 'don-det');
@@ -56,8 +60,10 @@ const expectedThingIds = [
 assert.equal(data.things.length, expectedThingIds.length, `Expected ${expectedThingIds.length} Don Det activities; found ${data.things.length}.`);
 assert.deepEqual(new Set(data.things.map((thing) => thing.id)), new Set(expectedThingIds));
 
-assert.ok(editorialLoader.includes('applyDonDetMediaCorrections'), 'Don Det media corrections must be applied by the canonical editorial loader.');
+assert.ok(editorialLoader.includes('applyDonDetMediaCorrections(thakhekMedia, id)'), 'Don Det media corrections must be scoped by the canonical activity id.');
 const spaDescriptions = [];
+const manualActivityMediaIds = new Set();
+let wikimediaActivityMediaCount = 0;
 for (const thing of data.things) {
   const entry = editorial[thing.id];
   assert.ok(entry, `Missing canonical Field Card editorial for ${thing.id}.`);
@@ -75,17 +81,29 @@ for (const thing of data.things) {
   for (const media of entry.media) {
     assert.ok(media.src.startsWith('/assets/') || media.src.startsWith('https://commons.wikimedia.org/wiki/Special:Redirect/file/'), `Non-renderable media src for ${thing.id}: ${media.src}`);
     assert.ok(media.alt?.trim().length >= 20, `Weak media alt for ${thing.id}: ${media.id}`);
-    if (media.sourceType !== 'manual') {
-      assert.ok(media.sourceUrl?.startsWith('http'), `Missing source URL for ${thing.id}: ${media.id}`);
-      assert.ok(media.author?.trim(), `Missing media author for ${thing.id}: ${media.id}`);
-      assert.ok(media.license?.trim(), `Missing media licence for ${thing.id}: ${media.id}`);
-      const rawLicenceIsVague = /^cc-by(?:-sa)?$/i.test(media.license.trim()) || /see .*file page/i.test(media.license);
-      if (rawLicenceIsVague) {
-        assert.ok(hasExplicitMediaOverride(media.id), `Vague media licence has no canonical explicit override for ${thing.id}: ${media.id}`);
-      }
+
+    if (media.sourceType === 'manual') {
+      manualActivityMediaIds.add(media.id);
+      assert.equal(media.id, 'xai-kong-nyai-beach-riverboats', `Unexpected non-Wikimedia Don Det activity media: ${thing.id}: ${media.id}`);
+      assert.equal(media.sourceName, 'Atlas-provided artwork', 'The sole non-photo Don Det activity media must remain identified as Atlas artwork.');
+      continue;
+    }
+
+    assert.equal(media.sourceType, 'wikimedia', `Don Det activity photos must be Wikimedia unless explicitly identified as Atlas artwork: ${thing.id}: ${media.id}`);
+    wikimediaActivityMediaCount += 1;
+    assert.ok(media.sourceUrl?.startsWith('http'), `Missing source URL for ${thing.id}: ${media.id}`);
+    assert.ok(media.author?.trim(), `Missing media author for ${thing.id}: ${media.id}`);
+    assert.ok(media.license?.trim(), `Missing media licence for ${thing.id}: ${media.id}`);
+    const rawLicenceIsVague = /^cc-by(?:-sa)?$/i.test(media.license.trim()) || /see .*file page/i.test(media.license);
+    if (rawLicenceIsVague) {
+      assert.ok(hasExplicitMediaOverride(media.id), `Vague media licence has no canonical explicit override for ${thing.id}: ${media.id}`);
     }
   }
 }
+assert.ok(wikimediaActivityMediaCount > 0, 'Don Det activity photo audit unexpectedly found no Wikimedia media.');
+assert.deepEqual([...manualActivityMediaIds], ['xai-kong-nyai-beach-riverboats'], 'Only the known Xai Kong Nyai Atlas artwork may sit outside the Wikimedia activity-photo flow.');
+assert.ok(mediaOverrides.includes("sourceType === 'wikimedia'"), 'All effective Don Det Wikimedia activity media must be provenance-normalized at runtime.');
+assert.ok(mediaOverrides.includes('wikimediaRightsBasis(corrected.license)'), 'Don Det Wikimedia rights basis must derive from each individual licence.');
 assert.equal(new Set(spaDescriptions).size, spaDescriptions.length, 'Don Det activity SPA descriptions must remain unique.');
 assert.ok(thingRegistry.includes("photoStatus: 'verified' as const"), 'Editorial activity media must synchronize runtime photo status.');
 assert.ok(thingRegistry.includes('fieldCard: { ...thing.media.fieldCard, gallery: editorialMedia }'), 'Editorial media must remain the runtime activity gallery.');
@@ -135,4 +153,4 @@ for (const media of fieldNoteMedia) {
   assert.ok(media.license?.trim(), `Field Note media licence missing: ${media.id}.`);
 }
 
-console.log(`Don Det publication contract passed: ${data.things.length} activities, ${data.places.length} places, ${stalePhotoLocks.length} historical photo locks safely normalized at runtime.`);
+console.log(`Don Det publication contract passed: ${data.things.length} activities, ${wikimediaActivityMediaCount}+ Wikimedia activity photo records audited, ${manualActivityMediaIds.size} Atlas artwork exception, ${data.places.length} places, ${stalePhotoLocks.length} historical photo locks safely normalized at runtime.`);
