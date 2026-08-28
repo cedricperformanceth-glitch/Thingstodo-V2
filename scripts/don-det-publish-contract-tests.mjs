@@ -62,7 +62,7 @@ const expectedThingIds = [
 assert.equal(data.things.length, expectedThingIds.length, `Expected ${expectedThingIds.length} Don Det activities; found ${data.things.length}.`);
 assert.deepEqual(new Set(data.things.map((thing) => thing.id)), new Set(expectedThingIds));
 
-assert.ok(editorialLoader.includes('applyDonDetMediaCorrections(thakhekMedia)'), 'Don Det media corrections must be applied by the canonical editorial loader.');
+assert.ok(editorialLoader.includes('applyDonDetMediaCorrections(thakhekMedia, id)'), 'Don Det media corrections must remain scoped by the canonical activity id.');
 const spaDescriptions = [];
 const manualActivityMediaIds = new Set();
 let wikimediaActivityMediaCount = 0;
