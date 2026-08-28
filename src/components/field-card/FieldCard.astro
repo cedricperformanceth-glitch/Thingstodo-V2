@@ -30,37 +30,41 @@ const relatedActivities = fieldCardRelatedActivities(city, thing);
 const renderedPhotos = view.gallery;
 const additionalGallery = view.gallery.slice(3);
 const relatedPhotos = relatedActivities.flatMap((item) => item.image ? [item.image] : []);
-const monetizationMedia = [...renderedPhotos, ...relatedPhotos];
-const monetizationEligible = monetizationMedia.length > 0
-  && monetizationMedia.every((image) => image.commercialUseAllowed === true);
 
-// Editorial depth, not the legacy generated template, decides ad density.
-// A long activity is one that actually contains the secondary story + Before You Leave block.
+// Activity Field Cards are a monetizable page type globally. Rights readiness is kept
+// separate from placeholder layout so an unaudited page cannot silently become a live ad page.
+const monetizationSupported = true;
+const monetizationRightsReady = renderedPhotos.length > 0
+  && renderedPhotos.every((image) => image.commercialUseAllowed === true);
+
+// Editorial depth decides ad density globally for every activity.
+// Short: 3 slots. Long (secondary story + Before You Leave): 4 slots.
 const isLongActivity = Boolean(view.secondaryStory);
 const activityLength = isLongActivity ? 'long' : 'short';
 ---
 
 <article
   class={`field-card field-card--${view.template}`}
-  data-monetization-eligible={monetizationEligible ? 'true' : 'false'}
+  data-monetization-supported={monetizationSupported ? 'true' : 'false'}
+  data-monetization-rights-ready={monetizationRightsReady ? 'true' : 'false'}
   data-activity-length={activityLength}
 >
   <FieldCardHero thing={displayThing} {city} {country} hero={view.hero} image={view.heroImage} />
-  {monetizationEligible && <AdSlot slot={activityAdSlots.underHero} visible />}
+  <AdSlot slot={activityAdSlots.underHero} visible />
   <FieldCardQuickRead thing={displayThing} {country} quickRead={view.quickRead} />
   <FieldCardStoryBlock
     thing={displayThing}
     story={view.primaryStory}
     image={view.storyImage}
-    adAfterFirstChapter={monetizationEligible && isLongActivity ? activityAdSlots.afterChapterOne : undefined}
+    adAfterFirstChapter={isLongActivity ? activityAdSlots.afterChapterOne : undefined}
   />
   {view.secondaryStory && <FieldCardSecondaryStory thing={displayThing} story={view.secondaryStory} image={view.secondaryImage} />}
   {view.secondaryStory && <FieldCardBeforeYouLeave thing={displayThing} content={view.secondaryStory.beforeYouLeave} />}
-  {monetizationEligible && isLongActivity && <AdSlot slot={activityAdSlots.afterBeforeYouLeave} visible />}
+  {isLongActivity && <AdSlot slot={activityAdSlots.afterBeforeYouLeave} visible />}
 
   <div class="field-card__body">
     {view.remainingSections.map((section) => <section><h2>{section.title}</h2><p>{section.body}</p></section>)}
-    {monetizationEligible && !isLongActivity && <AdSlot slot={activityAdSlots.beforeFaq} visible />}
+    {!isLongActivity && <AdSlot slot={activityAdSlots.beforeFaq} visible />}
     <FieldCardFaq thing={displayThing} items={view.faq} />
     <FieldCardPracticalNotes thing={displayThing} content={view.practicalNotes} />
     {additionalGallery.length > 0 && (
@@ -74,7 +78,7 @@ const activityLength = isLongActivity ? 'long' : 'short';
       </section>
     )}
     <FieldCardAtlasCta thing={displayThing} />
-    {monetizationEligible && <AdSlot slot={activityAdSlots.afterFinalCta} visible />}
+    <AdSlot slot={activityAdSlots.afterFinalCta} visible />
     <FieldCardRelatedActivities {city} items={relatedActivities} />
     <FieldCardMethodSources thing={displayThing} additionalPhotos={[...renderedPhotos, ...relatedPhotos]} />
   </div>
