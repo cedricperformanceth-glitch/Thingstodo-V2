@@ -2,11 +2,14 @@ export type CityProfile = 'compact' | 'standard' | 'large';
 export type SettlementType = 'village' | 'city';
 export type LocationScope = 'point' | 'area';
 export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party-official';
+export type MediaProvenance = 'original-illustration' | 'original-photography' | 'authorized-third-party' | 'ai-created' | 'wikimedia' | 'public-domain' | 'first-party-official';
+export type MediaTreatment = 'none' | 'ai-refined' | 'generative-edit';
+export type MediaRightsBasis = 'creator-owned' | 'permission-granted' | 'open-license' | 'public-domain' | 'official-source';
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
 
 export interface Coordinates { latitude: number; longitude: number; }
 export interface SeoMetadata { title: string; description: string; canonicalPath: string; indexable: boolean; image?: string; imageAlt?: string; }
-export interface MediaRecord { id: string; src: string; alt: string; sourceType: SourceType; sourceUrl?: string; sourceName?: string; author?: string; license?: string; manual: boolean; locked: boolean; }
+export interface MediaRecord { id: string; src: string; alt: string; sourceType: SourceType; provenance?: MediaProvenance; treatment?: MediaTreatment; rightsBasis?: MediaRightsBasis; sourceUrl?: string; sourceName?: string; author?: string; license?: string; permissionNote?: string; manual: boolean; locked: boolean; }
 export interface ActivityPhotoReserveEntry extends MediaRecord { width: number; height: number; subjectConfidence: number; sourceConfidence: number; }
 export interface MediaResearch { activityPhotoReserve?: ActivityPhotoReserveEntry[]; }
 export interface CountryMediaManifest { hero: { stamps: MediaRecord[]; drawings: MediaRecord[]; photos: MediaRecord[] }; card?: { image?: MediaRecord }; fieldCard?: { gallery: MediaRecord[] }; }
