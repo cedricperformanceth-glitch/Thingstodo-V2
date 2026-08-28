@@ -35,6 +35,11 @@ import {
   amorCafePlace,
 } from './venue-field-card-amor-cafe';
 import {
+  rynCoffeeFieldCard,
+  rynCoffeeLayout,
+  rynCoffeePlace,
+} from './venue-field-card-ryn-coffee';
+import {
   fandeeIslandFieldCard,
   fandeeIslandLayout,
   fandeeIslandPlaceId,
@@ -51,6 +56,7 @@ export const personalVenuePlaces = [
   laBoulangeGardenPlace,
   missNoyMotorbikePlace,
   amorCafePlace,
+  rynCoffeePlace,
 ] as const;
 
 export const venueFieldCards = {
@@ -62,6 +68,7 @@ export const venueFieldCards = {
   [laBoulangeGardenPlace.id]: laBoulangeGardenFieldCard,
   [missNoyMotorbikePlace.id]: missNoyMotorbikeFieldCard,
   [amorCafePlace.id]: amorCafeFieldCard,
+  [rynCoffeePlace.id]: rynCoffeeFieldCard,
   [fandeeIslandPlaceId]: fandeeIslandFieldCard,
 } as const;
 
@@ -72,6 +79,7 @@ export const venueFieldCardLayoutProfiles: Readonly<Record<string, VenueFieldCar
   [laBoulangeGardenPlace.id]: laBoulangeGardenLayout,
   [missNoyMotorbikePlace.id]: missNoyMotorbikeLayout,
   [amorCafePlace.id]: amorCafeLayout,
+  [rynCoffeePlace.id]: rynCoffeeLayout,
   [fandeeIslandPlaceId]: fandeeIslandLayout,
 };
 
