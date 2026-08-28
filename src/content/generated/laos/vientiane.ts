@@ -776,53 +776,7 @@ const data = {
       "address": "Vientiane, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Family%20Boutique%20Hotel%20Vientiane%20Laos"
     },
-    {
-      "id": "place-s2-modern-boutique-hotel",
-      "slug": "s2-modern-boutique-hotel",
-      "name": "S2 Modern Boutique Hotel",
-      "country": "laos",
-      "city": "vientiane",
-      "category": "accommodation",
-      "coordinates": {
-        "latitude": 17.9757,
-        "longitude": 102.6331
-      },
-      "shortDescription": "S2 Modern Boutique Hotel is a current Vientiane accommodation address selected for this first Atlas draft.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Independent stay",
-          "Vientiane",
-          "Overnight base"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public identity and location were cross-checked."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas Vientiane research"
-      },
-      "researchSources": [
         {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=S2%20Modern%20Boutique%20Hotel%20Vientiane%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Vientiane, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=S2%20Modern%20Boutique%20Hotel%20Vientiane%20Laos"
-    },
-    {
       "id": "place-vientiane-garden-hostel",
       "slug": "vientiane-garden-hostel",
       "name": "Vientiane Garden Hostel",
