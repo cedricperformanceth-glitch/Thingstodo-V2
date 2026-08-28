@@ -28,7 +28,7 @@ const fallbackChapterLabel = (title: string, index: number) => {
           <h2>{chapter.title}</h2>
           <p>{chapter.body}</p>
         </section>
-        {index === 0 && adAfterFirstChapter && <AdSlot slot={adAfterFirstChapter} />}
+        {index === 0 && adAfterFirstChapter && <AdSlot slot={adAfterFirstChapter} visible />}
       </>
     ))}
   </div>
