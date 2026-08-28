@@ -23,7 +23,8 @@ const DON_DET_THING_IDS = new Set([
  * rather than introducing an unsourced or commercial photograph.
  *
  * Provenance is also normalized here for every effective Don Det Wikimedia activity image so the
- * runtime MediaRecord carries the same classification as the central provenance policy.
+ * runtime MediaRecord carries the same classification as the central provenance policy. The
+ * Xai Kong Nyai riverboats asset is an original Atlas drawing, confirmed by the publisher.
  */
 export const donDetMediaRecordOverrides: Readonly<Record<string, MediaRecordPatch>> = {
   'khone-pa-soi-falls-christophe95': {
@@ -37,6 +38,13 @@ export const donDetMediaRecordOverrides: Readonly<Record<string, MediaRecordPatc
   'khone-pa-soy-bridge-christophe95': {
     author: 'Christophe95',
     license: 'CC BY-SA 4.0',
+  },
+  'xai-kong-nyai-beach-riverboats': {
+    provenance: 'original-illustration',
+    treatment: 'none',
+    rightsBasis: 'creator-owned',
+    sourceName: 'Original Atlas illustration',
+    license: 'Creator-owned',
   },
 };
 
