@@ -62,20 +62,27 @@ const data = {
       "media": {
         "card": {
           "image": {
-            "id": "commons-31135991",
-            "src": "https://upload.wikimedia.org/wikipedia/commons/0/07/Tamarind_fruit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-            "alt": "Tamarind fruit",
-            "sourceType": "wikimedia",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tamarind_fruit.jpg",
-            "sourceName": "Wikimedia Commons",
-            "author": "Augustus Binu / facebook",
-            "license": "cc-by-sa",
-            "manual": false,
-            "locked": false
+            "id": "media-luang-prabang-tamarind",
+            "src": "/images/places/luang-prabang/tamarind.webp",
+            "alt": "Tamarind in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
           }
         },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-tamarind",
+              "src": "/images/places/luang-prabang/tamarind.webp",
+              "alt": "Tamarind in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -125,9 +132,29 @@ const data = {
       },
       "shortDescription": "Khaiphaen is a current Luang Prabang food address selected for a useful mix of Lao cooking, social purpose and central-town dining.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-khaiphaen",
+            "src": "/images/places/luang-prabang/khaiphaen.webp",
+            "alt": "Khaiphaen in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-khaiphaen",
+              "src": "/images/places/luang-prabang/khaiphaen.webp",
+              "alt": "Khaiphaen in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -136,8 +163,8 @@ const data = {
           "Luang Prabang",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -177,9 +204,29 @@ const data = {
       },
       "shortDescription": "Manda de Laos is a current Luang Prabang food address selected for a useful mix of Lao cooking, social purpose and central-town dining.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-manda-de-laos",
+            "src": "/images/places/luang-prabang/manda-de-laos.webp",
+            "alt": "Manda de Laos in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-manda-de-laos",
+              "src": "/images/places/luang-prabang/manda-de-laos.webp",
+              "alt": "Manda de Laos in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -188,8 +235,8 @@ const data = {
           "Luang Prabang",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -294,9 +341,29 @@ const data = {
       },
       "shortDescription": "LuLaLao Coffee is a current Luang Prabang coffee stop selected for a distinct daytime role.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-lulalao-coffee",
+            "src": "/images/places/luang-prabang/lulalao-coffee.webp",
+            "alt": "LuLaLao Coffee in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-lulalao-coffee",
+              "src": "/images/places/luang-prabang/lulalao-coffee.webp",
+              "alt": "LuLaLao Coffee in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -305,8 +372,8 @@ const data = {
           "Luang Prabang",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -346,9 +413,29 @@ const data = {
       },
       "shortDescription": "Sky Motorbike for Rent is a currently evidenced motorbike-rental address; confirm insurance, deposit and vehicle condition before departure.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-sky-motorbike-for-rent",
+            "src": "/images/places/luang-prabang/sky-motorbike-for-rent.webp",
+            "alt": "Sky Motorbike for Rent in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-sky-motorbike-for-rent",
+              "src": "/images/places/luang-prabang/sky-motorbike-for-rent.webp",
+              "alt": "Sky Motorbike for Rent in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -357,8 +444,8 @@ const data = {
           "Luang Prabang",
           "Confirm terms"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -398,9 +485,29 @@ const data = {
       },
       "shortDescription": "Bouang Asian Eatery is a current Luang Prabang food address selected for a useful mix of Lao cooking, social purpose and central-town dining.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-bouang-asian-eatery",
+            "src": "/images/places/luang-prabang/bouang-asian-eatery.webp",
+            "alt": "Bouang Asian Eatery in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-bouang-asian-eatery",
+              "src": "/images/places/luang-prabang/bouang-asian-eatery.webp",
+              "alt": "Bouang Asian Eatery in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -409,8 +516,8 @@ const data = {
           "Luang Prabang",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -450,9 +557,29 @@ const data = {
       },
       "shortDescription": "Popolo is a current Luang Prabang food address selected for a useful mix of Lao cooking, social purpose and central-town dining.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-popolo",
+            "src": "/images/places/luang-prabang/popolo.webp",
+            "alt": "Popolo in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-popolo",
+              "src": "/images/places/luang-prabang/popolo.webp",
+              "alt": "Popolo in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -461,8 +588,8 @@ const data = {
           "Luang Prabang",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -502,9 +629,29 @@ const data = {
       },
       "shortDescription": "Novelty Café is a current Luang Prabang coffee stop selected for a distinct daytime role.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-novelty-cafe",
+            "src": "/images/places/luang-prabang/novelty-cafe.webp",
+            "alt": "Novelty Café in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-novelty-cafe",
+              "src": "/images/places/luang-prabang/novelty-cafe.webp",
+              "alt": "Novelty Café in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -513,8 +660,8 @@ const data = {
           "Luang Prabang",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -554,9 +701,29 @@ const data = {
       },
       "shortDescription": "Sa Sa Lao is a current Luang Prabang stay selected as a practical independent base.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-sa-sa-lao",
+            "src": "/images/places/luang-prabang/sa-sa-lao.webp",
+            "alt": "Sa Sa Lao in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-sa-sa-lao",
+              "src": "/images/places/luang-prabang/sa-sa-lao.webp",
+              "alt": "Sa Sa Lao in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -565,8 +732,8 @@ const data = {
           "Luang Prabang",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -606,9 +773,29 @@ const data = {
       },
       "shortDescription": "My Dream Boutique Resort is a current Luang Prabang stay selected as a practical independent base.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-my-dream-boutique-resort",
+            "src": "/images/places/luang-prabang/my-dream-boutique-resort.webp",
+            "alt": "My Dream Boutique Resort in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-my-dream-boutique-resort",
+              "src": "/images/places/luang-prabang/my-dream-boutique-resort.webp",
+              "alt": "My Dream Boutique Resort in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -617,8 +804,8 @@ const data = {
           "Luang Prabang",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -658,9 +845,29 @@ const data = {
       },
       "shortDescription": "Maison Dalabua is a current Luang Prabang stay selected as a practical independent base.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-maison-dalabua",
+            "src": "/images/places/luang-prabang/maison-dalabua.webp",
+            "alt": "Maison Dalabua in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-maison-dalabua",
+              "src": "/images/places/luang-prabang/maison-dalabua.webp",
+              "alt": "Maison Dalabua in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -669,8 +876,8 @@ const data = {
           "Luang Prabang",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -710,9 +917,29 @@ const data = {
       },
       "shortDescription": "Style Motorbikes Luang Prabang is a currently evidenced motorbike-rental address; confirm insurance, deposit and vehicle condition before departure.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-style-motorbikes-luang-prabang",
+            "src": "/images/places/luang-prabang/style-motorbikes-luang-prabang.webp",
+            "alt": "Style Motorbikes Luang Prabang in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-style-motorbikes-luang-prabang",
+              "src": "/images/places/luang-prabang/style-motorbikes-luang-prabang.webp",
+              "alt": "Style Motorbikes Luang Prabang in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -721,8 +948,8 @@ const data = {
           "Luang Prabang",
           "Confirm terms"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -762,9 +989,29 @@ const data = {
       },
       "shortDescription": "Cold River Guesthouse is a current Luang Prabang stay selected as a practical independent base.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-cold-river-guesthouse",
+            "src": "/images/places/luang-prabang/cold-river-guesthouse.webp",
+            "alt": "Cold River Guesthouse in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-cold-river-guesthouse",
+              "src": "/images/places/luang-prabang/cold-river-guesthouse.webp",
+              "alt": "Cold River Guesthouse in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -773,8 +1020,8 @@ const data = {
           "Luang Prabang",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -814,9 +1061,29 @@ const data = {
       },
       "shortDescription": "Bamboo Garden Restaurant is a current Luang Prabang food address selected for a useful mix of Lao cooking, social purpose and central-town dining.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-bamboo-garden-restaurant",
+            "src": "/images/places/luang-prabang/bamboo-garden-restaurant.webp",
+            "alt": "Bamboo Garden Restaurant in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-bamboo-garden-restaurant",
+              "src": "/images/places/luang-prabang/bamboo-garden-restaurant.webp",
+              "alt": "Bamboo Garden Restaurant in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -825,8 +1092,8 @@ const data = {
           "Luang Prabang",
           "Meal stop"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -866,9 +1133,29 @@ const data = {
       },
       "shortDescription": "Joma Bakery Café is a current Luang Prabang coffee stop selected for a distinct daytime role.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-joma-bakery-cafe",
+            "src": "/images/places/luang-prabang/joma-bakery-cafe.webp",
+            "alt": "Joma Bakery Café in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-joma-bakery-cafe",
+              "src": "/images/places/luang-prabang/joma-bakery-cafe.webp",
+              "alt": "Joma Bakery Café in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -877,8 +1164,8 @@ const data = {
           "Luang Prabang",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -918,9 +1205,29 @@ const data = {
       },
       "shortDescription": "Le Banneton is a current Luang Prabang coffee stop selected for a distinct daytime role.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-le-banneton",
+            "src": "/images/places/luang-prabang/le-banneton.webp",
+            "alt": "Le Banneton in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-le-banneton",
+              "src": "/images/places/luang-prabang/le-banneton.webp",
+              "alt": "Le Banneton in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -929,8 +1236,8 @@ const data = {
           "Luang Prabang",
           "Daytime"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
@@ -970,9 +1277,29 @@ const data = {
       },
       "shortDescription": "Mad Monkey Luang Prabang is a current Luang Prabang stay selected as a practical independent base.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-luang-prabang-mad-monkey-luang-prabang",
+            "src": "/images/places/luang-prabang/mad-monkey-luang-prabang.webp",
+            "alt": "Mad Monkey Luang Prabang in Luang Prabang, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Luang Prabang venue media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-luang-prabang-mad-monkey-luang-prabang",
+              "src": "/images/places/luang-prabang/mad-monkey-luang-prabang.webp",
+              "alt": "Mad Monkey Luang Prabang in Luang Prabang, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Luang Prabang venue media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -981,8 +1308,8 @@ const data = {
           "Luang Prabang",
           "Overnight base"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
