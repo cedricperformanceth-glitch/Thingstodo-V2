@@ -869,7 +869,7 @@ const data = {
       "address": "Vang Vieng, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Freedom%20Backpackers%20Vang%20Vieng%20Laos"
     },
-        {
+    {
       "id": "place-nana-backpackers-hostel",
       "slug": "nana-backpackers-hostel",
       "name": "Nana Backpackers Hostel",
@@ -1336,6 +1336,52 @@ const data = {
       "manualLocks": {},
       "address": "Vang Vieng, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Vang%20Vieng%20Central%20Plaza%20Vang%20Vieng%20Laos"
+    },
+    {
+      "id": "place-santara-backpackers-hostel",
+      "slug": "santara-backpackers-hostel",
+      "name": "Santara Backpackers Hostel",
+      "country": "laos",
+      "city": "vang-vieng",
+      "category": "accommodation",
+      "coordinates": {
+        "latitude": 18.9262744,
+        "longitude": 102.4498065
+      },
+      "shortDescription": "Santara Backpackers Hostel is a Vang Vieng accommodation address added from a user-provided map listing.",
+      "media": {
+        "card": {},
+        "fieldCard": {
+          "gallery": []
+        }
+      },
+      "spaCard": {
+        "handwrittenTags": [
+          "Independent stay",
+          "Vang Vieng",
+          "Overnight base"
+        ],
+        "photoStatus": "missing",
+        "photoRequiresManualFill": true
+      },
+      "verification": {
+        "decision": "accept",
+        "reason": "User-provided Google Maps listing."
+      },
+      "sourceMetadata": {
+        "sourceName": "Google Maps"
+      },
+      "researchSources": [
+        {
+          "sourceName": "Google Maps",
+          "sourceUrl": "https://www.google.com/maps/place/Santara+Backpackers+Hostel/@18.926409,102.4433656,15z/data=!4m13!1m2!2m1!1sNana+Backpackers+Hostel+Vang+Vieng+Laos!3m9!1s0x31259336c0785e39:0xa7a75a418e583c32!5m2!4m1!1i2!8m2!3d18.9262744!4d102.4498065!15sCidOYW5hIEJhY2twYWNrZXJzIEhvc3RlbCBWYW5nIFZpZW5nIExhb3OSAQZob3N0ZWzgAQA!16s%2Fg%2F11xt8y2txt?entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D",
+          "purpose": "location",
+          "sourceType": "map-platform"
+        }
+      ],
+      "manualLocks": {},
+      "address": "Vang Vieng, Laos",
+      "googleMapsUrl": "https://www.google.com/maps/place/Santara+Backpackers+Hostel/@18.926409,102.4433656,15z/data=!4m13!1m2!2m1!1sNana+Backpackers+Hostel+Vang+Vieng+Laos!3m9!1s0x31259336c0785e39:0xa7a75a418e583c32!5m2!4m1!1i2!8m2!3d18.9262744!4d102.4498065!15sCidOYW5hIEJhY2twYWNrZXJzIEhvc3RlbCBWYW5nIFZpZW5nIExhb3OSAQZob3N0ZWzgAQA!16s%2Fg%2F11xt8y2txt?entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D"
     }
   ],
   "things": [
