@@ -821,9 +821,29 @@
       },
       "shortDescription": "Food stop attached to the Fandee Waterpark and adventure area.",
       "media": {
-        "card": {},
+        "card": {
+          "image": {
+            "id": "media-tad-lo-fandee-waterpark-restaurant",
+            "src": "/images/places/tad-lo/fandee-waterpark-restaurant.webp",
+            "alt": "Fandee Waterpark Restaurant in Tad Lo, Laos",
+            "sourceType": "manual",
+            "sourceName": "Provided Fandee Waterpark Restaurant media",
+            "manual": true,
+            "locked": true
+          }
+        },
         "fieldCard": {
-          "gallery": []
+          "gallery": [
+            {
+              "id": "media-tad-lo-fandee-waterpark-restaurant",
+              "src": "/images/places/tad-lo/fandee-waterpark-restaurant.webp",
+              "alt": "Fandee Waterpark Restaurant in Tad Lo, Laos",
+              "sourceType": "manual",
+              "sourceName": "Provided Fandee Waterpark Restaurant media",
+              "manual": true,
+              "locked": true
+            }
+          ]
         }
       },
       "spaCard": {
@@ -832,8 +852,8 @@
           "Tad Lo",
           "Local"
         ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
+        "photoStatus": "verified",
+        "photoRequiresManualFill": false
       },
       "verification": {
         "decision": "accept",
