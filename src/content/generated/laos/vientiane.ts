@@ -316,53 +316,7 @@ const data = {
       "address": "Vientiane, Laos",
       "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Joma%20Bakery%20Cafe%20Vientiane%20Vientiane%20Laos"
     },
-    {
-      "id": "place-mekong-riverside-restaurant",
-      "slug": "mekong-riverside-restaurant",
-      "name": "Mekong Riverside Restaurant",
-      "country": "laos",
-      "city": "vientiane",
-      "category": "restaurants",
-      "coordinates": {
-        "latitude": 17.9757,
-        "longitude": 102.6331
-      },
-      "shortDescription": "Mekong Riverside Restaurant is a current Vientiane restaurants address selected for this first Atlas draft.",
-      "media": {
-        "card": {},
-        "fieldCard": {
-          "gallery": []
-        }
-      },
-      "spaCard": {
-        "handwrittenTags": [
-          "Food address",
-          "Vientiane",
-          "Meal stop"
-        ],
-        "photoStatus": "missing",
-        "photoRequiresManualFill": true
-      },
-      "verification": {
-        "decision": "accept",
-        "reason": "Current public identity and location were cross-checked."
-      },
-      "sourceMetadata": {
-        "sourceName": "Atlas Vientiane research"
-      },
-      "researchSources": [
         {
-          "sourceName": "Google Maps",
-          "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Riverside%20Restaurant%20Vientiane%20Laos",
-          "purpose": "location",
-          "sourceType": "map-platform"
-        }
-      ],
-      "manualLocks": {},
-      "address": "Vientiane, Laos",
-      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mekong%20Riverside%20Restaurant%20Vientiane%20Laos"
-    },
-    {
       "id": "place-saffron-coffee-vientiane",
       "slug": "saffron-coffee-vientiane",
       "name": "Saffron Coffee Vientiane",
