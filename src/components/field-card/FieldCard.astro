@@ -43,7 +43,7 @@ const activityLength = isLongActivity ? 'long' : 'short';
   data-activity-length={activityLength}
 >
   <FieldCardHero thing={displayThing} {city} {country} hero={view.hero} image={view.heroImage} />
-  {monetizationEligible && <AdSlot slot={activityAdSlots.underHero} />}
+  {monetizationEligible && <AdSlot slot={activityAdSlots.underHero} visible />}
   <FieldCardQuickRead thing={displayThing} {country} quickRead={view.quickRead} />
   <FieldCardStoryBlock
     thing={displayThing}
@@ -53,11 +53,11 @@ const activityLength = isLongActivity ? 'long' : 'short';
   />
   {view.secondaryStory && <FieldCardSecondaryStory thing={displayThing} story={view.secondaryStory} image={view.secondaryImage} />}
   {view.secondaryStory && <FieldCardBeforeYouLeave thing={displayThing} content={view.secondaryStory.beforeYouLeave} />}
-  {monetizationEligible && isLongActivity && view.secondaryStory && <AdSlot slot={activityAdSlots.afterBeforeYouLeave} />}
+  {monetizationEligible && isLongActivity && view.secondaryStory && <AdSlot slot={activityAdSlots.afterBeforeYouLeave} visible />}
 
   <div class="field-card__body">
     {view.remainingSections.map((section) => <section><h2>{section.title}</h2><p>{section.body}</p></section>)}
-    {monetizationEligible && !isLongActivity && <AdSlot slot={activityAdSlots.beforeFaq} />}
+    {monetizationEligible && !isLongActivity && <AdSlot slot={activityAdSlots.beforeFaq} visible />}
     <FieldCardFaq thing={displayThing} items={view.faq} />
     <FieldCardPracticalNotes thing={displayThing} content={view.practicalNotes} />
     {additionalGallery.length > 0 && (
@@ -71,7 +71,7 @@ const activityLength = isLongActivity ? 'long' : 'short';
       </section>
     )}
     <FieldCardAtlasCta thing={displayThing} />
-    {monetizationEligible && <AdSlot slot={activityAdSlots.afterFinalCta} />}
+    {monetizationEligible && <AdSlot slot={activityAdSlots.afterFinalCta} visible />}
     <FieldCardRelatedActivities {city} items={relatedActivities} />
     <FieldCardMethodSources thing={displayThing} additionalPhotos={[...renderedPhotos, ...relatedPhotos]} />
   </div>
