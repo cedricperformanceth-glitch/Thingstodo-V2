@@ -1,0 +1,212 @@
+.summary-panel--atlas .summary-panel__intro {
+  min-height: 2.85rem;
+}
+
+.summary-take-atlas {
+  position: absolute;
+  top: .05rem;
+  left: 50%;
+  display: inline-flex;
+  min-height: 2.45rem;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  padding: .58rem 1rem;
+  border: 1px solid rgba(49, 85, 69, .34);
+  border-radius: .28rem;
+  background: rgba(255, 252, 244, .58);
+  color: var(--atlas-green);
+  font: inherit;
+  font-size: clamp(.66rem, .9vw, .76rem);
+  font-weight: 820;
+  letter-spacing: .045em;
+  box-shadow: 0 3px 8px rgba(43, 58, 49, .07);
+  cursor: pointer;
+  transform: translateX(-50%);
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+  white-space: nowrap;
+}
+
+.summary-take-atlas:hover:not(:disabled) {
+  border-color: var(--atlas-green);
+  background: var(--atlas-green);
+  color: #fffaf0;
+  box-shadow: 0 5px 11px rgba(43, 58, 49, .13);
+  transform: translate(-50%, -1px);
+}
+
+.summary-take-atlas:disabled {
+  cursor: default;
+  opacity: .38;
+}
+
+.summary-take-atlas:focus-visible,
+.summary-share__close:focus-visible,
+.summary-share__whatsapp:focus-visible {
+  outline: 2px solid var(--atlas-blue);
+  outline-offset: 3px;
+}
+
+.summary-take-atlas__arrow {
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.summary-share {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(26, 37, 31, .48);
+  backdrop-filter: blur(2px);
+}
+
+.summary-share[hidden] {
+  display: none !important;
+}
+
+.summary-share__dialog {
+  position: relative;
+  width: min(31rem, 100%);
+  box-sizing: border-box;
+  padding: clamp(1.55rem, 4vw, 2.15rem);
+  border: 1px solid rgba(73, 69, 58, .22);
+  border-radius: .34rem;
+  background: #f7f0e3;
+  box-shadow: 0 22px 55px rgba(23, 31, 27, .24);
+  color: var(--atlas-ink);
+}
+
+.summary-share__dialog::before {
+  content: '';
+  position: absolute;
+  inset: .48rem;
+  border: 1px solid rgba(49, 85, 69, .08);
+  border-radius: .18rem;
+  pointer-events: none;
+}
+
+.summary-share__close {
+  position: absolute;
+  z-index: 1;
+  top: .72rem;
+  right: .78rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #74756f;
+  font: inherit;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.summary-share__eyebrow {
+  margin: 0 2.4rem .55rem 0;
+  color: var(--atlas-green);
+  font-size: .63rem;
+  font-weight: 840;
+  letter-spacing: .16em;
+}
+
+.summary-share__dialog h2 {
+  margin: 0;
+  color: #203229;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.55rem, 5vw, 2.05rem);
+  font-weight: 520;
+  letter-spacing: -.025em;
+  line-height: 1.08;
+}
+
+.summary-share__copy {
+  margin: .68rem 0 1.25rem;
+  color: #6c7069;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: .85rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.summary-share__whatsapp {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  padding: .72rem 1rem;
+  border: 1px solid var(--atlas-green-dark);
+  border-radius: .28rem;
+  background: var(--atlas-green);
+  color: #fffaf0;
+  font-size: .76rem;
+  font-weight: 840;
+  letter-spacing: .055em;
+  text-decoration: none;
+  transition: background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.summary-share__whatsapp:hover {
+  background: var(--atlas-green-dark);
+  box-shadow: 0 5px 12px rgba(37, 57, 47, .15);
+  transform: translateY(-1px);
+}
+
+.summary-share__note {
+  margin: .85rem 0 0;
+  color: #7d7e77;
+  font-size: .67rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+body.summary-share-is-open {
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .summary-panel--atlas .summary-panel__intro {
+    min-height: 0;
+  }
+
+  .summary-take-atlas {
+    position: static;
+    margin: .8rem auto 0;
+    transform: none;
+  }
+
+  .summary-take-atlas:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 430px) {
+  .summary-take-atlas {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .summary-share {
+    padding: .65rem;
+  }
+
+  .summary-share__dialog {
+    padding: 1.45rem 1.15rem 1.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summary-take-atlas,
+  .summary-share__whatsapp {
+    transition: none;
+  }
+}
