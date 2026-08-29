@@ -7,6 +7,10 @@ type OwnerConfirmation = {
   aiRefined: boolean;
 };
 
+type GeneratedEditorialConfirmation = {
+  entityId: string;
+};
+
 /**
  * Asset-specific ownership confirmations supplied directly by the site owner on 2026-08-29.
  * Do not extend this map by inference: a local/manual/user-supplied asset is not user-owned
@@ -28,6 +32,17 @@ const OWNER_CONFIRMED_MEDIA: Readonly<Record<string, OwnerConfirmation>> = {
   'tad-lo-waterfall-photo-3': {
     entityId: 'thing-tad-lo-waterfall',
     aiRefined: false,
+  },
+};
+
+/**
+ * Asset-specific AI/generated editorial confirmations supplied directly by the site owner.
+ * These records are editorial illustrations, not documentary photographs and not third-party
+ * source media. Do not infer this classification for other drawings without confirmation.
+ */
+const GENERATED_EDITORIAL_MEDIA: Readonly<Record<string, GeneratedEditorialConfirmation>> = {
+  'sandstone-buddhas-drawing': {
+    entityId: 'thing-sandstone-buddhas',
   },
 };
 
@@ -69,10 +84,46 @@ const applyOwnerConfirmation = (record: MediaRecord, entityId: string): MediaRec
   };
 };
 
+const applyGeneratedEditorialConfirmation = (record: MediaRecord, entityId: string): MediaRecord => {
+  const confirmation = GENERATED_EDITORIAL_MEDIA[record.id];
+  if (!confirmation || confirmation.entityId !== entityId) return record;
+
+  const provenanceNote = 'AI-generated editorial drawing confirmed by the site owner; used as an illustrative representation, not as documentary photography.';
+
+  return {
+    ...record,
+    sourceName: 'Things To Do Atlas · AI-generated editorial illustration',
+    author: 'Things To Do Atlas',
+    license: 'Project-generated AI editorial illustration',
+    assetId: record.assetId ?? record.id,
+    entityId,
+    usage: record.usage ?? 'monetized-activity-page',
+    availabilityStatus: 'present',
+    rightsSourceType: 'generated-editorial',
+    rightsVerificationStatus: 'verified',
+    commercialUseAllowed: true,
+    modificationAllowed: true,
+    attributionRequired: false,
+    attribution: undefined,
+    verificationStatus: 'verified',
+    verifiedAt: VERIFIED_AT,
+    verificationMethod: 'site-owner-generated-editorial-confirmation',
+    depictionType: 'illustrative',
+    depictionSubject: record.depictionSubject ?? 'Sandstone Buddhas beside Route 1E',
+    subjectMatch: 'illustrative',
+    depictionNote: record.depictionNote
+      ? `${record.depictionNote} ${provenanceNote}`
+      : provenanceNote,
+  };
+};
+
 export const applyConfirmedOwnerActivityMedia = (
   media?: MediaRecord[],
   entityId?: string,
 ): MediaRecord[] | undefined => {
   if (!media?.length || !entityId) return media;
-  return media.map((record) => applyOwnerConfirmation(record, entityId));
+  return media.map((record) => applyGeneratedEditorialConfirmation(
+    applyOwnerConfirmation(record, entityId),
+    entityId,
+  ));
 };
