@@ -1,5 +1,8 @@
 import type { City, Country, FieldCardHeroContent, FieldCardPracticalContent, FieldCardPrimaryStoryContent, FieldCardQuickReadContent, FieldCardSecondaryStoryContent, FieldCardSection, ThingToDo } from '../../core/models/types';
 import { editorialAdSlots } from '../../core/ads/slots';
+import { applyConfirmedOwnerActivityMedia } from '../../content/field-card-media-owner-confirmations';
+import { applyTadLoActivityMediaCorrections } from '../../content/field-card-media-tad-lo-overrides';
+import { applyThakhekMediaCorrections } from '../../content/field-card-media-thakhek-overrides';
 import {
   getEditorialFaq,
   getEditorialHero,
@@ -208,7 +211,14 @@ export const fieldCardView = (thing: ThingToDo, city: City, country: Country) =>
   const resolvedPracticalNotes = getEditorialPractical(thing.id) ?? thing.fieldCard.practicalNotes ?? fallbackPracticalNotes(thing);
   const practicalNotes = applyPracticalDepth(resolvedPracticalNotes, getEditorialPracticalItemLabels(thing.id));
   const faq = resolveFaq(thing);
-  const gallery = getEditorialMedia(thing.id) ?? thing.media.fieldCard?.gallery ?? [];
+  const editorialGallery = getEditorialMedia(thing.id);
+  const generatedGallery = thing.media.fieldCard?.gallery;
+  const thakhekFallbackGallery = applyThakhekMediaCorrections(generatedGallery, thing.id);
+  const tadLoFallbackGallery = applyTadLoActivityMediaCorrections(thakhekFallbackGallery, thing.id);
+  const gallery = applyConfirmedOwnerActivityMedia(
+    editorialGallery ?? tadLoFallbackGallery ?? [],
+    thing.id,
+  ) ?? [];
   const heroImage = gallery[0] ?? thing.media.card?.image;
   const storyImage = gallery[1];
   const secondaryImage = secondaryStory ? gallery[2] : undefined;
