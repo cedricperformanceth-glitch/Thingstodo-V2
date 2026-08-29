@@ -11,10 +11,6 @@ import type {
   ThingToDoSpaCardContent,
 } from '../core/models/types';
 import editorialData from './field-card-editorial.json';
-import { applyDonDetMediaCorrections } from './field-card-media-don-det-overrides';
-import { applyLuangPrabangActivityMediaCorrections } from './field-card-media-luang-prabang-overrides';
-import { applyTadLoActivityMediaCorrections } from './field-card-media-tad-lo-overrides';
-import { applyThakhekMediaCorrections } from './field-card-media-thakhek-overrides';
 import vatPhouEditorial from './field-card-editorial-pakse/thing-vat-phou.json';
 import tadFaneEditorial from './field-card-editorial-pakse/thing-tad-fane.json';
 import tadYuangEditorial from './field-card-editorial-pakse/thing-tad-yuang.json';
@@ -87,15 +83,7 @@ export interface FieldCardEditorialEntry {
   practicalItemLabels?: string[];
 }
 
-const sharedEditorialRaw = editorialData as unknown as Record<string, FieldCardEditorialEntry>;
-const sharedEditorial = Object.fromEntries(
-  Object.entries(sharedEditorialRaw).map(([id, entry]) => {
-    const thakhekMedia = applyThakhekMediaCorrections(entry.media, id);
-    const donDetMedia = applyDonDetMediaCorrections(thakhekMedia, id);
-    const media = applyTadLoActivityMediaCorrections(donDetMedia, id, entry.sources);
-    return [id, media === entry.media ? entry : { ...entry, media }];
-  }),
-) as Record<string, FieldCardEditorialEntry>;
+const sharedEditorial = editorialData as unknown as Record<string, FieldCardEditorialEntry>;
 const pakseEditorial = {
   ...vatPhouEditorial,
   ...tadFaneEditorial,
@@ -125,8 +113,7 @@ const luangPrabangBase = {
 const luangPrabangMedia = luangPrabangMediaData as unknown as Record<string, MediaRecord[]>;
 const luangPrabangEditorial = Object.fromEntries(
   Object.entries(luangPrabangBase).map(([id, entry]) => {
-    const rawMedia = luangPrabangMedia[id] ?? entry.media;
-    const media = applyLuangPrabangActivityMediaCorrections(rawMedia, id);
+    const media = luangPrabangMedia[id] ?? entry.media;
     return [id, {
       ...entry,
       ...(media?.length ? { media, seo: { ...entry.seo, image: media[0].src } } : {}),
