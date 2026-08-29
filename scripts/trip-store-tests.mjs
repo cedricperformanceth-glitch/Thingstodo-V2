@@ -48,6 +48,8 @@ const place = {
   city: 'don-det',
   category: 'cafes',
   shortDescription: 'Coffee by the river.',
+  coordinates: { latitude: 14.116, longitude: 105.856 },
+  googleMapsUrl: 'https://maps.google.com/?q=14.116,105.856',
 };
 const thing = {
   id: 'thing-1',
@@ -57,6 +59,8 @@ const thing = {
   city: 'don-det',
   category: 'things-to-do',
   shortDescription: 'Historic bridge between the islands.',
+  coordinates: { latitude: 14.102, longitude: 105.855 },
+  googleMapsUrl: 'https://maps.google.com/?q=14.102,105.855',
   isLandmark: true,
 };
 
@@ -65,6 +69,8 @@ let store = readTripStore();
 assert.equal(store.entries.length, 1);
 assert.equal(store.entries[0].kind, 'place');
 assert.equal(store.entries[0].sourcePath, '/laos/don-det/cafes');
+assert.deepEqual(store.entries[0].coordinates, place.coordinates, 'saved Atlas places keep their coordinates');
+assert.equal(store.entries[0].googleMapsUrl, place.googleMapsUrl, 'saved Atlas places keep their Google Maps URL');
 
 addToTrip(place, '/duplicate');
 assert.equal(readTripStore().entries.length, 1, 'duplicate entities are ignored');
@@ -73,6 +79,8 @@ addToTrip(thing, '/laos/don-det/things-to-do/old-railway-bridge');
 store = readTripStore();
 assert.equal(store.entries.length, 2);
 assert.equal(store.entries[1].kind, 'thing-to-do');
+assert.deepEqual(store.entries[1].coordinates, thing.coordinates, 'saved activities keep their coordinates');
+assert.equal(store.entries[1].googleMapsUrl, thing.googleMapsUrl, 'saved activities keep their Google Maps URL');
 
 const sameIdElsewhere = { ...place, country: 'thailand', city: 'chiang-mai', name: 'River Cafe Chiang Mai' };
 addToTrip(sameIdElsewhere, '/thailand/chiang-mai/cafes');
