@@ -12,6 +12,7 @@ import type {
 } from '../core/models/types';
 import editorialData from './field-card-editorial.json';
 import { applyDonDetMediaCorrections } from './field-card-media-don-det-overrides';
+import { applyLuangPrabangActivityMediaCorrections } from './field-card-media-luang-prabang-overrides';
 import { applyTadLoActivityMediaCorrections } from './field-card-media-tad-lo-overrides';
 import { applyThakhekMediaCorrections } from './field-card-media-thakhek-overrides';
 import vatPhouEditorial from './field-card-editorial-pakse/thing-vat-phou.json';
@@ -124,7 +125,8 @@ const luangPrabangBase = {
 const luangPrabangMedia = luangPrabangMediaData as unknown as Record<string, MediaRecord[]>;
 const luangPrabangEditorial = Object.fromEntries(
   Object.entries(luangPrabangBase).map(([id, entry]) => {
-    const media = luangPrabangMedia[id];
+    const rawMedia = luangPrabangMedia[id] ?? entry.media;
+    const media = applyLuangPrabangActivityMediaCorrections(rawMedia, id);
     return [id, {
       ...entry,
       ...(media?.length ? { media, seo: { ...entry.seo, image: media[0].src } } : {}),
