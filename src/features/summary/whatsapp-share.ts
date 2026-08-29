@@ -35,8 +35,9 @@ const buildWhatsAppMessage = (entries: TripEntry[]) => {
   });
 
   const countries = [...grouped.keys()];
-  const heading = countries.length === 1
-    ? `MY ATLAS — ${titleize(countries[0]).toUpperCase()}`
+  const singleCountry = countries[0];
+  const heading = countries.length === 1 && singleCountry
+    ? `MY ATLAS — ${titleize(singleCountry).toUpperCase()}`
     : 'MY ATLAS';
   const lines = [
     heading,
@@ -123,8 +124,23 @@ const initWhatsAppShare = () => {
     if (event.target === modal) closeModal();
   });
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  modal.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+
+    const firstFocusable = closeButton;
+    const lastFocusable = sendLink;
+    if (event.shiftKey && document.activeElement === firstFocusable) {
+      event.preventDefault();
+      lastFocusable.focus();
+    } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+      event.preventDefault();
+      firstFocusable.focus();
+    }
   });
 
   window.addEventListener(MY_ATLAS_EVENT, refresh);
