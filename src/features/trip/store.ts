@@ -1,4 +1,4 @@
-import type { AtlasEntity } from '../../core/models/types';
+import type { AtlasEntity, Coordinates } from '../../core/models/types';
 
 export const MY_ATLAS_STORAGE_KEY = 'thingsToDoAtlas.makeYourOwnAtlas.v1';
 export const MY_ATLAS_EVENT = 'atlas:my-atlas-changed';
@@ -20,6 +20,8 @@ export interface TripEntry {
   sourcePath: string;
   savedAt: string;
   cardImage?: TripCardImage;
+  coordinates?: Coordinates;
+  googleMapsUrl?: string;
 }
 
 export interface TripStore {
@@ -42,6 +44,16 @@ const normalizeCardImage = (value: unknown): TripCardImage | undefined => {
   };
 };
 
+const normalizeCoordinates = (value: unknown): Coordinates | undefined => {
+  if (!value || typeof value !== 'object') return undefined;
+  const coordinates = value as Partial<Coordinates>;
+  if (!Number.isFinite(coordinates.latitude) || !Number.isFinite(coordinates.longitude)) return undefined;
+  return {
+    latitude: Number(coordinates.latitude),
+    longitude: Number(coordinates.longitude),
+  };
+};
+
 const normalizeEntry = (value: Partial<TripEntry>): TripEntry | null => {
   if (!value.id || !value.name || !value.country || !value.city) return null;
   return {
@@ -56,6 +68,10 @@ const normalizeEntry = (value: Partial<TripEntry>): TripEntry | null => {
     sourcePath: String(value.sourcePath ?? ''),
     savedAt: String(value.savedAt ?? new Date().toISOString()),
     cardImage: normalizeCardImage(value.cardImage),
+    coordinates: normalizeCoordinates(value.coordinates),
+    googleMapsUrl: typeof value.googleMapsUrl === 'string' && value.googleMapsUrl.trim()
+      ? value.googleMapsUrl.trim()
+      : undefined,
   };
 };
 
@@ -109,6 +125,8 @@ export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
     sourcePath,
     savedAt: new Date().toISOString(),
     cardImage: entityCardImage(entity),
+    coordinates: entity.coordinates,
+    googleMapsUrl: entity.googleMapsUrl,
   });
   writeTripStore(store);
   return store;
