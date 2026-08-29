@@ -47,10 +47,15 @@ const normalizeCardImage = (value: unknown): TripCardImage | undefined => {
 const normalizeCoordinates = (value: unknown): Coordinates | undefined => {
   if (!value || typeof value !== 'object') return undefined;
   const coordinates = value as Partial<Coordinates>;
-  if (!Number.isFinite(coordinates.latitude) || !Number.isFinite(coordinates.longitude)) return undefined;
+  if (
+    typeof coordinates.latitude !== 'number'
+    || typeof coordinates.longitude !== 'number'
+    || !Number.isFinite(coordinates.latitude)
+    || !Number.isFinite(coordinates.longitude)
+  ) return undefined;
   return {
-    latitude: Number(coordinates.latitude),
-    longitude: Number(coordinates.longitude),
+    latitude: coordinates.latitude,
+    longitude: coordinates.longitude,
   };
 };
 
