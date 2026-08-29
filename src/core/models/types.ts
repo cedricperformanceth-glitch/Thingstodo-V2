@@ -5,7 +5,7 @@ export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
 export type MediaVerificationStatus = 'verified' | 'partial' | 'review-needed';
 export type MediaAvailabilityStatus = 'present' | 'missing';
-export type MediaRightsSourceType = 'first-party-original' | 'user-owned' | 'user-permission' | 'user-supplied' | 'wikimedia-open-license' | 'public-domain' | 'generated-editorial' | 'first-party-official' | 'unknown';
+export type MediaRightsSourceType = 'first-party-original' | 'user-owned' | 'user-permission' | 'user-supplied' | 'wikimedia-open-license' | 'public-domain' | 'generated-editorial' | 'official-institutional' | 'first-party-official' | 'unknown';
 export type MediaDepictionType = 'exact-subject' | 'exact-place' | 'local-context' | 'illustrative';
 export type MediaSubjectMatch = 'exact' | 'contextual' | 'illustrative' | 'unknown';
 
