@@ -44,6 +44,9 @@ const GENERATED_EDITORIAL_MEDIA: Readonly<Record<string, GeneratedEditorialConfi
   'sandstone-buddhas-drawing': {
     entityId: 'thing-sandstone-buddhas',
   },
+  'xai-kong-nyai-beach-riverboats': {
+    entityId: 'thing-xai-kong-nyai-beach',
+  },
 };
 
 const applyOwnerConfirmation = (record: MediaRecord, entityId: string): MediaRecord => {
@@ -109,7 +112,7 @@ const applyGeneratedEditorialConfirmation = (record: MediaRecord, entityId: stri
     verifiedAt: VERIFIED_AT,
     verificationMethod: 'site-owner-generated-editorial-confirmation',
     depictionType: 'illustrative',
-    depictionSubject: record.depictionSubject ?? 'Sandstone Buddhas beside Route 1E',
+    depictionSubject: record.depictionSubject ?? 'Editorial activity illustration',
     subjectMatch: 'illustrative',
     depictionNote: record.depictionNote
       ? `${record.depictionNote} ${provenanceNote}`
