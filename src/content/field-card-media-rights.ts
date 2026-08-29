@@ -241,7 +241,7 @@ export const normalizeMediaRightsRecord = (
     if (rightsSourceType === 'user-owned' || rightsSourceType === 'generated-editorial' || rightsSourceType === 'first-party-original') {
       return record.verificationMethod;
     }
-    if (rightsSourceType === 'user-permission') return 'partner-owner-authorization';
+    if (rightsSourceType === 'user-permission') return record.verificationMethod ?? 'partner-owner-authorization';
     if (rightsSourceType === 'official-institutional' && verificationStatus === 'review-needed') {
       return 'official-source-commercial-rights-review-needed';
     }
