@@ -150,7 +150,19 @@ const depictionForRecord = (record: MediaRecord, entityId: string): DepictionPat
   };
 };
 
-const enrichTadLoActivityMedia = (record: MediaRecord, entityId: string): MediaRecord => {
+const cityFieldNoteDepiction = (): DepictionPatch => ({
+  depictionType: 'exact-place',
+  depictionSubject: 'Tad Lo village and Bolaven Plateau destination context',
+  subjectMatch: 'exact',
+  depictionNote: 'Exact-place Tad Lo destination imagery curated for the monetizable City Field Note.',
+});
+
+const enrichTadLoMediaRecord = (
+  record: MediaRecord,
+  entityId: string,
+  usage: string,
+  depiction: DepictionPatch,
+): MediaRecord => {
   const partnerAuthorization = isVisitTadLoPartnerMedia(record);
   const rights = rightsFromLicense(record.license);
   const sourcePage = record.sourcePage ?? record.sourceUrl;
@@ -165,13 +177,12 @@ const enrichTadLoActivityMedia = (record: MediaRecord, entityId: string): MediaR
   const hasRightsEvidence = hasPartnerAuthorization || hasOpenLicenseEvidence;
   const verificationStatus = record.verificationStatus
     ?? (commercialUseAllowed === false ? 'review-needed' : hasRightsEvidence ? 'verified' : 'partial');
-  const depiction = depictionForRecord(record, entityId);
 
   return {
     ...record,
     assetId: record.assetId ?? record.id,
     entityId: record.entityId ?? entityId,
-    usage: record.usage ?? 'monetized-activity-page',
+    usage: record.usage ?? usage,
     availabilityStatus: record.availabilityStatus ?? 'present',
     rightsSourceType: rightsSourceTypeFromRecord(record),
     rightsVerificationStatus: record.rightsVerificationStatus ?? verificationStatus,
@@ -204,5 +215,19 @@ export const applyTadLoActivityMediaCorrections = (
   sources?: ResearchSource[],
 ): MediaRecord[] | undefined => {
   if (!media?.length || !entityId || !isTadLoEditorialEntry(media, sources)) return media;
-  return media.map((record) => enrichTadLoActivityMedia(record, entityId));
+  return media.map((record) => enrichTadLoMediaRecord(
+    record,
+    entityId,
+    'monetized-activity-page',
+    depictionForRecord(record, entityId),
+  ));
+};
+
+export const applyTadLoCityFieldNoteMediaCorrections = (
+  media?: MediaRecord[],
+  entityId?: string,
+): MediaRecord[] | undefined => {
+  if (!media?.length || entityId !== 'city-tad-lo') return media;
+  const depiction = cityFieldNoteDepiction();
+  return media.map((record) => enrichTadLoMediaRecord(record, entityId, 'monetized-city-field-note', depiction));
 };
