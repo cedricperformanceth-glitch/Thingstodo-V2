@@ -211,6 +211,40 @@ const seo = {
           <p class="summary-share__copy" id="summary-share-description" data-summary-share-count>
             Save a place to prepare your Atlas.
           </p>
+
+          <div class="summary-share__fields">
+            <label class="summary-share__field">
+              <span class="summary-share__label">WhatsApp number <small>optional</small></span>
+              <input
+                class="summary-share__input"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="+33 6 12 34 56 78"
+                aria-describedby="summary-share-phone-help summary-share-phone-error"
+                data-summary-share-phone
+              />
+              <small class="summary-share__help" id="summary-share-phone-help">
+                International format. Leave blank to choose the recipient inside WhatsApp.
+              </small>
+              <small class="summary-share__error" id="summary-share-phone-error" data-summary-share-phone-error hidden>
+                Add the country code and remove the first local 0.
+              </small>
+            </label>
+
+            <label class="summary-share__field">
+              <span class="summary-share__label">Personal note <small>optional</small></span>
+              <textarea
+                class="summary-share__textarea"
+                rows="3"
+                maxlength="240"
+                placeholder="Hey, here’s the Atlas I made for us…"
+                data-summary-share-note
+              ></textarea>
+              <small class="summary-share__help">Your note appears above My Atlas in the WhatsApp message.</small>
+            </label>
+          </div>
+
           <a
             class="summary-share__whatsapp"
             href="#"
@@ -222,7 +256,7 @@ const seo = {
             <span>Send to WhatsApp</span>
             <span aria-hidden="true">↗</span>
           </a>
-          <p class="summary-share__note">WhatsApp opens with your Atlas prepared. Choose yourself, a friend or a group — no phone number is stored here.</p>
+          <p class="summary-share__note">The number and personal note are used only to prepare this WhatsApp link. Nothing is stored by Atlas.</p>
         </div>
       </div>
     </div>
