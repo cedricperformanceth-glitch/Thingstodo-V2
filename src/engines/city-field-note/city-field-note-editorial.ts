@@ -7,13 +7,7 @@ import thakhekEditorialData from '../../content/city-field-note-editorial-thakhe
 import vangViengEditorialData from '../../content/city-field-note-editorial-vang-vieng.json';
 import vientianeEditorialData from '../../content/city-field-note-editorial-vientiane.json';
 import mediaData from '../../content/city-field-note-media-copy.json';
-import { applyDonDetCityFieldNoteMediaCorrections } from '../../content/field-card-media-don-det-overrides';
-import { applyLuangPrabangCityFieldNoteMediaCorrections } from '../../content/field-card-media-luang-prabang-overrides';
-import { applyPakseCityFieldNoteMediaCorrections } from '../../content/field-card-media-pakse-overrides';
-import { applyTadLoCityFieldNoteMediaCorrections } from '../../content/field-card-media-tad-lo-overrides';
-import { applyThakhekCityFieldNoteMediaCorrections } from '../../content/field-card-media-thakhek-overrides';
-import { applyVangViengCityFieldNoteMediaCorrections } from '../../content/field-card-media-vang-vieng-overrides';
-import { applyVientianeCityFieldNoteMediaCorrections } from '../../content/field-card-media-vientiane-overrides';
+import { applyCanonicalCityFieldMediaPolicy } from '../../content/field-card-media-router';
 import {
   getEditorialCountryFieldNote,
   getEditorialCountryFieldNoteMedia,
@@ -42,15 +36,16 @@ interface CityFieldNoteEditorialBundle {
 }
 
 const rawMedia = mediaData as Record<string, MediaRecord[]>;
+const cityMedia = (id: string): MediaRecord[] => applyCanonicalCityFieldMediaPolicy(rawMedia[id], id) ?? [];
 const media: Record<string, MediaRecord[]> = {
   ...rawMedia,
-  'city-don-det': applyDonDetCityFieldNoteMediaCorrections(rawMedia['city-don-det'], 'city-don-det') ?? [],
-  'city-tad-lo': applyTadLoCityFieldNoteMediaCorrections(rawMedia['city-tad-lo'], 'city-tad-lo') ?? [],
-  'city-laos-pakse': applyPakseCityFieldNoteMediaCorrections(rawMedia['city-laos-pakse'], 'city-laos-pakse') ?? [],
-  'city-laos-luang-prabang': applyLuangPrabangCityFieldNoteMediaCorrections(rawMedia['city-laos-luang-prabang'], 'city-laos-luang-prabang') ?? [],
-  'city-laos-thakhek': applyThakhekCityFieldNoteMediaCorrections(rawMedia['city-laos-thakhek'], 'city-laos-thakhek') ?? [],
-  'city-laos-vang-vieng': applyVangViengCityFieldNoteMediaCorrections(rawMedia['city-laos-vang-vieng'], 'city-laos-vang-vieng') ?? [],
-  'city-laos-vientiane': applyVientianeCityFieldNoteMediaCorrections(rawMedia['city-laos-vientiane'], 'city-laos-vientiane') ?? [],
+  'city-don-det': cityMedia('city-don-det'),
+  'city-tad-lo': cityMedia('city-tad-lo'),
+  'city-laos-pakse': cityMedia('city-laos-pakse'),
+  'city-laos-luang-prabang': cityMedia('city-laos-luang-prabang'),
+  'city-laos-thakhek': cityMedia('city-laos-thakhek'),
+  'city-laos-vang-vieng': cityMedia('city-laos-vang-vieng'),
+  'city-laos-vientiane': cityMedia('city-laos-vientiane'),
 };
 const editorialBundleData = [
   donDetEditorialData,
