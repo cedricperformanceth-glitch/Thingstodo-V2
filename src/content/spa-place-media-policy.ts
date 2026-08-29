@@ -2,11 +2,6 @@ import type { MediaRecord, Place } from '../core/models/types';
 
 const VERIFIED_AT = '2026-08-29';
 
-/**
- * Don Det SPA venue assets explicitly confirmed by the site owner as project-generated
- * editorial drawings. Keep this list asset-specific: do not infer generated provenance for
- * future local files merely because they live in the same directory.
- */
 const DON_DET_GENERATED_EDITORIAL_DRAWING_IDS = new Set([
   // Restaurants
   'banana-restaurant-and-bar-card',
@@ -50,35 +45,21 @@ const DON_DET_GENERATED_EDITORIAL_DRAWING_IDS = new Set([
   'yommalay-guesthouse-card',
 ]);
 
-/**
- * Luang Prabang SPA assets explicitly confirmed by the site owner as AI-generated editorial
- * illustrations. The IDs are explicit so future venue uploads are never inferred as AI media.
- */
 const LUANG_PRABANG_GENERATED_EDITORIAL_IDS = new Set([
-  // Restaurants
   'media-luang-prabang-tamarind',
   'media-luang-prabang-khaiphaen',
   'media-luang-prabang-manda-de-laos',
   'media-luang-prabang-bouang-asian-eatery',
   'media-luang-prabang-popolo',
   'media-luang-prabang-bamboo-garden-restaurant',
-
-  // Accommodation
   'media-luang-prabang-sa-sa-lao',
   'media-luang-prabang-my-dream-boutique-resort',
   'media-luang-prabang-maison-dalabua',
   'media-luang-prabang-cold-river-guesthouse',
   'media-luang-prabang-mad-monkey-luang-prabang',
-
-  // Rental
   'media-luang-prabang-style-motorbikes-luang-prabang',
 ]);
 
-/**
- * Tad Lo SPA assets explicitly confirmed by the site owner as project-generated editorial
- * illustrations. Several are intentionally reused by accommodation, restaurant and cafe cards
- * representing the same physical venue; the asset keeps one provenance wherever it is reused.
- */
 const TAD_LO_GENERATED_EDITORIAL_IDS = new Set([
   'media-tad-lo-bolaven-garden',
   'media-tad-lo-samaki-guest-house',
@@ -87,11 +68,63 @@ const TAD_LO_GENERATED_EDITORIAL_IDS = new Set([
   'media-tad-lo-fandee-waterpark-restaurant',
 ]);
 
-/**
- * Luang Prabang venue photographs whose use on Things To Do Atlas was explicitly confirmed by
- * the site owner as authorized by the venue owner. Permission is for publication/use; separate
- * modification or attribution conditions are not invented when they were not stated.
- */
+const VANG_VIENG_GENERATED_EDITORIAL_IDS = new Set([
+  // Restaurants
+  'media-vang-vieng-a-m-d-restaurant',
+  'media-vang-vieng-laung-xai-kham-restaurant',
+
+  // Cafes
+  'media-vang-vieng-vang-vieng-organic-farm-cafe',
+  'media-vang-vieng-sakura-bar-coffee',
+  'media-vang-vieng-viman-vang-vieng-coffee',
+
+  // Accommodation
+  'media-vang-vieng-vang-vieng-rock-backpackers-hostel',
+  'media-vang-vieng-vang-vieng-freedom-backpackers',
+  'media-vang-vieng-vang-vieng-garden-bungalows',
+  'media-vang-vieng-sout-jai-guesthouse',
+  'media-vang-vieng-santara-backpackers-hostel',
+
+  // Rental
+  'media-vang-vieng-vang-vieng-motorbike-rental',
+]);
+
+const THAKHEK_GENERATED_EDITORIAL_IDS = new Set([
+  // Restaurants: all except Phubeer Restaurant
+  'bonjour-thakhek-card',
+  'miss-tang-restaurant-card',
+  'orlasone-bbq-card',
+  'six-friends-restaurant-card',
+  'space-bar-and-restaurant-card',
+  'thakhek-view-card',
+  'thakheks-secret-bar-card',
+
+  // Cafes
+  'dd-bistro-and-cafe-card',
+  'organic-cafe-card',
+  'vie-de-france-card',
+
+  // Accommodation: all except Bamboo Hostel and STAY HOSTEL
+  'bami-thakhek-hostel-card',
+  'catty-tourist-house-and-restaurant-card',
+  'lao-home-hostel-card',
+  'naga-hostel-and-cafe-card',
+  'nam-phou-hostel-card',
+  'nana-bungalows-card',
+  'orlardee-hostel-card',
+  'song-lao-guesthouse-card',
+  'thakhek-travel-lodge-card',
+  'villa-thakhek-card',
+  'xoksaysub-hotel-card',
+
+  // Rentals
+  'mad-monkey-motorcycle-card',
+  'wang-wang-motor-rental-card',
+
+  // Practical services
+  'khamouane-province-hospital-card',
+]);
+
 const LUANG_PRABANG_OWNER_PERMISSION_IDS = new Set([
   'media-luang-prabang-lulalao-coffee',
   'media-luang-prabang-novelty-cafe',
@@ -100,29 +133,48 @@ const LUANG_PRABANG_OWNER_PERMISSION_IDS = new Set([
   'media-luang-prabang-sky-motorbike-for-rent',
 ]);
 
-/**
- * Tad Lo venue media explicitly confirmed as authorized by the venue owner. The same Fandee
- * Island asset is reused by its restaurant and coffee SPA cards, so both inherit the same rights
- * provenance without claiming that the image is a personal site-owner photograph.
- */
 const TAD_LO_OWNER_PERMISSION_IDS = new Set([
   'media-tad-lo-fandee-island-restaurant',
 ]);
 
-/**
- * Personal Fandee Island photographs supplied by the site owner and subsequently AI-refined.
- * They remain user-owned photographs; AI refinement changes the depiction note, not ownership.
- */
+const VANG_VIENG_OWNER_PERMISSION_IDS = new Set([
+  'media-vang-vieng-happy-mango-thai-restaurant',
+  'media-vang-vieng-naked-espresso-vang-vieng',
+  'media-vang-vieng-pizza-luka',
+]);
+
+const THAKHEK_OWNER_PERMISSION_IDS = new Set([
+  // Restaurant
+  'phubeer-restaurant-card',
+
+  // Cafes: all except DD Bistro, Organic Cafe and Vie de France
+  'b96-coffee-and-tea-card',
+  'bike-and-bed-hostel-cafe-card',
+  'candy-cafe-card',
+  'geelot-cha-card',
+  'kamkhong-home-cafe-by-noungning-card',
+  'la-parisian-cafe-card',
+  'rok-coffee-thakhek-card',
+  'room-cafe-thakhek-card',
+  'soukjai-cafe-card',
+  'vegetarian-house-cafe-card',
+  'yo-and-ko-cafe-card',
+
+  // Accommodation
+  'bamboo-hostel-thakhek-card',
+  'stay-hostel-by-m-and-m-card',
+
+  // Rentals
+  'mixay-thakhek-motor-rental-card',
+  'pokemongo-motorbike-rental-card',
+]);
+
 const TAD_LO_PERSONAL_AI_REFINED_IDS = new Set([
   'media-tad-lo-fandee-island-1',
   'media-tad-lo-fandee-island-2',
   'media-tad-lo-fandee-island-3',
 ]);
 
-/**
- * Visit Tad Lo partner media reused from the corresponding activities. Owner permission,
- * attribution and the Visit Tad Lo link are already part of the source evidence and are kept.
- */
 const TAD_LO_VISIT_TAD_LO_PARTNER_IDS = new Set([
   'media-mr-hook-coffee-katu-visit-tad-lo',
   'media-mr-vieng-coffee-visit-tad-lo',
@@ -130,13 +182,36 @@ const TAD_LO_VISIT_TAD_LO_PARTNER_IDS = new Set([
 
 const SAFFRON_COFFEE_COMMONS_ID = 'commons-69180651';
 
-const classifyGeneratedEditorialDrawing = (record: MediaRecord, place: Place): MediaRecord => {
-  const isDonDet = place.city === 'don-det' && DON_DET_GENERATED_EDITORIAL_DRAWING_IDS.has(record.id);
-  const isLuangPrabang = place.city === 'luang-prabang' && LUANG_PRABANG_GENERATED_EDITORIAL_IDS.has(record.id);
-  const isTadLo = place.city === 'tad-lo' && TAD_LO_GENERATED_EDITORIAL_IDS.has(record.id);
-  if (!isDonDet && !isLuangPrabang && !isTadLo) return record;
+const CITY_LABELS: Readonly<Record<string, string>> = {
+  'don-det': 'Don Det',
+  'luang-prabang': 'Luang Prabang',
+  'tad-lo': 'Tad Lo',
+  'vang-vieng': 'Vang Vieng',
+  thakhek: 'Thakhek',
+};
 
-  const destination = isDonDet ? 'Don Det' : isLuangPrabang ? 'Luang Prabang' : 'Tad Lo';
+const SUPPORTED_SPA_MEDIA_POLICY_CITIES = new Set(Object.keys(CITY_LABELS));
+
+const GENERATED_EDITORIAL_IDS_BY_CITY: Readonly<Record<string, ReadonlySet<string>>> = {
+  'don-det': DON_DET_GENERATED_EDITORIAL_DRAWING_IDS,
+  'luang-prabang': LUANG_PRABANG_GENERATED_EDITORIAL_IDS,
+  'tad-lo': TAD_LO_GENERATED_EDITORIAL_IDS,
+  'vang-vieng': VANG_VIENG_GENERATED_EDITORIAL_IDS,
+  thakhek: THAKHEK_GENERATED_EDITORIAL_IDS,
+};
+
+const OWNER_PERMISSION_IDS_BY_CITY: Readonly<Record<string, ReadonlySet<string>>> = {
+  'luang-prabang': LUANG_PRABANG_OWNER_PERMISSION_IDS,
+  'tad-lo': TAD_LO_OWNER_PERMISSION_IDS,
+  'vang-vieng': VANG_VIENG_OWNER_PERMISSION_IDS,
+  thakhek: THAKHEK_OWNER_PERMISSION_IDS,
+};
+
+const classifyGeneratedEditorialDrawing = (record: MediaRecord, place: Place): MediaRecord => {
+  const generatedIds = GENERATED_EDITORIAL_IDS_BY_CITY[place.city];
+  if (!generatedIds?.has(record.id)) return record;
+
+  const destination = CITY_LABELS[place.city] ?? place.city;
   return {
     ...record,
     sourceName: 'Things To Do Atlas · AI-generated editorial illustration',
@@ -163,11 +238,10 @@ const classifyGeneratedEditorialDrawing = (record: MediaRecord, place: Place): M
 };
 
 const classifyOwnerAuthorizedVenuePhoto = (record: MediaRecord, place: Place): MediaRecord => {
-  const isLuangPrabang = place.city === 'luang-prabang' && LUANG_PRABANG_OWNER_PERMISSION_IDS.has(record.id);
-  const isTadLo = place.city === 'tad-lo' && TAD_LO_OWNER_PERMISSION_IDS.has(record.id);
-  if (!isLuangPrabang && !isTadLo) return record;
+  const ownerAuthorizedIds = OWNER_PERMISSION_IDS_BY_CITY[place.city];
+  if (!ownerAuthorizedIds?.has(record.id)) return record;
 
-  const destination = isLuangPrabang ? 'Luang Prabang' : 'Tad Lo';
+  const destination = CITY_LABELS[place.city] ?? place.city;
   return {
     ...record,
     sourceName: `${place.name} · owner-authorized venue media`,
@@ -299,10 +373,7 @@ const classifySpaMediaRecord = (record: MediaRecord, place: Place): MediaRecord 
  * photoStatus flag, which only indicates whether a card has an image available.
  */
 export const applySpaPlaceMediaPolicy = (place: Place): Place => {
-  if (
-    place.country !== 'laos'
-    || (place.city !== 'don-det' && place.city !== 'luang-prabang' && place.city !== 'tad-lo')
-  ) return place;
+  if (place.country !== 'laos' || !SUPPORTED_SPA_MEDIA_POLICY_CITIES.has(place.city)) return place;
 
   const cardImage = place.media.card?.image;
   const legacyImage = place.image;
@@ -347,3 +418,7 @@ export const TAD_LO_GENERATED_EDITORIAL_COUNT = TAD_LO_GENERATED_EDITORIAL_IDS.s
 export const TAD_LO_OWNER_PERMISSION_COUNT = TAD_LO_OWNER_PERMISSION_IDS.size;
 export const TAD_LO_PERSONAL_AI_REFINED_COUNT = TAD_LO_PERSONAL_AI_REFINED_IDS.size;
 export const TAD_LO_VISIT_TAD_LO_PARTNER_COUNT = TAD_LO_VISIT_TAD_LO_PARTNER_IDS.size;
+export const VANG_VIENG_GENERATED_EDITORIAL_COUNT = VANG_VIENG_GENERATED_EDITORIAL_IDS.size;
+export const VANG_VIENG_OWNER_PERMISSION_COUNT = VANG_VIENG_OWNER_PERMISSION_IDS.size;
+export const THAKHEK_GENERATED_EDITORIAL_COUNT = THAKHEK_GENERATED_EDITORIAL_IDS.size;
+export const THAKHEK_OWNER_PERMISSION_COUNT = THAKHEK_OWNER_PERMISSION_IDS.size;
