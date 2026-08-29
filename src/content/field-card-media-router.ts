@@ -4,6 +4,7 @@ import { applyLuangPrabangActivityMediaCorrections, applyLuangPrabangCityFieldNo
 import { applyConfirmedOwnerActivityMedia } from './field-card-media-owner-confirmations';
 import { applyPakseActivityMediaCorrections, applyPakseCityFieldNoteMediaCorrections } from './field-card-media-pakse-overrides';
 import { applyTadLoActivityMediaCorrections, applyTadLoCityFieldNoteMediaCorrections } from './field-card-media-tad-lo-overrides';
+import { applyThakhekApprovedCommonsReplacements } from './field-card-media-thakhek-replacements';
 import { applyThakhekCityFieldNoteMediaCorrections, applyThakhekMediaCorrections } from './field-card-media-thakhek-overrides';
 import { applyVangViengActivityMediaCorrections, applyVangViengCityFieldNoteMediaCorrections } from './field-card-media-vang-vieng-overrides';
 import { applyVientianeActivityMediaCorrections, applyVientianeCityFieldNoteMediaCorrections } from './field-card-media-vientiane-overrides';
@@ -41,6 +42,7 @@ export const applyCanonicalActivityMediaPolicy = (
   if (!media?.length || !entityId) return media;
 
   let corrected = media;
+  corrected = applyThakhekApprovedCommonsReplacements(corrected, entityId) ?? corrected;
   corrected = applyThakhekMediaCorrections(corrected, entityId) ?? corrected;
   corrected = applyDonDetMediaCorrections(corrected, entityId) ?? corrected;
   corrected = applyTadLoActivityMediaCorrections(corrected, entityId, sources) ?? corrected;
