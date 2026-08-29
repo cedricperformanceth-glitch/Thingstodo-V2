@@ -2,6 +2,29 @@ import type { MediaRecord } from '../core/models/types';
 
 type DepictionPatch = Pick<MediaRecord, 'depictionType' | 'depictionSubject' | 'subjectMatch' | 'depictionNote'>;
 
+const TAD_LO_ACTIVITY_SUBJECTS: Readonly<Record<string, string>> = {
+  'thing-tad-hang-waterfall': 'Tad Hang Waterfall',
+  'thing-tad-lo-waterfall': 'Tad Lo Waterfall',
+  'thing-tad-soung-waterfall': 'Tad Soung Waterfall',
+  'thing-katu-weaving-workshop': 'Katu weaving workshop near Tad Lo',
+  'thing-lao-cooking-class-with-nyay': 'Lao cooking class with Nyay',
+  'thing-tad-lo-treasure-hunt': 'Tad Lo Treasure Hunt',
+  'thing-fandee-adventure-park': 'Fandee Adventure Park',
+  'thing-coffee-and-katu-culture-with-mr-hook': 'Coffee and Katu culture with Mr Hook',
+  'thing-coffee-from-tree-to-cup-with-mr-vieng': 'Coffee from tree to cup with Mr Vieng',
+  'thing-vat-paa-forest-buddha-and-mystery-cave': 'Vat Paa forest, Buddha and mystery cave',
+  'thing-tad-lo-half-day-guided-trek': 'Tad Lo half-day guided trek',
+  'thing-tad-lo-two-day-village-trek': 'Tad Lo two-day village trek',
+  'thing-traditional-lao-massage-in-tad-lo': 'Traditional Lao massage experience in Tad Lo',
+  'thing-tad-lo-riverside-village-walk': 'Tad Lo riverside village walk',
+};
+
+const TAD_LO_CONTEXTUAL_ACTIVITY_IDS = new Set([
+  'thing-tad-lo-half-day-guided-trek',
+  'thing-tad-lo-two-day-village-trek',
+  'thing-tad-lo-riverside-village-walk',
+]);
+
 const applyDepictionPatch = (record: MediaRecord, patch: DepictionPatch): MediaRecord => ({
   ...record,
   ...patch,
@@ -11,7 +34,7 @@ const activityDepictionPatch = (record: MediaRecord, entityId: string): Depictio
   if (entityId === 'thing-traditional-lao-massage-in-tad-lo') {
     return {
       depictionType: 'local-context',
-      depictionSubject: 'Traditional Lao massage experience in Tad Lo',
+      depictionSubject: TAD_LO_ACTIVITY_SUBJECTS[entityId],
       subjectMatch: 'contextual',
       depictionNote: 'Editorial massage context only. The photograph shows a spa setting in Luang Prabang and is intentionally used to represent Lao massage as an experience; it does not claim to depict the private Tad Lo massage location.',
     };
@@ -23,18 +46,29 @@ const activityDepictionPatch = (record: MediaRecord, entityId: string): Depictio
   ) {
     return {
       depictionType: 'local-context',
-      depictionSubject: 'Katu weaving workshop near Tad Lo',
+      depictionSubject: TAD_LO_ACTIVITY_SUBJECTS[entityId],
       subjectMatch: 'contextual',
       depictionNote: 'Regional Katu weaving context from Ban Lao Ngam. The image supports the activity theme but is not claimed as a documentary photograph of the specific Tad Lo workshop.',
     };
   }
 
-  if (entityId === 'thing-tad-lo-waterfall') {
+  if (TAD_LO_CONTEXTUAL_ACTIVITY_IDS.has(entityId)) {
+    return {
+      depictionType: 'local-context',
+      depictionSubject: TAD_LO_ACTIVITY_SUBJECTS[entityId],
+      subjectMatch: 'contextual',
+      depictionNote: 'Tad Lo and Bolaven Plateau context for an experience or route; the image does not claim to document every stage of the activity.',
+    };
+  }
+
+  if (TAD_LO_ACTIVITY_SUBJECTS[entityId]) {
     return {
       depictionType: 'exact-subject',
-      depictionSubject: 'Tad Lo Waterfall',
+      depictionSubject: TAD_LO_ACTIVITY_SUBJECTS[entityId],
       subjectMatch: 'exact',
-      depictionNote: 'The image depicts Tad Lo Waterfall itself. Depiction classification is independent of whether the photograph is Wikimedia or site-owner media.',
+      depictionNote: entityId === 'thing-tad-lo-waterfall'
+        ? 'The image depicts Tad Lo Waterfall itself. Depiction classification is independent of whether the photograph is Wikimedia or site-owner media.'
+        : 'The image is curated to depict the named Tad Lo attraction or hosted experience itself. Rights provenance is classified separately from subject matching.',
     };
   }
 
