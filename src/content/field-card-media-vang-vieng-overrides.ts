@@ -131,7 +131,7 @@ const depictionForActivity = (record: MediaRecord, entityId: string): DepictionP
     };
   }
 
-  if (entityId === 'thing-nam-song-river-kayaking' && !/kayak/i.test(`${record.id} ${record.alt ?? ''}`)) {
+  if (entityId === 'thing-nam-song-river-kayaking' && !/kayak/i.test(record.alt ?? '')) {
     return {
       depictionType: 'local-context',
       depictionSubject,
@@ -140,7 +140,7 @@ const depictionForActivity = (record: MediaRecord, entityId: string): DepictionP
     };
   }
 
-  if (entityId === 'thing-nam-song-river-tubing' && !/tubing|travellers tubing/i.test(`${record.id} ${record.alt ?? ''}`)) {
+  if (entityId === 'thing-nam-song-river-tubing' && !/tubing|travellers tubing/i.test(record.alt ?? '')) {
     return {
       depictionType: 'local-context',
       depictionSubject,
