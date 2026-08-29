@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
 import '../features/summary/summary-adjustments.css';
+import '../features/summary/whatsapp-share.css';
 
 const seo = {
   title: 'Trip Summary | Things To Do Atlas',
@@ -95,6 +96,15 @@ const seo = {
               <h2 class="summary-visually-hidden">My Atlas</h2>
               <p class="summary-count" data-summary-atlas-count aria-live="polite">0 SAVED PLACES</p>
               <p class="summary-panel__note">Your journey so far.</p>
+              <button
+                class="summary-take-atlas"
+                type="button"
+                data-summary-share-open
+                disabled
+              >
+                <span>Take my Atlas with me</span>
+                <span class="summary-take-atlas__arrow" aria-hidden="true">↗</span>
+              </button>
             </div>
             <div class="summary-grid" data-summary-atlas-grid></div>
           </section>
@@ -179,10 +189,47 @@ const seo = {
           </section>
         </div>
       </div>
+
+      <div class="summary-share" data-summary-share-modal hidden>
+        <div
+          class="summary-share__dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="summary-share-title"
+          aria-describedby="summary-share-description"
+          data-summary-share-dialog
+          tabindex="-1"
+        >
+          <button
+            class="summary-share__close"
+            type="button"
+            aria-label="Close WhatsApp sharing"
+            data-summary-share-close
+          >×</button>
+          <p class="summary-share__eyebrow">TAKE IT WITH YOU</p>
+          <h2 id="summary-share-title">Your Atlas is ready.</h2>
+          <p class="summary-share__copy" id="summary-share-description" data-summary-share-count>
+            Save a place to prepare your Atlas.
+          </p>
+          <a
+            class="summary-share__whatsapp"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-summary-share-whatsapp
+            aria-disabled="true"
+          >
+            <span>Send to WhatsApp</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <p class="summary-share__note">WhatsApp opens with your Atlas prepared. Choose yourself, a friend or a group — no phone number is stored here.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <script>
     import '../features/summary/client';
+    import '../features/summary/whatsapp-share';
   </script>
 </BaseLayout>
