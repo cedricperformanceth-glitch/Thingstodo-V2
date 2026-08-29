@@ -1,12 +1,16 @@
 import { fieldCardEditorial } from '../../content/field-card-editorial-data';
 import { applyVangViengActivityMediaCorrections } from '../../content/field-card-media-vang-vieng-overrides';
+import { applyVientianeActivityMediaCorrections } from '../../content/field-card-media-vientiane-overrides';
 
 export type { EditorialSpaCard, FieldCardSeoOverride } from '../../content/field-card-editorial-data';
 
 const entry = (id: string) => fieldCardEditorial[id];
 export const getEditorialFaq = (id: string) => entry(id)?.faq;
 export const getEditorialHero = (id: string) => entry(id)?.hero;
-export const getEditorialMedia = (id: string) => applyVangViengActivityMediaCorrections(entry(id)?.media, id);
+export const getEditorialMedia = (id: string) => {
+  const vangViengMedia = applyVangViengActivityMediaCorrections(entry(id)?.media, id);
+  return applyVientianeActivityMediaCorrections(vangViengMedia, id);
+};
 export const getEditorialPractical = (id: string) => entry(id)?.practical;
 export const getEditorialPrimaryStory = (id: string) => entry(id)?.primaryStory;
 export const getEditorialQuickRead = (id: string) => entry(id)?.quickRead;
