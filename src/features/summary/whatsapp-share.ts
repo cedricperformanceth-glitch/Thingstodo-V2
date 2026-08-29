@@ -5,56 +5,140 @@ import {
   type TripEntry,
 } from '../trip/store';
 
+const CATEGORY_LABELS: Record<string, string> = {
+  activity: 'Activities',
+  activities: 'Activities',
+  'thing-to-do': 'Activities',
+  'things-to-do': 'Activities',
+  restaurant: 'Restaurants',
+  restaurants: 'Restaurants',
+  cafe: 'Cafés',
+  cafes: 'Cafés',
+  café: 'Cafés',
+  cafés: 'Cafés',
+  guesthouse: 'Guesthouses',
+  guesthouses: 'Guesthouses',
+  hotel: 'Hotels',
+  hotels: 'Hotels',
+  accommodation: 'Stay',
+  rental: 'Rentals',
+  rentals: 'Rentals',
+  'motorbike-rental': 'Rentals',
+  'motorbike-rentals': 'Rentals',
+  gym: 'Gyms & Fitness',
+  gyms: 'Gyms & Fitness',
+  fitness: 'Gyms & Fitness',
+  market: 'Markets',
+  markets: 'Markets',
+  essential: 'Essential Info',
+  'essential-info': 'Essential Info',
+};
+
 const titleize = (value = '') => value
   .split('-')
   .filter(Boolean)
   .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
   .join(' ');
 
+const categoryLabel = (value = '') => {
+  const normalized = value.trim().toLowerCase();
+  return CATEGORY_LABELS[normalized] ?? titleize(normalized || 'places');
+};
+
 const googleMapsUrl = (entry: TripEntry) => {
-  if (entry.googleMapsUrl?.trim()) return entry.googleMapsUrl.trim();
+  const direct = entry.googleMapsUrl?.trim();
+  if (direct && /(?:maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(direct)) return direct;
 
   if (entry.coordinates) {
     const { latitude, longitude } = entry.coordinates;
-    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${latitude},${longitude}`)}`;
+    return `https://maps.google.com/?q=${latitude},${longitude}`;
   }
+
+  if (direct) return direct;
 
   const query = [entry.name, titleize(entry.city), titleize(entry.country)]
     .filter(Boolean)
     .join(', ');
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+  return `https://maps.google.com/?q=${encodeURIComponent(query)}`;
 };
 
-const buildWhatsAppMessage = (entries: TripEntry[]) => {
-  const grouped = new Map<string, TripEntry[]>();
+const groupEntries = (entries: TripEntry[]) => {
+  const countries = new Map<string, Map<string, Map<string, TripEntry[]>>>();
+
   entries.forEach((entry) => {
     const country = entry.country || 'atlas';
-    const group = grouped.get(country) ?? [];
-    group.push(entry);
-    grouped.set(country, group);
+    const city = entry.city || 'saved-places';
+    const category = entry.category || 'places';
+
+    const cities = countries.get(country) ?? new Map<string, Map<string, TripEntry[]>>();
+    const categories = cities.get(city) ?? new Map<string, TripEntry[]>();
+    const categoryEntries = categories.get(category) ?? [];
+
+    categoryEntries.push(entry);
+    categories.set(category, categoryEntries);
+    cities.set(city, categories);
+    countries.set(country, cities);
   });
 
-  const countries = [...grouped.keys()];
-  const singleCountry = countries[0];
-  const heading = countries.length === 1 && singleCountry
-    ? `MY ATLAS — ${titleize(singleCountry).toUpperCase()}`
-    : 'MY ATLAS';
-  const lines = [
-    heading,
-    '',
-    `Your journey so far — ${entries.length} saved ${entries.length === 1 ? 'place' : 'places'}.`,
-  ];
+  return countries;
+};
 
-  grouped.forEach((countryEntries, country) => {
-    lines.push('');
-    if (countries.length > 1) lines.push(titleize(country).toUpperCase());
-    countryEntries.forEach((entry) => {
-      lines.push(`• ${entry.name} → ${googleMapsUrl(entry)}`);
+const buildWhatsAppMessage = (
+  entries: TripEntry[],
+  personalNote = '',
+  summaryUrl = '',
+) => {
+  const lines: string[] = [];
+  const note = personalNote.trim();
+  if (note) lines.push(note, '');
+
+  const countries = groupEntries(entries);
+
+  countries.forEach((cities, country) => {
+    const countryEntries = [...cities.values()]
+      .flatMap((categories) => [...categories.values()])
+      .flat();
+
+    if (lines.length) lines.push('');
+    lines.push(
+      `*MY ATLAS — ${titleize(country).toUpperCase()}*`,
+      `Your journey so far — ${countryEntries.length} saved ${countryEntries.length === 1 ? 'place' : 'places'}.`,
+    );
+
+    cities.forEach((categories, city) => {
+      lines.push('', `*${titleize(city)}*`);
+
+      categories.forEach((categoryEntries, category) => {
+        lines.push(`_${categoryLabel(category)}_`);
+        categoryEntries.forEach((entry) => {
+          lines.push(`• ${entry.name} → Google Map`);
+          lines.push(`  ${googleMapsUrl(entry)}`);
+        });
+      });
     });
   });
 
-  lines.push('', 'Things To Do Atlas');
+  lines.push(
+    '',
+    '',
+    'Thanks for letting Things To Do Atlas travel with you. Have a beautiful journey.',
+    '',
+    '*Things To Do Atlas — Your Atlas*',
+  );
+  if (summaryUrl) lines.push(summaryUrl);
+
   return lines.join('\n');
+};
+
+const normalizeWhatsAppNumber = (value: string): string | null => {
+  const raw = value.trim();
+  if (!raw) return '';
+
+  let digits = raw.replace(/\D/g, '');
+  if (digits.startsWith('00')) digits = digits.slice(2);
+
+  if (digits.startsWith('0') || digits.length < 7 || digits.length > 15) return null;
+  return digits;
 };
 
 const initWhatsAppShare = () => {
@@ -68,10 +152,44 @@ const initWhatsAppShare = () => {
   const closeButton = root.querySelector<HTMLButtonElement>('[data-summary-share-close]');
   const sendLink = root.querySelector<HTMLAnchorElement>('[data-summary-share-whatsapp]');
   const count = root.querySelector<HTMLElement>('[data-summary-share-count]');
+  const phoneInput = root.querySelector<HTMLInputElement>('[data-summary-share-phone]');
+  const noteInput = root.querySelector<HTMLTextAreaElement>('[data-summary-share-note]');
+  const phoneError = root.querySelector<HTMLElement>('[data-summary-share-phone-error]');
 
-  if (!openButton || !modal || !dialog || !closeButton || !sendLink || !count) return;
+  if (
+    !openButton
+    || !modal
+    || !dialog
+    || !closeButton
+    || !sendLink
+    || !count
+    || !phoneInput
+    || !noteInput
+    || !phoneError
+  ) return;
 
   let returnFocus: HTMLElement | null = null;
+
+  const refreshShareUrl = () => {
+    const entries = readTripStore().entries;
+    const phone = normalizeWhatsAppNumber(phoneInput.value);
+    const invalidPhone = phone === null;
+    const hasEntries = entries.length > 0;
+
+    phoneInput.setAttribute('aria-invalid', String(invalidPhone));
+    phoneError.hidden = !invalidPhone;
+
+    const summaryUrl = new URL('/summary', window.location.origin).toString();
+    const message = buildWhatsAppMessage(entries, noteInput.value, summaryUrl);
+    const destination = phone ? `https://wa.me/${phone}` : 'https://wa.me/';
+
+    sendLink.href = hasEntries && !invalidPhone
+      ? `${destination}?text=${encodeURIComponent(message)}`
+      : '#';
+    sendLink.setAttribute('aria-disabled', String(!hasEntries || invalidPhone));
+
+    return { entries, invalidPhone };
+  };
 
   const refresh = () => {
     const entries = readTripStore().entries;
@@ -86,10 +204,7 @@ const initWhatsAppShare = () => {
     count.textContent = hasEntries
       ? `${entries.length} saved ${entries.length === 1 ? 'place' : 'places'}, ready to share.`
       : 'Save a place to prepare your Atlas.';
-    sendLink.href = hasEntries
-      ? `https://wa.me/?text=${encodeURIComponent(buildWhatsAppMessage(entries))}`
-      : '#';
-    sendLink.setAttribute('aria-disabled', String(!hasEntries));
+    refreshShareUrl();
     return entries;
   };
 
@@ -106,15 +221,19 @@ const initWhatsAppShare = () => {
     returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : openButton;
     modal.hidden = false;
     document.body.classList.add('summary-share-is-open');
-    requestAnimationFrame(() => dialog.focus());
+    requestAnimationFrame(() => phoneInput.focus());
   };
 
   openButton.addEventListener('click', openModal);
   closeButton.addEventListener('click', closeModal);
+  phoneInput.addEventListener('input', refreshShareUrl);
+  noteInput.addEventListener('input', refreshShareUrl);
+
   sendLink.addEventListener('click', (event) => {
-    if (!readTripStore().entries.length) {
+    const { entries, invalidPhone } = refreshShareUrl();
+    if (!entries.length || invalidPhone) {
       event.preventDefault();
-      refresh();
+      if (invalidPhone) phoneInput.focus();
       return;
     }
     closeModal();
@@ -132,8 +251,13 @@ const initWhatsAppShare = () => {
     }
     if (event.key !== 'Tab') return;
 
-    const firstFocusable = closeButton;
-    const lastFocusable = sendLink;
+    const focusable = [...dialog.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), input:not([disabled]), textarea:not([disabled]), a[href]:not([aria-disabled="true"])',
+    )].filter((element) => !element.hidden);
+    if (!focusable.length) return;
+
+    const firstFocusable = focusable[0];
+    const lastFocusable = focusable[focusable.length - 1];
     if (event.shiftKey && document.activeElement === firstFocusable) {
       event.preventDefault();
       lastFocusable.focus();
