@@ -8,6 +8,8 @@ import vangViengEditorialData from '../../content/city-field-note-editorial-vang
 import vientianeEditorialData from '../../content/city-field-note-editorial-vientiane.json';
 import mediaData from '../../content/city-field-note-media-copy.json';
 import { applyDonDetCityFieldNoteMediaCorrections } from '../../content/field-card-media-don-det-overrides';
+import { applyPakseCityFieldNoteMediaCorrections } from '../../content/field-card-media-pakse-overrides';
+import { applyTadLoCityFieldNoteMediaCorrections } from '../../content/field-card-media-tad-lo-overrides';
 import {
   getEditorialCountryFieldNote,
   getEditorialCountryFieldNoteMedia,
@@ -39,6 +41,8 @@ const rawMedia = mediaData as Record<string, MediaRecord[]>;
 const media: Record<string, MediaRecord[]> = {
   ...rawMedia,
   'city-don-det': applyDonDetCityFieldNoteMediaCorrections(rawMedia['city-don-det'], 'city-don-det') ?? [],
+  'city-tad-lo': applyTadLoCityFieldNoteMediaCorrections(rawMedia['city-tad-lo'], 'city-tad-lo') ?? [],
+  'city-laos-pakse': applyPakseCityFieldNoteMediaCorrections(rawMedia['city-laos-pakse'], 'city-laos-pakse') ?? [],
 };
 const editorialBundleData = [
   donDetEditorialData,
