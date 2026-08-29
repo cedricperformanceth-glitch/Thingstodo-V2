@@ -89,7 +89,7 @@ export interface FieldCardEditorialEntry {
 const sharedEditorialRaw = editorialData as unknown as Record<string, FieldCardEditorialEntry>;
 const sharedEditorial = Object.fromEntries(
   Object.entries(sharedEditorialRaw).map(([id, entry]) => {
-    const thakhekMedia = applyThakhekMediaCorrections(entry.media);
+    const thakhekMedia = applyThakhekMediaCorrections(entry.media, id);
     const donDetMedia = applyDonDetMediaCorrections(thakhekMedia, id);
     const media = applyTadLoActivityMediaCorrections(donDetMedia, id, entry.sources);
     return [id, media === entry.media ? entry : { ...entry, media }];
