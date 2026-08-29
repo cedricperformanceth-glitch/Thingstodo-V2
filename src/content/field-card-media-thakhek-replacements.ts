@@ -77,6 +77,12 @@ export const applyThakhekApprovedCommonsReplacements = (
 ): MediaRecord[] | undefined => {
   if (!media?.length || !entityId) return media;
 
+  const hasReplacement = media.some((record) => {
+    const replacement = THAKHEK_APPROVED_COMMONS_REPLACEMENTS[record.id];
+    return replacement?.entityId === entityId;
+  });
+  if (!hasReplacement) return media;
+
   return media.map((record) => {
     const replacement = THAKHEK_APPROVED_COMMONS_REPLACEMENTS[record.id];
     if (!replacement || replacement.entityId !== entityId) return record;
