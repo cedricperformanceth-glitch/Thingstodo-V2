@@ -1,6 +1,7 @@
 import { generatedPlaces } from '../generated';
 import { placeCardEditorial, supplementalPlaces } from '../place-card-editorial';
 import { placeMediaOverrides } from '../place-media-overrides';
+import { applySpaPlaceMediaPolicy } from '../spa-place-media-policy';
 import { personalVenuePlaces } from '../venue-field-card-registry';
 import type { Place, ResearchSource } from '../../core/models/types';
 
@@ -51,7 +52,9 @@ const normalizePublicationMetadata = (place: SourcedPlace): SourcedPlace => {
   };
 };
 
-const publish = (place: SourcedPlace): SourcedPlace => normalizePublicationMetadata(applyMediaOverride(applyEditorial(place)));
+const publish = (place: SourcedPlace): SourcedPlace => normalizePublicationMetadata(
+  applySpaPlaceMediaPolicy(applyMediaOverride(applyEditorial(place))) as SourcedPlace,
+);
 
 export const places: Place[] = [
   ...generatedPlaces.map((place) => publish(place as SourcedPlace)),
