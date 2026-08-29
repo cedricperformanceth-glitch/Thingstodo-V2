@@ -2,6 +2,7 @@ import { generatedThings } from '../generated';
 import { supplementalThings } from '../supplemental-things-to-do';
 import thingCategoryOverrides from '../thing-category-overrides.json';
 import { fieldCardEditorial } from '../field-card-editorial-data';
+import { applyPakseActivityMediaCorrections } from '../field-card-media-pakse-overrides';
 import { thingRuntimeOverrides } from '../thing-runtime-overrides';
 import type { MediaRecord, MediaVerificationStatus, ThingToDo } from '../../core/models/types';
 
@@ -28,13 +29,25 @@ export const things: ThingToDo[] = allThings.map((thing) => {
   const isTadLoPilot = thing.country === 'laos' && thing.city === 'tad-lo';
   const isMediaRightsPilot = isDonDetPilot || isTadLoPilot;
   const photoRightsStatus = isMediaRightsPilot ? resolvePhotoRightsStatus(editorialMedia) : undefined;
-  const media = hasEditorialMedia
+
+  const isPakseMonetizablePilot = thing.country === 'laos' && thing.city === 'pakse';
+  const pakseFieldGallery = isPakseMonetizablePilot
+    ? applyPakseActivityMediaCorrections(thing.media.fieldCard?.gallery, thing.id)
+    : thing.media.fieldCard?.gallery;
+  const baseMedia = isPakseMonetizablePilot && pakseFieldGallery !== thing.media.fieldCard?.gallery
     ? {
         ...thing.media,
-        card: { ...thing.media.card, image: editorialMedia[0] },
-        fieldCard: { ...thing.media.fieldCard, gallery: editorialMedia },
+        fieldCard: { ...thing.media.fieldCard, gallery: pakseFieldGallery ?? [] },
       }
     : thing.media;
+
+  const media = hasEditorialMedia
+    ? {
+        ...baseMedia,
+        card: { ...baseMedia.card, image: editorialMedia[0] },
+        fieldCard: { ...baseMedia.fieldCard, gallery: editorialMedia },
+      }
+    : baseMedia;
   const spaCard = thing.spaCard
     ? {
         ...thing.spaCard,
