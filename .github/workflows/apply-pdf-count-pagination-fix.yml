@@ -1,0 +1,70 @@
+name: Apply PDF count and pagination fix
+on:
+  push:
+    branches: [fix/pdf-count-axis-city-pagination]
+permissions:
+  contents: write
+jobs:
+  update:
+    if: github.event.head_commit.message == 'Add one-off PDF count and pagination fix'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/pdf-count-axis-city-pagination
+      - name: Apply targeted PDF changes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/features/summary/atlas-export-pdf.ts')
+          s = p.read_text()
+
+          old = """  const RIGHT = SHEET_RIGHT - 27;\n  const COVER_SUMMARY_WIDTH = 318;"""
+          new = """  const RIGHT = SHEET_RIGHT - 27;\n  const GOOGLE_MAPS_X = RIGHT - 79;\n  const SCHOOLBELL_VISIBLE_LEFT_OFFSET = 2.5;\n  const CLOSING_BLOCK_HEIGHT = 154;\n  const COVER_SUMMARY_WIDTH = 318;"""
+          assert old in s
+          s = s.replace(old, new, 1)
+
+          old = """  const countries = groupedEntries(entries);\n  const multiCountry = countries.size > 1;"""
+          new = """  const countries = groupedEntries(entries);\n  const multiCountry = countries.size > 1;\n  const totalCities = [...countries.values()].reduce((total, cities) => total + cities.size, 0);\n  let renderedCities = 0;"""
+          assert old in s
+          s = s.replace(old, new, 1)
+
+          start = s.index("  const pdfHandwrittenRightText = (")
+          end = s.index("\n  let page!: PdfPage;", start)
+          s = s[:start] + s[end:]
+
+          old = """  pdfHandwrittenText(page, journeyLabel, LEFT, y, 10.4, MUTED, SCHOOLBELL_FONT, '400');\n  pdfHandwrittenRightText(page, journeyCount, RIGHT, y, 10.4, MUTED, SCHOOLBELL_FONT, '400');"""
+          new = """  pdfHandwrittenText(page, journeyLabel, LEFT, y, 10.4, MUTED, SCHOOLBELL_FONT, '400');\n  // Schoolbell images include a small left raster padding; offset it so the visible ink\n  // starts on the exact same vertical axis as the Google Maps labels below.\n  pdfHandwrittenText(\n    page,\n    journeyCount,\n    GOOGLE_MAPS_X - SCHOOLBELL_VISIBLE_LEFT_OFFSET,\n    y,\n    10.4,\n    MUTED,\n    SCHOOLBELL_FONT,\n    '400',\n  );"""
+          assert old in s
+          s = s.replace(old, new, 1)
+
+          old = """  countries.forEach((cities, country) => {\n    currentPalette = paletteForCountry(country);\n    if (multiCountry) {\n      ensure(49);"""
+          new = """  countries.forEach((cities, country) => {\n    currentPalette = paletteForCountry(country);\n\n    // If the final country contains only the final city, break before the country heading\n    // rather than leaving that heading orphaned on the previous page.\n    if (multiCountry && cities.size === 1 && renderedCities === totalCities - 1) {\n      const onlyCategories = cities.values().next().value;\n      if (onlyCategories) {\n        let estimatedCityHeight = 36;\n        onlyCategories.forEach((items) => { estimatedCityHeight += 23 + (items.length * 18); });\n        const countryHeadingHeight = 33;\n        const freshPageY = PAGE_H - 88;\n        const fitsWithClosingOnFreshPage = freshPageY - countryHeadingHeight - estimatedCityHeight - CLOSING_BLOCK_HEIGHT >= 72;\n        const wouldCreateClosingOnlyPage = y - countryHeadingHeight - estimatedCityHeight - CLOSING_BLOCK_HEIGHT < 72;\n        if (fitsWithClosingOnFreshPage && wouldCreateClosingOnlyPage && y < freshPageY) {\n          addFooter(page, pages.length);\n          addPage();\n        }\n      }\n    }\n\n    if (multiCountry) {\n      ensure(49);"""
+          assert old in s
+          s = s.replace(old, new, 1)
+
+          old = """    cities.forEach((categories, city) => {\n      ensure(50);\n      pdfHandwrittenText(page, titleize(city), LEFT, y, 17.8, FOUNTAIN_INK_BLUE, COUNTRY_CITY_FONT, '400');"""
+          new = """    cities.forEach((categories, city) => {\n      let estimatedCityHeight = 36;\n      categories.forEach((items) => { estimatedCityHeight += 23 + (items.length * 18); });\n      const isLastCity = renderedCities === totalCities - 1;\n      const freshPageY = PAGE_H - 88;\n      const fitsWithClosingOnFreshPage = freshPageY - estimatedCityHeight - CLOSING_BLOCK_HEIGHT >= 72;\n      const wouldCreateClosingOnlyPage = y - estimatedCityHeight - CLOSING_BLOCK_HEIGHT < 72;\n\n      // Closing-page rule: when the signature/stamp block would otherwise need its own page,\n      // move the final city to that page first. Prefer two airier content pages to a closing-only page.\n      if (isLastCity && fitsWithClosingOnFreshPage && wouldCreateClosingOnlyPage && y < freshPageY) {\n        addFooter(page, pages.length);\n        addPage();\n      }\n\n      ensure(50);\n      pdfHandwrittenText(page, titleize(city), LEFT, y, 17.8, FOUNTAIN_INK_BLUE, COUNTRY_CITY_FONT, '400');"""
+          assert old in s
+          s = s.replace(old, new, 1)
+
+          old = """          pdfText(page, 'Google Maps ->', RIGHT - 79, y, 8.3, 'F2', currentPalette.primary);\n          page.links.push({ x: RIGHT - 82, y: y - 3, width: 85, height: 13, url: googleMapsUrl(entry) });"""
+          new = """          pdfText(page, 'Google Maps ->', GOOGLE_MAPS_X, y, 8.3, 'F2', currentPalette.primary);\n          page.links.push({ x: GOOGLE_MAPS_X - 3, y: y - 3, width: 85, height: 13, url: googleMapsUrl(entry) });"""
+          assert old in s
+          s = s.replace(old, new, 1)
+
+          old = """      y -= 8;\n    });\n  });\n\n  ensure(154);"""
+          new = """      y -= 8;\n      renderedCities += 1;\n    });\n  });\n\n  ensure(CLOSING_BLOCK_HEIGHT);"""
+          assert old in s
+          s = s.replace(old, new, 1)
+
+          p.write_text(s)
+          PY
+      - name: Remove one-off workflow and commit result
+        run: |
+          rm .github/workflows/apply-pdf-count-pagination-fix.yml
+          git config user.name "cedricperformanceth-glitch"
+          git config user.email "cedric.performance.th@gmail.com"
+          git add src/features/summary/atlas-export-pdf.ts .github/workflows/apply-pdf-count-pagination-fix.yml
+          git commit -m "Align PDF saved count and keep a city with closing page"
+          git push origin HEAD:fix/pdf-count-axis-city-pagination
