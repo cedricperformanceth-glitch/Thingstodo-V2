@@ -253,7 +253,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const countries = groupedEntries(entries);
   const multiCountry = countries.size > 1;
   const [coverImage, coverSummaryImage, signatureImage, stampImage] = await Promise.all([
-    loadAssetAsJpeg('/assets/PDF/couverture%202.webp', 1190, 1684, 'cover'),
+    loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),
     loadAssetAsJpeg('/assets/shared/pdf/atlas-cover-summary-card.svg', 1240, 500, 'contain'),
     loadAssetAsJpeg('/assets/PDF/signature.webp', 720, 260, 'contain', SHEET_PAPER),
     loadAssetAsJpeg('/assets/PDF/tampon.webp', 620, 620, 'contain', SHEET_PAPER),
@@ -395,8 +395,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
     pdfFill(page, SHEET_LEFT, 27, SHEET_WIDTH, PAGE_H - 54, SHEET_PAPER);
     pdfStrokeRect(page, SHEET_LEFT, 27, SHEET_WIDTH, PAGE_H - 54, [0.82, 0.79, 0.72], 0.38);
-    pdfText(page, 'THINGS TO DO ATLAS', LEFT, PAGE_H - 43, 8.2, 'F2', ATLAS_GREEN);
-    pdfDivider(page, LEFT, RIGHT, PAGE_H - 57, currentPalette);
     y = PAGE_H - 88;
   };
 
@@ -473,10 +471,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   pdfLine(page, LEFT, y - 7, LEFT + 82, y - 7, [0.12, 0.12, 0.11], 0.42);
   pdfText(page, formatExportDate(), LEFT, y - 24, 8.2, 'F1', MUTED);
   if (signatureImage) {
-    page.commands.push(`q 112 0 0 40 ${(LEFT + 62).toFixed(2)} ${(y - 64).toFixed(2)} cm /ImSignature Do Q`);
+    page.commands.push(`q 150 0 0 54 ${(LEFT + 43).toFixed(2)} ${(y - 71).toFixed(2)} cm /ImSignature Do Q`);
   }
   if (stampImage) {
-    page.commands.push(`q 78 0 0 78 ${(RIGHT - 86).toFixed(2)} ${(y - 49).toFixed(2)} cm /ImStamp Do Q`);
+    page.commands.push(`q 102 0 0 102 ${(RIGHT - 98).toFixed(2)} ${(y - 61).toFixed(2)} cm /ImStamp Do Q`);
   }
   addFooter(page, pages.length);
 
