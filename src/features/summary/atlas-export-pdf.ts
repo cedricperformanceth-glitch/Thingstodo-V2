@@ -19,6 +19,10 @@ const ATLAS_GREEN: [number, number, number] = [0.19, 0.33, 0.27];
 const HANDWRITING_FONT = 'Caveat';
 const COUNTRY_CITY_FONT = 'Alex Brush';
 const SCHOOLBELL_FONT = 'Schoolbell';
+const LOCAL_PDF_FONT_SOURCES: Partial<Record<string, string>> = {
+  [COUNTRY_CITY_FONT]: '/assets/fonts/AlexBrush-Regular.ttf',
+};
+const localPdfFontLoads = new Map<string, Promise<boolean>>();
 export const PDF_ANNOTATION_FONTS = ['Schoolbell', 'Indie Flower'] as const;
 
 const DEFAULT_PALETTE: PdfPalette = {
@@ -177,10 +181,32 @@ const loadAssetAsJpeg = async (
 
 const ensureFontReady = async (fontFamily: string, weight: '400' | '600') => {
   if (typeof document === 'undefined' || !document.fonts) return false;
+  const descriptor = `${weight} 48px "${fontFamily}"`;
+  const localSource = LOCAL_PDF_FONT_SOURCES[fontFamily];
+
   try {
-    await document.fonts.load(`${weight} 48px "${fontFamily}"`);
+    if (localSource && typeof FontFace !== 'undefined') {
+      const cacheKey = `${fontFamily}:${weight}`;
+      let pendingLoad = localPdfFontLoads.get(cacheKey);
+      if (!pendingLoad) {
+        pendingLoad = (async () => {
+          const face = new FontFace(fontFamily, `url("${localSource}")`, {
+            style: 'normal',
+            weight,
+          });
+          const loadedFace = await face.load();
+          document.fonts.add(loadedFace);
+          await document.fonts.load(descriptor);
+          return document.fonts.check(descriptor);
+        })();
+        localPdfFontLoads.set(cacheKey, pendingLoad);
+      }
+      return await pendingLoad;
+    }
+
+    await document.fonts.load(descriptor);
     await document.fonts.ready;
-    return document.fonts.check(`${weight} 48px "${fontFamily}"`);
+    return document.fonts.check(descriptor);
   } catch {
     return false;
   }
