@@ -3,7 +3,7 @@ type ImageItem = { id:string; title:string; src:string; note?:string; tags?:stri
 type ImageStudy = { id:string; title:string; src:string };
 
 // Working image mounted by ChatGPT/GitHub. Keep null between review sessions.
-const currentStudy: ImageStudy | null = null;
+const currentStudy: ImageStudy | null = { id:'traditional-chula-kite-layer-v1', title:'Traditional Chula kite — working PNG layer', src:'/assets/admin/image-workbench/current/traditional-chula-kite-layer-v1.png' };
 // Only explicitly validated reusable images belong here.
 const imageCatalogue: ImageItem[] = [];
 ---
