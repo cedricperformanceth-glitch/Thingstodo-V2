@@ -1,131 +1,212 @@
 ---
 const fonts = [
+  { label: 'Newsreader', family: "'Newsreader', Georgia, serif", status: 'ready', source: 'Site font' },
+  { label: 'Manrope', family: "'Manrope', ui-sans-serif, system-ui, sans-serif", status: 'ready', source: 'Site font' },
+  { label: 'Caveat', family: "'Caveat', 'Segoe Print', cursive", status: 'ready', source: 'Site font' },
+  { label: 'Fraunces', family: "'Fraunces', Georgia, serif", status: 'ready', source: 'Site font' },
+  { label: 'DM Sans', family: "'DM Sans', ui-sans-serif, system-ui, sans-serif", status: 'ready', source: 'Site font' },
+  { label: 'Segoe Print / Bradley Hand', family: "'Segoe Print', 'Bradley Hand', cursive", status: 'ready', source: 'Site/system stack' },
+  { label: 'Schoolbell', family: "'Schoolbell', 'Segoe Print', cursive", status: 'ready', source: 'Site font' },
+  { label: 'Indie Flower', family: "'Indie Flower', 'Segoe Print', cursive", status: 'ready', source: 'Site font' },
+  { label: 'Alex Brush', family: "'Alex Brush', 'Caveat', cursive", status: 'ready', source: 'Atlas font bank · country & city calligraphy' },
+  { label: 'Cookie', family: "'Cookie', cursive", status: 'ready', source: 'Atlas font bank · manuscrit attacher' },
+  { label: 'Dr Sugiyama', family: "'Dr Sugiyama', cursive", status: 'ready', source: 'Atlas font bank · japonnais manuscrit' },
+  { label: 'BlowBrush', family: "'BlowBrush', sans-serif", status: 'ready', source: 'Atlas font bank · brush' },
+  { label: 'Flowmery', family: "'Flowmery', cursive", status: 'restricted', source: 'Atlas font bank · public preview unavailable' },
+  { label: 'Embolism Spark', family: "'Embolism Spark', cursive", status: 'restricted', source: 'Atlas font bank · public preview unavailable' },
+];
+
+const usages = [
   {
-    label: 'Alex Brush',
-    annotation: 'country & city calligraphy',
-    family: "'Alex Brush', cursive",
-    status: 'ready',
-    note: 'Local Atlas font · ready to preview',
+    id: 'activity-main-title',
+    area: 'ACTIVITY',
+    label: 'Main title',
+    current: 'Newsreader',
+    kind: 'activity-main-title',
+    sample: 'Kuang Si Waterfall',
+    detail: 'Hero H1 on monetisable activity field cards',
   },
   {
-    label: 'Dr Sugiyama',
-    annotation: 'japonnais manuscrit',
-    family: "'Dr Sugiyama', cursive",
-    status: 'ready',
-    note: 'Google Fonts reference · ready to preview',
+    id: 'activity-section-title',
+    area: 'ACTIVITY',
+    label: 'Section title',
+    current: 'Newsreader',
+    kind: 'activity-section-title',
+    sample: 'The road to the falls',
+    detail: 'Editorial chapter headings inside the activity page',
   },
   {
-    label: 'Cookie',
-    annotation: 'manuscrit attacher',
-    family: "'Cookie', cursive",
-    status: 'ready',
-    note: 'Google Fonts reference · ready to preview',
+    id: 'activity-editorial',
+    area: 'ACTIVITY',
+    label: 'Editorial text',
+    current: 'Newsreader',
+    kind: 'activity-editorial',
+    sample: 'The road leaves Luang Prabang and gradually gives way to forest, villages and the cooler air around the falls.',
+    detail: 'Long-form story and descriptive copy',
   },
   {
-    label: 'BlowBrush',
-    annotation: 'brush',
-    family: "'BlowBrush', sans-serif",
-    status: 'ready',
-    note: 'Local Atlas font · ready to preview',
+    id: 'activity-practical',
+    area: 'ACTIVITY',
+    label: 'Practical / Quick Read',
+    current: 'Manrope',
+    kind: 'activity-practical',
+    sample: 'TIME · HALF DAY',
+    detail: 'Quick Read values, labels and practical information',
   },
   {
-    label: 'Flowmery',
-    annotation: 'Flowmery',
-    family: "'Flowmery', cursive",
-    status: 'restricted',
-    note: 'Commercial/web use allowed · font file is not published in the public repository',
+    id: 'activity-annotation',
+    area: 'ACTIVITY',
+    label: 'Handwritten annotations',
+    current: 'Caveat',
+    kind: 'activity-annotation',
+    sample: 'Go early — before the crowds',
+    detail: 'Field notes, photo notes, stamps and handwritten remarks',
   },
   {
-    label: 'Embolism Spark',
-    annotation: 'Embolism Spark',
-    family: "'Embolism Spark', cursive",
-    status: 'restricted',
-    note: 'Commercial/web use allowed · font file is not published in the public repository',
+    id: 'spa-card-title',
+    area: 'SPA',
+    label: 'Card title',
+    current: 'Cookie',
+    kind: 'spa-card-title',
+    sample: 'Kuang Si Waterfall',
+    detail: 'Title of activity, restaurant, café and stay cards in the SPA',
+  },
+  {
+    id: 'spa-card-description',
+    area: 'SPA',
+    label: 'Card description',
+    current: 'Segoe Print / Bradley Hand',
+    kind: 'spa-card-description',
+    sample: 'Turquoise pools, forest paths and an easy half-day escape from Luang Prabang.',
+    detail: 'Short descriptive copy under SPA card titles',
+  },
+  {
+    id: 'spa-category-title',
+    area: 'SPA',
+    label: 'Section / category title',
+    current: 'Fraunces',
+    kind: 'spa-category-title',
+    sample: 'Things to do',
+    detail: 'Travel Desk headings and SPA category names',
+  },
+  {
+    id: 'spa-metadata',
+    area: 'SPA',
+    label: 'Labels / metadata',
+    current: 'DM Sans',
+    kind: 'spa-metadata',
+    sample: '11 PLACES · FIELD NOTE 01',
+    detail: 'Counts, eyebrow labels and small technical information',
+  },
+  {
+    id: 'explore-handwritten',
+    area: 'EXPLORE BOARD',
+    label: 'Handwritten copy',
+    current: 'Segoe Print / Bradley Hand',
+    kind: 'explore-handwritten',
+    sample: 'Kuang Si Waterfall',
+    detail: 'Explore Board titles, notes and chalk-style copy',
   },
 ];
 ---
 
 <div class="font-catalog">
   <header class="font-catalog__heading">
-    <p class="font-catalog__kicker">TYPE LIBRARY · CATALOGUE</p>
-    <h2>Preview the Atlas fonts</h2>
-    <p>Choose a font and compare the same title, short description and button treatment before using it anywhere in the Atlas.</p>
+    <p class="font-catalog__kicker">TYPE LIBRARY · USAGE MAP</p>
+    <h2>Atlas typography previews</h2>
+    <p>Every row mirrors one important typography role in the Atlas. Change any selector to test another font here only — nothing in the public site is modified.</p>
   </header>
 
-  <div class="font-catalog__body">
-    <div class="font-catalog__toolbar">
-      <label class="font-catalog__field" for="font-catalog-select">
-        <span>Font</span>
-        <select id="font-catalog-select">
-          {fonts.map((font) => (
-            <option
-              value={font.label}
-              data-font-family={font.family}
-              data-font-status={font.status}
-              data-font-note={font.note}
-              data-font-annotation={font.annotation}
-            >
-              {font.label} · {font.annotation}
-            </option>
-          ))}
-        </select>
-      </label>
+  <div class="font-catalog__legend" aria-label="Font catalogue legend">
+    <span><i class="font-catalog__dot"></i> Current site font is selected by default</span>
+    <span>Preview only · no style is saved</span>
+  </div>
 
-      <div class="font-catalog__meta" aria-live="polite">
-        <span class="font-catalog__status" id="font-catalog-status">READY</span>
-        <p id="font-catalog-note">Local Atlas font · ready to preview</p>
-      </div>
-    </div>
+  <div class="font-usage-list">
+    {usages.map((usage, index) => (
+      <section
+        class="font-usage"
+        data-font-usage
+        data-current-font={usage.current}
+        style={`--preview-font:${fonts.find((font) => font.label === usage.current)?.family ?? 'inherit'}`}
+      >
+        <div class="font-usage__identity">
+          <span class="font-usage__number">{String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <p>{usage.area}</p>
+            <h3>{usage.label}</h3>
+            <small>{usage.detail}</small>
+          </div>
+        </div>
 
-    <section class="font-preview" id="font-catalog-preview" aria-label="Selected font preview">
-      <div class="font-preview__label">
-        <span>LIVE SAMPLE</span>
-        <strong id="font-catalog-name">Alex Brush</strong>
-      </div>
+        <div class="font-usage__control">
+          <label for={`font-usage-${usage.id}`}>Preview font</label>
+          <select id={`font-usage-${usage.id}`} data-font-select>
+            {fonts.map((font) => (
+              <option
+                value={font.label}
+                data-font-family={font.family}
+                data-font-status={font.status}
+                data-font-source={font.source}
+                selected={font.label === usage.current}
+              >
+                {font.label}{font.status === 'restricted' ? ' · preview unavailable' : ''}
+              </option>
+            ))}
+          </select>
+          <div class="font-usage__selection-meta">
+            <span data-font-state>CURRENT · {usage.current}</span>
+            <small data-font-source>{fonts.find((font) => font.label === usage.current)?.source}</small>
+          </div>
+        </div>
 
-      <div class="font-preview__sheet">
-        <h3>Where the road becomes a story</h3>
-        <p>Follow the river road, stop where the map gets interesting, and keep the places you want to return to.</p>
-        <button type="button">Open field note</button>
-      </div>
-
-      <p class="font-preview__warning" id="font-catalog-warning" hidden>
-        This font is catalogued and licensed for web/commercial use, but its raw file cannot be published in this public GitHub repository. The preview will activate once the font is served from an allowed private or production asset location.
-      </p>
-    </section>
+        <div class="font-usage__preview" data-preview-kind={usage.kind}>
+          <span class="font-usage__preview-label">PREVIEW</span>
+          <div class="font-usage__sample">{usage.sample}</div>
+          <p class="font-usage__warning" data-font-warning hidden>
+            This font is in the Atlas bank, but its font file cannot be published from this public repository. The selector is kept for catalogue completeness; a real preview needs an allowed private/production font source.
+          </p>
+        </div>
+      </section>
+    ))}
   </div>
 </div>
 
 <script>
-  const fontSelect = document.querySelector<HTMLSelectElement>('#font-catalog-select');
-  const fontPreview = document.querySelector<HTMLElement>('#font-catalog-preview');
-  const fontStatus = document.querySelector<HTMLElement>('#font-catalog-status');
-  const fontNote = document.querySelector<HTMLElement>('#font-catalog-note');
-  const fontName = document.querySelector<HTMLElement>('#font-catalog-name');
-  const fontWarning = document.querySelector<HTMLElement>('#font-catalog-warning');
+  const usageRows = Array.from(document.querySelectorAll<HTMLElement>('[data-font-usage]'));
 
-  const updateFontPreview = () => {
-    const option = fontSelect?.selectedOptions[0];
-    if (!option || !fontPreview) return;
+  const updateUsagePreview = (row: HTMLElement) => {
+    const select = row.querySelector<HTMLSelectElement>('[data-font-select]');
+    const option = select?.selectedOptions[0];
+    if (!option) return;
 
+    const currentFont = row.dataset.currentFont || '';
+    const selectedFont = option.value;
     const family = option.dataset.fontFamily || 'inherit';
     const status = option.dataset.fontStatus || 'ready';
-    const note = option.dataset.fontNote || '';
-    const name = option.value;
+    const source = option.dataset.fontSource || '';
+    const state = row.querySelector<HTMLElement>('[data-font-state]');
+    const sourceLabel = row.querySelector<HTMLElement>('[data-font-source]');
+    const warning = row.querySelector<HTMLElement>('[data-font-warning]');
 
-    fontPreview.style.setProperty('--catalog-font', family);
-    fontPreview.dataset.fontStatus = status;
-    if (fontName) fontName.textContent = name;
-    if (fontNote) fontNote.textContent = note;
-    if (fontStatus) {
-      fontStatus.textContent = status === 'ready' ? 'READY' : 'CATALOGUED';
-      fontStatus.classList.toggle('is-restricted', status !== 'ready');
-    }
-    if (fontWarning) fontWarning.hidden = status === 'ready';
+    row.style.setProperty('--preview-font', status === 'ready' ? family : "'Newsreader', Georgia, serif");
+    row.classList.toggle('is-alternative', selectedFont !== currentFont);
+    row.classList.toggle('is-restricted', status !== 'ready');
+
+    if (state) state.textContent = status !== 'ready'
+      ? `CATALOGUED · ${selectedFont}`
+      : selectedFont === currentFont
+        ? `CURRENT · ${selectedFont}`
+        : `PREVIEW · ${selectedFont}`;
+    if (sourceLabel) sourceLabel.textContent = source;
+    if (warning) warning.hidden = status === 'ready';
   };
 
-  fontSelect?.addEventListener('change', updateFontPreview);
-  updateFontPreview();
+  usageRows.forEach((row) => {
+    const select = row.querySelector<HTMLSelectElement>('[data-font-select]');
+    select?.addEventListener('change', () => updateUsagePreview(row));
+    updateUsagePreview(row);
+  });
 </script>
 
 <style>
@@ -140,30 +221,29 @@ const fonts = [
   }
 
   .font-catalog{position:relative;z-index:1;padding:clamp(34px,5vw,74px)}
-  .font-catalog__heading{max-width:720px;padding-bottom:clamp(34px,5vw,58px);border-bottom:1px solid #ded7c9}
+  .font-catalog__heading{max-width:760px;padding-bottom:clamp(32px,4.5vw,52px);border-bottom:1px solid #ded7c9}
   .font-catalog__kicker{margin:0 0 10px;color:#738076;font-size:.67rem;font-weight:700;letter-spacing:.2em}
   .font-catalog__heading h2{margin:0;color:#203329;font-family:'Newsreader',Georgia,serif;font-size:clamp(2.4rem,4.5vw,4.5rem);font-weight:400;letter-spacing:-.045em;line-height:.95}
-  .font-catalog__heading>p:last-child{max-width:620px;margin:18px 0 0;color:#72786f;font-family:'Newsreader',Georgia,serif;font-size:1.05rem;line-height:1.55}
-  .font-catalog__body{padding:clamp(42px,6vw,70px) 0 0}
-  .font-catalog__toolbar{display:grid;grid-template-columns:minmax(260px,1fr) minmax(260px,.9fr);gap:22px;align-items:end}
-  .font-catalog__field{display:grid;gap:9px}
-  .font-catalog__field>span{color:#59665e;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-  .font-catalog__field select{width:100%;min-height:52px;padding:0 14px;border:1px solid #d7d0c2;border-radius:3px;color:#23352c;background:#fffdf8;font:inherit;outline:none;cursor:pointer}
-  .font-catalog__field select:focus{border-color:#6e8a76;box-shadow:0 0 0 3px rgb(49 87 59/.08)}
-  .font-catalog__meta{min-height:52px;padding:11px 14px;border-left:3px solid #31573b;background:#f5f0df}
-  .font-catalog__status{display:block;color:#31573b;font-size:.58rem;font-weight:800;letter-spacing:.13em}
-  .font-catalog__status.is-restricted{color:#9a673e}
-  .font-catalog__meta p{margin:4px 0 0;color:#72786f;font-size:.7rem;line-height:1.4}
-  .font-preview{--catalog-font:'Alex Brush',cursive;margin-top:26px;border:1px solid #d6cebf;background:#f3eee2;box-shadow:0 12px 30px rgb(57 47 31/.06)}
-  .font-preview__label{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 14px;border-bottom:1px solid #dcd4c5;color:#7d8078;font-size:.59rem;font-weight:700;letter-spacing:.12em}
-  .font-preview__label strong{color:#31573b;font-size:.68rem;font-weight:700;letter-spacing:.03em}
-  .font-preview__sheet{padding:clamp(28px,5vw,54px);background:#fffdf8}
-  .font-preview__sheet h3{max-width:760px;margin:0 0 18px;color:#253b30;font-family:var(--catalog-font);font-size:clamp(2.25rem,5vw,4.6rem);font-weight:400;line-height:1.02;letter-spacing:0}
-  .font-preview__sheet p{max-width:700px;margin:0 0 26px;color:#5f685f;font-family:var(--catalog-font);font-size:clamp(1.05rem,1.8vw,1.42rem);font-weight:400;line-height:1.48}
-  .font-preview__sheet button{min-height:46px;padding:10px 19px;border:1px solid #263c30;border-radius:2px;color:#fbf7ed;background:#263c30;font-family:var(--catalog-font);font-size:1.15rem;font-weight:400;line-height:1;cursor:default}
-  .font-preview[data-font-status='restricted'] .font-preview__sheet h3,
-  .font-preview[data-font-status='restricted'] .font-preview__sheet p,
-  .font-preview[data-font-status='restricted'] .font-preview__sheet button{font-family:var(--catalog-font),'Newsreader',Georgia,serif}
-  .font-preview__warning{margin:0;padding:14px 16px;border-top:1px solid #e2d3be;color:#765a3f;background:#fbf1e3;font-size:.72rem;line-height:1.55}
-  @media(max-width:760px){.font-catalog{padding:34px 24px}.font-catalog__toolbar{grid-template-columns:1fr}.font-preview__label{align-items:flex-start;flex-direction:column}.font-preview__sheet{padding:30px 22px}}
+  .font-catalog__heading>p:last-child{max-width:660px;margin:18px 0 0;color:#72786f;font-family:'Newsreader',Georgia,serif;font-size:1.05rem;line-height:1.55}
+  .font-catalog__legend{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding:18px 0;color:#7d827a;font-size:.66rem;letter-spacing:.05em}
+  .font-catalog__legend span{display:flex;align-items:center;gap:7px}.font-catalog__dot{width:6px;height:6px;border-radius:50%;background:#31573b;box-shadow:0 0 0 3px rgb(49 87 59/.08)}
+  .font-usage-list{display:grid;border-top:1px solid #ddd5c7}
+  .font-usage{--preview-font:'Newsreader',Georgia,serif;display:grid;grid-template-columns:minmax(190px,.72fr) minmax(220px,.76fr) minmax(300px,1.52fr);gap:clamp(20px,3vw,38px);align-items:center;padding:clamp(25px,3.5vw,38px) 0;border-bottom:1px solid #e2dbce;transition:background .16s ease}
+  .font-usage.is-alternative{background:linear-gradient(90deg,transparent,rgb(49 87 59/.022) 18%,rgb(49 87 59/.022) 82%,transparent)}
+  .font-usage__identity{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start}.font-usage__number{padding-top:3px;color:#aaa398;font-size:.59rem;font-weight:700;letter-spacing:.12em}.font-usage__identity p{margin:0 0 5px;color:#b76645;font-size:.57rem;font-weight:800;letter-spacing:.14em}.font-usage__identity h3{margin:0;color:#263a30;font-family:'Newsreader',Georgia,serif;font-size:1.18rem;font-weight:600;line-height:1.08}.font-usage__identity small{display:block;margin-top:8px;color:#888b83;font-size:.67rem;line-height:1.45}
+  .font-usage__control{display:grid;gap:7px}.font-usage__control>label{color:#59665e;font-size:.61rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.font-usage__control select{width:100%;min-height:43px;padding:0 11px;border:1px solid #d5cdbf;border-radius:2px;color:#26372e;background:#fffdf8;font:500 .76rem/1 'Manrope',ui-sans-serif,system-ui,sans-serif;outline:none;cursor:pointer}.font-usage__control select:focus{border-color:#6e8a76;box-shadow:0 0 0 3px rgb(49 87 59/.08)}.font-usage__selection-meta{display:grid;gap:2px;min-height:28px}.font-usage__selection-meta span{color:#31573b;font-size:.55rem;font-weight:800;letter-spacing:.1em}.font-usage.is-alternative .font-usage__selection-meta span{color:#b76645}.font-usage.is-restricted .font-usage__selection-meta span{color:#98633e}.font-usage__selection-meta small{color:#929188;font-size:.58rem;line-height:1.3}
+  .font-usage__preview{position:relative;min-width:0;padding:24px 26px;border:1px solid #ded6c8;background:#f8f4ea;box-shadow:3px 4px 0 rgb(49 87 59/.035)}.font-usage__preview-label{position:absolute;top:8px;right:10px;color:#aaa398;font:700 .48rem/1 'DM Sans',ui-sans-serif,sans-serif;letter-spacing:.13em}.font-usage__sample{overflow-wrap:anywhere;color:#203c31;font-family:var(--preview-font)}
+  .font-usage__preview[data-preview-kind='activity-main-title'] .font-usage__sample{max-width:9ch;font-size:clamp(3.15rem,5.4vw,5.6rem);font-weight:600;line-height:.84;letter-spacing:-.055em}
+  .font-usage__preview[data-preview-kind='activity-section-title'] .font-usage__sample{max-width:15ch;font-size:clamp(2rem,3.1vw,3.2rem);font-weight:600;line-height:.98;letter-spacing:-.035em}
+  .font-usage__preview[data-preview-kind='activity-editorial'] .font-usage__sample{max-width:38rem;color:#444c47;font-size:.96rem;font-weight:400;line-height:1.78}
+  .font-usage__preview[data-preview-kind='activity-practical'] .font-usage__sample{font-size:clamp(1.65rem,2.8vw,2.5rem);font-weight:400;line-height:.98;letter-spacing:-.035em;text-transform:uppercase}
+  .font-usage__preview[data-preview-kind='activity-annotation'] .font-usage__sample{color:#315545;font-size:1.15rem;font-weight:600;line-height:1.08;transform:rotate(-1deg);transform-origin:left center}
+  .font-usage__preview[data-preview-kind='spa-card-title'] .font-usage__sample{font-size:calc(clamp(1.28rem,1.8vw,1.62rem) + 1px);font-weight:400;line-height:1.03;letter-spacing:0}
+  .font-usage__preview[data-preview-kind='spa-card-description'] .font-usage__sample{max-width:31rem;color:#5b625c;font-size:.78rem;font-weight:400;line-height:1.45}
+  .font-usage__preview[data-preview-kind='spa-category-title'] .font-usage__sample{font-size:clamp(1.35rem,2.25vw,1.82rem);font-weight:500;line-height:1.05;letter-spacing:-.045em}
+  .font-usage__preview[data-preview-kind='spa-metadata'] .font-usage__sample{color:#667168;font-size:.62rem;font-weight:700;line-height:1.3;letter-spacing:.12em;text-transform:uppercase}
+  .font-usage__preview[data-preview-kind='explore-handwritten'] .font-usage__sample{font-size:clamp(1.65rem,3vw,2.4rem);font-weight:500;line-height:1.05;letter-spacing:-.045em;transform:rotate(-.25deg);transform-origin:left center}
+  .font-usage__warning{margin:15px 0 0;padding-top:12px;border-top:1px solid #e5d6c2;color:#7e6044;font:500 .65rem/1.5 'Manrope',ui-sans-serif,system-ui,sans-serif}
+  @media(max-width:980px){.font-usage{grid-template-columns:minmax(180px,.85fr) minmax(220px,1fr);align-items:start}.font-usage__preview{grid-column:1/-1}}
+  @media(max-width:640px){.font-catalog{padding:34px 22px}.font-catalog__legend{display:grid}.font-usage{grid-template-columns:1fr;gap:18px}.font-usage__preview{grid-column:auto;padding:24px 20px}.font-usage__identity{grid-template-columns:26px minmax(0,1fr)}.font-usage__preview[data-preview-kind='activity-main-title'] .font-usage__sample{font-size:clamp(3rem,15vw,4.6rem)}}
 </style>
