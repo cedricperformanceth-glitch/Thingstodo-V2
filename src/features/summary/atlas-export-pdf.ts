@@ -9,7 +9,10 @@ interface HandwrittenImage extends PdfImage { name: string; displayWidth: number
 
 type PdfFont = 'F1' | 'F2' | 'F3';
 
-const PAPER: [number, number, number] = [0.98, 0.965, 0.925];
+// Mirrors the site's --paper token (#fbf7ed): the binder / desk background around the sheet.
+const PAPER: [number, number, number] = [0.984, 0.969, 0.929];
+// Mirrors the site's warm white field-card sheet (#fffdf8): the actual Atlas paper.
+const SHEET_PAPER: [number, number, number] = [1, 0.992, 0.973];
 const INK: [number, number, number] = [0.16, 0.18, 0.17];
 const MUTED: [number, number, number] = [0.43, 0.43, 0.39];
 const ATLAS_GREEN: [number, number, number] = [0.19, 0.33, 0.27];
@@ -209,7 +212,7 @@ const renderHandwrittenImage = async (
   canvas.height = height;
   const context = canvas.getContext('2d');
   if (!context) return null;
-  context.fillStyle = rgbCss(PAPER);
+  context.fillStyle = rgbCss(SHEET_PAPER);
   context.fillRect(0, 0, width, height);
   context.font = `600 ${size * scale}px "${HANDWRITING_FONT}", cursive`;
   context.fillStyle = rgbCss(color);
@@ -240,7 +243,7 @@ const loadStampImage = async (): Promise<PdfImage | null> => {
     context.drawImage(image, 0, 0, size, size);
     const source = context.getImageData(0, 0, size, size);
     const data = source.data;
-    const paper = [250, 246, 236];
+    const paper = [255, 253, 248];
     const ink = [49, 85, 69];
 
     for (let index = 0; index < data.length; index += 4) {
@@ -393,6 +396,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     page = { commands: [], links: [] };
     pages.push(page);
     pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
+    pdfFill(page, SHEET_LEFT, 27, SHEET_WIDTH, PAGE_H - 54, SHEET_PAPER);
     pdfStrokeRect(page, SHEET_LEFT, 27, SHEET_WIDTH, PAGE_H - 54, [0.82, 0.79, 0.72], 0.38);
     if (binderImage) page.commands.push('q 60 0 0 610 -5 116 cm /ImBinder Do Q');
     pdfText(page, 'THINGS TO DO ATLAS', LEFT, PAGE_H - 43, 8.2, 'F2', ATLAS_GREEN);
