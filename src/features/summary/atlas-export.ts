@@ -1,6 +1,7 @@
 import { MY_ATLAS_EVENT, MY_ATLAS_STORAGE_KEY, readTripStore } from '../trip/store';
 import { createGoogleSheet } from './atlas-export-google';
 import { buildPdf } from './atlas-export-pdf';
+import { buildPrintablePdf } from './atlas-export-print-pdf';
 import { atlasBaseName, PDF_MIME, XLSX_MIME, type ExportKind, type GeneratedExport } from './atlas-export-shared';
 import { buildXlsx } from './atlas-export-xlsx';
 
@@ -39,6 +40,19 @@ const exportDialogMarkup = `
           <p class="atlas-export__description">A polished travel document organised by country, city and category, with clickable Google Maps links.</p>
         </div>
         <button class="atlas-export__card-action" type="button" data-atlas-export-kind="pdf"><span>Create PDF</span><span aria-hidden="true">↓</span></button>
+      </article>
+
+      <article class="atlas-export__card atlas-export__card--print">
+        <span class="atlas-export__marker" aria-hidden="true"></span>
+        <div class="atlas-export__card-copy">
+          <div class="atlas-export__format-line">
+            <h3 class="atlas-export__format">Printable PDF</h3>
+            <span class="atlas-export__badge">ink-friendly</span>
+          </div>
+          <p class="atlas-export__format-meta">A4 · Black &amp; white · Compact</p>
+          <p class="atlas-export__description">A dense field copy without cover, contents or maps. Cities follow the order in which you built your Atlas.</p>
+        </div>
+        <button class="atlas-export__card-action" type="button" data-atlas-export-kind="print-pdf"><span>Create print PDF</span><span aria-hidden="true">↓</span></button>
       </article>
 
       <article class="atlas-export__card">
@@ -116,6 +130,9 @@ const makeExport = async (kind: ExportKind): Promise<GeneratedExport> => {
   const entries = readTripStore().entries;
   const base = atlasBaseName(entries);
   if (kind === 'pdf') return { kind, blob: await buildPdf(entries), fileName: `${base}.pdf`, mimeType: PDF_MIME };
+  if (kind === 'print-pdf') {
+    return { kind, blob: await buildPrintablePdf(entries), fileName: `${base}-Print.pdf`, mimeType: PDF_MIME };
+  }
   return { kind, blob: buildXlsx(entries), fileName: `${base}.xlsx`, mimeType: XLSX_MIME };
 };
 
@@ -198,8 +215,16 @@ const initAtlasExport = () => {
   const prepareFile = async (kind: ExportKind) => {
     if (!readTripStore().entries.length) return;
     revokeObjectUrl();
-    progressTitle.textContent = kind === 'pdf' ? 'Building your travel PDF…' : 'Building your Excel file…';
-    progressCopy.textContent = 'Organising your saved places, links and field notes.';
+    if (kind === 'pdf') {
+      progressTitle.textContent = 'Building your travel PDF…';
+      progressCopy.textContent = 'Organising your saved places, links and field notes.';
+    } else if (kind === 'print-pdf') {
+      progressTitle.textContent = 'Building your printable Atlas…';
+      progressCopy.textContent = 'Compressing your saved places into a black-and-white A4 field copy.';
+    } else {
+      progressTitle.textContent = 'Building your Excel file…';
+      progressCopy.textContent = 'Organising your saved places, links and field notes.';
+    }
     showView(progressView);
     await nextFrame();
     try {
@@ -209,7 +234,11 @@ const initAtlasExport = () => {
       downloadLink.href = objectUrl;
       downloadLink.download = exported.fileName;
       fileNameLabel.textContent = exported.fileName;
-      fileKindLabel.textContent = kind === 'pdf' ? 'Travel PDF' : 'Excel spreadsheet';
+      fileKindLabel.textContent = kind === 'pdf'
+        ? 'Travel PDF'
+        : kind === 'print-pdf'
+          ? 'Printable PDF'
+          : 'Excel spreadsheet';
       const shareData = { files: [generatedFile], title: 'My Atlas', text: 'My travel Atlas from Things To Do Atlas.' };
       const canShare = typeof navigator.share === 'function' && (typeof navigator.canShare !== 'function' || navigator.canShare(shareData));
       shareButton.disabled = !canShare;
@@ -247,7 +276,7 @@ const initAtlasExport = () => {
   formatButtons.forEach((button) => button.addEventListener('click', () => {
     const kind = button.dataset.atlasExportKind;
     if (kind === 'google') void prepareGoogleSheet();
-    else if (kind === 'pdf' || kind === 'xlsx') void prepareFile(kind);
+    else if (kind === 'pdf' || kind === 'print-pdf' || kind === 'xlsx') void prepareFile(kind);
   }));
   shareButton.addEventListener('click', async () => {
     if (!generatedFile || typeof navigator.share !== 'function') return;
