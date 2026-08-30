@@ -1,16 +1,16 @@
 import type { TripEntry } from '../trip/store';
 import {
-  ATLAS_COVER_CONTENTS_LAYOUT,
-  formatAtlasSavedPlaces,
-  getAtlasCoverContentsDimensions,
-} from './atlas-cover-contents-svg';
+  ATLAS_COVER_CONTENTS_METRICS,
+  createAtlasCoverContentsSvg,
+} from '../trip/pdf/atlas-cover-contents-slip';
 import { categoryLabel, googleMapsUrl, groupedEntries, PDF_MIME, titleize } from './atlas-export-shared';
 
-interface PdfLink { x: number; y: number; width: number; height: number; url: string; }
+interface PdfLink { x: number; y: number; width: number; height: number; url?: string; targetPageIndex?: number; }
 interface PdfPage { commands: string[]; links: PdfLink[]; }
 interface PdfPalette { primary: [number, number, number]; secondary: [number, number, number]; }
 interface PdfImage { hex: string; width: number; height: number; }
 interface HandwrittenImage extends PdfImage { name: string; displayWidth: number; displayHeight: number; }
+interface PdfSvgPlacement { x: number; y: number; width: number; height: number; pageWidth: number; pageHeight: number; }
 
 type PdfFont = 'F1' | 'F2' | 'F3';
 
@@ -93,27 +93,6 @@ const pdfStrokeRect = (
   page.commands.push(`[] 0 d ${color.join(' ')} RG ${lineWidth} w ${x} ${y} ${width} ${height} re S`);
 };
 
-const pdfCircle = (
-  page: PdfPage,
-  cx: number,
-  cy: number,
-  radius: number,
-  color: [number, number, number],
-  lineWidth = 1,
-  dashed = false,
-) => {
-  const k = radius * 0.5522847498;
-  const dash = dashed ? '[2.2 2.8] 0 d' : '[] 0 d';
-  page.commands.push(
-    `${dash} ${color.join(' ')} RG ${lineWidth} w `
-    + `${(cx + radius).toFixed(2)} ${cy.toFixed(2)} m `
-    + `${(cx + radius).toFixed(2)} ${(cy + k).toFixed(2)} ${(cx + k).toFixed(2)} ${(cy + radius).toFixed(2)} ${cx.toFixed(2)} ${(cy + radius).toFixed(2)} c `
-    + `${(cx - k).toFixed(2)} ${(cy + radius).toFixed(2)} ${(cx - radius).toFixed(2)} ${(cy + k).toFixed(2)} ${(cx - radius).toFixed(2)} ${cy.toFixed(2)} c `
-    + `${(cx - radius).toFixed(2)} ${(cy - k).toFixed(2)} ${(cx - k).toFixed(2)} ${(cy - radius).toFixed(2)} ${cx.toFixed(2)} ${(cy - radius).toFixed(2)} c `
-    + `${(cx + k).toFixed(2)} ${(cy - radius).toFixed(2)} ${(cx + radius).toFixed(2)} ${(cy - k).toFixed(2)} ${(cx + radius).toFixed(2)} ${cy.toFixed(2)} c S`,
-  );
-};
-
 const pdfDivider = (page: PdfPage, x1: number, x2: number, y: number, palette: PdfPalette) => {
   const shortEnd = Math.min(x1 + 92, x2);
   pdfLine(page, x1, y, shortEnd, y, palette.secondary, 0.62);
@@ -189,6 +168,53 @@ const loadAssetAsJpeg = async (
     return canvasToJpegImage(canvas, src.endsWith('.svg') ? 0.96 : 0.92);
   } catch {
     return null;
+  }
+};
+
+const loadCoverWithSvgAsJpeg = async (
+  coverSrc: string,
+  svgMarkup: string,
+  placement: PdfSvgPlacement,
+  width: number,
+  height: number,
+): Promise<PdfImage | null> => {
+  if (typeof document === 'undefined' || typeof Image === 'undefined') return null;
+
+  let objectUrl = '';
+  try {
+    const cover = await loadImageElement(coverSrc);
+    const overlayBlob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+    objectUrl = URL.createObjectURL(overlayBlob);
+    const overlay = await loadImageElement(objectUrl);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+
+    const coverScale = Math.max(width / cover.naturalWidth, height / cover.naturalHeight);
+    const coverWidth = cover.naturalWidth * coverScale;
+    const coverHeight = cover.naturalHeight * coverScale;
+    context.drawImage(cover, (width - coverWidth) / 2, (height - coverHeight) / 2, coverWidth, coverHeight);
+
+    const scaleX = width / placement.pageWidth;
+    const scaleY = height / placement.pageHeight;
+    const overlayX = placement.x * scaleX;
+    const overlayY = (placement.pageHeight - placement.y - placement.height) * scaleY;
+    context.drawImage(
+      overlay,
+      overlayX,
+      overlayY,
+      placement.width * scaleX,
+      placement.height * scaleY,
+    );
+
+    return canvasToJpegImage(canvas, 0.94);
+  } catch {
+    return loadAssetAsJpeg(coverSrc, width, height, 'cover');
+  } finally {
+    if (objectUrl) URL.revokeObjectURL(objectUrl);
   }
 };
 
@@ -299,16 +325,35 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     cities.forEach((categories) => categories.forEach((items) => { savedPlaces += items.length; }));
     return { country, savedPlaces };
   });
-  const coverSummaryDimensions = getAtlasCoverContentsDimensions(coverSummaryRows.length);
+  const coverSummarySvgWidth = ATLAS_COVER_CONTENTS_METRICS.width;
+  const coverSummarySvgHeight = ATLAS_COVER_CONTENTS_METRICS.headerHeight
+    + (coverSummaryRows.length * ATLAS_COVER_CONTENTS_METRICS.rowHeight)
+    + ATLAS_COVER_CONTENTS_METRICS.bottomPadding;
   const COVER_SUMMARY_WIDTH = 318;
-  const COVER_SUMMARY_SCALE = COVER_SUMMARY_WIDTH / coverSummaryDimensions.width;
-  const COVER_SUMMARY_HEIGHT = coverSummaryDimensions.height * COVER_SUMMARY_SCALE;
+  const COVER_SUMMARY_SCALE = COVER_SUMMARY_WIDTH / coverSummarySvgWidth;
+  const COVER_SUMMARY_HEIGHT = coverSummarySvgHeight * COVER_SUMMARY_SCALE;
   const COVER_SUMMARY_X = (PAGE_W - COVER_SUMMARY_WIDTH) / 2;
   const COVER_SUMMARY_TOP = 418;
   const COVER_SUMMARY_Y = Math.max(24, COVER_SUMMARY_TOP - COVER_SUMMARY_HEIGHT);
+  const coverSummarySvg = createAtlasCoverContentsSvg(
+    coverSummaryRows.map(({ country, savedPlaces }) => ({ country: titleize(country), savedPlaces })),
+  );
 
   const [coverImage, signatureImage, stampImage] = await Promise.all([
-    loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),
+    loadCoverWithSvgAsJpeg(
+      '/assets/PDF/couverture.webp',
+      coverSummarySvg,
+      {
+        x: COVER_SUMMARY_X,
+        y: COVER_SUMMARY_Y,
+        width: COVER_SUMMARY_WIDTH,
+        height: COVER_SUMMARY_HEIGHT,
+        pageWidth: PAGE_W,
+        pageHeight: PAGE_H,
+      },
+      1190,
+      1684,
+    ),
     loadAssetAsJpeg('/assets/PDF/signature.webp', 720, 260, 'contain', SHEET_PAPER),
     loadAssetAsJpeg('/assets/PDF/tampon.webp', 620, 620, 'contain', SHEET_PAPER),
   ]);
@@ -342,7 +387,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const closingLineOne = 'Thanks for letting Things To Do Atlas travel with you.';
   const closingLineTwo = 'Keep exploring, stay curious, and have a beautiful journey.';
   await addHandwritingAsset(headingLabel, 27.5, FOUNTAIN_INK_BLUE, COUNTRY_CITY_FONT, '400');
-  await addHandwritingAsset('Contents', 17.5, titleColor, COUNTRY_CITY_FONT, '400');
   await addHandwritingAsset(journeyLabel, 10.4, MUTED, SCHOOLBELL_FONT, '400');
   await addHandwritingAsset(journeyCount, 10.4, MUTED, SCHOOLBELL_FONT, '400');
   await addHandwritingAsset(closingLineOne, 10.8, titleColor, SCHOOLBELL_FONT, '400');
@@ -395,12 +439,12 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     );
   };
 
-
   let page!: PdfPage;
   let y = PAGE_H - 112;
   let currentPalette = DEFAULT_PALETTE;
   let currentCountry = uniqueCountries.length === 1 ? uniqueCountries[0] : '';
   let renderedCountries = 0;
+  const countryPageIndexes = new Map<string, number>();
 
   const addCoverPage = () => {
     page = { commands: [], links: [] };
@@ -411,87 +455,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
       pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
       pdfText(page, 'MY ATLAS', 62, PAGE_H - 104, 28, 'F2', ATLAS_GREEN);
     }
-
-    const layout = ATLAS_COVER_CONTENTS_LAYOUT;
-    const sx = (value: number) => COVER_SUMMARY_X + (value * COVER_SUMMARY_SCALE);
-    const sy = (value: number) => COVER_SUMMARY_Y + COVER_SUMMARY_HEIGHT - (value * COVER_SUMMARY_SCALE);
-    const paperRightSvg = layout.paperLeft + layout.paperWidth;
-    const paperBottomSvg = layout.paperTop + coverSummaryDimensions.paperHeight;
-    const paperLeft = layout.paperLeft;
-    const paperTop = layout.paperTop;
-
-    // Slightly organic archival-paper outline. The page coordinates grow from the fixed top;
-    // only paperBottomSvg changes when countries are added.
-    page.commands.push(
-      `0.957 0.933 0.875 rg 0.79 0.74 0.66 RG 0.62 w `
-      + `${sx(paperLeft + 4).toFixed(2)} ${sy(paperTop + 2).toFixed(2)} m `
-      + `${sx(paperLeft + 132).toFixed(2)} ${sy(paperTop - 5).toFixed(2)} ${sx(paperRightSvg - 134).toFixed(2)} ${sy(paperTop - 4).toFixed(2)} ${sx(paperRightSvg - 7).toFixed(2)} ${sy(paperTop + 3).toFixed(2)} c `
-      + `${sx(paperRightSvg + 1).toFixed(2)} ${sy(paperBottomSvg - 9).toFixed(2)} l `
-      + `${sx(paperRightSvg - 84).toFixed(2)} ${sy(paperBottomSvg - 1).toFixed(2)} ${sx(paperLeft + 112).toFixed(2)} ${sy(paperBottomSvg + 2).toFixed(2)} ${sx(paperLeft).toFixed(2)} ${sy(paperBottomSvg - 7).toFixed(2)} c h B`,
-    );
-
-    // Restrained paper grain: a few near-paper rules instead of expensive PDF filters.
-    pdfLine(page, sx(39), sy(paperTop + 18), sx(579), sy(paperTop + 20), [0.91, 0.87, 0.79], 0.28);
-    pdfLine(page, sx(31), sy(paperBottomSvg - 18), sx(586), sy(paperBottomSvg - 16), [0.89, 0.85, 0.77], 0.24);
-
-    // Fixed masking tape. Its geometry never depends on the number of countries.
-    const tapeLeft = (layout.width - layout.tapeWidth) / 2;
-    page.commands.push(
-      `0.86 0.79 0.63 rg 0.75 0.68 0.52 RG 0.34 w `
-      + `${sx(tapeLeft + 3).toFixed(2)} ${sy(layout.tapeTop).toFixed(2)} m `
-      + `${sx(tapeLeft + layout.tapeWidth).toFixed(2)} ${sy(layout.tapeTop + 3).toFixed(2)} l `
-      + `${sx(tapeLeft + layout.tapeWidth - 4).toFixed(2)} ${sy(layout.tapeTop + layout.tapeHeight).toFixed(2)} l `
-      + `${sx(tapeLeft).toFixed(2)} ${sy(layout.tapeTop + layout.tapeHeight - 3).toFixed(2)} l h B`,
-    );
-    pdfLine(page, sx(tapeLeft + 8), sy(layout.tapeTop + 5), sx(tapeLeft + layout.tapeWidth - 7), sy(layout.tapeTop + 8), [0.94, 0.89, 0.75], 0.32);
-
-    pdfHandwrittenText(
-      page,
-      'Contents',
-      sx(layout.contentLeft),
-      sy(layout.headerTitleBaselineY),
-      17.5,
-      titleColor,
-      COUNTRY_CITY_FONT,
-      '400',
-    );
-    const headerMeta = 'YOUR SAVED ATLAS';
-    const headerMetaSize = 5.8;
-    const headerMetaWidth = headerMeta.length * headerMetaSize * 0.61;
-    pdfText(page, headerMeta, sx(layout.countRightX) - headerMetaWidth, sy(layout.headerMetaBaselineY), headerMetaSize, 'F2', ATLAS_GREEN);
-    pdfLine(
-      page,
-      sx(layout.contentLeft),
-      sy(layout.headerSeparatorY),
-      sx(layout.countRightX),
-      sy(layout.headerSeparatorY),
-      [0.72, 0.67, 0.57],
-      0.38,
-    );
-
-    const bodyTop = layout.paperTop + layout.headerHeight;
-    coverSummaryRows.forEach(({ country, savedPlaces }, index) => {
-      const rowTop = bodyTop + (index * layout.rowHeight);
-      const centerY = rowTop + (layout.rowHeight / 2);
-      const baselineY = centerY + 6;
-      pdfCircle(page, sx(layout.bulletX), sy(centerY), 5.25 * COVER_SUMMARY_SCALE, [0.604, 0.259, 0.22], 0.8);
-      pdfText(page, titleize(country), sx(layout.countryX), sy(baselineY), 9.3, 'F2', INK);
-      const countLabel = formatAtlasSavedPlaces(savedPlaces);
-      const countSize = 6.6;
-      const countWidth = asciiPdf(countLabel).length * countSize * 0.49;
-      pdfText(page, countLabel, sx(layout.countRightX) - countWidth, sy(baselineY - 1), countSize, 'F1', MUTED);
-      if (index < coverSummaryRows.length - 1) {
-        const separatorY = rowTop + layout.rowHeight;
-        pdfLine(page, sx(layout.countryX), sy(separatorY), sx(layout.countRightX), sy(separatorY), [0.74, 0.69, 0.60], 0.30);
-      }
-    });
-
-    const markX = sx(566);
-    const markY = sy(paperBottomSvg - 20);
-    const markRadius = 7.2 * COVER_SUMMARY_SCALE;
-    pdfCircle(page, markX, markY, markRadius, [0.57, 0.53, 0.45], 0.38);
-    pdfLine(page, markX, markY - (5.5 * COVER_SUMMARY_SCALE), markX, markY + (5.5 * COVER_SUMMARY_SCALE), [0.57, 0.53, 0.45], 0.32);
-    pdfLine(page, markX - (5.5 * COVER_SUMMARY_SCALE), markY, markX + (5.5 * COVER_SUMMARY_SCALE), markY, [0.57, 0.53, 0.45], 0.32);
   };
 
   const addPage = () => {
@@ -579,6 +542,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
       pdfDivider(page, LEFT, RIGHT, y, currentPalette);
       y -= 21;
     }
+    countryPageIndexes.set(country, pages.length - 1);
 
     cities.forEach((categories, city) => {
       let estimatedCityHeight = 36;
@@ -620,6 +584,24 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     });
     renderedCountries += 1;
   });
+
+  const coverPage = pages[0];
+  if (coverPage) {
+    coverSummaryRows.forEach(({ country }, index) => {
+      const targetPageIndex = countryPageIndexes.get(country);
+      if (targetPageIndex === undefined) return;
+      const rowTop = ATLAS_COVER_CONTENTS_METRICS.headerHeight
+        + (index * ATLAS_COVER_CONTENTS_METRICS.rowHeight);
+      coverPage.links.push({
+        x: COVER_SUMMARY_X + (28 * COVER_SUMMARY_SCALE),
+        y: COVER_SUMMARY_Y + COVER_SUMMARY_HEIGHT
+          - ((rowTop + ATLAS_COVER_CONTENTS_METRICS.rowHeight) * COVER_SUMMARY_SCALE),
+        width: (ATLAS_COVER_CONTENTS_METRICS.width - 56) * COVER_SUMMARY_SCALE,
+        height: ATLAS_COVER_CONTENTS_METRICS.rowHeight * COVER_SUMMARY_SCALE,
+        targetPageIndex,
+      });
+    });
+  }
 
   ensure(CLOSING_BLOCK_HEIGHT);
   pdfHandwrittenText(page, closingLineOne, LEFT, y, 10.8, titleColor, SCHOOLBELL_FONT, '400');
@@ -671,17 +653,25 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     writeJpegObject(id, asset);
   });
 
-  const pageIds: number[] = [];
-  pages.forEach((pdfPage) => {
+  const pageIds = pages.map(() => reserve());
+  pages.forEach((pdfPage, pageIndex) => {
     const content = `${pdfPage.commands.join('\n')}\n`;
     const contentId = reserve();
     objects[contentId] = `<< /Length ${new TextEncoder().encode(content).length} >>\nstream\n${content}endstream`;
     const annotationIds = pdfPage.links.map((link) => {
       const id = reserve();
-      objects[id] = `<< /Type /Annot /Subtype /Link /Rect [${link.x.toFixed(2)} ${link.y.toFixed(2)} ${(link.x + link.width).toFixed(2)} ${(link.y + link.height).toFixed(2)}] /Border [0 0 0] /A << /S /URI /URI (${pdfEscape(link.url)}) >> >>`;
+      const rect = `[${link.x.toFixed(2)} ${link.y.toFixed(2)} ${(link.x + link.width).toFixed(2)} ${(link.y + link.height).toFixed(2)}]`;
+      if (typeof link.targetPageIndex === 'number') {
+        const targetPageId = pageIds[link.targetPageIndex];
+        objects[id] = `<< /Type /Annot /Subtype /Link /Rect ${rect} /Border [0 0 0] /A << /S /GoTo /D [${targetPageId} 0 R /Fit] >> >>`;
+      } else if (link.url) {
+        objects[id] = `<< /Type /Annot /Subtype /Link /Rect ${rect} /Border [0 0 0] /A << /S /URI /URI (${pdfEscape(link.url)}) >> >>`;
+      } else {
+        objects[id] = `<< /Type /Annot /Subtype /Link /Rect ${rect} /Border [0 0 0] >>`;
+      }
       return id;
     });
-    const pageId = reserve();
+    const pageId = pageIds[pageIndex];
     const annots = annotationIds.length ? `/Annots [${annotationIds.map((id) => `${id} 0 R`).join(' ')}]` : '';
     const xObjectEntries: string[] = [];
     if (coverImageId) xObjectEntries.push(`/ImCover ${coverImageId} 0 R`);
@@ -690,7 +680,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
     const xObjects = xObjectEntries.length ? `/XObject << ${xObjectEntries.join(' ')} >>` : '';
     objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
-    pageIds.push(pageId);
   });
 
   objects[pagesId] = `<< /Type /Pages /Kids [${pageIds.map((id) => `${id} 0 R`).join(' ')}] /Count ${pageIds.length} >>`;
