@@ -70,10 +70,10 @@ const exportDialogMarkup = `
   </section>
 `;
 
-const makeExport = (kind: ExportKind): GeneratedExport => {
+const makeExport = async (kind: ExportKind): Promise<GeneratedExport> => {
   const entries = readTripStore().entries;
   const base = atlasBaseName(entries);
-  if (kind === 'pdf') return { kind, blob: buildPdf(entries), fileName: `${base}.pdf`, mimeType: PDF_MIME };
+  if (kind === 'pdf') return { kind, blob: await buildPdf(entries), fileName: `${base}.pdf`, mimeType: PDF_MIME };
   return { kind, blob: buildXlsx(entries), fileName: `${base}.xlsx`, mimeType: XLSX_MIME };
 };
 
@@ -161,7 +161,7 @@ const initAtlasExport = () => {
     showView(progressView);
     await nextFrame();
     try {
-      const exported = makeExport(kind);
+      const exported = await makeExport(kind);
       generatedFile = new File([exported.blob], exported.fileName, { type: exported.mimeType });
       objectUrl = URL.createObjectURL(exported.blob);
       downloadLink.href = objectUrl;

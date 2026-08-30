@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+  <title id="title">Things To Do Atlas approved stamp</title>
+  <desc id="desc">A rubber-stamp treatment built around the exact Things To Do Atlas navbar logo.</desc>
+  <defs>
+    <filter id="stampInk" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0
+        0 0 0 0 0
+        0 0 0 0 0
+        -0.2126 -0.7152 -0.0722 0 1" result="logoAlpha" />
+      <feFlood flood-color="#315545" result="ink" />
+      <feComposite in="ink" in2="logoAlpha" operator="in" result="inkedLogo" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17" result="noise" />
+      <feDisplacementMap in="inkedLogo" in2="noise" scale="1.15" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <path id="topArc" d="M 55 181 A 125 125 0 0 1 305 181" />
+    <path id="bottomArc" d="M 305 199 A 125 125 0 0 1 55 199" />
+    <mask id="distress">
+      <rect width="360" height="360" fill="white" />
+      <g fill="#000" opacity=".24">
+        <circle cx="77" cy="109" r="2.2"/><circle cx="285" cy="116" r="1.8"/><circle cx="308" cy="219" r="2.4"/>
+        <circle cx="111" cy="301" r="1.9"/><circle cx="210" cy="52" r="1.5"/><circle cx="45" cy="199" r="1.6"/>
+        <path d="M84 74h18v2H84zM259 281h23v2h-23zM46 155h12v2H46zM300 164h10v2h-10z" />
+      </g>
+    </mask>
+  </defs>
+
+  <g fill="none" stroke="#315545" mask="url(#distress)">
+    <circle cx="180" cy="180" r="151" stroke-width="7" opacity=".94" />
+    <circle cx="180" cy="180" r="137" stroke-width="2.2" stroke-dasharray="3 3.8" opacity=".78" />
+    <circle cx="180" cy="180" r="105" stroke-width="2" opacity=".52" />
+    <path d="M74 244c16 7 35 12 53 15M233 259c19-4 37-9 53-16" stroke-width="3" stroke-linecap="round" opacity=".72" />
+  </g>
+
+  <g fill="#315545" font-family="Georgia, 'Times New Roman', serif" font-weight="700" letter-spacing="5.2" text-anchor="middle">
+    <text font-size="20"><textPath href="#topArc" startOffset="50%">THINGS TO DO ATLAS</textPath></text>
+    <text font-size="15" letter-spacing="4.4"><textPath href="#bottomArc" startOffset="50%">FIELD APPROVED</textPath></text>
+  </g>
+
+  <g transform="translate(112 112) scale(.1085)" filter="url(#stampInk)" opacity=".92">
+    <image href="/assets/navbar/things-to-do-atlas-logo-v2.webp" width="1254" height="1254" preserveAspectRatio="xMidYMid meet" />
+  </g>
+
+  <g fill="#315545" opacity=".82">
+    <circle cx="52" cy="180" r="3"/><circle cx="308" cy="180" r="3"/>
+  </g>
+</svg>
