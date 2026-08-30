@@ -1,163 +1,92 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
-  <title id="title">Wooden nautical compass rose</title>
-  <desc id="desc">A carved wooden ship-style compass rose with brass details, engraved cardinal marks and a warm walnut finish.</desc>
-
-  <defs>
-    <radialGradient id="faceWood" cx="42%" cy="34%" r="72%">
-      <stop offset="0" stop-color="#d8b47b"/>
-      <stop offset=".36" stop-color="#b9854f"/>
-      <stop offset=".72" stop-color="#8c5d35"/>
-      <stop offset="1" stop-color="#6d4529"/>
-    </radialGradient>
-    <linearGradient id="rimWood" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#4b2c1d"/>
-      <stop offset=".22" stop-color="#7a4b2e"/>
-      <stop offset=".5" stop-color="#3b2418"/>
-      <stop offset=".76" stop-color="#805134"/>
-      <stop offset="1" stop-color="#2f1d14"/>
-    </linearGradient>
-    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f0d79a"/>
-      <stop offset=".35" stop-color="#c69a4b"/>
-      <stop offset=".62" stop-color="#8c652e"/>
-      <stop offset="1" stop-color="#e1c47a"/>
-    </linearGradient>
-    <linearGradient id="darkCarve" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2d1b13"/>
-      <stop offset="1" stop-color="#160e0a"/>
-    </linearGradient>
-    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.09" numOctaves="2" seed="9" result="noise"/>
-      <feColorMatrix in="noise" type="matrix" values="0.45 0 0 0 0.18  0 0.27 0 0 0.10  0 0 0.12 0 0.04  0 0 0 .34 0" result="woodNoise"/>
-      <feBlend in="SourceGraphic" in2="woodNoise" mode="multiply"/>
-    </filter>
-    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
-      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1b100b" flood-opacity=".36"/>
-    </filter>
-    <filter id="engrave" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="1" flood-color="#f4dca5" flood-opacity=".22"/>
-    </filter>
-
-    <g id="tickMinor">
-      <line x1="500" y1="120" x2="500" y2="142" stroke="#d8bd82" stroke-width="3" stroke-linecap="round"/>
-    </g>
-    <g id="tickMajor">
-      <line x1="500" y1="113" x2="500" y2="151" stroke="url(#brass)" stroke-width="6" stroke-linecap="round"/>
-    </g>
-    <g id="petalLong">
-      <path d="M500 500 L470 430 L500 194 L530 430 Z" fill="#2c1c14" stroke="#d0a85e" stroke-width="3"/>
-      <path d="M500 500 L500 194 L530 430 Z" fill="#b98648" opacity=".86"/>
-    </g>
-    <g id="petalMid">
-      <path d="M500 500 L482 448 L500 270 L518 448 Z" fill="#6b4328" stroke="#c9a05a" stroke-width="2.5"/>
-      <path d="M500 500 L500 270 L518 448 Z" fill="#d0a05d" opacity=".58"/>
-    </g>
-    <g id="petalShort">
-      <path d="M500 500 L488 462 L500 334 L512 462 Z" fill="#24170f" stroke="#b78a49" stroke-width="2"/>
-    </g>
-  </defs>
-
-  <g filter="url(#softShadow)">
-    <circle cx="500" cy="500" r="452" fill="url(#rimWood)" stroke="#21150f" stroke-width="10"/>
-    <circle cx="500" cy="500" r="432" fill="none" stroke="#a8763f" stroke-width="3" opacity=".76"/>
-    <circle cx="500" cy="500" r="410" fill="url(#faceWood)" stroke="#3b2518" stroke-width="8" filter="url(#grain)"/>
-    <circle cx="500" cy="500" r="385" fill="none" stroke="#53351f" stroke-width="5" opacity=".78"/>
-    <circle cx="500" cy="500" r="360" fill="none" stroke="#d1aa62" stroke-width="3" opacity=".72"/>
-
-    <g opacity=".98">
-      <use href="#tickMajor"/>
-      <use href="#tickMajor" transform="rotate(45 500 500)"/>
-      <use href="#tickMajor" transform="rotate(90 500 500)"/>
-      <use href="#tickMajor" transform="rotate(135 500 500)"/>
-      <use href="#tickMajor" transform="rotate(180 500 500)"/>
-      <use href="#tickMajor" transform="rotate(225 500 500)"/>
-      <use href="#tickMajor" transform="rotate(270 500 500)"/>
-      <use href="#tickMajor" transform="rotate(315 500 500)"/>
-
-      <use href="#tickMinor" transform="rotate(11.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(22.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(33.75 500 500)"/>
-      <use href="#tickMinor" transform="rotate(56.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(67.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(78.75 500 500)"/>
-      <use href="#tickMinor" transform="rotate(101.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(112.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(123.75 500 500)"/>
-      <use href="#tickMinor" transform="rotate(146.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(157.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(168.75 500 500)"/>
-      <use href="#tickMinor" transform="rotate(191.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(202.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(213.75 500 500)"/>
-      <use href="#tickMinor" transform="rotate(236.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(247.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(258.75 500 500)"/>
-      <use href="#tickMinor" transform="rotate(281.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(292.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(303.75 500 500)"/>
-      <use href="#tickMinor" transform="rotate(326.25 500 500)"/>
-      <use href="#tickMinor" transform="rotate(337.5 500 500)"/>
-      <use href="#tickMinor" transform="rotate(348.75 500 500)"/>
-    </g>
-
-    <g filter="url(#engrave)">
-      <use href="#petalShort" transform="rotate(11.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(33.75 500 500)"/>
-      <use href="#petalShort" transform="rotate(56.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(78.75 500 500)"/>
-      <use href="#petalShort" transform="rotate(101.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(123.75 500 500)"/>
-      <use href="#petalShort" transform="rotate(146.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(168.75 500 500)"/>
-      <use href="#petalShort" transform="rotate(191.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(213.75 500 500)"/>
-      <use href="#petalShort" transform="rotate(236.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(258.75 500 500)"/>
-      <use href="#petalShort" transform="rotate(281.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(303.75 500 500)"/>
-      <use href="#petalShort" transform="rotate(326.25 500 500)"/>
-      <use href="#petalShort" transform="rotate(348.75 500 500)"/>
-
-      <use href="#petalMid" transform="rotate(22.5 500 500)"/>
-      <use href="#petalMid" transform="rotate(67.5 500 500)"/>
-      <use href="#petalMid" transform="rotate(112.5 500 500)"/>
-      <use href="#petalMid" transform="rotate(157.5 500 500)"/>
-      <use href="#petalMid" transform="rotate(202.5 500 500)"/>
-      <use href="#petalMid" transform="rotate(247.5 500 500)"/>
-      <use href="#petalMid" transform="rotate(292.5 500 500)"/>
-      <use href="#petalMid" transform="rotate(337.5 500 500)"/>
-
-      <use href="#petalLong"/>
-      <use href="#petalLong" transform="rotate(45 500 500)"/>
-      <use href="#petalLong" transform="rotate(90 500 500)"/>
-      <use href="#petalLong" transform="rotate(135 500 500)"/>
-      <use href="#petalLong" transform="rotate(180 500 500)"/>
-      <use href="#petalLong" transform="rotate(225 500 500)"/>
-      <use href="#petalLong" transform="rotate(270 500 500)"/>
-      <use href="#petalLong" transform="rotate(315 500 500)"/>
-    </g>
-
-    <circle cx="500" cy="500" r="116" fill="url(#darkCarve)" stroke="url(#brass)" stroke-width="7"/>
-    <circle cx="500" cy="500" r="92" fill="url(#rimWood)" stroke="#8e642f" stroke-width="3"/>
-    <circle cx="500" cy="500" r="29" fill="url(#brass)" stroke="#3b2618" stroke-width="5"/>
-    <circle cx="500" cy="500" r="10" fill="#392318"/>
-
-    <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle" font-weight="700" fill="#f1d69a" stroke="#3c2618" stroke-width="1.6" paint-order="stroke fill" filter="url(#engrave)">
-      <text x="500" y="185" font-size="72" fill="#a84831">N</text>
-      <text x="815" y="522" font-size="60">E</text>
-      <text x="500" y="858" font-size="60">S</text>
-      <text x="185" y="522" font-size="60">W</text>
-      <text x="714" y="298" font-size="29">NE</text>
-      <text x="714" y="725" font-size="29">SE</text>
-      <text x="286" y="725" font-size="29">SW</text>
-      <text x="286" y="298" font-size="29">NW</text>
-    </g>
-
-    <g fill="none" stroke="#3a2417" stroke-linecap="round" opacity=".34">
-      <path d="M180 340 C285 310 380 335 470 320 S650 300 815 335" stroke-width="4"/>
-      <path d="M155 635 C275 610 375 640 500 620 S720 605 844 642" stroke-width="3"/>
-      <path d="M230 760 C330 740 430 765 540 744 S695 730 770 748" stroke-width="2.5"/>
-      <path d="M208 235 C320 214 410 236 520 220 S704 214 790 240" stroke-width="2"/>
-    </g>
+<title id="title">Nautical compass rose</title>
+<desc id="desc">Vector study traced from the compass reference asset: classic ship compass rose, transparent background, dark ink, ivory facets and a muted red north accent.</desc>
+<defs>
+  <line id="tick-minor" x1="500" y1="78" x2="500" y2="96" />
+  <line id="tick-mid" x1="500" y1="76" x2="500" y2="103" />
+  <line id="tick-major" x1="500" y1="74" x2="500" y2="110" />
+  <line id="tick-cardinal" x1="500" y1="72" x2="500" y2="116" />
+  <g id="major-needle">
+    <polygon points="500,160 500,466 470,500" fill="#171717"/>
+    <polygon points="500,160 530,500 500,466" fill="#f4efe1" stroke="#171717" stroke-width="2"/>
   </g>
+  <g id="diagonal-needle">
+    <polygon points="500,248 500,470 482,500" fill="#171717"/>
+    <polygon points="500,248 518,500 500,470" fill="#f4efe1" stroke="#171717" stroke-width="1.7"/>
+  </g>
+  <g id="secondary-needle">
+    <polygon points="500,292 500,472 486,500" fill="#171717"/>
+    <polygon points="500,292 514,500 500,472" fill="#f4efe1" stroke="#171717" stroke-width="1.5"/>
+  </g>
+  <g id="fine-needle">
+    <polygon points="500,325 500,474 490,500" fill="#171717"/>
+    <polygon points="500,325 510,500 500,474" fill="#f4efe1" stroke="#171717" stroke-width="1.2"/>
+  </g>
+</defs>
+
+<g fill="none" stroke="#171717" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="500" cy="500" r="426" stroke-width="7"/>
+  <circle cx="500" cy="500" r="405" stroke-width="2.2"/>
+  <circle cx="500" cy="500" r="360" stroke-width="2.2"/>
+  <g stroke-width="2">
+    <use href="#tick-cardinal" transform="rotate(0 500 500)"/><use href="#tick-minor" transform="rotate(5 500 500)"/><use href="#tick-minor" transform="rotate(10 500 500)"/><use href="#tick-mid" transform="rotate(15 500 500)"/><use href="#tick-minor" transform="rotate(20 500 500)"/><use href="#tick-minor" transform="rotate(25 500 500)"/><use href="#tick-mid" transform="rotate(30 500 500)"/><use href="#tick-minor" transform="rotate(35 500 500)"/><use href="#tick-minor" transform="rotate(40 500 500)"/><use href="#tick-major" transform="rotate(45 500 500)"/><use href="#tick-minor" transform="rotate(50 500 500)"/><use href="#tick-minor" transform="rotate(55 500 500)"/><use href="#tick-mid" transform="rotate(60 500 500)"/><use href="#tick-minor" transform="rotate(65 500 500)"/><use href="#tick-minor" transform="rotate(70 500 500)"/><use href="#tick-mid" transform="rotate(75 500 500)"/><use href="#tick-minor" transform="rotate(80 500 500)"/><use href="#tick-minor" transform="rotate(85 500 500)"/><use href="#tick-cardinal" transform="rotate(90 500 500)"/><use href="#tick-minor" transform="rotate(95 500 500)"/><use href="#tick-minor" transform="rotate(100 500 500)"/><use href="#tick-mid" transform="rotate(105 500 500)"/><use href="#tick-minor" transform="rotate(110 500 500)"/><use href="#tick-minor" transform="rotate(115 500 500)"/><use href="#tick-mid" transform="rotate(120 500 500)"/><use href="#tick-minor" transform="rotate(125 500 500)"/><use href="#tick-minor" transform="rotate(130 500 500)"/><use href="#tick-major" transform="rotate(135 500 500)"/><use href="#tick-minor" transform="rotate(140 500 500)"/><use href="#tick-minor" transform="rotate(145 500 500)"/><use href="#tick-mid" transform="rotate(150 500 500)"/><use href="#tick-minor" transform="rotate(155 500 500)"/><use href="#tick-minor" transform="rotate(160 500 500)"/><use href="#tick-mid" transform="rotate(165 500 500)"/><use href="#tick-minor" transform="rotate(170 500 500)"/><use href="#tick-minor" transform="rotate(175 500 500)"/><use href="#tick-cardinal" transform="rotate(180 500 500)"/><use href="#tick-minor" transform="rotate(185 500 500)"/><use href="#tick-minor" transform="rotate(190 500 500)"/><use href="#tick-mid" transform="rotate(195 500 500)"/><use href="#tick-minor" transform="rotate(200 500 500)"/><use href="#tick-minor" transform="rotate(205 500 500)"/><use href="#tick-mid" transform="rotate(210 500 500)"/><use href="#tick-minor" transform="rotate(215 500 500)"/><use href="#tick-minor" transform="rotate(220 500 500)"/><use href="#tick-major" transform="rotate(225 500 500)"/><use href="#tick-minor" transform="rotate(230 500 500)"/><use href="#tick-minor" transform="rotate(235 500 500)"/><use href="#tick-mid" transform="rotate(240 500 500)"/><use href="#tick-minor" transform="rotate(245 500 500)"/><use href="#tick-minor" transform="rotate(250 500 500)"/><use href="#tick-mid" transform="rotate(255 500 500)"/><use href="#tick-minor" transform="rotate(260 500 500)"/><use href="#tick-minor" transform="rotate(265 500 500)"/><use href="#tick-cardinal" transform="rotate(270 500 500)"/><use href="#tick-minor" transform="rotate(275 500 500)"/><use href="#tick-minor" transform="rotate(280 500 500)"/><use href="#tick-mid" transform="rotate(285 500 500)"/><use href="#tick-minor" transform="rotate(290 500 500)"/><use href="#tick-minor" transform="rotate(295 500 500)"/><use href="#tick-mid" transform="rotate(300 500 500)"/><use href="#tick-minor" transform="rotate(305 500 500)"/><use href="#tick-minor" transform="rotate(310 500 500)"/><use href="#tick-major" transform="rotate(315 500 500)"/><use href="#tick-minor" transform="rotate(320 500 500)"/><use href="#tick-minor" transform="rotate(325 500 500)"/><use href="#tick-mid" transform="rotate(330 500 500)"/><use href="#tick-minor" transform="rotate(335 500 500)"/><use href="#tick-minor" transform="rotate(340 500 500)"/><use href="#tick-mid" transform="rotate(345 500 500)"/><use href="#tick-minor" transform="rotate(350 500 500)"/><use href="#tick-minor" transform="rotate(355 500 500)"/>
+  </g>
+</g>
+
+<!-- 32-point nautical rose -->
+<g stroke-linejoin="round">
+  <use href="#major-needle"/>
+  <use href="#major-needle" transform="rotate(90 500 500)"/>
+  <use href="#major-needle" transform="rotate(180 500 500)"/>
+  <use href="#major-needle" transform="rotate(270 500 500)"/>
+
+  <use href="#diagonal-needle" transform="rotate(45 500 500)"/>
+  <use href="#diagonal-needle" transform="rotate(135 500 500)"/>
+  <use href="#diagonal-needle" transform="rotate(225 500 500)"/>
+  <use href="#diagonal-needle" transform="rotate(315 500 500)"/>
+
+  <use href="#secondary-needle" transform="rotate(22.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(67.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(112.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(157.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(202.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(247.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(292.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(337.5 500 500)"/>
+
+  <use href="#fine-needle" transform="rotate(11.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(33.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(56.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(78.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(101.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(123.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(146.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(168.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(191.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(213.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(236.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(258.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(281.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(303.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(326.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(348.75 500 500)"/>
+</g>
+
+<!-- North accent from the reference -->
+<polygon points="500,160 500,466 475,500" fill="#9e3d33" stroke="#171717" stroke-width="2"/>
+<polygon points="500,58 486,84 500,76 514,84" fill="#9e3d33" stroke="#171717" stroke-width="3"/>
+
+<g font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#171717" text-anchor="middle">
+  <text x="500" y="121" font-size="40" fill="#9e3d33">N</text>
+  <text x="888" y="523" font-size="36">E</text>
+  <text x="500" y="928" font-size="36">S</text>
+  <text x="109" y="523" font-size="36">W</text>
+  <text x="232" y="244" font-size="24">NW</text>
+  <text x="768" y="244" font-size="24">NE</text>
+  <text x="235" y="786" font-size="24">SW</text>
+  <text x="765" y="786" font-size="24">SE</text>
+</g>
+
+<circle cx="500" cy="500" r="33" fill="#f4efe1" stroke="#171717" stroke-width="3"/>
+<circle cx="500" cy="500" r="12" fill="#171717"/>
 </svg>
