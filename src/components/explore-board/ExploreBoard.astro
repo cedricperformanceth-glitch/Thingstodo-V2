@@ -13,6 +13,14 @@ const cityNoteHref = cityFieldNotePath(city);
 <section class="explore-board-section" aria-labelledby={sectionId}>
   <div class="explore-board-frame">
     <div class="explore-board">
+      <img
+        class="explore-board__globe-mark"
+        src="/assets/admin/svg-workbench/catalogue/globe-flight-line-art-v1.svg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
       <a class="explore-board__city-note" href={cityNoteHref} aria-label={`Read the ${city.name} City Field Note`}>
         <span class="explore-board__city-note-tape" aria-hidden="true"></span>
         <span>Read the City Field Note</span>
@@ -112,6 +120,22 @@ const cityNoteHref = cityFieldNotePath(city);
       #050505;
     box-shadow: inset 0 0 42px rgba(0,0,0,.74), inset 0 0 0 2px rgba(255,255,255,.014);
     color: #efecdd;
+  }
+
+  .explore-board__globe-mark {
+    position: absolute;
+    top: clamp(.65rem, 1.35vw, 1.05rem);
+    right: clamp(.75rem, 1.45vw, 1.2rem);
+    z-index: 3;
+    display: block;
+    width: clamp(3.8rem, 5.5vw, 5.4rem);
+    height: auto;
+    opacity: .72;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    user-select: none;
+    transform: rotate(1.5deg);
   }
 
   .explore-board__city-note {
@@ -408,6 +432,7 @@ const cityNoteHref = cityFieldNotePath(city);
   @media (max-width: 520px) {
     .explore-board-section { width: min(100% - .5rem, 1400px); padding-top: 1.6rem; }
     .explore-board { padding: 1.55rem 1rem 1.35rem; }
+    .explore-board__globe-mark { width: 3.5rem; top: .55rem; right: .55rem; opacity: .64; }
     .explore-board__question { white-space: normal; }
     .explore-board-card__copy { padding-inline: .15rem; }
   }
