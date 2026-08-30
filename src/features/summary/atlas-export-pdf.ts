@@ -124,6 +124,52 @@ const canvasToJpegImage = (canvas: HTMLCanvasElement, quality = 0.92): PdfImage 
   return { hex: `${hex}>`, width: canvas.width, height: canvas.height };
 };
 
+const loadImageElement = async (src: string): Promise<HTMLImageElement> => {
+  const image = new Image();
+  image.decoding = 'async';
+  image.src = src;
+  await new Promise<void>((resolve, reject) => {
+    image.addEventListener('load', () => resolve(), { once: true });
+    image.addEventListener('error', () => reject(new Error(`Atlas PDF asset could not be loaded: ${src}`)), { once: true });
+  });
+  return image;
+};
+
+const loadAssetAsJpeg = async (
+  src: string,
+  width: number,
+  height: number,
+  mode: 'cover' | 'contain' = 'cover',
+  background: [number, number, number] = PAPER,
+): Promise<PdfImage | null> => {
+  if (typeof document === 'undefined' || typeof Image === 'undefined') return null;
+
+  try {
+    const image = await loadImageElement(src);
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+
+    context.fillStyle = rgbCss(background);
+    context.fillRect(0, 0, width, height);
+
+    const scale = mode === 'cover'
+      ? Math.max(width / image.naturalWidth, height / image.naturalHeight)
+      : Math.min(width / image.naturalWidth, height / image.naturalHeight);
+    const drawWidth = image.naturalWidth * scale;
+    const drawHeight = image.naturalHeight * scale;
+    const drawX = (width - drawWidth) / 2;
+    const drawY = (height - drawHeight) / 2;
+    context.drawImage(image, drawX, drawY, drawWidth, drawHeight);
+
+    return canvasToJpegImage(canvas, src.endsWith('.svg') ? 0.96 : 0.92);
+  } catch {
+    return null;
+  }
+};
+
 const ensureCaveatReady = async () => {
   if (typeof document === 'undefined' || !document.fonts) return false;
   try {
@@ -182,14 +228,7 @@ const loadStampImage = async (): Promise<PdfImage | null> => {
   if (typeof document === 'undefined' || typeof Image === 'undefined') return null;
 
   try {
-    const image = new Image();
-    image.decoding = 'async';
-    image.src = '/assets/navbar/things-to-do-atlas-logo-v2.webp';
-    await new Promise<void>((resolve, reject) => {
-      image.addEventListener('load', () => resolve(), { once: true });
-      image.addEventListener('error', () => reject(new Error('Atlas logo could not be loaded.')), { once: true });
-    });
-
+    const image = await loadImageElement('/assets/navbar/things-to-do-atlas-logo-v2.webp');
     const size = 180;
     const canvas = document.createElement('canvas');
     canvas.width = size;
@@ -239,15 +278,20 @@ const drawStamp = (page: PdfPage, cx: number, cy: number, imageAvailable: boolea
 export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const PAGE_W = 595.28;
   const PAGE_H = 841.89;
-  const SHEET_LEFT = 40;
-  const SHEET_RIGHT = PAGE_W - 40;
+  const SHEET_WIDTH = PAGE_W - 80;
+  const SHEET_LEFT = 24;
+  const SHEET_RIGHT = SHEET_LEFT + SHEET_WIDTH;
   const LEFT = SHEET_LEFT + 27;
   const RIGHT = SHEET_RIGHT - 27;
   const pages: PdfPage[] = [];
   const summaryUrl = new URL('/summary', window.location.origin).toString();
   const countries = groupedEntries(entries);
   const multiCountry = countries.size > 1;
-  const stampImage = await loadStampImage();
+  const [stampImage, coverImage, binderImage] = await Promise.all([
+    loadStampImage(),
+    loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),
+    loadAssetAsJpeg('/assets/shared/pdf/atlas-binder-edge.svg', 128, 1520, 'contain'),
+  ]);
   const uniqueCountries = [...countries.keys()];
   const handwritingAssets = new Map<string, HandwrittenImage>();
 
@@ -290,13 +334,24 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   let y = PAGE_H - 112;
   let currentPalette = DEFAULT_PALETTE;
 
+  const addCoverPage = () => {
+    page = { commands: [], links: [] };
+    pages.push(page);
+    if (coverImage) {
+      page.commands.push(`q ${PAGE_W.toFixed(2)} 0 0 ${PAGE_H.toFixed(2)} 0 0 cm /ImCover Do Q`);
+      return;
+    }
+    pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
+    pdfText(page, 'MY ATLAS', 62, PAGE_H - 104, 28, 'F2', ATLAS_GREEN);
+  };
+
   const addPage = () => {
     page = { commands: [], links: [] };
     pages.push(page);
     pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
-    pdfStrokeRect(page, SHEET_LEFT, 27, SHEET_RIGHT - SHEET_LEFT, PAGE_H - 54, [0.82, 0.79, 0.72], 0.38);
+    pdfStrokeRect(page, SHEET_LEFT, 27, SHEET_WIDTH, PAGE_H - 54, [0.82, 0.79, 0.72], 0.38);
+    if (binderImage) page.commands.push('q 42 0 0 704 0 69 cm /ImBinder Do Q');
     pdfText(page, 'THINGS TO DO ATLAS', LEFT, PAGE_H - 43, 8.2, 'F2', ATLAS_GREEN);
-    pdfText(page, 'PERSONAL TRAVEL EDITION', RIGHT - 116, PAGE_H - 43, 6.8, 'F1', MUTED);
     pdfDivider(page, LEFT, RIGHT, PAGE_H - 57, currentPalette);
     y = PAGE_H - 88;
   };
@@ -305,7 +360,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     pdfLine(target, LEFT, 49, RIGHT, 49, [0.78, 0.75, 0.69], 0.55);
     pdfText(target, 'Things To Do Atlas - Your Atlas', LEFT, 31, 7.1, 'F2', ATLAS_GREEN);
     target.links.push({ x: LEFT, y: 27, width: 126, height: 12, url: summaryUrl });
-    pdfText(target, 'FIELD COPY', (PAGE_W / 2) - 18, 31, 6.2, 'F1', [0.53, 0.51, 0.47]);
+    pdfText(target, 'FIELD COPY', (SHEET_LEFT + (SHEET_WIDTH / 2)) - 18, 31, 6.2, 'F1', [0.53, 0.51, 0.47]);
     pdfText(target, `Page ${pageNumber}`, RIGHT - 34, 31, 7.1, 'F1', [0.48, 0.48, 0.45]);
   };
 
@@ -316,6 +371,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   };
 
   if (uniqueCountries.length === 1) currentPalette = paletteForCountry(uniqueCountries[0]);
+  addCoverPage();
   addPage();
 
   pdfHandwrittenText(page, headingLabel, LEFT, y, 25.5);
@@ -369,11 +425,9 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   page.links.push({ x: LEFT, y: y - 3, width: 84, height: 13, url: summaryUrl });
 
   y -= 39;
-  pdfText(page, 'REVIEWED & APPROVED', LEFT, y, 7.2, 'F2', [0.38, 0.37, 0.33]);
-  pdfLine(page, LEFT, y - 7, LEFT + 120, y - 7, [0.64, 0.61, 0.55], 0.55);
+  pdfText(page, 'REVIEWED & APPROVED', LEFT, y, 7.2, 'F2', [0.25, 0.25, 0.23]);
+  pdfLine(page, LEFT, y - 7, LEFT + 82, y - 7, [0.12, 0.12, 0.11], 0.42);
   pdfText(page, formatExportDate(), LEFT, y - 24, 8.2, 'F1', MUTED);
-  pdfText(page, 'Things To Do', LEFT + 154, y - 23, 13, 'F3', ATLAS_GREEN);
-  pdfText(page, 'travel desk', LEFT + 159, y - 34, 5.8, 'F1', [0.53, 0.51, 0.47]);
   drawStamp(page, RIGHT - 45, y - 10, Boolean(stampImage));
   addFooter(page, pages.length);
 
@@ -385,6 +439,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const boldFontId = reserve();
   const obliqueFontId = reserve();
   const stampImageId = stampImage ? reserve() : 0;
+  const coverImageId = coverImage ? reserve() : 0;
+  const binderImageId = binderImage ? reserve() : 0;
   const handwritingImageIds = new Map<string, number>();
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
   objects[boldFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>';
@@ -397,6 +453,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   };
 
   if (stampImage && stampImageId) writeJpegObject(stampImageId, stampImage);
+  if (coverImage && coverImageId) writeJpegObject(coverImageId, coverImage);
+  if (binderImage && binderImageId) writeJpegObject(binderImageId, binderImage);
   handwritingAssets.forEach((asset) => {
     const id = reserve();
     handwritingImageIds.set(asset.name, id);
@@ -417,6 +475,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     const annots = annotationIds.length ? `/Annots [${annotationIds.map((id) => `${id} 0 R`).join(' ')}]` : '';
     const xObjectEntries: string[] = [];
     if (stampImageId) xObjectEntries.push(`/ImStamp ${stampImageId} 0 R`);
+    if (coverImageId) xObjectEntries.push(`/ImCover ${coverImageId} 0 R`);
+    if (binderImageId) xObjectEntries.push(`/ImBinder ${binderImageId} 0 R`);
     handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
     const xObjects = xObjectEntries.length ? `/XObject << ${xObjectEntries.join(' ')} >>` : '';
     objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
