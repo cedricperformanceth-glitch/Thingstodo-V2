@@ -4,15 +4,18 @@ import { categoryLabel, googleMapsUrl, groupedEntries, PDF_MIME, titleize } from
 interface PdfLink { x: number; y: number; width: number; height: number; url: string; }
 interface PdfPage { commands: string[]; links: PdfLink[]; }
 interface PdfPalette { primary: [number, number, number]; secondary: [number, number, number]; }
-interface StampImage { hex: string; width: number; height: number; }
-interface HandwritingStyle { font: 'F4' | 'F5'; rotation: number; tracking: number; }
+interface PdfImage { hex: string; width: number; height: number; }
+interface HandwrittenImage extends PdfImage { name: string; displayWidth: number; displayHeight: number; }
 
-type PdfFont = 'F1' | 'F2' | 'F3' | 'F4' | 'F5';
+type PdfFont = 'F1' | 'F2' | 'F3';
 
 const PAPER: [number, number, number] = [0.98, 0.965, 0.925];
 const INK: [number, number, number] = [0.16, 0.18, 0.17];
 const MUTED: [number, number, number] = [0.43, 0.43, 0.39];
 const ATLAS_GREEN: [number, number, number] = [0.19, 0.33, 0.27];
+const HANDWRITING_FONT = 'Caveat';
+export const PDF_ANNOTATION_FONTS = ['Schoolbell', 'Indie Flower'] as const;
+
 const DEFAULT_PALETTE: PdfPalette = {
   primary: ATLAS_GREEN,
   secondary: [0.56, 0.29, 0.24],
@@ -29,12 +32,6 @@ const COUNTRY_PALETTES: Record<string, PdfPalette> = {
   },
 };
 
-const COUNTRY_HANDWRITING: Record<string, HandwritingStyle> = {
-  laos: { font: 'F4', rotation: -1.15, tracking: 0.12 },
-  'sri-lanka': { font: 'F5', rotation: 0.65, tracking: 0.22 },
-};
-const DEFAULT_HANDWRITING: HandwritingStyle = { font: 'F4', rotation: -0.45, tracking: 0.12 };
-
 const asciiPdf = (value: string) => value.normalize('NFKD')
   .replace(/[\u0300-\u036f]/g, '').replace(/[–—]/g, '-').replace(/[“”]/g, '"')
   .replace(/[‘’]/g, "'").replace(/→/g, '->').replace(/[^\x20-\x7E]/g, '');
@@ -50,28 +47,6 @@ const pdfText = (
   color: [number, number, number] = INK,
 ) => {
   page.commands.push(`BT /${font} ${size} Tf ${color.join(' ')} rg 1 0 0 1 ${x.toFixed(2)} ${y.toFixed(2)} Tm (${pdfEscape(text)}) Tj ET`);
-};
-
-const handwritingForCountry = (country = '') => COUNTRY_HANDWRITING[country.trim().toLowerCase()] ?? DEFAULT_HANDWRITING;
-
-const pdfHandwrittenText = (
-  page: PdfPage,
-  text: string,
-  x: number,
-  y: number,
-  size: number,
-  country = '',
-  color: [number, number, number] = INK,
-) => {
-  const style = handwritingForCountry(country);
-  const radians = style.rotation * (Math.PI / 180);
-  const cos = Math.cos(radians);
-  const sin = Math.sin(radians);
-  page.commands.push(
-    `BT /${style.font} ${size} Tf ${style.tracking.toFixed(2)} Tc ${color.join(' ')} rg `
-    + `${cos.toFixed(5)} ${sin.toFixed(5)} ${(-sin).toFixed(5)} ${cos.toFixed(5)} ${x.toFixed(2)} ${y.toFixed(2)} Tm `
-    + `(${pdfEscape(text)}) Tj ET`,
-  );
 };
 
 const pdfLine = (
@@ -136,7 +111,74 @@ const formatExportDate = () => new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
 }).format(new Date());
 
-const loadStampImage = async (): Promise<StampImage | null> => {
+const rgbCss = (color: [number, number, number]) => `rgb(${color.map((channel) => Math.round(channel * 255)).join(' ')})`;
+
+const canvasToJpegImage = (canvas: HTMLCanvasElement, quality = 0.92): PdfImage => {
+  const dataUrl = canvas.toDataURL('image/jpeg', quality);
+  const encoded = dataUrl.slice(dataUrl.indexOf(',') + 1);
+  const binary = atob(encoded);
+  let hex = '';
+  for (let index = 0; index < binary.length; index += 1) {
+    hex += binary.charCodeAt(index).toString(16).padStart(2, '0');
+  }
+  return { hex: `${hex}>`, width: canvas.width, height: canvas.height };
+};
+
+const ensureCaveatReady = async () => {
+  if (typeof document === 'undefined' || !document.fonts) return false;
+  try {
+    await document.fonts.load(`600 48px "${HANDWRITING_FONT}"`);
+    await document.fonts.ready;
+    return document.fonts.check(`600 48px "${HANDWRITING_FONT}"`);
+  } catch {
+    return false;
+  }
+};
+
+const handwrittenKey = (text: string, size: number, color: [number, number, number]) => `${text}\u0000${size}\u0000${color.join(',')}`;
+
+const renderHandwrittenImage = async (
+  text: string,
+  size: number,
+  color: [number, number, number],
+  name: string,
+): Promise<HandwrittenImage | null> => {
+  if (typeof document === 'undefined') return null;
+  const caveatReady = await ensureCaveatReady();
+  if (!caveatReady) return null;
+
+  const scale = 4;
+  const paddingX = Math.ceil(size * scale * 0.22);
+  const paddingY = Math.ceil(size * scale * 0.24);
+  const probe = document.createElement('canvas');
+  const probeContext = probe.getContext('2d');
+  if (!probeContext) return null;
+  probeContext.font = `600 ${size * scale}px "${HANDWRITING_FONT}", cursive`;
+  const measured = probeContext.measureText(text);
+  const width = Math.max(8, Math.ceil(measured.width + (paddingX * 2)));
+  const height = Math.max(8, Math.ceil((size * scale * 1.42) + (paddingY * 2)));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext('2d');
+  if (!context) return null;
+  context.fillStyle = rgbCss(PAPER);
+  context.fillRect(0, 0, width, height);
+  context.font = `600 ${size * scale}px "${HANDWRITING_FONT}", cursive`;
+  context.fillStyle = rgbCss(color);
+  context.textBaseline = 'alphabetic';
+  context.fillText(text, paddingX, paddingY + (size * scale));
+
+  return {
+    ...canvasToJpegImage(canvas, 0.94),
+    name,
+    displayWidth: width / scale,
+    displayHeight: height / scale,
+  };
+};
+
+const loadStampImage = async (): Promise<PdfImage | null> => {
   if (typeof document === 'undefined' || typeof Image === 'undefined') return null;
 
   try {
@@ -173,14 +215,7 @@ const loadStampImage = async (): Promise<StampImage | null> => {
     }
 
     context.putImageData(source, 0, 0);
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.88);
-    const encoded = dataUrl.slice(dataUrl.indexOf(',') + 1);
-    const binary = atob(encoded);
-    let hex = '';
-    for (let index = 0; index < binary.length; index += 1) {
-      hex += binary.charCodeAt(index).toString(16).padStart(2, '0');
-    }
-    return { hex: `${hex}>`, width: size, height: size };
+    return canvasToJpegImage(canvas, 0.88);
   } catch {
     return null;
   }
@@ -213,6 +248,44 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const countries = groupedEntries(entries);
   const multiCountry = countries.size > 1;
   const stampImage = await loadStampImage();
+  const uniqueCountries = [...countries.keys()];
+  const handwritingAssets = new Map<string, HandwrittenImage>();
+
+  const addHandwritingAsset = async (text: string, size: number, color: [number, number, number]) => {
+    const key = handwrittenKey(text, size, color);
+    if (handwritingAssets.has(key)) return;
+    const asset = await renderHandwrittenImage(text, size, color, `Hw${handwritingAssets.size + 1}`);
+    if (asset) handwritingAssets.set(key, asset);
+  };
+
+  const titleColor: [number, number, number] = [0.12, 0.2, 0.16];
+  const headingCountry = uniqueCountries.length === 1 ? titleize(uniqueCountries[0]) : '';
+  const headingLabel = headingCountry ? `My Atlas ${headingCountry}` : 'My Atlas';
+  await addHandwritingAsset(headingLabel, 25.5, titleColor);
+  for (const [country, cities] of countries) {
+    if (multiCountry) await addHandwritingAsset(`My Atlas ${titleize(country)}`, 20, titleColor);
+    for (const city of cities.keys()) await addHandwritingAsset(titleize(city), 16.5, titleColor);
+  }
+
+  const pdfHandwrittenText = (
+    target: PdfPage,
+    text: string,
+    x: number,
+    baselineY: number,
+    size: number,
+    color: [number, number, number] = titleColor,
+  ) => {
+    const asset = handwritingAssets.get(handwrittenKey(text, size, color));
+    if (!asset) {
+      pdfText(target, text, x, baselineY, size * 0.84, 'F3', color);
+      return;
+    }
+    const imageY = baselineY - (asset.displayHeight * 0.32);
+    target.commands.push(
+      `q ${asset.displayWidth.toFixed(2)} 0 0 ${asset.displayHeight.toFixed(2)} ${x.toFixed(2)} ${imageY.toFixed(2)} cm /${asset.name} Do Q`,
+    );
+  };
+
   let page!: PdfPage;
   let y = PAGE_H - 112;
   let currentPalette = DEFAULT_PALETTE;
@@ -242,13 +315,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     addPage();
   };
 
-  const uniqueCountries = [...countries.keys()];
   if (uniqueCountries.length === 1) currentPalette = paletteForCountry(uniqueCountries[0]);
   addPage();
 
-  const headingCountry = uniqueCountries.length === 1 ? titleize(uniqueCountries[0]) : '';
-  const headingLabel = headingCountry ? `My Atlas ${headingCountry}` : 'My Atlas';
-  pdfHandwrittenText(page, headingLabel, LEFT, y, 25.5, uniqueCountries[0] ?? '', [0.12, 0.2, 0.16]);
+  pdfHandwrittenText(page, headingLabel, LEFT, y, 25.5);
   y -= 27;
   pdfText(page, `Your journey so far - ${entries.length} saved ${entries.length === 1 ? 'place' : 'places'}.`, LEFT, y, 10, 'F1', MUTED);
   y -= 15;
@@ -259,7 +329,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     currentPalette = paletteForCountry(country);
     if (multiCountry) {
       ensure(49);
-      pdfHandwrittenText(page, `My Atlas ${titleize(country)}`, LEFT, y, 20, country, [0.12, 0.2, 0.16]);
+      pdfHandwrittenText(page, `My Atlas ${titleize(country)}`, LEFT, y, 20);
       y -= 12;
       pdfDivider(page, LEFT, RIGHT, y, currentPalette);
       y -= 21;
@@ -267,7 +337,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
 
     cities.forEach((categories, city) => {
       ensure(50);
-      pdfHandwrittenText(page, titleize(city), LEFT, y, 16.5, country, [0.12, 0.2, 0.16]);
+      pdfHandwrittenText(page, titleize(city), LEFT, y, 16.5);
       y -= 10;
       pdfDivider(page, LEFT, RIGHT, y, currentPalette);
       y -= 18;
@@ -314,20 +384,24 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const regularFontId = reserve();
   const boldFontId = reserve();
   const obliqueFontId = reserve();
-  const laosScriptFontId = reserve();
-  const sriLankaScriptFontId = reserve();
   const stampImageId = stampImage ? reserve() : 0;
+  const handwritingImageIds = new Map<string, number>();
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
   objects[boldFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>';
   objects[obliqueFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>';
-  objects[laosScriptFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /ZapfChancery-MediumItalic >>';
-  objects[sriLankaScriptFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Times-BoldItalic >>';
 
-  if (stampImage && stampImageId) {
-    const stream = `${stampImage.hex}\n`;
+  const writeJpegObject = (id: number, image: PdfImage) => {
+    const stream = `${image.hex}\n`;
     const streamLength = new TextEncoder().encode(stream).length;
-    objects[stampImageId] = `<< /Type /XObject /Subtype /Image /Width ${stampImage.width} /Height ${stampImage.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter [/ASCIIHexDecode /DCTDecode] /Length ${streamLength} >>\nstream\n${stream}endstream`;
-  }
+    objects[id] = `<< /Type /XObject /Subtype /Image /Width ${image.width} /Height ${image.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter [/ASCIIHexDecode /DCTDecode] /Length ${streamLength} >>\nstream\n${stream}endstream`;
+  };
+
+  if (stampImage && stampImageId) writeJpegObject(stampImageId, stampImage);
+  handwritingAssets.forEach((asset) => {
+    const id = reserve();
+    handwritingImageIds.set(asset.name, id);
+    writeJpegObject(id, asset);
+  });
 
   const pageIds: number[] = [];
   pages.forEach((pdfPage) => {
@@ -341,8 +415,11 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     });
     const pageId = reserve();
     const annots = annotationIds.length ? `/Annots [${annotationIds.map((id) => `${id} 0 R`).join(' ')}]` : '';
-    const xObjects = stampImageId ? `/XObject << /ImStamp ${stampImageId} 0 R >>` : '';
-    objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R /F4 ${laosScriptFontId} 0 R /F5 ${sriLankaScriptFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
+    const xObjectEntries: string[] = [];
+    if (stampImageId) xObjectEntries.push(`/ImStamp ${stampImageId} 0 R`);
+    handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
+    const xObjects = xObjectEntries.length ? `/XObject << ${xObjectEntries.join(' ')} >>` : '';
+    objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
     pageIds.push(pageId);
   });
 
