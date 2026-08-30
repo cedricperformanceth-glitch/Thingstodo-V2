@@ -92,7 +92,7 @@ const pdfCircle = (
     `${dash} ${color.join(' ')} RG ${lineWidth} w `
     + `${(cx + radius).toFixed(2)} ${cy.toFixed(2)} m `
     + `${(cx + radius).toFixed(2)} ${(cy + k).toFixed(2)} ${(cx + k).toFixed(2)} ${(cy + radius).toFixed(2)} ${cx.toFixed(2)} ${(cy + radius).toFixed(2)} c `
-    + `${(cx - k).toFixed(2)} ${(cy + radius).toFixed(2)} ${(cx - radius).toFixed(2)} ${(cy + k).toFixed(2)} ${(cx - radius).toFixed(2)} ${cy.toFixed(2)} c `
+    + `${(cx - k).toFixed(2)} ${(cy + radius).toFixed(2)} ${(cx - radius).toFixed(2)} ${(cx - k).toFixed(2)} ${(cx - radius).toFixed(2)} ${cy.toFixed(2)} c `
     + `${(cx - radius).toFixed(2)} ${(cy - k).toFixed(2)} ${(cx - k).toFixed(2)} ${(cy - radius).toFixed(2)} ${cx.toFixed(2)} ${(cy - radius).toFixed(2)} c `
     + `${(cx + k).toFixed(2)} ${(cy - radius).toFixed(2)} ${(cx + radius).toFixed(2)} ${(cy - k).toFixed(2)} ${(cx + radius).toFixed(2)} ${cy.toFixed(2)} c S`,
   );
@@ -283,16 +283,26 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const SHEET_RIGHT = SHEET_LEFT + SHEET_WIDTH;
   const LEFT = SHEET_LEFT + 27;
   const RIGHT = SHEET_RIGHT - 27;
+  const COVER_SUMMARY_WIDTH = 318;
+  const COVER_SUMMARY_HEIGHT = 128;
+  const COVER_SUMMARY_X = (PAGE_W - COVER_SUMMARY_WIDTH) / 2;
+  const COVER_SUMMARY_Y = 36;
   const pages: PdfPage[] = [];
   const summaryUrl = new URL('/summary', window.location.origin).toString();
   const countries = groupedEntries(entries);
   const multiCountry = countries.size > 1;
-  const [stampImage, coverImage, binderImage] = await Promise.all([
+  const [stampImage, coverImage, coverSummaryImage, binderImage] = await Promise.all([
     loadStampImage(),
     loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),
-    loadAssetAsJpeg('/assets/shared/pdf/atlas-binder-edge.svg', 128, 1520, 'contain'),
+    loadAssetAsJpeg('/assets/shared/pdf/atlas-cover-summary-card.svg', 1240, 500, 'contain'),
+    loadAssetAsJpeg('/assets/shared/pdf/atlas-binder-edge.svg', 180, 1520, 'contain'),
   ]);
   const uniqueCountries = [...countries.keys()];
+  const coverSummaryRows = [...countries.entries()].map(([country, cities]) => {
+    let count = 0;
+    cities.forEach((categories) => categories.forEach((items) => { count += items.length; }));
+    return { country, count };
+  });
   const handwritingAssets = new Map<string, HandwrittenImage>();
 
   const addHandwritingAsset = async (text: string, size: number, color: [number, number, number]) => {
@@ -306,6 +316,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const headingCountry = uniqueCountries.length === 1 ? titleize(uniqueCountries[0]) : '';
   const headingLabel = headingCountry ? `My Atlas ${headingCountry}` : 'My Atlas';
   await addHandwritingAsset(headingLabel, 25.5, titleColor);
+  await addHandwritingAsset('Contents', 17.5, titleColor);
   for (const [country, cities] of countries) {
     if (multiCountry) await addHandwritingAsset(`My Atlas ${titleize(country)}`, 20, titleColor);
     for (const city of cities.keys()) await addHandwritingAsset(titleize(city), 16.5, titleColor);
@@ -339,10 +350,43 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     pages.push(page);
     if (coverImage) {
       page.commands.push(`q ${PAGE_W.toFixed(2)} 0 0 ${PAGE_H.toFixed(2)} 0 0 cm /ImCover Do Q`);
-      return;
+    } else {
+      pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
+      pdfText(page, 'MY ATLAS', 62, PAGE_H - 104, 28, 'F2', ATLAS_GREEN);
     }
-    pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
-    pdfText(page, 'MY ATLAS', 62, PAGE_H - 104, 28, 'F2', ATLAS_GREEN);
+
+    if (coverSummaryImage) {
+      page.commands.push(
+        `q ${COVER_SUMMARY_WIDTH.toFixed(2)} 0 0 ${COVER_SUMMARY_HEIGHT.toFixed(2)} ${COVER_SUMMARY_X.toFixed(2)} ${COVER_SUMMARY_Y.toFixed(2)} cm /ImCoverSummary Do Q`,
+      );
+    } else {
+      pdfFill(page, COVER_SUMMARY_X, COVER_SUMMARY_Y, COVER_SUMMARY_WIDTH, COVER_SUMMARY_HEIGHT, PAPER);
+      pdfStrokeRect(page, COVER_SUMMARY_X, COVER_SUMMARY_Y, COVER_SUMMARY_WIDTH, COVER_SUMMARY_HEIGHT, [0.79, 0.74, 0.66], 0.5);
+    }
+
+    const cardLeft = COVER_SUMMARY_X + 24;
+    const cardRight = COVER_SUMMARY_X + COVER_SUMMARY_WIDTH - 24;
+    pdfHandwrittenText(page, 'Contents', cardLeft, COVER_SUMMARY_Y + COVER_SUMMARY_HEIGHT - 36, 17.5);
+    pdfText(page, 'YOUR SAVED ATLAS', cardRight - 75, COVER_SUMMARY_Y + COVER_SUMMARY_HEIGHT - 30, 5.8, 'F2', ATLAS_GREEN);
+
+    const visibleRows = coverSummaryRows.slice(0, 4);
+    const rowGap = visibleRows.length > 2 ? 18 : 22;
+    let rowY = COVER_SUMMARY_Y + COVER_SUMMARY_HEIGHT - 66;
+    visibleRows.forEach(({ country, count }, index) => {
+      const palette = paletteForCountry(country);
+      pdfCircle(page, cardLeft + 3.5, rowY + 2.8, 2.3, palette.secondary, 1.1);
+      pdfText(page, titleize(country), cardLeft + 14, rowY, 9.6, 'F2', INK);
+      const countLabel = `${count} saved ${count === 1 ? 'place' : 'places'}`;
+      pdfText(page, countLabel, cardRight - 78, rowY, 7.6, 'F1', MUTED);
+      if (index < visibleRows.length - 1) {
+        pdfLine(page, cardLeft + 14, rowY - 7, cardRight, rowY - 7, [0.83, 0.80, 0.74], 0.38);
+      }
+      rowY -= rowGap;
+    });
+
+    if (coverSummaryRows.length > visibleRows.length) {
+      pdfText(page, `+ ${coverSummaryRows.length - visibleRows.length} more`, cardLeft + 14, COVER_SUMMARY_Y + 18, 6.8, 'F1', MUTED);
+    }
   };
 
   const addPage = () => {
@@ -350,7 +394,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     pages.push(page);
     pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
     pdfStrokeRect(page, SHEET_LEFT, 27, SHEET_WIDTH, PAGE_H - 54, [0.82, 0.79, 0.72], 0.38);
-    if (binderImage) page.commands.push('q 42 0 0 704 0 69 cm /ImBinder Do Q');
+    if (binderImage) page.commands.push('q 60 0 0 610 -5 116 cm /ImBinder Do Q');
     pdfText(page, 'THINGS TO DO ATLAS', LEFT, PAGE_H - 43, 8.2, 'F2', ATLAS_GREEN);
     pdfDivider(page, LEFT, RIGHT, PAGE_H - 57, currentPalette);
     y = PAGE_H - 88;
@@ -440,6 +484,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const obliqueFontId = reserve();
   const stampImageId = stampImage ? reserve() : 0;
   const coverImageId = coverImage ? reserve() : 0;
+  const coverSummaryImageId = coverSummaryImage ? reserve() : 0;
   const binderImageId = binderImage ? reserve() : 0;
   const handwritingImageIds = new Map<string, number>();
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
@@ -454,6 +499,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
 
   if (stampImage && stampImageId) writeJpegObject(stampImageId, stampImage);
   if (coverImage && coverImageId) writeJpegObject(coverImageId, coverImage);
+  if (coverSummaryImage && coverSummaryImageId) writeJpegObject(coverSummaryImageId, coverSummaryImage);
   if (binderImage && binderImageId) writeJpegObject(binderImageId, binderImage);
   handwritingAssets.forEach((asset) => {
     const id = reserve();
@@ -476,6 +522,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     const xObjectEntries: string[] = [];
     if (stampImageId) xObjectEntries.push(`/ImStamp ${stampImageId} 0 R`);
     if (coverImageId) xObjectEntries.push(`/ImCover ${coverImageId} 0 R`);
+    if (coverSummaryImageId) xObjectEntries.push(`/ImCoverSummary ${coverSummaryImageId} 0 R`);
     if (binderImageId) xObjectEntries.push(`/ImBinder ${binderImageId} 0 R`);
     handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
     const xObjects = xObjectEntries.length ? `/XObject << ${xObjectEntries.join(' ')} >>` : '';
