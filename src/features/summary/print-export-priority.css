@@ -1,0 +1,8 @@
+.atlas-export__cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.atlas-export__card--print {
+  order: -1;
+}
