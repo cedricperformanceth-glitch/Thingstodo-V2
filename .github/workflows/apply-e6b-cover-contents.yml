@@ -1,0 +1,257 @@
+name: Apply e6b30a0 cover contents
+on:
+  push:
+    branches:
+      - feat/pdf-e6b-cover-contents-links
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/pdf-e6b-cover-contents-links
+      - name: Wire original dynamic contents slip into PDF
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('src/features/summary/atlas-export-pdf.ts')
+          text = path.read_text()
+
+          old_import = """import {
+            ATLAS_COVER_CONTENTS_LAYOUT,
+            formatAtlasSavedPlaces,
+            getAtlasCoverContentsDimensions,
+          } from './atlas-cover-contents-svg';"""
+          new_import = """import {
+            ATLAS_COVER_CONTENTS_METRICS,
+            createAtlasCoverContentsSvg,
+          } from '../trip/pdf/atlas-cover-contents-slip';"""
+          if old_import not in text:
+              raise SystemExit('Expected current cover-contents import not found')
+          text = text.replace(old_import, new_import, 1)
+
+          old_link = "interface PdfLink { x: number; y: number; width: number; height: number; url: string; }"
+          new_link = "interface PdfLink { x: number; y: number; width: number; height: number; url?: string; targetPageIndex?: number; }"
+          if old_link not in text:
+              raise SystemExit('PdfLink interface not found')
+          text = text.replace(old_link, new_link, 1)
+
+          helper_marker = "\nconst ensureFontReady = async (fontFamily: string, weight: '400' | '600') => {"
+          if helper_marker not in text:
+              raise SystemExit('ensureFontReady marker not found')
+          helper = r'''
+
+interface PdfSvgPlacement {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  pageWidth: number;
+  pageHeight: number;
+}
+
+const loadCoverWithSvgAsJpeg = async (
+  coverSrc: string,
+  svgMarkup: string,
+  placement: PdfSvgPlacement,
+  width: number,
+  height: number,
+): Promise<PdfImage | null> => {
+  if (typeof document === 'undefined' || typeof Image === 'undefined') return null;
+
+  let objectUrl = '';
+  try {
+    const cover = await loadImageElement(coverSrc);
+    const overlayBlob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+    objectUrl = URL.createObjectURL(overlayBlob);
+    const overlay = await loadImageElement(objectUrl);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+
+    const coverScale = Math.max(width / cover.naturalWidth, height / cover.naturalHeight);
+    const coverWidth = cover.naturalWidth * coverScale;
+    const coverHeight = cover.naturalHeight * coverScale;
+    context.drawImage(cover, (width - coverWidth) / 2, (height - coverHeight) / 2, coverWidth, coverHeight);
+
+    const scaleX = width / placement.pageWidth;
+    const scaleY = height / placement.pageHeight;
+    const overlayX = placement.x * scaleX;
+    const overlayY = (placement.pageHeight - placement.y - placement.height) * scaleY;
+    context.drawImage(
+      overlay,
+      overlayX,
+      overlayY,
+      placement.width * scaleX,
+      placement.height * scaleY,
+    );
+
+    return canvasToJpegImage(canvas, 0.94);
+  } catch {
+    return loadAssetAsJpeg(coverSrc, width, height, 'cover');
+  } finally {
+    if (objectUrl) URL.revokeObjectURL(objectUrl);
+  }
+};
+'''
+          text = text.replace(helper_marker, helper + helper_marker, 1)
+
+          old_dimensions = """  const coverSummaryDimensions = getAtlasCoverContentsDimensions(coverSummaryRows.length);
+          const COVER_SUMMARY_WIDTH = 318;
+          const COVER_SUMMARY_SCALE = COVER_SUMMARY_WIDTH / coverSummaryDimensions.width;
+          const COVER_SUMMARY_HEIGHT = coverSummaryDimensions.height * COVER_SUMMARY_SCALE;
+          const COVER_SUMMARY_X = (PAGE_W - COVER_SUMMARY_WIDTH) / 2;
+          const COVER_SUMMARY_TOP = 418;
+          const COVER_SUMMARY_Y = Math.max(24, COVER_SUMMARY_TOP - COVER_SUMMARY_HEIGHT);
+
+          const [coverImage, signatureImage, stampImage] = await Promise.all([
+            loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),"""
+          new_dimensions = """  const coverSummarySvgWidth = ATLAS_COVER_CONTENTS_METRICS.width;
+          const coverSummarySvgHeight = ATLAS_COVER_CONTENTS_METRICS.headerHeight
+            + (coverSummaryRows.length * ATLAS_COVER_CONTENTS_METRICS.rowHeight)
+            + ATLAS_COVER_CONTENTS_METRICS.bottomPadding;
+          const COVER_SUMMARY_WIDTH = 318;
+          const COVER_SUMMARY_SCALE = COVER_SUMMARY_WIDTH / coverSummarySvgWidth;
+          const COVER_SUMMARY_HEIGHT = coverSummarySvgHeight * COVER_SUMMARY_SCALE;
+          const COVER_SUMMARY_X = (PAGE_W - COVER_SUMMARY_WIDTH) / 2;
+          const COVER_SUMMARY_TOP = 418;
+          const COVER_SUMMARY_Y = Math.max(24, COVER_SUMMARY_TOP - COVER_SUMMARY_HEIGHT);
+          const coverSummarySvg = createAtlasCoverContentsSvg(
+            coverSummaryRows.map(({ country, savedPlaces }) => ({ country: titleize(country), savedPlaces })),
+          );
+
+          const [coverImage, signatureImage, stampImage] = await Promise.all([
+            loadCoverWithSvgAsJpeg(
+              '/assets/PDF/couverture.webp',
+              coverSummarySvg,
+              {
+                x: COVER_SUMMARY_X,
+                y: COVER_SUMMARY_Y,
+                width: COVER_SUMMARY_WIDTH,
+                height: COVER_SUMMARY_HEIGHT,
+                pageWidth: PAGE_W,
+                pageHeight: PAGE_H,
+              },
+              1190,
+              1684,
+            ),"""
+          if old_dimensions not in text:
+              raise SystemExit('Cover summary dimensions/load block not found')
+          text = text.replace(old_dimensions, new_dimensions, 1)
+
+          old_contents_asset = "  await addHandwritingAsset('Contents', 17.5, titleColor, COUNTRY_CITY_FONT, '400');\n"
+          if old_contents_asset not in text:
+              raise SystemExit('Contents handwriting preload not found')
+          text = text.replace(old_contents_asset, '', 1)
+
+          pattern = re.compile(r"\n    const layout = ATLAS_COVER_CONTENTS_LAYOUT;.*?\n  };\n\n  const addPage =", re.S)
+          text, count = pattern.subn("\n  };\n\n  const addPage =", text, count=1)
+          if count != 1:
+              raise SystemExit(f'Expected one manual cover summary block, got {count}')
+
+          rendered_marker = "  let renderedCountries = 0;\n"
+          if rendered_marker not in text:
+              raise SystemExit('renderedCountries marker not found')
+          text = text.replace(rendered_marker, rendered_marker + "  const countryPageIndexes = new Map<string, number>();\n", 1)
+
+          country_marker = "    currentPalette = countryPalette;\n    currentCountry = country;\n"
+          if country_marker not in text:
+              raise SystemExit('country palette marker not found')
+          text = text.replace(
+              country_marker,
+              country_marker + "    countryPageIndexes.set(country, pages.length - 1);\n",
+              1,
+          )
+
+          closing_marker = "  });\n\n  ensure(CLOSING_BLOCK_HEIGHT);"
+          cover_links = """  });
+
+          const coverPage = pages[0];
+          if (coverPage) {
+            coverSummaryRows.forEach(({ country }, index) => {
+              const targetPageIndex = countryPageIndexes.get(country);
+              if (targetPageIndex === undefined) return;
+              const rowTop = ATLAS_COVER_CONTENTS_METRICS.headerHeight
+                + (index * ATLAS_COVER_CONTENTS_METRICS.rowHeight);
+              coverPage.links.push({
+                x: COVER_SUMMARY_X + (28 * COVER_SUMMARY_SCALE),
+                y: COVER_SUMMARY_Y + COVER_SUMMARY_HEIGHT
+                  - ((rowTop + ATLAS_COVER_CONTENTS_METRICS.rowHeight) * COVER_SUMMARY_SCALE),
+                width: (ATLAS_COVER_CONTENTS_METRICS.width - 56) * COVER_SUMMARY_SCALE,
+                height: ATLAS_COVER_CONTENTS_METRICS.rowHeight * COVER_SUMMARY_SCALE,
+                targetPageIndex,
+              });
+            });
+          }
+
+          ensure(CLOSING_BLOCK_HEIGHT);"""
+          if closing_marker not in text:
+              raise SystemExit('Closing marker not found')
+          text = text.replace(closing_marker, cover_links, 1)
+
+          pages_pattern = re.compile(
+              r"  const pageIds: number\[\] = \[\];\n  pages\.forEach\(\(pdfPage\) => \{.*?\n  \}\);\n\n  objects\[pagesId\] =",
+              re.S,
+          )
+          pages_replacement = r'''  const pageIds = pages.map(() => reserve());
+  pages.forEach((pdfPage, pageIndex) => {
+    const content = `${pdfPage.commands.join('\n')}\n`;
+    const contentId = reserve();
+    objects[contentId] = `<< /Length ${new TextEncoder().encode(content).length} >>\nstream\n${content}endstream`;
+    const annotationIds = pdfPage.links.map((link) => {
+      const id = reserve();
+      const rect = `[${link.x.toFixed(2)} ${link.y.toFixed(2)} ${(link.x + link.width).toFixed(2)} ${(link.y + link.height).toFixed(2)}]`;
+      if (typeof link.targetPageIndex === 'number') {
+        const targetPageId = pageIds[link.targetPageIndex];
+        objects[id] = `<< /Type /Annot /Subtype /Link /Rect ${rect} /Border [0 0 0] /A << /S /GoTo /D [${targetPageId} 0 R /Fit] >> >>`;
+      } else if (link.url) {
+        objects[id] = `<< /Type /Annot /Subtype /Link /Rect ${rect} /Border [0 0 0] /A << /S /URI /URI (${pdfEscape(link.url)}) >> >>`;
+      } else {
+        objects[id] = `<< /Type /Annot /Subtype /Link /Rect ${rect} /Border [0 0 0] >>`;
+      }
+      return id;
+    });
+    const pageId = pageIds[pageIndex];
+    const annots = annotationIds.length ? `/Annots [${annotationIds.map((id) => `${id} 0 R`).join(' ')}]` : '';
+    const xObjectEntries: string[] = [];
+    if (coverImageId) xObjectEntries.push(`/ImCover ${coverImageId} 0 R`);
+    if (signatureImageId) xObjectEntries.push(`/ImSignature ${signatureImageId} 0 R`);
+    if (stampImageId) xObjectEntries.push(`/ImStamp ${stampImageId} 0 R`);
+    handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
+    const xObjects = xObjectEntries.length ? `/XObject << ${xObjectEntries.join(' ')} >>` : '';
+    objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
+  });
+
+  objects[pagesId] ='''
+          text, count = pages_pattern.subn(pages_replacement, text, count=1)
+          if count != 1:
+              raise SystemExit(f'Expected one page serialization block, got {count}')
+
+          leftovers = [
+              'ATLAS_COVER_CONTENTS_LAYOUT',
+              'formatAtlasSavedPlaces',
+              'getAtlasCoverContentsDimensions',
+          ]
+          for leftover in leftovers:
+              if leftover in text:
+                  raise SystemExit(f'Obsolete cover summary reference remains: {leftover}')
+
+          path.write_text(text)
+          PY
+          rm -f .github/workflows/apply-e6b-cover-contents.yml
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Use original e6b30a0 contents slip in PDF"
+          git push origin HEAD:feat/pdf-e6b-cover-contents-links
