@@ -1,10 +1,11 @@
-import type { TripEntry } from '../trip/store';
+import type { TripEntry, TripPrintMeta } from '../trip/store';
 import { categoryLabel, PDF_MIME, titleize } from './atlas-export-shared';
 
 type PdfFont = 'F1' | 'F2' | 'F3' | 'F4';
 interface PdfPage { commands: string[]; }
 interface OrderedCity { country: string; city: string; entries: TripEntry[]; }
 interface PrintFact { label: string; value: string; }
+interface SummaryEntityMeta { printMeta?: TripPrintMeta; }
 
 const PAGE_W = 595.28;
 const PAGE_H = 841.89;
@@ -17,6 +18,7 @@ const COLUMN_X = [MARGIN_X, MARGIN_X + COLUMN_W + COLUMN_GAP] as const;
 const INK = 0.08;
 const MUTED = 0.36;
 const LIGHT = 0.72;
+const SUMMARY_META_URLS = ['/summary-media.json', '/api/summary-media.json'] as const;
 
 const asciiPdf = (value: string) => value.normalize('NFKD')
   .replace(/[\u0300-\u036f]/g, '')
@@ -149,6 +151,35 @@ const entryMetrics = (entry: TripEntry) => {
   return { nameLines, descriptionLines, addressLines, height: Math.max(47, height) };
 };
 
+const entryIndexKeys = (entry: TripEntry) => [
+  `${entry.country}:${entry.city}:${entry.id}`,
+  `id:${entry.id}`,
+  ...(entry.slug ? [`slug:${entry.slug}`] : []),
+];
+
+const hydratePrintableEntries = async (entries: TripEntry[]) => {
+  if (!entries.some((entry) => !entry.printMeta)) return entries;
+
+  for (const url of SUMMARY_META_URLS) {
+    try {
+      const response = await fetch(url, { headers: { Accept: 'application/json' } });
+      if (!response.ok) continue;
+      const index = await response.json() as Record<string, SummaryEntityMeta>;
+      return entries.map((entry) => {
+        if (entry.printMeta) return entry;
+        const meta = entryIndexKeys(entry)
+          .map((key) => index[key])
+          .find((candidate) => candidate?.printMeta);
+        return meta?.printMeta ? { ...entry, printMeta: meta.printMeta } : entry;
+      });
+    } catch {
+      // Try the compatibility endpoint below.
+    }
+  }
+
+  return entries;
+};
+
 const renderHeader = (page: PdfPage, pageNumber: number) => {
   pdfText(page, 'THINGS TO DO ATLAS / PRINT FIELD COPY', MARGIN_X, PAGE_H - 23, 6.7, 'F2', MUTED);
   pdfText(page, `PAGE ${pageNumber}`, PAGE_W - MARGIN_X - 31, PAGE_H - 23, 6.7, 'F2', MUTED);
@@ -212,7 +243,7 @@ const serializePdf = (pages: PdfPage[]) => {
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
   objects[boldFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>';
   objects[obliqueFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>';
-  objects[scriptFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /ZapfChancery-MediumItalic >>';
+  objects[scriptFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Times-Italic >>';
 
   const pageIds = pages.map(() => reserve());
   pages.forEach((pdfPage, pageIndex) => {
@@ -248,7 +279,8 @@ const serializePdf = (pages: PdfPage[]) => {
 };
 
 export const buildPrintablePdf = async (entries: TripEntry[]): Promise<Blob> => {
-  const groups = orderedCities(entries);
+  const hydratedEntries = await hydratePrintableEntries(entries);
+  const groups = orderedCities(hydratedEntries);
   const pages: PdfPage[] = [];
   let page!: PdfPage;
   let column = 0;
