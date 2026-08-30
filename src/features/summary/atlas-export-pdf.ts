@@ -17,6 +17,7 @@ const INK: [number, number, number] = [0.16, 0.18, 0.17];
 const MUTED: [number, number, number] = [0.43, 0.43, 0.39];
 const ATLAS_GREEN: [number, number, number] = [0.19, 0.33, 0.27];
 const HANDWRITING_FONT = 'Caveat';
+const COUNTRY_CITY_FONT = 'Alex Brush';
 const SCHOOLBELL_FONT = 'Schoolbell';
 export const PDF_ANNOTATION_FONTS = ['Schoolbell', 'Indie Flower'] as const;
 
@@ -291,13 +292,13 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const headingLabel = headingCountry ? `My Atlas ${headingCountry}` : 'My Atlas';
   const closingLineOne = 'Thanks for letting Things To Do Atlas travel with you.';
   const closingLineTwo = 'Keep exploring, stay curious, and have a beautiful journey.';
-  await addHandwritingAsset(headingLabel, 25.5, titleColor);
+  await addHandwritingAsset(headingLabel, 25.5, titleColor, COUNTRY_CITY_FONT, '400');
   await addHandwritingAsset('Contents', 17.5, titleColor);
   await addHandwritingAsset(closingLineOne, 10.8, titleColor, SCHOOLBELL_FONT, '400');
   await addHandwritingAsset(closingLineTwo, 10.4, MUTED, SCHOOLBELL_FONT, '400');
   for (const [country, cities] of countries) {
-    if (multiCountry) await addHandwritingAsset(`My Atlas ${titleize(country)}`, 20, titleColor);
-    for (const city of cities.keys()) await addHandwritingAsset(titleize(city), 16.5, titleColor);
+    if (multiCountry) await addHandwritingAsset(`My Atlas ${titleize(country)}`, 20, titleColor, COUNTRY_CITY_FONT, '400');
+    for (const city of cities.keys()) await addHandwritingAsset(titleize(city), 16.5, titleColor, COUNTRY_CITY_FONT, '400');
   }
 
   const pdfHandwrittenText = (
@@ -327,8 +328,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     baselineY: number,
     size: number,
     color: [number, number, number] = titleColor,
+    fontFamily = HANDWRITING_FONT,
+    weight: '400' | '600' = '600',
   ) => {
-    const asset = handwritingAssets.get(handwrittenKey(text, size, color));
+    const asset = handwritingAssets.get(handwrittenKey(text, size, color, fontFamily, weight));
     if (!asset) {
       const estimatedWidth = text.length * size * 0.42;
       pdfText(target, text, SHEET_LEFT + ((SHEET_WIDTH - estimatedWidth) / 2), baselineY, size * 0.84, 'F3', color);
@@ -416,7 +419,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   addCoverPage();
   addPage();
 
-  pdfHandwrittenCenteredText(page, headingLabel, y, 25.5);
+  pdfHandwrittenCenteredText(page, headingLabel, y, 25.5, titleColor, COUNTRY_CITY_FONT, '400');
   y -= 27;
   pdfText(page, `Your journey so far - ${entries.length} saved ${entries.length === 1 ? 'place' : 'places'}.`, LEFT, y, 10, 'F1', MUTED);
   y -= 15;
@@ -427,7 +430,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     currentPalette = paletteForCountry(country);
     if (multiCountry) {
       ensure(49);
-      pdfHandwrittenText(page, `My Atlas ${titleize(country)}`, LEFT, y, 20);
+      pdfHandwrittenText(page, `My Atlas ${titleize(country)}`, LEFT, y, 20, titleColor, COUNTRY_CITY_FONT, '400');
       y -= 12;
       pdfDivider(page, LEFT, RIGHT, y, currentPalette);
       y -= 21;
@@ -435,7 +438,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
 
     cities.forEach((categories, city) => {
       ensure(50);
-      pdfHandwrittenText(page, titleize(city), LEFT, y, 16.5);
+      pdfHandwrittenText(page, titleize(city), LEFT, y, 16.5, titleColor, COUNTRY_CITY_FONT, '400');
       y -= 10;
       pdfDivider(page, LEFT, RIGHT, y, currentPalette);
       y -= 18;
