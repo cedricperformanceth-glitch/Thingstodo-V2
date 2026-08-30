@@ -1,157 +1,163 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
-<title id="title">Nautical compass rose</title>
-<desc id="desc">Classic ship compass rose with thirty-two directional points, degree ticks, cardinal letters and a restrained red north accent.</desc>
-<g fill="none" stroke="#171717" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="500" cy="500" r="425" stroke-width="7"/>
-<circle cx="500" cy="500" r="405" stroke-width="2.5"/>
-<circle cx="500" cy="500" r="360" stroke-width="2"/>
-<circle cx="500" cy="500" r="132" stroke-width="2"/>
-<line x1="500.00" y1="112.00" x2="500.00" y2="77.00" stroke-width="5"/>
-<line x1="535.12" y1="98.53" x2="536.87" y2="78.61" stroke-width="1.8"/>
-<line x1="569.98" y1="103.12" x2="573.45" y2="83.43" stroke-width="1.8"/>
-<line x1="602.23" y1="118.46" x2="609.48" y2="91.41" stroke-width="3"/>
-<line x1="637.83" y1="121.30" x2="644.67" y2="102.51" stroke-width="1.8"/>
-<line x1="670.32" y1="134.76" x2="678.77" y2="116.63" stroke-width="1.8"/>
-<line x1="697.50" y1="157.92" x2="711.50" y2="133.67" stroke-width="3"/>
-<line x1="731.15" y1="169.88" x2="742.62" y2="153.50" stroke-width="1.8"/>
-<line x1="759.04" y1="191.28" x2="771.90" y2="175.96" stroke-width="1.8"/>
-<line x1="774.36" y1="225.64" x2="799.11" y2="200.89" stroke-width="5"/>
-<line x1="808.72" y1="240.96" x2="824.04" y2="228.10" stroke-width="1.8"/>
-<line x1="830.12" y1="268.85" x2="846.50" y2="257.38" stroke-width="1.8"/>
-<line x1="842.08" y1="302.50" x2="866.33" y2="288.50" stroke-width="3"/>
-<line x1="865.24" y1="329.68" x2="883.37" y2="321.23" stroke-width="1.8"/>
-<line x1="878.70" y1="362.17" x2="897.49" y2="355.33" stroke-width="1.8"/>
-<line x1="881.54" y1="397.77" x2="908.59" y2="390.52" stroke-width="3"/>
-<line x1="896.88" y1="430.02" x2="916.57" y2="426.55" stroke-width="1.8"/>
-<line x1="901.47" y1="464.88" x2="921.39" y2="463.13" stroke-width="1.8"/>
-<line x1="888.00" y1="500.00" x2="923.00" y2="500.00" stroke-width="5"/>
-<line x1="901.47" y1="535.12" x2="921.39" y2="536.87" stroke-width="1.8"/>
-<line x1="896.88" y1="569.98" x2="916.57" y2="573.45" stroke-width="1.8"/>
-<line x1="881.54" y1="602.23" x2="908.59" y2="609.48" stroke-width="3"/>
-<line x1="878.70" y1="637.83" x2="897.49" y2="644.67" stroke-width="1.8"/>
-<line x1="865.24" y1="670.32" x2="883.37" y2="678.77" stroke-width="1.8"/>
-<line x1="842.08" y1="697.50" x2="866.33" y2="711.50" stroke-width="3"/>
-<line x1="830.12" y1="731.15" x2="846.50" y2="742.62" stroke-width="1.8"/>
-<line x1="808.72" y1="759.04" x2="824.04" y2="771.90" stroke-width="1.8"/>
-<line x1="774.36" y1="774.36" x2="799.11" y2="799.11" stroke-width="5"/>
-<line x1="759.04" y1="808.72" x2="771.90" y2="824.04" stroke-width="1.8"/>
-<line x1="731.15" y1="830.12" x2="742.62" y2="846.50" stroke-width="1.8"/>
-<line x1="697.50" y1="842.08" x2="711.50" y2="866.33" stroke-width="3"/>
-<line x1="670.32" y1="865.24" x2="678.77" y2="883.37" stroke-width="1.8"/>
-<line x1="637.83" y1="878.70" x2="644.67" y2="897.49" stroke-width="1.8"/>
-<line x1="602.23" y1="881.54" x2="609.48" y2="908.59" stroke-width="3"/>
-<line x1="569.98" y1="896.88" x2="573.45" y2="916.57" stroke-width="1.8"/>
-<line x1="535.12" y1="901.47" x2="536.87" y2="921.39" stroke-width="1.8"/>
-<line x1="500.00" y1="888.00" x2="500.00" y2="923.00" stroke-width="5"/>
-<line x1="464.88" y1="901.47" x2="463.13" y2="921.39" stroke-width="1.8"/>
-<line x1="430.02" y1="896.88" x2="426.55" y2="916.57" stroke-width="1.8"/>
-<line x1="397.77" y1="881.54" x2="390.52" y2="908.59" stroke-width="3"/>
-<line x1="362.17" y1="878.70" x2="355.33" y2="897.49" stroke-width="1.8"/>
-<line x1="329.68" y1="865.24" x2="321.23" y2="883.37" stroke-width="1.8"/>
-<line x1="302.50" y1="842.08" x2="288.50" y2="866.33" stroke-width="3"/>
-<line x1="268.85" y1="830.12" x2="257.38" y2="846.50" stroke-width="1.8"/>
-<line x1="240.96" y1="808.72" x2="228.10" y2="824.04" stroke-width="1.8"/>
-<line x1="225.64" y1="774.36" x2="200.89" y2="799.11" stroke-width="5"/>
-<line x1="191.28" y1="759.04" x2="175.96" y2="771.90" stroke-width="1.8"/>
-<line x1="169.88" y1="731.15" x2="153.50" y2="742.62" stroke-width="1.8"/>
-<line x1="157.92" y1="697.50" x2="133.67" y2="711.50" stroke-width="3"/>
-<line x1="134.76" y1="670.32" x2="116.63" y2="678.77" stroke-width="1.8"/>
-<line x1="121.30" y1="637.83" x2="102.51" y2="644.67" stroke-width="1.8"/>
-<line x1="118.46" y1="602.23" x2="91.41" y2="609.48" stroke-width="3"/>
-<line x1="103.12" y1="569.98" x2="83.43" y2="573.45" stroke-width="1.8"/>
-<line x1="98.53" y1="535.12" x2="78.61" y2="536.87" stroke-width="1.8"/>
-<line x1="112.00" y1="500.00" x2="77.00" y2="500.00" stroke-width="5"/>
-<line x1="98.53" y1="464.88" x2="78.61" y2="463.13" stroke-width="1.8"/>
-<line x1="103.12" y1="430.02" x2="83.43" y2="426.55" stroke-width="1.8"/>
-<line x1="118.46" y1="397.77" x2="91.41" y2="390.52" stroke-width="3"/>
-<line x1="121.30" y1="362.17" x2="102.51" y2="355.33" stroke-width="1.8"/>
-<line x1="134.76" y1="329.68" x2="116.63" y2="321.23" stroke-width="1.8"/>
-<line x1="157.92" y1="302.50" x2="133.67" y2="288.50" stroke-width="3"/>
-<line x1="169.88" y1="268.85" x2="153.50" y2="257.38" stroke-width="1.8"/>
-<line x1="191.28" y1="240.96" x2="175.96" y2="228.10" stroke-width="1.8"/>
-<line x1="225.64" y1="225.64" x2="200.89" y2="200.89" stroke-width="5"/>
-<line x1="240.96" y1="191.28" x2="228.10" y2="175.96" stroke-width="1.8"/>
-<line x1="268.85" y1="169.88" x2="257.38" y2="153.50" stroke-width="1.8"/>
-<line x1="302.50" y1="157.92" x2="288.50" y2="133.67" stroke-width="3"/>
-<line x1="329.68" y1="134.76" x2="321.23" y2="116.63" stroke-width="1.8"/>
-<line x1="362.17" y1="121.30" x2="355.33" y2="102.51" stroke-width="1.8"/>
-<line x1="397.77" y1="118.46" x2="390.52" y2="91.41" stroke-width="3"/>
-<line x1="430.02" y1="103.12" x2="426.55" y2="83.43" stroke-width="1.8"/>
-<line x1="464.88" y1="98.53" x2="463.13" y2="78.61" stroke-width="1.8"/>
-</g>
-<polygon points="500.00,500.00 466.00,395.00 500.00,160.00 534.00,395.00" fill="#f4efe1" stroke="#171717" stroke-width="3.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 466.00,395.00 500.00,160.00" fill="#9e3d33" stroke="none"/>
-<polygon points="500.00,500.00 500.51,420.57 540.58,296.00 529.93,426.43" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 500.51,420.57 540.58,296.00" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 514.27,410.66 595.67,269.03 553.08,426.73" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 514.27,410.66 595.67,269.03" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 530.86,426.81 615.56,327.05 555.81,443.48" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 530.86,426.81 615.56,327.05" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 549.50,410.90 712.13,287.87 589.10,450.50" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 549.50,410.90 712.13,287.87" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 556.52,444.19 672.95,384.44 573.19,469.14" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 556.52,444.19 672.95,384.44" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 573.27,446.92 730.97,404.33 589.34,485.73" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 573.27,446.92 730.97,404.33" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 573.57,470.07 704.00,459.42 579.43,499.49" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 573.57,470.07 704.00,459.42" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 605.00,466.00 840.00,500.00 605.00,534.00" fill="#f4efe1" stroke="#171717" stroke-width="3.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 605.00,466.00 840.00,500.00" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 579.43,500.51 704.00,540.58 573.57,529.93" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 579.43,500.51 704.00,540.58" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 589.34,514.27 730.97,595.67 573.27,553.08" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 589.34,514.27 730.97,595.67" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 573.19,530.86 672.95,615.56 556.52,555.81" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 573.19,530.86 672.95,615.56" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 589.10,549.50 712.13,712.13 549.50,589.10" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 589.10,549.50 712.13,712.13" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 555.81,556.52 615.56,672.95 530.86,573.19" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 555.81,556.52 615.56,672.95" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 553.08,573.27 595.67,730.97 514.27,589.34" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 553.08,573.27 595.67,730.97" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 529.93,573.57 540.58,704.00 500.51,579.43" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 529.93,573.57 540.58,704.00" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 534.00,605.00 500.00,840.00 466.00,605.00" fill="#f4efe1" stroke="#171717" stroke-width="3.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 534.00,605.00 500.00,840.00" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 499.49,579.43 459.42,704.00 470.07,573.57" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 499.49,579.43 459.42,704.00" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 485.73,589.34 404.33,730.97 446.92,573.27" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 485.73,589.34 404.33,730.97" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 469.14,573.19 384.44,672.95 444.19,556.52" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 469.14,573.19 384.44,672.95" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 450.50,589.10 287.87,712.13 410.90,549.50" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 450.50,589.10 287.87,712.13" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 443.48,555.81 327.05,615.56 426.81,530.86" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 443.48,555.81 327.05,615.56" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 426.73,553.08 269.03,595.67 410.66,514.27" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 426.73,553.08 269.03,595.67" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 426.43,529.93 296.00,540.58 420.57,500.51" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 426.43,529.93 296.00,540.58" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 395.00,534.00 160.00,500.00 395.00,466.00" fill="#f4efe1" stroke="#171717" stroke-width="3.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 395.00,534.00 160.00,500.00" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 420.57,499.49 296.00,459.42 426.43,470.07" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 420.57,499.49 296.00,459.42" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 410.66,485.73 269.03,404.33 426.73,446.92" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 410.66,485.73 269.03,404.33" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 426.81,469.14 327.05,384.44 443.48,444.19" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 426.81,469.14 327.05,384.44" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 410.90,450.50 287.87,287.87 450.50,410.90" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 410.90,450.50 287.87,287.87" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 444.19,443.48 384.44,327.05 469.14,426.81" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 444.19,443.48 384.44,327.05" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 446.92,426.73 404.33,269.03 485.73,410.66" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 446.92,426.73 404.33,269.03" fill="#171717" stroke="none"/>
-<polygon points="500.00,500.00 470.07,426.43 459.42,296.00 499.49,420.57" fill="#f4efe1" stroke="#171717" stroke-width="2.2" stroke-linejoin="round"/>
-<polygon points="500.00,500.00 470.07,426.43 459.42,296.00" fill="#171717" stroke="none"/>
-<circle cx="500" cy="500" r="34" fill="#f4efe1" stroke="#171717" stroke-width="4"/>
-<circle cx="500" cy="500" r="12" fill="#171717"/>
-<text x="500" y="112" fill="#9e3d33" font-family="Georgia, Times New Roman, serif" font-size="44" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">N</text>
-<text x="888" y="515" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="36" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">E</text>
-<text x="500" y="914" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="36" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">S</text>
-<text x="112" y="515" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="36" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">W</text>
-<text x="768" y="238" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">NE</text>
-<text x="768" y="780" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">SE</text>
-<text x="232" y="780" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">SW</text>
-<text x="232" y="238" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">NW</text>
-<path d="M500 59 L488 83 L500 77 L512 83 Z" fill="#9e3d33" stroke="#171717" stroke-width="2"/>
+  <title id="title">Wooden nautical compass rose</title>
+  <desc id="desc">A carved wooden ship-style compass rose with brass details, engraved cardinal marks and a warm walnut finish.</desc>
+
+  <defs>
+    <radialGradient id="faceWood" cx="42%" cy="34%" r="72%">
+      <stop offset="0" stop-color="#d8b47b"/>
+      <stop offset=".36" stop-color="#b9854f"/>
+      <stop offset=".72" stop-color="#8c5d35"/>
+      <stop offset="1" stop-color="#6d4529"/>
+    </radialGradient>
+    <linearGradient id="rimWood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4b2c1d"/>
+      <stop offset=".22" stop-color="#7a4b2e"/>
+      <stop offset=".5" stop-color="#3b2418"/>
+      <stop offset=".76" stop-color="#805134"/>
+      <stop offset="1" stop-color="#2f1d14"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d79a"/>
+      <stop offset=".35" stop-color="#c69a4b"/>
+      <stop offset=".62" stop-color="#8c652e"/>
+      <stop offset="1" stop-color="#e1c47a"/>
+    </linearGradient>
+    <linearGradient id="darkCarve" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d1b13"/>
+      <stop offset="1" stop-color="#160e0a"/>
+    </linearGradient>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.09" numOctaves="2" seed="9" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0.45 0 0 0 0.18  0 0.27 0 0 0.10  0 0 0.12 0 0.04  0 0 0 .34 0" result="woodNoise"/>
+      <feBlend in="SourceGraphic" in2="woodNoise" mode="multiply"/>
+    </filter>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1b100b" flood-opacity=".36"/>
+    </filter>
+    <filter id="engrave" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1" flood-color="#f4dca5" flood-opacity=".22"/>
+    </filter>
+
+    <g id="tickMinor">
+      <line x1="500" y1="120" x2="500" y2="142" stroke="#d8bd82" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="tickMajor">
+      <line x1="500" y1="113" x2="500" y2="151" stroke="url(#brass)" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g id="petalLong">
+      <path d="M500 500 L470 430 L500 194 L530 430 Z" fill="#2c1c14" stroke="#d0a85e" stroke-width="3"/>
+      <path d="M500 500 L500 194 L530 430 Z" fill="#b98648" opacity=".86"/>
+    </g>
+    <g id="petalMid">
+      <path d="M500 500 L482 448 L500 270 L518 448 Z" fill="#6b4328" stroke="#c9a05a" stroke-width="2.5"/>
+      <path d="M500 500 L500 270 L518 448 Z" fill="#d0a05d" opacity=".58"/>
+    </g>
+    <g id="petalShort">
+      <path d="M500 500 L488 462 L500 334 L512 462 Z" fill="#24170f" stroke="#b78a49" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <circle cx="500" cy="500" r="452" fill="url(#rimWood)" stroke="#21150f" stroke-width="10"/>
+    <circle cx="500" cy="500" r="432" fill="none" stroke="#a8763f" stroke-width="3" opacity=".76"/>
+    <circle cx="500" cy="500" r="410" fill="url(#faceWood)" stroke="#3b2518" stroke-width="8" filter="url(#grain)"/>
+    <circle cx="500" cy="500" r="385" fill="none" stroke="#53351f" stroke-width="5" opacity=".78"/>
+    <circle cx="500" cy="500" r="360" fill="none" stroke="#d1aa62" stroke-width="3" opacity=".72"/>
+
+    <g opacity=".98">
+      <use href="#tickMajor"/>
+      <use href="#tickMajor" transform="rotate(45 500 500)"/>
+      <use href="#tickMajor" transform="rotate(90 500 500)"/>
+      <use href="#tickMajor" transform="rotate(135 500 500)"/>
+      <use href="#tickMajor" transform="rotate(180 500 500)"/>
+      <use href="#tickMajor" transform="rotate(225 500 500)"/>
+      <use href="#tickMajor" transform="rotate(270 500 500)"/>
+      <use href="#tickMajor" transform="rotate(315 500 500)"/>
+
+      <use href="#tickMinor" transform="rotate(11.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(22.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(33.75 500 500)"/>
+      <use href="#tickMinor" transform="rotate(56.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(67.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(78.75 500 500)"/>
+      <use href="#tickMinor" transform="rotate(101.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(112.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(123.75 500 500)"/>
+      <use href="#tickMinor" transform="rotate(146.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(157.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(168.75 500 500)"/>
+      <use href="#tickMinor" transform="rotate(191.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(202.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(213.75 500 500)"/>
+      <use href="#tickMinor" transform="rotate(236.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(247.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(258.75 500 500)"/>
+      <use href="#tickMinor" transform="rotate(281.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(292.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(303.75 500 500)"/>
+      <use href="#tickMinor" transform="rotate(326.25 500 500)"/>
+      <use href="#tickMinor" transform="rotate(337.5 500 500)"/>
+      <use href="#tickMinor" transform="rotate(348.75 500 500)"/>
+    </g>
+
+    <g filter="url(#engrave)">
+      <use href="#petalShort" transform="rotate(11.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(33.75 500 500)"/>
+      <use href="#petalShort" transform="rotate(56.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(78.75 500 500)"/>
+      <use href="#petalShort" transform="rotate(101.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(123.75 500 500)"/>
+      <use href="#petalShort" transform="rotate(146.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(168.75 500 500)"/>
+      <use href="#petalShort" transform="rotate(191.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(213.75 500 500)"/>
+      <use href="#petalShort" transform="rotate(236.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(258.75 500 500)"/>
+      <use href="#petalShort" transform="rotate(281.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(303.75 500 500)"/>
+      <use href="#petalShort" transform="rotate(326.25 500 500)"/>
+      <use href="#petalShort" transform="rotate(348.75 500 500)"/>
+
+      <use href="#petalMid" transform="rotate(22.5 500 500)"/>
+      <use href="#petalMid" transform="rotate(67.5 500 500)"/>
+      <use href="#petalMid" transform="rotate(112.5 500 500)"/>
+      <use href="#petalMid" transform="rotate(157.5 500 500)"/>
+      <use href="#petalMid" transform="rotate(202.5 500 500)"/>
+      <use href="#petalMid" transform="rotate(247.5 500 500)"/>
+      <use href="#petalMid" transform="rotate(292.5 500 500)"/>
+      <use href="#petalMid" transform="rotate(337.5 500 500)"/>
+
+      <use href="#petalLong"/>
+      <use href="#petalLong" transform="rotate(45 500 500)"/>
+      <use href="#petalLong" transform="rotate(90 500 500)"/>
+      <use href="#petalLong" transform="rotate(135 500 500)"/>
+      <use href="#petalLong" transform="rotate(180 500 500)"/>
+      <use href="#petalLong" transform="rotate(225 500 500)"/>
+      <use href="#petalLong" transform="rotate(270 500 500)"/>
+      <use href="#petalLong" transform="rotate(315 500 500)"/>
+    </g>
+
+    <circle cx="500" cy="500" r="116" fill="url(#darkCarve)" stroke="url(#brass)" stroke-width="7"/>
+    <circle cx="500" cy="500" r="92" fill="url(#rimWood)" stroke="#8e642f" stroke-width="3"/>
+    <circle cx="500" cy="500" r="29" fill="url(#brass)" stroke="#3b2618" stroke-width="5"/>
+    <circle cx="500" cy="500" r="10" fill="#392318"/>
+
+    <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle" font-weight="700" fill="#f1d69a" stroke="#3c2618" stroke-width="1.6" paint-order="stroke fill" filter="url(#engrave)">
+      <text x="500" y="185" font-size="72" fill="#a84831">N</text>
+      <text x="815" y="522" font-size="60">E</text>
+      <text x="500" y="858" font-size="60">S</text>
+      <text x="185" y="522" font-size="60">W</text>
+      <text x="714" y="298" font-size="29">NE</text>
+      <text x="714" y="725" font-size="29">SE</text>
+      <text x="286" y="725" font-size="29">SW</text>
+      <text x="286" y="298" font-size="29">NW</text>
+    </g>
+
+    <g fill="none" stroke="#3a2417" stroke-linecap="round" opacity=".34">
+      <path d="M180 340 C285 310 380 335 470 320 S650 300 815 335" stroke-width="4"/>
+      <path d="M155 635 C275 610 375 640 500 620 S720 605 844 642" stroke-width="3"/>
+      <path d="M230 760 C330 740 430 765 540 744 S695 730 770 748" stroke-width="2.5"/>
+      <path d="M208 235 C320 214 410 236 520 220 S704 214 790 240" stroke-width="2"/>
+    </g>
+  </g>
 </svg>
