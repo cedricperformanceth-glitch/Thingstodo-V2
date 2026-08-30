@@ -7,6 +7,7 @@ This folder is the project font bank. Fonts are catalogued here with the user's 
 | country & city calligraphy | Alex Brush | Regular | SIL Open Font License 1.1 | `AlexBrush-Regular.ttf` | PDF: `My Atlas <Country>` headings and city names |
 | japonnais manuscrit | Dr Sugiyama | Regular | SIL Open Font License 1.1 | `dr-sugiyama/` | Reserved in the font bank |
 | manuscrit attacher | Cookie | Regular | SIL Open Font License 1.1 | `cookie/` | Reserved in the font bank |
+| brush | BlowBrush | Regular | Free for personal + commercial use (custom license) | `blowbrush/` | Reserved in the font bank |
 
 ## PDF font rule
 
@@ -24,3 +25,4 @@ For every new font, keep:
 - the license file when available;
 - source/checksum information when available;
 - a small usage note or CSS reference if useful.
+- verify commercial/web-use rights before adding the font to the usable bank.
