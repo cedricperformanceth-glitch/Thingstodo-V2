@@ -59,21 +59,13 @@ const routes = getFinalCtaRoutes(country);
             ) : <span aria-hidden="true"></span>}
 
             <div class="atlas-compass" aria-hidden="true">
-              <svg viewBox="0 0 180 180" role="presentation">
-                <circle class="atlas-compass__outer" cx="90" cy="90" r="70" />
-                <circle class="atlas-compass__inner" cx="90" cy="90" r="58" />
-
-                <path class="atlas-compass__tick" d="M90 20V31M90 149V160M20 90H31M149 90H160" />
-                <path class="atlas-compass__tick atlas-compass__tick--soft" d="M40.5 40.5L48.5 48.5M131.5 131.5L139.5 139.5M139.5 40.5L131.5 48.5M48.5 131.5L40.5 139.5" />
-
-                <text class="atlas-compass__cardinal atlas-compass__cardinal--north" x="90" y="17" text-anchor="middle">N</text>
-                <text class="atlas-compass__cardinal atlas-compass__cardinal--south" x="90" y="176" text-anchor="middle">S</text>
-
-                <path class="atlas-compass__needle atlas-compass__needle--north" d="M90 45L104 91L90 83L76 91Z" />
-                <path class="atlas-compass__needle atlas-compass__needle--south" d="M90 135L76 89L90 97L104 89Z" />
-                <circle class="atlas-compass__pin" cx="90" cy="90" r="6" />
-                <circle class="atlas-compass__pin-core" cx="90" cy="90" r="2.2" />
-              </svg>
+              <img
+                class="atlas-compass__asset"
+                src="/assets/PDF/compass.webp"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             {routes[1] ? (
@@ -338,76 +330,14 @@ const routes = getFinalCtaRoutes(country);
   .atlas-compass {
     width: clamp(8rem, 11.5vw, 10rem);
     aspect-ratio: 1;
-    color: #315545;
     pointer-events: none;
   }
 
-  .atlas-compass svg {
+  .atlas-compass__asset {
     display: block;
     width: 100%;
     height: 100%;
-    overflow: visible;
-  }
-
-  .atlas-compass__outer,
-  .atlas-compass__inner,
-  .atlas-compass__tick {
-    fill: none;
-    stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .atlas-compass__outer {
-    stroke-width: 2;
-    opacity: .88;
-  }
-
-  .atlas-compass__inner {
-    stroke-width: 1;
-    opacity: .36;
-    stroke-dasharray: 2 5;
-  }
-
-  .atlas-compass__tick {
-    stroke-width: 1.7;
-    opacity: .72;
-  }
-
-  .atlas-compass__tick--soft {
-    stroke-width: 1;
-    opacity: .36;
-  }
-
-  .atlas-compass__cardinal {
-    fill: #315545;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  .atlas-compass__needle {
-    stroke: #315545;
-    stroke-width: 1.4;
-    stroke-linejoin: round;
-  }
-
-  .atlas-compass__needle--north {
-    fill: #4f7180;
-  }
-
-  .atlas-compass__needle--south {
-    fill: #f3ede0;
-  }
-
-  .atlas-compass__pin {
-    fill: #f3ede0;
-    stroke: #315545;
-    stroke-width: 1.5;
-  }
-
-  .atlas-compass__pin-core {
-    fill: #315545;
+    object-fit: contain;
   }
 
   @media (max-width: 760px) {
