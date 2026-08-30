@@ -8,6 +8,7 @@ This folder is the project font bank. Fonts are catalogued here with the user's 
 | japonnais manuscrit | Dr Sugiyama | Regular | SIL Open Font License 1.1 | `dr-sugiyama/` | Reserved in the font bank |
 | manuscrit attacher | Cookie | Regular | SIL Open Font License 1.1 | `cookie/` | Reserved in the font bank |
 | brush | BlowBrush | Regular | Free for personal + commercial use (custom license) | `blowbrush/` | Reserved in the font bank |
+| Flowmery | Flowmery | Regular | 1001Fonts FFC — commercial/web use allowed; raw font publication restricted | `flowmery/` | Reserved; raw TTF not committed to public repo |
 
 ## PDF font rule
 
