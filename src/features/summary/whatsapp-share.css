@@ -1,7 +1,8 @@
 @import './atlas-export.css';
 
-/* Keep all secondary / grey export copy aligned with the SPA descriptive typography. */
+/* Match every secondary / grey export text to the Explore Board chalk-copy typography. */
 .atlas-export__copy,
+.atlas-export__registry,
 .atlas-export__description,
 .atlas-export__permission,
 .atlas-export__dispatch-footer,
@@ -10,7 +11,7 @@
 .atlas-export__ready-copy,
 .atlas-export__share-help,
 .atlas-export__text-button {
-  font-family: var(--field-card-practical);
+  font-family: 'Segoe Print', 'Bradley Hand', cursive;
 }
 
 .atlas-export__copy {
