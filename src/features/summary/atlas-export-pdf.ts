@@ -503,7 +503,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     page.commands.push(`q 150 0 0 54 ${(LEFT + 43).toFixed(2)} ${(y - 71).toFixed(2)} cm /ImSignature Do Q`);
   }
   if (stampImage) {
-    page.commands.push(`q 102 0 0 102 ${(RIGHT - 98).toFixed(2)} ${(y - 61).toFixed(2)} cm /ImStamp Do Q`);
+    page.commands.push(`q 102 0 0 102 ${(RIGHT - 98).toFixed(2)} 56 cm /ImStamp Do Q`);
   }
   addFooter(page, pages.length);
 
