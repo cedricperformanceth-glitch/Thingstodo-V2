@@ -8,6 +8,15 @@ export interface TripCardImage {
   alt: string;
 }
 
+export interface TripPrintMeta {
+  costType?: 'free' | 'paid';
+  gettingThere?: string;
+  duration?: string;
+  bestTime?: string;
+  openingHours?: string;
+  address?: string;
+}
+
 export interface TripEntry {
   id: string;
   slug: string;
@@ -22,6 +31,7 @@ export interface TripEntry {
   cardImage?: TripCardImage;
   coordinates?: Coordinates;
   googleMapsUrl?: string;
+  printMeta?: TripPrintMeta;
 }
 
 export interface TripStore {
@@ -59,6 +69,25 @@ const normalizeCoordinates = (value: unknown): Coordinates | undefined => {
   };
 };
 
+const cleanOptionalString = (value: unknown) => (
+  typeof value === 'string' && value.trim() ? value.trim() : undefined
+);
+
+const normalizePrintMeta = (value: unknown): TripPrintMeta | undefined => {
+  if (!value || typeof value !== 'object') return undefined;
+  const meta = value as Partial<TripPrintMeta>;
+  const costType = meta.costType === 'free' || meta.costType === 'paid' ? meta.costType : undefined;
+  const normalized: TripPrintMeta = {
+    costType,
+    gettingThere: cleanOptionalString(meta.gettingThere),
+    duration: cleanOptionalString(meta.duration),
+    bestTime: cleanOptionalString(meta.bestTime),
+    openingHours: cleanOptionalString(meta.openingHours),
+    address: cleanOptionalString(meta.address),
+  };
+  return Object.values(normalized).some(Boolean) ? normalized : undefined;
+};
+
 const normalizeEntry = (value: Partial<TripEntry>): TripEntry | null => {
   if (!value.id || !value.name || !value.country || !value.city) return null;
   return {
@@ -77,6 +106,7 @@ const normalizeEntry = (value: Partial<TripEntry>): TripEntry | null => {
     googleMapsUrl: typeof value.googleMapsUrl === 'string' && value.googleMapsUrl.trim()
       ? value.googleMapsUrl.trim()
       : undefined,
+    printMeta: normalizePrintMeta(value.printMeta),
   };
 };
 
@@ -114,6 +144,24 @@ const entityCardImage = (entity: AtlasEntity): TripCardImage | undefined => {
   return { src: image.src, alt: image.alt ?? '' };
 };
 
+const entityPrintMeta = (entity: AtlasEntity): TripPrintMeta | undefined => {
+  if ('isLandmark' in entity) {
+    const meta: TripPrintMeta = {
+      costType: entity.spaCard?.costType,
+      gettingThere: cleanOptionalString(entity.spaCard?.gettingThere),
+      duration: cleanOptionalString(entity.spaCard?.duration),
+      bestTime: cleanOptionalString(entity.spaCard?.bestTime),
+    };
+    return Object.values(meta).some(Boolean) ? meta : undefined;
+  }
+
+  const meta: TripPrintMeta = {
+    openingHours: cleanOptionalString(entity.spaCard?.openingHours),
+    address: cleanOptionalString(entity.address),
+  };
+  return Object.values(meta).some(Boolean) ? meta : undefined;
+};
+
 export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
   const store = readTripStore();
   if (store.entries.some((entry) => tripKey(entry) === tripKey(entity))) return store;
@@ -132,6 +180,7 @@ export const addToTrip = (entity: AtlasEntity, sourcePath = '') => {
     cardImage: entityCardImage(entity),
     coordinates: entity.coordinates,
     googleMapsUrl: entity.googleMapsUrl,
+    printMeta: entityPrintMeta(entity),
   });
   writeTripStore(store);
   return store;
