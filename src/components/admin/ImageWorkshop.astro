@@ -1,0 +1,121 @@
+---
+type ImageItem = { id:string; title:string; src:string; note?:string; tags?:string[] };
+type ImageStudy = { id:string; title:string; src:string };
+
+// Working image mounted by ChatGPT/GitHub. Keep null between review sessions.
+const currentStudy: ImageStudy | null = null;
+// Only explicitly validated reusable images belong here.
+const imageCatalogue: ImageItem[] = [];
+---
+
+<div class="image-studio">
+  <header class="image-studio__heading">
+    <p>IMAGE WORKBENCH · PREVIEW ONLY</p>
+    <h2>Image studio</h2>
+    <div>Working images are reviewed here before any final use. The annotation layer never changes the image file itself.</div>
+  </header>
+
+  <section class="image-board">
+    <header class="image-board__head">
+      <div><small>ACTIVE STUDY</small><h3>{currentStudy ? currentStudy.title : 'Current image preview'}</h3>{currentStudy && <code>{currentStudy.src}</code>}</div>
+      <b>PREVIEW ONLY</b>
+    </header>
+
+    <div class="image-tools">
+      <div>
+        <button class="is-active" type="button" data-image-tool="pen">Pen</button>
+        <button type="button" data-image-tool="circle">Circle</button>
+        <button type="button" data-image-tool="arrow">Arrow</button>
+        <button type="button" data-image-tool="cross">X</button>
+        <button type="button" data-image-tool="marker">Marker</button>
+      </div>
+      <div>
+        <button type="button" data-image-undo>Undo</button>
+        <button type="button" data-image-clear>Clear</button>
+        <button type="button" data-image-grid aria-pressed="false">Grid</button>
+      </div>
+    </div>
+
+    <div class="image-stage">
+      {currentStudy ? (
+        <div class="image-frame" data-image-frame>
+          <img src={currentStudy.src} alt={currentStudy.title} data-image-study data-title={currentStudy.title} data-src={currentStudy.src} decoding="async" />
+          <div class="image-grid" data-image-grid-layer></div>
+          <canvas data-image-canvas></canvas>
+          <div class="image-axes" data-image-axes><i>A1</i><i>H1</i><i>A8</i><i>H8</i></div>
+        </div>
+      ) : (
+        <div class="image-empty"><span></span><strong>No image study loaded</strong><p>Send an image in ChatGPT and ask me to mount it in Admin → Image. I will place the working copy in GitHub and connect it here.</p></div>
+      )}
+    </div>
+
+    <div class="image-note">
+      <label><span>YOUR NOTE</span><textarea rows="2" data-image-note placeholder="Ex: remove the circled object; keep everything else identical..."></textarea></label>
+      <button type="button" data-image-generate><strong>Generate prompt</strong><small>Copy for ChatGPT</small></button>
+    </div>
+
+    <div class="image-output" data-image-output hidden>
+      <div><span>PROMPT READY</span><button type="button" data-image-copy>Copy again</button></div>
+      <textarea rows="5" readonly data-image-prompt></textarea>
+      <p data-image-status></p>
+    </div>
+
+    <footer><span>01 · LOAD IMAGE</span><span>02 · ANNOTATE</span><span>03 · GENERATE PROMPT</span><span>04 · REVISE / VALIDATE</span></footer>
+  </section>
+
+  <section class="image-library">
+    <header><div><p>VALIDATED IMAGE LIBRARY</p><h3>Image catalogue</h3></div><span>{imageCatalogue.length} saved</span></header>
+    <p class="image-library__intro">Generated images, WebP assets, illustrations and reusable visual elements live here only after validation. Catalogue files load only when opened.</p>
+    {imageCatalogue.length ? <div class="image-library__list">{imageCatalogue.map((item,index)=><button type="button" data-image-item data-src={item.src} data-title={item.title} data-note={item.note ?? ''} data-tags={(item.tags ?? []).join(' · ')}><em>{String(index+1).padStart(2,'0')}</em><span><strong>{item.title}</strong><small>{item.note || 'Validated reusable image'}</small></span><b>VIEW ↗</b></button>)}</div> : <div class="image-library__empty"><small>CATALOGUE READY</small><strong>No validated image saved yet.</strong><p>When you tell me to keep an image, I will add it here under a clear reusable name.</p></div>}
+  </section>
+
+  <dialog id="image-dialog" class="image-dialog">
+    <header><div><small>IMAGE CATALOGUE</small><h3 data-dialog-title>Image preview</h3><p data-dialog-tags></p></div><button type="button" data-dialog-close>×</button></header>
+    <div class="image-dialog__stage"><img alt="" data-dialog-image decoding="async" /><span data-dialog-loading>Loading image…</span></div>
+    <footer><p data-dialog-note></p><code data-dialog-path></code></footer>
+  </dialog>
+</div>
+
+<script>
+  type P={x:number;y:number};
+  type A={type:'pen';points:P[]}|{type:'circle'|'arrow';start:P;end:P}|{type:'cross';point:P}|{type:'marker';point:P;number:number};
+  type T=A['type'];
+  const frame=document.querySelector<HTMLElement>('[data-image-frame]');
+  const canvas=document.querySelector<HTMLCanvasElement>('[data-image-canvas]');
+  const study=document.querySelector<HTMLImageElement>('[data-image-study]');
+  const grid=document.querySelector<HTMLElement>('[data-image-grid-layer]');
+  const axes=document.querySelector<HTMLElement>('[data-image-axes]');
+  const note=document.querySelector<HTMLTextAreaElement>('[data-image-note]');
+  const prompt=document.querySelector<HTMLTextAreaElement>('[data-image-prompt]');
+  const output=document.querySelector<HTMLElement>('[data-image-output]');
+  const status=document.querySelector<HTMLElement>('[data-image-status]');
+  const ctx=canvas?.getContext('2d')??null;
+  let tool:T='pen', items:A[]=[], draft:A|null=null, down=false, markers=0, dpr=1;
+  const tools=Array.from(document.querySelectorAll<HTMLButtonElement>('[data-image-tool]'));
+  const point=(e:PointerEvent):P=>{const r=canvas!.getBoundingClientRect();return{x:Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y:Math.max(0,Math.min(1,(e.clientY-r.top)/r.height))}};
+  const px=(p:P)=>({x:p.x*canvas!.clientWidth,y:p.y*canvas!.clientHeight});
+  const draw=(a:A)=>{if(!ctx||!canvas)return;ctx.save();ctx.strokeStyle='#b44835';ctx.fillStyle='#b44835';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';if(a.type==='pen'){if(a.points.length<2){ctx.restore();return}ctx.beginPath();a.points.forEach((p,i)=>{const q=px(p);i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y)});ctx.stroke()}if(a.type==='circle'){const p=px(a.start),q=px(a.end);ctx.beginPath();ctx.ellipse((p.x+q.x)/2,(p.y+q.y)/2,Math.abs(q.x-p.x)/2,Math.abs(q.y-p.y)/2,0,0,Math.PI*2);ctx.stroke()}if(a.type==='arrow'){const p=px(a.start),q=px(a.end),ang=Math.atan2(q.y-p.y,q.x-p.x);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.moveTo(q.x,q.y);ctx.lineTo(q.x-13*Math.cos(ang-Math.PI/6),q.y-13*Math.sin(ang-Math.PI/6));ctx.moveTo(q.x,q.y);ctx.lineTo(q.x-13*Math.cos(ang+Math.PI/6),q.y-13*Math.sin(ang+Math.PI/6));ctx.stroke()}if(a.type==='cross'){const p=px(a.point),s=13;ctx.beginPath();ctx.moveTo(p.x-s,p.y-s);ctx.lineTo(p.x+s,p.y+s);ctx.moveTo(p.x+s,p.y-s);ctx.lineTo(p.x-s,p.y+s);ctx.stroke()}if(a.type==='marker'){const p=px(a.point);ctx.beginPath();ctx.arc(p.x,p.y,12,0,Math.PI*2);ctx.fill();ctx.fillStyle='#fff';ctx.font='700 11px Manrope';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(String(a.number),p.x,p.y)}ctx.restore()};
+  const redraw=()=>{if(!ctx||!canvas)return;ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);items.forEach(draw);if(draft)draw(draft)};
+  const resize=()=>{if(!canvas||!frame||!ctx)return;const r=frame.getBoundingClientRect();dpr=Math.max(1,window.devicePixelRatio||1);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);canvas.style.width=`${r.width}px`;canvas.style.height=`${r.height}px`;ctx.setTransform(dpr,0,0,dpr,0,0);redraw()};
+  canvas?.addEventListener('pointerdown',e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);down=true;const p=point(e);if(tool==='cross'){items.push({type:'cross',point:p});down=false;return redraw()}if(tool==='marker'){items.push({type:'marker',point:p,number:++markers});down=false;return redraw()}draft=tool==='pen'?{type:'pen',points:[p]}:{type:tool,start:p,end:p};redraw()});
+  canvas?.addEventListener('pointermove',e=>{if(!down||!draft)return;const p=point(e);if(draft.type==='pen')draft.points.push(p);else if(draft.type==='circle'||draft.type==='arrow')draft.end=p;redraw()});
+  const finish=(e:PointerEvent)=>{if(!down)return;down=false;if(draft){if(draft.type!=='pen'||draft.points.length>1)items.push(draft);draft=null}if(canvas?.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);redraw()};canvas?.addEventListener('pointerup',finish);canvas?.addEventListener('pointercancel',finish);
+  tools.forEach(b=>b.addEventListener('click',()=>{tool=b.dataset.imageTool as T;tools.forEach(x=>x.classList.toggle('is-active',x===b))}));
+  document.querySelector('[data-image-undo]')?.addEventListener('click',()=>{items.pop();markers=items.filter(x=>x.type==='marker').length;redraw()});
+  document.querySelector('[data-image-clear]')?.addEventListener('click',()=>{items=[];draft=null;markers=0;redraw()});
+  document.querySelector<HTMLButtonElement>('[data-image-grid]')?.addEventListener('click',e=>{const b=e.currentTarget as HTMLButtonElement,on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));b.classList.toggle('is-active',on);grid?.classList.toggle('is-visible',on);axes?.classList.toggle('is-visible',on)});
+  const pct=(n:number)=>`${(n*100).toFixed(1)}%`, zone=(p:P)=>`${String.fromCharCode(65+Math.min(7,Math.floor(p.x*8)))}${Math.min(7,Math.floor(p.y*8))+1}`;
+  const line=(a:A,i:number)=>{const n=String(i+1).padStart(2,'0');if(a.type==='cross'||a.type==='marker'){const p=a.point;return`${n} — ${a.type}${a.type==='marker'?` ${a.number}`:''} — ${zone(p)} — x ${pct(p.x)}, y ${pct(p.y)}`}if(a.type==='arrow'){return`${n} — arrow — ${zone(a.start)} (${pct(a.start.x)}, ${pct(a.start.y)}) → ${zone(a.end)} (${pct(a.end.x)}, ${pct(a.end.y)})`}if(a.type==='circle'){const c={x:(a.start.x+a.end.x)/2,y:(a.start.y+a.end.y)/2};return`${n} — circle — centre ${zone(c)} — x ${pct(c.x)}, y ${pct(c.y)} — width ${pct(Math.abs(a.end.x-a.start.x))}, height ${pct(Math.abs(a.end.y-a.start.y))}`}const s=a.points[0]??{x:0,y:0},e=a.points[a.points.length-1]??s;return`${n} — pen — ${zone(s)} (${pct(s.x)}, ${pct(s.y)}) → ${zone(e)} (${pct(e.x)}, ${pct(e.y)})`};
+  const build=()=>['IMAGE REVIEW — ATLAS ADMIN',`Target: ${study?.dataset.title||'Current image preview'}`,`Source: ${study?.dataset.src||'No image mounted yet.'}`,`Dimensions: ${study?.naturalWidth&&study?.naturalHeight?`${study.naturalWidth} × ${study.naturalHeight}px`:'unknown'}`,'Coordinates are relative to the image itself: 0% top-left, 100% bottom-right. A1–H8 uses the same image bounds.','','GRAPHICAL ANNOTATIONS',items.length?items.map(line).join('\n'):'No graphical annotations.','','WRITTEN NOTE',note?.value.trim()||'No additional written note.','','Modify only the requested details. Preserve everything else unless explicitly requested.'].join('\n');
+  const copy=async(v:string)=>{try{await navigator.clipboard.writeText(v);if(status)status.textContent='Prompt copied. Paste it into the image chat.'}catch{if(status)status.textContent='Copy it manually from the box above.'}};
+  document.querySelector('[data-image-generate]')?.addEventListener('click',async()=>{const v=build();if(prompt)prompt.value=v;if(output)output.hidden=false;await copy(v)});document.querySelector('[data-image-copy]')?.addEventListener('click',()=>copy(prompt?.value||build()));
+  if(frame&&canvas){const ro=new ResizeObserver(resize);ro.observe(frame);study?.addEventListener('load',resize);resize()}
+
+  const dialog=document.querySelector<HTMLDialogElement>('#image-dialog'),dialogImg=document.querySelector<HTMLImageElement>('[data-dialog-image]'),loading=document.querySelector<HTMLElement>('[data-dialog-loading]');
+  const close=()=>{if(dialog?.open)dialog.close();dialogImg?.removeAttribute('src');dialogImg?.classList.remove('is-loaded')};
+  document.querySelectorAll<HTMLButtonElement>('[data-image-item]').forEach(b=>b.addEventListener('click',()=>{if(!dialog||!dialogImg)return;document.querySelector<HTMLElement>('[data-dialog-title]')!.textContent=b.dataset.title||'Image preview';document.querySelector<HTMLElement>('[data-dialog-note]')!.textContent=b.dataset.note||'Validated reusable image.';document.querySelector<HTMLElement>('[data-dialog-path]')!.textContent=b.dataset.src||'';document.querySelector<HTMLElement>('[data-dialog-tags]')!.textContent=b.dataset.tags||'';if(loading)loading.hidden=false;dialogImg.src=b.dataset.src||'';dialog.showModal()}));dialogImg?.addEventListener('load',()=>{dialogImg.classList.add('is-loaded');if(loading)loading.hidden=true});document.querySelector('[data-dialog-close]')?.addEventListener('click',close);dialog?.addEventListener('click',e=>{if(e.target===dialog)close()});dialog?.addEventListener('close',()=>dialogImg?.removeAttribute('src'));
+</script>
+
+<style>
+.image-studio{position:relative;z-index:1;padding:clamp(34px,5vw,74px);color:#263a30}.image-studio__heading{max-width:760px;padding-bottom:46px;border-bottom:1px solid #ded7c9}.image-studio__heading p,.image-library header p{margin:0 0 8px;color:#738076;font-size:.62rem;font-weight:800;letter-spacing:.18em}.image-studio__heading h2{margin:0;font:400 clamp(2.4rem,4.5vw,4.5rem)/.95 'Newsreader',Georgia,serif;letter-spacing:-.045em}.image-studio__heading div{max-width:680px;margin-top:18px;color:#72786f;font:400 1.05rem/1.55 'Newsreader',Georgia,serif}.image-board{margin-top:50px;border:1px solid #d9d1c3;background:#f5f0e5}.image-board__head{display:flex;justify-content:space-between;gap:20px;padding:18px 20px;border-bottom:1px solid #ded6c8;background:#fbf8f1}.image-board__head small{color:#8a8c84;font-size:.57rem;font-weight:800;letter-spacing:.14em}.image-board__head h3{margin:4px 0 0;font:600 1.5rem 'Newsreader',Georgia,serif}.image-board__head code{display:block;margin-top:4px;color:#829087;font-size:.58rem}.image-board__head>b{height:max-content;padding:6px 8px;border:1px solid #d9ad9b;color:#a05e43;font-size:.56rem;letter-spacing:.12em}.image-tools{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid #ded6c8;background:#eee7da}.image-tools>div{display:flex;flex-wrap:wrap;gap:5px}.image-tools button{min-height:30px;padding:0 10px;border:1px solid transparent;background:transparent;color:#697169;font:700 .59rem 'Manrope';cursor:pointer}.image-tools button.is-active{border-color:#a9b9ad;color:#31573b;background:#fffdf8}.image-stage{display:flex;min-height:500px;align-items:center;justify-content:center;padding:28px;background:#fffdf8}.image-frame{position:relative;display:inline-block;max-width:100%;max-height:550px;line-height:0;box-shadow:0 8px 30px #24302718}.image-frame img{display:block;width:auto;height:auto;max-width:100%;max-height:550px}.image-frame canvas,.image-grid,.image-axes{position:absolute;inset:0;width:100%;height:100%}.image-frame canvas{z-index:4;cursor:crosshair;touch-action:none}.image-grid{z-index:2;display:none;pointer-events:none;background-image:linear-gradient(to right,#31573b44 1px,transparent 1px),linear-gradient(to bottom,#31573b44 1px,transparent 1px);background-size:12.5% 12.5%}.image-grid.is-visible,.image-axes.is-visible{display:block}.image-axes{z-index:3;display:none;pointer-events:none}.image-axes i{position:absolute;padding:3px 5px;background:#fffdf8dd;color:#31573b;font:700 .48rem 'Manrope';font-style:normal}.image-axes i:nth-child(1){top:3px;left:3px}.image-axes i:nth-child(2){top:3px;right:3px}.image-axes i:nth-child(3){bottom:3px;left:3px}.image-axes i:nth-child(4){right:3px;bottom:3px}.image-empty{display:grid;max-width:430px;justify-items:center;text-align:center;color:#7e827a}.image-empty span{width:52px;height:52px;margin-bottom:18px;border:1px solid #31573b44;border-radius:50%}.image-empty strong{font:600 1.25rem 'Newsreader',Georgia,serif}.image-empty p{margin:8px 0 0;font-size:.75rem;line-height:1.6}.image-note{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px;border-top:1px solid #ded6c8;background:#f4efe5}.image-note label{display:grid;gap:6px}.image-note label>span{font-size:.56rem;font-weight:800;letter-spacing:.12em}.image-note textarea{box-sizing:border-box;width:100%;height:54px;padding:9px 11px;resize:none;overflow-y:auto;border:1px solid #d2c9ba;background:#fffdf8;font:.73rem/1.45 'Manrope'}.image-note>button{display:grid;min-width:148px;height:54px;align-content:center;padding:0 15px;border:0;background:#263c30;color:#fffdf8;text-align:left;cursor:pointer}.image-note>button strong{font:400 .92rem 'Newsreader',Georgia,serif}.image-note>button small{color:#cdd6cf}.image-output{padding:12px 13px;border-top:1px solid #ddd5c7;background:#eef1e9}.image-output>div{display:flex;justify-content:space-between;font-size:.54rem;font-weight:800;letter-spacing:.12em}.image-output button{border:0;background:transparent;color:#31573b;cursor:pointer}.image-output textarea{box-sizing:border-box;width:100%;height:116px;margin-top:7px;resize:none;border:1px solid #ced5ca;background:#fffdf8;font:.65rem/1.5 ui-monospace,monospace}.image-output p{min-height:1em;margin:5px 0 0;font-size:.6rem}.image-board>footer{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #ded6c8;background:#eee7da}.image-board>footer span{padding:11px;border-right:1px solid #d9d0c1;font-size:.53rem;font-weight:700;text-align:center}.image-library{margin-top:70px;padding-top:40px;border-top:1px solid #dcd4c6}.image-library>header{display:flex;align-items:end;justify-content:space-between}.image-library h3{margin:0;font:600 2.3rem 'Newsreader',Georgia,serif}.image-library>header>span{font-size:.62rem;text-transform:uppercase}.image-library__intro{max-width:690px;color:#7c8078;font-size:.76rem;line-height:1.6}.image-library__empty{display:grid;gap:6px;padding:28px;border:1px dashed #d3cabb;background:#f8f4eb}.image-library__empty strong{font:600 1.16rem 'Newsreader',Georgia,serif}.image-library__empty p{margin:0;font-size:.7rem}.image-library__list{border-top:1px solid #ddd5c7}.image-library__list>button{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center;width:100%;padding:17px 5px;border:0;border-bottom:1px solid #e2dbce;background:transparent;text-align:left;cursor:pointer}.image-library__list>button span{display:grid}.image-library__list em,.image-library__list small{color:#8c8e86;font-size:.6rem;font-style:normal}.image-dialog{width:min(920px,calc(100% - 34px));padding:0;border:0;background:#fffdf8;color:#263a30}.image-dialog::backdrop{background:#141f1999}.image-dialog>header{display:flex;justify-content:space-between;padding:18px 20px;background:#f4efe5}.image-dialog h3{margin:3px 0;font:600 1.55rem 'Newsreader',Georgia,serif}.image-dialog header p{margin:0;font-size:.6rem}.image-dialog header button{width:34px;height:34px;border:1px solid #d6cebf;border-radius:50%;background:#fffdf8;font-size:1.3rem}.image-dialog__stage{position:relative;display:grid;min-height:560px;place-items:center;padding:28px}.image-dialog__stage img{max-width:100%;max-height:520px;opacity:0;object-fit:contain}.image-dialog__stage img.is-loaded{opacity:1}.image-dialog__stage>span{position:absolute}.image-dialog>footer{display:grid;gap:5px;padding:14px 20px;border-top:1px solid #e0d9cc}.image-dialog>footer p{margin:0;font-size:.7rem}.image-dialog code{font-size:.62rem}@media(max-width:760px){.image-studio{padding:32px 22px}.image-tools{flex-direction:column}.image-stage{min-height:380px;padding:16px}.image-note{grid-template-columns:1fr}.image-note>button{width:100%}.image-board>footer{grid-template-columns:repeat(2,1fr)}}
+</style>
