@@ -11,7 +11,8 @@
 .atlas-export__process-note,
 .atlas-export__ready-copy,
 .atlas-export__share-help,
-.atlas-export__text-button {
+.atlas-export__text-button,
+.atlas-export__error {
   font-family: 'Segoe Print', 'Bradley Hand', cursive;
 }
 
