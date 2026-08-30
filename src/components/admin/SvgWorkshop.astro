@@ -1,0 +1,222 @@
+---
+type SvgCatalogueItem = {
+  id: string;
+  title: string;
+  src: string;
+  note?: string;
+  tags?: string[];
+};
+
+// Add an item here only after the user has explicitly validated the SVG for reuse.
+// The catalogue deliberately starts empty rather than treating every technical icon as a reusable Atlas asset.
+const svgCatalogue: SvgCatalogueItem[] = [];
+---
+
+<div class="svg-workshop">
+  <header class="svg-workshop__heading">
+    <p class="svg-workshop__kicker">SVG WORKBENCH · PREVIEW ONLY</p>
+    <h2>SVG studio</h2>
+    <p>This is the private staging area for Atlas SVG work. New drawings are developed and reviewed here first; nothing is applied to the public site until it is explicitly validated and moved to its final location.</p>
+  </header>
+
+  <section class="svg-workbench" aria-labelledby="svg-workbench-title">
+    <div class="svg-workbench__topline">
+      <div>
+        <span>ACTIVE STUDY</span>
+        <h3 id="svg-workbench-title">Current SVG preview</h3>
+      </div>
+      <span class="svg-workbench__status">PREVIEW ONLY</span>
+    </div>
+
+    <div class="svg-workbench__stage" data-svg-workbench-stage>
+      <div class="svg-workbench__empty">
+        <span class="svg-workbench__cross" aria-hidden="true"></span>
+        <strong>No SVG study loaded</strong>
+        <p>The next SVG we design together will be mounted in this workspace while we iterate on it.</p>
+      </div>
+    </div>
+
+    <div class="svg-workbench__rule">
+      <span>01 · BUILD HERE</span>
+      <span>02 · REVIEW TOGETHER</span>
+      <span>03 · VALIDATE</span>
+      <span>04 · EXPORT TO SITE</span>
+    </div>
+  </section>
+
+  <section class="svg-catalogue" aria-labelledby="svg-catalogue-title">
+    <header class="svg-catalogue__heading">
+      <div>
+        <p>VALIDATED LIBRARY</p>
+        <h3 id="svg-catalogue-title">SVG catalogue</h3>
+      </div>
+      <span>{svgCatalogue.length} saved</span>
+    </header>
+
+    <p class="svg-catalogue__intro">Only SVGs that we have deliberately kept for reuse belong here. Catalogue previews are loaded on demand, so opening the SVG studio does not render every saved drawing.</p>
+
+    {svgCatalogue.length ? (
+      <div class="svg-catalogue__list">
+        {svgCatalogue.map((item, index) => (
+          <button
+            class="svg-catalogue__item"
+            type="button"
+            data-svg-catalogue-item
+            data-svg-src={item.src}
+            data-svg-title={item.title}
+            data-svg-note={item.note ?? ''}
+            data-svg-tags={(item.tags ?? []).join(' · ')}
+          >
+            <span class="svg-catalogue__number">{String(index + 1).padStart(2, '0')}</span>
+            <span class="svg-catalogue__copy">
+              <strong>{item.title}</strong>
+              <small>{item.note || 'Validated reusable SVG'}</small>
+            </span>
+            <span class="svg-catalogue__open">VIEW ↗</span>
+          </button>
+        ))}
+      </div>
+    ) : (
+      <div class="svg-catalogue__empty">
+        <span>CATALOGUE READY</span>
+        <strong>No validated SVG saved yet.</strong>
+        <p>When we approve the first reusable drawing, it will appear here under a human-readable name so you can ask for it again later.</p>
+      </div>
+    )}
+  </section>
+
+  <dialog class="svg-viewer" id="svg-catalogue-dialog" aria-labelledby="svg-dialog-title">
+    <div class="svg-viewer__shell">
+      <header class="svg-viewer__header">
+        <div>
+          <p>SVG CATALOGUE</p>
+          <h3 id="svg-dialog-title">SVG preview</h3>
+          <small id="svg-dialog-tags"></small>
+        </div>
+        <button class="svg-viewer__close" type="button" data-svg-dialog-close aria-label="Close SVG preview">×</button>
+      </header>
+
+      <div class="svg-viewer__stage">
+        <img id="svg-dialog-image" alt="" decoding="async" />
+        <span class="svg-viewer__loading" id="svg-dialog-loading">Loading SVG…</span>
+      </div>
+
+      <footer class="svg-viewer__footer">
+        <p id="svg-dialog-note">Validated reusable Atlas SVG.</p>
+        <code id="svg-dialog-path"></code>
+      </footer>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  const svgDialog = document.querySelector<HTMLDialogElement>('#svg-catalogue-dialog');
+  const svgDialogImage = document.querySelector<HTMLImageElement>('#svg-dialog-image');
+  const svgDialogTitle = document.querySelector<HTMLElement>('#svg-dialog-title');
+  const svgDialogNote = document.querySelector<HTMLElement>('#svg-dialog-note');
+  const svgDialogPath = document.querySelector<HTMLElement>('#svg-dialog-path');
+  const svgDialogTags = document.querySelector<HTMLElement>('#svg-dialog-tags');
+  const svgDialogLoading = document.querySelector<HTMLElement>('#svg-dialog-loading');
+  const svgItems = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-svg-catalogue-item]'));
+
+  const clearSvgPreview = () => {
+    if (!svgDialogImage) return;
+    svgDialogImage.removeAttribute('src');
+    svgDialogImage.alt = '';
+    svgDialogImage.classList.remove('is-loaded');
+    if (svgDialogLoading) svgDialogLoading.hidden = false;
+  };
+
+  const closeSvgDialog = () => {
+    if (svgDialog?.open) svgDialog.close();
+    clearSvgPreview();
+  };
+
+  svgItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      if (!svgDialog || !svgDialogImage) return;
+      const src = item.dataset.svgSrc || '';
+      const title = item.dataset.svgTitle || 'SVG preview';
+      const note = item.dataset.svgNote || 'Validated reusable Atlas SVG.';
+      const tags = item.dataset.svgTags || '';
+      if (!src) return;
+
+      if (svgDialogTitle) svgDialogTitle.textContent = title;
+      if (svgDialogNote) svgDialogNote.textContent = note;
+      if (svgDialogPath) svgDialogPath.textContent = src;
+      if (svgDialogTags) svgDialogTags.textContent = tags;
+      svgDialogImage.alt = `${title} SVG preview`;
+      if (svgDialogLoading) svgDialogLoading.hidden = false;
+      svgDialogImage.src = src;
+      svgDialog.showModal();
+    });
+  });
+
+  svgDialogImage?.addEventListener('load', () => {
+    svgDialogImage.classList.add('is-loaded');
+    if (svgDialogLoading) svgDialogLoading.hidden = true;
+  });
+
+  svgDialogImage?.addEventListener('error', () => {
+    if (svgDialogLoading) svgDialogLoading.textContent = 'Preview unavailable';
+  });
+
+  document.querySelector('[data-svg-dialog-close]')?.addEventListener('click', closeSvgDialog);
+  svgDialog?.addEventListener('close', clearSvgPreview);
+  svgDialog?.addEventListener('click', (event) => {
+    if (event.target === svgDialog) closeSvgDialog();
+  });
+</script>
+
+<style>
+  .svg-workshop{position:relative;z-index:1;padding:clamp(34px,5vw,74px)}
+  .svg-workshop__heading{max-width:760px;padding-bottom:clamp(32px,4.5vw,52px);border-bottom:1px solid #ded7c9}
+  .svg-workshop__kicker{margin:0 0 10px;color:#738076;font-size:.67rem;font-weight:700;letter-spacing:.2em}
+  .svg-workshop__heading h2{margin:0;color:#203329;font-family:'Newsreader',Georgia,serif;font-size:clamp(2.4rem,4.5vw,4.5rem);font-weight:400;letter-spacing:-.045em;line-height:.95}
+  .svg-workshop__heading>p:last-child{max-width:660px;margin:18px 0 0;color:#72786f;font-family:'Newsreader',Georgia,serif;font-size:1.05rem;line-height:1.55}
+
+  .svg-workbench{margin-top:clamp(38px,5vw,58px);border:1px solid #d9d1c3;background:#f5f0e5;box-shadow:5px 7px 0 rgb(49 87 59/.045)}
+  .svg-workbench__topline{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:18px 20px;border-bottom:1px solid #ded6c8;background:#fbf8f1}
+  .svg-workbench__topline span{display:block;color:#8a8c84;font-size:.57rem;font-weight:800;letter-spacing:.14em}
+  .svg-workbench__topline h3{margin:4px 0 0;color:#263a30;font-family:'Newsreader',Georgia,serif;font-size:1.5rem;font-weight:600}
+  .svg-workbench__status{flex:none;padding:6px 8px;border:1px solid rgb(183 102 69/.3);color:#a05e43!important;background:rgb(183 102 69/.045);transform:rotate(1deg)}
+  .svg-workbench__stage{position:relative;display:grid;min-height:clamp(360px,46vw,560px);place-items:center;padding:clamp(28px,5vw,52px);overflow:hidden;background:linear-gradient(90deg,transparent 49.93%,rgb(49 87 59/.045) 50%,transparent 50.07%),linear-gradient(0deg,transparent 49.93%,rgb(49 87 59/.045) 50%,transparent 50.07%),#fffdf8}
+  .svg-workbench__stage::before{position:absolute;inset:18px;border:1px dashed rgb(49 87 59/.12);content:'';pointer-events:none}
+  .svg-workbench__empty{position:relative;z-index:1;display:grid;max-width:370px;justify-items:center;color:#7e827a;text-align:center}
+  .svg-workbench__cross{position:relative;width:48px;height:48px;margin-bottom:18px;border:1px solid rgb(49 87 59/.19);border-radius:50%}
+  .svg-workbench__cross::before,.svg-workbench__cross::after{position:absolute;top:50%;left:50%;background:rgb(49 87 59/.25);content:'';transform:translate(-50%,-50%)}
+  .svg-workbench__cross::before{width:68px;height:1px}.svg-workbench__cross::after{width:1px;height:68px}
+  .svg-workbench__empty strong{color:#536158;font-family:'Newsreader',Georgia,serif;font-size:1.25rem;font-weight:600}
+  .svg-workbench__empty p{margin:8px 0 0;font-size:.75rem;line-height:1.6}
+  .svg-workbench__rule{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #ded6c8;background:#eee7da}
+  .svg-workbench__rule span{padding:11px 13px;border-right:1px solid #d9d0c1;color:#777d75;font-size:.53rem;font-weight:700;letter-spacing:.1em;text-align:center}.svg-workbench__rule span:last-child{border-right:0;color:#31573b}
+
+  .svg-catalogue{margin-top:clamp(48px,7vw,82px);padding-top:clamp(30px,4vw,46px);border-top:1px solid #dcd4c6}
+  .svg-catalogue__heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+  .svg-catalogue__heading p{margin:0 0 5px;color:#b76645;font-size:.57rem;font-weight:800;letter-spacing:.14em}
+  .svg-catalogue__heading h3{margin:0;color:#263a30;font-family:'Newsreader',Georgia,serif;font-size:clamp(1.8rem,3vw,2.7rem);font-weight:600;letter-spacing:-.025em}
+  .svg-catalogue__heading>span{padding-bottom:5px;color:#8b8e86;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .svg-catalogue__intro{max-width:680px;margin:13px 0 26px;color:#7c8078;font-size:.76rem;line-height:1.6}
+  .svg-catalogue__list{display:grid;border-top:1px solid #ddd5c7}
+  .svg-catalogue__item{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:14px;align-items:center;width:100%;padding:17px 10px 17px 5px;border:0;border-bottom:1px solid #e2dbce;color:#33463c;background:transparent;text-align:left;cursor:pointer;transition:background .16s ease,transform .16s ease}
+  .svg-catalogue__item:hover{background:rgb(49 87 59/.035);transform:translateX(3px)}
+  .svg-catalogue__number{color:#aaa398;font-size:.56rem;font-weight:700;letter-spacing:.1em}
+  .svg-catalogue__copy{display:grid;gap:3px}.svg-catalogue__copy strong{font-family:'Newsreader',Georgia,serif;font-size:1.08rem}.svg-catalogue__copy small{color:#8c8e86;font-size:.64rem}
+  .svg-catalogue__open{color:#31573b;font-size:.56rem;font-weight:800;letter-spacing:.1em}
+  .svg-catalogue__empty{display:grid;gap:6px;padding:28px;border:1px dashed #d3cabb;background:#f8f4eb;color:#85877f}
+  .svg-catalogue__empty>span{color:#9a8f7e;font-size:.54rem;font-weight:800;letter-spacing:.13em}.svg-catalogue__empty strong{color:#536158;font-family:'Newsreader',Georgia,serif;font-size:1.16rem}.svg-catalogue__empty p{max-width:620px;margin:0;font-size:.7rem;line-height:1.55}
+
+  .svg-viewer{width:min(860px,calc(100% - 34px));max-height:88vh;padding:0;border:0;background:transparent;color:#263a30;overflow:visible}
+  .svg-viewer::backdrop{background:rgb(20 31 25/.58);backdrop-filter:blur(2px)}
+  .svg-viewer__shell{overflow:hidden;border:1px solid rgb(49 87 59/.22);background:#fffdf8;box-shadow:0 28px 90px rgb(11 20 15/.28)}
+  .svg-viewer__header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:18px 20px;border-bottom:1px solid #ddd5c7;background:#f4efe5}
+  .svg-viewer__header p{margin:0 0 4px;color:#b76645;font-size:.54rem;font-weight:800;letter-spacing:.14em}.svg-viewer__header h3{margin:0;font-family:'Newsreader',Georgia,serif;font-size:1.55rem;font-weight:600}.svg-viewer__header small{display:block;margin-top:4px;color:#8a8d85;font-size:.59rem}
+  .svg-viewer__close{display:grid;width:34px;height:34px;place-items:center;border:1px solid #d6cebf;border-radius:50%;color:#526057;background:#fffdf8;font:400 1.35rem/1 Georgia,serif;cursor:pointer}
+  .svg-viewer__stage{position:relative;display:grid;min-height:min(56vh,520px);place-items:center;padding:34px;background:linear-gradient(45deg,#f2eee5 25%,transparent 25%),linear-gradient(-45deg,#f2eee5 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#f2eee5 75%),linear-gradient(-45deg,transparent 75%,#f2eee5 75%),#fffdf8;background-position:0 0,0 8px,8px -8px,-8px 0;background-size:16px 16px}
+  .svg-viewer__stage img{display:block;max-width:100%;max-height:48vh;opacity:0;transition:opacity .16s ease}.svg-viewer__stage img.is-loaded{opacity:1}
+  .svg-viewer__loading{position:absolute;color:#8d8e87;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase}
+  .svg-viewer__footer{display:grid;gap:5px;padding:14px 20px;border-top:1px solid #ddd5c7;background:#fbf8f1}.svg-viewer__footer p{margin:0;color:#687169;font-size:.7rem}.svg-viewer__footer code{overflow-wrap:anywhere;color:#879087;font-size:.58rem}
+
+  @media(max-width:720px){.svg-workshop{padding:34px 22px}.svg-workbench__rule{grid-template-columns:repeat(2,minmax(0,1fr))}.svg-workbench__rule span:nth-child(2){border-right:0}.svg-workbench__rule span:nth-child(-n+2){border-bottom:1px solid #d9d0c1}.svg-viewer__stage{min-height:50vh;padding:22px}}
+  @media(max-width:480px){.svg-workbench__topline,.svg-catalogue__heading{align-items:flex-start;flex-direction:column}.svg-workbench__stage{min-height:330px}.svg-catalogue__item{grid-template-columns:28px minmax(0,1fr)}.svg-catalogue__open{grid-column:2}.svg-viewer{width:calc(100% - 20px)}}
+</style>
