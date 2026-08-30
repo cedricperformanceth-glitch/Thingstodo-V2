@@ -130,7 +130,14 @@ const fonts = [
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dr+Sugiyama&display=swap');
-  @import url('/assets/fonts/blowbrush/blowbrush.css');
+
+  @font-face {
+    font-family: 'BlowBrush';
+    src: url('/assets/fonts/blowbrush/BlowBrush.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
 
   .font-catalog{position:relative;z-index:1;padding:clamp(34px,5vw,74px)}
   .font-catalog__heading{max-width:720px;padding-bottom:clamp(34px,5vw,58px);border-bottom:1px solid #ded7c9}
