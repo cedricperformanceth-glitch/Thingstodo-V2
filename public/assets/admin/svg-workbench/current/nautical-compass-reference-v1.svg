@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+<title id="title">Nautical compass rose</title>
+<desc id="desc">Vector study traced from the compass reference asset: classic ship compass rose, transparent background, dark ink, ivory facets and a muted red north accent.</desc>
+<defs>
+  <line id="tick-minor" x1="500" y1="78" x2="500" y2="96" />
+  <line id="tick-mid" x1="500" y1="76" x2="500" y2="103" />
+  <line id="tick-major" x1="500" y1="74" x2="500" y2="110" />
+  <line id="tick-cardinal" x1="500" y1="72" x2="500" y2="116" />
+  <g id="major-needle">
+    <polygon points="500,160 500,466 470,500" fill="#171717"/>
+    <polygon points="500,160 530,500 500,466" fill="#f4efe1" stroke="#171717" stroke-width="2"/>
+  </g>
+  <g id="diagonal-needle">
+    <polygon points="500,248 500,470 482,500" fill="#171717"/>
+    <polygon points="500,248 518,500 500,470" fill="#f4efe1" stroke="#171717" stroke-width="1.7"/>
+  </g>
+  <g id="secondary-needle">
+    <polygon points="500,292 500,472 486,500" fill="#171717"/>
+    <polygon points="500,292 514,500 500,472" fill="#f4efe1" stroke="#171717" stroke-width="1.5"/>
+  </g>
+  <g id="fine-needle">
+    <polygon points="500,325 500,474 490,500" fill="#171717"/>
+    <polygon points="500,325 510,500 500,474" fill="#f4efe1" stroke="#171717" stroke-width="1.2"/>
+  </g>
+</defs>
+
+<g fill="none" stroke="#171717" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="500" cy="500" r="426" stroke-width="7"/>
+  <circle cx="500" cy="500" r="405" stroke-width="2.2"/>
+  <circle cx="500" cy="500" r="360" stroke-width="2.2"/>
+  <g stroke-width="2">
+    <use href="#tick-cardinal" transform="rotate(0 500 500)"/><use href="#tick-minor" transform="rotate(5 500 500)"/><use href="#tick-minor" transform="rotate(10 500 500)"/><use href="#tick-mid" transform="rotate(15 500 500)"/><use href="#tick-minor" transform="rotate(20 500 500)"/><use href="#tick-minor" transform="rotate(25 500 500)"/><use href="#tick-mid" transform="rotate(30 500 500)"/><use href="#tick-minor" transform="rotate(35 500 500)"/><use href="#tick-minor" transform="rotate(40 500 500)"/><use href="#tick-major" transform="rotate(45 500 500)"/><use href="#tick-minor" transform="rotate(50 500 500)"/><use href="#tick-minor" transform="rotate(55 500 500)"/><use href="#tick-mid" transform="rotate(60 500 500)"/><use href="#tick-minor" transform="rotate(65 500 500)"/><use href="#tick-minor" transform="rotate(70 500 500)"/><use href="#tick-mid" transform="rotate(75 500 500)"/><use href="#tick-minor" transform="rotate(80 500 500)"/><use href="#tick-minor" transform="rotate(85 500 500)"/><use href="#tick-cardinal" transform="rotate(90 500 500)"/><use href="#tick-minor" transform="rotate(95 500 500)"/><use href="#tick-minor" transform="rotate(100 500 500)"/><use href="#tick-mid" transform="rotate(105 500 500)"/><use href="#tick-minor" transform="rotate(110 500 500)"/><use href="#tick-minor" transform="rotate(115 500 500)"/><use href="#tick-mid" transform="rotate(120 500 500)"/><use href="#tick-minor" transform="rotate(125 500 500)"/><use href="#tick-minor" transform="rotate(130 500 500)"/><use href="#tick-major" transform="rotate(135 500 500)"/><use href="#tick-minor" transform="rotate(140 500 500)"/><use href="#tick-minor" transform="rotate(145 500 500)"/><use href="#tick-mid" transform="rotate(150 500 500)"/><use href="#tick-minor" transform="rotate(155 500 500)"/><use href="#tick-minor" transform="rotate(160 500 500)"/><use href="#tick-mid" transform="rotate(165 500 500)"/><use href="#tick-minor" transform="rotate(170 500 500)"/><use href="#tick-minor" transform="rotate(175 500 500)"/><use href="#tick-cardinal" transform="rotate(180 500 500)"/><use href="#tick-minor" transform="rotate(185 500 500)"/><use href="#tick-minor" transform="rotate(190 500 500)"/><use href="#tick-mid" transform="rotate(195 500 500)"/><use href="#tick-minor" transform="rotate(200 500 500)"/><use href="#tick-minor" transform="rotate(205 500 500)"/><use href="#tick-mid" transform="rotate(210 500 500)"/><use href="#tick-minor" transform="rotate(215 500 500)"/><use href="#tick-minor" transform="rotate(220 500 500)"/><use href="#tick-major" transform="rotate(225 500 500)"/><use href="#tick-minor" transform="rotate(230 500 500)"/><use href="#tick-minor" transform="rotate(235 500 500)"/><use href="#tick-mid" transform="rotate(240 500 500)"/><use href="#tick-minor" transform="rotate(245 500 500)"/><use href="#tick-minor" transform="rotate(250 500 500)"/><use href="#tick-mid" transform="rotate(255 500 500)"/><use href="#tick-minor" transform="rotate(260 500 500)"/><use href="#tick-minor" transform="rotate(265 500 500)"/><use href="#tick-cardinal" transform="rotate(270 500 500)"/><use href="#tick-minor" transform="rotate(275 500 500)"/><use href="#tick-minor" transform="rotate(280 500 500)"/><use href="#tick-mid" transform="rotate(285 500 500)"/><use href="#tick-minor" transform="rotate(290 500 500)"/><use href="#tick-minor" transform="rotate(295 500 500)"/><use href="#tick-mid" transform="rotate(300 500 500)"/><use href="#tick-minor" transform="rotate(305 500 500)"/><use href="#tick-minor" transform="rotate(310 500 500)"/><use href="#tick-major" transform="rotate(315 500 500)"/><use href="#tick-minor" transform="rotate(320 500 500)"/><use href="#tick-minor" transform="rotate(325 500 500)"/><use href="#tick-mid" transform="rotate(330 500 500)"/><use href="#tick-minor" transform="rotate(335 500 500)"/><use href="#tick-minor" transform="rotate(340 500 500)"/><use href="#tick-mid" transform="rotate(345 500 500)"/><use href="#tick-minor" transform="rotate(350 500 500)"/><use href="#tick-minor" transform="rotate(355 500 500)"/>
+  </g>
+</g>
+
+<g stroke-linejoin="round">
+  <use href="#major-needle"/>
+  <use href="#major-needle" transform="rotate(90 500 500)"/>
+  <use href="#major-needle" transform="rotate(180 500 500)"/>
+  <use href="#major-needle" transform="rotate(270 500 500)"/>
+  <use href="#diagonal-needle" transform="rotate(45 500 500)"/>
+  <use href="#diagonal-needle" transform="rotate(135 500 500)"/>
+  <use href="#diagonal-needle" transform="rotate(225 500 500)"/>
+  <use href="#diagonal-needle" transform="rotate(315 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(22.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(67.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(112.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(157.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(202.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(247.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(292.5 500 500)"/>
+  <use href="#secondary-needle" transform="rotate(337.5 500 500)"/>
+  <use href="#fine-needle" transform="rotate(11.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(33.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(56.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(78.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(101.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(123.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(146.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(168.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(191.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(213.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(236.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(258.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(281.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(303.75 500 500)"/>
+  <use href="#fine-needle" transform="rotate(326.25 500 500)"/>
+  <use href="#fine-needle" transform="rotate(348.75 500 500)"/>
+</g>
+
+<polygon points="500,160 500,466 475,500" fill="#9e3d33" stroke="#171717" stroke-width="2"/>
+<polygon points="500,58 486,84 500,76 514,84" fill="#9e3d33" stroke="#171717" stroke-width="3"/>
+
+<g font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#171717" text-anchor="middle">
+  <text x="500" y="121" font-size="40" fill="#9e3d33">N</text>
+  <text x="888" y="523" font-size="36">E</text>
+  <text x="500" y="928" font-size="36">S</text>
+  <text x="109" y="523" font-size="36">W</text>
+  <text x="232" y="244" font-size="24">NW</text>
+  <text x="768" y="244" font-size="24">NE</text>
+  <text x="235" y="786" font-size="24">SW</text>
+  <text x="765" y="786" font-size="24">SE</text>
+</g>
+
+<circle cx="500" cy="500" r="33" fill="#f4efe1" stroke="#171717" stroke-width="3"/>
+<circle cx="500" cy="500" r="12" fill="#171717"/>
+</svg>
