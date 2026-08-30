@@ -1,3 +1,6 @@
+@import url('/assets/fonts/cookie/cookie.css');
+@import url('/assets/fonts/dr-sugiyama/dr-sugiyama.css');
+
 .summary-panel--atlas .summary-panel__intro {
   min-height: 2.85rem;
 }
@@ -63,6 +66,9 @@
 .atlas-export__error[hidden] { display: none !important; }
 
 .atlas-export__dialog {
+  --atlas-export-script: 'Cookie', 'Alex Brush', cursive;
+  --atlas-export-note: 'Dr Sugiyama', 'Caveat', 'Segoe Print', cursive;
+  --atlas-export-editorial: 'Newsreader', Georgia, 'Times New Roman', serif;
   position: relative;
   width: min(47rem, 100%);
   max-height: min(91vh, 45rem);
@@ -118,7 +124,7 @@
   background: transparent;
   color: #68665f;
   font: inherit;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--atlas-export-editorial);
   font-size: 1.35rem;
   line-height: 1;
   cursor: pointer;
@@ -154,20 +160,20 @@
 .atlas-export__registry { color: #80786b; letter-spacing: .12em; }
 
 .atlas-export__title {
-  margin: .72rem 2.5rem 0 0;
+  margin: .58rem 2.5rem 0 0;
   color: #26352d;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.55rem, 4vw, 2.16rem);
-  font-weight: 520;
-  letter-spacing: -.025em;
-  line-height: 1.08;
+  font-family: var(--atlas-export-script);
+  font-size: clamp(2.05rem, 5.25vw, 2.85rem);
+  font-weight: 400;
+  letter-spacing: .005em;
+  line-height: .98;
 }
 
 .atlas-export__copy {
   max-width: 37rem;
-  margin: .56rem 0 0;
+  margin: .62rem 0 0;
   color: #666a63;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--atlas-export-editorial);
   font-size: .82rem;
   font-style: italic;
   line-height: 1.5;
@@ -217,7 +223,7 @@
 .atlas-export__format {
   margin: 0;
   color: #26342d;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--atlas-export-editorial);
   font-size: 1.08rem;
   font-weight: 600;
   line-height: 1.18;
@@ -226,12 +232,13 @@
 .atlas-export__badge {
   display: inline-block;
   color: #9a4238;
-  font-family: 'Caveat', 'Segoe Print', cursive;
-  font-size: .94rem;
-  font-weight: 600;
+  font-family: var(--atlas-export-note);
+  font-size: 1.2rem;
+  font-weight: 400;
   letter-spacing: .01em;
+  line-height: 1;
   text-transform: none;
-  transform: rotate(-4deg) translateY(-.08rem);
+  transform: rotate(-4deg) translateY(.05rem);
   white-space: nowrap;
 }
 
@@ -358,7 +365,7 @@
 
 .atlas-export__checklist li span {
   color: #8d897f;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--atlas-export-editorial);
 }
 
 .atlas-export__checklist li.is-done { color: #5d675f; }
@@ -367,11 +374,15 @@
 .atlas-export__checklist li.is-active span { color: #9a4238; animation: atlas-export-pulse 1.1s ease-in-out infinite alternate; }
 
 .atlas-export__process-note {
-  margin: .8rem 0 0;
-  color: #827d73;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: .64rem;
-  font-style: italic;
+  margin: .76rem 0 0;
+  color: #7c645b;
+  font-family: var(--atlas-export-note);
+  font-size: 1.08rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.08;
+  transform: rotate(-1.2deg);
+  transform-origin: left center;
 }
 
 .atlas-export__ready-card {
@@ -412,7 +423,7 @@
 .atlas-export__ready-name {
   margin: .42rem 0 .32rem;
   color: #203229;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--atlas-export-editorial);
   font-size: clamp(1.25rem, 3.5vw, 1.62rem);
   font-weight: 600;
   line-height: 1.18;
@@ -510,9 +521,9 @@ body.summary-export-is-open { overflow: hidden; }
   .atlas-export__dialog::before { inset: .35rem; }
   .atlas-export__dialog::after { width: 6.2rem; height: 1.55rem; }
   .atlas-export__heading-line { align-items: flex-start; flex-direction: column; gap: .25rem; }
-  .atlas-export__title { margin-right: 2rem; font-size: clamp(1.45rem, 7vw, 1.8rem); }
+  .atlas-export__title { margin-right: 2rem; font-size: clamp(1.9rem, 10vw, 2.35rem); }
   .atlas-export__format-line { display: block; }
-  .atlas-export__badge { margin-left: .5rem; }
+  .atlas-export__badge { margin-left: .5rem; font-size: 1.08rem; }
   .atlas-export__actions { grid-template-columns: 1fr; }
   .atlas-export__ready-topline { align-items: center; }
 }
