@@ -3,7 +3,7 @@ import type { TripEntry } from '../trip/store';
 export const PDF_MIME = 'application/pdf';
 export const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 
-export type ExportKind = 'pdf' | 'xlsx';
+export type ExportKind = 'pdf' | 'print-pdf' | 'xlsx';
 
 export interface GeneratedExport {
   kind: ExportKind;
