@@ -17,6 +17,7 @@ const INK: [number, number, number] = [0.16, 0.18, 0.17];
 const MUTED: [number, number, number] = [0.43, 0.43, 0.39];
 const ATLAS_GREEN: [number, number, number] = [0.19, 0.33, 0.27];
 const HANDWRITING_FONT = 'Caveat';
+const SCHOOLBELL_FONT = 'Schoolbell';
 export const PDF_ANNOTATION_FONTS = ['Schoolbell', 'Indie Flower'] as const;
 
 const DEFAULT_PALETTE: PdfPalette = {
@@ -173,28 +174,36 @@ const loadAssetAsJpeg = async (
   }
 };
 
-const ensureCaveatReady = async () => {
+const ensureFontReady = async (fontFamily: string, weight: '400' | '600') => {
   if (typeof document === 'undefined' || !document.fonts) return false;
   try {
-    await document.fonts.load(`600 48px "${HANDWRITING_FONT}"`);
+    await document.fonts.load(`${weight} 48px "${fontFamily}"`);
     await document.fonts.ready;
-    return document.fonts.check(`600 48px "${HANDWRITING_FONT}"`);
+    return document.fonts.check(`${weight} 48px "${fontFamily}"`);
   } catch {
     return false;
   }
 };
 
-const handwrittenKey = (text: string, size: number, color: [number, number, number]) => `${text}\u0000${size}\u0000${color.join(',')}`;
+const handwrittenKey = (
+  text: string,
+  size: number,
+  color: [number, number, number],
+  fontFamily = HANDWRITING_FONT,
+  weight: '400' | '600' = '600',
+) => `${fontFamily}\u0000${weight}\u0000${text}\u0000${size}\u0000${color.join(',')}`;
 
 const renderHandwrittenImage = async (
   text: string,
   size: number,
   color: [number, number, number],
   name: string,
+  fontFamily = HANDWRITING_FONT,
+  weight: '400' | '600' = '600',
 ): Promise<HandwrittenImage | null> => {
   if (typeof document === 'undefined') return null;
-  const caveatReady = await ensureCaveatReady();
-  if (!caveatReady) return null;
+  const fontReady = await ensureFontReady(fontFamily, weight);
+  if (!fontReady) return null;
 
   const scale = 4;
   const paddingX = Math.ceil(size * scale * 0.22);
@@ -202,7 +211,7 @@ const renderHandwrittenImage = async (
   const probe = document.createElement('canvas');
   const probeContext = probe.getContext('2d');
   if (!probeContext) return null;
-  probeContext.font = `600 ${size * scale}px "${HANDWRITING_FONT}", cursive`;
+  probeContext.font = `${weight} ${size * scale}px "${fontFamily}", cursive`;
   const measured = probeContext.measureText(text);
   const width = Math.max(8, Math.ceil(measured.width + (paddingX * 2)));
   const height = Math.max(8, Math.ceil((size * scale * 1.42) + (paddingY * 2)));
@@ -214,7 +223,7 @@ const renderHandwrittenImage = async (
   if (!context) return null;
   context.fillStyle = rgbCss(SHEET_PAPER);
   context.fillRect(0, 0, width, height);
-  context.font = `600 ${size * scale}px "${HANDWRITING_FONT}", cursive`;
+  context.font = `${weight} ${size * scale}px "${fontFamily}", cursive`;
   context.fillStyle = rgbCss(color);
   context.textBaseline = 'alphabetic';
   context.fillText(text, paddingX, paddingY + (size * scale));
@@ -243,9 +252,11 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const summaryUrl = new URL('/summary', window.location.origin).toString();
   const countries = groupedEntries(entries);
   const multiCountry = countries.size > 1;
-  const [coverImage, coverSummaryImage] = await Promise.all([
-    loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),
+  const [coverImage, coverSummaryImage, signatureImage, stampImage] = await Promise.all([
+    loadAssetAsJpeg('/assets/PDF/couverture%202.webp', 1190, 1684, 'cover'),
     loadAssetAsJpeg('/assets/shared/pdf/atlas-cover-summary-card.svg', 1240, 500, 'contain'),
+    loadAssetAsJpeg('/assets/PDF/signature.webp', 720, 260, 'contain', SHEET_PAPER),
+    loadAssetAsJpeg('/assets/PDF/tampon.webp', 620, 620, 'contain', SHEET_PAPER),
   ]);
   const uniqueCountries = [...countries.keys()];
   const coverSummaryRows = [...countries.entries()].map(([country, cities]) => {
@@ -255,18 +266,35 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   });
   const handwritingAssets = new Map<string, HandwrittenImage>();
 
-  const addHandwritingAsset = async (text: string, size: number, color: [number, number, number]) => {
-    const key = handwrittenKey(text, size, color);
+  const addHandwritingAsset = async (
+    text: string,
+    size: number,
+    color: [number, number, number],
+    fontFamily = HANDWRITING_FONT,
+    weight: '400' | '600' = '600',
+  ) => {
+    const key = handwrittenKey(text, size, color, fontFamily, weight);
     if (handwritingAssets.has(key)) return;
-    const asset = await renderHandwrittenImage(text, size, color, `Hw${handwritingAssets.size + 1}`);
+    const asset = await renderHandwrittenImage(
+      text,
+      size,
+      color,
+      `Hw${handwritingAssets.size + 1}`,
+      fontFamily,
+      weight,
+    );
     if (asset) handwritingAssets.set(key, asset);
   };
 
   const titleColor: [number, number, number] = [0.12, 0.2, 0.16];
   const headingCountry = uniqueCountries.length === 1 ? titleize(uniqueCountries[0]) : '';
   const headingLabel = headingCountry ? `My Atlas ${headingCountry}` : 'My Atlas';
+  const closingLineOne = 'Thanks for letting Things To Do Atlas travel with you.';
+  const closingLineTwo = 'Keep exploring, stay curious, and have a beautiful journey.';
   await addHandwritingAsset(headingLabel, 25.5, titleColor);
   await addHandwritingAsset('Contents', 17.5, titleColor);
+  await addHandwritingAsset(closingLineOne, 10.8, titleColor, SCHOOLBELL_FONT, '400');
+  await addHandwritingAsset(closingLineTwo, 10.4, MUTED, SCHOOLBELL_FONT, '400');
   for (const [country, cities] of countries) {
     if (multiCountry) await addHandwritingAsset(`My Atlas ${titleize(country)}`, 20, titleColor);
     for (const city of cities.keys()) await addHandwritingAsset(titleize(city), 16.5, titleColor);
@@ -279,12 +307,34 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     baselineY: number,
     size: number,
     color: [number, number, number] = titleColor,
+    fontFamily = HANDWRITING_FONT,
+    weight: '400' | '600' = '600',
   ) => {
-    const asset = handwritingAssets.get(handwrittenKey(text, size, color));
+    const asset = handwritingAssets.get(handwrittenKey(text, size, color, fontFamily, weight));
     if (!asset) {
       pdfText(target, text, x, baselineY, size * 0.84, 'F3', color);
       return;
     }
+    const imageY = baselineY - (asset.displayHeight * 0.32);
+    target.commands.push(
+      `q ${asset.displayWidth.toFixed(2)} 0 0 ${asset.displayHeight.toFixed(2)} ${x.toFixed(2)} ${imageY.toFixed(2)} cm /${asset.name} Do Q`,
+    );
+  };
+
+  const pdfHandwrittenCenteredText = (
+    target: PdfPage,
+    text: string,
+    baselineY: number,
+    size: number,
+    color: [number, number, number] = titleColor,
+  ) => {
+    const asset = handwritingAssets.get(handwrittenKey(text, size, color));
+    if (!asset) {
+      const estimatedWidth = text.length * size * 0.42;
+      pdfText(target, text, SHEET_LEFT + ((SHEET_WIDTH - estimatedWidth) / 2), baselineY, size * 0.84, 'F3', color);
+      return;
+    }
+    const x = SHEET_LEFT + ((SHEET_WIDTH - asset.displayWidth) / 2);
     const imageY = baselineY - (asset.displayHeight * 0.32);
     target.commands.push(
       `q ${asset.displayWidth.toFixed(2)} 0 0 ${asset.displayHeight.toFixed(2)} ${x.toFixed(2)} ${imageY.toFixed(2)} cm /${asset.name} Do Q`,
@@ -368,7 +418,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   addCoverPage();
   addPage();
 
-  pdfHandwrittenText(page, headingLabel, LEFT, y, 25.5);
+  pdfHandwrittenCenteredText(page, headingLabel, y, 25.5);
   y -= 27;
   pdfText(page, `Your journey so far - ${entries.length} saved ${entries.length === 1 ? 'place' : 'places'}.`, LEFT, y, 10, 'F1', MUTED);
   y -= 15;
@@ -410,10 +460,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     });
   });
 
-  ensure(148);
-  pdfText(page, 'Thanks for letting Things To Do Atlas travel with you.', LEFT, y, 9.5, 'F2', [0.12, 0.2, 0.16]);
+  ensure(154);
+  pdfHandwrittenText(page, closingLineOne, LEFT, y, 10.8, titleColor, SCHOOLBELL_FONT, '400');
   y -= 15;
-  pdfText(page, 'Keep exploring, stay curious, and have a beautiful journey.', LEFT, y, 9, 'F1', MUTED);
+  pdfHandwrittenText(page, closingLineTwo, LEFT, y, 10.4, MUTED, SCHOOLBELL_FONT, '400');
   y -= 23;
   pdfText(page, 'Open Your Atlas ->', LEFT, y, 8.5, 'F2', ATLAS_GREEN);
   page.links.push({ x: LEFT, y: y - 3, width: 84, height: 13, url: summaryUrl });
@@ -422,6 +472,12 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   pdfText(page, 'REVIEWED & APPROVED', LEFT, y, 7.2, 'F2', [0.25, 0.25, 0.23]);
   pdfLine(page, LEFT, y - 7, LEFT + 82, y - 7, [0.12, 0.12, 0.11], 0.42);
   pdfText(page, formatExportDate(), LEFT, y - 24, 8.2, 'F1', MUTED);
+  if (signatureImage) {
+    page.commands.push(`q 112 0 0 40 ${(LEFT + 62).toFixed(2)} ${(y - 64).toFixed(2)} cm /ImSignature Do Q`);
+  }
+  if (stampImage) {
+    page.commands.push(`q 78 0 0 78 ${(RIGHT - 86).toFixed(2)} ${(y - 49).toFixed(2)} cm /ImStamp Do Q`);
+  }
   addFooter(page, pages.length);
 
   const objects: string[] = [''];
@@ -433,6 +489,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const obliqueFontId = reserve();
   const coverImageId = coverImage ? reserve() : 0;
   const coverSummaryImageId = coverSummaryImage ? reserve() : 0;
+  const signatureImageId = signatureImage ? reserve() : 0;
+  const stampImageId = stampImage ? reserve() : 0;
   const handwritingImageIds = new Map<string, number>();
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
   objects[boldFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>';
@@ -446,6 +504,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
 
   if (coverImage && coverImageId) writeJpegObject(coverImageId, coverImage);
   if (coverSummaryImage && coverSummaryImageId) writeJpegObject(coverSummaryImageId, coverSummaryImage);
+  if (signatureImage && signatureImageId) writeJpegObject(signatureImageId, signatureImage);
+  if (stampImage && stampImageId) writeJpegObject(stampImageId, stampImage);
   handwritingAssets.forEach((asset) => {
     const id = reserve();
     handwritingImageIds.set(asset.name, id);
@@ -467,6 +527,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     const xObjectEntries: string[] = [];
     if (coverImageId) xObjectEntries.push(`/ImCover ${coverImageId} 0 R`);
     if (coverSummaryImageId) xObjectEntries.push(`/ImCoverSummary ${coverSummaryImageId} 0 R`);
+    if (signatureImageId) xObjectEntries.push(`/ImSignature ${signatureImageId} 0 R`);
+    if (stampImageId) xObjectEntries.push(`/ImStamp ${stampImageId} 0 R`);
     handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
     const xObjects = xObjectEntries.length ? `/XObject << ${xObjectEntries.join(' ')} >>` : '';
     objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
