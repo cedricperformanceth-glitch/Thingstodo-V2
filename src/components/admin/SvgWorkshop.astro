@@ -8,9 +8,9 @@ type SvgCatalogueItem = {
 };
 
 const currentStudy = {
-  id: 'globe-flight-line-art-v2',
-  title: 'Globe + flight path · V2',
-  src: '/assets/admin/svg-workbench/current/globe-flight-line-art-v2.svg',
+  id: 'compass-pdf-reference-v1',
+  title: 'Nautical compass · PDF reference trace',
+  src: '/assets/admin/svg-workbench/current/compass-pdf-reference-v1.svg',
 };
 
 // Add an item here only after the user has explicitly validated the SVG for reuse.
@@ -39,7 +39,7 @@ const svgCatalogue: SvgCatalogueItem[] = [
         <h3 id="svg-workbench-title">{currentStudy.title}</h3>
         <code>{currentStudy.src}</code>
       </div>
-      <span class="svg-workbench__status">V2 · WORKING COPY</span>
+      <span class="svg-workbench__status">V1 · WORKING COPY</span>
     </div>
 
     <div class="svg-annotation-toolbar" aria-label="SVG annotation tools">
@@ -62,7 +62,7 @@ const svgCatalogue: SvgCatalogueItem[] = [
         <img
           class="svg-workbench__study"
           src={currentStudy.src}
-          alt="Desk globe with an airplane circling the Earth"
+          alt="Nautical compass traced from the PDF compass reference"
           data-svg-current-study
           data-svg-title={currentStudy.title}
           data-svg-src={currentStudy.src}
@@ -82,7 +82,7 @@ const svgCatalogue: SvgCatalogueItem[] = [
     <div class="svg-review-composer">
       <label class="svg-review-composer__field">
         <span>YOUR NOTE</span>
-        <textarea data-svg-review-note rows="2" placeholder="Ex: make the globe simpler, move the plane closer, use blue here..."></textarea>
+        <textarea data-svg-review-note rows="2" placeholder="Ex: simplify this point, move this mark, adjust this colour..."></textarea>
       </label>
       <button class="svg-review-composer__generate" type="button" data-svg-generate-prompt>
         <span>Generate prompt</span>
@@ -143,7 +143,7 @@ const svgCatalogue: SvgCatalogueItem[] = [
       <div class="svg-catalogue__empty">
         <span>CATALOGUE READY</span>
         <strong>No validated SVG saved yet.</strong>
-        <p>The globe above is only the current study. It will enter this catalogue only after you explicitly validate it.</p>
+        <p>The drawing above is only the current study. It will enter this catalogue only after you explicitly validate it.</p>
       </div>
     )}
   </section>
