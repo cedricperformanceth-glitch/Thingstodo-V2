@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1536" role="img" aria-labelledby="title desc">
 <title id="title">Animated globe with orbiting airplane</title>
-<desc id="desc">Atlas admin animation study. The globe stays visible, the airplane starts farther back on the route, and the dashed trail appears one segment at a time over a five second loop.</desc>
+<desc id="desc">Atlas admin animation study. The globe stays visible, the airplane starts farther back on the route, and the dashed trail appears one segment at a time over a smooth five second loop.</desc>
 <rect width="1536" height="1536" fill="#ffffff"/>
 
 <!-- Inline base artwork: no nested SVG image, so the planet always renders in the admin preview. -->
@@ -34,8 +34,8 @@
   <path d="M 1264 594 L 1258 597 L 1244 626 L 1245 631 L 1248 633 L 1253 633 L 1257 629 L 1268 606 L 1269 598 Z" fill="#fff"><animate attributeName="opacity" values="1;0;0" keyTimes="0;0.784;1" dur="5s" repeatCount="indefinite" calcMode="discrete"/></path>
 </g>
 
-<!-- Plane starts much farther back than the previous test, then reaches the validated V1 position. -->
+<!-- One continuous motion path removes the visible stepping from the previous multi-keyframe transform. -->
 <path id="flight-plane-animated" d="M 1448 357 L 1436 353 L 1427 354 L 1411 360 L 1401 366 L 1383 382 L 1352 416 L 1237 393 L 1229 393 L 1224 395 L 1210 408 L 1208 412 L 1208 419 L 1211 425 L 1303 474 L 1270 515 L 1235 511 L 1232 512 L 1220 526 L 1220 531 L 1224 536 L 1251 549 L 1254 552 L 1254 560 L 1256 564 L 1262 567 L 1271 566 L 1294 601 L 1302 601 L 1313 589 L 1306 546 L 1343 513 L 1394 604 L 1400 607 L 1409 605 L 1425 588 L 1428 575 L 1399 463 L 1399 457 L 1438 417 L 1446 407 L 1453 393 L 1456 381 L 1456 371 L 1452 361 Z M 1439 366 L 1444 372 L 1444 380 L 1437 398 L 1416 423 L 1386 453 L 1386 462 L 1416 576 L 1415 581 L 1403 593 L 1400 591 L 1350 499 L 1343 497 L 1293 543 L 1293 549 L 1301 582 L 1299 587 L 1277 554 L 1267 555 L 1267 545 L 1264 542 L 1235 528 L 1234 526 L 1236 523 L 1269 527 L 1278 526 L 1317 477 L 1319 473 L 1318 468 L 1221 416 L 1221 414 L 1230 406 L 1234 405 L 1350 429 L 1358 429 L 1403 380 L 1423 368 L 1434 365 Z" fill="#0b0b0b" fill-rule="evenodd">
-  <animateTransform attributeName="transform" type="translate" values="-420 320;-420 320;-300 285;-185 225;-85 125;0 0;0 0" keyTimes="0;0.06;0.25;0.45;0.64;0.86;1" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;0.25 0.1 0.25 1;0.25 0.1 0.25 1;0.25 0.1 0.25 1;0.22 0.61 0.36 1;0 0 1 1"/>
+  <animateMotion dur="5s" repeatCount="indefinite" calcMode="paced" path="M -570 500 C -505 493 -440 462 -380 425 C -300 378 -235 320 -175 255 C -108 182 -52 94 0 0"/>
 </path>
 </svg>
