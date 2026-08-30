@@ -5,8 +5,9 @@ interface PdfLink { x: number; y: number; width: number; height: number; url: st
 interface PdfPage { commands: string[]; links: PdfLink[]; }
 interface PdfPalette { primary: [number, number, number]; secondary: [number, number, number]; }
 interface StampImage { hex: string; width: number; height: number; }
+interface HandwritingStyle { font: 'F4' | 'F5'; rotation: number; tracking: number; }
 
-type PdfFont = 'F1' | 'F2' | 'F3';
+type PdfFont = 'F1' | 'F2' | 'F3' | 'F4' | 'F5';
 
 const PAPER: [number, number, number] = [0.98, 0.965, 0.925];
 const INK: [number, number, number] = [0.16, 0.18, 0.17];
@@ -28,6 +29,12 @@ const COUNTRY_PALETTES: Record<string, PdfPalette> = {
   },
 };
 
+const COUNTRY_HANDWRITING: Record<string, HandwritingStyle> = {
+  laos: { font: 'F4', rotation: -1.15, tracking: 0.12 },
+  'sri-lanka': { font: 'F5', rotation: 0.65, tracking: 0.22 },
+};
+const DEFAULT_HANDWRITING: HandwritingStyle = { font: 'F4', rotation: -0.45, tracking: 0.12 };
+
 const asciiPdf = (value: string) => value.normalize('NFKD')
   .replace(/[\u0300-\u036f]/g, '').replace(/[–—]/g, '-').replace(/[“”]/g, '"')
   .replace(/[‘’]/g, "'").replace(/→/g, '->').replace(/[^\x20-\x7E]/g, '');
@@ -43,6 +50,28 @@ const pdfText = (
   color: [number, number, number] = INK,
 ) => {
   page.commands.push(`BT /${font} ${size} Tf ${color.join(' ')} rg 1 0 0 1 ${x.toFixed(2)} ${y.toFixed(2)} Tm (${pdfEscape(text)}) Tj ET`);
+};
+
+const handwritingForCountry = (country = '') => COUNTRY_HANDWRITING[country.trim().toLowerCase()] ?? DEFAULT_HANDWRITING;
+
+const pdfHandwrittenText = (
+  page: PdfPage,
+  text: string,
+  x: number,
+  y: number,
+  size: number,
+  country = '',
+  color: [number, number, number] = INK,
+) => {
+  const style = handwritingForCountry(country);
+  const radians = style.rotation * (Math.PI / 180);
+  const cos = Math.cos(radians);
+  const sin = Math.sin(radians);
+  page.commands.push(
+    `BT /${style.font} ${size} Tf ${style.tracking.toFixed(2)} Tc ${color.join(' ')} rg `
+    + `${cos.toFixed(5)} ${sin.toFixed(5)} ${(-sin).toFixed(5)} ${cos.toFixed(5)} ${x.toFixed(2)} ${y.toFixed(2)} Tm `
+    + `(${pdfEscape(text)}) Tj ET`,
+  );
 };
 
 const pdfLine = (
@@ -95,9 +124,8 @@ const pdfCircle = (
 };
 
 const pdfDivider = (page: PdfPage, x1: number, x2: number, y: number, palette: PdfPalette) => {
-  const firstEnd = Math.min(x1 + 122, x2 - 48);
-  pdfLine(page, x1, y, firstEnd, y, palette.primary, 1.55);
-  pdfLine(page, firstEnd + 7, y, x2, y, palette.secondary, 0.78);
+  const shortEnd = Math.min(x1 + 92, x2);
+  pdfLine(page, x1, y, shortEnd, y, palette.secondary, 0.62);
 };
 
 const paletteForCountry = (country = '') => COUNTRY_PALETTES[country.trim().toLowerCase()] ?? DEFAULT_PALETTE;
@@ -176,8 +204,10 @@ const drawStamp = (page: PdfPage, cx: number, cy: number, imageAvailable: boolea
 export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const PAGE_W = 595.28;
   const PAGE_H = 841.89;
-  const LEFT = 52;
-  const RIGHT = PAGE_W - 52;
+  const SHEET_LEFT = 40;
+  const SHEET_RIGHT = PAGE_W - 40;
+  const LEFT = SHEET_LEFT + 27;
+  const RIGHT = SHEET_RIGHT - 27;
   const pages: PdfPage[] = [];
   const summaryUrl = new URL('/summary', window.location.origin).toString();
   const countries = groupedEntries(entries);
@@ -191,7 +221,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     page = { commands: [], links: [] };
     pages.push(page);
     pdfFill(page, 0, 0, PAGE_W, PAGE_H, PAPER);
-    pdfStrokeRect(page, 28, 27, PAGE_W - 56, PAGE_H - 54, [0.82, 0.79, 0.72], 0.38);
+    pdfStrokeRect(page, SHEET_LEFT, 27, SHEET_RIGHT - SHEET_LEFT, PAGE_H - 54, [0.82, 0.79, 0.72], 0.38);
     pdfText(page, 'THINGS TO DO ATLAS', LEFT, PAGE_H - 43, 8.2, 'F2', ATLAS_GREEN);
     pdfText(page, 'PERSONAL TRAVEL EDITION', RIGHT - 116, PAGE_H - 43, 6.8, 'F1', MUTED);
     pdfDivider(page, LEFT, RIGHT, PAGE_H - 57, currentPalette);
@@ -216,9 +246,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   if (uniqueCountries.length === 1) currentPalette = paletteForCountry(uniqueCountries[0]);
   addPage();
 
-  const headingCountry = uniqueCountries.length === 1 ? titleize(uniqueCountries[0]).toUpperCase() : 'YOUR JOURNEY';
-  pdfText(page, `MY ATLAS - ${headingCountry}`, LEFT, y, 23, 'F2', [0.12, 0.2, 0.16]);
-  y -= 24;
+  const headingCountry = uniqueCountries.length === 1 ? titleize(uniqueCountries[0]) : '';
+  const headingLabel = headingCountry ? `My Atlas ${headingCountry}` : 'My Atlas';
+  pdfHandwrittenText(page, headingLabel, LEFT, y, 25.5, uniqueCountries[0] ?? '', [0.12, 0.2, 0.16]);
+  y -= 27;
   pdfText(page, `Your journey so far - ${entries.length} saved ${entries.length === 1 ? 'place' : 'places'}.`, LEFT, y, 10, 'F1', MUTED);
   y -= 15;
   pdfDivider(page, LEFT, RIGHT, y, currentPalette);
@@ -227,17 +258,17 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   countries.forEach((cities, country) => {
     currentPalette = paletteForCountry(country);
     if (multiCountry) {
-      ensure(47);
-      pdfText(page, titleize(country).toUpperCase(), LEFT, y, 17, 'F2', currentPalette.primary);
-      y -= 10;
+      ensure(49);
+      pdfHandwrittenText(page, `My Atlas ${titleize(country)}`, LEFT, y, 20, country, [0.12, 0.2, 0.16]);
+      y -= 12;
       pdfDivider(page, LEFT, RIGHT, y, currentPalette);
-      y -= 20;
+      y -= 21;
     }
 
     cities.forEach((categories, city) => {
-      ensure(49);
-      pdfText(page, titleize(city), LEFT, y, 14.5, 'F2', [0.12, 0.2, 0.16]);
-      y -= 9;
+      ensure(50);
+      pdfHandwrittenText(page, titleize(city), LEFT, y, 16.5, country, [0.12, 0.2, 0.16]);
+      y -= 10;
       pdfDivider(page, LEFT, RIGHT, y, currentPalette);
       y -= 18;
 
@@ -247,10 +278,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
         y -= 17;
         items.forEach((entry) => {
           ensure(27);
-          const name = entry.name.length > 52 ? `${entry.name.slice(0, 49)}...` : entry.name;
+          const name = entry.name.length > 46 ? `${entry.name.slice(0, 43)}...` : entry.name;
           pdfText(page, name, LEFT + 8, y, 9.7);
-          pdfText(page, 'Google Maps ->', RIGHT - 84, y, 8.3, 'F2', currentPalette.primary);
-          page.links.push({ x: RIGHT - 88, y: y - 3, width: 92, height: 13, url: googleMapsUrl(entry) });
+          pdfText(page, 'Google Maps ->', RIGHT - 79, y, 8.3, 'F2', currentPalette.primary);
+          page.links.push({ x: RIGHT - 82, y: y - 3, width: 85, height: 13, url: googleMapsUrl(entry) });
           y -= 18;
         });
         y -= 6;
@@ -283,10 +314,14 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const regularFontId = reserve();
   const boldFontId = reserve();
   const obliqueFontId = reserve();
+  const laosScriptFontId = reserve();
+  const sriLankaScriptFontId = reserve();
   const stampImageId = stampImage ? reserve() : 0;
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
   objects[boldFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>';
   objects[obliqueFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>';
+  objects[laosScriptFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /ZapfChancery-MediumItalic >>';
+  objects[sriLankaScriptFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Times-BoldItalic >>';
 
   if (stampImage && stampImageId) {
     const stream = `${stampImage.hex}\n`;
@@ -307,7 +342,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     const pageId = reserve();
     const annots = annotationIds.length ? `/Annots [${annotationIds.map((id) => `${id} 0 R`).join(' ')}]` : '';
     const xObjects = stampImageId ? `/XObject << /ImStamp ${stampImageId} 0 R >>` : '';
-    objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
+    objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R /F4 ${laosScriptFontId} 0 R /F5 ${sriLankaScriptFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;
     pageIds.push(pageId);
   });
 
