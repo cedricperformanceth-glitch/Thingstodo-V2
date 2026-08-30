@@ -456,8 +456,12 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     y = PAGE_H - 88;
   };
 
-  const addFooter = (target: PdfPage, pageNumber: number) => {
-    pdfLine(target, LEFT, 49, RIGHT, 49, FOUNTAIN_INK_BLUE, 0.55);
+  const addFooter = (
+    target: PdfPage,
+    pageNumber: number,
+    dividerColor: [number, number, number] = [0.78, 0.75, 0.69],
+  ) => {
+    pdfLine(target, LEFT, 49, RIGHT, 49, dividerColor, 0.55);
     pdfText(target, 'Things To Do Atlas - Your Atlas', LEFT, 31, 7.1, 'F2', ATLAS_GREEN);
     target.links.push({ x: LEFT, y: 27, width: 126, height: 12, url: summaryUrl });
     pdfText(target, 'FIELD COPY', (SHEET_LEFT + (SHEET_WIDTH / 2)) - 18, 31, 6.2, 'F1', [0.53, 0.51, 0.47]);
@@ -535,7 +539,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   if (stampImage) {
     page.commands.push(`q 102 0 0 102 ${(RIGHT - 98).toFixed(2)} 56 cm /ImStamp Do Q`);
   }
-  addFooter(page, pages.length);
+  addFooter(page, pages.length, FOUNTAIN_INK_BLUE);
 
   const objects: string[] = [''];
   const reserve = () => { objects.push(''); return objects.length - 1; };
