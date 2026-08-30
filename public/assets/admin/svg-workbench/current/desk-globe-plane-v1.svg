@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Desk globe with an airplane circling the Earth</title>
+  <desc id="desc">Atlas SVG study showing a small desktop globe, simplified continents and a plane following an orbit around the planet.</desc>
+
+  <defs>
+    <clipPath id="earth-clip">
+      <circle cx="320" cy="210" r="112" />
+    </clipPath>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
+
+  <!-- subtle desk shadow -->
+  <ellipse cx="320" cy="408" rx="108" ry="13" fill="#263a30" opacity="0.08" filter="url(#soft-shadow)" />
+
+  <!-- rear orbit: intentionally quiet so the globe stays dominant -->
+  <path d="M120 249 C158 132 262 72 382 92 C468 106 526 155 536 218"
+        fill="none" stroke="#b76645" stroke-width="3" stroke-linecap="round"
+        stroke-dasharray="5 10" opacity="0.48" />
+
+  <!-- globe meridian frame -->
+  <g fill="none" stroke="#263a30" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="320" cy="210" rx="131" ry="119" transform="rotate(-15 320 210)" stroke-width="7" opacity="0.96" />
+    <path d="M232 125 C206 151 193 182 192 216 C191 258 210 292 241 316" stroke-width="3" opacity="0.56" />
+    <path d="M404 104 C438 134 451 173 448 214 C445 252 430 283 403 309" stroke-width="3" opacity="0.56" />
+  </g>
+
+  <!-- Earth -->
+  <circle cx="320" cy="210" r="112" fill="#dce8e5" stroke="#263a30" stroke-width="4" />
+
+  <!-- latitude / longitude -->
+  <g clip-path="url(#earth-clip)" fill="none" stroke="#527166" opacity="0.34">
+    <ellipse cx="320" cy="210" rx="69" ry="112" stroke-width="1.6" />
+    <ellipse cx="320" cy="210" rx="34" ry="112" stroke-width="1.3" />
+    <path d="M208 210 H432" stroke-width="1.5" />
+    <path d="M219 173 C274 186 365 186 421 173" stroke-width="1.25" />
+    <path d="M219 247 C274 234 365 234 421 247" stroke-width="1.25" />
+  </g>
+
+  <!-- simplified but readable continents -->
+  <g clip-path="url(#earth-clip)" fill="#b9a16e" stroke="#786744" stroke-width="1.4" stroke-linejoin="round">
+    <!-- North America -->
+    <path d="M229 141 L245 128 L266 127 L282 137 L292 151 L284 164 L270 166 L262 179 L247 181 L239 195 L226 188 L217 170 Z" />
+    <!-- Central America -->
+    <path d="M246 190 L257 193 L267 204 L262 212 L252 207 Z" />
+    <!-- South America -->
+    <path d="M268 209 L286 211 L300 225 L297 244 L288 260 L284 281 L273 299 L264 284 L266 262 L257 246 L257 226 Z" />
+    <!-- Europe + Asia -->
+    <path d="M303 139 L320 131 L338 134 L348 129 L367 137 L389 139 L409 153 L411 169 L398 177 L386 174 L375 184 L361 179 L349 188 L336 182 L327 170 L311 168 L299 156 Z" />
+    <path d="M368 177 L386 184 L396 197 L409 202 L414 216 L401 223 L391 214 L380 219 L371 207 L359 204 L356 190 Z" />
+    <!-- Africa -->
+    <path d="M318 180 L340 177 L356 190 L361 211 L354 235 L342 256 L326 263 L315 248 L309 226 L300 207 L306 190 Z" />
+    <!-- Madagascar -->
+    <path d="M365 251 L371 248 L374 265 L369 279 L364 270 Z" />
+    <!-- Australia -->
+    <path d="M387 246 L402 240 L418 247 L426 261 L418 274 L399 277 L387 268 L379 257 Z" />
+  </g>
+
+  <!-- axis caps -->
+  <g fill="#263a30">
+    <circle cx="287" cy="91" r="7" />
+    <circle cx="353" cy="329" r="7" />
+  </g>
+
+  <!-- stand -->
+  <g stroke="#263a30" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M352 327 C351 345 344 360 331 371" fill="none" stroke-width="7" />
+    <path d="M309 371 H333" fill="none" stroke-width="7" />
+    <path d="M321 370 V394" fill="none" stroke-width="8" />
+    <path d="M274 405 C289 396 351 396 368 405 L378 415 H264 Z" fill="#c7b586" stroke-width="4" />
+    <path d="M279 405 H364" fill="none" stroke-width="2" opacity="0.5" />
+  </g>
+
+  <!-- front orbit -->
+  <path d="M536 218 C527 288 455 335 355 346 C252 357 158 326 120 249"
+        fill="none" stroke="#b76645" stroke-width="3.4" stroke-linecap="round" />
+  <circle cx="120" cy="249" r="4.5" fill="#b76645" />
+
+  <!-- airplane at upper-right of orbit -->
+  <g transform="translate(510 153) rotate(24)" fill="#263a30" stroke="#263a30" stroke-linejoin="round">
+    <path d="M-40 1 L-8 -5 L8 -34 L17 -32 L9 -4 L39 0 L42 6 L9 9 L19 28 L12 31 L-7 11 L-31 17 L-37 12 L-17 6 L-40 4 Z" stroke-width="1.2" />
+    <path d="M-7 0 H20" fill="none" stroke="#f7f3e8" stroke-width="1.8" opacity="0.7" />
+  </g>
+
+  <!-- tiny travel-route accent -->
+  <path d="M486 128 C499 135 507 143 513 151" fill="none" stroke="#b76645" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+</svg>
