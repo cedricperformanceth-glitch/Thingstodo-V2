@@ -7,59 +7,101 @@ import { buildXlsx } from './atlas-export-xlsx';
 const exportDialogMarkup = `
   <button class="atlas-export__close" type="button" aria-label="Close export options" data-atlas-export-close>×</button>
   <section class="atlas-export__view" data-atlas-export-view="selection">
-    <p class="atlas-export__eyebrow">TAKE IT WITH YOU</p>
-    <h2 class="atlas-export__title" id="atlas-export-title">Choose your Atlas format.</h2>
-    <p class="atlas-export__copy" id="atlas-export-description" data-atlas-export-count>Save a place to prepare your Atlas.</p>
-    <div class="atlas-export__cards">
+    <header class="atlas-export__heading">
+      <div class="atlas-export__heading-line">
+        <p class="atlas-export__eyebrow">TAKE IT WITH YOU</p>
+        <p class="atlas-export__registry" aria-hidden="true">ATLAS / EXPORT 01</p>
+      </div>
+      <h2 class="atlas-export__title" id="atlas-export-title">Choose how to carry your Atlas.</h2>
+      <p class="atlas-export__copy" id="atlas-export-description" data-atlas-export-count>Save a place to prepare your Atlas.</p>
+    </header>
+
+    <div class="atlas-export__cards" aria-label="Atlas export formats">
       <article class="atlas-export__card atlas-export__card--google">
-        <span class="atlas-export__badge">Recommended</span>
-        <h3 class="atlas-export__format">Google Sheets</h3>
-        <p class="atlas-export__format-meta">Live · Cloud</p>
-        <p class="atlas-export__description">Create an editable copy of your saved Atlas directly in your Google Drive.</p>
-        <p class="atlas-export__permission"><strong>Google sign-in required.</strong> Google will ask you to choose an account and allow Atlas to create this Sheet.</p>
-        <button class="atlas-export__card-action" type="button" data-atlas-export-kind="google"><span>Create Google Sheet</span><span aria-hidden="true">↗</span></button>
+        <span class="atlas-export__marker" aria-hidden="true"></span>
+        <div class="atlas-export__card-copy">
+          <div class="atlas-export__format-line">
+            <h3 class="atlas-export__format">Google Sheets</h3>
+            <span class="atlas-export__badge">recommended ↙</span>
+          </div>
+          <p class="atlas-export__format-meta">Editable copy · Google Drive</p>
+          <p class="atlas-export__description">Create an editable copy of your saved Atlas directly in your Google Drive.</p>
+          <p class="atlas-export__permission"><strong>Google sign-in required.</strong> Google will ask you to choose an account and allow Atlas to create this Sheet.</p>
+        </div>
+        <button class="atlas-export__card-action" type="button" data-atlas-export-kind="google"><span>Create</span><span aria-hidden="true">↗</span></button>
       </article>
+
       <article class="atlas-export__card">
-        <span class="atlas-export__badge">Pocket Atlas</span>
-        <h3 class="atlas-export__format">Travel PDF</h3>
-        <p class="atlas-export__format-meta">Portable · Polished</p>
-        <p class="atlas-export__description">A clean travel document organised by country, city and category, with clickable Google Maps links.</p>
+        <span class="atlas-export__marker" aria-hidden="true"></span>
+        <div class="atlas-export__card-copy">
+          <h3 class="atlas-export__format">Travel PDF</h3>
+          <p class="atlas-export__format-meta">Pocket Atlas · Offline</p>
+          <p class="atlas-export__description">A polished travel document organised by country, city and category, with clickable Google Maps links.</p>
+        </div>
         <button class="atlas-export__card-action" type="button" data-atlas-export-kind="pdf"><span>Create PDF</span><span aria-hidden="true">↓</span></button>
       </article>
+
       <article class="atlas-export__card">
-        <span class="atlas-export__badge">Planner</span>
-        <h3 class="atlas-export__format">Excel (.xlsx)</h3>
-        <p class="atlas-export__format-meta">Editable · Practical</p>
-        <p class="atlas-export__description">A structured spreadsheet with your places, categories, Google Maps links and space for personal notes.</p>
-        <button class="atlas-export__card-action" type="button" data-atlas-export-kind="xlsx"><span>Create Excel file</span><span aria-hidden="true">↓</span></button>
+        <span class="atlas-export__marker" aria-hidden="true"></span>
+        <div class="atlas-export__card-copy">
+          <h3 class="atlas-export__format">Excel (.xlsx)</h3>
+          <p class="atlas-export__format-meta">Editable travel planner</p>
+          <p class="atlas-export__description">A structured spreadsheet with your places, categories, Google Maps links and space for personal notes.</p>
+        </div>
+        <button class="atlas-export__card-action" type="button" data-atlas-export-kind="xlsx"><span>Create Excel</span><span aria-hidden="true">↓</span></button>
       </article>
     </div>
+
+    <footer class="atlas-export__dispatch-footer" aria-hidden="true">
+      <span>YOUR SAVED ATLAS</span>
+      <span>FIELD COPY · READY TO CARRY</span>
+    </footer>
     <p class="atlas-export__error" data-atlas-export-error hidden></p>
   </section>
+
   <section class="atlas-export__view atlas-export__view--progress" data-atlas-export-view="progress" hidden>
-    <div>
-      <div class="atlas-export__compass" aria-hidden="true">N</div>
-      <p class="atlas-export__eyebrow">PREPARING YOUR ATLAS</p>
+    <div class="atlas-export__process">
+      <div class="atlas-export__heading-line">
+        <p class="atlas-export__eyebrow">PREPARING YOUR ATLAS</p>
+        <p class="atlas-export__registry" aria-hidden="true">ATLAS / WORK ORDER</p>
+      </div>
       <h2 class="atlas-export__title" data-atlas-export-progress-title>Building your Atlas…</h2>
       <p class="atlas-export__copy" data-atlas-export-progress-copy>Organising your saved places.</p>
+      <ol class="atlas-export__checklist" aria-hidden="true">
+        <li class="is-done"><span>✓</span> Gathering saved places</li>
+        <li class="is-done"><span>✓</span> Organising countries &amp; cities</li>
+        <li class="is-active"><span>→</span> Preparing links &amp; field notes</li>
+        <li><span>○</span> Finishing your travel file</li>
+      </ol>
+      <p class="atlas-export__process-note">Please keep this page open.</p>
     </div>
   </section>
+
   <section class="atlas-export__view atlas-export__view--file" data-atlas-export-view="file" hidden>
     <div class="atlas-export__ready-card">
-      <p class="atlas-export__ready-label" data-atlas-export-file-kind>Your file</p>
+      <div class="atlas-export__ready-topline">
+        <p class="atlas-export__ready-label" data-atlas-export-file-kind>Your file</p>
+        <span class="atlas-export__ready-stamp" aria-hidden="true">READY ✓</span>
+      </div>
+      <p class="atlas-export__registry" aria-hidden="true">FILE No. 001</p>
       <h2 class="atlas-export__ready-name" data-atlas-export-file-name>My-Atlas.pdf</h2>
       <p class="atlas-export__ready-copy">Your Atlas is ready to keep on your device or send through any compatible sharing app.</p>
       <div class="atlas-export__actions">
         <button class="atlas-export__button" type="button" data-atlas-export-share><span>Share</span><span aria-hidden="true">↗</span></button>
-        <a class="atlas-export__button atlas-export__button--secondary" href="#" data-atlas-export-download><span>Download</span><span aria-hidden="true">↓</span></a>
+        <a class="atlas-export__button atlas-export__button--secondary" href="#" data-atlas-export-download><span>Keep file</span><span aria-hidden="true">↓</span></a>
       </div>
       <p class="atlas-export__share-help" data-atlas-export-share-help></p>
       <button class="atlas-export__text-button" type="button" data-atlas-export-back>Choose another format</button>
     </div>
   </section>
+
   <section class="atlas-export__view atlas-export__view--sheet" data-atlas-export-view="sheet" hidden>
     <div class="atlas-export__ready-card">
-      <p class="atlas-export__ready-label">Google Sheets</p>
+      <div class="atlas-export__ready-topline">
+        <p class="atlas-export__ready-label">Google Sheets</p>
+        <span class="atlas-export__ready-stamp" aria-hidden="true">READY ✓</span>
+      </div>
+      <p class="atlas-export__registry" aria-hidden="true">FILE No. 001</p>
       <h2 class="atlas-export__ready-name">Your Google Sheet is ready.</h2>
       <p class="atlas-export__ready-copy">It was created in the Google account you authorised and is ready to edit or share.</p>
       <div class="atlas-export__actions atlas-export__actions--single">
