@@ -314,10 +314,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const GOOGLE_MAPS_X = RIGHT - 79;
   const SCHOOLBELL_VISIBLE_LEFT_OFFSET = 2.5;
   const CLOSING_BLOCK_HEIGHT = 154;
-  const LAOS_MAP_DISPLAY_W = 64;
-  const LAOS_MAP_DISPLAY_H = 78;
-  const LAOS_MAP_X = RIGHT - LAOS_MAP_DISPLAY_W;
-  const LAOS_MAP_Y = PAGE_H - 112;
+  const LAOS_MAP_DISPLAY_W = 112;
+  const LAOS_MAP_DISPLAY_H = 136;
+  const LAOS_MAP_X = GOOGLE_MAPS_X - LAOS_MAP_DISPLAY_W - 14;
+  const LAOS_MAP_Y = (PAGE_H - LAOS_MAP_DISPLAY_H) / 2;
   const pages: PdfPage[] = [];
   const summaryUrl = new URL('/summary', window.location.origin).toString();
   const countries = groupedEntries(entries);
