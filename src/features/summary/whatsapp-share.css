@@ -8,6 +8,7 @@
 .atlas-export__dispatch-footer,
 .atlas-export__checklist li,
 .atlas-export__checklist li span,
+.atlas-export__process-note,
 .atlas-export__ready-copy,
 .atlas-export__share-help,
 .atlas-export__text-button {
@@ -16,4 +17,40 @@
 
 .atlas-export__copy {
   font-style: normal;
+}
+
+/*
+ * Export work-order loader.
+ * A proper archival compass rose replaces the generic spinner while keeping
+ * the SVG decorative: the live progress copy remains the accessible status.
+ */
+.atlas-export__process::before {
+  content: '';
+  display: block;
+  width: clamp(6.35rem, 18vw, 8rem);
+  aspect-ratio: 1;
+  margin: 0 auto 1.15rem;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='90' cy='90' r='76' stroke='%23315545' stroke-width='1.7'/%3E%3Ccircle cx='90' cy='90' r='69' stroke='%23b8aa91' stroke-width='1' stroke-dasharray='2.2 4.4'/%3E%3Ccircle cx='90' cy='90' r='54' stroke='%23cbbda5' stroke-width='.85'/%3E%3Cg stroke='%237b745f' stroke-width='1'%3E%3Cpath d='M90 10v8M90 162v8M10 90h8M162 90h8'/%3E%3Cpath d='M36.3 36.3l5.5 5.5M138.2 138.2l5.5 5.5M143.7 36.3l-5.5 5.5M41.8 138.2l-5.5 5.5'/%3E%3Cpath d='M61 19.9l3.2 7.4M119 152.7l3.2 7.4M19.9 61l7.4 3.2M152.7 119l7.4 3.2M119 27.3l3.2-7.4M61 152.7l-3.2 7.4M27.3 119l-7.4 3.2M152.7 61l7.4-3.2'/%3E%3C/g%3E%3C/g%3E%3Cg stroke='%232b3932' stroke-linejoin='round'%3E%3Cpath d='M90 19L98 88L90 77L82 88Z' fill='%23315545' stroke-width='1.1'/%3E%3Cpath d='M90 161L82 92L90 103L98 92Z' fill='%23efe5cd' stroke-width='1.1'/%3E%3Cpath d='M161 90L92 98L103 90L92 82Z' fill='%23efe5cd' stroke-width='1.1'/%3E%3Cpath d='M19 90L88 82L77 90L88 98Z' fill='%23315545' stroke-width='1.1'/%3E%3Cg fill='%239a4238' stroke-width='.9'%3E%3Cpath d='M140.2 39.8L96 84L101 79L90 90Z'/%3E%3Cpath d='M140.2 140.2L96 96L101 101L90 90Z'/%3E%3Cpath d='M39.8 140.2L84 96L79 101L90 90Z'/%3E%3Cpath d='M39.8 39.8L84 84L79 79L90 90Z'/%3E%3C/g%3E%3Cg fill='%23d8c79f' stroke='%237b6e56' stroke-width='.65'%3E%3Cpath d='M116.5 26L94 82L96 74L90 90Z'/%3E%3Cpath d='M154 63.5L98 86L106 84L90 90Z'/%3E%3Cpath d='M154 116.5L98 94L106 96L90 90Z'/%3E%3Cpath d='M116.5 154L94 98L96 106L90 90Z'/%3E%3Cpath d='M63.5 154L86 98L84 106L90 90Z'/%3E%3Cpath d='M26 116.5L82 94L74 96L90 90Z'/%3E%3Cpath d='M26 63.5L82 86L74 84L90 90Z'/%3E%3Cpath d='M63.5 26L86 82L84 74L90 90Z'/%3E%3C/g%3E%3C/g%3E%3Ccircle cx='90' cy='90' r='12.5' fill='%23f4eedf' stroke='%23315545' stroke-width='1.35'/%3E%3Cpath d='M90 79l11 11-11 11-11-11Z' fill='%239a4238' stroke='%23315545' stroke-width='.8'/%3E%3Ccircle cx='90' cy='90' r='3.1' fill='%23f4eedf'/%3E%3Cg fill='%23315545' font-family='Segoe Print,Bradley Hand,cursive' font-size='10' font-weight='700' text-anchor='middle'%3E%3Ctext x='90' y='12'>N%3C/text%3E%3Ctext x='171' y='94'>E%3C/text%3E%3Ctext x='90' y='177'>S%3C/text%3E%3Ctext x='9' y='94'>W%3C/text%3E%3C/g%3E%3C/svg%3E");
+  filter: drop-shadow(0 2px 2px rgba(52, 46, 34, .15));
+  transform-origin: 50% 50%;
+  animation: atlas-export-compass-rose 4.8s linear infinite;
+  opacity: .96;
+}
+
+@keyframes atlas-export-compass-rose {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 430px) {
+  .atlas-export__process::before {
+    width: 6.2rem;
+    margin-bottom: .9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-export__process::before {
+    animation: none;
+  }
 }
