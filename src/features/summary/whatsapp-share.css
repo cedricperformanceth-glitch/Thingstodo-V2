@@ -1,1 +1,18 @@
 @import './atlas-export.css';
+
+/* Keep all secondary / grey export copy aligned with the SPA descriptive typography. */
+.atlas-export__copy,
+.atlas-export__description,
+.atlas-export__permission,
+.atlas-export__dispatch-footer,
+.atlas-export__checklist li,
+.atlas-export__checklist li span,
+.atlas-export__ready-copy,
+.atlas-export__share-help,
+.atlas-export__text-button {
+  font-family: var(--field-card-practical);
+}
+
+.atlas-export__copy {
+  font-style: normal;
+}
