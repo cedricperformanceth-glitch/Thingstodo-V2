@@ -7,6 +7,12 @@ type SvgCatalogueItem = {
   tags?: string[];
 };
 
+const currentStudy = {
+  id: 'desk-globe-plane-v1',
+  title: 'Desk globe + orbiting plane · V1',
+  src: '/assets/admin/svg-workbench/current/desk-globe-plane-v1.svg',
+};
+
 // Add an item here only after the user has explicitly validated the SVG for reuse.
 const svgCatalogue: SvgCatalogueItem[] = [];
 ---
@@ -22,9 +28,10 @@ const svgCatalogue: SvgCatalogueItem[] = [];
     <div class="svg-workbench__topline">
       <div>
         <span>ACTIVE STUDY</span>
-        <h3 id="svg-workbench-title">Current SVG preview</h3>
+        <h3 id="svg-workbench-title">{currentStudy.title}</h3>
+        <code>{currentStudy.src}</code>
       </div>
-      <span class="svg-workbench__status">PREVIEW ONLY</span>
+      <span class="svg-workbench__status">V1 · WORKING COPY</span>
     </div>
 
     <div class="svg-annotation-toolbar" aria-label="SVG annotation tools">
@@ -44,11 +51,15 @@ const svgCatalogue: SvgCatalogueItem[] = [];
 
     <div class="svg-workbench__stage" data-svg-workbench-stage>
       <div class="svg-workbench__mount" data-svg-workbench-mount>
-        <div class="svg-workbench__empty">
-          <span class="svg-workbench__cross" aria-hidden="true"></span>
-          <strong>No SVG study loaded</strong>
-          <p>The next SVG we design together will be mounted below this transparent annotation layer.</p>
-        </div>
+        <img
+          class="svg-workbench__study"
+          src={currentStudy.src}
+          alt="Desk globe with an airplane circling the Earth"
+          data-svg-current-study
+          data-svg-title={currentStudy.title}
+          data-svg-src={currentStudy.src}
+          decoding="async"
+        />
       </div>
       <div class="svg-workbench__grid" data-svg-grid-layer aria-hidden="true"></div>
       <canvas class="svg-workbench__annotations" data-svg-annotation-canvas aria-label="Transparent SVG annotation layer"></canvas>
@@ -63,7 +74,7 @@ const svgCatalogue: SvgCatalogueItem[] = [];
     <div class="svg-review-composer">
       <label class="svg-review-composer__field">
         <span>YOUR NOTE</span>
-        <textarea data-svg-review-note rows="2" placeholder="Ex: I don't like this colour. Make it blue. Move the upper circle slightly to the left..."></textarea>
+        <textarea data-svg-review-note rows="2" placeholder="Ex: make the globe simpler, move the plane closer, use blue here..."></textarea>
       </label>
       <button class="svg-review-composer__generate" type="button" data-svg-generate-prompt>
         <span>Generate prompt</span>
@@ -124,7 +135,7 @@ const svgCatalogue: SvgCatalogueItem[] = [];
       <div class="svg-catalogue__empty">
         <span>CATALOGUE READY</span>
         <strong>No validated SVG saved yet.</strong>
-        <p>Once we approve a reusable drawing, it will be stored here under a human-readable name.</p>
+        <p>The globe above is only the current study. It will enter this catalogue only after you explicitly validate it.</p>
       </div>
     )}
   </section>
@@ -165,6 +176,7 @@ const svgCatalogue: SvgCatalogueItem[] = [];
   const canvas = document.querySelector<HTMLCanvasElement>('[data-svg-annotation-canvas]');
   const gridLayer = document.querySelector<HTMLElement>('[data-svg-grid-layer]');
   const axes = document.querySelector<HTMLElement>('[data-svg-axes]');
+  const currentStudyElement = document.querySelector<HTMLElement>('[data-svg-current-study]');
   const toolButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-svg-tool]'));
   const noteField = document.querySelector<HTMLTextAreaElement>('[data-svg-review-note]');
   const promptOutput = document.querySelector<HTMLTextAreaElement>('[data-svg-prompt-output]');
@@ -177,7 +189,6 @@ const svgCatalogue: SvgCatalogueItem[] = [];
   let pointerDown = false;
   let markerCount = 0;
   let dpr = Math.max(1, window.devicePixelRatio || 1);
-
   const ctx = canvas?.getContext('2d') ?? null;
 
   const pointFromEvent = (event: PointerEvent): Point => {
@@ -231,10 +242,8 @@ const svgCatalogue: SvgCatalogueItem[] = [];
     if (annotation.type === 'circle') {
       const a = toPixels(annotation.start);
       const b = toPixels(annotation.end);
-      const cx = (a.x + b.x) / 2;
-      const cy = (a.y + b.y) / 2;
       ctx.beginPath();
-      ctx.ellipse(cx, cy, Math.abs(b.x - a.x) / 2, Math.abs(b.y - a.y) / 2, 0, 0, Math.PI * 2);
+      ctx.ellipse((a.x + b.x) / 2, (a.y + b.y) / 2, Math.abs(b.x - a.x) / 2, Math.abs(b.y - a.y) / 2, 0, 0, Math.PI * 2);
       ctx.stroke();
     }
 
@@ -304,7 +313,6 @@ const svgCatalogue: SvgCatalogueItem[] = [];
     canvas.setPointerCapture(event.pointerId);
     pointerDown = true;
     const point = pointFromEvent(event);
-
     if (activeTool === 'cross') {
       annotations.push({ type: 'cross', point });
       pointerDown = false;
@@ -388,25 +396,24 @@ const svgCatalogue: SvgCatalogueItem[] = [];
     if (annotation.type === 'arrow') return `${id} — arrow — ${zone(annotation.start)} (${pct(annotation.start.x)}, ${pct(annotation.start.y)}) → ${zone(annotation.end)} (${pct(annotation.end.x)}, ${pct(annotation.end.y)})`;
     if (annotation.type === 'circle') {
       const center = midpoint(annotation.start, annotation.end);
-      const width = Math.abs(annotation.end.x - annotation.start.x);
-      const height = Math.abs(annotation.end.y - annotation.start.y);
-      return `${id} — circle — centre ${zone(center)} — x ${pct(center.x)}, y ${pct(center.y)} — width ${pct(width)}, height ${pct(height)}`;
+      return `${id} — circle — centre ${zone(center)} — x ${pct(center.x)}, y ${pct(center.y)} — width ${pct(Math.abs(annotation.end.x - annotation.start.x))}, height ${pct(Math.abs(annotation.end.y - annotation.start.y))}`;
     }
-    const points = annotation.points;
-    const start = points[0] ?? { x: 0, y: 0 };
-    const end = points[points.length - 1] ?? start;
-    return `${id} — pen stroke — ${zone(start)} (${pct(start.x)}, ${pct(start.y)}) → ${zone(end)} (${pct(end.x)}, ${pct(end.y)}) — ${points.length} sampled points`;
+    const start = annotation.points[0] ?? { x: 0, y: 0 };
+    const end = annotation.points[annotation.points.length - 1] ?? start;
+    return `${id} — pen stroke — ${zone(start)} (${pct(start.x)}, ${pct(start.y)}) → ${zone(end)} (${pct(end.x)}, ${pct(end.y)}) — ${annotation.points.length} sampled points`;
   };
 
   const buildPrompt = () => {
     const note = noteField?.value.trim() || 'No additional written note.';
-    const lines = annotations.length
-      ? annotations.map(annotationLine).join('\n')
-      : 'No graphical annotations.';
+    const lines = annotations.length ? annotations.map(annotationLine).join('\n') : 'No graphical annotations.';
+    const studyTitle = currentStudyElement?.dataset.svgTitle || 'Current SVG preview';
+    const studySrc = currentStudyElement?.dataset.svgSrc || 'Unknown path';
     return [
       'SVG REVIEW — ATLAS ADMIN',
-      'Target: Current SVG preview in Admin > SVG.',
-      'Important: these coordinates are relative to the preview canvas (0% top-left, 100% bottom-right). The A1–H8 zones use the same canvas.',
+      `Study: ${studyTitle}`,
+      `File: ${studySrc}`,
+      'Target: Admin > SVG > Current SVG Preview only.',
+      'Coordinates are relative to the full preview canvas: 0% top-left, 100% bottom-right. A1–H8 uses the same canvas.',
       '',
       'GRAPHICAL ANNOTATIONS',
       lines,
@@ -414,7 +421,7 @@ const svgCatalogue: SvgCatalogueItem[] = [];
       'WRITTEN NOTE',
       note,
       '',
-      'Please use these annotations and this note to modify the SVG study only. Do not apply anything to the public site unless I explicitly validate it.',
+      'Modify this SVG study according to these annotations. Keep it in the admin workbench and do not move it to the public site or validated catalogue unless I explicitly approve it.',
     ].join('\n');
   };
 
@@ -423,7 +430,7 @@ const svgCatalogue: SvgCatalogueItem[] = [];
       await navigator.clipboard.writeText(value);
       if (copyStatus) copyStatus.textContent = 'Prompt copied. Paste it directly into ChatGPT.';
     } catch {
-      if (copyStatus) copyStatus.textContent = 'Clipboard blocked. The prompt is displayed above so you can copy it manually.';
+      if (copyStatus) copyStatus.textContent = 'Clipboard blocked. Copy the generated prompt manually.';
     }
   };
 
@@ -435,15 +442,14 @@ const svgCatalogue: SvgCatalogueItem[] = [];
   });
 
   document.querySelector('[data-svg-copy-prompt]')?.addEventListener('click', async () => {
-    const prompt = promptOutput?.value || buildPrompt();
-    await copyPrompt(prompt);
+    await copyPrompt(promptOutput?.value || buildPrompt());
   });
 
   const observer = new ResizeObserver(resizeCanvas);
   if (stage) observer.observe(stage);
   resizeCanvas();
 
-  // Catalogue viewer: SVG files remain unloaded until a catalogue item is explicitly opened.
+  // Catalogue viewer: files remain unloaded until a saved item is explicitly opened.
   const svgDialog = document.querySelector<HTMLDialogElement>('#svg-catalogue-dialog');
   const svgDialogImage = document.querySelector<HTMLImageElement>('#svg-dialog-image');
   const svgDialogTitle = document.querySelector<HTMLElement>('#svg-dialog-title');
@@ -508,6 +514,7 @@ const svgCatalogue: SvgCatalogueItem[] = [];
   .svg-workbench__topline{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:18px 20px;border-bottom:1px solid #ded6c8;background:#fbf8f1}
   .svg-workbench__topline span{display:block;color:#8a8c84;font-size:.57rem;font-weight:800;letter-spacing:.14em}
   .svg-workbench__topline h3{margin:4px 0 0;color:#263a30;font-family:'Newsreader',Georgia,serif;font-size:1.5rem;font-weight:600}
+  .svg-workbench__topline code{display:block;margin-top:5px;color:#8b8d86;font-size:.57rem}
   .svg-workbench__status{flex:none;padding:6px 8px;border:1px solid rgb(183 102 69/.3);color:#a05e43!important;background:rgb(183 102 69/.045);transform:rotate(1deg)}
 
   .svg-annotation-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-bottom:1px solid #ded6c8;background:#eee7da}
@@ -516,16 +523,10 @@ const svgCatalogue: SvgCatalogueItem[] = [];
   .svg-annotation-toolbar button:hover{color:#263a30;background:rgb(255 253 248/.65)}
   .svg-annotation-toolbar button.is-active{border-color:rgb(49 87 59/.25);color:#31573b;background:#fffdf8;box-shadow:0 1px 2px rgb(39 49 42/.06)}
 
-  .svg-workbench__stage{position:relative;display:grid;min-height:clamp(360px,46vw,560px);place-items:center;overflow:hidden;background:#fffdf8;isolation:isolate}
+  .svg-workbench__stage{position:relative;display:grid;min-height:clamp(380px,46vw,560px);place-items:center;overflow:hidden;background:#fffdf8;isolation:isolate}
   .svg-workbench__stage::before{position:absolute;z-index:1;inset:18px;border:1px dashed rgb(49 87 59/.12);content:'';pointer-events:none}
-  .svg-workbench__mount{position:absolute;z-index:0;inset:0;display:grid;place-items:center;padding:clamp(28px,5vw,52px)}
-  .svg-workbench__mount :global(svg),.svg-workbench__mount :global(img){display:block;max-width:100%;max-height:100%}
-  .svg-workbench__empty{display:grid;max-width:370px;justify-items:center;color:#7e827a;text-align:center}
-  .svg-workbench__cross{position:relative;width:48px;height:48px;margin-bottom:18px;border:1px solid rgb(49 87 59/.19);border-radius:50%}
-  .svg-workbench__cross::before,.svg-workbench__cross::after{position:absolute;top:50%;left:50%;background:rgb(49 87 59/.25);content:'';transform:translate(-50%,-50%)}
-  .svg-workbench__cross::before{width:68px;height:1px}.svg-workbench__cross::after{width:1px;height:68px}
-  .svg-workbench__empty strong{color:#536158;font-family:'Newsreader',Georgia,serif;font-size:1.25rem;font-weight:600}.svg-workbench__empty p{margin:8px 0 0;font-size:.75rem;line-height:1.6}
-
+  .svg-workbench__mount{position:absolute;z-index:0;inset:0;display:grid;place-items:center;padding:clamp(24px,4vw,46px)}
+  .svg-workbench__study{display:block;width:min(94%,640px);height:auto;max-height:100%;object-fit:contain;pointer-events:none;user-select:none}
   .svg-workbench__annotations{position:absolute;z-index:4;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none}
   .svg-workbench__grid{position:absolute;z-index:2;inset:0;display:none;pointer-events:none;background-image:linear-gradient(to right,rgb(49 87 59/.13) 1px,transparent 1px),linear-gradient(to bottom,rgb(49 87 59/.13) 1px,transparent 1px);background-size:12.5% 12.5%}
   .svg-workbench__grid.is-visible{display:block}
@@ -543,5 +544,5 @@ const svgCatalogue: SvgCatalogueItem[] = [];
 
   .svg-viewer{width:min(860px,calc(100% - 34px));max-height:88vh;padding:0;border:0;background:transparent;color:#263a30}.svg-viewer::backdrop{background:rgb(20 31 25/.58);backdrop-filter:blur(2px)}.svg-viewer__shell{overflow:hidden;border:1px solid rgb(49 87 59/.22);background:#fffdf8;box-shadow:0 28px 90px rgb(11 20 15/.28)}.svg-viewer__header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:18px 20px;border-bottom:1px solid #ddd5c7;background:#f4efe5}.svg-viewer__header p{margin:0 0 4px;color:#b76645;font-size:.54rem;font-weight:800;letter-spacing:.14em}.svg-viewer__header h3{margin:0;font-family:'Newsreader',Georgia,serif;font-size:1.55rem;font-weight:600}.svg-viewer__header small{display:block;margin-top:4px;color:#8a8d85;font-size:.59rem}.svg-viewer__close{display:grid;width:34px;height:34px;place-items:center;border:1px solid #d6cebf;border-radius:50%;color:#526057;background:#fffdf8;font:400 1.35rem/1 Georgia,serif;cursor:pointer}.svg-viewer__stage{position:relative;display:grid;min-height:min(56vh,520px);place-items:center;padding:34px;background:#fffdf8}.svg-viewer__stage img{display:block;max-width:100%;max-height:min(50vh,470px);opacity:0;transition:opacity .15s ease}.svg-viewer__stage img.is-loaded{opacity:1}.svg-viewer__loading{position:absolute;color:#8d8f88;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase}.svg-viewer__footer{display:grid;gap:6px;padding:14px 20px 18px;border-top:1px solid #e0d9cc}.svg-viewer__footer p{margin:0;color:#727970;font-size:.7rem}.svg-viewer__footer code{overflow-wrap:anywhere;color:#66766c;font-size:.62rem}
 
-  @media(max-width:760px){.svg-workshop{padding:32px 22px}.svg-annotation-toolbar{align-items:flex-start;flex-direction:column}.svg-review-composer{grid-template-columns:1fr}.svg-review-composer__generate{width:100%}.svg-workbench__rule{grid-template-columns:repeat(2,minmax(0,1fr))}.svg-workbench__rule span:nth-child(2){border-right:0}.svg-workbench__rule span:nth-child(-n+2){border-bottom:1px solid #d9d0c1}}
+  @media(max-width:760px){.svg-workshop{padding:32px 22px}.svg-workbench__topline{align-items:flex-start;flex-direction:column}.svg-annotation-toolbar{align-items:flex-start;flex-direction:column}.svg-review-composer{grid-template-columns:1fr}.svg-review-composer__generate{width:100%}.svg-workbench__rule{grid-template-columns:repeat(2,minmax(0,1fr))}.svg-workbench__rule span:nth-child(2){border-right:0}.svg-workbench__rule span:nth-child(-n+2){border-bottom:1px solid #d9d0c1}}
 </style>
