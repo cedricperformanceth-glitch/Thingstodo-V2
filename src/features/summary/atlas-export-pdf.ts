@@ -116,6 +116,12 @@ const pdfDivider = (page: PdfPage, x1: number, x2: number, y: number, palette: P
 
 const paletteForCountry = (country = '') => COUNTRY_PALETTES[country.trim().toLowerCase()] ?? DEFAULT_PALETTE;
 
+const footerDividerColorForCountry = (country = ''): [number, number, number] => {
+  const normalized = country.trim().toLowerCase();
+  if (normalized === 'laos') return FOUNTAIN_INK_BLUE;
+  return paletteForCountry(country).primary;
+};
+
 const formatExportDate = () => new Intl.DateTimeFormat('en-GB', {
   day: '2-digit',
   month: 'short',
@@ -385,6 +391,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   let page!: PdfPage;
   let y = PAGE_H - 112;
   let currentPalette = DEFAULT_PALETTE;
+  let currentCountry = uniqueCountries.length === 1 ? uniqueCountries[0] : '';
+  let renderedCountries = 0;
 
   const addCoverPage = () => {
     page = { commands: [], links: [] };
@@ -439,12 +447,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     y = PAGE_H - 88;
   };
 
-  const addFooter = (
-    target: PdfPage,
-    pageNumber: number,
-    dividerColor: [number, number, number] = [0.78, 0.75, 0.69],
-  ) => {
-    pdfLine(target, LEFT, 49, RIGHT, 49, dividerColor, 0.55);
+  const addFooter = (target: PdfPage, pageNumber: number) => {
+    pdfLine(target, LEFT, 49, RIGHT, 49, footerDividerColorForCountry(currentCountry), 0.55);
     pdfText(target, 'Things To Do Atlas - Your Atlas', LEFT, 31, 7.1, 'F2', ATLAS_GREEN);
     target.links.push({ x: LEFT, y: 27, width: 126, height: 12, url: summaryUrl });
     pdfText(target, 'FIELD COPY', (SHEET_LEFT + (SHEET_WIDTH / 2)) - 18, 31, 6.2, 'F1', [0.53, 0.51, 0.47]);
@@ -481,7 +485,15 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   y -= 22;
 
   countries.forEach((cities, country) => {
-    currentPalette = paletteForCountry(country);
+    const countryPalette = paletteForCountry(country);
+    const freshPageY = PAGE_H - 88;
+
+    // Every additional country begins on a fresh content page so its footer color
+    // always belongs unambiguously to that country. The cover never receives a footer.
+    if (multiCountry && renderedCountries > 0 && y < freshPageY) {
+      addFooter(page, pages.length);
+      addPage();
+    }
 
     // If the final country contains only the final city, break before the country heading
     // rather than leaving that heading orphaned on the previous page.
@@ -500,6 +512,9 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
         }
       }
     }
+
+    currentPalette = countryPalette;
+    currentCountry = country;
 
     if (multiCountry) {
       ensure(49);
@@ -547,6 +562,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
       y -= 8;
       renderedCities += 1;
     });
+    renderedCountries += 1;
   });
 
   ensure(CLOSING_BLOCK_HEIGHT);
@@ -559,15 +575,15 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
 
   y -= 39;
   pdfText(page, 'REVIEWED & APPROVED', LEFT, y, 7.2, 'F2', [0.25, 0.25, 0.23]);
-  pdfLine(page, LEFT, y - 7, LEFT + 82, y - 7, FOUNTAIN_INK_BLUE, 0.42);
+  pdfLine(page, LEFT, y - 7, LEFT + 82, y - 7, footerDividerColorForCountry(currentCountry), 0.42);
   pdfText(page, formatExportDate(), LEFT, y - 24, 8.2, 'F1', MUTED);
   if (signatureImage) {
-    page.commands.push(`q 150 0 0 54 ${(LEFT + 43).toFixed(2)} ${(y - 71).toFixed(2)} cm /ImSignature Do Q`);
+    page.commands.push(`q 150 0 0 54 ${(LEFT + 58).toFixed(2)} ${(y - 71).toFixed(2)} cm /ImSignature Do Q`);
   }
   if (stampImage) {
     page.commands.push(`q 102 0 0 102 ${(RIGHT - 98).toFixed(2)} 56 cm /ImStamp Do Q`);
   }
-  addFooter(page, pages.length, FOUNTAIN_INK_BLUE);
+  addFooter(page, pages.length);
 
   const objects: string[] = [''];
   const reserve = () => { objects.push(''); return objects.length - 1; };
