@@ -26,6 +26,7 @@ const FOUNTAIN_INK_BLUE: [number, number, number] = [0.141, 0.278, 0.435];
 const HANDWRITING_FONT = 'Caveat';
 const COUNTRY_CITY_FONT = 'Alex Brush';
 const SCHOOLBELL_FONT = 'Schoolbell';
+const LAOS_MAP_SRC = '/assets/PDF/carte-du-laos-pdf.webp';
 const LOCAL_PDF_FONT_SOURCES: Partial<Record<string, string>> = {
   [COUNTRY_CITY_FONT]: '/assets/fonts/AlexBrush-Regular.ttf',
 };
@@ -313,6 +314,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const GOOGLE_MAPS_X = RIGHT - 79;
   const SCHOOLBELL_VISIBLE_LEFT_OFFSET = 2.5;
   const CLOSING_BLOCK_HEIGHT = 154;
+  const LAOS_MAP_DISPLAY_W = 64;
+  const LAOS_MAP_DISPLAY_H = 78;
+  const LAOS_MAP_X = RIGHT - LAOS_MAP_DISPLAY_W;
+  const LAOS_MAP_Y = PAGE_H - 112;
   const pages: PdfPage[] = [];
   const summaryUrl = new URL('/summary', window.location.origin).toString();
   const countries = groupedEntries(entries);
@@ -320,6 +325,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const totalCities = [...countries.values()].reduce((total, cities) => total + cities.size, 0);
   let renderedCities = 0;
   const uniqueCountries = [...countries.keys()];
+  const hasLaos = uniqueCountries.some((country) => country.trim().toLowerCase() === 'laos');
   const coverSummaryRows = [...countries.entries()].map(([country, cities]) => {
     let savedPlaces = 0;
     cities.forEach((categories) => categories.forEach((items) => { savedPlaces += items.length; }));
@@ -339,7 +345,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     coverSummaryRows.map(({ country, savedPlaces }) => ({ country: titleize(country), savedPlaces })),
   );
 
-  const [coverImage, signatureImage, stampImage] = await Promise.all([
+  const [coverImage, signatureImage, stampImage, laosMapImage] = await Promise.all([
     loadCoverWithSvgAsJpeg(
       '/assets/PDF/couverture.webp',
       coverSummarySvg,
@@ -356,6 +362,9 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     ),
     loadAssetAsJpeg('/assets/PDF/signature.webp', 720, 260, 'contain', SHEET_PAPER),
     loadAssetAsJpeg('/assets/PDF/tampon.webp', 620, 620, 'contain', SHEET_PAPER),
+    hasLaos
+      ? loadAssetAsJpeg(LAOS_MAP_SRC, 520, 640, 'contain', SHEET_PAPER)
+      : Promise.resolve(null),
   ]);
   const handwritingAssets = new Map<string, HandwrittenImage>();
 
@@ -483,6 +492,12 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   if (uniqueCountries.length === 1) currentPalette = paletteForCountry(uniqueCountries[0]);
   addCoverPage();
   addPage();
+
+  if (laosMapImage) {
+    page.commands.push(
+      `q ${LAOS_MAP_DISPLAY_W.toFixed(2)} 0 0 ${LAOS_MAP_DISPLAY_H.toFixed(2)} ${LAOS_MAP_X.toFixed(2)} ${LAOS_MAP_Y.toFixed(2)} cm /ImLaosMap Do Q`,
+    );
+  }
 
   pdfHandwrittenCenteredText(page, headingLabel, y, 27.5, FOUNTAIN_INK_BLUE, COUNTRY_CITY_FONT, '400');
   y -= 27;
@@ -633,6 +648,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const coverImageId = coverImage ? reserve() : 0;
   const signatureImageId = signatureImage ? reserve() : 0;
   const stampImageId = stampImage ? reserve() : 0;
+  const laosMapImageId = laosMapImage ? reserve() : 0;
   const handwritingImageIds = new Map<string, number>();
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
   objects[boldFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>';
@@ -647,6 +663,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   if (coverImage && coverImageId) writeJpegObject(coverImageId, coverImage);
   if (signatureImage && signatureImageId) writeJpegObject(signatureImageId, signatureImage);
   if (stampImage && stampImageId) writeJpegObject(stampImageId, stampImage);
+  if (laosMapImage && laosMapImageId) writeJpegObject(laosMapImageId, laosMapImage);
   handwritingAssets.forEach((asset) => {
     const id = reserve();
     handwritingImageIds.set(asset.name, id);
@@ -677,6 +694,7 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     if (coverImageId) xObjectEntries.push(`/ImCover ${coverImageId} 0 R`);
     if (signatureImageId) xObjectEntries.push(`/ImSignature ${signatureImageId} 0 R`);
     if (stampImageId) xObjectEntries.push(`/ImStamp ${stampImageId} 0 R`);
+    if (laosMapImageId) xObjectEntries.push(`/ImLaosMap ${laosMapImageId} 0 R`);
     handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
     const xObjects = xObjectEntries.length ? `/XObject << ${xObjectEntries.join(' ')} >>` : '';
     objects[pageId] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R ${annots} >>`;

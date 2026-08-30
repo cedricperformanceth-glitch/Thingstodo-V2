@@ -3,7 +3,6 @@ import { categoryLabel, PDF_MIME, titleize } from './atlas-export-shared';
 
 type PdfFont = 'F1' | 'F2' | 'F3' | 'F4';
 interface PdfPage { commands: string[]; }
-interface PdfImage { hex: string; width: number; height: number; }
 interface OrderedCity { country: string; city: string; entries: TripEntry[]; }
 interface PrintFact { label: string; value: string; }
 interface SummaryEntityMeta { printMeta?: TripPrintMeta; }
@@ -20,12 +19,6 @@ const INK = 0.08;
 const MUTED = 0.36;
 const LIGHT = 0.72;
 const SUMMARY_META_URLS = ['/summary-media.json', '/api/summary-media.json'] as const;
-const LAOS_MAP_SRC = '/assets/PDF/carte-du-laos-pdf.webp';
-const LAOS_MAP_DISPLAY_W = 68;
-const LAOS_MAP_DISPLAY_H = 82;
-const LAOS_MAP_X = PAGE_W - MARGIN_X - LAOS_MAP_DISPLAY_W;
-const LAOS_MAP_Y = TOP - LAOS_MAP_DISPLAY_H + 1;
-const FIRST_PAGE_RIGHT_TOP = LAOS_MAP_Y - 10;
 
 const asciiPdf = (value: string) => value.normalize('NFKD')
   .replace(/[\u0300-\u036f]/g, '')
@@ -54,64 +47,6 @@ const pdfText = (
 
 const pdfLine = (page: PdfPage, x1: number, y1: number, x2: number, y2: number, gray = LIGHT, width = 0.45) => {
   page.commands.push(`[] 0 d ${gray} G ${width} w ${x1.toFixed(2)} ${y1.toFixed(2)} m ${x2.toFixed(2)} ${y2.toFixed(2)} l S`);
-};
-
-const canvasToJpegImage = (canvas: HTMLCanvasElement, quality = 0.9): PdfImage => {
-  const dataUrl = canvas.toDataURL('image/jpeg', quality);
-  const encoded = dataUrl.slice(dataUrl.indexOf(',') + 1);
-  const binary = atob(encoded);
-  let hex = '';
-  for (let index = 0; index < binary.length; index += 1) {
-    hex += binary.charCodeAt(index).toString(16).padStart(2, '0');
-  }
-  return { hex: `${hex}>`, width: canvas.width, height: canvas.height };
-};
-
-const loadImageElement = async (src: string): Promise<HTMLImageElement> => {
-  const image = new Image();
-  image.decoding = 'async';
-  image.src = src;
-  await new Promise<void>((resolve, reject) => {
-    image.addEventListener('load', () => resolve(), { once: true });
-    image.addEventListener('error', () => reject(new Error(`Printable PDF asset could not be loaded: ${src}`)), { once: true });
-  });
-  return image;
-};
-
-const loadGrayscaleAssetAsJpeg = async (src: string, width: number, height: number): Promise<PdfImage | null> => {
-  if (typeof document === 'undefined' || typeof Image === 'undefined') return null;
-  try {
-    const image = await loadImageElement(src);
-    const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-    const context = canvas.getContext('2d');
-    if (!context) return null;
-
-    context.fillStyle = '#ffffff';
-    context.fillRect(0, 0, width, height);
-    const scale = Math.min(width / image.naturalWidth, height / image.naturalHeight);
-    const drawWidth = image.naturalWidth * scale;
-    const drawHeight = image.naturalHeight * scale;
-    context.drawImage(image, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight);
-
-    const pixels = context.getImageData(0, 0, width, height);
-    for (let index = 0; index < pixels.data.length; index += 4) {
-      const gray = Math.round(
-        (pixels.data[index] * 0.2126)
-        + (pixels.data[index + 1] * 0.7152)
-        + (pixels.data[index + 2] * 0.0722),
-      );
-      pixels.data[index] = gray;
-      pixels.data[index + 1] = gray;
-      pixels.data[index + 2] = gray;
-      pixels.data[index + 3] = 255;
-    }
-    context.putImageData(pixels, 0, 0);
-    return canvasToJpegImage(canvas, 0.9);
-  } catch {
-    return null;
-  }
 };
 
 const ellipsis = (value: string, max: number) => {
@@ -254,7 +189,7 @@ const renderHeader = (page: PdfPage, pageNumber: number) => {
 
 const renderFooter = (page: PdfPage) => {
   pdfLine(page, MARGIN_X, 31, PAGE_W - MARGIN_X, 31, 0.68, 0.4);
-  pdfText(page, 'Offline field copy', MARGIN_X, 18, 6.2, 'F3', MUTED);
+  pdfText(page, 'Offline notes / no map required', MARGIN_X, 18, 6.2, 'F3', MUTED);
   pdfText(page, 'Keep this sheet with your travel documents.', PAGE_W - MARGIN_X - 158, 18, 6.2, 'F3', MUTED);
 };
 
@@ -296,7 +231,7 @@ const renderEntry = (page: PdfPage, entry: TripEntry, x: number, y: number) => {
   return y - metrics.height;
 };
 
-const serializePdf = (pages: PdfPage[], laosMapImage: PdfImage | null) => {
+const serializePdf = (pages: PdfPage[]) => {
   const objects: string[] = [''];
   const reserve = () => { objects.push(''); return objects.length - 1; };
   const catalogId = reserve();
@@ -305,25 +240,17 @@ const serializePdf = (pages: PdfPage[], laosMapImage: PdfImage | null) => {
   const boldFontId = reserve();
   const obliqueFontId = reserve();
   const scriptFontId = reserve();
-  const laosMapImageId = laosMapImage ? reserve() : 0;
   objects[regularFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>';
   objects[boldFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>';
   objects[obliqueFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>';
   objects[scriptFontId] = '<< /Type /Font /Subtype /Type1 /BaseFont /Times-Italic >>';
-
-  if (laosMapImage && laosMapImageId) {
-    const stream = `${laosMapImage.hex}\n`;
-    const streamLength = new TextEncoder().encode(stream).length;
-    objects[laosMapImageId] = `<< /Type /XObject /Subtype /Image /Width ${laosMapImage.width} /Height ${laosMapImage.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter [/ASCIIHexDecode /DCTDecode] /Length ${streamLength} >>\nstream\n${stream}endstream`;
-  }
 
   const pageIds = pages.map(() => reserve());
   pages.forEach((pdfPage, pageIndex) => {
     const content = `${pdfPage.commands.join('\n')}\n`;
     const contentId = reserve();
     objects[contentId] = `<< /Length ${new TextEncoder().encode(content).length} >>\nstream\n${content}endstream`;
-    const xObjects = laosMapImageId ? `/XObject << /ImLaosMap ${laosMapImageId} 0 R >>` : '';
-    objects[pageIds[pageIndex]] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R /F4 ${scriptFontId} 0 R >> ${xObjects} >> /Contents ${contentId} 0 R >>`;
+    objects[pageIds[pageIndex]] = `<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R /F3 ${obliqueFontId} 0 R /F4 ${scriptFontId} 0 R >> >> /Contents ${contentId} 0 R >>`;
   });
   objects[pagesId] = `<< /Type /Pages /Kids [${pageIds.map((id) => `${id} 0 R`).join(' ')}] /Count ${pageIds.length} >>`;
   objects[catalogId] = `<< /Type /Catalog /Pages ${pagesId} 0 R >>`;
@@ -354,24 +281,16 @@ const serializePdf = (pages: PdfPage[], laosMapImage: PdfImage | null) => {
 export const buildPrintablePdf = async (entries: TripEntry[]): Promise<Blob> => {
   const hydratedEntries = await hydratePrintableEntries(entries);
   const groups = orderedCities(hydratedEntries);
-  const hasLaos = hydratedEntries.some((entry) => entry.country.trim().toLowerCase() === 'laos');
-  const laosMapImage = hasLaos ? await loadGrayscaleAssetAsJpeg(LAOS_MAP_SRC, 340, 410) : null;
   const pages: PdfPage[] = [];
   let page!: PdfPage;
   let column = 0;
   let y = TOP;
 
   const addPage = () => {
-    const firstPage = pages.length === 0;
     page = { commands: [] };
     pages.push(page);
     renderHeader(page, pages.length);
     renderFooter(page);
-    if (firstPage && laosMapImage) {
-      page.commands.push(
-        `q ${LAOS_MAP_DISPLAY_W.toFixed(2)} 0 0 ${LAOS_MAP_DISPLAY_H.toFixed(2)} ${LAOS_MAP_X.toFixed(2)} ${LAOS_MAP_Y.toFixed(2)} cm /ImLaosMap Do Q`,
-      );
-    }
     column = 0;
     y = TOP;
   };
@@ -379,7 +298,7 @@ export const buildPrintablePdf = async (entries: TripEntry[]): Promise<Blob> => 
   const advanceColumn = () => {
     if (column === 0) {
       column = 1;
-      y = pages.length === 1 && laosMapImage ? FIRST_PAGE_RIGHT_TOP : TOP;
+      y = TOP;
       return;
     }
     addPage();
@@ -405,5 +324,5 @@ export const buildPrintablePdf = async (entries: TripEntry[]): Promise<Blob> => 
     y -= 8;
   });
 
-  return serializePdf(pages, laosMapImage);
+  return serializePdf(pages);
 };
