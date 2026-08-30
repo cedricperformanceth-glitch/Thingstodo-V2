@@ -16,6 +16,21 @@ interface GoogleOauthApi {
 }
 interface GoogleIdentityWindow extends Window { google?: { accounts?: { oauth2?: GoogleOauthApi } } }
 
+const currentOrigin = () => (typeof window === 'undefined' ? '' : window.location.origin);
+
+const googleSetupMessage = () => {
+  const origin = currentOrigin();
+  return `Google Sheets needs a Google OAuth Web client before it can create files. Add PUBLIC_GOOGLE_CLIENT_ID at build time${origin ? ` and add ${origin} as an authorised JavaScript origin in Google Cloud` : ''}. A custom domain is not required; localhost or a temporary deployment URL can be authorised too.`;
+};
+
+const googleAuthErrorMessage = (error: { type?: string; message?: string }) => {
+  const type = error.type ?? '';
+  if (type === 'popup_failed_to_open') return 'Google sign-in could not open. Allow pop-ups for this site and try again.';
+  if (type === 'popup_closed') return 'Google sign-in was closed before authorisation finished.';
+  if (type === 'unknown') return `Google could not start authorisation. Check that ${currentOrigin() || 'this site'} is listed as an authorised JavaScript origin for the OAuth client.`;
+  return error.message || type || `Google authorisation could not start. Check that ${currentOrigin() || 'this site'} is authorised in Google Cloud.`;
+};
+
 const loadGoogleIdentity = () => new Promise<GoogleOauthApi>((resolve, reject) => {
   const googleWindow = window as GoogleIdentityWindow;
   const ready = googleWindow.google?.accounts?.oauth2;
@@ -24,11 +39,11 @@ const loadGoogleIdentity = () => new Promise<GoogleOauthApi>((resolve, reject) =
   const onReady = () => {
     const oauth2 = googleWindow.google?.accounts?.oauth2;
     if (oauth2) resolve(oauth2);
-    else reject(new Error('Google Identity Services did not initialize.'));
+    else reject(new Error('Google Identity Services did not initialize. Check the browser connection or content-blocking settings.'));
   };
   if (existing) {
     existing.addEventListener('load', onReady, { once: true });
-    existing.addEventListener('error', () => reject(new Error('Unable to load Google sign-in.')), { once: true });
+    existing.addEventListener('error', () => reject(new Error('Unable to load Google sign-in. Check the browser connection or content-blocking settings.')), { once: true });
     return;
   }
   const script = document.createElement('script');
@@ -37,22 +52,30 @@ const loadGoogleIdentity = () => new Promise<GoogleOauthApi>((resolve, reject) =
   script.defer = true;
   script.dataset.atlasGoogleIdentity = 'true';
   script.addEventListener('load', onReady, { once: true });
-  script.addEventListener('error', () => reject(new Error('Unable to load Google sign-in.')), { once: true });
+  script.addEventListener('error', () => reject(new Error('Unable to load Google sign-in. Check the browser connection or content-blocking settings.')), { once: true });
   document.head.appendChild(script);
 });
 
 const requestGoogleToken = async () => {
-  if (!GOOGLE_CLIENT_ID) throw new Error('Google Sheets export is not configured yet. Add PUBLIC_GOOGLE_CLIENT_ID for the production domain.');
+  if (!GOOGLE_CLIENT_ID) throw new Error(googleSetupMessage());
   const oauth2 = await loadGoogleIdentity();
   return new Promise<string>((resolve, reject) => {
     const client = oauth2.initTokenClient({
       client_id: GOOGLE_CLIENT_ID,
       scope: GOOGLE_SCOPE,
       callback: (response) => {
-        if (response.access_token) resolve(response.access_token);
-        else reject(new Error(response.error_description || response.error || 'Google authorization was not completed.'));
+        if (response.access_token) { resolve(response.access_token); return; }
+        if (response.error === 'access_denied') {
+          reject(new Error('Google access was not granted. Atlas only requests permission to create the Sheet you ask for.'));
+          return;
+        }
+        if (response.error === 'invalid_client' || response.error === 'origin_mismatch') {
+          reject(new Error(`Google rejected the OAuth configuration. Check PUBLIC_GOOGLE_CLIENT_ID and add ${currentOrigin() || 'this site'} as an authorised JavaScript origin in Google Cloud.`));
+          return;
+        }
+        reject(new Error(response.error_description || response.error || 'Google authorization was not completed.'));
       },
-      error_callback: (error) => reject(new Error(error.message || error.type || 'Google authorization was interrupted.')),
+      error_callback: (error) => reject(new Error(googleAuthErrorMessage(error))),
     });
     client.requestAccessToken();
   });
