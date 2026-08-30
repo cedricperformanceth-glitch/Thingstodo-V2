@@ -307,9 +307,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const COVER_SUMMARY_TOP = 418;
   const COVER_SUMMARY_Y = Math.max(24, COVER_SUMMARY_TOP - COVER_SUMMARY_HEIGHT);
 
-  const [coverImage, coverSummaryImage, signatureImage, stampImage] = await Promise.all([
+  const [coverImage, signatureImage, stampImage] = await Promise.all([
     loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),
-    loadAssetAsJpeg('/assets/shared/pdf/atlas-cover-summary-card.svg', 1240, 500, 'contain'),
     loadAssetAsJpeg('/assets/PDF/signature.webp', 720, 260, 'contain', SHEET_PAPER),
     loadAssetAsJpeg('/assets/PDF/tampon.webp', 620, 620, 'contain', SHEET_PAPER),
   ]);
@@ -650,7 +649,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const boldFontId = reserve();
   const obliqueFontId = reserve();
   const coverImageId = coverImage ? reserve() : 0;
-  const coverSummaryImageId = coverSummaryImage ? reserve() : 0;
   const signatureImageId = signatureImage ? reserve() : 0;
   const stampImageId = stampImage ? reserve() : 0;
   const handwritingImageIds = new Map<string, number>();
@@ -665,7 +663,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   };
 
   if (coverImage && coverImageId) writeJpegObject(coverImageId, coverImage);
-  if (coverSummaryImage && coverSummaryImageId) writeJpegObject(coverSummaryImageId, coverSummaryImage);
   if (signatureImage && signatureImageId) writeJpegObject(signatureImageId, signatureImage);
   if (stampImage && stampImageId) writeJpegObject(stampImageId, stampImage);
   handwritingAssets.forEach((asset) => {
@@ -688,7 +685,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     const annots = annotationIds.length ? `/Annots [${annotationIds.map((id) => `${id} 0 R`).join(' ')}]` : '';
     const xObjectEntries: string[] = [];
     if (coverImageId) xObjectEntries.push(`/ImCover ${coverImageId} 0 R`);
-    if (coverSummaryImageId) xObjectEntries.push(`/ImCoverSummary ${coverSummaryImageId} 0 R`);
     if (signatureImageId) xObjectEntries.push(`/ImSignature ${signatureImageId} 0 R`);
     if (stampImageId) xObjectEntries.push(`/ImStamp ${stampImageId} 0 R`);
     handwritingImageIds.forEach((id, name) => xObjectEntries.push(`/${name} ${id} 0 R`));
