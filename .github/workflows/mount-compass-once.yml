@@ -1,0 +1,50 @@
+name: Mount compass SVG study once
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/mount-compass-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  mount:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Point the admin SVG workbench at the traced compass
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/components/admin/SvgWorkshop.astro')
+          text = path.read_text(encoding='utf-8')
+          old = """const currentStudy = {
+            id: 'globe-flight-line-art-v2',
+            title: 'Globe + flight path · V2',
+            src: '/assets/admin/svg-workbench/current/globe-flight-line-art-v2.svg',
+          };"""
+          new = """const currentStudy = {
+            id: 'compass-pdf-reference-v1',
+            title: 'Nautical compass · PDF reference trace',
+            src: '/assets/admin/svg-workbench/current/compass-pdf-reference-v1.svg',
+          };"""
+          if old not in text:
+              raise SystemExit('Current study block did not match expected source.')
+          text = text.replace(old, new, 1)
+          text = text.replace('V2 · WORKING COPY', 'V1 · WORKING COPY', 1)
+          text = text.replace('alt="Desk globe with an airplane circling the Earth"', 'alt="Nautical compass traced from the PDF compass reference"', 1)
+          text = text.replace('placeholder="Ex: make the globe simpler, move the plane closer, use blue here..."', 'placeholder="Ex: simplify this point, move this mark, adjust this colour..."', 1)
+          text = text.replace('The globe above is only the current study.', 'The drawing above is only the current study.', 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit admin workbench mount
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/components/admin/SvgWorkshop.astro
+          git commit -m 'Mount traced PDF compass in SVG workbench'
+          git push
