@@ -1,0 +1,15 @@
+/*
+ * Things To Do Atlas font bank reference
+ * Internal annotation: "japonnais manuscrit"
+ * Font: Dr Sugiyama
+ * License: SIL Open Font License 1.1
+ * This file is not imported by the app automatically.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&display=swap');
+
+.font-dr-sugiyama {
+  font-family: 'Dr Sugiyama', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
