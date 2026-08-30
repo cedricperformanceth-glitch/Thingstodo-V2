@@ -273,6 +273,9 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const SHEET_RIGHT = SHEET_LEFT + SHEET_WIDTH;
   const LEFT = SHEET_LEFT + 27;
   const RIGHT = SHEET_RIGHT - 27;
+  const GOOGLE_MAPS_X = RIGHT - 79;
+  const SCHOOLBELL_VISIBLE_LEFT_OFFSET = 2.5;
+  const CLOSING_BLOCK_HEIGHT = 154;
   const COVER_SUMMARY_WIDTH = 318;
   const COVER_SUMMARY_HEIGHT = 128;
   const COVER_SUMMARY_X = (PAGE_W - COVER_SUMMARY_WIDTH) / 2;
@@ -281,6 +284,8 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   const summaryUrl = new URL('/summary', window.location.origin).toString();
   const countries = groupedEntries(entries);
   const multiCountry = countries.size > 1;
+  const totalCities = [...countries.values()].reduce((total, cities) => total + cities.size, 0);
+  let renderedCities = 0;
   const [coverImage, coverSummaryImage, signatureImage, stampImage] = await Promise.all([
     loadAssetAsJpeg('/assets/PDF/couverture.webp', 1190, 1684, 'cover'),
     loadAssetAsJpeg('/assets/shared/pdf/atlas-cover-summary-card.svg', 1240, 500, 'contain'),
@@ -376,28 +381,6 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     );
   };
 
-  const pdfHandwrittenRightText = (
-    target: PdfPage,
-    text: string,
-    rightX: number,
-    baselineY: number,
-    size: number,
-    color: [number, number, number] = titleColor,
-    fontFamily = HANDWRITING_FONT,
-    weight: '400' | '600' = '600',
-  ) => {
-    const asset = handwritingAssets.get(handwrittenKey(text, size, color, fontFamily, weight));
-    if (!asset) {
-      const estimatedWidth = text.length * size * 0.42;
-      pdfText(target, text, rightX - estimatedWidth, baselineY, size * 0.84, 'F3', color);
-      return;
-    }
-    const x = rightX - asset.displayWidth;
-    const imageY = baselineY - (asset.displayHeight * 0.32);
-    target.commands.push(
-      `q ${asset.displayWidth.toFixed(2)} 0 0 ${asset.displayHeight.toFixed(2)} ${x.toFixed(2)} ${imageY.toFixed(2)} cm /${asset.name} Do Q`,
-    );
-  };
 
   let page!: PdfPage;
   let y = PAGE_H - 112;
@@ -481,13 +464,43 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   pdfHandwrittenCenteredText(page, headingLabel, y, 27.5, FOUNTAIN_INK_BLUE, COUNTRY_CITY_FONT, '400');
   y -= 27;
   pdfHandwrittenText(page, journeyLabel, LEFT, y, 10.4, MUTED, SCHOOLBELL_FONT, '400');
-  pdfHandwrittenRightText(page, journeyCount, RIGHT, y, 10.4, MUTED, SCHOOLBELL_FONT, '400');
+  // Schoolbell images include a small left raster padding; offset it so the visible ink
+  // starts on the exact same vertical axis as the Google Maps labels below.
+  pdfHandwrittenText(
+    page,
+    journeyCount,
+    GOOGLE_MAPS_X - SCHOOLBELL_VISIBLE_LEFT_OFFSET,
+    y,
+    10.4,
+    MUTED,
+    SCHOOLBELL_FONT,
+    '400',
+  );
   y -= 15;
   pdfDivider(page, LEFT, RIGHT, y, currentPalette);
   y -= 22;
 
   countries.forEach((cities, country) => {
     currentPalette = paletteForCountry(country);
+
+    // If the final country contains only the final city, break before the country heading
+    // rather than leaving that heading orphaned on the previous page.
+    if (multiCountry && cities.size === 1 && renderedCities === totalCities - 1) {
+      const onlyCategories = cities.values().next().value;
+      if (onlyCategories) {
+        let estimatedCityHeight = 36;
+        onlyCategories.forEach((items) => { estimatedCityHeight += 23 + (items.length * 18); });
+        const countryHeadingHeight = 33;
+        const freshPageY = PAGE_H - 88;
+        const fitsWithClosingOnFreshPage = freshPageY - countryHeadingHeight - estimatedCityHeight - CLOSING_BLOCK_HEIGHT >= 72;
+        const wouldCreateClosingOnlyPage = y - countryHeadingHeight - estimatedCityHeight - CLOSING_BLOCK_HEIGHT < 72;
+        if (fitsWithClosingOnFreshPage && wouldCreateClosingOnlyPage && y < freshPageY) {
+          addFooter(page, pages.length);
+          addPage();
+        }
+      }
+    }
+
     if (multiCountry) {
       ensure(49);
       pdfHandwrittenText(page, `My Atlas ${titleize(country)}`, LEFT, y, 21.5, FOUNTAIN_INK_BLUE, COUNTRY_CITY_FONT, '400');
@@ -497,6 +510,20 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
     }
 
     cities.forEach((categories, city) => {
+      let estimatedCityHeight = 36;
+      categories.forEach((items) => { estimatedCityHeight += 23 + (items.length * 18); });
+      const isLastCity = renderedCities === totalCities - 1;
+      const freshPageY = PAGE_H - 88;
+      const fitsWithClosingOnFreshPage = freshPageY - estimatedCityHeight - CLOSING_BLOCK_HEIGHT >= 72;
+      const wouldCreateClosingOnlyPage = y - estimatedCityHeight - CLOSING_BLOCK_HEIGHT < 72;
+
+      // Closing-page rule: when the signature/stamp block would otherwise need its own page,
+      // move the final city to that page first. Prefer two airier content pages to a closing-only page.
+      if (isLastCity && fitsWithClosingOnFreshPage && wouldCreateClosingOnlyPage && y < freshPageY) {
+        addFooter(page, pages.length);
+        addPage();
+      }
+
       ensure(50);
       pdfHandwrittenText(page, titleize(city), LEFT, y, 17.8, FOUNTAIN_INK_BLUE, COUNTRY_CITY_FONT, '400');
       y -= 10;
@@ -511,17 +538,18 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
           ensure(27);
           const name = entry.name.length > 46 ? `${entry.name.slice(0, 43)}...` : entry.name;
           pdfText(page, name, LEFT + 8, y, 9.7);
-          pdfText(page, 'Google Maps ->', RIGHT - 79, y, 8.3, 'F2', currentPalette.primary);
-          page.links.push({ x: RIGHT - 82, y: y - 3, width: 85, height: 13, url: googleMapsUrl(entry) });
+          pdfText(page, 'Google Maps ->', GOOGLE_MAPS_X, y, 8.3, 'F2', currentPalette.primary);
+          page.links.push({ x: GOOGLE_MAPS_X - 3, y: y - 3, width: 85, height: 13, url: googleMapsUrl(entry) });
           y -= 18;
         });
         y -= 6;
       });
       y -= 8;
+      renderedCities += 1;
     });
   });
 
-  ensure(154);
+  ensure(CLOSING_BLOCK_HEIGHT);
   pdfHandwrittenText(page, closingLineOne, LEFT, y, 10.8, titleColor, SCHOOLBELL_FONT, '400');
   y -= 15;
   pdfHandwrittenText(page, closingLineTwo, LEFT, y, 10.4, MUTED, SCHOOLBELL_FONT, '400');
