@@ -1,7 +1,7 @@
 ---
 import '../../core/design-system/tokens.css';
 import type { SeoMetadata } from '../../core/models/types';
-import { pageSeo } from '../../core/seo/metadata';
+import { indexingEnabled, pageSeo } from '../../core/seo/metadata';
 import Navbar from './Navbar.astro';
 import SiteFooter from './SiteFooter.astro';
 import MakeYourOwnAtlas from '../shared/MakeYourOwnAtlas.astro';
@@ -30,6 +30,7 @@ const {
   showFooter = showSiteChrome,
 } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
+const pageIsIndexable = indexingEnabled && meta.indexable;
 ---
 <!doctype html>
 <html lang="en">
@@ -51,7 +52,7 @@ const meta = pageSeo(seo, breadcrumbs);
     <meta name="twitter:description" content={meta.description} />
     {meta.image && <meta name="twitter:image" content={meta.image} />}
     {meta.image && meta.imageAlt && <meta name="twitter:image:alt" content={meta.imageAlt} />}
-    {!meta.indexable && <meta name="robots" content="noindex,nofollow" />}
+    {!pageIsIndexable && <meta name="robots" content="noindex,nofollow" />}
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.breadcrumbs)} />
     {structuredData.map((item) => (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
