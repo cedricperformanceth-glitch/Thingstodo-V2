@@ -698,5 +698,10 @@ export const buildPdf = async (entries: TripEntry[]): Promise<Blob> => {
   push(`xref\n0 ${objects.length}\n0000000000 65535 f \n`);
   for (let id = 1; id < objects.length; id += 1) push(`${String(offsets[id]).padStart(10, '0')} 00000 n \n`);
   push(`trailer\n<< /Size ${objects.length} /Root ${catalogId} 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`);
-  return new Blob(parts, { type: PDF_MIME });
+  const blobParts: BlobPart[] = parts.map((part) => {
+    const ownedBytes = new Uint8Array(part.byteLength);
+    ownedBytes.set(part);
+    return ownedBytes.buffer;
+  });
+  return new Blob(blobParts, { type: PDF_MIME });
 };

@@ -275,7 +275,12 @@ const serializePdf = (pages: PdfPage[]) => {
     push(`${String(offsets[id]).padStart(10, '0')} 00000 n \n`);
   }
   push(`trailer\n<< /Size ${objects.length} /Root ${catalogId} 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`);
-  return new Blob(parts, { type: PDF_MIME });
+  const blobParts: BlobPart[] = parts.map((part) => {
+    const ownedBytes = new Uint8Array(part.byteLength);
+    ownedBytes.set(part);
+    return ownedBytes.buffer;
+  });
+  return new Blob(blobParts, { type: PDF_MIME });
 };
 
 export const buildPrintablePdf = async (entries: TripEntry[]): Promise<Blob> => {

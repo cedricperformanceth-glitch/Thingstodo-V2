@@ -1,7 +1,7 @@
 export type CityProfile = 'compact' | 'standard' | 'large';
 export type SettlementType = 'village' | 'city';
 export type LocationScope = 'point' | 'area';
-export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party-official';
+export type SourceType = 'manual' | 'wikimedia' | 'public-domain' | 'first-party-official' | 'map-platform';
 export type CategorySlug = 'restaurants' | 'cafes' | 'accommodation' | 'scooter-rental' | 'gyms' | 'markets' | 'practical-services' | 'things-to-do';
 export type MediaVerificationStatus = 'verified' | 'partial' | 'review-needed';
 export type MediaAvailabilityStatus = 'present' | 'missing';
