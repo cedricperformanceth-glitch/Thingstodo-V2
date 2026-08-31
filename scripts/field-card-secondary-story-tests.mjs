@@ -67,7 +67,7 @@ assert.match(beforeYouLeaveComponent, /content\.note\.text/, 'Before You Leave p
 assert.match(beforeYouLeaveComponent, /field-card-before-you-leave__note p[\s\S]*font-family:\s*var\(--field-card-handwritten\)/, 'Before You Leave post-it must use the handwritten role');
 
 assert.match(fieldCard, /<FieldCardStoryBlock[\s\S]*?<FieldCardSecondaryStory/, 'Secondary story must render directly after the Primary Story block');
-assert.match(fieldCard, /<FieldCardSecondaryStory[\s\S]*?adSlots\[0\][\s\S]*?<FieldCardBeforeYouLeave/, 'Advertising must remain after the secondary story and before Before You Leave');
+assert.match(fieldCard, /<FieldCardSecondaryStory[\s\S]*?<FieldCardBeforeYouLeave[\s\S]*?activityAdSlots\.afterBeforeYouLeave/, 'The long-activity ad slot must remain after Before You Leave');
 assert.match(engine, /getEditorialSecondaryStory/, 'View engine must read secondary-story overrides from the canonical editorial registry');
 assert.match(engine, /thing\.fieldCard\.secondaryStory/, 'View engine must support generated secondary-story content');
 assert.match(engine, /fallbackSecondaryStory/, 'Legacy activities must retain a deterministic secondary-story fallback');

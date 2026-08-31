@@ -37,8 +37,9 @@ assert.equal(contract.editorial.contentOnlyShape.presentationKeysForbidden, true
 assert.match(contract.editorial.chapters.antiPattern, /Do not fill chapter one with route or chapter two with price by habit/i, 'Contract must forbid fixed route/price semantics');
 assert.doesNotMatch(component, /xe-bang-fai|thakhek/i, 'Universal story component must not contain destination-specific branches or copy');
 assert.doesNotMatch(component, /ROUTE NOTE/, 'Post-it label must be editorial data, not component copy');
-assert.match(component, /story\.chapters\.map\(\(chapter, index\)/, 'Story block must render exactly the authored chapter slots with ordered numbering');
-assert.match(component, /String\(index \+ 1\)\.padStart\(2, '0'\)/, 'Story block must render 01 and 02 from chapter order');
+assert.match(component, /const firstChapter = story\.chapters\[0\];[\s\S]*const remainingChapters = story\.chapters\.slice\(1\);/, 'Story block must preserve the authored chapter order when it renders the first chapter separately for its optional ad slot');
+assert.match(component, /remainingChapters\.map\(\(chapter, index\)/, 'Story block must render every remaining authored chapter after the optional ad slot');
+assert.match(component, /<span aria-hidden="true">01 ·<\/span>[\s\S]*?String\(chapterIndex \+ 1\)\.padStart\(2, '0'\)/, 'Story block must render 01 and 02 from chapter order');
 assert.match(component, /chapter\.label \|\| fallbackChapterLabel/, 'Story block must render authored chapter labels while retaining legacy fallback compatibility');
 assert.match(component, /story\.note\.label/, 'Story block must render a variable post-it label');
 assert.match(component, /story\.note\.text/, 'Story block must render variable post-it text');

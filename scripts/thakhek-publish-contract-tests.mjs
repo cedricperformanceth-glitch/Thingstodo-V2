@@ -33,8 +33,12 @@ assert.match(
 );
 
 const thingRegistry = readFileSync(new URL('../src/content/registry/things-to-do.ts', import.meta.url), 'utf8');
+const fieldCardEngine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
+const mediaRouter = readFileSync(new URL('../src/content/field-card-media-router.ts', import.meta.url), 'utf8');
 assert.ok(thingRegistry.includes("photoStatus: 'verified' as const"), 'Editorial activity media must keep runtime photo status synchronized.');
 assert.ok(thingRegistry.includes('photoRequiresManualFill: false'), 'Editorial activity media must clear stale manual-fill flags.');
-assert.ok(thingRegistry.includes('fieldCard: { ...thing.media.fieldCard, gallery: editorialMedia }'), 'Editorial media must remain the runtime Field Card gallery.');
+assert.ok(fieldCardEngine.includes('applyCanonicalActivityMediaPolicy'), 'Field Card runtime media must use the canonical media policy.');
+assert.ok(fieldCardEngine.includes('const rawGallery = getEditorialMedia(thing.id)'), 'Editorial media must remain the Field Card gallery input.');
+assert.ok(mediaRouter.includes('applyThakhekMediaCorrections'), 'Thakhek corrections must remain in the canonical activity media policy.');
 
 console.log(`Thakhek publication contract passed: ${descriptions.length} curated place descriptions and canonical media safeguards intact.`);

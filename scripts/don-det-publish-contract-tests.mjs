@@ -17,7 +17,8 @@ const fieldNoteMedia = JSON.parse(readFileSync(new URL('../src/content/city-fiel
 const cityOverrides = readFileSync(new URL('../src/content/city-runtime-overrides.ts', import.meta.url), 'utf8');
 const thingOverrides = readFileSync(new URL('../src/content/thing-runtime-overrides.ts', import.meta.url), 'utf8');
 const mediaOverrides = readFileSync(new URL('../src/content/field-card-media-don-det-overrides.ts', import.meta.url), 'utf8');
-const editorialLoader = readFileSync(new URL('../src/content/field-card-editorial-data.ts', import.meta.url), 'utf8');
+const mediaRouter = readFileSync(new URL('../src/content/field-card-media-router.ts', import.meta.url), 'utf8');
+const fieldCardEngine = readFileSync(new URL('../src/engines/field-card/field-card-engine.ts', import.meta.url), 'utf8');
 const placeRegistry = readFileSync(new URL('../src/content/registry/places.ts', import.meta.url), 'utf8');
 const thingRegistry = readFileSync(new URL('../src/content/registry/things-to-do.ts', import.meta.url), 'utf8');
 
@@ -56,7 +57,8 @@ const expectedThingIds = [
 assert.equal(data.things.length, expectedThingIds.length, `Expected ${expectedThingIds.length} Don Det activities; found ${data.things.length}.`);
 assert.deepEqual(new Set(data.things.map((thing) => thing.id)), new Set(expectedThingIds));
 
-assert.ok(editorialLoader.includes('applyDonDetMediaCorrections'), 'Don Det media corrections must be applied by the canonical editorial loader.');
+assert.ok(mediaRouter.includes('applyDonDetMediaCorrections'), 'Don Det media corrections must be applied by the canonical media policy.');
+assert.ok(fieldCardEngine.includes('applyCanonicalActivityMediaPolicy'), 'The Field Card runtime must apply the canonical media policy.');
 const spaDescriptions = [];
 for (const thing of data.things) {
   const entry = editorial[thing.id];
@@ -88,7 +90,7 @@ for (const thing of data.things) {
 }
 assert.equal(new Set(spaDescriptions).size, spaDescriptions.length, 'Don Det activity SPA descriptions must remain unique.');
 assert.ok(thingRegistry.includes("photoStatus: 'verified' as const"), 'Editorial activity media must synchronize runtime photo status.');
-assert.ok(thingRegistry.includes('fieldCard: { ...thing.media.fieldCard, gallery: editorialMedia }'), 'Editorial media must remain the runtime activity gallery.');
+assert.ok(thingRegistry.includes('fieldCard: { ...baseMedia.fieldCard, gallery: editorialMedia }'), 'Editorial media must remain the runtime activity-gallery input.');
 assert.ok(thingOverrides.includes("'thing-don-som-island'"), 'Don Som identity correction must remain canonical.');
 assert.ok(thingOverrides.includes("name: 'Don Som Island'"), 'Don Som must not regress to the broad Si Phan Don label.');
 assert.ok(thingOverrides.includes("'thing-si-phan-don-by-boat'"), 'Boat activity must remain area-scoped rather than tied to one operator point.');
