@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "check": "astro check",
-    "build": "astro build",
+    "build": "astro build && node scripts/generate-seo-artifacts.mjs",
+    "generate:seo": "node scripts/generate-seo-artifacts.mjs",
     "preview": "astro preview",
     "create-city": "node scripts/create-city.mjs",
     "generate-city": "node scripts/generate-city.mjs",
