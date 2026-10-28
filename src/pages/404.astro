@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+
+const seo = {
+  title: 'Page not found | Things To Do Atlas',
+  description: 'This Atlas page could not be found. Return to the Atlas or explore Laos.',
+  canonicalPath: '/404',
+  indexable: false,
+};
+---
+
+<BaseLayout {seo} showSiteChrome={false} showNavbar showFooter>
+  <section class="not-found" aria-labelledby="not-found-title">
+    <p class="not-found__eyebrow">ATLAS FIELD NOTE / 404</p>
+    <p class="not-found__number" aria-hidden="true">404</p>
+    <h1 id="not-found-title">This page took a different road.</h1>
+    <p class="not-found__copy">
+      The path you followed is no longer on the map. Your next chapter is still here.
+    </p>
+    <nav class="not-found__links" aria-label="Find your way back">
+      <a class="not-found__primary" href="/">Return to the Atlas</a>
+      <a class="not-found__secondary" href="/laos">Explore Laos</a>
+    </nav>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: min(74vh, 740px);
+    padding: clamp(5rem, 12vw, 9rem) 1rem;
+    text-align: center;
+  }
+
+  .not-found__eyebrow {
+    margin: 0 0 .5rem;
+    color: var(--moss);
+    font: 700 .72rem/1.5 'DM Sans', sans-serif;
+    letter-spacing: .18em;
+  }
+
+  .not-found__number {
+    margin: 0;
+    color: #b76645;
+    font: 500 clamp(5rem, 17vw, 10rem)/.95 'Newsreader', Georgia, serif;
+    letter-spacing: -.07em;
+  }
+
+  .not-found h1 {
+    max-width: 760px;
+    margin: 1rem 0 0;
+    color: var(--ink);
+    font: 500 clamp(2rem, 5vw, 3.6rem)/1.06 'Newsreader', Georgia, serif;
+    letter-spacing: -.035em;
+  }
+
+  .not-found__copy {
+    max-width: 440px;
+    margin: 1.5rem 0 0;
+    color: #5c625c;
+    font: 400 1rem/1.7 'DM Sans', sans-serif;
+  }
+
+  .not-found__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.6rem;
+    margin-top: 2.5rem;
+  }
+
+  .not-found__links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: .7rem 1.3rem;
+    border: 1px solid var(--moss);
+    text-decoration: none;
+    font: 600 .85rem/1.2 'DM Sans', sans-serif;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .not-found__primary,
+  .not-found__secondary:hover {
+    background: var(--moss);
+    color: #fffdf8;
+  }
+
+  .not-found__secondary,
+  .not-found__primary:hover {
+    background: transparent;
+    color: var(--moss);
+  }
+</style>
