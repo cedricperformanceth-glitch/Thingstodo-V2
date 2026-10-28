@@ -5,9 +5,9 @@ export const cookiePolicyPage: LegalPageData = {
   eyebrow: 'Legal',
   documentLabel: 'Legal note · Cookies',
   title: 'Cookie Policy',
-  heroIntro: 'What the Atlas stores in your browser, why it is used, and how future tracking technologies will be handled.',
-  documentIntro: 'Things To Do Atlas currently relies mainly on local browser storage for its save and trip-planning features. This policy explains the difference between cookies and similar storage technologies, what is used today, and how the policy will change if advertising or analytics are introduced.',
-  lastUpdated: 'August 26, 2026',
+  heroIntro: 'What the Atlas stores in your browser and how third-party advertising technologies may be used.',
+  documentIntro: 'Things To Do Atlas uses local browser storage for its save and trip-planning features and includes an Infolinks script for publisher-site verification. This policy explains these technologies and the potential use of third-party advertising cookies.',
+  lastUpdated: 'October 28, 2026',
   seo: {
     title: 'Cookie Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas uses cookies, local browser storage and similar technologies.',
@@ -119,7 +119,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'At the date of this policy, the public application code does not include Google Analytics, Google AdSense or another advertising or behavioural analytics platform, and it does not intentionally set marketing or advertising cookies itself.',
+              text: 'The current site does not include Google Analytics or Google AdSense. Its standard page layout loads Infolinks JavaScript for publisher-site verification and possible future advertising. This does not imply that an Infolinks publisher application has been approved or that ads are currently appearing. Infolinks and its partners may use cookies or similar identifiers when their technologies operate; the exact storage and requests can vary.',
             },
           ],
         },
@@ -127,7 +127,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use strictly necessary technologies of its own. If the site begins using additional cookies or browser storage that materially changes this description, this policy will be updated.',
+              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use strictly necessary technologies of its own. Infolinks JavaScript may also make third-party network requests. This policy will be updated if further technologies are introduced or if their use materially changes.',
             },
           ],
         },
@@ -141,7 +141,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas currently loads some web fonts from Google Fonts. Loading those files requires the browser to contact Google’s servers. Google Fonts is therefore a third-party network service, even though it is not listed here as one of the Atlas localStorage records.',
+              text: 'Things To Do Atlas loads some web fonts from Google Fonts and includes Infolinks JavaScript on its standard page layout. Loading these third-party resources may require the browser to contact their providers. These services are separate from the Atlas favourites and trip localStorage records.',
             },
           ],
         },
@@ -163,8 +163,18 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas may introduce advertising, audience measurement or analytics services in the future. Those services can use cookies, local storage or related technologies to measure usage, prevent fraud, limit repeated advertising, select ads or measure advertising performance.',
+              text: 'Things To Do Atlas has included an Infolinks script for publisher-site verification and potential advertising. Depending on the provider's service and settings, advertising technologies can use cookies, local storage or related identifiers to measure usage, prevent fraud, limit repeated advertising, select ads or assess performance. Atlas does not currently use Google AdSense or Google Analytics.',
             },
+          ],
+        },
+        {
+          type: 'paragraph',
+          content: [
+            { text: 'For further information, see the ' },
+            { text: 'Infolinks Privacy Policy', href: 'https://www.infolinks.com/privacy-policy/', external: true },
+            { text: ' and the ' },
+            { text: 'Network Advertising Initiative opt-out information', href: 'https://optout.networkadvertising.org/', external: true },
+            { text: '. Browser settings can also be used to manage cookies, although opting out of tailored advertising does not necessarily disable all cookies.' },
           ],
         },
         {
@@ -175,7 +185,7 @@ export const cookiePolicyPage: LegalPageData = {
           paragraphs: [
             [
               {
-                text: 'If non-essential advertising or analytics technologies are introduced, Things To Do Atlas will update this policy and provide consent controls where required by applicable law. Where Google advertising products require a certified consent management platform for particular regions, the site will use an appropriate consent mechanism before those services are enabled for affected visitors.',
+                text: 'The Infolinks script is already included in the site. Where applicable law requires consent for non-essential advertising storage or tracking, that consent must be obtained through appropriate technical controls. Publishing this policy does not itself collect consent. The site's consent implementation and the script's actual cookie behaviour need to be verified before any applicable advertising tracking is enabled.',
               },
             ],
           ],
