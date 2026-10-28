@@ -7,7 +7,7 @@ export const privacyPolicyPage: LegalPageData = {
   title: 'Privacy Policy',
   heroIntro: 'A clear account of what the Atlas stores, what third parties may receive, and the choices available to visitors.',
   documentIntro: 'Things To Do Atlas is designed to work with as little personal data as possible. This policy explains what information may be processed when you browse the site, save places or activities, and follow links to third-party services.',
-  lastUpdated: 'August 26, 2026',
+  lastUpdated: 'October 28, 2026',
   seo: {
     title: 'Privacy Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas handles browser storage, technical data, third-party services and visitor privacy.',
@@ -191,7 +191,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'At the date shown on this policy, Things To Do Atlas does not intentionally use Google AdSense or a general audience-analytics platform on its public pages. The browser storage described above is used for visitor-requested Atlas features rather than advertising profiling.',
+              text: 'Things To Do Atlas does not currently use Google AdSense or a general audience analytics platform. Its standard page layout includes an Infolinks advertising script for publisher-site verification and possible future advertising. The presence of this script does not mean that the website has been approved for advertising or that ads are currently being served.',
             },
           ],
         },
@@ -199,8 +199,18 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'If advertising, analytics, consent-management tools or other tracking technologies are introduced, this Privacy Policy and the site’s cookie information will be updated to explain what is used, why it is used, which providers are involved and what choices are available. Consent controls will be provided where required by applicable law.',
+              text: 'The Infolinks script may contact Infolinks and its advertising partners and, depending on how their services operate, may involve cookies, device or browser identifiers, and similar technologies used for verification, fraud prevention, advertising and measurement. These third parties may receive technical request information. Any legally required consent controls must be implemented in the site itself; this notice is not a substitute for consent.',
             },
+          ],
+        },
+        {
+          type: 'paragraph',
+          content: [
+            { text: 'See the ' },
+            { text: 'Infolinks Privacy Policy', href: 'https://www.infolinks.com/privacy-policy/', external: true },
+            { text: ' and our ' },
+            { text: 'Cookie Policy', href: '/legal/cookie-policy' },
+            { text: ' for more information about third-party advertising technologies.' },
           ],
         },
         {
@@ -233,7 +243,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Third-party services that you choose to visit or that are used to deliver a resource, such as Google Fonts, process information under their own privacy terms. Depending on the provider and your location, that processing may take place in countries other than the country from which you access Things To Do Atlas.',
+              text: 'Third-party services that you choose to visit or that are used to deliver a resource, such as Google Fonts and Infolinks, process information under their own privacy terms. Depending on the provider and your location, that processing may take place in countries other than the country from which you access Things To Do Atlas.',
             },
           ],
         },
