@@ -4,6 +4,8 @@ import { join } from 'node:path';
 const origin = 'https://thingstodoatlas-v2.pages.dev';
 const mode = process.argv[2];
 const expectIndexing = process.argv[3] === 'index';
+const googleVerificationFile = 'googleb482868e10aa0e46.html';
+const googleVerificationContent = 'google-site-verification: googleb482868e10aa0e46.html';
 const laosCities = ['don-det', 'luang-prabang', 'pakse', 'tad-lo', 'thakhek', 'vang-vieng', 'vientiane'];
 const publishedCityRoutes = laosCities.flatMap((slug) => [`/laos/${slug}`, `/laos/${slug}/field-note`, `/laos/${slug}/things-to-do`]);
 
@@ -85,6 +87,11 @@ if (mode === 'build') {
   assert(/This page took a different road\./.test(notFound), 'Missing Atlas 404 body');
   assert(/noindex/i.test(robots(notFound)), '404 should explicitly noindex');
   console.log('PASS 404.html exists and is non-indexable');
+  const verificationFile = join('dist', googleVerificationFile);
+  assert(existsSync(verificationFile), 'Google Search Console verification file missing from build');
+  assert(readFileSync(verificationFile, 'utf8').trim() === googleVerificationContent,
+    'Google Search Console verification file content differs from expected');
+  console.log('PASS Google Search Console HTML file included in build');
   verifySeoArtifacts(expectIndexing);
 } else if (mode === 'live') {
   const attempts = 18;
@@ -142,6 +149,13 @@ if (mode === 'build') {
       assert(liveUrls.length > publishedCityRoutes.length + 2, 'Live sitemap.xml lacks approved city activities');
       assert(liveUrls.length === new Set(liveUrls).size, 'Live sitemap.xml has duplicate URLs');
       console.log('PASS live robots.txt and sitemap.xml with ' + liveUrls.length + ' published URLs');
+
+      const verificationResponse = await request('/' + googleVerificationFile);
+      assert(verificationResponse.status === 200,
+        'Google verification file returned HTTP ' + verificationResponse.status);
+      assert(verificationResponse.html.trim() === googleVerificationContent,
+        'Google verification file has unexpected live content');
+      console.log('PASS live Google Search Console ownership verification file: HTTP 200, content correct');
 
       console.log('PASS production HTML, HTTP status and meta robots checks');
       process.exit(0);
