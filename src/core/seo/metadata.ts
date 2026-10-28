@@ -7,7 +7,7 @@ const configuredHost = configuredUrl.hostname.toLowerCase();
 
 // Astro generates static HTML at build time. Only the Cloudflare Pages production
 // build (master) may emit indexable pages, never a branch preview or local build.
-const isProductionBuild = import.meta.env.CF_PAGES === '1'
+const isProductionBuild = String(import.meta.env.CF_PAGES) === '1'
   && import.meta.env.CF_PAGES_BRANCH === 'master';
 
 // Allow the project's public pages.dev hostname now, and a custom domain later.
@@ -19,7 +19,7 @@ const isPublicHostname = configuredUrl.protocol === 'https:'
 // PUBLIC_ALLOW_INDEXING=false remains an emergency off switch.
 export const indexingEnabled = isProductionBuild
   && isPublicHostname
-  && import.meta.env.PUBLIC_ALLOW_INDEXING !== 'false';
+  && String(import.meta.env.PUBLIC_ALLOW_INDEXING ?? '').trim().toLowerCase() !== 'false';
 
 export function absoluteCanonical(path: string): string {
   return new URL(path, configuredSiteUrl).toString();
