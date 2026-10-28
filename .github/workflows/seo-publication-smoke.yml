@@ -1,0 +1,54 @@
+name: Verify Atlas SEO publication
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-seo-publication-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-seo:
+    name: Verify public HTML and 404
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production pages
+        run: npm run build
+        env:
+          CF_PAGES: '1'
+          CF_PAGES_BRANCH: master
+          PUBLIC_SITE_URL: https://thingstodoatlas-v2.pages.dev
+
+      - name: Verify indexable production HTML and custom 404
+        run: node scripts/verify-seo-publication.mjs build index
+
+      - name: Build Cloudflare preview pages
+        run: npm run build
+        env:
+          CF_PAGES: '1'
+          CF_PAGES_BRANCH: seo-preview
+          PUBLIC_SITE_URL: https://thingstodoatlas-v2.pages.dev
+
+      - name: Verify preview HTML remains non-indexable
+        run: node scripts/verify-seo-publication.mjs build noindex
+
+      - name: Verify live Cloudflare production HTTP and HTML
+        run: node scripts/verify-seo-publication.mjs live
