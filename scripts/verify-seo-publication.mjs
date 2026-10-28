@@ -4,6 +4,8 @@ import { join } from 'node:path';
 const origin = 'https://thingstodoatlas-v2.pages.dev';
 const mode = process.argv[2];
 const expectIndexing = process.argv[3] === 'index';
+const laosCities = ['don-det', 'luang-prabang', 'pakse', 'tad-lo', 'thakhek', 'vang-vieng', 'vientiane'];
+const publishedCityRoutes = laosCities.flatMap((slug) => [`/laos/${slug}`, `/laos/${slug}/field-note`, `/laos/${slug}/things-to-do`]);
 
 function assert(condition, explanation) {
   if (!condition) throw new Error(explanation);
@@ -49,14 +51,14 @@ function verifySeoArtifacts(indexable) {
   assert(urls.length === new Set(urls).size, 'Sitemap contains duplicate URLs');
 
   if (indexable) {
-    for (const required of ['/', '/laos', '/laos/don-det']) {
+    for (const required of ['/', '/laos', ...publishedCityRoutes]) {
       const url = origin + required;
       assert(urls.includes(url), 'Sitemap missing published URL ' + url);
     }
-    for (const blocked of ['/404', '/admin', '/summary', '/laos/pakse']) {
+    for (const blocked of ['/404', '/admin', '/summary']) {
       assert(!urls.includes(origin + blocked), 'Sitemap contains blocked URL ' + blocked);
     }
-    assert(urls.length > 3, 'Expected published URLs beyond the three smoke-test pages');
+    assert(urls.length > publishedCityRoutes.length + 2, 'Expected all approved cities plus their activity pages');
     assert(robotsTxt.includes('Sitemap: ' + expectedSitemap), 'robots.txt missing canonical sitemap');
     assert(/^Allow: \/$/m.test(robotsTxt), 'Production robots.txt must allow crawling');
     assert(!/^Disallow: \/$/m.test(robotsTxt), 'Production robots.txt must not disallow entire site');
@@ -73,8 +75,12 @@ function verifySeoArtifacts(indexable) {
 if (mode === 'build') {
   verifyPage('home', output('/'), `${origin}/`, expectIndexing);
   verifyPage('Laos', output('/laos'), `${origin}/laos`, expectIndexing);
-  verifyPage('Don Det', output('/laos/don-det'), `${origin}/laos/don-det`, expectIndexing);
-  verifyPage('Pakse unpublished', output('/laos/pakse'), `${origin}/laos/pakse`, false);
+  for (const city of laosCities) {
+    for (const suffix of ['', '/field-note', '/things-to-do']) {
+      const path = `/laos/${city}${suffix}`;
+      verifyPage(path, output(path), origin + path, expectIndexing);
+    }
+  }
   const notFound = output('/404');
   assert(/This page took a different road\./.test(notFound), 'Missing Atlas 404 body');
   assert(/noindex/i.test(robots(notFound)), '404 should explicitly noindex');
@@ -106,8 +112,7 @@ if (mode === 'build') {
       for (const [path, label, indexable] of [
         ['/', 'home', true],
         ['/laos', 'Laos', true],
-        ['/laos/don-det', 'Don Det', true],
-        ['/laos/pakse', 'Pakse unpublished', false],
+        ...publishedCityRoutes.map((path) => [path, path, true]),
       ]) {
         const response = await request(path);
         assert(response.status === 200, `${label} returned HTTP ${response.status}`);
@@ -130,9 +135,11 @@ if (mode === 'build') {
       const liveUrls = [...mapResponse.html.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
       assert(liveUrls.includes(origin + '/'), 'Live sitemap.xml missing homepage');
       assert(liveUrls.includes(origin + '/laos'), 'Live sitemap.xml missing Laos');
-      assert(liveUrls.includes(origin + '/laos/don-det'), 'Live sitemap.xml missing Don Det');
+      for (const path of publishedCityRoutes) {
+        assert(liveUrls.includes(origin + path), 'Live sitemap.xml missing approved page ' + path);
+      }
       assert(!liveUrls.includes(origin + '/404'), 'Live sitemap.xml lists 404');
-      assert(!liveUrls.includes(origin + '/laos/pakse'), 'Live sitemap.xml lists unpublished Pakse');
+      assert(liveUrls.length > publishedCityRoutes.length + 2, 'Live sitemap.xml lacks approved city activities');
       assert(liveUrls.length === new Set(liveUrls).size, 'Live sitemap.xml has duplicate URLs');
       console.log('PASS live robots.txt and sitemap.xml with ' + liveUrls.length + ' published URLs');
 
