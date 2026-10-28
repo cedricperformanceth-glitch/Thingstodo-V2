@@ -207,7 +207,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             { text: 'See the ' },
-            { text: 'Infolinks Privacy Policy', href: 'https://www.infolinks.com/privacy-policy/', external: true },
+            { text: 'Infolinks Privacy Policy', href: 'https://sites0001.infolinks.com/privacy-policy', external: true },
             { text: ' and our ' },
             { text: 'Cookie Policy', href: '/legal/cookie-policy' },
             { text: ' for more information about third-party advertising technologies.' },
