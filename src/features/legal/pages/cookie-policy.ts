@@ -171,7 +171,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             { text: 'For further information, see the ' },
-            { text: 'Infolinks Privacy Policy', href: 'https://www.infolinks.com/privacy-policy/', external: true },
+            { text: 'Infolinks Privacy Policy', href: 'https://sites0001.infolinks.com/privacy-policy', external: true },
             { text: ' and the ' },
             { text: 'Network Advertising Initiative opt-out information', href: 'https://optout.networkadvertising.org/', external: true },
             { text: '. Browser settings can also be used to manage cookies, although opting out of tailored advertising does not necessarily disable all cookies.' },
