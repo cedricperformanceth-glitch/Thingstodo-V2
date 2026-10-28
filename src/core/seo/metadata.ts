@@ -7,8 +7,8 @@ const configuredHost = configuredUrl.hostname.toLowerCase();
 
 // Astro generates static HTML at build time. Only the Cloudflare Pages production
 // build (master) may emit indexable pages, never a branch preview or local build.
-const isProductionBuild = process.env.CF_PAGES === '1'
-  && process.env.CF_PAGES_BRANCH === 'master';
+const isProductionBuild = import.meta.env.CF_PAGES === '1'
+  && import.meta.env.CF_PAGES_BRANCH === 'master';
 
 // Allow the project's public pages.dev hostname now, and a custom domain later.
 // Other *.pages.dev hostnames must never be treated as the canonical public site.
