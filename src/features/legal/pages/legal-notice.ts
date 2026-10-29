@@ -7,7 +7,7 @@ export const legalNoticePage: LegalPageData = {
   title: 'Legal Notice',
   heroIntro: 'Website, hosting and editorial information for Things To Do Atlas.',
   documentIntro: 'Things To Do Atlas is currently an independent personal editorial travel project. This page explains the status of the website, its technical hosting, editorial responsibility and the rules that apply to its original content and third-party material.',
-  lastUpdated: 'August 26, 2026',
+  lastUpdated: 'October 29, 2026',
   seo: {
     title: 'Legal Notice | Things To Do Atlas',
     description: 'Website, hosting, editorial responsibility and legal information for Things To Do Atlas.',
@@ -215,9 +215,17 @@ export const legalNoticePage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'A dedicated public contact channel is not yet published on the website. A public email address and other appropriate contact links may be added to this page when they are introduced for the project.',
+              text: 'For editorial corrections, questions, copyright concerns, media attribution requests or privacy enquiries, contact the publisher at cedric.performance.th@gmail.com.',
             },
           ],
+        },
+        {
+          type: 'contact',
+          eyebrow: 'Publisher contact',
+          title: 'Contact Things To Do Atlas',
+          body: 'For questions, corrections and rights requests, write to cedric.performance.th@gmail.com.',
+          ctaLabel: 'Send an email',
+          ctaHref: 'mailto:cedric.performance.th@gmail.com',
         },
       ],
     },
