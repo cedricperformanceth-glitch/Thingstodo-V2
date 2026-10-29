@@ -1,0 +1,114 @@
+<div class="atlas-consent" data-atlas-consent>
+  <button class="atlas-consent__settings" type="button" data-consent-settings hidden>Cookie settings</button>
+  <aside class="atlas-consent__notice" data-consent-notice aria-label="Optional advertising and cookies" hidden>
+    <div class="atlas-consent__explanation">
+      <strong>Advertising and cookies</strong>
+      <p>Atlas saves your travel plans locally. Optional Infolinks advertising technology is loaded only if you accept it. Refusing does not affect your Atlas features, and you can change your choice later.</p>
+      <p class="atlas-consent__links"><a href="/legal/cookie-policy">Cookie Policy</a><a href="/legal/privacy-policy">Privacy Policy</a></p>
+    </div>
+    <div class="atlas-consent__actions">
+      <button type="button" data-consent-reject>Reject optional ads</button>
+      <button type="button" data-consent-accept>Accept optional ads</button>
+    </div>
+  </aside>
+</div>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-atlas-consent]');
+    if (!root || root.dataset.consentReady === 'true') return;
+    root.dataset.consentReady = 'true';
+
+    const notice = root.querySelector('[data-consent-notice]');
+    const settings = root.querySelector('[data-consent-settings]');
+    const accept = root.querySelector('[data-consent-accept]');
+    const reject = root.querySelector('[data-consent-reject]');
+    if (!notice || !settings || !accept || !reject) return;
+
+    const key = 'atlas.optionalAdvertisingConsent.v1';
+    const maxAgeMs = 180 * 24 * 60 * 60 * 1000;
+    let loaded = false;
+
+    const read = () => {
+      try {
+        const value = JSON.parse(localStorage.getItem(key) || 'null');
+        const age = Date.now() - value?.at;
+        return (value?.choice === 'accepted' || value?.choice === 'rejected') &&
+          typeof value.at === 'number' && age >= 0 && age <= maxAgeMs ? value.choice : null;
+      } catch { return null; }
+    };
+    const save = choice => {
+      try { localStorage.setItem(key, JSON.stringify({ choice, at: Date.now() })); }
+      catch { /* Still respect choice for this page when storage is unavailable. */ }
+    };
+    const loadAds = () => {
+      if (loaded || document.querySelector('script[data-atlas-infolinks]')) return;
+      loaded = true;
+      window.infolinks_pid = 3448891;
+      window.infolinks_wsid = 0;
+      const script = document.createElement('script');
+      script.src = 'https://resources.infolinks.com/js/infolinks_main.js';
+      script.dataset.atlasInfolinks = 'true';
+      document.body.appendChild(script);
+    };
+    const show = () => { notice.hidden = false; settings.hidden = true; };
+    const hide = () => { notice.hidden = true; settings.hidden = false; };
+    const select = choice => {
+      const wasLoaded = loaded;
+      save(choice);
+      hide();
+      if (choice === 'accepted') loadAds();
+      else if (wasLoaded) window.location.reload();
+    };
+
+    settings.addEventListener('click', () => { show(); reject.focus(); });
+    accept.addEventListener('click', () => select('accepted'));
+    reject.addEventListener('click', () => select('rejected'));
+    window.addEventListener('storage', event => {
+      if (event.key === key || event.key === null) window.location.reload();
+    });
+
+    const choice = read();
+    if (choice === 'accepted') { hide(); loadAds(); }
+    else if (choice === 'rejected') hide();
+    else show();
+  })();
+</script>
+
+<style>
+  .atlas-consent__notice[hidden], .atlas-consent__settings[hidden] { display: none !important; }
+  .atlas-consent__settings {
+    position: fixed; bottom: 1rem; left: 1rem; z-index: 1150;
+    padding: .55rem .85rem; border: 1px solid #b7a887; border-radius: 5px;
+    background: #263e33; color: #fffaf1; box-shadow: 0 4px 16px #0004;
+    font: 600 .76rem/1.3 system-ui, sans-serif; cursor: pointer;
+  }
+  .atlas-consent__notice {
+    position: fixed; right: 1rem; bottom: 1rem; left: 1rem; z-index: 1151;
+    display: flex; align-items: center; justify-content: space-between; gap: 1.3rem;
+    box-sizing: border-box; width: min(940px, calc(100% - 2rem)); margin: 0 auto;
+    padding: 1.2rem 1.35rem; border: 1px solid #b7a887; border-radius: 8px;
+    background: #23392f; color: #fffaf1; box-shadow: 0 12px 42px #0006;
+  }
+  .atlas-consent__explanation { flex: 1 1 370px; min-width: 0; }
+  .atlas-consent__explanation strong { display: block; margin: 0 0 .45rem; font: 600 1.08rem/1.2 Georgia, serif; }
+  .atlas-consent__explanation p { margin: 0; color: #f4eadc; font: .84rem/1.55 system-ui, sans-serif; }
+  .atlas-consent__explanation .atlas-consent__links {
+    display: flex; flex-wrap: wrap; gap: 1rem; margin-top: .55rem; font-size: .78rem;
+  }
+  .atlas-consent__links a { color: #f3d6a4; text-decoration: underline; text-underline-offset: 3px; }
+  .atlas-consent__actions { display: flex; flex: 0 0 210px; flex-direction: column; gap: .55rem; }
+  .atlas-consent__actions button {
+    min-height: 40px; padding: .6rem .8rem; border: 1px solid #cdbd9a; border-radius: 4px;
+    background: transparent; color: #fffaf1; font: 600 .78rem/1.2 system-ui, sans-serif; cursor: pointer;
+  }
+  .atlas-consent__actions [data-consent-accept] { background: #edd4a3; border-color: #edd4a3; color: #23392f; }
+  .atlas-consent button:focus-visible, .atlas-consent a:focus-visible { outline: 3px solid #f3c17a; outline-offset: 3px; }
+  @media (max-width: 650px) {
+    .atlas-consent__notice { flex-direction: column; align-items: stretch; gap: .9rem; max-height: 85vh; overflow-y: auto; padding: 1rem; }
+    .atlas-consent__explanation, .atlas-consent__actions { flex-basis: auto; }
+    .atlas-consent__actions { flex-direction: row; }
+    .atlas-consent__actions button { flex: 1; }
+  }
+  @media (max-width: 390px) { .atlas-consent__actions { flex-direction: column; } }
+</style>
