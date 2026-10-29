@@ -127,7 +127,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use necessary technologies of its own. After optional advertising consent, Infolinks JavaScript may make third-party requests and use identifiers. The visitor's advertising choice and timestamp are stored locally under atlas.optionalAdvertisingConsent.v1 for up to 180 days. The site asks again after that period or if the preference is cleared.',
+              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use necessary technologies of its own. After optional advertising consent, Infolinks JavaScript may make third-party requests and use identifiers. The visitor’s advertising choice and timestamp are stored locally under atlas.optionalAdvertisingConsent.v1 for up to 180 days. The site asks again after that period or if the preference is cleared.',
             },
           ],
         },
