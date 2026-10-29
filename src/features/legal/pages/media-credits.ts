@@ -260,14 +260,14 @@ export const mediaCreditsPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Publisher contact details will be maintained in the ',
+              text: 'For media licence corrections or rights concerns, reach the publisher using the contact information in the ',
             },
             {
               text: 'Legal Notice',
               href: '/legal/legal-notice',
             },
             {
-              text: ' once the final publisher information is completed.',
+              text: '. You can also email cedric.performance.th@gmail.com.',
             },
           ],
         },
