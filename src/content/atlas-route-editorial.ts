@@ -1,3 +1,4 @@
+import { northToSouthEditorial } from './atlas-route-north-to-south-editorial';
 import type { AtlasEntity, CategorySlug } from '../core/models/types';
 import { places } from './registry/places';
 import { things } from './registry/things-to-do';
@@ -554,7 +555,7 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
   closingCopy: 'Keep the direction, change the pace, remove what does not fit and save the places that do. The route becomes useful when it becomes your Atlas.',
 };
 
-const editorialRoutes: AtlasRouteExperienceContent[] = [southToNorthEditorial];
+const editorialRoutes: AtlasRouteExperienceContent[] = [southToNorthEditorial, northToSouthEditorial];
 
 export const getAtlasRouteEditorialContent = (
   country: string,
