@@ -7,7 +7,7 @@ export const cookiePolicyPage: LegalPageData = {
   title: 'Cookie Policy',
   heroIntro: 'What the Atlas stores in your browser and how third-party advertising technologies may be used.',
   documentIntro: 'Things To Do Atlas uses local browser storage for its save and trip-planning features and includes an Infolinks script for publisher-site verification. This policy explains these technologies and the potential use of third-party advertising cookies.',
-  lastUpdated: 'October 28, 2026',
+  lastUpdated: 'October 29, 2026',
   seo: {
     title: 'Cookie Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas uses cookies, local browser storage and similar technologies.',
@@ -119,7 +119,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The current site does not include Google Analytics or Google AdSense. Its standard page layout loads Infolinks JavaScript for publisher-site verification and possible future advertising. This does not imply that an Infolinks publisher application has been approved or that ads are currently appearing. Infolinks and its partners may use cookies or similar identifiers when their technologies operate; the exact storage and requests can vary.',
+              text: 'The site does not include Google Analytics or Google AdSense. Infolinks JavaScript is available for publisher-site verification and potential advertising but is loaded only after a visitor explicitly accepts optional advertising. This does not imply that Infolinks has approved the publisher application or that ads are currently being served. If loaded, Infolinks and its partners may use cookies and similar identifiers.',
             },
           ],
         },
@@ -127,7 +127,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use strictly necessary technologies of its own. Infolinks JavaScript may also make third-party network requests. This policy will be updated if further technologies are introduced or if their use materially changes.',
+              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use necessary technologies of its own. After optional advertising consent, Infolinks JavaScript may make third-party requests and use identifiers. The visitor's advertising choice and timestamp are stored locally under atlas.optionalAdvertisingConsent.v1 for up to 180 days. The site asks again after that period or if the preference is cleared.',
             },
           ],
         },
@@ -141,7 +141,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas loads some web fonts from Google Fonts and includes Infolinks JavaScript on its standard page layout. Loading these third-party resources may require the browser to contact their providers. These services are separate from the Atlas favourites and trip localStorage records.',
+              text: 'Things To Do Atlas loads some web fonts from Google Fonts. Infolinks JavaScript is loaded only when optional advertising is accepted. These third-party resources may require browser connections to their providers. They are separate from the Atlas favourites and trip localStorage records.',
             },
           ],
         },
@@ -163,7 +163,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas has included an Infolinks script for publisher-site verification and potential advertising. Depending on the provider's service and settings, advertising technologies can use cookies, local storage or related identifiers to measure usage, prevent fraud, limit repeated advertising, select ads or assess performance. Atlas does not currently use Google AdSense or Google Analytics.',
+              text: 'Things To Do Atlas offers an optional Infolinks script for publisher-site verification and potential advertising. It loads only after express consent. Once loaded, advertising technologies can use cookies, local storage or identifiers for fraud prevention, measurement, ad selection or frequency control. Atlas does not currently use Google AdSense or Google Analytics.',
             },
           ],
         },
@@ -185,7 +185,7 @@ export const cookiePolicyPage: LegalPageData = {
           paragraphs: [
             [
               {
-                text: 'The Infolinks script is already included in the site. Where applicable law requires consent for non-essential advertising storage or tracking, that consent must be obtained through appropriate technical controls. Publishing this policy does not itself collect consent. The site's consent implementation and the script's actual cookie behaviour need to be verified before any applicable advertising tracking is enabled.',
+                text: 'The Infolinks script is blocked until the visitor selects Accept optional ads. Reject optional ads leaves it unloaded. Cookie settings can be reopened on any page. Withdrawing consent after the script has run reloads the page to prevent it from loading again, although cookies already stored by third parties may need to be cleared in the browser.',
               },
             ],
           ],
@@ -223,7 +223,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'If a consent banner or consent-management interface is added to Things To Do Atlas, it will be used to provide information and choices for technologies that require consent. Functional storage that is necessary to deliver a feature requested by the visitor may be handled separately where the law permits.',
+              text: 'Things To Do Atlas offers Accept optional ads and Reject optional ads before loading Infolinks. Both choices allow full use of the site. Visitors can reopen Cookie settings on any page; their choice is retained locally for up to 180 days.',
             },
           ],
         },
@@ -231,7 +231,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Visitors should be able to change or withdraw consent for optional technologies through the consent controls when those controls are available.',
+              text: 'Visitors can change or withdraw consent for optional advertising through Cookie settings at any time. Withdrawal after acceptance reloads the page. Previously stored third-party cookies are not automatically removed and may also be cleared in browser settings.',
             },
           ],
         },
@@ -259,7 +259,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Questions about browser storage, cookies or privacy on Things To Do Atlas can be addressed using the contact information published in the site’s legal information once those operator details are completed.',
+              text: 'For questions about cookies, privacy or advertising preferences, email cedric.performance.th@gmail.com.',
             },
           ],
         },
