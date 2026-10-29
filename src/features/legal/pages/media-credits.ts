@@ -7,7 +7,7 @@ export const mediaCreditsPage: LegalPageData = {
   title: 'Media Credits & Licensing',
   heroIntro: 'How photographs, illustrations and other visual material are sourced, credited and licensed across Things To Do Atlas.',
   documentIntro: 'Things To Do Atlas combines original media with carefully selected third-party material. This page explains the credit and licensing system used across the Atlas, how individual licences should be read, and what may or may not be reused.',
-  lastUpdated: 'August 26, 2026',
+  lastUpdated: 'October 29, 2026',
   seo: {
     title: 'Media Credits & Licensing | Things To Do Atlas',
     description: 'Media sourcing, photo credits, open licences, original media and reuse information for Things To Do Atlas.',
