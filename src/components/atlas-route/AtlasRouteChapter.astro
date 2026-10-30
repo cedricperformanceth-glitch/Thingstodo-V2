@@ -12,6 +12,9 @@ const { chapter } = Astro.props;
 const richChapter = chapter as AtlasRouteExperienceChapter;
 const variant = chapter.variant ?? 'standard';
 const photoEssay = chapter.galleryStyle === 'photo-essay';
+const galleryMedia = photoEssay
+  ? (chapter.media ?? []).filter((media) => Boolean(media.src))
+  : (chapter.media ?? []).slice(0, 3);
 const references = richChapter.references ?? [];
 const notes = richChapter.personalNotes ?? [];
 const storyNotes = notes.filter((note) => !note.placement || note.placement === 'story');
@@ -88,9 +91,9 @@ const aspectClass = (media: AtlasRouteMedia) =>
       )}
     </div>
 
-    {chapter.media && chapter.media.length > 0 && (
-      <div class:list={['atlas-route-chapter__gallery', `atlas-route-chapter__gallery--${Math.min(chapter.media.length, 3)}`, photoEssay && 'atlas-route-chapter__gallery--photo-essay']}>
-        {(photoEssay ? chapter.media : chapter.media.slice(0, 3)).map((media, index) => (
+    {galleryMedia.length > 0 && (
+      <div class:list={['atlas-route-chapter__gallery', `atlas-route-chapter__gallery--${Math.min(galleryMedia.length, 3)}`, photoEssay && 'atlas-route-chapter__gallery--photo-essay']}>
+        {galleryMedia.map((media, index) => (
           <figure class:list={['atlas-route-chapter__media', aspectClass(media), `atlas-route-chapter__media--slot-${index + 1}`]}>
             {media.src ? (
               <img src={media.src} alt={media.alt} loading="lazy" decoding="async" />
