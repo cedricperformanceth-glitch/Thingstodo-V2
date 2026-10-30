@@ -60,6 +60,7 @@ export interface AtlasRouteChapter {
   media?: AtlasRouteMedia[];
   notebook?: AtlasRouteNotebook;
   transfer?: AtlasRouteTransfer;
+  galleryStyle?: 'photo-essay';
   variant?: 'standard' | 'feature' | 'epilogue';
 }
 
