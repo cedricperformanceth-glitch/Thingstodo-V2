@@ -11,6 +11,7 @@ interface Props {
 const { chapter } = Astro.props;
 const richChapter = chapter as AtlasRouteExperienceChapter;
 const variant = chapter.variant ?? 'standard';
+const photoEssay = chapter.galleryStyle === 'photo-essay';
 const references = richChapter.references ?? [];
 const notes = richChapter.personalNotes ?? [];
 const storyNotes = notes.filter((note) => !note.placement || note.placement === 'story');
@@ -88,8 +89,8 @@ const aspectClass = (media: AtlasRouteMedia) =>
     </div>
 
     {chapter.media && chapter.media.length > 0 && (
-      <div class:list={['atlas-route-chapter__gallery', `atlas-route-chapter__gallery--${Math.min(chapter.media.length, 3)}`]}>
-        {chapter.media.slice(0, 3).map((media, index) => (
+      <div class:list={['atlas-route-chapter__gallery', `atlas-route-chapter__gallery--${Math.min(chapter.media.length, 3)}`, photoEssay && 'atlas-route-chapter__gallery--photo-essay']}>
+        {(photoEssay ? chapter.media : chapter.media.slice(0, 3)).map((media, index) => (
           <figure class:list={['atlas-route-chapter__media', aspectClass(media), `atlas-route-chapter__media--slot-${index + 1}`]}>
             {media.src ? (
               <img src={media.src} alt={media.alt} loading="lazy" decoding="async" />
@@ -196,6 +197,83 @@ const aspectClass = (media: AtlasRouteMedia) =>
   .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-1 { top: 2%; left: 0; width: 62%; height: 68%; transform: rotate(-1.4deg); }
   .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-2 { top: 0; right: 0; width: 36%; height: 49%; transform: rotate(1.6deg); }
   .atlas-route-chapter__gallery--3 .atlas-route-chapter__media--slot-3 { right: 8%; bottom: 0; width: 51%; height: 46%; transform: rotate(-.6deg); }
+
+  /* Kathleen's long chapters: use more photographs, never stretch one image to fill the story. */
+  .atlas-route-chapter__gallery--photo-essay {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(.75rem, 1.8vw, 1.35rem);
+    align-content: start;
+    align-self: start;
+    min-height: 0;
+  }
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media,
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media--slot-1,
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media--slot-2,
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media--slot-3 {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    transform: none;
+    overflow: hidden;
+    border-width: 5px;
+    align-self: start;
+  }
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media:nth-child(4n + 2) { margin-top: 1.15rem; }
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media:nth-child(4n + 3) { margin-top: -.5rem; }
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__placeholder {
+    min-height: 170px;
+    height: auto;
+  }
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__gallery-notes {
+    position: relative;
+    inset: auto;
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: start;
+    pointer-events: none;
+    padding-top: .4rem;
+  }
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__post-it--gallery,
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__post-it--gallery-top-right-gap,
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__post-it--gallery-image-1-overlap,
+  .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__post-it--gallery-bottom-left-gap {
+    position: relative;
+    inset: auto;
+    width: min(205px, 47%);
+    min-height: 96px;
+  }
+  @media (max-width: 560px) {
+    .atlas-route-chapter__gallery--photo-essay {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .7rem;
+      min-height: 0;
+      margin-top: 1.25rem;
+    }
+    .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media,
+    .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media--slot-1,
+    .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media--slot-2,
+    .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media--slot-3 {
+      width: 100%;
+      height: auto;
+      inset: auto;
+      border-width: 4px;
+    }
+    .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media:nth-child(n) { margin-top: 0; }
+    .atlas-route-chapter__gallery--photo-essay .atlas-route-chapter__media figcaption { font-size: .72rem; }
+  }
+
   .atlas-route-chapter__placeholder { display: grid; place-content: center; gap: .35rem; padding: 1rem; background: #eee6d7; color: #81786d; text-align: center; }
   .atlas-route-chapter__placeholder span { font-size: .65rem; font-weight: 700; letter-spacing: .2em; }
   .atlas-route-chapter__placeholder small { font-family: 'Caveat', cursive; font-size: 1.05rem; }
