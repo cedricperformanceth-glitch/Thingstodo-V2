@@ -26,8 +26,7 @@ const seo = {
     ? editorialRouteContent.subtitle
     : `${route.label} travel route for ${route.country}.`,
   canonicalPath: route.href,
-  // Keep the developing Kathleen route out of Google until editorial signoff.
-  indexable: Boolean(editorialRouteContent) && route.slug !== 'north-to-south',
+  indexable: Boolean(editorialRouteContent),
 };
 ---
 
