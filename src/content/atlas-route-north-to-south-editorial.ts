@@ -5,15 +5,6 @@ import { things } from './registry/things-to-do';
 import type { AtlasRouteMedia, AtlasRouteMediaAspect } from './atlas-route-content';
 import type { AtlasRouteExperienceContent, AtlasRouteExperienceNote, AtlasRouteReference } from './atlas-route-experience';
 
-/**
- * Kathleen's editorial working draft.
- * North to south is a proposed route assembled from approved Atlas material
- * and the publisher's firsthand experience. It is not a claim that the
- * original journey occurred in this exact order.
- *
- * Source of truth for exact addresses, media and practical details: Atlas
- * entity registries. Do not duplicate those records into this narrative.
- */
 const normalise = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const thing = (city: string, ...terms: string[]) =>
   things.find((entry) =>
@@ -89,19 +80,14 @@ const margin = (
 
 const kuangSi = thing('luang-prabang', 'kuang si');
 const pakOu = thing('luang-prabang', 'pak ou');
-const heritage = thing('luang-prabang', 'heritage walk');
-const phousi = thing('luang-prabang', 'phou si');
 const madMonkey = place('luang-prabang', 'mad monkey');
 
 const namXay = thing('vang-vieng', 'nam xay');
 const waterCave = thing('vang-vieng', 'tham nam');
 const kayak = thing('vang-vieng', 'kayaking');
-const lagoon = thing('vang-vieng', 'blue lagoon 3') ?? thing('vang-vieng', 'blue lagoon 1');
 const gardenBungalows = place('vang-vieng', 'garden bungalows');
 
 const siSaket = thing('vientiane', 'si saket');
-const mekongWalk = thing('vientiane', 'mekong riverside');
-const nightMarket = thing('vientiane', 'night market');
 const khopChai = place('vientiane', 'khop chai deu', 'kop chai deu');
 const barn1920 = place('vientiane', 'barn1920s');
 
@@ -111,11 +97,8 @@ const italao = place('pakse', 'italao');
 const phouSalao = thing('pakse', 'phou salao');
 
 const tadLo = thing('tad-lo', 'tad lo waterfall');
-const tadHang = thing('tad-lo', 'tad hang');
 const fandee = place('tad-lo', 'fandee island');
-const fandeePark = thing('tad-lo', 'fandee adventure');
 const bolavenGarden = place('tad-lo', 'bolaven garden');
-const tadLoWalk = thing('tad-lo', 'riverside village walk');
 
 export const northToSouthEditorial: AtlasRouteExperienceContent = {
   country: 'laos',
