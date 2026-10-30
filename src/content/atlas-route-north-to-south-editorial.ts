@@ -1,5 +1,6 @@
 import type { AtlasEntity } from '../core/models/types';
 import { places } from './registry/places';
+import cityFieldNoteMedia from './city-field-note-media-copy.json';
 import { things } from './registry/things-to-do';
 import type { AtlasRouteMedia, AtlasRouteMediaAspect } from './atlas-route-content';
 import type { AtlasRouteExperienceContent, AtlasRouteExperienceNote, AtlasRouteReference } from './atlas-route-experience';
@@ -36,6 +37,24 @@ const photo = (
     label: caption,
     ...(image?.src ? { src: image.src } : {}),
     aspect,
+  };
+};
+
+
+/* These are already licensed and catalogued in the Atlas city media bank. */
+const cityPhoto = (
+  id: string,
+  cityId: keyof typeof cityFieldNoteMedia,
+  index: number,
+  caption: string,
+): AtlasRouteMedia => {
+  const image = cityFieldNoteMedia[cityId]?.[index];
+  return {
+    id,
+    alt: image?.alt ?? caption,
+    label: caption,
+    ...(image?.src ? { src: image.src } : {}),
+    aspect: 'landscape',
   };
 };
 
@@ -130,6 +149,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
   chapters: [
     {
       id: 'north-luang-prabang',
+      galleryStyle: 'photo-essay',
       chapterLabel: 'CHAPTER 01 · DAYS 1 TO 4',
       title: 'Luang Prabang',
       durationLabel: '4 days',
@@ -157,6 +177,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         photo('n2s-lp-kuang-si', kuangSi, 'The tiers of Kuang Si'),
         photo('n2s-lp-old-town', heritage ?? phousi, 'Streets and temples of the old town', 'portrait'),
         photo('n2s-lp-pak-ou', pakOu, 'Pak Ou and the Mekong'),
+        cityPhoto('n2s-lp-city-mekong', 'city-laos-luang-prabang', 0, 'Luang Prabang across the Mekong'),
+        cityPhoto('n2s-lp-city-wat', 'city-laos-luang-prabang', 1, 'Wat Xieng Thong'),
+        cityPhoto('n2s-lp-city-evening', 'city-laos-luang-prabang', 2, 'Evening on the Mekong'),
+        cityPhoto('n2s-lp-city-falls', 'city-laos-luang-prabang', 3, 'The pools of Kuang Si'),
+        photo('n2s-lp-madmonkey', madMonkey, 'Mad Monkey Luang Prabang'),
       ],
       notebook: {
         id: 'n2s-lp-fieldbook',
@@ -204,6 +229,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-vang-vieng',
+      galleryStyle: 'photo-essay',
       chapterLabel: 'CHAPTER 02 · DAYS 5 TO 7',
       title: 'Vang Vieng',
       durationLabel: '3 days',
@@ -232,6 +258,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         photo('n2s-vv-nam-xay', namXay, 'Above the limestone valley'),
         photo('n2s-vv-water-cave', waterCave, 'Tham Nam Water Cave', 'portrait'),
         photo('n2s-vv-kayak', kayak, 'On the Nam Song'),
+        cityPhoto('n2s-vv-city-river', 'city-laos-vang-vieng', 0, 'The Nam Song and limestone mountains'),
+        cityPhoto('n2s-vv-city-lagoon', 'city-laos-vang-vieng', 1, 'Blue Lagoon'),
+        cityPhoto('n2s-vv-city-bridge', 'city-laos-vang-vieng', 2, 'Crossing the Nam Song'),
+        cityPhoto('n2s-vv-city-namxay', 'city-laos-vang-vieng', 3, 'The karst valley from Nam Xay'),
+        photo('n2s-vv-garden-gallery', gardenBungalows, 'Vang Vieng Garden Bungalows'),
       ],
       notebook: {
         id: 'n2s-vv-fieldbook',
@@ -269,6 +300,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-vientiane',
+      galleryStyle: 'photo-essay',
       chapterLabel: 'CHAPTER 03 · DAYS 8 TO 9',
       title: 'Vientiane',
       durationLabel: '2 days',
@@ -296,6 +328,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         photo('n2s-vte-si-saket', siSaket, 'At Wat Si Saket'),
         photo('n2s-vte-khop-chai', khopChai, 'Khop Chai Deu', 'portrait'),
         photo('n2s-vte-market', nightMarket ?? mekongWalk, 'Evening along the Mekong'),
+        cityPhoto('n2s-vte-city-temple', 'city-laos-vientiane', 0, 'Pha That Luang at sunrise'),
+        cityPhoto('n2s-vte-city-saket', 'city-laos-vientiane', 1, 'Wat Si Saket courtyard'),
+        cityPhoto('n2s-vte-city-patuxai', 'city-laos-vientiane', 2, 'The capital from Patuxai'),
+        cityPhoto('n2s-vte-city-mekong', 'city-laos-vientiane', 3, 'The Mekong in Vientiane'),
+        photo('n2s-vte-barn-gallery', barn1920, 'Barn1920s Hostel'),
       ],
       notebook: {
         id: 'n2s-vte-fieldbook',
@@ -335,6 +372,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-pakse',
+      galleryStyle: 'photo-essay',
       chapterLabel: 'CHAPTER 04 · DAY 10',
       title: 'Pakse, the southern base',
       durationLabel: '1 day',
@@ -357,6 +395,8 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         photo('n2s-pakse-boulange', boulange, 'La Boulange Garden'),
         photo('n2s-pakse-italao', italao, 'Ita Lao in Pakse', 'portrait'),
         photo('n2s-pakse-miss-noy', missNoy, 'Scooter rental in Pakse'),
+        cityPhoto('n2s-pakse-city-river', 'city-laos-pakse', 0, 'Pakse beside the Xe Don'),
+        cityPhoto('n2s-pakse-city-plateau', 'city-laos-pakse', 2, 'Waterfall country east of Pakse'),
       ],
       transfer: {
         label: 'Pakse → Bolaven Plateau',
@@ -365,6 +405,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-bolaven-loop',
+      galleryStyle: 'photo-essay',
       chapterLabel: 'CHAPTER 05 · DAYS 11 TO 13',
       title: 'The Bolaven Loop',
       durationLabel: '3 days',
@@ -393,6 +434,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         photo('n2s-bolaven-tad-lo', tadLo, 'Tad Lo Waterfall'),
         photo('n2s-bolaven-fandee', fandee, 'Fandee Island', 'portrait'),
         photo('n2s-bolaven-garden', bolavenGarden, 'Bolaven Garden'),
+        cityPhoto('n2s-bolaven-tad-hang-evening', 'city-tad-lo', 0, 'Tad Hang at sunset'),
+        cityPhoto('n2s-bolaven-village', 'city-tad-lo', 1, 'Tad Lo village landscape'),
+        cityPhoto('n2s-bolaven-waterfall', 'city-tad-lo', 2, 'Tad Lo waterfall on the plateau'),
+        cityPhoto('n2s-bolaven-footbridge', 'city-tad-lo', 3, 'River and footbridge at Tad Lo'),
+        photo('n2s-bolaven-adventure', fandeePark, 'Activities at Fandee Island'),
       ],
       notebook: {
         id: 'n2s-bolaven-fieldbook',
@@ -453,6 +499,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-pakse-return',
+      galleryStyle: 'photo-essay',
       chapterLabel: 'CHAPTER 06 · DAY 14',
       title: 'One last night in Pakse',
       durationLabel: '1 day',
@@ -472,6 +519,8 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
       media: [
         photo('n2s-pakse-return-salao', phouSalao, 'Wat Phou Salao and Pakse'),
         photo('n2s-pakse-return-city', boulange, 'A familiar Pakse address', 'portrait'),
+        cityPhoto('n2s-pakse-return-golden-buddha', 'city-laos-pakse', 1, 'The golden Buddha above Pakse'),
+        photo('n2s-pakse-return-missnoy', missNoy, 'Back to Miss Noy to return the scooter'),
       ],
       transfer: {
         label: 'Pakse → Vang Tao → Chong Mek',
@@ -480,6 +529,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-border',
+      galleryStyle: 'photo-essay',
       chapterLabel: 'FINAL DAY · DAY 15',
       title: 'Across the border',
       durationLabel: '1 day',
@@ -492,9 +542,9 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
       personalNotes: [
         margin('n2s-border-note', 'LAST PAGE', "I wouldn't add another stop just to fill the final day. Let the journey end properly.", { tone: 'paper', style: 'scribble' }),
       ],
-      media: [photo('n2s-border-pakse', phouSalao, 'A last view towards Pakse')],
+      // The border day stays text led rather than stretching an unrelated photo.
     },
   ],
   closingTitle: 'Keep the route. Change the rhythm.',
-  closingCopy: "This is my fifteen day version of Laos from north to south, not a fixed timetable or a reconstructed diary. Open the Atlas cards for the practical details, take the detours that suit you and leave room for the places you decide are worth another hour. One rule matters everywhere: motorbike laws, permits and drug restrictions still apply even when a town feels relaxed. Cannabis is illegal in Laos; don't confuse a quiet street with permission. The next part of the story is yours.",
+  closingCopy: "Fifteen days is a way of crossing Laos, not a reason to race through it. Open the Atlas cards for the addresses and practical details, keep the places that speak to you, and leave an afternoon free when you can. The best memories do not always come from the busiest days.",
 };
