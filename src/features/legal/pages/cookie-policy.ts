@@ -6,8 +6,8 @@ export const cookiePolicyPage: LegalPageData = {
   documentLabel: 'Legal note · Cookies',
   title: 'Cookie Policy',
   heroIntro: 'What the Atlas stores in your browser and how third-party advertising technologies may be used.',
-  documentIntro: 'Things To Do Atlas uses local browser storage for its save and trip-planning features and includes an Infolinks script for publisher-site verification. This policy explains these technologies and the potential use of third-party advertising cookies.',
-  lastUpdated: 'October 29, 2026',
+  documentIntro: 'Things To Do Atlas uses local browser storage for its save and trip-planning features and offers optional Infolinks advertising technology. This policy explains the stored advertising preference and potential third-party advertising cookies.',
+  lastUpdated: 'October 31, 2026',
   seo: {
     title: 'Cookie Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas uses cookies, local browser storage and similar technologies.',
@@ -49,7 +49,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The public version of Things To Do Atlas currently uses two local storage records to support features that visitors choose to use.',
+              text: 'The public version of Things To Do Atlas currently uses three local storage records: two for visitor-requested travel features and one for optional advertising preferences.',
             },
           ],
         },
@@ -68,13 +68,18 @@ export const cookiePolicyPage: LegalPageData = {
               'Remembers places and activities added to My Atlas so a trip selection can remain available between visits.',
               'Until removed by the visitor or cleared by the browser.',
             ],
+            [
+              'atlas.optionalAdvertisingConsent.v1',
+              'Records whether optional Infolinks advertising was accepted or rejected, together with the time of that choice.',
+              'The choice is valid for 180 days. The record may remain until replaced or cleared, but an expired choice is no longer accepted.',
+            ],
           ],
         },
         {
           type: 'paragraph',
           content: [
             {
-              text: 'These records contain destination and activity information needed to rebuild the visitor’s saved selection. They are not used by the current application to create an account, identify a visitor by name or build an advertising profile.',
+              text: 'The first two records contain destination and activity information needed to rebuild saved selections. The third contains only the advertising choice and its timestamp. None of these records is used by the Atlas features to create an account or identify a visitor by name.',
             },
           ],
         },
@@ -127,7 +132,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use necessary technologies of its own. After optional advertising consent, Infolinks JavaScript may make third-party requests and use identifiers. The visitor’s advertising choice and timestamp are stored locally under atlas.optionalAdvertisingConsent.v1 for up to 180 days. The site asks again after that period or if the preference is cleared.',
+              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use necessary technologies of its own. After optional advertising consent, Infolinks JavaScript may make third-party requests and use identifiers. The visitor’s advertising choice and timestamp are recorded locally under atlas.optionalAdvertisingConsent.v1. The preference is valid for 180 days; after that period the site asks again. An expired record may remain in localStorage until replaced or cleared, but it no longer counts as consent.',
             },
           ],
         },
