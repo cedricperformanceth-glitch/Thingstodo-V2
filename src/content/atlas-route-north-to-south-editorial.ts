@@ -88,7 +88,6 @@ const kayakRiver = thing('vang-vieng','nam song river kayaking');
 const lagoonOne = thing('vang-vieng','blue lagoon 1');
 const vientianeRiverside = thing('vientiane','mekong riverside walk');
 const fandeeAdventure = thing('tad-lo','fandee adventure');
-const tadHang = thing('tad-lo','tad hang');
 /* Commons photos: Everhard van Eimeren CC BY-SA 4.0, Dan Searle CC BY-SA 2.0,
  * and Oatz public domain, respectively. Attribution is in the visible captions. */
 const commonsPhoto = (id: string, file: string, label: string): AtlasRouteMedia => ({
