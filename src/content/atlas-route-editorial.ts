@@ -1,4 +1,5 @@
 import { northToSouthEditorial } from './atlas-route-north-to-south-editorial';
+import cityFieldNoteMedia from './city-field-note-media-copy.json';
 import type { AtlasEntity, CategorySlug } from '../core/models/types';
 import { places } from './registry/places';
 import { things } from './registry/things-to-do';
@@ -52,6 +53,11 @@ const mediaFrom = (
     ...(image?.src ? { src: image.src } : {}),
     aspect,
   };
+};
+
+const cityPhoto = (id: string, city: keyof typeof cityFieldNoteMedia, index: number, label: string): AtlasRouteMedia => {
+  const photo = cityFieldNoteMedia[city]?.[index];
+  return { id, alt: photo?.alt ?? label, label, ...(photo?.src ? {src:photo.src} : {}), aspect:'landscape' };
 };
 
 const reference = (
@@ -200,11 +206,15 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
             list: ['Kayak if you want a full day', 'Swim only where the current and local advice make sense', 'Keep the sunset free'],
             references: [reference('don-book-kayak', 'Kayaking', donKayak, 'Save it if a proper paddle belongs in your route.'), reference('don-book-swim', 'River beach', donSwim, 'Save it if a quiet swim stop sounds better.')],
           }),
-          page('don-page-03', 'memory', 'Nothing planned after lunch', 'A route page should be allowed to recommend nothing. Don Det is one of those places where an empty block can be the right decision.', {
+          page('don-page-03', 'memory', 'Nothing planned after lunch', 'On Don Det, my favourite sort of afternoon is the one that becomes longer without anyone announcing it. You ride a little, stop by the water and find somewhere to sit. There is no need to invent another activity just because the day has a few hours left.', {
             kicker: 'MEMORY',
             handwrittenNote: 'One drink. One hammock. No next stop.',
             noteTone: 'rose',
             media: [mediaFrom('don-book-last', donSunset, 'Don Det at the end of the day')],
+          }),
+          page('don-page-04','photo','Watch the river a little longer','I would give the final island afternoon to the light on the Mekong rather than another checklist. The water changes the feeling of the whole place, particularly as the day gets quieter.',{
+            kicker:'RIVER MEMORY',
+            media:[cityPhoto('don-extra-sunset','city-don-det',0,'Pirogue on the Mekong at sunset')],
           }),
         ],
       },
@@ -243,7 +253,7 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
             references: [reference('pakse-book-vat', 'Vat Phou', vatPhou, 'Open the full field note before you build the day.')],
             media: [mediaFrom('pakse-book-vat-media', vatPhou, 'Vat Phou')],
           }),
-          page('pakse-page-02', 'memory', 'The breakfast that changed the schedule', 'The best personal recommendations are sometimes tiny. Mine in Pakse is breakfast.', {
+          page('pakse-page-02', 'memory', 'The breakfast that changed the schedule', 'I still think about how much a good breakfast can affect a travel day. In Pakse, Boulange Garden was the kind of place I would happily sit longer than planned. Good bread and a comfortable morning make all the difference before getting back on the road.', {
             kicker: 'PERSONAL MEMORY',
             handwrittenNote: 'Yes, I stayed another day for it.',
             noteTone: 'butter',
@@ -254,6 +264,10 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
             list: ['Check the bike', 'Fill the tank', 'Save the map', 'Carry enough cash'],
             handwrittenNote: 'Then stop thinking about logistics.',
             noteTone: 'sage',
+          }),
+          page('pakse-page-04','scrapbook','A little of the city before leaving','Pakse is useful as a base, but that does not make it forgettable. Its river setting, food stops and easy rhythm deserve more than a hurried fuel stop.',{
+            kicker:'CITY MOMENTS',
+            media:[cityPhoto('pakse-extra-river','city-laos-pakse',0,'The Xe Don in Pakse'),cityPhoto('pakse-extra-buddha','city-laos-pakse',1,'Wat Phou Salao')],
           }),
         ],
       },
@@ -348,11 +362,12 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
         title: 'A few road pages from Thakhek',
         intro: 'Open this when the route starts feeling more like a road trip than a city stop.',
         pages: [
-          page('thakhek-page-01', 'checklist', 'Before Route 12', 'Ten careful minutes in town are better than a mechanical surprise in limestone country.', {
+          page('thakhek-page-01', 'checklist', 'Before Route 12', 'Before riding towards Route 12 and the limestone country, I would make the practical checks in town. Once you are surrounded by caves and quieter stretches of road, the last thing you want is to discover that the scooter was never ready for the journey.', {
             kicker: 'BEFORE YOU RIDE',
             list: ['Check both brakes', 'Look at the tyres', 'Test the lights', 'Save the route offline'],
             handwrittenNote: 'The first kilometres should confirm the bike.',
             noteTone: 'sage',
+            media: [cityPhoto('thakhek-checklist-road','city-laos-thakhek',3,'Road east towards the caves')],
           }),
           page('thakhek-page-02', 'atlas-picks', 'Pick the cave, then enjoy the road', 'Do not stack every cave into one day. Pick the one that makes the route feel right.', {
             kicker: 'ONE DIRECTION',
@@ -363,6 +378,10 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
             kicker: 'PERSONAL CHOICE',
             handwrittenNote: 'Cheapest and best are not always the same answer.',
             noteTone: 'rose',
+          }),
+          page('thakhek-page-04','scrapbook','The road is part of the visit','Route 12 has the sort of limestone landscape that makes you want to stop between the named attractions. The scenery and riverfront are as much part of the journey as the caves.',{
+            kicker:'ROAD JOURNAL',
+            media:[cityPhoto('thakhek-extra-road','city-laos-thakhek',3,'Road to the caves'),cityPhoto('thakhek-extra-river','city-laos-thakhek',0,'Thakhek on the Mekong')],
           }),
         ],
       },
@@ -398,10 +417,15 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
             references: [reference('vientiane-book-cafe', 'Breakfast stop', vientianeCafe, 'Save it for the morning you do not want an alarm.')],
             media: [mediaFrom('vientiane-book-cafe-media', vientianeCafe, 'Vientiane breakfast')],
           }),
-          page('vientiane-page-02', 'memory', 'Nothing heroic today', 'Walk, eat and watch the city settle toward the river. The route gets bigger again tomorrow.', {
+          page('vientiane-page-02', 'memory', 'Nothing heroic today', 'Vientiane is an easy city in which to allow yourself a quieter day. Visit a temple, find somewhere worth sitting for lunch, then let the streets carry you towards the Mekong as evening arrives. The capital is not trying to compete with the landscape around Vang Vieng, and it does not need to.', {
             kicker: 'RESET',
             handwrittenNote: 'Rest is part of the Atlas too.',
             noteTone: 'paper',
+            media: [cityPhoto('vientiane-quiet-river','city-laos-vientiane',3,'Mekong evening in Vientiane')],
+          }),
+          page('vientiane-page-03','scrapbook','The capital at another hour','The same streets feel different towards evening. Instead of chasing the final attraction, I would use the last hours in Vientiane to walk beside the river and enjoy a proper meal.',{
+            kicker:'EVENING WALK',
+            media:[cityPhoto('vientiane-extra-saket','city-laos-vientiane',1,'Wat Si Saket'),cityPhoto('vientiane-extra-patuxai','city-laos-vientiane',2,'Patuxai avenue')],
           }),
         ],
       },
@@ -446,12 +470,17 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
             references: [reference('vv-book-tubing', 'Tubing', tubing, 'Keep the river afternoon in your Atlas.')],
             media: [mediaFrom('vv-tubing-media', tubing, 'Tubing on the Nam Song')],
           }),
-          page('vv-page-03', 'checklist', 'One limestone day', 'Pick one climb or cave direction and let it be enough.', {
+          page('vv-page-03', 'checklist', 'One limestone day', 'The landscape around Vang Vieng is wonderful but it rewards choosing one main direction. Start early if you are climbing, carry water and give yourself time for the journey back. There are always more caves and lagoons than a single day can comfortably hold.', {
             kicker: 'KARST PAGE',
             list: ['Start before the strongest heat', 'Bring water', 'Choose one main objective', 'Keep the evening open'],
             references: [reference('vv-book-namxay', 'Nam Xay Viewpoint', namXay, 'Open the field note if this is the climb you choose.')],
             handwrittenNote: 'More pins do not make a better day.',
             noteTone: 'butter',
+            media: [cityPhoto('vv-limestone-book','city-laos-vang-vieng',3,'Karst peaks from Nam Xay')],
+          }),
+          page('vv-page-04','scrapbook','There is always another river afternoon','Vang Vieng can be as energetic or as gentle as you decide. After the climb or the cave, the Nam Song is somewhere to sit and watch the landscape settle, without trying to earn the evening.',{
+            kicker:'RIVER JOURNAL',
+            media:[cityPhoto('vv-extra-river','city-laos-vang-vieng',0,'The Nam Song'),cityPhoto('vv-extra-bridge','city-laos-vang-vieng',2,'Bridge over the Nam Song')],
           }),
         ],
       },
@@ -540,11 +569,15 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
             handwrittenNote: 'No rush. That is why you chose the boat.',
             noteTone: 'sky',
           }),
-          page('slow-page-02', 'memory', 'Day two toward Houayxay', 'The second day turns the border into an ending rather than a sudden cut. Recheck the current pier and border details when you travel, then let the editorial idea stay simple.', {
+          page('slow-page-02', 'atlas-picks', 'Day two toward Houayxay', 'The second river day continues from Pakbeng towards Houay Xai. It is a different kind of ending from leaving a country by road: the river stays with you until almost the last moment. I would rather enjoy that than make the final day into a race for the border.', {
             kicker: 'RIVER DAY TWO',
             handwrittenNote: 'One last long look at Laos.',
             noteTone: 'butter',
             references: [reference('slow-book-ref', 'Slow boat', slowBoat, 'Save the field note if you want this ending in your Atlas.')],
+          }),
+          page('slow-page-03','scrapbook','The last bends of the Mekong','The slow boat is a wonderfully unhurried way to end a month in Laos. It leaves you with riverbanks, boats and the feeling of having crossed the country in a different rhythm.',{
+            kicker:'LAST RIVER PAGE',
+            media:[cityPhoto('slow-extra-mekong','city-laos-luang-prabang',2,'Mekong evening'),cityPhoto('slow-extra-landscape','city-laos-luang-prabang',0,'Luang Prabang and the Mekong')],
           }),
         ],
       },
