@@ -393,7 +393,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
       title: 'Leaving Laos',
       durationLabel: '1 day',
       variant: 'epilogue',
-      intro: "The final day takes the road from Pakse to the Vang Tao and Chong Mek border crossing. I originally arrived through Chong Mek from Thailand. For this version of the journey, it makes a natural way out.",
+      intro: "I entered Laos in the far north and travelled all the way south. After returning the scooter in Pakse, I left the country through the Vang Tao and Chong Mek crossing, back into Thailand. This time the border really was the final chapter.",
       body: [
         "Fifteen days, four quite different parts of Laos, and plenty of reasons to return. What I remember most is not always a famous attraction. Sometimes it is a welcoming guesthouse owner, live music or a particularly good chocolate cake.",
       ],
