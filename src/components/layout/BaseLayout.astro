@@ -17,6 +17,7 @@ interface Props {
   showSiteChrome?: boolean;
   showNavbar?: boolean;
   showFooter?: boolean;
+  adsEligible?: boolean;
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   showSiteChrome = !immersive,
   showNavbar = showSiteChrome,
   showFooter = showSiteChrome,
+  adsEligible = false,
 } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
 const pageIsIndexable = indexingEnabled && meta.indexable;
@@ -84,6 +86,6 @@ const pageIsIndexable = indexingEnabled && meta.indexable;
         void import('../../features/favorites/client');
       }
     </script>
-    <AdvertisingConsent />
+    <AdvertisingConsent {adsEligible} />
   </body>
 </html>
