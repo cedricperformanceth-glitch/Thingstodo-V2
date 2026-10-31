@@ -14,15 +14,20 @@ const { adsEligible = false } = Astro.props;
     </svg>
     <span class="atlas-consent__settings-label" aria-hidden="true">Cookies</span>
   </button>
-  <aside class="atlas-consent__notice" data-consent-notice aria-label="Optional advertising and cookies" hidden>
+  <aside class="atlas-consent__notice" data-consent-notice aria-label="Optional cookies and privacy choices" hidden>
     <div class="atlas-consent__explanation">
-      <strong>Advertising and cookies</strong>
-      <p>Atlas saves your travel plans locally. Optional Infolinks advertising technology is loaded only if you accept it. Refusing does not affect your Atlas features, and you can change your choice later.</p>
+      <strong>Privacy and cookies</strong>
+      <p>Atlas saves your travel selections locally. Analytics and advertising are optional and stay off unless you consent. Choose each service independently.</p>
+      <div class="atlas-consent__options" role="group" aria-label="Optional services">
+        <label><input type="checkbox" data-consent-analytics /> Audience measurement (Google Analytics)</label>
+        <label><input type="checkbox" data-consent-ads /> Advertising technology (Infolinks)</label>
+      </div>
       <p class="atlas-consent__links"><a href="/legal/cookie-policy">Cookie Policy</a><a href="/legal/privacy-policy">Privacy Policy</a></p>
     </div>
     <div class="atlas-consent__actions">
-      <button type="button" data-consent-reject>Reject optional ads</button>
-      <button type="button" data-consent-accept>Accept optional ads</button>
+      <button type="button" data-consent-reject>Reject optional</button>
+      <button type="button" data-consent-save>Save choices</button>
+      <button type="button" data-consent-accept>Accept all</button>
     </div>
   </aside>
 </div>
@@ -37,13 +42,20 @@ const { adsEligible = false } = Astro.props;
     const settings = root.querySelector('[data-consent-settings]');
     const accept = root.querySelector('[data-consent-accept]');
     const reject = root.querySelector('[data-consent-reject]');
-    if (!notice || !settings || !accept || !reject) return;
+    const saveButton = root.querySelector('[data-consent-save]');
+    const adsInput = root.querySelector('[data-consent-ads]');
+    const analyticsInput = root.querySelector('[data-consent-analytics]');
+    if (!notice || !settings || !accept || !reject || !saveButton || !adsInput || !analyticsInput) return;
 
-    const key = 'atlas.optionalAdvertisingConsent.v1';
+    // Preserve existing advertising preferences. Analytics has its own consent
+    // key, so previous advertising consent never authorizes GA4 retroactively.
+    const adsKey = 'atlas.optionalAdvertisingConsent.v1';
+    const analyticsKey = 'atlas.optionalAnalyticsConsent.v1';
     const maxAgeMs = 180 * 24 * 60 * 60 * 1000;
-    let loaded = false;
+    let adsLoaded = false;
+    let analyticsLoaded = false;
 
-    const read = () => {
+    const read = key => {
       try {
         const value = JSON.parse(localStorage.getItem(key) || 'null');
         const age = Date.now() - value?.at;
@@ -51,19 +63,16 @@ const { adsEligible = false } = Astro.props;
           typeof value.at === 'number' && age >= 0 && age <= maxAgeMs ? value.choice : null;
       } catch { return null; }
     };
-    const save = choice => {
+    const write = (key, choice) => {
       try { localStorage.setItem(key, JSON.stringify({ choice, at: Date.now() })); }
-      catch { /* Still respect choice for this page when storage is unavailable. */ }
+      catch { /* Respect the current page choice even without persistent storage. */ }
     };
     const loadAds = () => {
-      // Only explicitly approved editorial pages with registered ad slots can load
-      // the provider script. Personal, legal, 404 and other pages stay ad-free.
-      // Infolinks controls its own formats and does NOT automatically use these
-      // reserved slot markers; per-slot placement needs a separate integration.
+      // Only approved editorial pages with registered ad slots load Infolinks.
       if (root.dataset.atlasAdsEligible !== 'true') return;
       if (!document.querySelector('template[data-atlas-ad-slot]')) return;
-      if (loaded || document.querySelector('script[data-atlas-infolinks]')) return;
-      loaded = true;
+      if (adsLoaded || document.querySelector('script[data-atlas-infolinks]')) return;
+      adsLoaded = true;
       window.infolinks_pid = 3448891;
       window.infolinks_wsid = 0;
       const script = document.createElement('script');
@@ -71,21 +80,45 @@ const { adsEligible = false } = Astro.props;
       script.dataset.atlasInfolinks = 'true';
       document.body.appendChild(script);
     };
+    const loadAnalytics = () => {
+      // Do not request Google's script or create GA cookies before opt-in.
+      if (analyticsLoaded || document.querySelector('script[data-atlas-analytics]')) return;
+      analyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-MR20XJMESG');
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MR20XJMESG';
+      script.dataset.atlasAnalytics = 'true';
+      document.head.appendChild(script);
+    };
     const show = () => { notice.hidden = false; settings.hidden = true; };
     const hide = () => { notice.hidden = true; settings.hidden = false; };
-    const select = choice => {
-      const wasLoaded = loaded;
-      save(choice);
+    const select = (allowAds, allowAnalytics) => {
+      // A reload stops already loaded scripts when consent is withdrawn.
+      const revokeLoadedAds = adsLoaded && !allowAds;
+      const revokeLoadedAnalytics = analyticsLoaded && !allowAnalytics;
+      write(adsKey, allowAds ? 'accepted' : 'rejected');
+      write(analyticsKey, allowAnalytics ? 'accepted' : 'rejected');
+      adsInput.checked = allowAds;
+      analyticsInput.checked = allowAnalytics;
       hide();
-      if (choice === 'accepted') loadAds();
-      else if (wasLoaded) window.location.reload();
+      if (revokeLoadedAds || revokeLoadedAnalytics) {
+        window.location.reload();
+        return;
+      }
+      if (allowAds) loadAds();
+      if (allowAnalytics) loadAnalytics();
     };
 
     settings.addEventListener('click', () => { show(); reject.focus(); });
-    accept.addEventListener('click', () => select('accepted'));
-    reject.addEventListener('click', () => select('rejected'));
+    accept.addEventListener('click', () => select(true, true));
+    reject.addEventListener('click', () => select(false, false));
+    saveButton.addEventListener('click', () => select(adsInput.checked, analyticsInput.checked));
     window.addEventListener('storage', event => {
-      if (event.key === key || event.key === null) window.location.reload();
+      if (event.key === adsKey || event.key === analyticsKey || event.key === null) window.location.reload();
     });
 
     // Align this independent button alongside the existing Menu block, without
@@ -144,9 +177,14 @@ const { adsEligible = false } = Astro.props;
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', positionSettings, { passive: true });
 
-    const choice = read();
-    if (choice === 'accepted') { hide(); loadAds(); }
-    else if (choice === 'rejected') hide();
+    const adChoice = read(adsKey);
+    const analyticsChoice = read(analyticsKey);
+    adsInput.checked = adChoice === 'accepted';
+    analyticsInput.checked = analyticsChoice === 'accepted';
+    if (adChoice === 'accepted') loadAds();
+    if (analyticsChoice === 'accepted') loadAnalytics();
+    // Previously saved ad consent does not count as analytics consent.
+    if (adChoice && analyticsChoice) hide();
     else show();
 
     positionSettings();
@@ -181,6 +219,12 @@ const { adsEligible = false } = Astro.props;
   .atlas-consent__explanation { flex: 1 1 370px; min-width: 0; }
   .atlas-consent__explanation strong { display: block; margin: 0 0 .45rem; font: 600 1.08rem/1.2 Georgia, serif; }
   .atlas-consent__explanation p { margin: 0; color: #f4eadc; font: .84rem/1.55 system-ui, sans-serif; }
+  .atlas-consent__options {
+    display: grid; gap: .5rem; margin-top: .85rem;
+    font: 500 .84rem/1.45 system-ui, sans-serif;
+  }
+  .atlas-consent__options label { display: flex; align-items: center; gap: .65rem; cursor: pointer; }
+  .atlas-consent__options input { flex: none; width: 17px; height: 17px; accent-color: #edd4a3; }
   .atlas-consent__explanation .atlas-consent__links {
     display: flex; flex-wrap: wrap; gap: 1rem; margin-top: .55rem; font-size: .78rem;
   }
@@ -190,6 +234,7 @@ const { adsEligible = false } = Astro.props;
     min-height: 40px; padding: .6rem .8rem; border: 1px solid #cdbd9a; border-radius: 4px;
     background: transparent; color: #fffaf1; font: 600 .78rem/1.2 system-ui, sans-serif; cursor: pointer;
   }
+  .atlas-consent__actions [data-consent-save] { border-color: #edd4a3; }
   .atlas-consent__actions [data-consent-accept] { background: #edd4a3; border-color: #edd4a3; color: #23392f; }
   .atlas-consent button:focus-visible, .atlas-consent a:focus-visible { outline: 3px solid #f3c17a; outline-offset: 3px; }
   @media (max-width: 700px) {
