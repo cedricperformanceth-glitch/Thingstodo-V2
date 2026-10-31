@@ -173,7 +173,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, Google's tag loads and may use cookies or identifiers to distinguish visits. Separately, Infolinks is optional for potential advertising and may use cookies, local storage or identifiers. No optional provider script is loaded solely because another optional service was accepted.',
+              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Separately, Infolinks is optional for potential advertising and may use cookies, local storage or identifiers. No optional provider script is loaded solely because another optional service was accepted.',
             },
           ],
         },
