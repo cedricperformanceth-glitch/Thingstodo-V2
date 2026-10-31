@@ -5,8 +5,8 @@ export const cookiePolicyPage: LegalPageData = {
   eyebrow: 'Legal',
   documentLabel: 'Legal note · Cookies',
   title: 'Cookie Policy',
-  heroIntro: 'What the Atlas stores in your browser and how third-party advertising technologies may be used.',
-  documentIntro: 'Things To Do Atlas uses local browser storage for its save and trip-planning features and offers optional Infolinks advertising technology. This policy explains the stored advertising preference and potential third-party advertising cookies.',
+  heroIntro: 'What the Atlas stores in your browser and how optional analytics and advertising technologies may be used.',
+  documentIntro: 'Things To Do Atlas stores travel selections locally and offers optional Google Analytics audience measurement and Infolinks advertising. Both services require a separate, explicit choice and are disabled until accepted.',
   lastUpdated: 'October 31, 2026',
   seo: {
     title: 'Cookie Policy | Things To Do Atlas',
@@ -49,7 +49,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The public version of Things To Do Atlas currently uses three local storage records: two for visitor-requested travel features and one for optional advertising preferences.',
+              text: 'The public version of Things To Do Atlas uses two local storage records for visitor-requested travel features and two for optional analytics and advertising preferences.',
             },
           ],
         },
@@ -70,8 +70,13 @@ export const cookiePolicyPage: LegalPageData = {
             ],
             [
               'atlas.optionalAdvertisingConsent.v1',
-              'Records whether optional Infolinks advertising was accepted or rejected, together with the time of that choice.',
-              'The choice is valid for 180 days. The record may remain until replaced or cleared, but an expired choice is no longer accepted.',
+              'Stores the Infolinks advertising choice and its timestamp.',
+              'The choice is valid for up to 180 days.',
+            ],
+            [
+              'atlas.optionalAnalyticsConsent.v1',
+              'Stores the Google Analytics audience measurement choice and its timestamp.',
+              'The choice is valid for up to 180 days.',
             ],
           ],
         },
@@ -79,7 +84,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The first two records contain destination and activity information needed to rebuild saved selections. The third contains only the advertising choice and its timestamp. None of these records is used by the Atlas features to create an account or identify a visitor by name.',
+              text: 'The first two records rebuild saved travel selections. The other two contain separate choices and timestamps for optional advertising and analytics. Neither the travel features nor these consent records create a visitor account. After explicit analytics consent, Google Analytics may also set its own measurement cookies.',
             },
           ],
         },
@@ -124,7 +129,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The site does not include Google Analytics or Google AdSense. Infolinks JavaScript is available for publisher-site verification and potential advertising but is loaded only after a visitor explicitly accepts optional advertising. This does not imply that Infolinks has approved the publisher application or that ads are currently being served. If loaded, Infolinks and its partners may use cookies and similar identifiers.',
+              text: 'Google Analytics 4 (measurement ID G-MR20XJMESG) measures visits, page views and engagement only after the visitor accepts audience measurement. Google may then set measurement cookies such as _ga. The site does not use Google AdSense. Infolinks advertising JavaScript is separately optional, and is loaded only after advertising consent on eligible pages; this does not imply advertising approval.',
             },
           ],
         },
@@ -132,7 +137,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The infrastructure used to host, deliver or protect the website may process technical requests and may use necessary technologies of its own. After optional advertising consent, Infolinks JavaScript may make third-party requests and use identifiers. The visitor’s advertising choice and timestamp are recorded locally under atlas.optionalAdvertisingConsent.v1. The preference is valid for 180 days; after that period the site asks again. An expired record may remain in localStorage until replaced or cleared, but it no longer counts as consent.',
+              text: 'The infrastructure used to deliver or protect the website may process necessary technical requests. With consent, Google Analytics and Infolinks may each make third-party requests and use relevant identifiers. The site stores the two consent choices independently, each for up to 180 days. Older advertising consent never authorizes Analytics. Expired choices do not count as consent.',
             },
           ],
         },
@@ -146,7 +151,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas loads some web fonts from Google Fonts. Infolinks JavaScript is loaded only when optional advertising is accepted. These third-party resources may require browser connections to their providers. They are separate from the Atlas favourites and trip localStorage records.',
+              text: 'Things To Do Atlas loads some web fonts from Google Fonts. Google Analytics is loaded only after analytics consent, and Infolinks only after advertising consent on eligible pages. Each external service may receive request information and, when applicable, use cookies or related browser identifiers.',
             },
           ],
         },
@@ -168,7 +173,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas offers an optional Infolinks script for publisher-site verification and potential advertising. It loads only after express consent. Once loaded, advertising technologies can use cookies, local storage or identifiers for fraud prevention, measurement, ad selection or frequency control. Atlas does not currently use Google AdSense or Google Analytics.',
+              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, Google's tag loads and may use cookies or identifiers to distinguish visits. Separately, Infolinks is optional for potential advertising and may use cookies, local storage or identifiers. No optional provider script is loaded solely because another optional service was accepted.',
             },
           ],
         },
@@ -177,6 +182,8 @@ export const cookiePolicyPage: LegalPageData = {
           content: [
             { text: 'For further information, see the ' },
             { text: 'Infolinks Privacy Policy', href: 'https://sites0001.infolinks.com/privacy-policy', external: true },
+            { text: ', the ' },
+            { text: 'Google Privacy Policy', href: 'https://policies.google.com/privacy', external: true },
             { text: ' and the ' },
             { text: 'Network Advertising Initiative opt-out information', href: 'https://optout.networkadvertising.org/', external: true },
             { text: '. Browser settings can also be used to manage cookies, although opting out of tailored advertising does not necessarily disable all cookies.' },
@@ -190,7 +197,7 @@ export const cookiePolicyPage: LegalPageData = {
           paragraphs: [
             [
               {
-                text: 'The Infolinks script is blocked until the visitor selects Accept optional ads. Reject optional ads leaves it unloaded. Cookie settings can be reopened on any page. Withdrawing consent after the script has run reloads the page to prevent it from loading again, although cookies already stored by third parties may need to be cleared in the browser.',
+                text: 'Visitors may consent to advertising and audience measurement independently or reject both. Without a positive choice, the respective external script remains unloaded. Cookie settings are available on every page. Withdrawing consent reloads the page to stop further loading of a previously activated service. Previously set third-party cookies may need to be cleared in browser settings.',
               },
             ],
           ],
@@ -228,7 +235,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas offers Accept optional ads and Reject optional ads before loading Infolinks. Both choices allow full use of the site. Visitors can reopen Cookie settings on any page; their choice is retained locally for up to 180 days.',
+              text: 'The cookie banner provides separate advertising and analytics checkboxes, plus Reject optional, Save choices and Accept all. All site features remain available when both are rejected. Visitors can reopen Cookie settings on any page; each choice is retained locally for up to 180 days.',
             },
           ],
         },
@@ -236,7 +243,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Visitors can change or withdraw consent for optional advertising through Cookie settings at any time. Withdrawal after acceptance reloads the page. Previously stored third-party cookies are not automatically removed and may also be cleared in browser settings.',
+              text: 'Visitors can independently change or withdraw advertising and analytics consent at any time. Withdrawing permission after a script has loaded reloads the page. Previously stored third-party cookies are not automatically erased and may also be cleared through browser settings.',
             },
           ],
         },
