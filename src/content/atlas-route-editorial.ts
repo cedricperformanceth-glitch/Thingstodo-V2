@@ -245,8 +245,8 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
       notebook: {
         id: 'pakse-notes',
         label: 'CITY NOTES',
-        title: 'Two pages from Pakse',
-        intro: 'This chapter is small on purpose. Pakse gives the route direction rather than volume.',
+        title: 'The Pakse pages',
+        intro: 'Small city memories, favourite stops and a few notes before the southern roads.',
         pages: [
           page('pakse-page-01', 'atlas-picks', 'One day south', 'Give Vat Phou enough room that the drive and the landscape belong to the same day.', {
             kicker: 'DAY DIRECTION',
@@ -409,8 +409,8 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
       notebook: {
         id: 'vientiane-notes',
         label: 'PAUSE BOOK',
-        title: 'Two quiet pages in Vientiane',
-        intro: 'This is the smallest field book on purpose.',
+        title: 'A few quiet pages in Vientiane',
+        intro: 'Temple walks, evenings and the softer rhythm of the capital.',
         pages: [
           page('vientiane-page-01', 'atlas-picks', 'Breakfast first', 'Choose one place you actually want to sit in. A slow morning is enough of a plan.', {
             kicker: 'MORNING',
@@ -561,7 +561,7 @@ const southToNorthEditorial: AtlasRouteExperienceContent = {
         id: 'slow-boat-notes',
         label: 'LAST PAGES',
         title: 'The Atlas closes slowly',
-        intro: 'Two pages are enough for the last two river days.',
+        intro: 'River moments from the last two days, captured in a few pages.',
         pages: [
           page('slow-page-01', 'photo', 'Day one to Pakbeng', 'Settle into the boat and stop measuring the day by arrival time. The banks, villages and long bends of river are the point.', {
             kicker: 'RIVER DAY ONE',
