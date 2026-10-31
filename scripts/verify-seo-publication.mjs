@@ -41,6 +41,20 @@ function output(path) {
   throw new Error(`Missing built HTML: ${path} (tried ${options.join(', ')})`);
 }
 
+const nonAdvertisingRoutes = ['/404', '/summary', '/legal/cookie-policy', '/legal/privacy-policy', '/legal/legal-notice', '/legal/terms-of-use', '/legal/editorial-policy', '/legal/media-credits'];
+const approvedAdRouteSamples = ['/laos/pakse/field-note', '/laos/don-det/things-to-do/cycle-don-det-don-khon'];
+
+function verifyAdvertisingScope(path, html, eligible) {
+  assert(!/AD PLACEHOLDER/i.test(html), `${path}: visible ad placeholder must never appear in public HTML`);
+  const eligibilityFlag = `data-atlas-ads-eligible="${eligible ? 'true' : 'false'}"`;
+  assert(html.includes(eligibilityFlag), `${path}: expected ${eligibilityFlag}`);
+  const hasSlotMarkers = /<template\b[^>]*\bdata-atlas-ad-slot=/i.test(html);
+  assert(hasSlotMarkers === eligible, `${path}: reserved ad slot markers not consistent with eligibility ${eligible}`);
+  assert((html.includes('data-atlas-infolinks-verification')) === eligible,
+    `${path}: Infolinks verification snippet must be scoped to approved editorial pages only`);
+  console.log(`PASS ad scope ${path}: eligible=${eligible}, reserved positions=${hasSlotMarkers}, no public placeholders`);
+}
+
 function verifySeoArtifacts(indexable) {
   const sitemap = readFileSync(join('dist', 'sitemap.xml'), 'utf8');
   const robotsTxt = readFileSync(join('dist', 'robots.txt'), 'utf8');
@@ -87,6 +101,12 @@ if (mode === 'build') {
   assert(/This page took a different road\./.test(notFound), 'Missing Atlas 404 body');
   assert(/noindex/i.test(robots(notFound)), '404 should explicitly noindex');
   console.log('PASS 404.html exists and is non-indexable');
+  for (const path of nonAdvertisingRoutes) {
+    verifyAdvertisingScope(path, output(path), false);
+  }
+  for (const path of approvedAdRouteSamples) {
+    verifyAdvertisingScope(path, output(path), true);
+  }
   const verificationFile = join('dist', googleVerificationFile);
   assert(existsSync(verificationFile), 'Google Search Console verification file missing from build');
   assert(readFileSync(verificationFile, 'utf8').trim() === googleVerificationContent,
@@ -115,6 +135,15 @@ if (mode === 'build') {
       assert(/This page took a different road\./.test(missing.html), 'new custom Atlas 404 is not yet deployed');
       assert(/noindex/i.test(robots(missing.html)), 'live 404 missing noindex');
       console.log('PASS Cloudflare unknown route: HTTP 404 with Atlas page and noindex');
+      verifyAdvertisingScope('/404', missing.html, false);
+
+      // Check the current advertising policy, not just an old successful SEO deployment.
+      // This fails on stale Cloudflare deployments and on accidental ad exposure.
+      for (const path of [...nonAdvertisingRoutes.filter((p) => p !== '/404'), ...approvedAdRouteSamples]) {
+        const response = await request(path);
+        assert(response.status === 200, `ad scope ${path}: expected HTTP 200, got ${response.status}`);
+        verifyAdvertisingScope(path, response.html, approvedAdRouteSamples.includes(path));
+      }
 
       for (const [path, label, indexable] of [
         ['/', 'home', true],
