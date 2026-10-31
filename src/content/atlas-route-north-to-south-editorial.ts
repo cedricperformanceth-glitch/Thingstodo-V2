@@ -81,6 +81,21 @@ const margin = (
 const kuangSi = thing('luang-prabang', 'kuang si');
 const pakOu = thing('luang-prabang', 'pak ou');
 const madMonkey = place('luang-prabang', 'mad monkey');
+const slowBoat = thing('luang-prabang','slow boat');
+const heritage = thing('luang-prabang','heritage walk');
+const watXiengThong = thing('luang-prabang','wat xieng thong');
+const kayakRiver = thing('vang-vieng','nam song river kayaking');
+const lagoonOne = thing('vang-vieng','blue lagoon 1');
+const vientianeRiverside = thing('vientiane','mekong riverside walk');
+const fandeeAdventure = thing('tad-lo','fandee adventure');
+const tadHang = thing('tad-lo','tad hang');
+/* Commons photos: Everhard van Eimeren CC BY-SA 4.0, Dan Searle CC BY-SA 2.0,
+ * and Oatz public domain, respectively. Attribution is in the visible captions. */
+const commonsPhoto = (id: string, file: string, label: string): AtlasRouteMedia => ({
+  id, alt: label, label,
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/' + encodeURIComponent(file) + '?width=1400',
+  aspect: 'landscape',
+});
 
 const namXay = thing('vang-vieng', 'nam xay');
 const waterCave = thing('vang-vieng', 'tham nam');
@@ -108,11 +123,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
   title: 'Laos North to South in 15 Days',
   subtitle: 'Temple mornings, limestone mountains, long conversations and one quite unforgettable chocolate cake.',
   durationLabel: '15 days · flexible from 12 to 19',
-  directionLabel: 'Luang Prabang → Chong Mek',
+  directionLabel: 'Houay Xai → Chong Mek',
   intro: [
-    "There are countries where fifteen days feel like an organised sprint. Laos is not especially interested in that kind of travel. Here, a morning can disappear inside a temple, an afternoon can end beside a river, and the person running your guesthouse can be reason enough to stay another night.",
-    "My own travels took me through these places in a different order. For this Atlas, I would start in Luang Prabang and work south through Vang Vieng, Vientiane and Pakse, then give the Bolaven Plateau its own stretch of road. The places and memories are real. The fifteen day route is the version I would offer a friend.",
-    "You can compress it to twelve days or stretch it towards nineteen. Just resist the temptation to turn every lovely afternoon into a departure deadline.",
+    "I entered Laos from northern Thailand at Houay Xai and took the slow boat down the Mekong, with a night in Pakbeng before reaching Luang Prabang. The river gave the journey its beginning.",
+    "From Luang Prabang I continued through Vang Vieng and Vientiane, took the overnight bus south to Pakse, rode the Bolaven Loop and returned to Pakse. I eventually left Laos for Thailand through Chong Mek.",
+    "Fifteen days makes a useful route, although you can adapt it between twelve and nineteen. The stops are real memories, not a fictional list of things I supposedly did.",
   ],
   heroMedia: [
     photo('n2s-hero-kuang-si', kuangSi, 'Kuang Si falls, near Luang Prabang', 'portrait'),
@@ -121,20 +136,46 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     photo('n2s-hero-tad-lo', tadLo, 'Waterfall country on the Bolaven Plateau'),
   ],
   stops: [
-    { label: 'Luang Prabang', durationLabel: '4 days', chapterId: 'north-luang-prabang' },
-    { label: 'Vang Vieng', durationLabel: '3 days', chapterId: 'north-vang-vieng' },
-    { label: 'Vientiane', durationLabel: '2 days', chapterId: 'north-vientiane' },
-    { label: 'Pakse', durationLabel: '1 day', chapterId: 'north-pakse' },
-    { label: 'Bolaven Loop', durationLabel: '3 days', chapterId: 'north-bolaven-loop' },
-    { label: 'Pakse', durationLabel: '1 day', chapterId: 'north-pakse-return' },
-    { label: 'Chong Mek', durationLabel: '1 day', chapterId: 'north-border' },
+    { label: 'Houay Xai and the slow boat', durationLabel: 'Days 1–2', chapterId: 'north-slow-boat' },
+    { label: 'Luang Prabang', durationLabel: 'Days 3–5', chapterId: 'north-luang-prabang' },
+    { label: 'Vang Vieng', durationLabel: 'Days 6–8', chapterId: 'north-vang-vieng' },
+    { label: 'Vientiane', durationLabel: 'Days 9–10', chapterId: 'north-vientiane' },
+    { label: 'Pakse', durationLabel: 'Day 11', chapterId: 'north-pakse' },
+    { label: 'Bolaven Loop', durationLabel: 'Days 12–13', chapterId: 'north-bolaven-loop' },
+    { label: 'Back to Pakse', durationLabel: 'Day 14', chapterId: 'north-pakse-return' },
+    { label: 'Chong Mek', durationLabel: 'Day 15', chapterId: 'north-border' },
   ],
   chapters: [
     {
+      id: 'north-slow-boat',
+      chapterLabel: 'Chapter 01 · Days 1–2',
+      title: 'Two Days on the Mekong',
+      durationLabel: '2 days',
+      intro: "I first crossed into Laos at Houay Xai, in the far north, and boarded the slow boat to Luang Prabang. A river journey with an overnight stop in Pakbeng turned the arrival itself into part of the trip.",
+      body: ["The first day leads downriver to Pakbeng, where you spend the night. The second continues to Luang Prabang. I would not choose this route to save time, but that's precisely why it belongs in this itinerary."],
+      highlights: ['Enter Laos from northern Thailand', 'Slow boat from Houay Xai to Pakbeng', 'Continue to Luang Prabang'],
+      references: [pick('n2s-boat-atlas', 'Mekong slow boat', slowBoat, 'Boat route and practical details.')],
+      personalNotes: [margin('n2s-boat-note', 'RIVER TIME', 'The journey starts before you reach the city.', {tone:'sky',size:'small'})],
+      media: [
+        commonsPhoto('n2s-boat-pakbeng', 'Pak Beng slow boats on the Mekong river bank at sunset Laos 23Nov2005.jpg','Pakbeng · Everhard van Eimeren, CC BY-SA 4.0'),
+        commonsPhoto('n2s-boat-trip', 'The slow boat up the Mekong River in Laos.jpg','Mekong slow boat · Dan Searle, CC BY-SA 2.0'),
+      ],
+      notebook: {
+        id: 'n2s-boat-notes',
+        label: 'RIVER JOURNAL',
+        title: 'Arriving by river',
+        pages: [
+          {id:'n2s-boat-page-1',variant:'photo',kicker:'THE FIRST DAY',title:'Leaving the road',copy:"I arrived from Thailand and set off by boat from Houay Xai. The river dictated the pace. There was time to take in the wooded banks and the settlements along the water without trying to organise another excursion.",media:[commonsPhoto('n2s-boat-photo-1','The slow boat up the Mekong River in Laos.jpg','Mekong · Dan Searle, CC BY-SA 2.0')]},
+          {id:'n2s-boat-page-2',variant:'scrapbook',kicker:'OVERNIGHT',title:'A pause in Pakbeng',copy:"Pakbeng is where the slow boat pauses for the night. I would not dress that simple stop up as an extraordinary adventure. The second day carries you onwards to Luang Prabang, and that is plenty of story already.",media:[commonsPhoto('n2s-boat-photo-2','Pak Beng slow boats on the Mekong river bank at sunset Laos 23Nov2005.jpg','Pakbeng · Everhard van Eimeren, CC BY-SA 4.0'),cityPhoto('n2s-boat-photo-3','city-laos-luang-prabang',2,'The Mekong near Luang Prabang')]},
+        ],
+      },
+      transfer: {label:'Pakbeng → Luang Prabang',note:'Continue on the second slow boat day and arrive at Luang Prabang.'},
+    },
+    {
       id: 'north-luang-prabang',
-      chapterLabel: 'Chapter 01',
+      chapterLabel: 'Chapter 02 · Days 3–5',
       title: 'Luang Prabang',
-      durationLabel: '4 days',
+      durationLabel: '3 days',
       intro: "Luang Prabang is the place I would choose to begin. Between the Mekong and Nam Khan, old temples, market streets and small cafés make it remarkably easy to settle in before travelling farther south.",
       body: [
         "Kuang Si deserves a full day. For me, it is the most beautiful waterfall in Laos, perhaps even one of the finest in Southeast Asia. I also enjoyed Pak Ou Caves, although the river journey and the caves' Buddhist atmosphere stayed with me more than the caves themselves.",
@@ -184,7 +225,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-vang-vieng',
-      chapterLabel: 'Chapter 02',
+      chapterLabel: 'Chapter 03 · Days 6–8',
       title: 'Vang Vieng',
       durationLabel: '3 days',
       intro: "Vang Vieng is where I would loosen the itinerary. The Nam Song, the limestone peaks, caves and lagoons give you plenty to do. The people you meet often decide what happens next.",
@@ -238,7 +279,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-vientiane',
-      chapterLabel: 'Chapter 03',
+      chapterLabel: 'Chapter 04 · Days 9–10',
       title: 'Vientiane',
       durationLabel: '2 days',
       intro: "I spent two nights in Vientiane and liked the quieter pace of the capital. The temples and the Mekong evenings were enough without filling every hour with sightseeing.",
@@ -292,7 +333,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-pakse',
-      chapterLabel: 'Chapter 04',
+      chapterLabel: 'Chapter 05 · Day 11',
       title: 'Pakse',
       durationLabel: '1 day',
       intro: "Pakse makes a good base for southern Laos. I would spend the first day eating well, organising the scooter and preparing to ride the Bolaven Plateau.",
@@ -320,9 +361,9 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-bolaven-loop',
-      chapterLabel: 'Chapter 05',
+      chapterLabel: 'Chapter 06 · Days 12–13',
       title: 'The Bolaven Loop',
-      durationLabel: '3 days',
+      durationLabel: '2 days',
       variant: 'feature',
       intro: "The Bolaven Plateau is where I would slow down again. Waterfalls, greener roads and small villages make this more than a ride to tick off on a map.",
       body: [
@@ -375,7 +416,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-pakse-return',
-      chapterLabel: 'Chapter 06',
+      chapterLabel: 'Chapter 07 · Day 14',
       title: 'Back to Pakse',
       durationLabel: '1 day',
       intro: "Back in Pakse, I returned the scooter and spent another night in town. I also went to Wat Phou Salao to see the golden Buddha on the hillside above the Mekong.",
@@ -399,7 +440,7 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
     },
     {
       id: 'north-border',
-      chapterLabel: 'Epilogue',
+      chapterLabel: 'Epilogue · Day 15',
       title: 'Leaving Laos',
       durationLabel: '1 day',
       variant: 'epilogue',
@@ -408,7 +449,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         "Fifteen days, four quite different parts of Laos, and plenty of reasons to return. What I remember most is not always a famous attraction. Sometimes it is a welcoming guesthouse owner, live music or a particularly good chocolate cake.",
       ],
       personalNotes: [
-        margin('n2s-border-note', 'LAST PAGE', "There is no need to add another stop just to fill the day.", { tone: 'paper', size: 'small' }),
+        margin('n2s-border-note', 'NEXT CHAPTER', 'Thailand begins just across the border.', { tone: 'paper', size: 'small' }),
+      ],
+      media: [
+        cityPhoto('n2s-exit-laos','city-laos-pakse',0,'A final look at southern Laos'),
+        commonsPhoto('n2s-exit-thailand','Chong Mek Pass in Ubon Ratchathani.jpg','Chong Mek, Thailand · public domain'),
       ],
     },
   ],
