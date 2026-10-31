@@ -1,5 +1,15 @@
 <div class="atlas-consent" data-atlas-consent>
-  <button class="atlas-consent__settings" type="button" data-consent-settings hidden>Cookie settings</button>
+  <button class="atlas-consent__settings" type="button" data-consent-settings
+    aria-label="Cookie settings" title="Cookie settings" hidden>
+    <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
+      stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M20.5 12.3A8.6 8.6 0 1 1 11.7 3.5a3 3 0 0 0 3.7 3.7 3 3 0 0 0 3.7 3.7c0 .5.4 1.1 1.4 1.4Z" />
+      <circle cx="8.6" cy="8.9" r=".65" fill="currentColor" stroke="none" />
+      <circle cx="13" cy="15.7" r=".85" fill="currentColor" stroke="none" />
+      <circle cx="8.3" cy="16.2" r=".65" fill="currentColor" stroke="none" />
+    </svg>
+    <span class="atlas-consent__settings-label" aria-hidden="true">Cookies</span>
+  </button>
   <aside class="atlas-consent__notice" data-consent-notice aria-label="Optional advertising and cookies" hidden>
     <div class="atlas-consent__explanation">
       <strong>Advertising and cookies</strong>
@@ -68,20 +78,88 @@
       if (event.key === key || event.key === null) window.location.reload();
     });
 
+    // Align this independent button alongside the existing Menu block, without
+    // changing the navigation or the permanent My Atlas floating controls.
+    const positionSettings = () => {
+      const menuBlock = document.querySelector('.atlas-navbar__left-block');
+      if (!menuBlock) {
+        settings.style.left = window.innerWidth <= 700 ? '12px' : '24px';
+        settings.style.top = window.innerWidth <= 700 ? '10px' : '16px';
+        return;
+      }
+
+      const menuBox = menuBlock.getBoundingClientRect();
+      const logoBox = document.querySelector('.atlas-navbar__logo-block')?.getBoundingClientRect();
+      const buttonWidth = settings.offsetWidth || (window.innerWidth <= 700 ? 44 : 90);
+      const buttonHeight = settings.offsetHeight || 44;
+      const proposedLeft = menuBox.right + 12;
+
+      // Extremely narrow viewports: use the free space immediately below Menu
+      // rather than covering the fixed logo or altering navbar dimensions.
+      const fitsAlongside = !logoBox || proposedLeft + buttonWidth + 8 < logoBox.left;
+      settings.style.left = Math.round(fitsAlongside ? proposedLeft : menuBox.left) + 'px';
+      settings.style.top = Math.round(
+        fitsAlongside
+          ? menuBox.top + (menuBox.height - buttonHeight) / 2
+          : menuBox.bottom + 9
+      ) + 'px';
+    };
+
+    let previousScrollY = Math.max(0, window.scrollY);
+    let scrollDirection = 0;
+    let scrollDistance = 0;
+    const onScroll = () => {
+      const currentY = Math.max(0, window.scrollY);
+      const delta = currentY - previousScrollY;
+      previousScrollY = currentY;
+      if (currentY <= 60) {
+        settings.classList.remove('is-scroll-hidden');
+        scrollDistance = 0;
+        return;
+      }
+      const direction = Math.sign(delta);
+      if (!direction) return;
+      if (direction !== scrollDirection) {
+        scrollDistance = 0;
+        scrollDirection = direction;
+      }
+      scrollDistance += Math.abs(delta);
+      if (direction > 0 && currentY > 120 && scrollDistance >= 16) {
+        settings.classList.add('is-scroll-hidden');
+      } else if (direction < 0 && scrollDistance >= 12) {
+        settings.classList.remove('is-scroll-hidden');
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', positionSettings, { passive: true });
+
     const choice = read();
     if (choice === 'accepted') { hide(); loadAds(); }
     else if (choice === 'rejected') hide();
     else show();
+
+    positionSettings();
+    window.requestAnimationFrame(positionSettings);
   })();
 </script>
 
 <style>
   .atlas-consent__notice[hidden], .atlas-consent__settings[hidden] { display: none !important; }
   .atlas-consent__settings {
-    position: fixed; bottom: 1rem; left: 1rem; z-index: 1150;
-    padding: .55rem .85rem; border: 1px solid #b7a887; border-radius: 5px;
+    position: fixed; top: 16px; left: 24px; z-index: 24;
+    display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+    min-width: 44px; height: 44px; padding: 0 .75rem;
+    border: 1px solid #b7a887; border-radius: 5px;
     background: #263e33; color: #fffaf1; box-shadow: 0 4px 16px #0004;
     font: 600 .76rem/1.3 system-ui, sans-serif; cursor: pointer;
+    transition: opacity 190ms ease, transform 190ms ease;
+  }
+  .atlas-consent__settings svg { display: block; flex: none; }
+  .atlas-consent__settings.is-scroll-hidden {
+    opacity: 0;
+    transform: translateY(-14px);
+    pointer-events: none;
   }
   .atlas-consent__notice {
     position: fixed; right: 1rem; bottom: 1rem; left: 1rem; z-index: 1151;
@@ -104,6 +182,10 @@
   }
   .atlas-consent__actions [data-consent-accept] { background: #edd4a3; border-color: #edd4a3; color: #23392f; }
   .atlas-consent button:focus-visible, .atlas-consent a:focus-visible { outline: 3px solid #f3c17a; outline-offset: 3px; }
+  @media (max-width: 700px) {
+    .atlas-consent__settings { width: 44px; padding: 0; }
+    .atlas-consent__settings-label { display: none; }
+  }
   @media (max-width: 650px) {
     .atlas-consent__notice { flex-direction: column; align-items: stretch; gap: .9rem; max-height: 85vh; overflow-y: auto; padding: 1rem; }
     .atlas-consent__explanation, .atlas-consent__actions { flex-basis: auto; }
@@ -111,4 +193,7 @@
     .atlas-consent__actions button { flex: 1; }
   }
   @media (max-width: 390px) { .atlas-consent__actions { flex-direction: column; } }
+  @media (prefers-reduced-motion: reduce) {
+    .atlas-consent__settings { transition: none; }
+  }
 </style>
