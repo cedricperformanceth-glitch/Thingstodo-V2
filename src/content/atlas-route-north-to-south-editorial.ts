@@ -195,27 +195,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         cityPhoto('n2s-lp-temple', 'city-laos-luang-prabang', 1, 'Wat Xieng Thong'),
       ],
       notebook: {
-        id: 'n2s-lp-fieldbook',
-        label: 'FIELD NOTES',
-        title: 'The Luang Prabang pages',
-        intro: 'Two places I would make time for, beyond the usual quick stops.',
+        id:"n2s-lp-fieldbook", label:"FIELD JOURNAL", title:"The Luang Prabang pages",
         pages: [
-          {
-            id: 'n2s-lp-book-kuang-si',
-            variant: 'photo',
-            kicker: 'WATERFALL DAY',
-            title: 'A whole day at Kuang Si',
-            copy: "The different levels make this much more than a single waterfall. Follow the paths, take your time and swim only where it is allowed.",
-            media: [cityPhoto('n2s-lp-book-falls', 'city-laos-luang-prabang', 3, 'Kuang Si waterfalls')],
-          },
-          {
-            id: 'n2s-lp-book-pak-ou',
-            variant: 'memory',
-            kicker: 'RIVER MEMORY',
-            title: 'The river was part of it',
-            copy: "I liked Pak Ou for the journey, the Buddhist images and the way the caves still feel connected to the past. I would not oversell them, but I would visit.",
-            media: [cityPhoto('n2s-lp-book-mekong', 'city-laos-luang-prabang', 2, 'Mekong evening in Luang Prabang')],
-          },
+          { id:"lp-fall", variant:"photo", kicker:"A FULL DAY", title:"Kuang Si, without a timetable", copy:"I spent the day at Kuang Si and still wanted more time. The separate pools, forest paths and the main falls give the place a rhythm of its own. It is getting busier and more organised for tourists, but the water and the landscape are still the reasons I would return.", media:[cityPhoto('lp-book-kuang','city-laos-luang-prabang',3,'Kuang Si waterfalls')] },
+          { id:"lp-river", variant:"scrapbook", kicker:"RIVER MEMORY", title:"Pak Ou was different", copy:"The caves themselves did not overwhelm me, but the Buddhist images, the rough feeling of the place and the journey on the Mekong stayed with me. I liked that it still seemed connected to local religious life rather than only a stop for photographs.", media:[cityPhoto('lp-book-mekong','city-laos-luang-prabang',2,'Mekong by Luang Prabang'),cityPhoto('lp-book-wat','city-laos-luang-prabang',1,'Wat Xieng Thong')] },
+          { id:"lp-picks", variant:"atlas-picks", kicker:"ONE MORE AFTERNOON", title:"The town between excursions", copy:"The night market is enjoyable, even if I would compare souvenir prices elsewhere. I stayed at Mad Monkey, enjoyed the pool and met other travellers at different stages of their trips. For one afternoon I would simply explore the old town and its temples, without trying to collect every attraction.", list:['Walk the old town twice, at different hours','Notice the temples as places of everyday life'],references:[pick('lp-book-heritage','Heritage Walk',heritage,'Take time for the old streets.'),pick('lp-book-wat-ref','Wat Xieng Thong',watXiengThong,'A temple worth a longer look.')] },
         ],
       },
       transfer: {
@@ -248,28 +232,12 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         cityPhoto('n2s-vv-view', 'city-laos-vang-vieng', 3, 'The valley from Nam Xay'),
       ],
       notebook: {
-        id: 'n2s-vv-fieldbook',
-        label: 'FIELD NOTES',
-        title: 'Unplanned afternoons',
-        intro: 'Water, guesthouses and the reason I never moved on after the first night.',
+        id:"n2s-vv-fieldbook", label:"FIELD JOURNAL", title:"Unplanned afternoons",
         pages: [
-          {
-            id: 'n2s-vv-book-lagoon',
-            variant: 'photo',
-            kicker: 'WATER DAY',
-            title: 'Stay for the lagoon',
-            copy: "I met people, went swimming and stayed longer than planned. That was really the mood of Vang Vieng.",
-            media: [cityPhoto('n2s-vv-book-lagoon-photo', 'city-laos-vang-vieng', 1, 'The Blue Lagoon near Vang Vieng')],
-          },
-          {
-            id: 'n2s-vv-book-philippe',
-            variant: 'memory',
-            kicker: 'GUESTHOUSE MEMORY',
-            title: 'One night became three',
-            copy: "Philippe made the place memorable. Good hospitality and a bit of personality mattered more to me than having a polished room.",
-            handwrittenNote: 'Sometimes staying is the recommendation.',
-            noteTone: 'butter',
-          },
+          { id:"vv-lagoon", variant:"photo", kicker:"AFTERNOON IN THE WATER", title:"Let the lagoon happen", copy:"I loved the lagoons partly because they made it so easy to meet people. Swimming, sitting around and making plans for later became part of the day. Vang Vieng works particularly well when you allow the people around you to change your programme.", media:[cityPhoto('vv-book-lagoon','city-laos-vang-vieng',1,'Blue Lagoon')] },
+          { id:"vv-guesthouse", variant:"scrapbook", kicker:"WHERE I STAYED", title:"One night became three", copy:"I planned to move guesthouses after one night. Philippe, the owner of Garden Bungalows, was friendly, entertaining and extremely helpful. The wooden bungalows were basic and you could hear your neighbours, but the welcome and the price made it easy to stay.", handwrittenNote:'Sometimes staying is the recommendation.',noteTone:'sage',media:[cityPhoto('vv-book-river','city-laos-vang-vieng',0,'Nam Song landscape'),cityPhoto('vv-book-bridge','city-laos-vang-vieng',2,'Bridge across the river')] },
+          { id:"vv-caves", variant:"memory", kicker:"A CAVE AFTERNOON", title:"Tham Nam took its time", copy:"I spent most of an afternoon at Tham Nam Water Cave and loved it. It would have been easy to add three more stops just because they were on the map, but giving one place proper time was more fun. The limestone valley surrounding the town makes even the ride between activities worth paying attention to.", media:[cityPhoto('vv-book-view','city-laos-vang-vieng',3,'Limestone valley from Nam Xay')] },
+          { id:"vv-options", variant:"atlas-picks", kicker:"IF YOU HAVE ANOTHER DAY", title:"Water or mountains?", copy:"Kayaking on the Nam Song was one of the best activities I did here, and I enjoyed the hike up Nam Xay. I rented a scooter to explore beyond the centre, but there are other ways to arrange transport. I would choose the day according to weather and company.", list:['Go kayaking when conditions are suitable','Climb early rather than in the fiercest heat','Leave an afternoon free for people you meet'],references:[pick('vv-book-kayak','Nam Song Kayaking',kayakRiver,'My favourite river outing.'),pick('vv-book-lagoon-ref','Blue Lagoon 1',lagoonOne,'For the less structured afternoon.')] },
         ],
       },
       transfer: {
@@ -302,28 +270,11 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         cityPhoto('n2s-vte-mekong', 'city-laos-vientiane', 3, 'The Mekong in Vientiane'),
       ],
       notebook: {
-        id: 'n2s-vte-fieldbook',
-        label: 'FIELD NOTES',
-        title: 'Two evenings in the capital',
-        intro: 'A little about the temples, the food and a comfortable place to sleep.',
+        id:"n2s-vte-fieldbook", label:"CITY JOURNAL", title:"Two evenings in the capital",
         pages: [
-          {
-            id: 'n2s-vte-book-city',
-            variant: 'photo',
-            kicker: 'CITY WALK',
-            title: 'More than a temple list',
-            copy: "Vientiane is better when you leave time to walk, especially around the older city and the river.",
-            media: [cityPhoto('n2s-vte-book-patuxai', 'city-laos-vientiane', 2, 'Patuxai and Lane Xang Avenue')],
-          },
-          {
-            id: 'n2s-vte-book-dinner',
-            variant: 'memory',
-            kicker: 'DINNER MEMORY',
-            title: 'Music at Khop Chai Deu',
-            copy: "I remember the atmosphere as much as the meal. My bill was around 200,000 kip, which felt reasonable at the time.",
-            handwrittenNote: 'One more song? Of course.',
-            noteTone: 'sky',
-          },
+          { id:"vte-temple", variant:"photo", kicker:"WAT SI SAKET", title:"Ninety minutes in a temple", copy:"I spent roughly an hour and a half here because the atmosphere interested me. After so many visits to Thai temples, I noticed something subtle in Vientiane: the local community seemed especially present. It was my own impression, not a rule about the two countries, but it stayed with me.", media:[cityPhoto('vte-book-saket','city-laos-vientiane',1,'Wat Si Saket')] },
+          { id:"vte-streets", variant:"scrapbook", kicker:"CITY WALK", title:"The other side of the capital", copy:"I chose not to rent a scooter here, partly because traffic enforcement felt stricter than I was used to in the south. Walking and local transport gave me time to look around. The riverside night market was different from Luang Prabang's, with more of an everyday city atmosphere.", media:[cityPhoto('vte-book-patuxai','city-laos-vientiane',2,'Patuxai avenue'),cityPhoto('vte-book-mekong','city-laos-vientiane',3,'Mekong riverside')] },
+          { id:"vte-music", variant:"atlas-picks", kicker:"A GOOD EVENING", title:"Stay for the music", copy:"Khop Chai Deu has been established since 1998, with Lao and international dishes. I particularly enjoyed the live music and the relaxed indoor and outdoor atmosphere. Around 200,000 kip covered my evening at the time. After that I was happy to get back to my clean, cosy room at Barn1920s.", handwrittenNote:'Live music makes me stay for one more song.',noteTone:'sky',references:[pick('vte-book-river-ref','Mekong Riverside Walk',vientianeRiverside,'For the walk after dinner.')] },
         ],
       },
       transfer: {
@@ -354,6 +305,13 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         cityPhoto('n2s-pakse-river', 'city-laos-pakse', 0, 'Pakse by the river'),
         cityPhoto('n2s-pakse-plateau', 'city-laos-pakse', 2, 'Tad Fane on the road towards Bolaven'),
       ],
+      notebook: {
+        id:"n2s-pakse-book", label:"CITY JOURNAL", title:"Before the Bolaven roads",
+        pages: [
+          { id:"pk-food", variant:"photo", kicker:"BREAKFAST MEMORY", title:"Good bread changes a morning", copy:"I had breakfast at La Boulange Garden and still remember the French style bread. After so much time in Asia it was exactly what I wanted. At Ita Lao I met Sticky Rice, a Lao pizza maker who grew up in the United States, and enjoyed a very good pizza.", media:[cityPhoto('pk-book-river','city-laos-pakse',0,'Pakse and the Xe Don')] },
+          { id:"pk-ready", variant:"atlas-picks", kicker:"THE SCOOTER", title:"Yves and the road ahead", copy:"I rented the scooter from Miss Noy, where Yves helped me get organised. Pakse was my base before the Bolaven Loop, so I kept the city day simple. One night, a few good places to eat and then the road. I did not need to fill it with attractions.", list:['Check the bike before leaving','Keep the legal documents and helmet ready','Plan the first overnight stop'],references:[pick('pk-book-miss','Miss Noy',missNoy,'Where I rented through Yves.')] },
+        ],
+      },
       transfer: {
         label: 'Pakse → Bolaven Plateau',
         note: 'A few days on the scooter let the waterfalls and villages become more than quick stops.',
@@ -385,28 +343,12 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         cityPhoto('n2s-bolaven-falls', 'city-tad-lo', 2, 'Tad Lo Waterfall'),
       ],
       notebook: {
-        id: 'n2s-bolaven-fieldbook',
-        label: 'FIELD NOTES',
-        title: 'A slow day on the plateau',
-        intro: 'Fandee Island, village paths and an overnight stop.',
+        id:"n2s-bolaven-fieldbook", label:"ROAD JOURNAL", title:"Slowly on the Plateau",
         pages: [
-          {
-            id: 'n2s-bolaven-book-village',
-            variant: 'photo',
-            kicker: 'TAD LO',
-            title: 'Follow the river',
-            copy: "I visited the waterfall and a nearby Katu village before returning to Fandee Island. This was a day for slowing down.",
-            media: [cityPhoto('n2s-bolaven-book-footbridge', 'city-tad-lo', 3, 'River and footbridge at Tad Lo')],
-          },
-          {
-            id: 'n2s-bolaven-book-food',
-            variant: 'memory',
-            kicker: 'FOOD MEMORY',
-            title: 'An excellent lava cake',
-            copy: "The burger and chips were exactly what I wanted after so much time travelling. Then came the cake, a swim and a quiet evening in the hammock.",
-            handwrittenNote: 'Give me an afternoon like this and I am happy.',
-            noteTone: 'butter',
-          },
+          { id:"bl-village", variant:"scrapbook", kicker:"TAD LO", title:"Waterfalls and village roads", copy:"I visited Tad Lo Waterfall and a nearby Katu village before heading back towards Fandee Island. The small stops were part of the experience, not just things to tick off. This is somewhere I would rather travel slowly than rush through an ambitious circuit.", media:[cityPhoto('bl-book-bridge','city-tad-lo',3,'River footbridge'),cityPhoto('bl-book-village','city-tad-lo',1,'The village landscape')] },
+          { id:"bl-lava", variant:"photo", kicker:"FANDEE ISLAND", title:"The lava cake wins", copy:"I remember the burger and chips at Fandee Island surprisingly clearly. It had been ages since I had eaten that sort of meal, and it was delicious. The lava cake was even better. I went swimming in the little lake and ended my evening in a hammock, completely happy with the lack of urgency.", media:[cityPhoto('bl-book-water','city-tad-lo',2,'Tad Lo waterfall country')] },
+          { id:"bl-garden", variant:"memory", kicker:"OVERNIGHT", title:"Bolaven Garden", copy:"I stayed one night at Bolaven Garden. Having a place to sleep along the loop changes the whole feeling of the trip. Tad Lo, the village, the river and a quiet evening can become one connected memory instead of a list of roadside stops.", handwrittenNote:'A night on the plateau is part of the journey.',noteTone:'butter',media:[cityPhoto('bl-book-evening','city-tad-lo',0,'Tad Hang at sunset')] },
+          { id:"bl-extras", variant:"atlas-picks", kicker:"NEXT TIME", title:"More energy or another hammock?", copy:"There are adventure activities near Fandee if you want a more active afternoon. I enjoyed the slow one. The waterfall visits and the village paths are close enough to make this a good base, but you can decide how ambitious the next day should be.", list:['Swim only where conditions allow','Leave time for the village','Do not schedule every waterfall'],references:[pick('bl-book-adventure','Fandee Adventure Park',fandeeAdventure,'For a more active visit.'),pick('bl-book-tadhang','Tad Hang Waterfall',tadHang,'A nearby waterfall stop.')] },
         ],
       },
       transfer: {
@@ -433,6 +375,13 @@ export const northToSouthEditorial: AtlasRouteExperienceContent = {
         cityPhoto('n2s-pakse-return-buddha', 'city-laos-pakse', 1, 'Wat Phou Salao above Pakse'),
         cityPhoto('n2s-pakse-return-river', 'city-laos-pakse', 3, 'The Champasak landscape south of Pakse'),
       ],
+      notebook: {
+        id:"n2s-pakse-return-book", label:"LAST NOTES", title:"Back to Pakse",
+        pages: [
+          { id:"return-city", variant:"photo", kicker:"CITY RETURN", title:"A familiar place again", copy:"I finished the loop, brought the scooter back and spent another night in Pakse. That was a welcome change after several days on the road. The city had become familiar: somewhere to eat well, get organised and leave without hurrying.", media:[cityPhoto('return-book-river','city-laos-pakse',0,'Pakse by the river')] },
+          { id:"return-buddha", variant:"memory", kicker:"THE VIEW", title:"Phou Salao above the Mekong", copy:"I went to see the large golden Buddha on the hill overlooking Pakse. More than another temple on a list, it gave me a wide view across the town and the river before leaving Laos the next day.", media:[cityPhoto('return-book-golden','city-laos-pakse',1,'Golden Buddha of Wat Phou Salao')] },
+        ],
+      },
       transfer: {
         label: 'Pakse → Vang Tao → Chong Mek',
         note: 'Leave time for the border formalities and onward travel in Thailand.',
