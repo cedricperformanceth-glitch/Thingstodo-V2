@@ -1,4 +1,8 @@
-<div class="atlas-consent" data-atlas-consent>
+---
+interface Props { adsEligible?: boolean; }
+const { adsEligible = false } = Astro.props;
+---
+<div class="atlas-consent" data-atlas-consent data-atlas-ads-eligible={adsEligible ? 'true' : 'false'}>
   <button class="atlas-consent__settings" type="button" data-consent-settings
     aria-label="Cookie settings" title="Cookie settings" hidden>
     <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
@@ -52,6 +56,12 @@
       catch { /* Still respect choice for this page when storage is unavailable. */ }
     };
     const loadAds = () => {
+      // Only explicitly approved editorial pages with registered ad slots can load
+      // the provider script. Personal, legal, 404 and other pages stay ad-free.
+      // Infolinks controls its own formats and does NOT automatically use these
+      // reserved slot markers; per-slot placement needs a separate integration.
+      if (root.dataset.atlasAdsEligible !== 'true') return;
+      if (!document.querySelector('template[data-atlas-ad-slot]')) return;
       if (loaded || document.querySelector('script[data-atlas-infolinks]')) return;
       loaded = true;
       window.infolinks_pid = 3448891;
@@ -198,12 +208,14 @@
   }
 </style>
 
-<!-- Infolinks publisher verification: official snippet retained in the static HTML.
-     The template is inert; the real script is created only after advertising consent. -->
-<template data-atlas-infolinks-verification>
-  <script is:inline type="text/javascript">
-    var infolinks_pid = 3448891;
-    var infolinks_wsid = 0;
-  </script>
-  <script is:inline type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
-</template>
+<!-- Publisher verification HTML appears only on approved editorial pages.
+     This template is inert; the script is still loaded only with consent. -->
+{adsEligible && (
+  <template data-atlas-infolinks-verification>
+    <script is:inline type="text/javascript">
+      var infolinks_pid = 3448891;
+      var infolinks_wsid = 0;
+    </script>
+    <script is:inline type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+  </template>
+)}
