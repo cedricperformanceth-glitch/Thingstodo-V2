@@ -1450,7 +1450,7 @@
         "card": {
           "image": {
             "id": "media-katu-weaving-workshop-visit-tad-lo",
-            "src": "https://visit-tadlo.com/site-media/cloudflare/activities/91bb4b97-122a-46df-8622-c0f8560243d4-Weaving-960.webp",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/79ea2b47-a346-4c22-a6e0-475500ba4234-Katu-Sisters.webp",
             "alt": "Katu weaving workshop near Tad Lo, Laos",
             "sourceType": "first-party-official",
             "sourceUrl": "https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop",
@@ -1465,7 +1465,7 @@
           "gallery": [
             {
               "id": "media-katu-weaving-workshop-visit-tad-lo",
-              "src": "https://visit-tadlo.com/site-media/cloudflare/activities/91bb4b97-122a-46df-8622-c0f8560243d4-Weaving-960.webp",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/79ea2b47-a346-4c22-a6e0-475500ba4234-Katu-Sisters.webp",
               "alt": "Katu weaving workshop near Tad Lo, Laos",
               "sourceType": "first-party-official",
               "sourceUrl": "https://visit-tadlo.com/en/things-to-do/katu-weaving-workshop",
@@ -1543,7 +1543,7 @@
         "card": {
           "image": {
             "id": "media-lao-cooking-class-nyay-visit-tad-lo",
-            "src": "https://visit-tadlo.com/site-media/cloudflare/activities/dad1856b-86a9-470f-8eaa-3aab5e7461bf-Niay-Cooking-Class-960.webp",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/614ae298-99f3-487f-a09c-c7d0d5dc71d3-WhatsApp-Image-2026-10-08-at-14.18.11.jpeg",
             "alt": "Lao cooking class with Nyay in Tad Lo, Laos",
             "sourceType": "first-party-official",
             "sourceUrl": "https://visit-tadlo.com/en/things-to-do/cooking-class-nyay",
@@ -1558,7 +1558,7 @@
           "gallery": [
             {
               "id": "media-lao-cooking-class-nyay-visit-tad-lo",
-              "src": "https://visit-tadlo.com/site-media/cloudflare/activities/dad1856b-86a9-470f-8eaa-3aab5e7461bf-Niay-Cooking-Class-960.webp",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/614ae298-99f3-487f-a09c-c7d0d5dc71d3-WhatsApp-Image-2026-10-08-at-14.18.11.jpeg",
               "alt": "Lao cooking class with Nyay in Tad Lo, Laos",
               "sourceType": "first-party-official",
               "sourceUrl": "https://visit-tadlo.com/en/things-to-do/cooking-class-nyay",
@@ -1636,7 +1636,7 @@
         "card": {
           "image": {
             "id": "media-tad-lo-treasure-hunt-visit-tad-lo",
-            "src": "https://visit-tadlo.com/site-media/cloudflare/general/4dbbdaa8-cc91-49cf-bfb9-8627db6912da-Treasure-Hunt-960.webp",
+            "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/4dbbdaa8-cc91-49cf-bfb9-8627db6912da-Treasure-Hunt.png",
             "alt": "Tad Lo Treasure Hunt self-guided village activity",
             "sourceType": "first-party-official",
             "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-treasure-hunt",
@@ -1651,7 +1651,7 @@
           "gallery": [
             {
               "id": "media-tad-lo-treasure-hunt-visit-tad-lo",
-              "src": "https://visit-tadlo.com/site-media/cloudflare/general/4dbbdaa8-cc91-49cf-bfb9-8627db6912da-Treasure-Hunt-960.webp",
+              "src": "https://ddylijzqbzdbskxoujlv.supabase.co/storage/v1/object/public/site-media/general/4dbbdaa8-cc91-49cf-bfb9-8627db6912da-Treasure-Hunt.png",
               "alt": "Tad Lo Treasure Hunt self-guided village activity",
               "sourceType": "first-party-official",
               "sourceUrl": "https://visit-tadlo.com/en/things-to-do/tad-lo-treasure-hunt",
