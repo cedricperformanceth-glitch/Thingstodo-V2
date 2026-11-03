@@ -58,8 +58,9 @@ const { thing, city, country, hero, image } = Astro.props;
         <small>{thing.name}</small>
       </div>
     )}
-    {image && (image.author || image.sourceName || image.license) && (
+    {image && (image.author || image.sourceName || image.license || image.caption) && (
       <figcaption>
+        {image.caption && <span>{image.caption} · </span>}
         {image.sourceUrl ? (
           <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a>
         ) : (
