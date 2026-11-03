@@ -72,7 +72,7 @@ const activityLength = isLongActivity ? 'long' : 'short';
         {additionalGallery.map((image) => (
           <figure>
             <img src={image.src} alt={image.alt} width="1100" height="900" loading="lazy" decoding="async" />
-            {(image.author || image.sourceName || image.license) && <figcaption>{image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a> : <span>{image.author || image.sourceName || 'Photo source'}</span>}{image.license && <> · {image.license}</>}</figcaption>}
+            {(image.author || image.sourceName || image.license || image.caption) && <figcaption>{image.caption && <span>{image.caption} · </span>}{image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.author || image.sourceName || 'Photo source'}</a> : <span>{image.author || image.sourceName || 'Photo source'}</span>}{image.license && <> · {image.license}</>}</figcaption>}
           </figure>
         ))}
       </section>
