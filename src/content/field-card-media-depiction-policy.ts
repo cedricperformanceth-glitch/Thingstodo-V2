@@ -31,6 +31,13 @@ const applyDepictionPatch = (record: MediaRecord, patch: DepictionPatch): MediaR
 });
 
 const activityDepictionPatch = (record: MediaRecord, entityId: string): DepictionPatch | undefined => {
+  // Explicitly reviewed contextual or illustrative media must not be relabeled as
+  // an exact documentary photograph of the named activity.
+  if (
+    (record.depictionType === 'illustrative' && record.subjectMatch === 'illustrative')
+    || (record.depictionType === 'local-context' && record.subjectMatch === 'contextual')
+  ) return undefined;
+
   if (entityId === 'thing-traditional-lao-massage-in-tad-lo') {
     return {
       depictionType: 'local-context',
