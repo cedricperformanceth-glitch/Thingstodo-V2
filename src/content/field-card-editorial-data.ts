@@ -58,6 +58,7 @@ import watSiMuangEditorial from './field-card-editorial-vientiane/thing-wat-si-m
 import talatSaoMorningMarketEditorial from './field-card-editorial-vientiane/thing-talat-sao-morning-market.json';
 import chaoAnouvongParkEditorial from './field-card-editorial-vientiane/thing-chao-anouvong-park.json';
 import mekongRiversideWalkEditorial from './field-card-editorial-vientiane/thing-mekong-riverside-walk.json';
+import tadLoMediaData from './field-card-media-tad-lo.json';
 import luangPrabangMediaData from './field-card-media-luang-prabang.json';
 import vangViengMediaData from './field-card-media-vang-vieng.json';
 import vientianeMediaData from './field-card-media-vientiane.json';
@@ -84,6 +85,17 @@ export interface FieldCardEditorialEntry {
 }
 
 const sharedEditorial = editorialData as unknown as Record<string, FieldCardEditorialEntry>;
+const tadLoMedia = tadLoMediaData as unknown as Record<string, MediaRecord[]>;
+const tadLoEditorial = Object.fromEntries(
+  Object.entries(tadLoMedia).map(([id, media]) => {
+    const base = sharedEditorial[id] ?? {};
+    return [id, {
+      ...base,
+      media,
+      ...(base.seo ? { seo: { ...base.seo, image: media[0].src } } : {}),
+    }];
+  }),
+) as Record<string, FieldCardEditorialEntry>;
 const pakseEditorial = {
   ...vatPhouEditorial,
   ...tadFaneEditorial,
@@ -172,6 +184,7 @@ const vientianeEditorial = Object.fromEntries(
 
 export const fieldCardEditorial: Record<string, FieldCardEditorialEntry> = {
   ...sharedEditorial,
+  ...tadLoEditorial,
   ...pakseEditorial,
   ...luangPrabangEditorial,
   ...vangViengEditorial,
