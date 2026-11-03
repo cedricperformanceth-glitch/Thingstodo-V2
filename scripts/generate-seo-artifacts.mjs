@@ -3,7 +3,7 @@ import { join, relative, sep } from 'node:path';
 
 const outputDirectory = new URL('../dist/', import.meta.url);
 const outputPath = outputDirectory.pathname;
-const DEFAULT_ORIGIN = 'https://thingstodoatlas-v2.pages.dev';
+const DEFAULT_ORIGIN = 'https://thingstodoatlas.com';
 const MAX_SITEMAP_URLS = 50000;
 
 function attr(tag, name) {

@@ -1,7 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const origin = 'https://thingstodoatlas-v2.pages.dev';
+const origin = 'https://thingstodoatlas.com';
 const mode = process.argv[2];
 const expectIndexing = process.argv[3] === 'index';
 const googleVerificationFile = 'googleb482868e10aa0e46.html';

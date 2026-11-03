@@ -26,7 +26,7 @@ export const legalNoticePage: LegalPageData = {
           rows: [
             ['Website name', 'Things To Do Atlas'],
             ['Website type', 'Independent editorial travel atlas'],
-            ['Current canonical website', 'https://thingstodoatlas-v2.pages.dev'],
+            ['Current canonical website', 'https://thingstodoatlas.com'],
           ],
         },
         {

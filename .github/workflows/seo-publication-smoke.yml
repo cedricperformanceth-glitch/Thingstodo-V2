@@ -35,7 +35,7 @@ jobs:
         env:
           CF_PAGES: '1'
           CF_PAGES_BRANCH: master
-          PUBLIC_SITE_URL: https://thingstodoatlas-v2.pages.dev
+          PUBLIC_SITE_URL: https://thingstodoatlas.com
 
       - name: Verify indexable production HTML and custom 404
         run: node scripts/verify-seo-publication.mjs build index
@@ -45,7 +45,7 @@ jobs:
         env:
           CF_PAGES: '1'
           CF_PAGES_BRANCH: seo-preview
-          PUBLIC_SITE_URL: https://thingstodoatlas-v2.pages.dev
+          PUBLIC_SITE_URL: https://thingstodoatlas.com
 
       - name: Verify preview HTML remains non-indexable
         run: node scripts/verify-seo-publication.mjs build noindex
