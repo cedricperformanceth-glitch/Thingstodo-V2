@@ -191,7 +191,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. The site currently does not load any advertising network or Google AdSense.',
+              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. Separately, Adsterra may display a single 300 × 250 banner on eligible activity pages and city Field Notes after explicit advertising consent. Adsterra and its partners may process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
             },
           ],
         },
@@ -199,7 +199,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Audience measurement is optional. Google Analytics is not requested before analytics consent. If activated, Google may process technical request information and use cookies or related identifiers for audience measurement. Visitors can refuse without losing Atlas features and change the choice through Cookie settings. Revocation reloads the page to prevent further script loading; cookies already set may need to be cleared through browser settings.',
+              text: 'Analytics and advertising have separate, optional consent choices. Google Analytics is not requested before analytics consent, and Adsterra is not requested before advertising consent. If activated, these providers may process technical request information and use cookies or related identifiers for their respective purposes. Visitors can refuse either service without losing Atlas features and change their choices through Cookie settings. Revocation reloads the page to prevent further script loading; cookies already set may need to be cleared through browser settings.',
             },
           ],
         },
@@ -208,9 +208,11 @@ export const privacyPolicyPage: LegalPageData = {
           content: [
             { text: 'See the ' },
             { text: 'Google Privacy Policy', href: 'https://policies.google.com/privacy', external: true },
+            { text: ', the ' },
+            { text: 'Adsterra Cookies Policy', href: 'https://adsterra.com/cookies/', external: true },
             { text: ' and our ' },
             { text: 'Cookie Policy', href: '/legal/cookie-policy' },
-            { text: ' for more information about optional audience measurement.' },
+            { text: ' for more information about these optional services.' },
           ],
         },
         {
@@ -243,7 +245,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Third-party services that you choose to visit or that are used to deliver a resource, such as Google Fonts and Google Analytics, process information under their own privacy terms. Depending on the provider and your location, that processing may take place in countries other than the country from which you access Things To Do Atlas.',
+              text: 'Third-party services that you choose to visit or that are used to deliver a resource, such as Google Fonts, Google Analytics and Adsterra, process information under their own privacy terms. Depending on the provider and your location, that processing may take place in countries other than the country from which you access Things To Do Atlas.',
             },
           ],
         },
