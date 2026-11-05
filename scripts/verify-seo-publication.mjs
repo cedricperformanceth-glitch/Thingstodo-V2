@@ -104,8 +104,8 @@ function verifySeoArtifacts(indexable) {
 // on Search Console's sitemap submission.
 function verifyHtmlLinkDiscovery() {
   const sitemap = readFileSync(join('dist', 'sitemap.xml'), 'utf8');
-  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\\/loc>/g)].map((match) => match[1]);
-  const normalize = (path) => path === '/' ? path : path.replace(/\\/+$/, '');
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  const normalize = (path) => path === '/' ? path : path.replace(/\/+$/, '');
   const publishedPaths = new Set(urls.map((url) => normalize(new URL(url).pathname)));
   const discovered = new Set(['/']);
   const queue = ['/'];
@@ -113,7 +113,7 @@ function verifyHtmlLinkDiscovery() {
   for (let index = 0; index < queue.length; index++) {
     const path = queue[index];
     const html = output(path);
-    for (const match of html.matchAll(/<a\\b[^>]*\\bhref\\s*=\\s*(['"])(.*?)\\1/gi)) {
+    for (const match of html.matchAll(/<a\b[^>]*\bhref\s*=\s*(['"])(.*?)\1/gi)) {
       let parsed;
       try { parsed = new URL(match[2].replace(/&amp;/g, '&'), origin + path); }
       catch { continue; }
