@@ -52,6 +52,12 @@ function verifyAdvertisingScope(path, html, eligible) {
   assert(hasSlotMarkers === eligible, `${path}: reserved ad slot markers not consistent with eligibility ${eligible}`);
   assert(!/<template\b[^>]*\bdata-atlas-[a-z-]*verification\b/i.test(html),
     `${path}: obsolete advertising provider verification markup must not appear`);
+  // Guard against successful checks on a stale production deployment.
+  assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': current advertising consent missing');
+  assert(html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143'), path + ': current Adsterra ad code missing');
+  assert(!/<script\b[^>]*\bsrc=["']https:\/\/bauval\.org\//i.test(html), path + ': provider script loaded in initial HTML before consent');
+  assert(!/<iframe\b[^>]*\bdata-atlas-ad-live/i.test(html), path + ': banner unexpectedly present in initial HTML');
+  assert(!/infolinks/i.test(html), path + ': obsolete advertising provider reference remains');
   console.log(`PASS ad scope ${path}: eligible=${eligible}, reserved positions=${hasSlotMarkers}, no public placeholders`);
 }
 
