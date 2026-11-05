@@ -36,7 +36,7 @@ const meta = pageSeo(seo, breadcrumbs);
 const pageIsIndexable = indexingEnabled && meta.indexable;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-atlas-ads-eligible={adsEligible ? 'true' : 'false'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
