@@ -54,7 +54,16 @@ function verifyAdvertisingScope(path, html, eligible) {
     `${path}: obsolete advertising provider verification markup must not appear`);
   // Guard against successful checks on a stale production deployment.
   assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': current advertising consent missing');
-  assert(html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143'), path + ': current Adsterra ad code missing');
+  const hasAdsterraCode = html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143');
+  assert(hasAdsterraCode === eligible,
+    path + ': Adsterra code should appear only at eligible editorial positions');
+  const primarySlots = (html.match(/data-atlas-ad-primary=/g) || []).length;
+  assert(primarySlots === (eligible ? 1 : 0),
+    path + ': expected exactly one primary banner slot on editorial pages, none elsewhere');
+  if (eligible) {
+    assert(html.includes('document.write('), path + ': banner needs parser-time script loading');
+    assert(!html.includes('frame.srcdoc = html'), path + ': nested srcdoc banner integration must be removed');
+  }
   assert(!/<script\b[^>]*\bsrc=["']https:\/\/bauval\.org\//i.test(html), path + ': provider script loaded in initial HTML before consent');
   assert(!/<iframe\b[^>]*\bdata-atlas-ad-live/i.test(html), path + ': banner unexpectedly present in initial HTML');
   assert(!/infolinks/i.test(html), path + ': obsolete advertising provider reference remains');
