@@ -1,6 +1,6 @@
 ---
 import type { AdSlot } from '../../core/ads/slots';
-import { activityAdSlots, cityFieldNoteAdSlots } from '../../core/ads/slots';
+import { activityAdSlots, cityFieldNoteAdSlots, ADSTERRA_BANNERS_PAUSED } from '../../core/ads/slots';
 
 interface Props { slot: AdSlot; visible?: boolean; }
 const { slot, visible = false } = Astro.props;
@@ -12,7 +12,7 @@ const primaryAdSlots: string[] = [
   activityAdSlots.beforeFaq,
   cityFieldNoteAdSlots.afterChapterTwo,
 ];
-const primary = visible && primaryAdSlots.includes(slot);
+const primary = visible && !ADSTERRA_BANNERS_PAUSED && primaryAdSlots.includes(slot);
 ---
 
 {/* Keep the complete slot architecture for future ad units, without visible placeholders. */}
