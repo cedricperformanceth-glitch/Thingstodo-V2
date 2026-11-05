@@ -6,7 +6,7 @@ export const cookiePolicyPage: LegalPageData = {
   documentLabel: 'Legal note · Cookies',
   title: 'Cookie Policy',
   heroIntro: 'What the Atlas stores in your browser and how optional analytics and advertising may be used.',
-  documentIntro: 'Things To Do Atlas stores travel selections locally and offers optional Google Analytics audience measurement and Adsterra banner advertising. Both services require separate consent and are disabled until accepted.',
+  documentIntro: 'Things To Do Atlas stores travel selections locally and offers optional Google Analytics audience measurement and Adsterra banner advertising. Both services require separate consent. Adsterra banner delivery is currently paused while unexpected mobile redirects are investigated, regardless of the stored preference.',
   lastUpdated: 'November 5, 2026',
   seo: {
     title: 'Cookie Policy | Things To Do Atlas',
@@ -129,7 +129,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 (measurement ID G-MR20XJMESG) measures visits, page views and engagement only after the visitor accepts audience measurement. Google may then set measurement cookies such as _ga. Separately, one Adsterra 300 × 250 banner may load on eligible editorial pages after advertising consent. The site does not use Google AdSense.',
+              text: 'Google Analytics 4 (measurement ID G-MR20XJMESG) measures visits, page views and engagement only after the visitor accepts audience measurement. Google may then set measurement cookies such as _ga. Adsterra banner delivery is temporarily paused due to reports of unwanted mobile redirects. The existing advertising preference is retained, but no Adsterra banner script is loaded while this safety pause is active. The site does not use Google AdSense.',
             },
           ],
         },
@@ -173,7 +173,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Adsterra is an optional advertising provider. Only one 300 × 250 banner can be requested on eligible activity cards and city Field Notes, inside a reserved editorial position, after advertising consent. No advertising is loaded on legal pages, the 404 page or Trip Summary.',
+              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Adsterra is an optional advertising provider. Only one 300 × 250 banner is configured for eligible activity cards and city Field Notes, inside a reserved editorial position, but its delivery is temporarily disabled pending a click safety review. No advertising is loaded on legal pages, the 404 page or Trip Summary.',
             },
           ],
         },
