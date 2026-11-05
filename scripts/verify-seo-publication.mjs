@@ -54,24 +54,12 @@ function verifyAdvertisingScope(path, html, eligible) {
     `${path}: obsolete advertising provider verification markup must not appear`);
   // Guard against successful checks on a stale production deployment.
   assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': current advertising consent missing');
-  const hasAdsterraCode = html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143');
-  if (eligible && !hasAdsterraCode) {
-    const knownSlots = [...html.matchAll(/data-atlas-ad-slot="([^"]*)"/g)].map((match) => match[1]);
-    const activeMarkers = [...html.matchAll(/data-atlas-ad-primary="([^"]*)"/g)].map((match) => match[1]);
-    const sample = html.indexOf('data-atlas-ad-primary') >= 0
-      ? html.slice(html.indexOf('data-atlas-ad-primary') - 140, html.indexOf('data-atlas-ad-primary') + 900)
-      : '(no primary slot found)';
-    console.log('DIAG ad slots', path, JSON.stringify({ knownSlots, activeMarkers, sample }));
-  }
-  assert(hasAdsterraCode === eligible,
-    path + ': Adsterra code should appear only at eligible editorial positions');
-  const primarySlots = (html.match(/data-atlas-ad-primary=/g) || []).length;
-  assert(primarySlots === (eligible ? 1 : 0),
-    path + ': expected exactly one primary banner slot on editorial pages, none elsewhere');
-  if (eligible) {
-    assert(html.includes('document.write('), path + ': banner needs parser-time script loading');
-    assert(!html.includes('frame.srcdoc = html'), path + ': nested srcdoc banner integration must be removed');
-  }
+  // Adsterra is temporarily disabled due to unwanted mobile redirects.
+  // A successful build must not serve the ad tag even to consenting visitors.
+  assert(!html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143'),
+    path + ': Adsterra tag must remain disabled during mobile click safety hold');
+  assert(!html.includes('data-atlas-ad-primary='),
+    path + ': live advertising containers must not be rendered during pause');
   assert(!/<script\b[^>]*\bsrc=["']https:\/\/bauval\.org\//i.test(html), path + ': provider script loaded in initial HTML before consent');
   assert(!/<iframe\b[^>]*\bdata-atlas-ad-live/i.test(html), path + ': banner unexpectedly present in initial HTML');
   assert(!/infolinks/i.test(html), path + ': obsolete advertising provider reference remains');
