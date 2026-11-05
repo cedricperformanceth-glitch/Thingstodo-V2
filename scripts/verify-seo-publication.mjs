@@ -99,6 +99,40 @@ function verifySeoArtifacts(indexable) {
     ' SEO artifacts: ' + urls.length + ' URLs, robots.txt policy correct');
 }
 
+// Every indexable sitemap URL must be reachable by following ordinary HTML
+// anchors from the homepage, without executing SPA JavaScript or relying only
+// on Search Console's sitemap submission.
+function verifyHtmlLinkDiscovery() {
+  const sitemap = readFileSync(join('dist', 'sitemap.xml'), 'utf8');
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\\/loc>/g)].map((match) => match[1]);
+  const normalize = (path) => path === '/' ? path : path.replace(/\\/+$/, '');
+  const publishedPaths = new Set(urls.map((url) => normalize(new URL(url).pathname)));
+  const discovered = new Set(['/']);
+  const queue = ['/'];
+
+  for (let index = 0; index < queue.length; index++) {
+    const path = queue[index];
+    const html = output(path);
+    for (const match of html.matchAll(/<a\\b[^>]*\\bhref\\s*=\\s*(['"])(.*?)\\1/gi)) {
+      let parsed;
+      try { parsed = new URL(match[2].replace(/&amp;/g, '&'), origin + path); }
+      catch { continue; }
+      if (parsed.origin !== origin) continue;
+      const target = normalize(parsed.pathname);
+      if (!publishedPaths.has(target) || discovered.has(target)) continue;
+      discovered.add(target);
+      queue.push(target);
+    }
+  }
+
+  const missing = [...publishedPaths].filter((path) => !discovered.has(path));
+  assert(missing.length === 0,
+    'Indexable sitemap URLs without a crawlable HTML link path from homepage (' +
+    missing.length + '): ' + missing.slice(0, 40).join(', '));
+  console.log('PASS crawlable HTML links: all ' + publishedPaths.size +
+    ' sitemap URLs are reachable from the homepage without JavaScript');
+}
+
 if (mode === 'build') {
   verifyPage('home', output('/'), `${origin}/`, expectIndexing);
   verifyPage('Laos', output('/laos'), `${origin}/laos`, expectIndexing);
@@ -124,6 +158,7 @@ if (mode === 'build') {
     'Google Search Console verification file content differs from expected');
   console.log('PASS Google Search Console HTML file included in build');
   verifySeoArtifacts(expectIndexing);
+  if (expectIndexing) verifyHtmlLinkDiscovery();
 } else if (mode === 'live') {
   const attempts = 18;
   const pauseMs = 10000;
