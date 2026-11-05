@@ -1,3 +1,8 @@
+// Safety switch: Adsterra banner requests are paused after reports of
+// unexpected mobile redirects on taps outside the visible ad.
+// Do not turn this off until the ad provider confirms a compliant safe setup.
+export const ADSTERRA_BANNERS_PAUSED = true;
+
 export type EditorialAdSlot = 'editorial-inline-1' | 'editorial-inline-2' | 'editorial-inline-3' | 'editorial-inline-4';
 
 export const editorialAdSlots: EditorialAdSlot[] = [
