@@ -201,6 +201,12 @@ if (mode === 'build') {
         assert(!/noindex/i.test(response.headers.get('x-robots-tag') ?? '') || !indexable,
           `${label} blocked by X-Robots-Tag: ${response.headers.get('x-robots-tag')}`);
         verifyPage(`live ${label}`, response.html, `${origin}${path}`, indexable);
+        // Require the new crawlable category navigation to reach production,
+        // rather than passing against a stale Cloudflare deployment.
+        if (path === '/laos/pakse') {
+          assert(response.html.includes('href="/laos/pakse/things-to-do"'),
+            'Live Pakse page has no crawlable category link, deploy may be stale');
+        }
         console.log(`HTTP status ${response.status}, X-Robots-Tag: ${response.headers.get('x-robots-tag') || '(none)'}`);
       }
       const robotResponse = await request('/robots.txt');
