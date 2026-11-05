@@ -191,7 +191,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. Separately, Adsterra may display a single 300 × 250 banner on eligible activity pages and city Field Notes after explicit advertising consent. Adsterra and its partners may process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
+              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. Adsterra banners are currently suspended while reports of unwanted mobile redirects are investigated. No Adsterra advertising script is loaded during this pause, even if advertising consent was previously granted. If banner delivery resumes with consent, Adsterra and its partners may process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
             },
           ],
         },
