@@ -50,8 +50,8 @@ function verifyAdvertisingScope(path, html, eligible) {
   assert(html.includes(eligibilityFlag), `${path}: expected ${eligibilityFlag}`);
   const hasSlotMarkers = /<template\b[^>]*\bdata-atlas-ad-slot=/i.test(html);
   assert(hasSlotMarkers === eligible, `${path}: reserved ad slot markers not consistent with eligibility ${eligible}`);
-  assert((html.includes('data-atlas-infolinks-verification')) === eligible,
-    `${path}: Infolinks verification snippet must be scoped to approved editorial pages only`);
+  assert(!/<template\b[^>]*\bdata-atlas-[a-z-]*verification\b/i.test(html),
+    `${path}: obsolete advertising provider verification markup must not appear`);
   console.log(`PASS ad scope ${path}: eligible=${eligible}, reserved positions=${hasSlotMarkers}, no public placeholders`);
 }
 
