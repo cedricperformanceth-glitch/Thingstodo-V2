@@ -55,6 +55,14 @@ function verifyAdvertisingScope(path, html, eligible) {
   // Guard against successful checks on a stale production deployment.
   assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': current advertising consent missing');
   const hasAdsterraCode = html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143');
+  if (eligible && !hasAdsterraCode) {
+    const knownSlots = [...html.matchAll(/data-atlas-ad-slot="([^"]*)"/g)].map((match) => match[1]);
+    const activeMarkers = [...html.matchAll(/data-atlas-ad-primary="([^"]*)"/g)].map((match) => match[1]);
+    const sample = html.indexOf('data-atlas-ad-primary') >= 0
+      ? html.slice(html.indexOf('data-atlas-ad-primary') - 140, html.indexOf('data-atlas-ad-primary') + 900)
+      : '(no primary slot found)';
+    console.log('DIAG ad slots', path, JSON.stringify({ knownSlots, activeMarkers, sample }));
+  }
   assert(hasAdsterraCode === eligible,
     path + ': Adsterra code should appear only at eligible editorial positions');
   const primarySlots = (html.match(/data-atlas-ad-primary=/g) || []).length;
