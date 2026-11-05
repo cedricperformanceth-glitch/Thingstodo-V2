@@ -1,10 +1,67 @@
 ---
 import type { AdSlot } from '../../core/ads/slots';
+import { activityAdSlots, cityFieldNoteAdSlots } from '../../core/ads/slots';
+
 interface Props { slot: AdSlot; visible?: boolean; }
 const { slot, visible = false } = Astro.props;
+
+// These slots are mutually exclusive within each editorial page:
+// long activity, short activity, or city Field Note. The others remain inert.
+const primaryAdSlots: string[] = [
+  activityAdSlots.afterChapterOne,
+  activityAdSlots.beforeFaq,
+  cityFieldNoteAdSlots.afterChapterTwo,
+];
+const primary = visible && primaryAdSlots.includes(slot);
 ---
 
-{/* Reserved editorial positions remain in the HTML for a future managed ad integration.
-    No advertising provider is currently configured for these reserved slots.
-    Template markers are inert and take no visible space until a supported ad format is configured. */}
+{/* Keep the complete slot architecture for future ad units, without visible placeholders. */}
 {visible && <template data-atlas-ad-slot={slot}></template>}
+
+{primary && (
+  <div class="atlas-ad-placement" data-atlas-ad-primary={slot} hidden>
+    <script is:inline>
+      (() => {
+        // Adsterra's 300x250 script uses document.write. Run it during HTML
+        // parsing at this exact editorial location, not inside a nested
+        // sandboxed srcdoc iframe. On first opt-in the consent UI reloads the
+        // page so the parser can run it safely and without replacing the page.
+        if (document.documentElement.dataset.atlasAdsEligible !== 'true') return;
+        let allowed = false;
+        try {
+          const value = JSON.parse(localStorage.getItem('atlas.optionalAdvertisingConsent.v2') || 'null');
+          const age = Date.now() - value?.at;
+          allowed = value?.choice === 'accepted' &&
+            typeof value.at === 'number' &&
+            age >= 0 && age <= 180 * 24 * 60 * 60 * 1000;
+        } catch { /* No consent means no ad request. */ }
+        if (!allowed) return;
+
+        const container = document.currentScript?.parentElement;
+        if (!container) return;
+        container.hidden = false;
+        window.atOptions = {
+          key: '8ae25b964fbb4d4378a45891366f2143',
+          format: 'iframe',
+          height: 250,
+          width: 300,
+          params: {},
+        };
+        document.write('<scr' + 'ipt src="https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143"></scr' + 'ipt>');
+      })();
+    </script>
+  </div>
+)}
+
+<style>
+  :global(.atlas-ad-placement[hidden]) { display: none !important; }
+  :global(.atlas-ad-placement:not([hidden])) {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    min-height: 250px;
+    margin: clamp(24px, 4vw, 44px) auto;
+    text-align: center;
+  }
+  :global(.atlas-ad-placement iframe) { max-width: 100%; }
+</style>
