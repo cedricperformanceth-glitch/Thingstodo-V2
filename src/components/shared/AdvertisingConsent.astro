@@ -52,7 +52,6 @@ const { adsEligible = false } = Astro.props;
     const adsKey = 'atlas.optionalAdvertisingConsent.v2';
     const analyticsKey = 'atlas.optionalAnalyticsConsent.v1';
     const maxAgeMs = 180 * 24 * 60 * 60 * 1000;
-    let adsLoaded = false;
     let analyticsLoaded = false;
 
     const read = key => {
@@ -66,64 +65,6 @@ const { adsEligible = false } = Astro.props;
     const write = (key, choice) => {
       try { localStorage.setItem(key, JSON.stringify({ choice, at: Date.now() })); }
       catch { /* Respect the current page choice even without persistent storage. */ }
-    };
-    const loadAds = () => {
-      // Advertising is limited to explicitly eligible editorial pages with
-      // reserved slots. The first suitable slot receives at most one banner.
-      if (root.dataset.atlasAdsEligible !== 'true') return;
-      if (adsLoaded || document.querySelector('[data-atlas-ad-live]')) return;
-      const preferredSlots = [
-        'activity-after-chapter-one',
-        'activity-before-faq',
-        'city-field-note-after-chapter-two',
-        'activity-under-hero',
-        'city-field-note-before-chapter-one',
-      ];
-      const markers = [...document.querySelectorAll('template[data-atlas-ad-slot]')];
-      const marker = preferredSlots.map(name => markers.find(item =>
-        item.dataset.atlasAdSlot === name)).find(Boolean) || markers[0];
-      if (!marker) return;
-
-      // This is the exact 300 x 250 banner configuration and script URL
-      // supplied by the approved Adsterra publisher dashboard.
-      // Run inside an isolated frame: its document.write must never replace
-      // the parent Atlas page, and no request is issued until consent.
-      const options = {
-        key: '8ae25b964fbb4d4378a45891366f2143',
-        format: 'iframe',
-        height: 250,
-        width: 300,
-        params: {},
-      };
-      const adScript = 'https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143';
-      const html = [
-        '<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"></head>',
-        '<body style="margin:0;padding:0;overflow:hidden">',
-        '<scr' + 'ipt>atOptions = ' + JSON.stringify(options) + ';</scr' + 'ipt>',
-        '<scr' + 'ipt src="' + adScript + '"></scr' + 'ipt>',
-        '</body></html>',
-      ].join('');
-
-      const placement = document.createElement('aside');
-      placement.className = 'atlas-ad-placement';
-      placement.dataset.atlasAdLive = 'true';
-      placement.setAttribute('aria-label', 'Advertisement');
-      const frame = document.createElement('iframe');
-      frame.title = 'Advertisement';
-      frame.width = '300';
-      frame.height = '250';
-      frame.loading = 'lazy';
-      frame.referrerPolicy = 'strict-origin-when-cross-origin';
-      frame.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
-      frame.style.border = '0';
-      frame.style.display = 'block';
-      frame.style.width = '300px';
-      frame.style.maxWidth = '100%';
-      frame.style.height = '250px';
-      placement.appendChild(frame);
-      marker.insertAdjacentElement('afterend', placement);
-      adsLoaded = true;
-      frame.srcdoc = html;
     };
     const loadAnalytics = () => {
       // Do not request Google's script or create GA cookies before opt-in.
@@ -142,19 +83,22 @@ const { adsEligible = false } = Astro.props;
     const show = () => { notice.hidden = false; settings.hidden = true; };
     const hide = () => { notice.hidden = true; settings.hidden = false; };
     const select = (allowAds, allowAnalytics) => {
-      // A page reload stops already loaded provider scripts after withdrawal.
-      const revokeLoadedAds = adsLoaded && !allowAds;
+      // The banner code must execute at its slot during initial HTML parsing.
+      // On an eligible page, changing ad acceptance triggers a page reload,
+      // which either runs the code or removes it. No dynamic document.write.
+      const previousAdChoice = read(adsKey);
+      const adStatusChanged = (previousAdChoice === 'accepted') !== allowAds;
       const revokeLoadedAnalytics = analyticsLoaded && !allowAnalytics;
       write(adsKey, allowAds ? 'accepted' : 'rejected');
       write(analyticsKey, allowAnalytics ? 'accepted' : 'rejected');
       adsInput.checked = allowAds;
       analyticsInput.checked = allowAnalytics;
       hide();
-      if (revokeLoadedAds || revokeLoadedAnalytics) {
+      if (revokeLoadedAnalytics ||
+        (adStatusChanged && document.documentElement.dataset.atlasAdsEligible === 'true')) {
         window.location.reload();
         return;
       }
-      if (allowAds) loadAds();
       if (allowAnalytics) loadAnalytics();
     };
 
@@ -226,7 +170,6 @@ const { adsEligible = false } = Astro.props;
     const analyticsChoice = read(analyticsKey);
     adsInput.checked = adChoice === 'accepted';
     analyticsInput.checked = analyticsChoice === 'accepted';
-    if (adChoice === 'accepted') loadAds();
     if (analyticsChoice === 'accepted') loadAnalytics();
     if (adChoice && analyticsChoice) hide();
     else show();
@@ -269,14 +212,6 @@ const { adsEligible = false } = Astro.props;
   }
   .atlas-consent__options label { display: flex; align-items: center; gap: .65rem; cursor: pointer; }
   .atlas-consent__options input { flex: none; width: 17px; height: 17px; accent-color: #edd4a3; }
-  :global(.atlas-ad-placement) {
-    width: min(100%, 300px);
-    min-height: 250px;
-    margin: clamp(24px, 4vw, 44px) auto;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-  }
   .atlas-consent__explanation .atlas-consent__links {
     display: flex; flex-wrap: wrap; gap: 1rem; margin-top: .55rem; font-size: .78rem;
   }
