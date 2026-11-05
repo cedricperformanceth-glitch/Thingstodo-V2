@@ -58,7 +58,26 @@ const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((c
   <AdSlot slot={cityFieldNoteAdSlots.beforeChapterOne} visible />
 
   <div class="city-note__chapters">
-    {view.chapters.map((chapter, index) => {
+    {/* The single live banner must be a static Astro component placement,
+        not a nested component returned from .map(): the prior build emitted
+        only the before-chapter-one marker and no active banner slot. */}
+    {view.chapters.slice(0, 2).map((chapter, index) => {
+      const isChapterSevenPhoto = index === 6 || chapter.photoSlot;
+      const hasSupport = Boolean(isChapterSevenPhoto || (chapter.facts && chapter.facts.length) || chapter.note);
+      return <>
+        <section class:list={['city-note__chapter', { 'city-note__chapter--reverse': index % 2 === 1 && hasSupport }, { 'city-note__chapter--solo': !hasSupport }]}>
+          <div class="city-note__chapter-copy"><p class="city-note__section-label">{chapter.eyebrow}</p><h2>{chapter.title}</h2><div class="city-note__prose">{chapter.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div></div>
+          {isChapterSevenPhoto ? <figure class="city-note__chapter-photo">
+            {chapterSevenImage ? <img src={chapterSevenImage.src} alt={chapterSevenImage.alt} width="1200" height="900" loading="lazy" decoding="async" /> : <div class="city-note__chapter-photo-placeholder" role="img" aria-label={`Editorial chapter photo to add for ${city.name}`}><span>FIELD PHOTO 04</span><strong>Editorial image to add</strong></div>}
+            <figcaption><span>{chapterSevenImage ? chapterSevenImage.alt : 'Chapter seven editorial photo'}</span>{chapterSevenImage && <small>{chapterSevenImage.sourceUrl ? <a href={chapterSevenImage.sourceUrl} target="_blank" rel="noreferrer">{credit(chapterSevenImage)}</a> : credit(chapterSevenImage)}</small>}</figcaption>
+          </figure> : hasSupport && <aside class="city-note__chapter-side">{chapter.facts && chapter.facts.length > 0 && <><h3>Keep close</h3><dl class="city-note__facts">{chapter.facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl></>}{chapter.note && <div class="city-note__note"><span>{chapter.note.label}</span><p>{chapter.note.text}</p></div>}</aside>}
+        </section>
+        {index === 2 && <section class="city-note__photo-spread" aria-label={`${city.name} field photographs`}>{(galleryImages.length ? galleryImages : [undefined, undefined]).map((image, imageIndex) => <figure class="city-note__photo-card">{image ? <img src={image.src} alt={image.alt} width="1200" height="900" loading="lazy" decoding="async" /> : <div class="city-note__photo-placeholder"><span>FIELD PHOTO {String(imageIndex + 1).padStart(2, '0')}</span></div>}<figcaption><span>{image ? image.alt : 'Editorial image to add'}</span>{image && <small>{image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{credit(image)}</a> : credit(image)}</small>}</figcaption></figure>)}</section>}
+      </>;
+    })}
+    <AdSlot slot={cityFieldNoteAdSlots.afterChapterTwo} visible />
+    {view.chapters.slice(2).map((chapter, remainderIndex) => {
+      const index = remainderIndex + 2;
       const isChapterSevenPhoto = index === 6 || chapter.photoSlot;
       const hasSupport = Boolean(isChapterSevenPhoto || (chapter.facts && chapter.facts.length) || chapter.note);
       const adSlot = adIndexes.get(index);
