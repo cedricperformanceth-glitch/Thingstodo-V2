@@ -5,8 +5,8 @@ export const cookiePolicyPage: LegalPageData = {
   eyebrow: 'Legal',
   documentLabel: 'Legal note · Cookies',
   title: 'Cookie Policy',
-  heroIntro: 'What the Atlas stores in your browser and how optional audience measurement may be used.',
-  documentIntro: 'Things To Do Atlas stores travel selections locally and offers optional Google Analytics audience measurement. Analytics remains disabled until the visitor accepts it. No advertising provider is currently active.',
+  heroIntro: 'What the Atlas stores in your browser and how optional analytics and advertising may be used.',
+  documentIntro: 'Things To Do Atlas stores travel selections locally and offers optional Google Analytics audience measurement and Adsterra banner advertising. Both services require separate consent and are disabled until accepted.',
   lastUpdated: 'November 5, 2026',
   seo: {
     title: 'Cookie Policy | Things To Do Atlas',
@@ -49,7 +49,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The public version of Things To Do Atlas uses two local storage records for visitor-requested travel features and one for optional analytics consent.',
+              text: 'The public version of Things To Do Atlas uses two local storage records for visitor-requested travel features, one for optional analytics consent and one for optional advertising consent.',
             },
           ],
         },
@@ -73,13 +73,18 @@ export const cookiePolicyPage: LegalPageData = {
               'Stores the Google Analytics audience measurement choice and its timestamp.',
               'The choice is valid for up to 180 days.',
             ],
+            [
+              'atlas.optionalAdvertisingConsent.v2',
+              'Stores the independent Adsterra advertising choice and its timestamp. Prior consent for a former advertising provider is not reused.',
+              'The choice is valid for up to 180 days.',
+            ],
           ],
         },
         {
           type: 'paragraph',
           content: [
             {
-              text: 'The first two records rebuild saved travel selections. The third stores the visitor’s audience measurement choice and timestamp. These records do not create a visitor account. After explicit analytics consent, Google Analytics may also set measurement cookies.',
+              text: 'The first two records rebuild saved travel selections. The other two store independent analytics and advertising choices with timestamps. These records do not create a visitor account. After consent, Google Analytics or Adsterra and its advertising partners may use cookies or similar technologies.',
             },
           ],
         },
@@ -124,7 +129,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 (measurement ID G-MR20XJMESG) measures visits, page views and engagement only after the visitor accepts audience measurement. Google may then set measurement cookies such as _ga. The site does not use Google AdSense and currently loads no third-party advertising scripts.',
+              text: 'Google Analytics 4 (measurement ID G-MR20XJMESG) measures visits, page views and engagement only after the visitor accepts audience measurement. Google may then set measurement cookies such as _ga. Separately, one Adsterra 300 × 250 banner may load on eligible editorial pages after advertising consent. The site does not use Google AdSense.',
             },
           ],
         },
@@ -132,7 +137,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The infrastructure used to deliver or protect the website may process necessary technical requests. With audience measurement consent, Google Analytics may make third-party requests and use identifiers. The analytics choice is valid for up to 180 days. Expired choices do not count as consent.',
+              text: 'The infrastructure used to deliver or protect the website may process necessary technical requests. After the corresponding consent, Google Analytics or Adsterra may make third-party requests and use identifiers. Analytics and advertising choices are separate and each valid for up to 180 days. Expired choices do not count as consent.',
             },
           ],
         },
@@ -146,7 +151,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas loads some web fonts from Google Fonts. Google Analytics is loaded only after audience measurement consent. These external services may receive request information and, when applicable, use cookies or related browser identifiers.',
+              text: 'Things To Do Atlas loads some web fonts from Google Fonts. Google Analytics is loaded only after audience measurement consent. Adsterra banners are loaded only after advertising consent and only within editorial pages with reserved positions. These external services may receive request information and, where applicable, use cookies or related browser identifiers.',
             },
           ],
         },
@@ -168,7 +173,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. No advertising network is integrated at present. Reserved editorial positions for possible future advertising do not load advertising scripts.',
+              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Adsterra is an optional advertising provider. Only one 300 × 250 banner can be requested on eligible activity cards and city Field Notes, inside a reserved editorial position, after advertising consent. No advertising is loaded on legal pages, the 404 page or Trip Summary.',
             },
           ],
         },
@@ -177,6 +182,8 @@ export const cookiePolicyPage: LegalPageData = {
           content: [
             { text: 'For further information, see the ' },
             { text: 'Google Privacy Policy', href: 'https://policies.google.com/privacy', external: true },
+            { text: ' and the ' },
+            { text: 'Adsterra Cookies Policy', href: 'https://adsterra.com/cookies/', external: true },
             { text: '. Browser settings can also be used to manage cookies and other site data.' },
           ],
         },
@@ -188,7 +195,7 @@ export const cookiePolicyPage: LegalPageData = {
           paragraphs: [
             [
               {
-                text: 'Visitors may accept or reject optional audience measurement. Without a positive choice, the Google Analytics script remains unloaded. Cookie settings are available on every page. Withdrawing consent reloads the page to stop further loading. Previously set third-party cookies may need to be cleared in browser settings.',
+                text: 'Visitors can accept or reject analytics and advertising independently. Without the corresponding positive choice, Google Analytics or Adsterra advertising scripts remain unloaded. Cookie settings are available on every page. Withdrawing consent after a script has loaded reloads the page to stop further loading. Previously set third-party cookies may need to be cleared in browser settings.',
               },
             ],
           ],
@@ -226,7 +233,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The cookie banner offers Reject analytics and Accept analytics. All site features remain available when analytics is rejected. Visitors can reopen Cookie settings on any page; the analytics choice is valid for up to 180 days.',
+              text: 'The cookie banner provides separate analytics and advertising checkboxes, plus Reject optional, Save choices and Accept all. All site features remain available when both are rejected. Visitors can reopen Cookie settings on any page; each choice is valid for up to 180 days.',
             },
           ],
         },
@@ -234,7 +241,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Visitors can change or withdraw analytics consent at any time. Withdrawing permission after the script has loaded reloads the page. Previously stored third-party cookies are not automatically erased and may also be cleared through browser settings.',
+              text: 'Visitors can independently change or withdraw analytics and advertising consent at any time. Withdrawing permission after a provider script has loaded reloads the page. Previously stored third-party cookies are not automatically erased and may also be cleared through browser settings.',
             },
           ],
         },
