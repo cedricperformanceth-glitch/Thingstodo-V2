@@ -7,7 +7,7 @@ export const privacyPolicyPage: LegalPageData = {
   title: 'Privacy Policy',
   heroIntro: 'A clear account of what the Atlas stores, what third parties may receive, and the choices available to visitors.',
   documentIntro: 'Things To Do Atlas is designed to work with as little personal data as possible. This policy explains what information may be processed when you browse the site, save places or activities, and follow links to third-party services.',
-  lastUpdated: 'October 31, 2026',
+  lastUpdated: 'November 5, 2026',
   seo: {
     title: 'Privacy Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas handles browser storage, technical data, third-party services and visitor privacy.',
@@ -191,7 +191,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. Separately, Infolinks advertising technology is offered only with advertising consent on eligible pages. The site does not use Google AdSense, and the Infolinks integration does not imply publisher approval.',
+              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. The site currently does not load any advertising network or Google AdSense.',
             },
           ],
         },
@@ -199,7 +199,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Analytics and advertising each have a separate optional choice. Google Analytics is not requested before analytics consent; Infolinks is not requested before advertising consent. If activated, these providers may process technical request information and use cookies or related identifiers for their stated purposes. Visitors can refuse either service without losing Atlas features and change choices through Cookie settings. Revocation reloads the page to prevent further script loading; cookies already set may need to be cleared through browser settings.',
+              text: 'Audience measurement is optional. Google Analytics is not requested before analytics consent. If activated, Google may process technical request information and use cookies or related identifiers for audience measurement. Visitors can refuse without losing Atlas features and change the choice through Cookie settings. Revocation reloads the page to prevent further script loading; cookies already set may need to be cleared through browser settings.',
             },
           ],
         },
@@ -207,12 +207,10 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             { text: 'See the ' },
-            { text: 'Infolinks Privacy Policy', href: 'https://sites0001.infolinks.com/privacy-policy', external: true },
-            { text: ', ' },
             { text: 'Google Privacy Policy', href: 'https://policies.google.com/privacy', external: true },
             { text: ' and our ' },
             { text: 'Cookie Policy', href: '/legal/cookie-policy' },
-            { text: ' for more information about third-party advertising technologies.' },
+            { text: ' for more information about optional audience measurement.' },
           ],
         },
         {
@@ -245,7 +243,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Third-party services that you choose to visit or that are used to deliver a resource, such as Google Fonts, Google Analytics and Infolinks, process information under their own privacy terms. Depending on the provider and your location, that processing may take place in countries other than the country from which you access Things To Do Atlas.',
+              text: 'Third-party services that you choose to visit or that are used to deliver a resource, such as Google Fonts and Google Analytics, process information under their own privacy terms. Depending on the provider and your location, that processing may take place in countries other than the country from which you access Things To Do Atlas.',
             },
           ],
         },
