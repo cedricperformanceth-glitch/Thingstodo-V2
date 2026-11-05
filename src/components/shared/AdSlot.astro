@@ -5,6 +5,6 @@ const { slot, visible = false } = Astro.props;
 ---
 
 {/* Reserved editorial positions remain in the HTML for a future managed ad integration.
-    The current Infolinks script does not target these slots automatically.
+    No advertising provider is currently configured for these reserved slots.
     Template markers are inert and take no visible space until a supported ad format is configured. */}
 {visible && <template data-atlas-ad-slot={slot}></template>}
