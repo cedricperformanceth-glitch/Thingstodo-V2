@@ -124,7 +124,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 (measurement ID G-MR20XJMESG) measures visits, page views and engagement only after the visitor accepts audience measurement. Google may then set measurement cookies such as _ga. Adsterra is configured to load a single 300 × 250 banner automatically inside a dedicated iframe on eligible editorial pages, independently of the analytics setting. The site does not use Google AdSense.',
+              text: 'Google Analytics 4 (measurement ID G-MR20XJMESG) measures visits, page views and engagement only after the visitor accepts audience measurement. Google may then set measurement cookies such as _ga. Adsterra loads 300 × 250 banners automatically inside dedicated iframes on eligible editorial pages, independently of the analytics setting. Most eligible pages currently use one placement, while the Pakse City Field Note is testing four positions. The site does not use Google AdSense.',
             },
           ],
         },
@@ -168,7 +168,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Adsterra provides display advertising: one 300 × 250 banner is configured for eligible activity cards and city Field Notes in a dedicated iframe, without a separate advertising consent checkbox. Adsterra or its partners may use advertising identifiers or similar technologies. No advertising is loaded on legal pages, the 404 page or Trip Summary.',
+              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Adsterra provides display advertising through 300 × 250 banners in dedicated iframes, without a separate advertising consent checkbox. Most eligible activity cards and city Field Notes currently have one placement, while the Pakse City Field Note is testing four. Adsterra or its partners may use advertising identifiers or similar technologies. No advertising is loaded on legal pages, the 404 page or Trip Summary.',
             },
           ],
         },
