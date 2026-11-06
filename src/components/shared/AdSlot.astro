@@ -2,23 +2,23 @@
 import type { AdSlot } from '../../core/ads/slots';
 import { activityAdSlots, cityFieldNoteAdSlots, ADSTERRA_BANNERS_PAUSED } from '../../core/ads/slots';
 
-interface Props { slot: AdSlot; visible?: boolean; paksePilot?: boolean; }
-const { slot, visible = false, paksePilot = false } = Astro.props;
+interface Props { slot: AdSlot; visible?: boolean; fourBannerPilot?: boolean; }
+const { slot, visible = false, fourBannerPilot = false } = Astro.props;
 
 // One 300x250 placement per eligible editorial page by default.
-// Only the Pakse City Field Note pilots four placements; all other slots remain inert.
+// Only configured City Field Note pilots may load four placements; all other slots remain inert.
 const primaryAdSlots: string[] = [
   activityAdSlots.afterChapterOne,
   activityAdSlots.beforeFaq,
   cityFieldNoteAdSlots.afterChapterTwo,
 ];
-const paksePilotSlots: string[] = [
+const fourBannerPilotSlots: string[] = [
   cityFieldNoteAdSlots.beforeChapterOne,
   cityFieldNoteAdSlots.afterChapterFour,
   cityFieldNoteAdSlots.afterChapterSeven,
 ];
 const primary = visible && !ADSTERRA_BANNERS_PAUSED &&
-  (primaryAdSlots.includes(slot) || (paksePilot && paksePilotSlots.includes(slot)));
+  (primaryAdSlots.includes(slot) || (fourBannerPilot && fourBannerPilotSlots.includes(slot)));
 ---
 
 {/* Keep the reserved slot architecture without empty public placeholders. */}
