@@ -1,8 +1,4 @@
----
-interface Props { adsEligible?: boolean; }
-const { adsEligible = false } = Astro.props;
----
-<div class="atlas-consent" data-atlas-consent data-atlas-ads-eligible={adsEligible ? 'true' : 'false'}>
+<div class="atlas-consent" data-atlas-consent>
   <button class="atlas-consent__settings" type="button" data-consent-settings
     aria-label="Cookie settings" title="Cookie settings" hidden>
     <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
@@ -17,17 +13,16 @@ const { adsEligible = false } = Astro.props;
   <aside class="atlas-consent__notice" data-consent-notice aria-label="Optional cookies and privacy choices" hidden>
     <div class="atlas-consent__explanation">
       <strong>Privacy and cookies</strong>
-      <p>Atlas saves your travel selections locally. Audience measurement and advertising are optional. Adsterra banners are isolated in a restricted frame and only load when advertising is accepted. Your choices remain independent.</p>
-      <div class="atlas-consent__options" role="group" aria-label="Optional services">
+      <p>Atlas saves your travel selections locally. Optional Google Analytics audience measurement is only enabled with your permission. Advertising on eligible editorial pages is separate from this analytics choice. Read our privacy and cookie policies for details.</p>
+      <div class="atlas-consent__options" role="group" aria-label="Optional audience measurement">
         <label><input type="checkbox" data-consent-analytics /> Audience measurement (Google Analytics)</label>
-        <label><input type="checkbox" data-consent-ads /> Advertising banners (Adsterra)</label>
       </div>
       <p class="atlas-consent__links"><a href="/legal/cookie-policy">Cookie Policy</a><a href="/legal/privacy-policy">Privacy Policy</a></p>
     </div>
     <div class="atlas-consent__actions">
       <button type="button" data-consent-reject>Reject optional</button>
       <button type="button" data-consent-save>Save choices</button>
-      <button type="button" data-consent-accept>Accept all</button>
+      <button type="button" data-consent-accept>Accept analytics</button>
     </div>
   </aside>
 </div>
@@ -43,13 +38,9 @@ const { adsEligible = false } = Astro.props;
     const accept = root.querySelector('[data-consent-accept]');
     const reject = root.querySelector('[data-consent-reject]');
     const saveButton = root.querySelector('[data-consent-save]');
-    const adsInput = root.querySelector('[data-consent-ads]');
     const analyticsInput = root.querySelector('[data-consent-analytics]');
-    if (!notice || !settings || !accept || !reject || !saveButton || !adsInput || !analyticsInput) return;
+    if (!notice || !settings || !accept || !reject || !saveButton || !analyticsInput) return;
 
-    // A new advertising-consent version deliberately does not reuse acceptance
-    // for the previous advertising provider.
-    const adsKey = 'atlas.optionalAdvertisingConsent.v2';
     const analyticsKey = 'atlas.optionalAnalyticsConsent.v1';
     const maxAgeMs = 180 * 24 * 60 * 60 * 1000;
     let analyticsLoaded = false;
@@ -82,20 +73,13 @@ const { adsEligible = false } = Astro.props;
     };
     const show = () => { notice.hidden = false; settings.hidden = true; };
     const hide = () => { notice.hidden = true; settings.hidden = false; };
-    const select = (allowAds, allowAnalytics) => {
-      // Changing advertising consent on an eligible page reloads it so the
-      // sandboxed ad iframe is loaded or removed. The provider script never
-      // runs in the parent document.
-      const previousAdChoice = read(adsKey);
-      const adStatusChanged = (previousAdChoice === 'accepted') !== allowAds;
+    const select = allowAnalytics => {
       const revokeLoadedAnalytics = analyticsLoaded && !allowAnalytics;
-      write(adsKey, allowAds ? 'accepted' : 'rejected');
       write(analyticsKey, allowAnalytics ? 'accepted' : 'rejected');
-      adsInput.checked = allowAds;
       analyticsInput.checked = allowAnalytics;
       hide();
-      if (revokeLoadedAnalytics ||
-        (adStatusChanged && document.documentElement.dataset.atlasAdsEligible === 'true')) {
+      // Revocation reloads the page so previously loaded GA code is no longer active.
+      if (revokeLoadedAnalytics) {
         window.location.reload();
         return;
       }
@@ -103,11 +87,11 @@ const { adsEligible = false } = Astro.props;
     };
 
     settings.addEventListener('click', () => { show(); reject.focus(); });
-    accept.addEventListener('click', () => select(true, true));
-    reject.addEventListener('click', () => select(false, false));
-    saveButton.addEventListener('click', () => select(adsInput.checked, analyticsInput.checked));
+    accept.addEventListener('click', () => select(true));
+    reject.addEventListener('click', () => select(false));
+    saveButton.addEventListener('click', () => select(analyticsInput.checked));
     window.addEventListener('storage', event => {
-      if (event.key === adsKey || event.key === analyticsKey || event.key === null) window.location.reload();
+      if (event.key === analyticsKey || event.key === null) window.location.reload();
     });
 
     // Align this independent button alongside the existing Menu block, without
@@ -166,12 +150,10 @@ const { adsEligible = false } = Astro.props;
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', positionSettings, { passive: true });
 
-    const adChoice = read(adsKey);
     const analyticsChoice = read(analyticsKey);
-    adsInput.checked = adChoice === 'accepted';
     analyticsInput.checked = analyticsChoice === 'accepted';
     if (analyticsChoice === 'accepted') loadAnalytics();
-    if (adChoice && analyticsChoice) hide();
+    if (analyticsChoice) hide();
     else show();
 
     positionSettings();
