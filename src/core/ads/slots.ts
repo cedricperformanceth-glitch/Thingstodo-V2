@@ -9,6 +9,11 @@ const fourBannerFieldNotePilots = new Set(['laos/pakse']);
 export const isFourBannerFieldNotePilot = (country: string, city: string): boolean =>
   fourBannerFieldNotePilots.has(`${country}/${city}`);
 
+// Independent trial switch: Social Bar stays off elsewhere until reviewed.
+const socialBarFieldNotePilots = new Set(['laos/pakse']);
+export const isSocialBarFieldNotePilot = (country: string, city: string): boolean =>
+  socialBarFieldNotePilots.has(`${country}/${city}`);
+
 export type EditorialAdSlot = 'editorial-inline-1' | 'editorial-inline-2' | 'editorial-inline-3' | 'editorial-inline-4';
 
 export const editorialAdSlots: EditorialAdSlot[] = [
