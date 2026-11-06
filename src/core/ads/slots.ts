@@ -3,6 +3,12 @@
 // Set true to halt all banner requests immediately if unwanted redirects recur.
 export const ADSTERRA_BANNERS_PAUSED = false;
 
+// Country-specific advertisement density trials belong in configuration, not
+ // in the generic City Field Note renderer. Other cities keep one placement.
+const fourBannerFieldNotePilots = new Set(['laos/pakse']);
+export const isFourBannerFieldNotePilot = (country: string, city: string): boolean =>
+  fourBannerFieldNotePilots.has(`${country}/${city}`);
+
 export type EditorialAdSlot = 'editorial-inline-1' | 'editorial-inline-2' | 'editorial-inline-3' | 'editorial-inline-4';
 
 export const editorialAdSlots: EditorialAdSlot[] = [
