@@ -191,7 +191,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. On eligible editorial pages, one 300 × 250 Adsterra banner loads automatically inside a dedicated iframe, independently of the analytics preference. Adsterra and its partners may process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
+              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. On eligible editorial pages, 300 × 250 Adsterra banners load automatically inside dedicated iframes, independently of the analytics preference. Most eligible pages currently contain one banner; the Pakse City Field Note is testing four. Adsterra and its partners may process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
             },
           ],
         },
