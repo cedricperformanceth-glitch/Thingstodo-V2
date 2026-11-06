@@ -67,7 +67,7 @@ function verifyAdvertisingScope(path, html, eligible) {
       path + ': isolated ad document requires script, origin and click permissions');
     assert(!flags.has('allow-top-navigation') && !flags.has('allow-top-navigation-by-user-activation'),
       path + ': iframe must prohibit top-level ad redirects');
-    assert(/\bdata-src="\/adsterra\/300x250"/.test(frame),
+    assert(/\bdata-src="\/adsterra\/300x250\/"/.test(frame),
       path + ': dedicated ad URL must be inert until consent');
     assert(!/(?:^|\s)(?:src|srcdoc)\s*=/.test(frame),
       path + ': iframe cannot load a source before advertising consent');
@@ -212,13 +212,13 @@ if (mode === 'build') {
       console.log('PASS Cloudflare unknown route: HTTP 404 with Atlas page and noindex');
       verifyAdvertisingScope('/404', missing.html, false);
 
-      const adResponse = await request('/adsterra/300x250');
+      const adResponse = await request('/adsterra/300x250/');
       assert(adResponse.status === 200, 'Adsterra execution page returned HTTP ' + adResponse.status);
       verifyAdExecutionDocument(adResponse.html);
       const adCsp = adResponse.headers.get('content-security-policy') ?? '';
       assert(/sandbox\s+allow-scripts\s+allow-same-origin/i.test(adCsp) &&
         /frame-ancestors\s+'self'/i.test(adCsp),
-        'Live Adsterra execution page missing Cloudflare response sandbox: ' + adCsp);
+        'Live Adsterra execution page missing Cloudflare response sandbox at ' + adResponse.url + ': ' + adCsp);
       assert(/noindex/i.test(adResponse.headers.get('x-robots-tag') ?? ''),
         'Live Adsterra execution page must be noindex via HTTP header');
 
