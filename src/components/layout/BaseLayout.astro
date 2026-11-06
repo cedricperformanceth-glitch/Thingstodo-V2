@@ -19,6 +19,7 @@ interface Props {
   showNavbar?: boolean;
   showFooter?: boolean;
   adsEligible?: boolean;
+  socialBarEnabled?: boolean;
 }
 
 const {
@@ -32,6 +33,7 @@ const {
   showNavbar = showSiteChrome,
   showFooter = showSiteChrome,
   adsEligible = false,
+  socialBarEnabled = false,
 } = Astro.props;
 const meta = pageSeo(seo, breadcrumbs);
 const pageIsIndexable = indexingEnabled && meta.indexable;
@@ -88,5 +90,7 @@ const pageIsIndexable = indexingEnabled && meta.indexable;
       }
     </script>
     <AdvertisingConsent />
+    {/* Temporary Adsterra Social Bar pilot: only explicitly enabled pages load this script. */}
+    {socialBarEnabled && <script is:inline data-cfasync="false" src="https://bauval.org/14/320dbfaae03e988a1b6e573d23b1dd58"></script>}
   </body>
 </html>
