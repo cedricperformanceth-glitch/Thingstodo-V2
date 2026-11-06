@@ -191,7 +191,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. On eligible editorial pages, one 300 × 250 Adsterra banner is loaded inside a dedicated iframe only after the visitor accepts advertising. Adsterra and its partners may then process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
+              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. On eligible editorial pages, one 300 × 250 Adsterra banner loads automatically inside a dedicated iframe, independently of the analytics preference. Adsterra and its partners may process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
             },
           ],
         },
@@ -199,7 +199,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Analytics and advertising have separate, optional consent choices. Google Analytics is not requested before analytics consent, and Adsterra is not requested before advertising consent. If activated, these providers may process technical request information and use cookies or related identifiers for their respective purposes. Visitors can refuse either service without losing Atlas features and change their choices through Cookie settings. Revocation reloads the page to prevent further script loading; cookies already set may need to be cleared through browser settings.',
+              text: 'Optional Google Analytics measurement requires a positive choice; without it, the Google tag is not requested. Display advertising on eligible editorial pages is not controlled by that analytics choice and loads automatically. Adsterra or its partners may process technical request information and use cookies or similar identifiers. Visitors can change or withdraw Google Analytics consent through Cookie settings without losing Atlas features. Analytics revocation reloads the page to prevent further Google tag loading; previously stored cookies may need to be cleared through browser settings.',
             },
           ],
         },
@@ -212,7 +212,7 @@ export const privacyPolicyPage: LegalPageData = {
             { text: 'Adsterra Cookies Policy', href: 'https://adsterra.com/cookies/', external: true },
             { text: ' and our ' },
             { text: 'Cookie Policy', href: '/legal/cookie-policy' },
-            { text: ' for more information about these optional services.' },
+            { text: ' for more information about these services.' },
           ],
         },
         {
