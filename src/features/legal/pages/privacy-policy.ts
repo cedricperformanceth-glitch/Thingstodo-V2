@@ -7,7 +7,7 @@ export const privacyPolicyPage: LegalPageData = {
   title: 'Privacy Policy',
   heroIntro: 'A clear account of what the Atlas stores, what third parties may receive, and the choices available to visitors.',
   documentIntro: 'Things To Do Atlas is designed to work with as little personal data as possible. This policy explains what information may be processed when you browse the site, save places or activities, and follow links to third-party services.',
-  lastUpdated: 'November 5, 2026',
+  lastUpdated: 'November 6, 2026',
   seo: {
     title: 'Privacy Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas handles browser storage, technical data, third-party services and visitor privacy.',
@@ -191,7 +191,7 @@ export const privacyPolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. Adsterra banners are currently suspended while reports of unwanted mobile redirects are investigated. No Adsterra advertising script is loaded during this pause, even if advertising consent was previously granted. If banner delivery resumes with consent, Adsterra and its partners may process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
+              text: 'Things To Do Atlas uses Google Analytics 4 (measurement ID G-MR20XJMESG) only when a visitor opts in to audience measurement. Analytics may process page views, approximate location, device and browser details and engagement events through Google, and may set measurement cookies. On eligible editorial pages, one 300 × 250 Adsterra banner is loaded inside a dedicated iframe only after the visitor accepts advertising. Adsterra and its partners may then process ad request data and use cookies or similar identifiers. No ads are loaded on legal pages, the 404 page or Trip Summary. The site does not use Google AdSense.',
             },
           ],
         },
