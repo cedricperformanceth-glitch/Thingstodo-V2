@@ -1,13 +1,5 @@
-# Cloudflare may canonicalize an Astro folder page to a trailing slash.
-# Cover every final 200 response path, not only the redirecting URL.
-/adsterra/*
-  X-Robots-Tag: noindex, nofollow
-  Content-Security-Policy: sandbox allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox; frame-ancestors 'self'
-
-/adsterra/300x250
-  X-Robots-Tag: noindex, nofollow
-  Content-Security-Policy: sandbox allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox; frame-ancestors 'self'
-
+# The isolated 300x250 ad document is the only active ad endpoint.
+# Apply both click isolation and noindex headers to its final Cloudflare URL.
 /adsterra/300x250/
   X-Robots-Tag: noindex, nofollow
   Content-Security-Policy: sandbox allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox; frame-ancestors 'self'
