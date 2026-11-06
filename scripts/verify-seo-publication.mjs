@@ -53,9 +53,20 @@ function verifyAdvertisingScope(path, html, eligible) {
 
   const banners = [...html.matchAll(/<div\b[^>]*\bdata-atlas-ad-primary=[^>]*>/gi)].map(match => match[0]);
   const frames = [...html.matchAll(/<iframe\b[^>]*\bdata-atlas-ad-frame\b[^>]*>/gi)].map(match => match[0]);
-  const expectedCount = eligible ? 1 : 0;
+  const expectedCount = !eligible ? 0 : path === '/laos/pakse/field-note' ? 4 : 1;
   assert(banners.length === expectedCount && frames.length === expectedCount,
     path + ': expected ' + expectedCount + ' isolated banner, found ' + banners.length + ' containers and ' + frames.length + ' frames');
+  if (path === '/laos/pakse/field-note') {
+    const expectedSlots = [
+      'city-field-note-before-chapter-one',
+      'city-field-note-after-chapter-two',
+      'city-field-note-after-chapter-four',
+      'city-field-note-after-chapter-seven',
+    ];
+    const actualSlots = banners.map(tag => tag.match(/data-atlas-ad-primary="([^"]+)"/)?.[1]);
+    assert(actualSlots.join('|') === expectedSlots.join('|'),
+      path + ': four banners must appear in editorial order: ' + actualSlots.join(', '));
+  }
 
   // Advertising is independent of Google Analytics consent. A visitor who
   // rejects analytics still receives the editorial banner, including on desktop.
