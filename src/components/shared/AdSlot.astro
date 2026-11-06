@@ -46,13 +46,13 @@ const adFrameDocument = `<!doctype html>
   <div class="atlas-ad-placement" data-atlas-ad-primary={slot} hidden>
     <iframe
       data-atlas-ad-frame
-      data-srcdoc={adFrameDocument}
       title="Advertisement"
       width="300"
       height="250"
       loading="lazy"
       referrerpolicy="strict-origin-when-cross-origin"
       sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
+      data-srcdoc={adFrameDocument}
     ></iframe>
     <script is:inline>
       (() => {
