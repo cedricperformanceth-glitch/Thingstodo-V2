@@ -1,7 +1,7 @@
-// Safety switch: Adsterra banner requests are paused after reports of
-// unexpected mobile redirects on taps outside the visible ad.
-// Do not turn this off until the ad provider confirms a compliant safe setup.
-export const ADSTERRA_BANNERS_PAUSED = true;
+// Safety switch: a single 300x250 banner per eligible editorial page is
+// enabled only inside a sandboxed iframe. Other reserved ad slots stay inert.
+// Set true to halt all banner requests immediately if unwanted redirects recur.
+export const ADSTERRA_BANNERS_PAUSED = false;
 
 export type EditorialAdSlot = 'editorial-inline-1' | 'editorial-inline-2' | 'editorial-inline-3' | 'editorial-inline-4';
 
