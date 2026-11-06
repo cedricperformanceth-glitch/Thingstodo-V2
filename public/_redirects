@@ -1,0 +1,3 @@
+# Fallback for browsers requesting the conventional favicon URL.
+# Use the existing Atlas brand asset until a dedicated ICO/PNG is provided.
+/favicon.ico /assets/navbar/things-to-do-atlas-logo-v2.webp 302
