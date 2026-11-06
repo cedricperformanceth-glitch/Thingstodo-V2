@@ -168,7 +168,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Adsterra provides display advertising through 300 × 250 banners in dedicated iframes, without a separate advertising consent checkbox. Most eligible activity cards and city Field Notes currently have one placement, while the Pakse City Field Note is testing four. Adsterra or its partners may use advertising identifiers or similar technologies. No advertising is loaded on legal pages, the 404 page or Trip Summary.',
+              text: 'Google Analytics 4 is an optional audience measurement service used to understand visits, pages viewed and engagement. After analytics consent, the Google tag loads and may use cookies or identifiers to distinguish visits. Adsterra provides display advertising through 300 × 250 banners in dedicated iframes, without a separate advertising consent checkbox. Most eligible activity cards and city Field Notes currently have one placement, while the Pakse City Field Note is testing four. The same Pakse page also tests an Adsterra Social Bar, which may display floating or notification-style advertising outside the fixed banner frames. Adsterra or its partners may use advertising identifiers or similar technologies. No advertising is loaded on legal pages, the 404 page or Trip Summary.',
             },
           ],
         },
