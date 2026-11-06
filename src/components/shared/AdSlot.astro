@@ -5,61 +5,36 @@ import { activityAdSlots, cityFieldNoteAdSlots, ADSTERRA_BANNERS_PAUSED } from '
 interface Props { slot: AdSlot; visible?: boolean; }
 const { slot, visible = false } = Astro.props;
 
-// One banner per eligible editorial page: long activity, short activity,
-// or City Field Note. All other reserved slots stay inert.
+// One 300x250 placement per eligible editorial page.
+// All other reserved ad slots remain inert.
 const primaryAdSlots: string[] = [
   activityAdSlots.afterChapterOne,
   activityAdSlots.beforeFaq,
   cityFieldNoteAdSlots.afterChapterTwo,
 ];
 const primary = visible && !ADSTERRA_BANNERS_PAUSED && primaryAdSlots.includes(slot);
-
-// The provider writes its creative into the document while parsing. Keep all
-// provider JavaScript inside a separate sandboxed iframe document. Never run
-// document.write in the Atlas page or expose the surrounding page to ad clicks.
-const adFrameDocument = `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=300, initial-scale=1">
-  <style>html,body{width:300px;height:250px;margin:0;padding:0;overflow:hidden;background:transparent}</style>
-</head>
-<body>
-  <script>
-    window.atOptions = {
-      key: '8ae25b964fbb4d4378a45891366f2143',
-      format: 'iframe',
-      height: 250,
-      width: 300,
-      params: {}
-    };
-  </script>
-  <script src="https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143"></script>
-</body>
-</html>`;
 ---
 
-{/* Keep the complete slot architecture without visible placeholders. */}
+{/* Keep the reserved slot architecture without empty public placeholders. */}
 {visible && <template data-atlas-ad-slot={slot}></template>}
 
 {primary && (
   <div class="atlas-ad-placement" data-atlas-ad-primary={slot} hidden>
     <iframe
       data-atlas-ad-frame
+      data-src="/adsterra/300x250"
       title="Advertisement"
       width="300"
       height="250"
       loading="lazy"
       referrerpolicy="strict-origin-when-cross-origin"
-      sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
-      data-srcdoc={adFrameDocument}
+      sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
     ></iframe>
     <script is:inline>
       (() => {
         if (document.documentElement.dataset.atlasAdsEligible !== 'true') return;
 
-        // The frame remains about:blank and cannot request the advertising
-        // provider unless the visitor has accepted advertising.
+        // Request nothing from the ad provider until advertising consent.
         let allowed = false;
         try {
           const value = JSON.parse(localStorage.getItem('atlas.optionalAdvertisingConsent.v2') || 'null');
@@ -72,13 +47,13 @@ const adFrameDocument = `<!doctype html>
 
         const container = document.currentScript?.parentElement;
         const frame = container?.querySelector('iframe[data-atlas-ad-frame]');
-        const frameDocument = frame?.getAttribute('data-srcdoc');
-        if (!frameDocument) return;
+        const source = frame?.getAttribute('data-src');
+        if (!source) return;
 
-        // srcdoc is assigned only after opt-in. With no allow-same-origin or
-        // allow-top-navigation, ad scripts cannot control the Atlas document.
-        frame.srcdoc = frameDocument;
-        frame.removeAttribute('data-srcdoc');
+        // Load the dedicated document, not a srcdoc document with opaque origin.
+        // The provider writes only into the iframe; its response is sandboxed.
+        frame.src = source;
+        frame.removeAttribute('data-src');
         container.hidden = false;
       })();
     </script>
