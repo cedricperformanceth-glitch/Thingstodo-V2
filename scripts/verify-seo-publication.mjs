@@ -51,31 +51,46 @@ function verifyAdvertisingScope(path, html, eligible) {
   const hasSlotMarkers = /<template\b[^>]*\bdata-atlas-ad-slot=/i.test(html);
   assert(hasSlotMarkers === eligible, path + ': reserved markers mismatch eligibility');
 
-  const banners = [...html.matchAll(/<div\b[^>]*\bdata-atlas-ad-primary=/gi)];
+  const banners = [...html.matchAll(/<div\b[^>]*\bdata-atlas-ad-primary=[^>]*>/gi)].map(match => match[0]);
   const frames = [...html.matchAll(/<iframe\b[^>]*\bdata-atlas-ad-frame\b[^>]*>/gi)].map(match => match[0]);
   const expectedCount = eligible ? 1 : 0;
   assert(banners.length === expectedCount && frames.length === expectedCount,
     path + ': expected ' + expectedCount + ' isolated banner, found ' + banners.length + ' containers and ' + frames.length + ' frames');
 
-  assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': advertising opt-in missing');
+  // Advertising is independent of Google Analytics consent. A visitor who
+  // rejects analytics still receives the editorial banner, including on desktop.
+  assert(!html.includes('atlas.optionalAdvertisingConsent.v2'),
+    path + ': obsolete advertising consent storage key remains');
+  assert(!html.includes('data-consent-ads'),
+    path + ': obsolete advertising consent checkbox remains');
+  assert(html.includes('atlas.optionalAnalyticsConsent.v1'),
+    path + ': Google Analytics consent must remain available');
+  assert(html.includes('data-consent-analytics'),
+    path + ': Google Analytics consent checkbox missing');
   assert(!html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143'),
-    path + ': provider script must execute in the dedicated ad document only');
+    path + ': ad provider script must execute in the isolated page only');
+
+  for (const banner of banners) {
+    assert(!/\bhidden(?:\s|>|=)/i.test(banner), path + ': ad placement must not be hidden');
+  }
   for (const frame of frames) {
     const sandbox = frame.match(/\bsandbox="([^"]+)"/i)?.[1] ?? '';
     const flags = new Set(sandbox.split(/\s+/));
     assert(flags.has('allow-scripts') && flags.has('allow-same-origin') && flags.has('allow-popups'),
       path + ': isolated ad document requires script, origin and click permissions');
     assert(!flags.has('allow-top-navigation') && !flags.has('allow-top-navigation-by-user-activation'),
-      path + ': iframe must prohibit top-level ad redirects');
-    assert(/\bdata-src="\/adsterra\/300x250\/"/.test(frame),
-      path + ': dedicated ad URL must be inert until consent');
-    assert(!/(?:^|\s)(?:src|srcdoc)\s*=/.test(frame),
-      path + ': iframe cannot load a source before advertising consent');
+      path + ': iframe must prohibit direct top-level ad redirects');
+    assert(/\bsrc="\/adsterra\/300x250\/"/.test(frame),
+      path + ': ad frame must load automatically without reading localStorage');
+    assert(/\bloading="eager"/.test(frame),
+      path + ': desktop ad frame must not be delayed with lazy loading');
+    assert(!/\bdata-src=/.test(frame) && !/\bsrcdoc=/.test(frame),
+      path + ': obsolete deferred frame source remains');
     assert(/\bwidth="300"/.test(frame) && /\bheight="250"/.test(frame),
       path + ': frame must remain 300x250');
   }
   assert(!/infolinks/i.test(html), path + ': obsolete ad provider must not appear');
-  console.log('PASS ad scope ' + path + ': isolated frames=' + frames.length + ', opt-in only');
+  console.log('PASS ad scope ' + path + ': isolated frames=' + frames.length + ', automatic ads, GA consent only');
 }
 
 function verifyAdExecutionDocument(html) {
