@@ -19,50 +19,22 @@ const primary = visible && !ADSTERRA_BANNERS_PAUSED && primaryAdSlots.includes(s
 {visible && <template data-atlas-ad-slot={slot}></template>}
 
 {primary && (
-  <div class="atlas-ad-placement" data-atlas-ad-primary={slot} hidden>
+  <div class="atlas-ad-placement" data-atlas-ad-primary={slot}>
     <iframe
       data-atlas-ad-frame
-      data-src="/adsterra/300x250/"
+      src="/adsterra/300x250/"
       title="Advertisement"
       width="300"
       height="250"
-      loading="lazy"
+      loading="eager"
       referrerpolicy="strict-origin-when-cross-origin"
       sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
     ></iframe>
-    <script is:inline>
-      (() => {
-        if (document.documentElement.dataset.atlasAdsEligible !== 'true') return;
-
-        // Request nothing from the ad provider until advertising consent.
-        let allowed = false;
-        try {
-          const value = JSON.parse(localStorage.getItem('atlas.optionalAdvertisingConsent.v2') || 'null');
-          const age = Date.now() - value?.at;
-          allowed = value?.choice === 'accepted' &&
-            typeof value.at === 'number' &&
-            age >= 0 && age <= 180 * 24 * 60 * 60 * 1000;
-        } catch { /* No consent means no ad request. */ }
-        if (!allowed) return;
-
-        const container = document.currentScript?.parentElement;
-        const frame = container?.querySelector('iframe[data-atlas-ad-frame]');
-        const source = frame?.getAttribute('data-src');
-        if (!source) return;
-
-        // Load the dedicated document, not a srcdoc document with opaque origin.
-        // The provider writes only into the iframe; its response is sandboxed.
-        frame.src = source;
-        frame.removeAttribute('data-src');
-        container.hidden = false;
-      })();
-    </script>
   </div>
 )}
 
 <style>
-  :global(.atlas-ad-placement[hidden]) { display: none !important; }
-  :global(.atlas-ad-placement:not([hidden])) {
+  :global(.atlas-ad-placement) {
     display: block;
     width: 300px;
     max-width: 100%;
