@@ -225,6 +225,11 @@ if (mode === 'build') {
     verifySocialBarScope(path, output(path));
   }
   verifyAdExecutionDocument(output('/adsterra/300x250'));
+  const iconRedirects = readFileSync('dist/_redirects', 'utf8');
+  assert(iconRedirects.includes('/favicon.ico /assets/navbar/things-to-do-atlas-logo-v2.webp 302'),
+    'Conventional favicon fallback must not return 404');
+  assert(output('/').includes('rel="icon"') && output('/').includes('things-to-do-atlas-logo-v2.webp'),
+    'Main page must declare its existing brand favicon');
   const adHeaders = readFileSync('dist/_headers', 'utf8');
   assert(adHeaders.includes('/adsterra/300x250') && adHeaders.includes('Content-Security-Policy: sandbox'),
     'Adsterra ad route must retain its response-level sandbox');
@@ -258,6 +263,16 @@ if (mode === 'build') {
       assert(/noindex/i.test(robots(missing.html)), 'live 404 missing noindex');
       console.log('PASS Cloudflare unknown route: HTTP 404 with Atlas page and noindex');
       verifyAdvertisingScope('/404', missing.html, false);
+
+      const faviconResponse = await fetch(origin + '/favicon.ico', {
+        redirect: 'follow',
+        signal: AbortSignal.timeout(15000),
+      });
+      assert(faviconResponse.status === 200 &&
+        faviconResponse.url.endsWith('/assets/navbar/things-to-do-atlas-logo-v2.webp'),
+        'Conventional favicon URL is not serving existing brand icon: ' +
+        faviconResponse.status + ' ' + faviconResponse.url);
+      console.log('PASS favicon: 200 via existing Atlas brand asset');
 
       const adResponse = await request('/adsterra/300x250/');
       assert(adResponse.status === 200, 'Adsterra execution page returned HTTP ' + adResponse.status);
