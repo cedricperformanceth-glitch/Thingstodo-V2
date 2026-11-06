@@ -1,6 +1,6 @@
 ---
 import type { City, Country, MediaRecord } from '../../core/models/types';
-import { cityFieldNoteAdSlots } from '../../core/ads/slots';
+import { cityFieldNoteAdSlots, isFourBannerFieldNotePilot } from '../../core/ads/slots';
 import { cityFieldNoteView } from '../../engines/city-field-note/city-field-note-engine';
 import { cityPath } from '../../core/routing/paths';
 import AdSlot from '../shared/AdSlot.astro';
@@ -8,8 +8,8 @@ import AdSlot from '../shared/AdSlot.astro';
 interface Props { city: City; country: Country; }
 const { city, country } = Astro.props;
 const view = cityFieldNoteView(city, country);
-// Expand to four banner positions on Pakse only until the editorial pilot is approved.
-const isPakseAdPilot = city.country === 'laos' && city.slug === 'pakse';
+// The pilot list lives in the advertising configuration; this layout stays generic.
+const fourBannerPilot = isFourBannerFieldNotePilot(city.country, city.slug);
 const heroSections = view.chapters.slice(0, 4);
 const heroImage = view.media[0];
 const galleryImages = view.media.slice(1, 3);
@@ -52,7 +52,7 @@ const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((c
     {view.quickRead.map((item) => <div><span>{item.label}</span><strong>{item.value}</strong><small>{item.detail}</small></div>)}
   </section>
 
-  <AdSlot slot={cityFieldNoteAdSlots.beforeChapterOne} visible paksePilot={isPakseAdPilot} />
+  <AdSlot slot={cityFieldNoteAdSlots.beforeChapterOne} visible fourBannerPilot={fourBannerPilot} />
 
   <div class="city-note__chapters">
     {/* Explicit Astro placements keep the advertisement iframe out of mapped chapter fragments. */}
@@ -86,7 +86,7 @@ const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((c
         {index === 2 && <section class="city-note__photo-spread" aria-label={`${city.name} field photographs`}>{(galleryImages.length ? galleryImages : [undefined, undefined]).map((image, imageIndex) => <figure class="city-note__photo-card">{image ? <img src={image.src} alt={image.alt} width="1200" height="900" loading="lazy" decoding="async" /> : <div class="city-note__photo-placeholder"><span>FIELD PHOTO {String(imageIndex + 1).padStart(2, '0')}</span></div>}<figcaption><span>{image ? image.alt : 'Editorial image to add'}</span>{image && <small>{image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{credit(image)}</a> : credit(image)}</small>}</figcaption></figure>)}</section>}
       </>;
     })}
-    {isPakseAdPilot && <AdSlot slot={cityFieldNoteAdSlots.afterChapterFour} visible paksePilot />}
+    {fourBannerPilot && <AdSlot slot={cityFieldNoteAdSlots.afterChapterFour} visible fourBannerPilot />}
     {view.chapters.slice(4).map((chapter, remainderIndex) => {
       const index = remainderIndex + 4;
       const isChapterSevenPhoto = index === 6 || chapter.photoSlot;
@@ -102,7 +102,7 @@ const sourcePhotos = view.media.filter((photo, index, list) => list.findIndex((c
         {index === 2 && <section class="city-note__photo-spread" aria-label={`${city.name} field photographs`}>{(galleryImages.length ? galleryImages : [undefined, undefined]).map((image, imageIndex) => <figure class="city-note__photo-card">{image ? <img src={image.src} alt={image.alt} width="1200" height="900" loading="lazy" decoding="async" /> : <div class="city-note__photo-placeholder"><span>FIELD PHOTO {String(imageIndex + 1).padStart(2, '0')}</span></div>}<figcaption><span>{image ? image.alt : 'Editorial image to add'}</span>{image && <small>{image.sourceUrl ? <a href={image.sourceUrl} target="_blank" rel="noreferrer">{credit(image)}</a> : credit(image)}</small>}</figcaption></figure>)}</section>}
       </>;
     })}
-    {isPakseAdPilot && <AdSlot slot={cityFieldNoteAdSlots.afterChapterSeven} visible paksePilot />}
+    {fourBannerPilot && <AdSlot slot={cityFieldNoteAdSlots.afterChapterSeven} visible fourBannerPilot />}
   </div>
 
   <section class="city-note__closing">
