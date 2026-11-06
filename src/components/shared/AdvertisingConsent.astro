@@ -17,7 +17,7 @@ const { adsEligible = false } = Astro.props;
   <aside class="atlas-consent__notice" data-consent-notice aria-label="Optional cookies and privacy choices" hidden>
     <div class="atlas-consent__explanation">
       <strong>Privacy and cookies</strong>
-      <p>Atlas saves your travel selections locally. Audience measurement and advertising are optional. Adsterra banners are temporarily paused while we investigate unwanted mobile redirects, even if you previously accepted ads. Your choices remain independent.</p>
+      <p>Atlas saves your travel selections locally. Audience measurement and advertising are optional. Adsterra banners are isolated in a restricted frame and only load when advertising is accepted. Your choices remain independent.</p>
       <div class="atlas-consent__options" role="group" aria-label="Optional services">
         <label><input type="checkbox" data-consent-analytics /> Audience measurement (Google Analytics)</label>
         <label><input type="checkbox" data-consent-ads /> Advertising banners (Adsterra)</label>
@@ -83,9 +83,9 @@ const { adsEligible = false } = Astro.props;
     const show = () => { notice.hidden = false; settings.hidden = true; };
     const hide = () => { notice.hidden = true; settings.hidden = false; };
     const select = (allowAds, allowAnalytics) => {
-      // The banner code must execute at its slot during initial HTML parsing.
-      // On an eligible page, changing ad acceptance triggers a page reload,
-      // which either runs the code or removes it. No dynamic document.write.
+      // Changing advertising consent on an eligible page reloads it so the
+      // sandboxed ad iframe is loaded or removed. The provider script never
+      // runs in the parent document.
       const previousAdChoice = read(adsKey);
       const adStatusChanged = (previousAdChoice === 'accepted') !== allowAds;
       const revokeLoadedAnalytics = analyticsLoaded && !allowAnalytics;
