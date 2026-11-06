@@ -45,44 +45,50 @@ const nonAdvertisingRoutes = ['/404', '/summary', '/legal/cookie-policy', '/lega
 const approvedAdRouteSamples = ['/laos/pakse/field-note', '/laos/don-det/things-to-do/cycle-don-det-don-khon'];
 
 function verifyAdvertisingScope(path, html, eligible) {
-  assert(!/AD PLACEHOLDER/i.test(html), `${path}: visible ad placeholder must never appear in public HTML`);
-  const eligibilityFlag = `data-atlas-ads-eligible="${eligible ? 'true' : 'false'}"`;
-  assert(html.includes(eligibilityFlag), `${path}: expected ${eligibilityFlag}`);
+  assert(!/AD PLACEHOLDER/i.test(html), path + ': public advertising placeholder must not appear');
+  const eligibilityFlag = 'data-atlas-ads-eligible="' + (eligible ? 'true' : 'false') + '"';
+  assert(html.includes(eligibilityFlag), path + ': expected ' + eligibilityFlag);
   const hasSlotMarkers = /<template\b[^>]*\bdata-atlas-ad-slot=/i.test(html);
-  assert(hasSlotMarkers === eligible, `${path}: reserved ad slot markers not consistent with eligibility ${eligible}`);
-  assert(!/<template\b[^>]*\bdata-atlas-[a-z-]*verification\b/i.test(html),
-    `${path}: obsolete advertising provider verification markup must not appear`);
+  assert(hasSlotMarkers === eligible, path + ': reserved markers mismatch eligibility');
 
-  // The 300x250 banner is configured once per eligible editorial page.
-  // Provider code must be inert in data-srcdoc until advertising opt-in, and
-  // must never execute in the parent page or navigate the Atlas top frame.
   const banners = [...html.matchAll(/<div\b[^>]*\bdata-atlas-ad-primary=/gi)];
-  const frames = [...html.matchAll(/<iframe\b[^>]*\bdata-atlas-ad-frame\b[^>]*>/gi)].map((match) => match[0]);
+  const frames = [...html.matchAll(/<iframe\b[^>]*\bdata-atlas-ad-frame\b[^>]*>/gi)].map(match => match[0]);
   const expectedCount = eligible ? 1 : 0;
   assert(banners.length === expectedCount && frames.length === expectedCount,
-    `${path}: expected ${expectedCount} isolated banner, got ${banners.length} containers and ${frames.length} frames`);
+    path + ': expected ' + expectedCount + ' isolated banner, found ' + banners.length + ' containers and ' + frames.length + ' frames');
 
-  assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': current advertising consent missing');
-  const providerUrl = 'https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143';
-  assert(html.includes(providerUrl) === eligible, `${path}: ad source must occur only inside eligible inert iframe markup`);
-  assert(!/<script\b[^>]*\bsrc=["']https:\/\/bauval\.org\//i.test(html),
-    path + ': provider script loaded in top-level HTML');
+  assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': advertising opt-in missing');
+  assert(!html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143'),
+    path + ': provider script must execute in the dedicated ad document only');
   for (const frame of frames) {
     const sandbox = frame.match(/\bsandbox="([^"]+)"/i)?.[1] ?? '';
     const flags = new Set(sandbox.split(/\s+/));
-    assert(flags.has('allow-scripts') && flags.has('allow-popups'),
-      path + ': sandbox must allow scripted creatives and legitimate ad clicks');
-    assert(!flags.has('allow-same-origin') && !flags.has('allow-top-navigation') &&
-      !flags.has('allow-top-navigation-by-user-activation'),
-      path + ': sandbox must isolate origin and forbid top-page navigation');
-    assert(/\bdata-srcdoc=/.test(frame), path + ': ad document must be inert until visitor opt-in');
+    assert(flags.has('allow-scripts') && flags.has('allow-same-origin') && flags.has('allow-popups'),
+      path + ': isolated ad document requires script, origin and click permissions');
+    assert(!flags.has('allow-top-navigation') && !flags.has('allow-top-navigation-by-user-activation'),
+      path + ': iframe must prohibit top-level ad redirects');
+    assert(/\bdata-src="\/adsterra\/300x250"/.test(frame),
+      path + ': dedicated ad URL must be inert until consent');
     assert(!/(?:^|\s)(?:src|srcdoc)\s*=/.test(frame),
-      path + ': iframe must not load a source before consent');
+      path + ': iframe cannot load a source before advertising consent');
     assert(/\bwidth="300"/.test(frame) && /\bheight="250"/.test(frame),
-      path + ': ad frame must keep the 300x250 hit area');
+      path + ': frame must remain 300x250');
   }
-  assert(!/infolinks/i.test(html), path + ': obsolete advertising provider reference remains');
-  console.log(`PASS ad scope ${path}: eligible=${eligible}, isolated iframe count=${frames.length}, consent gated`);
+  assert(!/infolinks/i.test(html), path + ': obsolete ad provider must not appear');
+  console.log('PASS ad scope ' + path + ': isolated frames=' + frames.length + ', opt-in only');
+}
+
+function verifyAdExecutionDocument(html) {
+  assert(/<meta\b[^>]*name="robots"[^>]*noindex/i.test(html),
+    'Adsterra execution page must be noindex');
+  assert(html.includes("key: '8ae25b964fbb4d4378a45891366f2143'") ||
+    html.includes('8ae25b964fbb4d4378a45891366f2143'),
+    'Adsterra execution page missing publisher key');
+  assert(html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143'),
+    'Adsterra execution page missing provider script');
+  assert(html.includes('width: 300') && html.includes('height: 250'),
+    'Adsterra execution page has wrong format');
+  console.log('PASS 300x250 ad execution page: provider script in dedicated document');
 }
 
 function verifySeoArtifacts(indexable) {
@@ -171,6 +177,10 @@ if (mode === 'build') {
   for (const path of approvedAdRouteSamples) {
     verifyAdvertisingScope(path, output(path), true);
   }
+  verifyAdExecutionDocument(output('/adsterra/300x250'));
+  const adHeaders = readFileSync('dist/_headers', 'utf8');
+  assert(adHeaders.includes('/adsterra/300x250') && adHeaders.includes('Content-Security-Policy: sandbox'),
+    'Adsterra ad route must retain its response-level sandbox');
   const verificationFile = join('dist', googleVerificationFile);
   assert(existsSync(verificationFile), 'Google Search Console verification file missing from build');
   assert(readFileSync(verificationFile, 'utf8').trim() === googleVerificationContent,
@@ -201,6 +211,16 @@ if (mode === 'build') {
       assert(/noindex/i.test(robots(missing.html)), 'live 404 missing noindex');
       console.log('PASS Cloudflare unknown route: HTTP 404 with Atlas page and noindex');
       verifyAdvertisingScope('/404', missing.html, false);
+
+      const adResponse = await request('/adsterra/300x250');
+      assert(adResponse.status === 200, 'Adsterra execution page returned HTTP ' + adResponse.status);
+      verifyAdExecutionDocument(adResponse.html);
+      const adCsp = adResponse.headers.get('content-security-policy') ?? '';
+      assert(/sandbox\s+allow-scripts\s+allow-same-origin/i.test(adCsp) &&
+        /frame-ancestors\s+'self'/i.test(adCsp),
+        'Live Adsterra execution page missing Cloudflare response sandbox: ' + adCsp);
+      assert(/noindex/i.test(adResponse.headers.get('x-robots-tag') ?? ''),
+        'Live Adsterra execution page must be noindex via HTTP header');
 
       // Check the current advertising policy, not just an old successful SEO deployment.
       // This fails on stale Cloudflare deployments and on accidental ad exposure.
