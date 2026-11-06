@@ -228,7 +228,7 @@ export const cookiePolicyPage: LegalPageData = {
           type: 'paragraph',
           content: [
             {
-              text: 'The cookie banner provides one optional Google Analytics checkbox, plus Reject optional, Save choices and Accept analytics. All Atlas features remain available if analytics is rejected. Advertising is separate from this preference and is displayed on eligible editorial pages. Visitors can reopen Cookie settings on any page; their analytics choice is valid for up to 180 days.',
+              text: 'The cookie banner provides one optional Google Analytics checkbox, plus Decline analytics, Save choices and Accept analytics. All Atlas features remain available if analytics is rejected. Advertising is separate from this preference and is displayed on eligible editorial pages. Visitors can reopen Cookie settings on any page; their analytics choice is valid for up to 180 days.',
             },
           ],
         },
