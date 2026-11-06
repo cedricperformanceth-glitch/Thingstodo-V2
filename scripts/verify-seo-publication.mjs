@@ -259,6 +259,24 @@ if (mode === 'build') {
       console.log('PASS Cloudflare unknown route: HTTP 404 with Atlas page and noindex');
       verifyAdvertisingScope('/404', missing.html, false);
 
+      // Diagnose whether the Pages subdomain can serve the ad from a distinct
+      // origin. If available, this avoids same-origin iframe sandbox warnings
+      // while preserving the provider's cookies/scripts inside its own frame.
+      try {
+        const candidate = await fetch('https://thingstodoatlas-v2.pages.dev/adsterra/300x250/', {
+          redirect: 'manual',
+          headers: { 'user-agent': 'AtlasAdIsolationCheck/1.0' },
+          signal: AbortSignal.timeout(12000),
+        });
+        const candidateText = await candidate.text();
+        console.log('AD_ISOLATION_ORIGIN_CHECK status=' + candidate.status +
+          ' location=' + (candidate.headers.get('location') ?? '(none)') +
+          ' hasAdDocument=' + candidateText.includes('8ae25b964fbb4d4378a45891366f2143') +
+          ' csp=' + (candidate.headers.get('content-security-policy') ?? '(none)'));
+      } catch (error) {
+        console.log('AD_ISOLATION_ORIGIN_CHECK unavailable=' + String(error.message));
+      }
+
       const adResponse = await request('/adsterra/300x250/');
       assert(adResponse.status === 200, 'Adsterra execution page returned HTTP ' + adResponse.status);
       verifyAdExecutionDocument(adResponse.html);
