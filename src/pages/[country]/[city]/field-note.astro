@@ -5,6 +5,7 @@ import { getCities, getCity } from '../../../engines/city/city-engine';
 import { getCountry } from '../../../engines/country/country-engine';
 import { getEditorialCityFieldNoteMedia, getEditorialCityFieldNoteSeo } from '../../../engines/city-field-note/city-field-note-editorial';
 import { cityFieldNotePath, cityPath } from '../../../core/routing/paths';
+import { isSocialBarFieldNotePilot } from '../../../core/ads/slots';
 
 export function getStaticPaths() {
   return getCities().map((city) => ({ params: { country: city.country, city: city.slug } }));
@@ -51,7 +52,7 @@ const structuredData = [{
   ]}
   ogType="article"
   adsEligible
-  socialBarEnabled={city.country === 'laos' && city.slug === 'pakse'}
+  socialBarEnabled={isSocialBarFieldNotePilot(city.country, city.slug)}
 >
   <div class="city-field-note-page">
     <nav class="city-field-note-page__return" aria-label={`${city.name} field note navigation`}>
