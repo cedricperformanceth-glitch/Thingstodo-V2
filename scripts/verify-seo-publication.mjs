@@ -52,18 +52,37 @@ function verifyAdvertisingScope(path, html, eligible) {
   assert(hasSlotMarkers === eligible, `${path}: reserved ad slot markers not consistent with eligibility ${eligible}`);
   assert(!/<template\b[^>]*\bdata-atlas-[a-z-]*verification\b/i.test(html),
     `${path}: obsolete advertising provider verification markup must not appear`);
-  // Guard against successful checks on a stale production deployment.
+
+  // The 300x250 banner is configured once per eligible editorial page.
+  // Provider code must be inert in data-srcdoc until advertising opt-in, and
+  // must never execute in the parent page or navigate the Atlas top frame.
+  const banners = [...html.matchAll(/<div\b[^>]*\bdata-atlas-ad-primary=/gi)];
+  const frames = [...html.matchAll(/<iframe\b[^>]*\bdata-atlas-ad-frame\b[^>]*>/gi)].map((match) => match[0]);
+  const expectedCount = eligible ? 1 : 0;
+  assert(banners.length === expectedCount && frames.length === expectedCount,
+    `${path}: expected ${expectedCount} isolated banner, got ${banners.length} containers and ${frames.length} frames`);
+
   assert(html.includes('atlas.optionalAdvertisingConsent.v2'), path + ': current advertising consent missing');
-  // Adsterra is temporarily disabled due to unwanted mobile redirects.
-  // A successful build must not serve the ad tag even to consenting visitors.
-  assert(!html.includes('https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143'),
-    path + ': Adsterra tag must remain disabled during mobile click safety hold');
-  assert(!html.includes('data-atlas-ad-primary='),
-    path + ': live advertising containers must not be rendered during pause');
-  assert(!/<script\b[^>]*\bsrc=["']https:\/\/bauval\.org\//i.test(html), path + ': provider script loaded in initial HTML before consent');
-  assert(!/<iframe\b[^>]*\bdata-atlas-ad-live/i.test(html), path + ': banner unexpectedly present in initial HTML');
+  const providerUrl = 'https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143';
+  assert(html.includes(providerUrl) === eligible, `${path}: ad source must occur only inside eligible inert iframe markup`);
+  assert(!/<script\b[^>]*\bsrc=["']https:\/\/bauval\.org\//i.test(html),
+    path + ': provider script loaded in top-level HTML');
+  for (const frame of frames) {
+    const sandbox = frame.match(/\bsandbox="([^"]+)"/i)?.[1] ?? '';
+    const flags = new Set(sandbox.split(/\s+/));
+    assert(flags.has('allow-scripts') && flags.has('allow-popups'),
+      path + ': sandbox must allow scripted creatives and legitimate ad clicks');
+    assert(!flags.has('allow-same-origin') && !flags.has('allow-top-navigation') &&
+      !flags.has('allow-top-navigation-by-user-activation'),
+      path + ': sandbox must isolate origin and forbid top-page navigation');
+    assert(/\bdata-srcdoc=/.test(frame), path + ': ad document must be inert until visitor opt-in');
+    assert(!/(?:^|\s)(?:src|srcdoc)\s*=/.test(frame),
+      path + ': iframe must not load a source before consent');
+    assert(/\bwidth="300"/.test(frame) && /\bheight="250"/.test(frame),
+      path + ': ad frame must keep the 300x250 hit area');
+  }
   assert(!/infolinks/i.test(html), path + ': obsolete advertising provider reference remains');
-  console.log(`PASS ad scope ${path}: eligible=${eligible}, reserved positions=${hasSlotMarkers}, no public placeholders`);
+  console.log(`PASS ad scope ${path}: eligible=${eligible}, isolated iframe count=${frames.length}, consent gated`);
 }
 
 function verifySeoArtifacts(indexable) {
