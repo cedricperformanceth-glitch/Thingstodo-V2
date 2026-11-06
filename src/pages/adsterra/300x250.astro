@@ -1,0 +1,33 @@
+---
+/**
+ * Isolated ad execution document. Never embed the Adsterra script inside an
+ * Atlas editorial page. Only the parent AdSlot can opt-in load this URL.
+ * Cloudflare Pages serves this as /adsterra/300x250.
+ */
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=300, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="origin" />
+    <title>Advertisement</title>
+    <style is:inline>
+      html, body { width: 300px; height: 250px; margin: 0; padding: 0; overflow: hidden; background: transparent; }
+      iframe { max-width: 300px; max-height: 250px; }
+    </style>
+  </head>
+  <body>
+    <script is:inline>
+      window.atOptions = {
+        key: '8ae25b964fbb4d4378a45891366f2143',
+        format: 'iframe',
+        height: 250,
+        width: 300,
+        params: {},
+      };
+    </script>
+    <script is:inline src="https://bauval.org/22/8ae25b964fbb4d4378a45891366f2143"></script>
+  </body>
+</html>
