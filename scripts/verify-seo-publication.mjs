@@ -262,19 +262,21 @@ if (mode === 'build') {
       // Diagnose whether the Pages subdomain can serve the ad from a distinct
       // origin. If available, this avoids same-origin iframe sandbox warnings
       // while preserving the provider's cookies/scripts inside its own frame.
+      for (const originAlias of ['https://thingstodoatlas-v2.pages.dev', 'https://master.thingstodoatlas-v2.pages.dev']) {
       try {
-        const candidate = await fetch('https://thingstodoatlas-v2.pages.dev/adsterra/300x250/', {
+        const candidate = await fetch(originAlias + '/adsterra/300x250/', {
           redirect: 'manual',
           headers: { 'user-agent': 'AtlasAdIsolationCheck/1.0' },
           signal: AbortSignal.timeout(12000),
         });
         const candidateText = await candidate.text();
-        console.log('AD_ISOLATION_ORIGIN_CHECK status=' + candidate.status +
+        console.log('AD_ISOLATION_ORIGIN_CHECK host=' + originAlias + ' status=' + candidate.status +
           ' location=' + (candidate.headers.get('location') ?? '(none)') +
           ' hasAdDocument=' + candidateText.includes('8ae25b964fbb4d4378a45891366f2143') +
           ' csp=' + (candidate.headers.get('content-security-policy') ?? '(none)'));
       } catch (error) {
-        console.log('AD_ISOLATION_ORIGIN_CHECK unavailable=' + String(error.message));
+        console.log('AD_ISOLATION_ORIGIN_CHECK host=' + originAlias + ' unavailable=' + String(error.message));
+      }
       }
 
       const adResponse = await request('/adsterra/300x250/');
