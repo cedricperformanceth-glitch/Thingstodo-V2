@@ -104,6 +104,24 @@ function verifyAdvertisingScope(path, html, eligible) {
   console.log('PASS ad scope ' + path + ': isolated frames=' + frames.length + ', automatic ads, GA consent only');
 }
 
+const socialBarScriptUrl = 'https://bauval.org/14/320dbfaae03e988a1b6e573d23b1dd58';
+
+function verifySocialBarScope(path, html) {
+  const expected = path === '/laos/pakse/field-note' ? 1 : 0;
+  const count = html.split(socialBarScriptUrl).length - 1;
+  assert(count === expected,
+    path + ': expected ' + expected + ' Social Bar script, found ' + count);
+  if (expected) {
+    const scriptTag = html.match(/<script\b[^>]*src="https:\/\/bauval\.org\/14\/320dbfaae03e988a1b6e573d23b1dd58"[^>]*><\/script>/i)?.[0] ?? '';
+    assert(scriptTag.includes('data-cfasync="false"'),
+      path + ': Social Bar script missing Cloudflare bypass attribute');
+    assert(html.indexOf(socialBarScriptUrl) > html.lastIndexOf('</main>') &&
+      html.indexOf(socialBarScriptUrl) < html.lastIndexOf('</body>'),
+      path + ': Social Bar script must be at the end of body, outside editorial content');
+  }
+  console.log('PASS Social Bar ' + path + ': script count=' + count);
+}
+
 function verifyAdExecutionDocument(html) {
   assert(/<meta\b[^>]*name="robots"[^>]*noindex/i.test(html),
     'Adsterra execution page must be noindex');
@@ -203,6 +221,9 @@ if (mode === 'build') {
   for (const path of approvedAdRouteSamples) {
     verifyAdvertisingScope(path, output(path), true);
   }
+  for (const path of [...nonAdvertisingRoutes, ...publishedCityRoutes, ...approvedAdRouteSamples]) {
+    verifySocialBarScope(path, output(path));
+  }
   verifyAdExecutionDocument(output('/adsterra/300x250'));
   const adHeaders = readFileSync('dist/_headers', 'utf8');
   assert(adHeaders.includes('/adsterra/300x250') && adHeaders.includes('Content-Security-Policy: sandbox'),
@@ -254,6 +275,7 @@ if (mode === 'build') {
         const response = await request(path);
         assert(response.status === 200, `ad scope ${path}: expected HTTP 200, got ${response.status}`);
         verifyAdvertisingScope(path, response.html, approvedAdRouteSamples.includes(path));
+        verifySocialBarScope(path, response.html);
       }
 
       for (const [path, label, indexable] of [
@@ -266,6 +288,7 @@ if (mode === 'build') {
         assert(!/noindex/i.test(response.headers.get('x-robots-tag') ?? '') || !indexable,
           `${label} blocked by X-Robots-Tag: ${response.headers.get('x-robots-tag')}`);
         verifyPage(`live ${label}`, response.html, `${origin}${path}`, indexable);
+        verifySocialBarScope(path, response.html);
         // Require the new crawlable category navigation to reach production,
         // rather than passing against a stale Cloudflare deployment.
         if (path === '/laos/pakse') {
