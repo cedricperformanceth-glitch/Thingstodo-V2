@@ -302,6 +302,16 @@ if (mode === 'build') {
         assert(response.status === 200, `${label} returned HTTP ${response.status}`);
         assert(!/noindex/i.test(response.headers.get('x-robots-tag') ?? '') || !indexable,
           `${label} blocked by X-Robots-Tag: ${response.headers.get('x-robots-tag')}`);
+        if (path === '/' || path === '/laos/pakse/field-note') {
+          const cloudflareSnippet = response.html.match(/<script[^>]*src=["'][^"']*cloudflareinsights[^"']*["'][^>]*>/i)?.[0] || '(not injected)';
+          const hasCloudflareBeacon = /(?:static\.cloudflareinsights\.com\/beacon\.min\.js|data-cf-beacon|\/cdn-cgi\/rum)/i.test(response.html);
+          console.log('CF_WEB_ANALYTICS_DIAGNOSTIC path=' + path +
+            ' beacon=' + hasCloudflareBeacon +
+            ' snippet=' + cloudflareSnippet.replace(/data-cf-beacon=['"][^'"]*['"]/gi, 'data-cf-beacon="[redacted]"') +
+            ' cacheControl=' + (response.headers.get('cache-control') ?? '(none)') +
+            ' cfRay=' + (response.headers.get('cf-ray') ?? '(none)') +
+            ' contentType=' + (response.headers.get('content-type') ?? '(none)'));
+        }
         verifyPage(`live ${label}`, response.html, `${origin}${path}`, indexable);
         verifySocialBarScope(path, response.html);
         // Require the new crawlable category navigation to reach production,
