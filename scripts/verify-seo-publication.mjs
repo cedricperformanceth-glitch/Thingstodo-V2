@@ -303,10 +303,10 @@ if (mode === 'build') {
         assert(!/noindex/i.test(response.headers.get('x-robots-tag') ?? '') || !indexable,
           `${label} blocked by X-Robots-Tag: ${response.headers.get('x-robots-tag')}`);
         if (path === '/' || path === '/laos/pakse/field-note') {
-          const beaconScripts = [...response.html.matchAll(/<script\\b[^>]*\\bsrc=['"]https:\\/\\/static\\.cloudflareinsights\\.com\\/beacon\\.min\\.js['"][^>]*>/gi)];
+          const beaconScripts = [...response.html.matchAll(/<script\b[^>]*\bsrc=['"]https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js['"][^>]*>/gi)];
           assert(beaconScripts.length === 1 && /data-cf-beacon=/.test(beaconScripts[0][0]),
             'Cloudflare Web Analytics beacon must be injected exactly once on ' + path);
-          assert(!/(?:^|,)\\s*no-transform\\s*(?:,|$)/i.test(response.headers.get('cache-control') ?? ''),
+          assert(!/(?:^|,)\s*no-transform\s*(?:,|$)/i.test(response.headers.get('cache-control') ?? ''),
             'Cloudflare Web Analytics injection is blocked by Cache-Control: no-transform on ' + path);
           console.log('PASS Cloudflare Web Analytics beacon injected on live ' + path);
         }
