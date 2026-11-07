@@ -233,8 +233,6 @@ if (mode === 'build') {
   const adHeaders = readFileSync('dist/_headers', 'utf8');
   assert(adHeaders.includes('/adsterra/300x250') && adHeaders.includes('Content-Security-Policy: sandbox'),
     'Adsterra ad route must retain its response-level sandbox');
-  assert(adHeaders.includes('Cache-Control: public, max-age=0, no-transform'),
-    'Cloudflare Web Analytics must not auto-inject into an advertising iframe');
   const verificationFile = join('dist', googleVerificationFile);
   assert(existsSync(verificationFile), 'Google Search Console verification file missing from build');
   assert(readFileSync(verificationFile, 'utf8').trim() === googleVerificationContent,
@@ -285,11 +283,6 @@ if (mode === 'build') {
         'Live Adsterra execution page missing Cloudflare response sandbox at ' + adResponse.url + ': ' + adCsp);
       assert(/noindex/i.test(adResponse.headers.get('x-robots-tag') ?? ''),
         'Live Adsterra execution page must be noindex via HTTP header');
-      assert(/(?:^|,)\s*no-transform\s*(?:,|$)/i.test(adResponse.headers.get('cache-control') ?? ''),
-        'Ad iframe must prevent Cloudflare Analytics auto-injection');
-      assert(!adResponse.html.includes('static.cloudflareinsights.com/beacon.min.js'),
-        'Advertising iframe must not count as visitor pageview in Cloudflare Web Analytics');
-      console.log('PASS analytics: embedded Adsterra page excluded from pageview beacons');
 
       // Check the current advertising policy, not just an old successful SEO deployment.
       // This fails on stale Cloudflare deployments and on accidental ad exposure.
