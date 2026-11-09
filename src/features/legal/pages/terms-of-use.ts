@@ -12,7 +12,7 @@ export const termsOfUsePage: LegalPageData = {
     title: 'Terms of Use | Things To Do Atlas',
     description: 'Terms governing use of Things To Do Atlas, its editorial travel information, media, external links and browser-based features.',
     canonicalPath: '/legal/terms-of-use',
-    indexable: false,
+    indexable: true,
   },
   sections: [
     {
