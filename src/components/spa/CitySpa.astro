@@ -15,9 +15,15 @@ interface Props { city: City; }
 const { city } = Astro.props;
 const tabs = getSpaTabs(city);
 // Render real HTML links to every registered public category URL as well as
-// JavaScript tabs. Empty categories remain crawlable and indexable.
+// JavaScript tabs. Some practical categories are not interactive SPA tabs, so
+// build this directory from the canonical city category registry itself.
 const guideTabs = city.seo.indexable
-  ? tabs.filter((tab) => tab.slug !== 'favorites')
+  ? city.categories.map((slug) => ({
+      slug,
+      title: slug === 'things-to-do'
+        ? 'Things to do'
+        : slug.split('-').map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(' '),
+    }))
   : [];
 const defaultSlug = tabs.some((tab) => tab.slug === 'things-to-do') ? 'things-to-do' : (tabs[0]?.slug ?? 'favorites');
 const cityId = `${city.country}-${city.slug}`;
