@@ -8,14 +8,49 @@ import { getCategoryEntities } from '../../../engines/category/category-engine';
 import { categoryPath, cityPath } from '../../../core/routing/paths';
 import { getCountry } from '../../../engines/country/country-engine';
 import type { CategorySlug, Place, ThingToDo } from '../../../core/models/types';
-export function getStaticPaths() { return getCities().flatMap((city) => city.categories.map((category) => ({ params:{country:city.country,city:city.slug,category} }))); }
+
+export function getStaticPaths() {
+  return getCities().flatMap((city) =>
+    city.categories.map((category) => ({
+      params: { country: city.country, city: city.slug, category },
+    })),
+  );
+}
+
 const city = getCity(Astro.params.country ?? '', Astro.params.city ?? '');
 const country = getCountry(Astro.params.country ?? '');
 const category = Astro.params.category as CategorySlug;
 if (!city || !city.categories.includes(category)) return Astro.redirect('/');
+
 const entities = getCategoryEntities(city, category);
 const isThingToDo = (entity: Place | ThingToDo): entity is ThingToDo => 'fieldCard' in entity;
 const title = category.replaceAll('-', ' ');
-const seo = { title:`${title} in ${city.name} | Things To Do Atlas`, description:`Editorial ${title} guide for ${city.name}.`, canonicalPath:categoryPath(city,category), indexable:city.seo.indexable && entities.length > 0 };
+const seo = {
+  title: `${title} in ${city.name} | Things To Do Atlas`,
+  description: `Explore ${title} in ${city.name}, Laos, with the Atlas directory and practical destination information.`,
+  canonicalPath: categoryPath(city, category),
+  // Every registered category is a published destination route. Empty
+  // categories remain crawlable and can be enriched without changing URLs.
+  indexable: city.seo.indexable,
+};
 ---
-<BaseLayout {seo} breadcrumbs={[{name:'Home',path:'/'},{name:country?.name ?? city.country,path:`/${city.country}`},{name:city.name,path:cityPath(city)},{name:title,path:categoryPath(city,category)}]}><h1 style="text-transform:capitalize">{title} in {city.name}</h1><MapPlaceholder {city} /><div class="grid">{entities.map((entity) => isThingToDo(entity) ? <ThingToDoCard {city} thing={entity} /> : <PlaceCard place={entity} />)}</div>{entities.length === 0 && <p>Editorial entries will be added here without changing this route.</p>}</BaseLayout>
+<BaseLayout
+  {seo}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: country?.name ?? city.country, path: `/${city.country}` },
+    { name: city.name, path: cityPath(city) },
+    { name: title, path: categoryPath(city, category) },
+  ]}
+>
+  <h1 style="text-transform:capitalize">{title} in {city.name}</h1>
+  <MapPlaceholder {city} />
+  <div class="grid">
+    {entities.map((entity) =>
+      isThingToDo(entity)
+        ? <ThingToDoCard {city} thing={entity} />
+        : <PlaceCard place={entity} />
+    )}
+  </div>
+  {entities.length === 0 && <p>More verified {title} entries for {city.name} will be added to this directory.</p>}
+</BaseLayout>
