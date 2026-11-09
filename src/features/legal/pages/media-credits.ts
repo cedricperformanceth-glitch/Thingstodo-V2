@@ -12,7 +12,7 @@ export const mediaCreditsPage: LegalPageData = {
     title: 'Media Credits & Licensing | Things To Do Atlas',
     description: 'Media sourcing, photo credits, open licences, original media and reuse information for Things To Do Atlas.',
     canonicalPath: '/legal/media-credits',
-    indexable: false,
+    indexable: true,
   },
   sections: [
     {
