@@ -12,7 +12,7 @@ export const editorialPolicyPage: LegalPageData = {
     title: 'Editorial Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas selects destinations and places, verifies facts, uses sources and AI-assisted tools, handles personal experience and corrects travel content.',
     canonicalPath: '/legal/editorial-policy',
-    indexable: false,
+    indexable: true,
   },
   sections: [
     {
