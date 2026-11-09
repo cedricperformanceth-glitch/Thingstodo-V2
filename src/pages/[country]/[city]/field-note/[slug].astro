@@ -1,12 +1,8 @@
 ---
-import BaseLayout from '../../../../components/layout/BaseLayout.astro';
-import CountryFieldNote from '../../../../components/country-field-note/CountryFieldNote.astro';
 import { getCities, getCity } from '../../../../engines/city/city-engine';
 import { getCityFieldNoteSpaTargets } from '../../../../engines/city-field-note/city-field-note-spa-links';
 import { getCountryFieldNote } from '../../../../content/country-field-notes';
-import { cityPath, countryFieldNotePath } from '../../../../core/routing/paths';
-import { countryFieldNoteView } from '../../../../engines/country-field-note/country-field-note-engine';
-import { getEditorialCountryFieldNoteSeo } from '../../../../engines/country-field-note/country-field-note-editorial';
+import { countryFieldNotePath } from '../../../../core/routing/paths';
 
 export function getStaticPaths() {
   return getCities().flatMap((city) =>
@@ -27,27 +23,7 @@ const noteCountry = getCountryFieldNote(Astro.params.slug ?? '');
 const isLinked = city && noteCountry && getCityFieldNoteSpaTargets(city).some((target) => target.id === noteCountry.id);
 if (!city || !noteCountry || !isLinked) return Astro.redirect('/');
 
-const view = countryFieldNoteView(noteCountry);
-const editorialSeo = getEditorialCountryFieldNoteSeo(noteCountry.id);
-const heroImage = view.media[0];
-const canonicalPath = countryFieldNotePath(noteCountry);
-const seo = {
-  title: editorialSeo?.title ?? `${noteCountry.name} country field note | Things To Do Atlas`,
-  description: editorialSeo?.description ?? `A country-scale field note for ${noteCountry.name}.`,
-  canonicalPath,
-  indexable: false,
-  ...(heroImage ? { image: heroImage.src, imageAlt: heroImage.alt } : {}),
-};
----
-
-<BaseLayout
-  {seo}
-  breadcrumbs={[
-    { name: 'Home', path: '/' },
-    { name: city.name, path: cityPath(city) },
-    { name: noteCountry.name, path: canonicalPath },
-  ]}
-  ogType="article"
->
-  <CountryFieldNote country={noteCountry} />
-</BaseLayout>
+// This nested path is only a legacy deep link to a country field note.
+// Send visitors and crawlers to the single canonical public URL instead of
+// publishing a duplicate copy with a noindex directive.
+return Astro.redirect(countryFieldNotePath(noteCountry), 301);
