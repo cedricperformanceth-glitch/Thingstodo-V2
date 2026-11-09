@@ -12,7 +12,7 @@ export const cookiePolicyPage: LegalPageData = {
     title: 'Cookie Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas uses cookies, local browser storage and similar technologies.',
     canonicalPath: '/legal/cookie-policy',
-    indexable: false,
+    indexable: true,
   },
   sections: [
     {
