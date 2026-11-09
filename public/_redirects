@@ -3,10 +3,13 @@
 /favicon.ico /assets/navbar/things-to-do-atlas-logo-v2.webp 302
 # Canonical country field-note destinations. These legacy nested paths redirect
 # directly instead of publishing duplicate noindex HTML documents.
-/laos/don-det/field-note/cambodia /cambodia/field-note 301
-/laos/luang-prabang/field-note/thailand /thailand/field-note 301
-/laos/pakse/field-note/cambodia /cambodia/field-note 301
-/laos/pakse/field-note/thailand /thailand/field-note 301
-/laos/pakse/field-note/vietnam /vietnam/field-note 301
-/laos/thakhek/field-note/thailand /thailand/field-note 301
-/laos/vientiane/field-note/thailand /thailand/field-note 301
+/laos/don-det/field-note/cambodia /field-notes/cambodia 301
+/laos/luang-prabang/field-note/thailand /field-notes/thailand 301
+/laos/pakse/field-note/cambodia /field-notes/cambodia 301
+/laos/pakse/field-note/thailand /field-notes/thailand 301
+/laos/pakse/field-note/vietnam /field-notes/vietnam 301
+/laos/thakhek/field-note/thailand /field-notes/thailand 301
+/laos/vientiane/field-note/thailand /field-notes/thailand 301
+/thailand/field-note /field-notes/thailand 301
+/cambodia/field-note /field-notes/cambodia 301
+/vietnam/field-note /field-notes/vietnam 301
