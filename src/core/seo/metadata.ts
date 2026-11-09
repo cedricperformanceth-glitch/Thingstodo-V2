@@ -14,10 +14,10 @@ const isProductionBuild = cloudflareBranch
   ? cloudflareBranch === 'master'
   : Boolean(import.meta.env.PROD);
 
-// Publishing is enabled by default. Explicitly setting
-// PUBLIC_ALLOW_INDEXING=false remains an emergency off switch.
-export const indexingEnabled = isProductionBuild
-  && String(import.meta.env.PUBLIC_ALLOW_INDEXING ?? '').trim().toLowerCase() !== 'false';
+// Every public page on the production branch is indexable unless its route
+// is explicitly a utility/error document. No environment flag can silently
+// switch the complete live website to noindex.
+export const indexingEnabled = isProductionBuild;
 
 export function absoluteCanonical(path: string): string {
   return new URL(path, configuredSiteUrl).toString();
