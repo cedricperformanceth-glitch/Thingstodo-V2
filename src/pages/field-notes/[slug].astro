@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import CountryFieldNote from '../../components/country-field-note/CountryFieldNote.astro';
+import { countryFieldNotes, getCountryFieldNote } from '../../content/country-field-notes';
+import { countryFieldNoteView } from '../../engines/country-field-note/country-field-note-engine';
+import {
+  getEditorialCountryFieldNoteMedia,
+  getEditorialCountryFieldNoteSeo,
+} from '../../engines/country-field-note/country-field-note-editorial';
+
+export function getStaticPaths() {
+  return countryFieldNotes.map((country) => ({
+    params: { slug: country.slug },
+  }));
+}
+
+const country = getCountryFieldNote(Astro.params.slug ?? '');
+if (!country) return Astro.redirect('/');
+
+const view = countryFieldNoteView(country);
+const editorialSeo = getEditorialCountryFieldNoteSeo(country.id);
+const heroImage = getEditorialCountryFieldNoteMedia(country.id)[0] ?? view.media[0];
+const canonicalPath = `/field-notes/${country.slug}`;
+const seo = {
+  title: editorialSeo?.title ?? `${country.name} country field note | Things To Do Atlas`,
+  description: editorialSeo?.description ?? `A researched country field guide to ${country.name}, its regions, routes, seasons and practical travel planning.`,
+  canonicalPath,
+  indexable: true,
+  ...(heroImage ? { image: heroImage.src, imageAlt: heroImage.alt } : {}),
+};
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: seo.title,
+  description: seo.description,
+  inLanguage: 'en',
+  about: { '@type': 'Country', name: country.name },
+  contentLocation: { '@type': 'Country', name: country.name },
+  ...(heroImage ? { image: heroImage.src } : {}),
+}];
+---
+
+<BaseLayout
+  {seo}
+  {structuredData}
+  breadcrumbs={[
+    { name: 'Home', path: '/' },
+    { name: 'Country Field Notes', path: '/field-notes' },
+    { name: country.name, path: canonicalPath },
+  ]}
+  ogType="article"
+>
+  <div class="city-field-note-page">
+    <CountryFieldNote {country} />
+  </div>
+</BaseLayout>
+
+<style>
+  .city-field-note-page { width:100%; padding:clamp(5rem,8vw,7rem) 0 4rem; }
+  :global(body:has(.city-note) #main-content) { width:100%; max-width:none; padding:0; }
+</style>
