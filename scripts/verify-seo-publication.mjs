@@ -1,5 +1,5 @@
-import { readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 
 const origin = 'https://thingstodoatlas.com';
 const mode = process.argv[2];
@@ -16,6 +16,39 @@ function assert(condition, explanation) {
 function robots(html) {
   const match = html.match(/<meta\b[^>]*\bname=["']robots["'][^>]*>/i);
   return match?.[0] ?? '';
+}
+
+function* htmlFiles(directory) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const file = join(directory, entry.name);
+    if (entry.isDirectory()) yield* htmlFiles(file);
+    else if (entry.isFile() && entry.name.endsWith('.html')) yield file;
+  }
+}
+
+function routeForHtml(file) {
+  const name = relative('dist', file).split(sep).join('/');
+  if (name === 'index.html') return '/';
+  if (name.endsWith('/index.html')) return '/' + name.slice(0, -'/index.html'.length);
+  return '/' + name.slice(0, -'.html'.length);
+}
+
+function verifyNoUnexpectedNoindex() {
+  // These are utility or error documents, not public editorial landing pages.
+  const intentionalNoindex = new Set(['/404', '/summary', '/adsterra/300x250']);
+  const unexpected = [];
+
+  for (const file of htmlFiles('dist')) {
+    const route = routeForHtml(file);
+    if (intentionalNoindex.has(route)) continue;
+    const html = readFileSync(file, 'utf8');
+    const hasNoindex = /<meta\\b[^>]*\\bname=["'](?:robots|googlebot)["'][^>]*\\bcontent=["'][^"']*\\bnoindex\\b/i.test(html);
+    if (hasNoindex) unexpected.push(route);
+  }
+
+  assert(unexpected.length === 0,
+    'Published website pages must not contain noindex directives: ' + unexpected.join(', '));
+  console.log('PASS all public HTML pages are indexable; only utility, error and ad execution pages remain noindex');
 }
 
 function canonical(html) {
@@ -239,7 +272,10 @@ if (mode === 'build') {
     'Google Search Console verification file content differs from expected');
   console.log('PASS Google Search Console HTML file included in build');
   verifySeoArtifacts(expectIndexing);
-  if (expectIndexing) verifyHtmlLinkDiscovery();
+  if (expectIndexing) {
+    verifyNoUnexpectedNoindex();
+    verifyHtmlLinkDiscovery();
+  }
 } else if (mode === 'live') {
   const attempts = 18;
   const pauseMs = 10000;
