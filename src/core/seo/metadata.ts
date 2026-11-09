@@ -5,12 +5,16 @@ const productionSiteUrl = 'https://thingstodoatlas.com';
 // PUBLIC_SITE_URL value must never publish pages.dev canonical URLs again.
 const configuredSiteUrl = productionSiteUrl;
 
-// Astro generates static HTML at build time. Only the Cloudflare Pages production
-// build (master) may emit indexable pages, never a branch preview or local build.
-const isProductionBuild = String(import.meta.env.CF_PAGES) === '1'
-  && import.meta.env.CF_PAGES_BRANCH === 'master';
+// Production builds are indexable by default. Cloudflare branch previews stay
+// noindex, while local production builds can still exercise the real SEO output.
+// This avoids silently noindexing the live site if CF_PAGES is omitted by a
+// build integration, without ever opening indexing on a named preview branch.
+const cloudflareBranch = String(import.meta.env.CF_PAGES_BRANCH ?? '').trim();
+const isProductionBuild = cloudflareBranch
+  ? cloudflareBranch === 'master'
+  : Boolean(import.meta.env.PROD);
 
-// Publishing is enabled by default only on production. Explicitly setting
+// Publishing is enabled by default. Explicitly setting
 // PUBLIC_ALLOW_INDEXING=false remains an emergency off switch.
 export const indexingEnabled = isProductionBuild
   && String(import.meta.env.PUBLIC_ALLOW_INDEXING ?? '').trim().toLowerCase() !== 'false';
