@@ -42,7 +42,7 @@ function verifyNoUnexpectedNoindex() {
     const route = routeForHtml(file);
     if (intentionalNoindex.has(route)) continue;
     const html = readFileSync(file, 'utf8');
-    const hasNoindex = /<meta\\b[^>]*\\bname=["'](?:robots|googlebot)["'][^>]*\\bcontent=["'][^"']*\\bnoindex\\b/i.test(html);
+    const hasNoindex = /<meta\b[^>]*\bname=["'](?:robots|googlebot)["'][^>]*\bcontent=["'][^"']*\bnoindex\b/i.test(html);
     if (hasNoindex) unexpected.push(route);
   }
 
