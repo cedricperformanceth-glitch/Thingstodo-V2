@@ -8,6 +8,7 @@ const googleVerificationFile = 'googleb482868e10aa0e46.html';
 const googleVerificationContent = 'google-site-verification: googleb482868e10aa0e46.html';
 const laosCities = ['don-det', 'luang-prabang', 'pakse', 'tad-lo', 'thakhek', 'vang-vieng', 'vientiane'];
 const publishedCityRoutes = laosCities.flatMap((slug) => [`/laos/${slug}`, `/laos/${slug}/field-note`, `/laos/${slug}/things-to-do`]);
+const publishedCountryFieldNoteRoutes = ['cambodia', 'thailand', 'vietnam'].map((slug) => `/field-notes/${slug}`);
 
 function assert(condition, explanation) {
   if (!condition) throw new Error(explanation);
@@ -180,7 +181,7 @@ function verifySeoArtifacts(indexable) {
   assert(urls.length === new Set(urls).size, 'Sitemap contains duplicate URLs');
 
   if (indexable) {
-    for (const required of ['/', '/laos', ...publishedCityRoutes]) {
+    for (const required of ['/', '/laos', ...publishedCityRoutes, ...publishedCountryFieldNoteRoutes]) {
       const url = origin + required;
       assert(urls.includes(url), 'Sitemap missing published URL ' + url);
     }
@@ -243,6 +244,9 @@ if (mode === 'build') {
       const path = `/laos/${city}${suffix}`;
       verifyPage(path, output(path), origin + path, expectIndexing);
     }
+  }
+  for (const path of publishedCountryFieldNoteRoutes) {
+    verifyPage(path, output(path), origin + path, expectIndexing);
   }
   const notFound = output('/404');
   assert(/This page took a different road\./.test(notFound), 'Missing Atlas 404 body');
