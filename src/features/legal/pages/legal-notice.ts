@@ -12,7 +12,7 @@ export const legalNoticePage: LegalPageData = {
     title: 'Legal Notice | Things To Do Atlas',
     description: 'Website, hosting, editorial responsibility and legal information for Things To Do Atlas.',
     canonicalPath: '/legal/legal-notice',
-    indexable: false,
+    indexable: true,
   },
   sections: [
     {
