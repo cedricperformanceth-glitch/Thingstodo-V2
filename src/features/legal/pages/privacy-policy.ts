@@ -12,7 +12,7 @@ export const privacyPolicyPage: LegalPageData = {
     title: 'Privacy Policy | Things To Do Atlas',
     description: 'How Things To Do Atlas handles browser storage, technical data, third-party services and visitor privacy.',
     canonicalPath: '/legal/privacy-policy',
-    indexable: false,
+    indexable: true,
   },
   sections: [
     {
