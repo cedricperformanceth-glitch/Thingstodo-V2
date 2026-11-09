@@ -14,10 +14,10 @@ import SpaPanel from './SpaPanel.astro';
 interface Props { city: City; }
 const { city } = Astro.props;
 const tabs = getSpaTabs(city);
-// Render real HTML links to published category URLs as well as JavaScript tabs.
-// Only link categories with entries, which match the indexable category routes.
+// Render real HTML links to every registered public category URL as well as
+// JavaScript tabs. Empty categories remain crawlable and indexable.
 const guideTabs = city.seo.indexable
-  ? tabs.filter((tab) => tab.slug !== 'favorites' && getCategoryEntities(city, tab.slug as CategorySlug).length > 0)
+  ? tabs.filter((tab) => tab.slug !== 'favorites')
   : [];
 const defaultSlug = tabs.some((tab) => tab.slug === 'things-to-do') ? 'things-to-do' : (tabs[0]?.slug ?? 'favorites');
 const cityId = `${city.country}-${city.slug}`;
